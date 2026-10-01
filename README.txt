@@ -11,3 +11,4 @@ IMPORTANTE:
 Esta versão mantém os dados no localStorage para permitir testar a interface.
 As tabelas Supabase que já foram criadas serão ligadas na etapa seguinte, juntamente com autenticação e permissões.
 Nunca colocar SUPABASE_SECRET_KEY no index.html/browser.
+V3.1 pronta para produção

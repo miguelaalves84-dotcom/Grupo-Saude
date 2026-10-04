@@ -52,3 +52,17 @@ Branch de desenvolvimento: `v4-fecho-work`
 
 ## Regra de acompanhamento
 Cada ponto deve passar por: **Por fazer → Em implementação → Pronto para testar → Validado → Produção**.
+
+## Integrações automáticas de RH e arquivo documental
+- [ ] Caixa de email de recrutamento configurável: ler automaticamente novos emails com CV/anexos
+- [ ] Criar candidato automaticamente a partir do email, guardar CV, remetente, contacto, clínica/função quando identificáveis, responsável, notas, prazo e alertas
+- [ ] Funil de recrutamento com estado e próxima ação
+- [ ] Deteção de duplicados de candidatos/CVs e revisão humana dos dados extraídos
+- [ ] Email de backup documental configurável
+- [ ] Enviar automaticamente cópia dos documentos definidos para o email de backup: recibos, baixas, justificações, faturas, comprovativos, contratos e documentos profissionais
+- [ ] Ao tornar colaborador inativo: arquivar e enviar pacote documental completo para o email de backup
+- [ ] Baixas e justificações: retenção de 1 ano e eliminação/anonimização controlada após o prazo
+- [ ] Histórico de envio, estado entregue/falhou, tentativas e auditoria
+- [ ] Acesso aos documentos RH apenas Administração/CEO
+- [ ] Alertas também por email; destinatários configuráveis e histórico
+- [ ] Pendências obrigatórias: lembrete horário para email da clínica até conclusão, com escalamento configurável

@@ -94,3 +94,11 @@ async function open(row){
 window.V4DocumentHistory={open};
 document.addEventListener('gs-v4-document-open',e=>open(e.detail).catch(err=>alert(err.message)));
 })();
+;(()=>{if(window.V4RHAlertsUI)return;
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+async function refresh(){try{await V4Backend.syncDocumentAlerts()}catch(e){}return await V4Backend.alerts()}
+async function open(){const rows=(await refresh()).filter(x=>x.module==='RH'&&x.status!=='Resolvido');const d=document.createElement('dialog');d.className='modal';d.innerHTML='<div class="modal-card" style="max-width:900px"><div class="modal-head"><h3>Alertas RH <span class="badge">'+rows.length+'</span></h3><button class="btn ghost">Fechar</button></div><div class="stack">'+(rows.length?rows.map(x=>'<article class="card" data-id="'+esc(x.id)+'"><b>'+esc(x.title)+'</b><small>'+esc(x.detail||'')+'</small><small>Prioridade: '+esc(x.severity||'Normal')+'</small><button class="btn primary" data-open>Ver ocorrência</button></article>').join(''):'<p>Sem alertas documentais pendentes.</p>')+'</div></div>';document.body.appendChild(d);d.querySelector('.modal-head button').onclick=()=>d.close();d.addEventListener('click',e=>{if(!e.target.closest('[data-open]'))return;d.close();V4RHDocumentFunnel.open()});d.addEventListener('close',()=>d.remove());d.showModal()}
+window.V4RHAlertsUI={open,refresh};
+document.addEventListener('gs-v4-document-compliance-refresh',()=>refresh().catch(()=>{}));
+document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;const t=(b.textContent||'').trim().toLowerCase();if(t==='alertas rh'||t==='alertas de rh'){e.preventDefault();open().catch(err=>alert(err.message))}},true);
+})();

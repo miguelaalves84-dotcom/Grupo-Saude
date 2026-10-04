@@ -24,3 +24,16 @@ function openClockDialog(title,type,attachment){const d=document.getElementById(
 function apply(){ensureMasters();addTablesView();addNavButton();enhanceHR();enhanceTasks()}
 document.addEventListener('DOMContentLoaded',()=>{setTimeout(apply,50);const obs=new MutationObserver(()=>{enhanceHR();enhanceTasks()});obs.observe(document.body,{subtree:true,childList:true})});
 })();
+/* V4 confirmation guard — prevent duplicate submissions and expose edit after confirmation */
+(()=>{'use strict';
+const SEL='button';
+document.addEventListener('click',e=>{
+ const b=e.target.closest(SEL); if(!b)return;
+ const label=(b.textContent||'').trim().toLowerCase();
+ const confirm=/^(confirmar|aprovar|guardar|registar|submeter|concluir|fechar|abrir)$/.test(label);
+ if(!confirm)return;
+ if(b.dataset.gsConfirmed==='1'){e.preventDefault();e.stopImmediatePropagation();return}
+ b.dataset.gsPending='1';
+ setTimeout(()=>{if(!b.isConnected)return;b.dataset.gsConfirmed='1';b.dataset.gsPending='0';b.disabled=true;b.setAttribute('aria-disabled','true');const edit=document.createElement('button');edit.type='button';edit.className=b.className;edit.textContent='Editar';edit.dataset.gsEditFor='1';edit.addEventListener('click',()=>{b.disabled=false;b.removeAttribute('aria-disabled');b.dataset.gsConfirmed='0';edit.remove()},{once:true});b.insertAdjacentElement('afterend',edit)},250);
+},true);
+})();

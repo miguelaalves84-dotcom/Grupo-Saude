@@ -66,3 +66,17 @@ function wire(){
 document.addEventListener('DOMContentLoaded',()=>setTimeout(wire,250));new MutationObserver(wire).observe(document.documentElement,{subtree:true,childList:true});
 document.addEventListener('gs-v4-document-uploaded',e=>{const x=e.detail||{};if(x.kind==='Recibo'||x.kind==='Fatura')document.dispatchEvent(new CustomEvent('gs-v4-current-account-refresh'));if(x.area==='RH')document.dispatchEvent(new CustomEvent('gs-v4-rh-refresh'))});
 })();
+;(()=>{if(window.V4RHDocumentFunnel)return;
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+async function open(){
+ const rows=await V4Backend.documentCompliance();
+ const states=['Em falta','A caducar','Caducado','Regularizado'];
+ const d=document.createElement('dialog');d.className='modal';
+ d.innerHTML='<div class="modal-card" style="max-width:1100px"><div class="modal-head"><h3>Conformidade documental</h3><button class="btn ghost" data-close>Fechar</button></div><div class="kanban">'+states.map(s=>'<section class="kanban-col"><h4>'+s+' <span class="badge">'+rows.filter(x=>x.status===s).length+'</span></h4><div>'+rows.filter(x=>x.status===s).map(x=>'<article class="card" data-emp="'+esc(x.employee_id)+'" data-kind="'+esc(x.document_kind)+'"><b>'+esc(x.name)+'</b><small>'+esc(x.requirement_name)+'</small>'+(x.valid_until?'<small>Validade: '+esc(x.valid_until)+'</small>':'')+'<button class="btn '+(s==='Regularizado'?'ghost':'primary')+'" data-act>'+(s==='Regularizado'?'Ver documento':'Regularizar')+'</button></article>').join('')+'</div></section>').join('')+'</div></div>';
+ document.body.appendChild(d);d.querySelector('[data-close]').onclick=()=>d.close();
+ d.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const card=b.closest('[data-emp]');const row=rows.find(x=>String(x.employee_id)===card.dataset.emp&&x.document_kind===card.dataset.kind);if(row.status==='Regularizado'&&row.document_id){document.dispatchEvent(new CustomEvent('gs-v4-document-open',{detail:row}));return}V4DocumentUpload.open(row.document_kind,{area:'RH',employeeId:row.employee_id,requirementId:row.requirement_id});});
+ d.addEventListener('close',()=>d.remove());d.showModal();
+}
+window.V4RHDocumentFunnel={open};
+document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;const t=(b.textContent||'').trim().toLowerCase();if((t.includes('document')&&t.includes('rh'))||t==='conformidade documental'){e.preventDefault();open().catch(err=>alert(err.message));}},true);
+})();

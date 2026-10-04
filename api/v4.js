@@ -23,7 +23,8 @@ const schema=[
 "create table if not exists audit_log(id bigserial primary key,actor_id uuid references users(id),module text not null,action text not null,entity_type text,entity_id text,detail jsonb not null default '{}'::jsonb,created_at timestamptz not null default now())"
 ];
 async function ensure(sql){for(const q of schema)await sql.query(q)}
-async function actor(req,sql){const sub=req.headers['x-neon-auth-sub'];if(!sub)return null;const r=await sql.query("select u.id,u.email,u.name,u.role,u.active,coalesce(array_agg(uc.clinic_id) filter(where uc.clinic_id is not null),array[]::text[]) clinics from users u left join user_clinics uc on uc.user_id=u.id where u.auth_subject=$1 group by u.id",[sub]);return r[0]&&r[0].active?r[0]:null}
+async function authSession(req){const base=process.env.DATABASE_NEON_AUTH_BASE_URL;if(!base)return null;const cookie=req.headers.cookie||'';if(!cookie)return null;const r=await fetch(base.replace(/\/$/,'')+'/get-session',{headers:{cookie,accept:'application/json'}});if(!r.ok)return null;const j=await r.json();return j&&j.user?j:null}
+async function actor(req,sql){const s=await authSession(req);if(!s||!s.user||!s.user.id)return null;const r=await sql.query("select u.id,u.email,u.name,u.role,u.active,coalesce(array_agg(uc.clinic_id) filter(where uc.clinic_id is not null),array[]::text[]) clinics from users u left join user_clinics uc on uc.user_id=u.id where u.auth_subject=$1 group by u.id",[String(s.user.id)]);return r[0]&&r[0].active?r[0]:null}
 const adminRoles=new Set(['Administração','CEO']);
 function idemKey(req){return String(req.headers['idempotency-key']||'').trim().slice(0,160)}
 async function once(req,sql,actorId,resource){const k=idemKey(req);if(!k)return null;const r=await sql.query("insert into idempotency_keys(key,actor_id,resource) values($1,$2,$3) on conflict(key) do nothing returning key",[k,actorId,resource]);return r.length?null:{ok:false,duplicate:true,code:'DUPLICATE_SUBMISSION'}}

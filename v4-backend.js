@@ -17,6 +17,8 @@ async function notificationDeliveries(){return(await json('/api/v4?resource=noti
 async function alerts(){return(await json('/api/v4?resource=alerts')).items}
 async function employeeDocuments(employeeId){return(await json('/api/v4?resource=employee-documents&employeeId='+encodeURIComponent(employeeId))).items}
 async function supersedeDocument(oldDocumentId,newDocumentId){return await json('/api/v4?resource=supersede-document',{method:'POST',body:JSON.stringify({oldDocumentId,newDocumentId})})}
+async function employeeDocuments(employeeId){return(await json('/api/v4?resource=employee-documents&employeeId='+encodeURIComponent(employeeId))).items}
+async function supersedeDocument(oldDocumentId,newDocumentId){return await json('/api/v4?resource=supersede-document',{method:'POST',body:JSON.stringify({oldDocumentId,newDocumentId})})}
 async function documentCompliance(){return(await json('/api/v4?resource=document-compliance')).items}
 async function saveDocumentRequirement(x){return(await json('/api/v4?resource=document-requirement',{method:'POST',body:JSON.stringify(x)})).item}
 async function addCurrentAccountEntry(x){return(await json('/api/v4?resource=current-account-entry',{method:'POST',body:JSON.stringify(x)})).item}

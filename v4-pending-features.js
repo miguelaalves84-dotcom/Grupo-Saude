@@ -78,6 +78,7 @@ async function open(){
  d.addEventListener('close',()=>d.remove());d.showModal();
 }
 window.V4RHDocumentFunnel={open};
+document.addEventListener('gs-v4-document-compliance-refresh',async()=>{const current=document.querySelector('dialog.modal[open]');if(current&&/Conformidade documental/.test(current.textContent||'')){current.close();await open();}});
 document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;const t=(b.textContent||'').trim().toLowerCase();if((t.includes('document')&&t.includes('rh'))||t==='conformidade documental'){e.preventDefault();open().catch(err=>alert(err.message));}},true);
 })();
 ;(()=>{if(window.V4DocumentHistory)return;

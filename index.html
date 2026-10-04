@@ -26,7 +26,7 @@
     <main>
       <section id="dashboard" class="view active"><div class="page-head"><div><h1>Centro de comando</h1><p>Visão operacional consolidada</p></div><button class="secondary" onclick="App.resetDemo()">Repor demonstração</button></div><div id="dashboardContent"></div></section>
       <section id="operation" class="view"><div class="page-head"><div><h1>Operação diária</h1><p>Abertura, execução e fecho da clínica</p></div></div><div id="operationContent"></div></section>
-      <section id="wait" class="view"><div class="page-head"><div><h1>Pedidos de consulta</h1><p>Funil do call center e lista de espera</p></div><button class="primary" onclick="App.openRequestForm()">+ Novo pedido</button></div><div id="waitContent"></div></section>
+      <section id="wait" class="view"><div class="page-head"><div><h1>Pedidos de consulta</h1><p>Funil do call center e lista de espera</p></div><button class="primary" onclick="V4Integrations.openRequest()">+ Novo pedido</button></div><div id="waitContent"></div></section>
       <section id="chat" class="view"><div class="page-head"><div><h1>Chat interno</h1><p>Comunicação preservada entre colaboradores e clínicas</p></div><button class="primary" onclick="App.newConversation()">+ Nova conversa</button></div><div id="chatContent"></div></section>
       <section id="hr" class="view"><div class="page-head"><div><h1>Recursos Humanos</h1><p>Recrutamento, admissão e colaboradores</p></div><button class="primary" onclick="App.openCandidateForm()">+ Candidato</button></div><div id="hrContent"></div></section>
       <section id="tasks" class="view"><div class="page-head"><div><h1>Configuração de tarefas</h1><p>Regras operacionais por clínica e perfil</p></div><button class="primary" onclick="App.openTaskForm()">+ Nova tarefa</button></div><div id="tasksContent"></div></section>
@@ -40,5 +40,6 @@
   <script src="validation-fixes.js"></script>
   <script src="professional-selects.js"></script>
   <script src="scheduled-indicators.js"></script>
+  <script src="v4-master-integrations.js"></script>
 </body>
 </html>

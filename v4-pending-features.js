@@ -80,3 +80,16 @@ async function open(){
 window.V4RHDocumentFunnel={open};
 document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;const t=(b.textContent||'').trim().toLowerCase();if((t.includes('document')&&t.includes('rh'))||t==='conformidade documental'){e.preventDefault();open().catch(err=>alert(err.message));}},true);
 })();
+;(()=>{if(window.V4DocumentHistory)return;
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+async function open(row){
+ const docs=(await V4Backend.employeeDocuments(row.employee_id)).filter(x=>x.kind===row.document_kind);
+ const d=document.createElement('dialog');d.className='modal';
+ d.innerHTML='<div class="modal-card"><div class="modal-head"><h3>Histórico · '+esc(row.requirement_name||row.document_kind)+'</h3><button class="btn ghost" data-close>Fechar</button></div><div class="stack">'+docs.map((x,i)=>'<article class="card"><div><b>'+esc(x.filename)+'</b> '+(i===0?'<span class="badge">Atual</span>':'')+'</div><small>Estado: '+esc(x.status)+'</small><small>Recebido: '+new Date(x.received_at).toLocaleString('pt-PT')+'</small>'+(x.starts_at?'<small>Início: '+esc(x.starts_at)+'</small>':'')+(x.valid_until?'<small>Validade: '+esc(x.valid_until)+'</small>':'')+'</article>').join('')+'</div><div class="actions"><button class="btn primary" data-renew>Renovar / substituir</button></div></div>';
+ document.body.appendChild(d);d.querySelector('[data-close]').onclick=()=>d.close();
+ d.querySelector('[data-renew]').onclick=()=>{d.close();V4DocumentUpload.open(row.document_kind,{area:'RH',employeeId:row.employee_id,requirementId:row.requirement_id,replacesDocumentId:row.document_id})};
+ d.addEventListener('close',()=>d.remove());d.showModal();
+}
+window.V4DocumentHistory={open};
+document.addEventListener('gs-v4-document-open',e=>open(e.detail).catch(err=>alert(err.message)));
+})();

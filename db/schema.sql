@@ -12,3 +12,31 @@ create table if not exists audit_log(id bigserial primary key,actor_id uuid refe
 create index if not exists idx_requests_clinic_stage on requests(clinic_id,stage);
 create index if not exists idx_time_employee_date on time_entries(employee_id,occurred_at desc);
 create index if not exists idx_audit_created on audit_log(created_at desc);
+
+-- RH recruitment + private document archive
+create table if not exists candidates(
+ id uuid primary key default gen_random_uuid(), email text, name text, phone text,
+ clinic_id text references clinics(id), desired_role text, stage text not null default 'Novo',
+ source text not null default 'Manual', source_message_id text unique, owner_id uuid references users(id),
+ next_action_at timestamptz, data jsonb not null default '{}'::jsonb,
+ created_at timestamptz not null default now(), updated_at timestamptz not null default now()
+);
+create table if not exists documents(
+ id uuid primary key default gen_random_uuid(), employee_id uuid references employees(id) on delete cascade,
+ candidate_id uuid references candidates(id) on delete cascade, kind text not null, filename text not null,
+ storage_key text not null, mime_type text, starts_at date, valid_until date, received_at timestamptz not null default now(),
+ retention_until date, status text not null default 'Recebido', data jsonb not null default '{}'::jsonb
+);
+create table if not exists email_ingest(
+ id uuid primary key default gen_random_uuid(), provider text not null, message_id text unique not null,
+ sender text, subject text, received_at timestamptz, status text not null default 'Pendente',
+ candidate_id uuid references candidates(id), error text, created_at timestamptz not null default now()
+);
+create table if not exists document_backup_jobs(
+ id uuid primary key default gen_random_uuid(), document_id uuid references documents(id) on delete cascade,
+ destination text not null, status text not null default 'Pendente', attempts integer not null default 0,
+ last_attempt_at timestamptz, delivered_at timestamptz, error text, created_at timestamptz not null default now()
+);
+create index if not exists idx_candidates_stage on candidates(stage,created_at desc);
+create index if not exists idx_documents_employee on documents(employee_id,received_at desc);
+create index if not exists idx_backup_jobs_status on document_backup_jobs(status,created_at);

@@ -84,3 +84,19 @@ function statement(person){const s=S(),m=s.finance.movements.filter(x=>x.person=
 function install(){const root=document.getElementById('financeContent');if(!root||root.querySelector('[data-v4-fin-actions]'))return;const d=document.createElement('div');d.dataset.v4FinActions='1';d.className='card';d.style.marginBottom='14px';d.innerHTML='<div class="actions"><button class="primary" onclick="V4Finance.addAct()">+ Consulta / tratamento / ato</button><button class="secondary" onclick="V4Finance.addBonus()">+ Bónus trimestral</button><button class="secondary" onclick="V4Finance.askStatement()">Consultar conta corrente</button></div>';root.prepend(d)}
 function askStatement(){const p=prompt('Nome do colaborador/profissional');if(p)statement(p)}
 window.V4Finance={addAct,addBonus,statement,askStatement};new MutationObserver(install).observe(document.documentElement,{childList:true,subtree:true});document.addEventListener('DOMContentLoaded',()=>setTimeout(install,600));})();
+
+/* V4 — matriz dos 6 níveis de acesso */
+(()=>{'use strict';const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}},W=s=>localStorage.setItem(K,JSON.stringify(s));
+const MATRIX={
+'Call Center':['dashboard','requests','chat'],
+'Médico/a':['dashboard','myAccount','documents','chat'],
+'Técnico/a':['dashboard','myAccount','documents','timeClock','leave','chat'],
+'Administrativa':['dashboard','operation','requests','tasks','timeClock','leave','myAccount','chat'],
+'Administração':['dashboard','operation','requests','tasks','timeClock','leave','hr','finance','reports','alerts','tables','chat'],
+'CEO':['*']};
+const aliases={'Médico':'Médico/a','Tecnico':'Técnico/a','Técnico':'Técnico/a','Administrativo':'Administrativa','Administrativo/a':'Administrativa','Gestor':'Administração','RH':'Administração'};
+function role(){const s=R(),u=(s.users||[]).find(x=>x.id===s.currentUser);return aliases[u?.role]||u?.role||'CEO'}function can(cap){const a=MATRIX[role()]||[];return a.includes('*')||a.includes(cap)}
+function requireCap(cap,fn){return(...args)=>{if(!can(cap)){alert('Sem permissão para esta ação.');return}return fn(...args)}}
+function seed(){const s=R();s.permissions={version:4,matrix:MATRIX,updatedAt:new Date().toISOString()};W(s)}
+function apply(){document.querySelectorAll('[data-capability]').forEach(el=>{el.hidden=!can(el.dataset.capability)});document.documentElement.dataset.gsRole=role()}
+window.GSPermissions={MATRIX,role,can,require:requireCap,apply};document.addEventListener('DOMContentLoaded',()=>{seed();setTimeout(apply,700)});new MutationObserver(()=>apply()).observe(document.documentElement,{childList:true,subtree:true});})();

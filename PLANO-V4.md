@@ -1,61 +1,54 @@
-# Grupo Saúde — V4
+# Grupo Saúde — V4 · Checklist Mestre
 
-Branch de desenvolvimento: `teste-escrita-chatgpt`
+Branch de desenvolvimento: `v4-fecho-work`
 
-> Regra: não alterar `main`/produção até a nova versão estar testada e aprovada.
+> Regra: não alterar `main`/produção até a V4 estar testada e aprovada.
 
-## Prioridades
+## Estado
+- [x] Estrutura multi-clínica e tabela mestre de clínicas
+- [x] Clínica → especialidades → médicos/técnicos editável
+- [x] RH separado em Colaboradores e Candidatos
+- [x] Passar candidato para colaborador e adicionar colaborador direto
+- [x] Base de documentos, datas e funil documental
+- [x] Livro de ponto: histórico, ocorrências, aprovação/recusa/reversão e auditoria
+- [x] Férias, baixas, justificações e regra de bónus trimestral (>30 dias de baixa)
+- [x] Conta corrente: atos, percentagens, bónus, pago/por pagar
+- [x] Matriz dos 6 níveis: Call Center, Médico/a, Técnico/a, Administrativa, Administração, CEO
+- [x] Checkpoints operacionais 10h/12h/14h/16h/18h
+- [x] Bloqueio de abertura/fecho por uma única administrativa
+- [x] Alertas acionáveis, lembretes horários e chat interno (base)
+- [x] Funil Pedido de Consulta → A aguardar Vaga → Sem especialidade na clínica → Marcado
+- [x] Médico “Indiferente / primeiro disponível”
+- [x] Planeamento/vagas e adaptador Clicloud
+- [x] BI: comparações, financeiro e deteção base de anomalias
+- [x] Marketing IA: compliance de publicidade em saúde + aprovação humana
+- [x] Chat dedicado ao Agente de Marketing IA
+- [x] Backup local verificável/restauro no Preview
 
-- Dashboard executivo e operacional multi-clínica
-- Agenda: vagas e consultas por hora
-- Novos pedidos de consulta com registo histórico
-- Consultas efetivamente realizadas
-- Estatísticas por hora, dia, semana, mês e ano
-- Filtros por clínica, terapeuta e especialidade
-- Horários dos terapeutas editáveis
-- Preparação da integração Clicloud/API e vários tipos de tempos
-- Recursos Humanos
-- Livro de ponto com geolocalização e assinatura
-- Caixa e contas correntes
-- Tarefas e marketing
-- Persistência/autenticação/backend na fase de integração
+## Em implementação / por fechar antes de produção
+- [ ] Backend persistente: substituir localStorage por base de dados
+- [ ] Autenticação real, sessões e aplicação server-side das permissões
+- [ ] Armazenamento seguro de documentos/anexos
+- [ ] Backup externo cifrado + política de retenção + testes automáticos de restauro
+- [ ] Integração real com API Clicloud e sincronização programada
+- [ ] Integração real do Marketing Chat com modelo IA
+- [ ] Consulta atualizada a fontes oficiais da legislação de publicidade em saúde antes de cada publicação
+- [ ] Publicação em redes sociais apenas após aprovação humana
+- [ ] Email/SMS/push reais para alertas e escalonamentos
+- [ ] Relatórios completos hora/dia/semana/mês/ano por clínica, especialidade e profissional
+- [ ] Faturação consolidada mensal por clínica e Grupo
+- [ ] Análise semanal IA de tendências/anomalias
+- [ ] Histórico salarial completo e arquivo de ex-colaboradores
+- [ ] Retenção de baixas/justificações conforme política definida
+- [ ] Privacidade documental RH limitada a Administração/CEO no backend
+- [ ] Testes E2E de todos os 6 perfis
+- [ ] Testes multiutilizador simultâneos de abertura/fecho
+- [ ] Testes de migração das clínicas e revisão dos dados reais
+- [ ] Revisão visual/mobile e acessibilidade
+- [ ] Auditoria imutável no backend
+- [ ] RGPD: retenção, exportação, eliminação/anonimização e registo de acessos
+- [ ] Monitorização/health checks e alertas técnicos
+- [ ] Aprovação final do utilizador antes de promover V4 a produção
 
-## Tarefas operacionais das administrativas
-
-O sistema terá uma área "O Meu Dia" por clínica e por colaborador, com feedback de execução ao longo do dia.
-
-Exemplos fornecidos pela operação:
-- Preencher vagas existentes (Planning)
-- Ligar lista de espera
-- Ligar suspensos
-- Ligar último tratamento / credencial de continuidade
-- Marcação de consulta de reavaliação (9.º tratamento)
-- Confirmar consultas do dia seguinte
-- Ligar aos utentes com mais de 3 faltas consecutivas
-- Autorizações / faturação de seguros, quando aplicável
-- Preencher mapa de pedidos de novas consultas
-- Atualização da lista de suspensos
-- Atualização da lista de espera
-- Preencher plataforma SGTD (Bombeiros)
-- Enviar email de faltas / férias
-
-### Comportamento
-
-- Checklists configuráveis por clínica.
-- Separação entre tarefas de abertura, tarefas durante o dia e tarefas de fecho.
-- Tarefas recorrentes com horário/prazo configurável.
-- Responsável e/ou equipa responsável.
-- Estados: por fazer, em curso, concluída, não aplicável e atrasada.
-- Feedback em tempo real da percentagem concluída por clínica.
-- Registo de quem concluiu e data/hora.
-- Observações e evidências/anexos quando necessário.
-- Alertas para tarefas próximas do prazo e atrasadas.
-- Administração/CEO com visão consolidada das clínicas e tarefas pendentes.
-- Histórico para consulta e estatísticas de cumprimento.
-
-## Segurança de lançamento
-
-1. Desenvolver fora de `main`.
-2. Testar funcionalidades e dados.
-3. Validar experiência desktop/mobile.
-4. Só promover para produção após aprovação.
+## Regra de acompanhamento
+Cada ponto deve passar por: **Por fazer → Em implementação → Pronto para testar → Validado → Produção**.

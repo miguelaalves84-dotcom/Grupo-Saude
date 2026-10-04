@@ -10,6 +10,8 @@ async function permissions(){return await json('/api/v4?resource=permissions')}
 async function saveTechnicianSale(x){return(await json('/api/v4?resource=technician-sales',{method:'POST',body:JSON.stringify(x)})).item}
 async function technicianSales(){return(await json('/api/v4?resource=technician-sales')).items}
 async function syncDocumentAlerts(){return await json('/api/v4?resource=sync-document-alerts',{method:'POST',body:'{}'})}
+async function settings(){return(await json('/api/v4?resource=settings')).items}
+async function saveSetting(key,value){return(await json('/api/v4?resource=settings',{method:'POST',body:JSON.stringify({key,value})})).item}
 async function processAlertEscalations(){return await json('/api/v4?resource=process-alert-escalations',{method:'POST',body:'{}'})}
 async function notificationDeliveries(){return(await json('/api/v4?resource=notification-deliveries')).items}
 async function alerts(){return(await json('/api/v4?resource=alerts')).items}
@@ -22,6 +24,6 @@ async function currentAccount(userId){return await json('/api/v4?resource=curren
 async function markCurrentAccountPaid(id,paidAt){return(await json('/api/v4?resource=current-account-payment',{method:'POST',body:JSON.stringify({id,paidAt})})).item}
 async function migrateClinics(){const h=await health();if(h.database!=='connected')return h;let s={};try{s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2')||'{}')}catch{};const local=(s.clinics||[]).filter(x=>!x.legacyDemo);for(const c of local)await saveClinic({id:c.id,name:c.name,city:c.city||'',domain:c.domain||'',active:c.active!==false});const remote=await clinics();s.clinics=remote.map(x=>({...x,legacyDemo:false}));localStorage.setItem('grupo_saude_v4_demo_2',JSON.stringify(s));return{ok:true,count:remote.length}}
 async function syncClinics(){const remote=await clinics();let s={};try{s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2')||'{}')}catch{};if(remote.length){s.clinics=remote;localStorage.setItem('grupo_saude_v4_demo_2',JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs-v4-clinics-synced',{detail:remote}))}return remote}
-window.V4Backend={health,clinics,saveClinic,users,saveUser,permissions,saveTechnicianSale,technicianSales,syncDocumentAlerts,processAlertEscalations,notificationDeliveries,alerts,documentCompliance,saveDocumentRequirement,addCurrentAccountEntry,uploadDocument,addCurrentAccountDocument,currentAccount,markCurrentAccountPaid,migrateClinics,syncClinics};
+window.V4Backend={health,clinics,saveClinic,users,saveUser,permissions,saveTechnicianSale,technicianSales,syncDocumentAlerts,settings,saveSetting,processAlertEscalations,notificationDeliveries,alerts,documentCompliance,saveDocumentRequirement,addCurrentAccountEntry,uploadDocument,addCurrentAccountDocument,currentAccount,markCurrentAccountPaid,migrateClinics,syncClinics};
 document.addEventListener('DOMContentLoaded',async()=>{const h=await health();if(h.database==='connected'){try{const r=await clinics();if(!r.length)await migrateClinics();else await syncClinics()}catch(e){console.warn('V4 Neon sync',e)}}});
 })();

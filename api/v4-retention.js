@@ -21,6 +21,7 @@ module.exports=async function(req,res){
  res.setHeader('Cache-Control','no-store');
  if(req.method!=='GET'&&req.method!=='POST')return res.status(405).json({ok:false,code:'METHOD_NOT_ALLOWED'});
  if(!process.env.DATABASE_URL)return res.status(503).json({ok:false,code:'DATABASE_NOT_CONFIGURED'});
+ if(req.method==='POST'&&!process.env.BLOB_READ_WRITE_TOKEN)return res.status(503).json({ok:false,code:'BLOB_NOT_CONFIGURED'});
  const sql=neon(process.env.DATABASE_URL),me=await actor(req,sql),cron=cronAuthorized(req);
  if(!cron&&(!me||!['Administração','CEO'].includes(me.role)))return res.status(403).json({ok:false,code:'FORBIDDEN'});
  const eligible=await sql.query("select id,kind,filename,storage_key,retention_until,employee_id from documents where retention_until is not null and retention_until<current_date and status not in ('Eliminado por retenção','Superseded') order by retention_until asc limit 250");
@@ -28,7 +29,7 @@ module.exports=async function(req,res){
  const results=[];
  for(const d of eligible){
   try{
-   if(d.storage_key)await del(d.storage_key,{storeId:'store_GYyF5IpPjWna8kdj'});
+   if(d.storage_key)await del(d.storage_key,{token:process.env.BLOB_READ_WRITE_TOKEN});
    await sql.query("update documents set storage_key='',filename='Documento eliminado por retenção',mime_type=null,status='Eliminado por retenção',data=jsonb_set(coalesce(data,'{}'::jsonb),'{retentionDeletedAt}',to_jsonb(now()::text),true) where id=$1",[d.id]);
    await sql.query("insert into audit_log(actor_id,module,action,entity_type,entity_id,detail) values($1,'RGPD','ELIMINAR_DOCUMENTO_RETENCAO','document',$2,$3::jsonb)",[me?.id||null,String(d.id),JSON.stringify({kind:d.kind,retentionUntil:d.retention_until,trigger:cron?'cron':'admin'})]);
    results.push({id:d.id,ok:true});

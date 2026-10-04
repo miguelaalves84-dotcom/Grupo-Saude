@@ -37,3 +37,14 @@ document.addEventListener('click',e=>{
  setTimeout(()=>{if(!b.isConnected)return;b.dataset.gsConfirmed='1';b.dataset.gsPending='0';b.disabled=true;b.setAttribute('aria-disabled','true');const edit=document.createElement('button');edit.type='button';edit.className=b.className;edit.textContent='Editar';edit.dataset.gsEditFor='1';edit.addEventListener('click',()=>{b.disabled=false;b.removeAttribute('aria-disabled');b.dataset.gsConfirmed='0';edit.remove()},{once:true});b.insertAdjacentElement('afterend',edit)},250);
 },true);
 })();
+/* V4 — fecho: vendas por técnico (quantidades + bónus diário) */
+(()=>{'use strict';
+const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+async function open(clinicId,date=new Date().toISOString().slice(0,10)){
+ const users=await V4Backend.users();const techs=users.filter(u=>u.active&&u.role==='Técnico/a'&&(!clinicId||u.clinics?.includes(clinicId)));
+ const d=document.getElementById('modal');document.getElementById('modalTitle').textContent='Fecho · Vendas dos técnicos';
+ document.getElementById('modalBody').innerHTML='<div class="modal-body"><div class="notice">Registar apenas quantidades vendidas. Não é registado o valor faturado.</div><label>Data</label><input id="tsDate" type="date" value="'+date+'">'+(techs.map(t=>'<div class="card" data-tech="'+t.id+'"><b>'+esc(t.name)+'</b><div class="actions"><label>Lasers <input class="tsLasers" type="number" min="0" step="1" value="0"></label><label>Outros <input class="tsOthers" type="number" min="0" step="1" value="0"></label><label>Bónus do dia (€) <input class="tsBonus" type="number" min="0" step="0.01" value="0"></label></div></div>').join('')||'<p class="muted">Não existem técnicos ativos associados a esta clínica.</p>')+'<button class="primary" id="tsConfirm" '+(!techs.length?'disabled':'')+'>Confirmar</button></div>';d.showModal();
+ document.getElementById('tsConfirm')?.addEventListener('click',async e=>{const b=e.currentTarget;b.disabled=true;try{for(const row of document.querySelectorAll('[data-tech]'))await V4Backend.saveTechnicianSale({clinicId,technicianId:row.dataset.tech,saleDate:document.getElementById('tsDate').value,lasers:+row.querySelector('.tsLasers').value||0,others:+row.querySelector('.tsOthers').value||0,bonusValue:+row.querySelector('.tsBonus').value||0});d.close();document.dispatchEvent(new CustomEvent('gs-v4-technician-sales-saved',{detail:{clinicId,date}}))}catch(err){b.disabled=false;alert('Não foi possível guardar: '+err.message)}})
+}
+window.V4TechnicianSales={open};
+})();

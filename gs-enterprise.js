@@ -121,3 +121,14 @@ function send(to,text){if(!text?.trim())return;const s=S();s.chatMessages.push({
 function unread(user){return S().chatMessages.filter(m=>(m.to===user||m.to==='equipa')&&!m.read).length}
 function markChat(user){const s=S();s.chatMessages.forEach(m=>{if(m.to===user||m.to==='equipa')m.read=true});W(s)}
 window.V4Notify={push,go,reminders};window.V4Chat={send,unread,markChat};document.addEventListener('DOMContentLoaded',()=>{setTimeout(reminders,900);setInterval(reminders,3600000)});})();
+
+/* V4 — migração das clínicas reais do Grupo Saúde (dados editáveis) */
+(()=>{'use strict';const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}},W=s=>localStorage.setItem(K,JSON.stringify(s));
+const REAL=[
+{id:'abranfir',name:'Abranfir',city:'Abrantes',website:'abranfir.gruposaude.pt'},
+{id:'loures',name:'Grupo Saúde — Loures',city:'Loures',website:'loures.gruposaude.pt'},
+{id:'lagoa',name:'Clínica Particular de Lagoa',city:'Lagoa',website:'lagoa.gruposaude.pt'},
+{id:'medisobral',name:'MediSobral',city:'Sobral de Monte Agraço',website:'medisobral.gruposaude.pt'},
+{id:'algarfisio',name:'AlgarFisio',city:'Portimão',website:'algarfisio.gruposaude.pt'}];
+function migrate(){const s=R();s.clinics=s.clinics||[];REAL.forEach(c=>{const old=s.clinics.find(x=>x.id===c.id||x.website===c.website||String(x.name||'').toLowerCase()===c.name.toLowerCase());if(old)Object.assign(old,c,{...old,id:c.id,name:old.name||c.name,city:old.city||c.city,website:c.website,active:old.active!==false});else s.clinics.push({...c,active:true,address:'',phone:'',email:'',specialtyIds:[],notes:'Dados importados da estrutura pública; confirmar/corrigir na Tabela de Clínicas.'})});s.clinics.forEach(c=>{if(/^c[123]$/.test(c.id)&&/Clínica (Central|Norte|Sul)/.test(c.name||''))c.legacyDemo=true});s.clinicSpecialties=s.clinicSpecialties||{};REAL.forEach(c=>s.clinicSpecialties[c.id]=s.clinicSpecialties[c.id]||[]);W(s)}
+window.V4RealClinics={REAL,migrate};document.addEventListener('DOMContentLoaded',migrate);})();

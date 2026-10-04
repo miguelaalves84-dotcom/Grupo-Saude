@@ -1,6 +1,6 @@
 /* Grupo Saúde V4 — Neon persistence bridge */
 (()=>{'use strict';
-async function json(url,opt){const r=await fetch(url,{cache:'no-store',headers:{'Content-Type':'application/json'},...opt});const j=await r.json();if(!r.ok)throw new Error(j.message||j.code||'Erro backend');return j}
+async function json(url,opt={}){const h={'Content-Type':'application/json',...(opt.headers||{})};if(opt.method&&opt.method!=='GET'&&!h['Idempotency-Key'])h['Idempotency-Key']=crypto.randomUUID();const r=await fetch(url,{cache:'no-store',...opt,headers:h});const j=await r.json();if(!r.ok)throw new Error(j.message||j.code||'Erro backend');return j}
 async function health(){try{const j=await json('/api/v4?health=1');localStorage.setItem('gs_v4_backend_health',JSON.stringify({...j,checkedAt:new Date().toISOString()}));return j}catch(e){return{ok:false,database:'offline',message:e.message}}}
 async function clinics(){return(await json('/api/v4?resource=clinics')).items}
 async function saveClinic(c){return(await json('/api/v4?resource=clinics',{method:'POST',body:JSON.stringify(c)})).item}

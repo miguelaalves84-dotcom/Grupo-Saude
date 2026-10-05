@@ -10,7 +10,7 @@ const App = (() => {
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const uid = prefix => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
   const fmt = iso => new Intl.DateTimeFormat('pt-PT', {dateStyle:'short', timeStyle:'short'}).format(new Date(iso));
-  const clinics = [
+  const demoClinics = [
     {id:'c1', name:'Clínica Central', lat:38.7223, lng:-9.1393, radius:250, specialties:{Fisioterapia:['Dra. Ana Silva','Dr. Luís Costa'], Fisiatria:['Dr. Rui Matos'], Osteopatia:['Dra. Sara Reis']}},
     {id:'c2', name:'Clínica Norte', lat:41.1579, lng:-8.6291, radius:250, specialties:{Fisioterapia:['Dr. Tiago Luz'], Psicologia:['Dra. Inês Melo'], Nutrição:['Dra. Marta Dias']}},
     {id:'c3', name:'Clínica Sul', lat:38.5244, lng:-8.8882, radius:250, specialties:{Fisioterapia:['Dra. Ana Silva','Dr. Pedro Sá'], Fisiatria:['Dra. Eva Lima']}}
@@ -71,6 +71,9 @@ const App = (() => {
   function options(items,value,label=x=>x){ return items.map(x=>`<option value="${esc(value(x))}">${esc(label(x))}</option>`).join(''); }
   function modal(title, body){ $('modalTitle').textContent=title; $('modalBody').innerHTML=`<div class="modal-body">${body}</div>`; $('modal').showModal(); }
   function closeModal(){ $('modal').close(); }
+  function liveClinics(){const s=state;const master=(s.clinics||[]).filter(c=>c.active!==false&&c.operational!==false&&c.id!=='administracao');return master.length?master:demoClinics}
+  function actor(){return state.employees?.[state.currentUser]||(state.users||[]).find(x=>String(x.id)===String(state.currentUser))||{id:'u1',name:'CEO',role:'CEO'}}
+  function opClinics(){const all=liveClinics(),u=actor(),r=String(u.role||u.kind||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();if(r==='CEO'||r==='ADMINISTRACAO')return all;if(r==='ADMINISTRATIVA'){const ids=(Array.isArray(u.clinics)&&u.clinics.length?u.clinics:(u.clinic?[u.clinic]:[])).map(String);return all.filter(x=>ids.includes(String(x.id)))}return []}
   function day(){ const key=`${state.opDate}_${state.opClinic}`; if(!state.days[key]){const indicators={};indicatorDefs.forEach(x=>indicators[x.id]={source:MANUAL_INDICATOR_SOURCE,opening:null,current:0,closing:null,history:[]});state.days[key]={date:state.opDate,clinic:state.opClinic,closed:false,exception:null,taskStatus:{},open:{professionals:[],saved:false},close:{professionals:[],saved:false},indicators,appointments:[]}} return state.days[key]; }
   function recordIndicator(d,type,value,phase,source=MANUAL_INDICATOR_SOURCE) { const entry=d.indicators[type]||(d.indicators[type]={source,opening:null,current:0,closing:null,history:[]}); const previous=entry.current; if(phase==='abertura')entry.opening=value;if(phase==='fecho')entry.closing=value;entry.current=value;entry.source=source;entry.history.push({clinic:d.clinic,date:d.date,at:now(),by:state.currentUser,value,previous,phase,source}); audit('Indicadores',`${indicatorDefs.find(x=>x.id===type)?.label||type}: ${previous} → ${value}`,`${d.date}/${d.clinic}; ${phase}; ${source}`); return previous; }
   function indicatorFields(d,prefix,phase){return indicatorDefs.map(x=>{const v=phase==='abertura'?(d.indicators[x.id].opening??d.indicators[x.id].current):phase==='fecho'?(d.indicators[x.id].closing??d.indicators[x.id].current):d.indicators[x.id].current;return `<div><label>${esc(x.label)}</label><input id="${prefix}_${x.id}" type="number" min="0" value="${v}"><div class="meta">Objetivo operacional: 0 · valor absoluto</div></div>`}).join('')}
@@ -85,8 +88,8 @@ const App = (() => {
   }
 
   function renderOperation(){
-    const d=day(), phases={open:'Abertura',live:'Durante o dia',close:'Fecho'};
-    $('operationContent').innerHTML=`<div class="card"><div class="form-grid"><div><label>Clínica</label><select id="opClinic">${options(clinics,x=>x.id,x=>x.name)}</select></div><div><label>Data</label><input id="opDate" type="date" value="${state.opDate}"></div><div><label>Responsável</label><input value="${esc(user().name)}" disabled></div><div><label>Estado</label><div class="pill ${d.closed?'green':'orange'}">${d.closed?'Dia fechado':'Em operação'}</div></div></div></div><div class="tabs">${Object.entries(phases).map(([k,v])=>`<button class="${state.opPhase===k?'on':''}" onclick="App.setPhase('${k}')">${v}</button>`).join('')}</div><div id="phasePanel">${state.opPhase==='open'?openingPanel(d):state.opPhase==='live'?livePanel(d):closingPanel(d)}</div>`;
+    const available=opClinics();if(!available.length){$('operationContent').innerHTML='<div class="notice">Sem clínica operacional atribuída a este colaborador.</div>';return}if(!available.some(x=>String(x.id)===String(state.opClinic)))state.opClinic=available[0].id;const d=day(), phases={open:'Abertura',live:'Durante o dia',close:'Fecho'};
+    $('operationContent').innerHTML=`<div class="card"><div class="form-grid"><div><label>Clínica</label><select id="opClinic">${options(available,x=>x.id,x=>x.name)}</select></div><div><label>Data</label><input id="opDate" type="date" value="${state.opDate}"></div><div><label>Responsável</label><input value="${esc(user().name)}" disabled></div><div><label>Estado</label><div class="pill ${d.closed?'green':'orange'}">${d.closed?'Dia fechado':'Em operação'}</div></div></div></div><div class="tabs">${Object.entries(phases).map(([k,v])=>`<button class="${state.opPhase===k?'on':''}" onclick="App.setPhase('${k}')">${v}</button>`).join('')}</div><div id="phasePanel">${state.opPhase==='open'?openingPanel(d):state.opPhase==='live'?livePanel(d):closingPanel(d)}</div>`;
     $('opClinic').value=state.opClinic; $('opClinic').onchange=e=>{state.opClinic=e.target.value;persist()}; $('opDate').onchange=e=>{state.opDate=e.target.value;persist()};
   }
   function professionalRows(d, close=false, kind='doctor'){

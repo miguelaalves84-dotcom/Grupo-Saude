@@ -1,0 +1,13 @@
+/* V4 — regra global: clínicas inativas ficam no histórico, mas não aparecem em seleções/tabelas operacionais */
+(()=>{'use strict';
+const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}};
+const norm=v=>String(v??'').trim().toLocaleLowerCase('pt-PT');
+function inactive(){const s=R();return (s.clinics||[]).filter(c=>c.active===false)}
+function isMasterContext(el){return !!el.closest('#clinics,#clinicsContent')}
+function filterSelects(){const off=inactive();if(!off.length)return;document.querySelectorAll('select').forEach(sel=>{if(isMasterContext(sel))return;[...sel.options].forEach(o=>{const hit=off.some(c=>String(o.value)===String(c.id)||norm(o.textContent)===norm(c.name));if(hit){o.hidden=true;o.disabled=true}else if(o.dataset.v4InactiveHidden){o.hidden=false;o.disabled=false;delete o.dataset.v4InactiveHidden}if(hit)o.dataset.v4InactiveHidden='1'})})}
+function filterClinicCardsAndRows(){const off=inactive();if(!off.length)return;document.querySelectorAll('.view:not(#clinics) .row,.view:not(#clinics) .card,table tbody tr').forEach(el=>{if(isMasterContext(el))return;const txt=norm(el.textContent);const c=off.find(x=>txt.includes(norm(x.name)));if(!c)return;const isConfig=el.closest('#tables')&&(txt.includes('especialidades por clínica')||txt.includes('clínicas · especialidades · profissionais'));if(isConfig)return;el.dataset.v4InactiveClinic='1';el.style.display='none'})}
+function cleanConfigModals(){const off=inactive();if(!off.length)return;const title=norm(document.getElementById('modalTitle')?.textContent);if(!/especialidades por clínica|profissionais|estrutura/.test(title))return;document.querySelectorAll('#modalBody .card,#modalBody .row,#modalBody section,#modalBody fieldset').forEach(el=>{const txt=norm(el.textContent);if(off.some(c=>txt.includes(norm(c.name))))el.style.display='none'})}
+function apply(){filterSelects();filterClinicCardsAndRows();cleanConfigModals()}
+function boot(){apply();let queued=false;new MutationObserver(()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;apply()})}).observe(document.body,{childList:true,subtree:true});document.addEventListener('gs-v4-config-updated',e=>{if(e.detail?.type==='clinic')setTimeout(apply,0)})}
+document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot):boot();window.V4ActiveClinics={apply,inactive};
+})();

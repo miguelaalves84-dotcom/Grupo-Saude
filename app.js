@@ -15,12 +15,8 @@ const App = (() => {
     {id:'c2', name:'Clínica Norte', lat:41.1579, lng:-8.6291, radius:250, specialties:{Fisioterapia:['Dr. Tiago Luz'], Psicologia:['Dra. Inês Melo'], Nutrição:['Dra. Marta Dias']}},
     {id:'c3', name:'Clínica Sul', lat:38.5244, lng:-8.8882, radius:250, specialties:{Fisioterapia:['Dra. Ana Silva','Dr. Pedro Sá'], Fisiatria:['Dra. Eva Lima']}}
   ];
-  const users = [
-    {id:'u1', name:'Marta Ferreira', role:'Administrativa', clinic:'c1', canChangeClinic:true, schedule:['09:00','13:00','14:00','18:00']},
-    {id:'u2', name:'Joana Lopes', role:'Administrativa', clinic:'c2', canChangeClinic:false, schedule:['09:00','13:00','14:00','18:00']},
-    {id:'u3', name:'Paulo Rocha', role:'Gestor', clinic:'c1', canChangeClinic:true, schedule:['09:00','13:00','14:00','18:00']},
-    {id:'u4', name:'Sofia Martins', role:'RH', clinic:'c1', canChangeClinic:true, schedule:['09:00','13:00','14:00','18:00']}
-  ];
+  // Sem utilizadores fictícios: os acessos são criados a partir dos colaboradores reais guardados no RH.
+  const users = [];
   const requestStages = ['Novo pedido','Por contactar','Contactado','A aguardar vaga','Proposta de consulta','Marcado'];
   const indicatorDefs=[{id:'consultations',label:'Consultas a trabalhar/marcar'},{id:'waitClicloud',label:'Lista de Espera Clicloud'},{id:'suspended',label:'Suspensos'},{id:'revals',label:'Reavaliações'},{id:'confirmations',label:'Consultas por confirmar'},{id:'internalQueue',label:'Lista interna de pedidos'}];
   const candidateStages = ['Candidato','Contacto','Entrevista','Proposta','Documentação','Contratação/Admissão','Ativo'];

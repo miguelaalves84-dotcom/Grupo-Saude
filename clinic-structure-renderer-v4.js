@@ -7,6 +7,6 @@ function body(){window.GSClinicMaster?.syncAll?.();const s=R(),cs=active(s);retu
 function open(e){e?.preventDefault?.();e?.stopPropagation?.();const t=document.getElementById('modalTitle'),b=document.getElementById('modalBody'),m=document.getElementById('modal');if(!t||!b||!m)return;t.textContent='Clínicas · Especialidades · Profissionais';b.innerHTML=body();m.showModal()}
 function install(){const roots=[document.getElementById('tablesContent'),document.getElementById('tables')].filter(Boolean);for(const r of roots){for(const c of r.querySelectorAll('.card')){const h=(c.querySelector('h3')?.textContent||'').trim();if(h==='Clínicas · Especialidades · Profissionais'||h==='Estrutura das Clínicas'){c.dataset.masterClinicStructure='1';c.onclick=open;c.style.cursor='pointer';const btn=c.querySelector('button');if(btn){btn.onclick=open;btn.removeAttribute('data-view')}const p=c.querySelector('p');if(p)p.textContent='Fonte única: Tabela Mestre de Clínicas. Especialidades e profissionais sincronizados com RH.'}}}}
 window.GSClinicStructureV4={open,install};
-function boot(){install();new MutationObserver(()=>requestAnimationFrame(install)).observe(document.body,{childList:true,subtree:true})}
+function boot(){install();document.addEventListener('click',e=>{if(e.target.closest?.('[data-view="tables"]'))requestAnimationFrame(install)},true)}
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot):boot();document.addEventListener('gs-v4-config-updated',install);document.addEventListener('gs-clinics-master-synced',install);
 })();

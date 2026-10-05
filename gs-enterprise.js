@@ -20,14 +20,6 @@ function ensure(){
  s.marketing=s.marketing||{campaigns:[],ideas:[],approvals:[],settings:{humanApproval:true,healthAdsCompliance:true,rgpdCheck:true,professionalCredentialCheck:true}};
  s.security=s.security||{backups:[],retentionDays:90,lastRestoreTest:null,health:'orange'};
  s.reports=s.reports||{weeklyInsights:[]};
- s.permissions=s.permissions||{
-  'Call Center':['requests','chat'],
-  'Médico/a':['account','documents','chat'],
-  'Técnico/a':['account','documents','leave','chat'],
-  'Administrativa':['operation','requests','tasks','leave','chat'],
-  'Administração':['operation','requests','tasks','hr','finance','reports','audit','marketing','security','chat'],
-  'CEO':['operation','requests','tasks','hr','finance','reports','audit','marketing','security','chat']
- };
  write(s);return s;
 }
 function audit(action,detail,module='Sistema'){const s=ensure();s.audit=s.audit||[];s.audit.unshift({id:'log_'+Date.now(),at:now(),by:s.currentUser||'Sistema',module,action,detail});write(s)}
@@ -89,21 +81,7 @@ function install(){const root=document.getElementById('financeContent');if(!root
 function askStatement(){const p=prompt('Nome do colaborador/profissional');if(p)statement(p)}
 window.V4Finance={addAct,addBonus,statement,askStatement};new MutationObserver(install).observe(document.documentElement,{childList:true,subtree:true});document.addEventListener('DOMContentLoaded',()=>setTimeout(install,600));})();
 
-/* V4 — matriz dos 6 níveis de acesso */
-(()=>{'use strict';const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}},W=s=>localStorage.setItem(K,JSON.stringify(s));
-const MATRIX={
-'Call Center':['dashboard','requests','chat'],
-'Médico/a':['dashboard','myAccount','documents','chat'],
-'Técnico/a':['dashboard','myAccount','documents','timeClock','leave','chat'],
-'Administrativa':['dashboard','operation','requests','tasks','timeClock','leave','myAccount','chat'],
-'Administração':['dashboard','operation','requests','tasks','timeClock','leave','hr','finance','reports','alerts','tables','chat'],
-'CEO':['*']};
-const aliases={'Médico':'Médico/a','Tecnico':'Técnico/a','Técnico':'Técnico/a','Administrativo':'Administrativa','Administrativo/a':'Administrativa','Gestor':'Administração','RH':'Administração'};
-function role(){const s=R(),u=(s.users||[]).find(x=>x.id===s.currentUser);return aliases[u?.role]||u?.role||'CEO'}function can(cap){const a=MATRIX[role()]||[];return a.includes('*')||a.includes(cap)}
-function requireCap(cap,fn){return(...args)=>{if(!can(cap)){alert('Sem permissão para esta ação.');return}return fn(...args)}}
-function seed(){const s=R();s.permissions={version:4,matrix:MATRIX,updatedAt:new Date().toISOString()};W(s)}
-function apply(){document.querySelectorAll('[data-capability]').forEach(el=>{el.hidden=!can(el.dataset.capability)});document.documentElement.dataset.gsRole=role()}
-window.GSPermissions={MATRIX,role,can,require:requireCap,apply};document.addEventListener('DOMContentLoaded',()=>{seed();setTimeout(apply,700)});new MutationObserver(()=>apply()).observe(document.documentElement,{childList:true,subtree:true});})();
+/* Permissões centralizadas em role-access-admin-v4.js. */
 
 /* V4 — tarefas automáticas, checkpoints e bloqueio abertura/fecho */
 (()=>{'use strict';const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}},W=s=>localStorage.setItem(K,JSON.stringify(s)),N=()=>new Date().toISOString();const TIMES=['10:00','12:00','14:00','16:00','18:00'];

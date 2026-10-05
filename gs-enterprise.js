@@ -37,7 +37,7 @@ function addNav(id,label,icon){const nav=document.getElementById('nav');if(!nav|
 function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('#nav [data-view]').forEach(v=>v.classList.toggle('active',v.dataset.view===id));render(id);document.getElementById('nav')?.classList.remove('open')}
 function render(id){({finance:renderFinance,marketing:renderMarketing,reports:renderReports,security:renderSecurity,alerts:renderAlerts,clinics:renderClinics}[id]||(()=>{}))()}
 function role(){const s=ensure(),u=(s.users||[]).find?.(x=>x.id===s.currentUser);return u?.role||u?.kind||''}
-function allowed(module){const r=role();if(!r)return true;return (ensure().permissions[r]||[]).includes(module)}
+function allowed(module){const map={finance:'financeManage',marketing:'marketing',reports:'reports',security:'security',alerts:'alerts',hr:'hrManage',audit:'audit',tasks:'clinicTasks',requests:'waiting',operation:'operation'};return window.RoleAccessAdminV4?RoleAccessAdminV4.can(map[module]||module):false}
 function finActor(s){return s.employees?.[s.currentUser]||(s.users||[]).find(x=>String(x.id)===String(s.currentUser))||{id:'u1',role:'CEO'}}
 function finAdmin(s){const r=String(finActor(s).role||finActor(s).kind||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();return r==='CEO'||r==='ADMINISTRACAO'}
 function finEmployeeId(s,x){if(x.employeeId)return String(x.employeeId);const e=Object.values(s.employees||{}).find(z=>z.name===x.person);return e?String(e.id):''}

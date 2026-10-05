@@ -1,4 +1,2 @@
-Preview deployment trigger
-
-permissions test trigger
-deploy 2026-10-05T16:25:28.951Z
+Grupo Saúde V4 preview — 2026-10-05
+RH collaborator/reserved-access bridge active.

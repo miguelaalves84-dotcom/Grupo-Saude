@@ -1,0 +1,8 @@
+{
+  "name": "grupo-saude-v4",
+  "private": true,
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "@vercel/blob": "^2.0.0"
+  }
+}

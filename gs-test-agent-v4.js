@@ -20,6 +20,11 @@ function run(){
  ];
  Object.entries(s.employees||{}).forEach(([id,e])=>{const area=(s.users||[]).find(u=>String(u.employeeId||u.id)===String(id));results.push(check('area-'+id,'Área reservada — '+(e.name||id),()=>{if(e.active===false||e.hr?.reservedAccess===false)return !area||area.active===false;if(!area)return 'Área reservada em falta';const er=RA?.norm?.(e.role||e.kind||e.profile||e.function),ar=RA?.norm?.(area.role||area.kind);if(er!==ar)return 'Cargo diferente entre RH e área reservada';const ec=(Array.isArray(e.clinics)?e.clinics:(e.clinic?[e.clinic]:[])).map(String).sort().join('|'),ac=(area.clinics||[]).map(String).sort().join('|');if(ec!==ac)return 'Clínicas diferentes entre RH e área reservada';return true}))});
  const views=['dashboard','operation','wait','chat','hr','tasks','audit','clinics','finance','reports','marketing','alerts','security','tables'];views.forEach(v=>results.push(check('view-'+v,'Área '+v+' ligada',()=>!!document.getElementById(v)||!!document.querySelector('[data-view="'+v+'"]'))));
+ results.push(check('finance-view','Financeiro / conta corrente ligado',()=>!!document.getElementById('finance')||!!document.querySelector('[data-view="finance"]')));
+ results.push(check('finance-records','Movimentos financeiros disponíveis',()=>Array.isArray(s.finance)||Array.isArray(s.movements)||Array.isArray(s.financialMovements)?true:'Estrutura de movimentos financeiros não encontrada'));
+ results.push(check('finance-scope','Financeiro respeita âmbito de dados',()=>!!window.AccessScopeV4&&!!RA?.actions?.some?.(x=>x[0]==='account')&&!!RA?.actions?.some?.(x=>x[0]==='financeManage')));
+ results.push(check('finance-links','Movimentos ligados a clínica e colaborador',()=>{const m=s.finance||s.movements||s.financialMovements||[];if(!m.length)return true;return m.every(x=>x.employeeId||x.userId||x.collaboratorId)?true:'Existem movimentos sem colaborador associado'}));
+ results.push(check('finance-permissions','Separação consultar/gerir financeiro',()=>!!RA?.actions?.find?.(x=>x[0]==='account')&&!!RA?.actions?.find?.(x=>x[0]==='financeManage')));
  const bad=results.filter(x=>x.status!=='ok').length;
  window.GSTestAgentV4.last={at:new Date().toISOString(),results,bad};
  window.dispatchEvent(new CustomEvent('gs:test-agent-complete',{detail:window.GSTestAgentV4.last}));

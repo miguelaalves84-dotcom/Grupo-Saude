@@ -19,5 +19,5 @@ function patch(){sync();if(window.V4Integrations)window.V4Integrations.manageCli
 window.ClinicRelationsV4={sync,syncEmployee,setSpec,openSpecs};document.addEventListener('DOMContentLoaded',()=>setTimeout(patch,400));document.addEventListener('gs-v4-config-updated',()=>setTimeout(patch,0));
 /* Qualquer gravação local feita pelo RH é detetada e sincronizada imediatamente. */
 const originalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){originalSet.apply(this,arguments);if(k===K&&!window.__gsRelSync){window.__gsRelSync=true;queueMicrotask(()=>{try{sync()}finally{window.__gsRelSync=false}})}};
-let sig='';setInterval(()=>{const s=R(),x=JSON.stringify([Object.values(s.employees||{}).map(p=>[p.id,p.active,p.kind,p.role,p.clinicIds,p.clinics,p.clinicId,p.clinic,p.specialtyIds,p.specialties,p.specialtyId,p.specialty]),(s.clinics||[]).map(c=>[c.id,c.active])]);if(x!==sig){sig=x;patch()}},600);
+
 })();

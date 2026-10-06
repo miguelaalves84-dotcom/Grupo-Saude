@@ -1,17 +1,16 @@
-/* Grupo Saúde V4 — submenu de Tabelas sem competir com a navegação principal */
+/* Grupo Saúde V4 — navegação de Tabelas: sem submenu duplicado */
 (()=>{'use strict';
-function init(){
+function cleanup(){
  const nav=document.getElementById('nav'); if(!nav)return;
- const tables=nav.querySelector('button[data-view="tables"]');
- const clinic=nav.querySelector('button[data-view="clinics"]')||[...nav.querySelectorAll('button')].find(b=>/^Clínicas$/i.test(b.textContent.trim()));
- if(!tables)return;
- // data-view="tables" é tratado exclusivamente pelo App/showTables. Este script só organiza subitens.
- let box=document.getElementById('tablesSubmenu');
- if(!box){box=document.createElement('div');box.id='tablesSubmenu';box.style.cssText='padding:4px 0 8px 18px';tables.insertAdjacentElement('afterend',box)}
- if(clinic&&clinic.parentElement!==box){box.appendChild(clinic);clinic.style.cssText='width:100%;margin:1px 0;text-align:left'}
+ const tables=nav.querySelector('[data-view="tables"]');
+ const clinics=nav.querySelector('[data-view="clinics"]');
  const perm=document.getElementById('rolePermissionsNav');
- if(perm&&perm.parentElement!==box){box.appendChild(perm);perm.style.cssText='width:100%;margin:1px 0;text-align:left'}
+ const box=document.getElementById('tablesSubmenu');
+ if(perm)perm.remove();
+ if(box){ if(clinics&&box.contains(clinics))tables?.insertAdjacentElement('afterend',clinics); box.remove(); }
+ // Clínicas é gerida dentro da página Tabelas; não deve existir como submenu concorrente.
+ if(clinics)clinics.remove();
 }
-function start(){init();new MutationObserver(init).observe(document.getElementById('nav')||document.body,{childList:true,subtree:true})}
-document.readyState==='loading'?document.addEventListener('DOMContentLoaded',start):start();
+function boot(){cleanup();new MutationObserver(cleanup).observe(document.getElementById('nav')||document.body,{childList:true,subtree:true})}
+document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot):boot();
 })();

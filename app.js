@@ -91,7 +91,7 @@ const App = (() => {
   function indicatorFields(d,prefix,phase){return indicatorDefs.map(x=>{const v=phase==='abertura'?(d.indicators[x.id].opening??d.indicators[x.id].current):phase==='fecho'?(d.indicators[x.id].closing??d.indicators[x.id].current):d.indicators[x.id].current;return `<div><label>${esc(x.label)}</label><input id="${prefix}_${x.id}" type="number" min="0" value="${v}"><div class="meta">Objetivo operacional: 0 · valor absoluto</div></div>`}).join('')}
   function taskList(phase){ return state.tasks.filter(t=>t.active&&t.phase===phase&&(t.clinics.includes('all')||t.clinics.includes(state.opClinic))); }
 
-  function renderAll(){ renderUsers(); renderDashboard(); renderOperation(); renderRequests(); renderChat(); renderHr(); renderTasks(); renderAudit(); updateUnread(); }
+  function renderAll(){ renderUsers(); renderDashboard(); renderOperation(); renderRequests(); renderChat(); if(!window.V4ClinicHR)renderHr(); renderTasks(); renderAudit(); updateUnread(); }
   function renderUsers(){ const el=$('currentUser'), old=state.currentUser; el.innerHTML=options(users,x=>x.id,x=>`${x.name} · ${x.role}`); el.value=old; }
   function renderDashboard(){
     const todays=Object.values(state.days).filter(d=>d.date===today()); const allTasks=todays.flatMap(d=>Object.values(d.taskStatus)); const done=allTasks.filter(x=>x.status==='done').length;

@@ -60,6 +60,23 @@ function sandbox(){
  finally{if(before===null)localStorage.removeItem(K);else localStorage.setItem(K,before);window.HRReservedAccessLinkV4?.sync?.()}
  const bad=results.filter(x=>x.status!=='ok').length;window.GSTestAgentV4.sandboxLast={at:new Date().toISOString(),results,bad};return window.GSTestAgentV4.sandboxLast;
 }
+function functionalUI(){
+ const before=localStorage.getItem(K),base=R(),RA=window.RoleAccessAdminV4,results=[],views=['dashboard','operation','wait','chat','hr','tasks','audit','clinics','finance','reports','marketing','alerts','security','tables'];
+ const key=v=>({dashboard:'personal',operation:'operation',wait:'waiting',chat:'personal',hr:'hrManage',tasks:'clinicTasks',audit:'audit',clinics:'settings',finance:'account',reports:'reports',marketing:'marketing',alerts:'alerts',security:'security',tables:'settings'}[v]||v);
+ try{
+  const tests=Object.entries(base.employees||{}).filter(([,e])=>e?.testBatch||e?.hr?.testOnly);
+  tests.forEach(([id,e])=>{
+   const role=RA?.norm?.(e.role||e.kind),perms=base.roleActionPermissions?.[role]||{},live=R();live.currentUser=id;localStorage.setItem(K,JSON.stringify(live));RA?.apply?.();
+   views.forEach(v=>{
+    const nav=document.querySelector('#nav [data-view="'+v+'"]'),expected=role==='CEO'||!!perms[key(v)],visible=!!nav&&!nav.hidden&&getComputedStyle(nav).display!=='none';
+    results.push(check('ui-'+id+'-'+v,'UI real — '+(e.name||role)+' / '+v,()=>visible===expected?true:'Matriz='+expected+'; menu visível='+visible));
+    results.push(check('guard-'+id+'-'+v,'Bloqueio real — '+(e.name||role)+' / '+v,()=>!!RA?.guard?.(v)===expected?true:'Matriz='+expected+'; navegação permitida='+!!RA?.guard?.(v)));
+   });
+  });
+ }catch(e){results.push({id:'functional-fatal',label:'Teste funcional/UI',status:'error',detail:e.message})}
+ finally{if(before===null)localStorage.removeItem(K);else localStorage.setItem(K,before);RA?.apply?.()}
+ const bad=results.filter(x=>x.status!=='ok').length;return{at:new Date().toISOString(),results,bad};
+}
 function seedPersistent(){
  const s=R(),RA=window.RoleAccessAdminV4,roles=RA?.ROLES||FIXED,stamp=new Date().toISOString(),batch='gstest_'+Date.now(),clinic=(s.clinics||[]).find(x=>x.active!==false&&x.operational!==false&&x.id!=='administracao');
  s.employees=s.employees||{};s.users=Array.isArray(s.users)?s.users:[];s.leave=Array.isArray(s.leave)?s.leave:[];s.audit=Array.isArray(s.audit)?s.audit:[];
@@ -90,14 +107,14 @@ function panel(){
  document.getElementById('modalTitle').textContent='Agente de Testes V4';
  document.getElementById('modalBody').innerHTML='<div class="modal-body"><div class="notice"><b>Bateria funcional persistente</b><br>Cria utilizadores e registos identificados como TESTE AGENTE para validação manual. Os dados ficam guardados até serem apagados aqui.</div><div class="actions" style="margin-top:14px"><button class="primary" onclick="GSTestAgentV4.runPersistentUI()">Executar bateria de testes</button>'+(b?'<button class="danger" onclick="GSTestAgentV4.cleanupUI(\''+b.id+'\')">Apagar dados de teste</button>':'')+'</div>'+(b?'<div class="card" style="margin-top:12px"><b>Última bateria:</b> '+b.id+'<br><span class="meta">'+b.createdAt+' · '+b.status+'</span></div>':'<p class="muted">Sem bateria persistente ativa.</p>')+'</div>';m.showModal();
 }
-function runPersistentUI(){const b=seedPersistent(),x=run();saveReport('Bateria persistente',x,b.id);alert('Bateria criada: '+b.id+'. Os dados TESTE AGENTE e o relatório ficaram guardados.');panel()}
+function runPersistentUI(){const b=seedPersistent(),struct=run(),ui=functionalUI(),x={at:new Date().toISOString(),results:[...struct.results,...ui.results],bad:struct.bad+ui.bad};saveReport('Bateria estrutural + funcional/UI',x,b.id);alert('Bateria criada: '+b.id+'. Foram testadas estrutura, visibilidade real do menu e bloqueio de navegação contra a matriz.');panel()}
 function cleanupUI(batch){if(!confirm('Apagar apenas os dados criados pela bateria '+batch+'?'))return;cleanup(batch);alert('Dados de teste apagados.');panel()}
 function report(){
  const x=run(),icon={ok:'✅',warn:'⚠️',error:'❌'};
  const body='<div class="modal-body"><div class="notice"><b>Agente de Testes V4</b><br>Verifica automaticamente as ligações estruturais do programa. '+(x.bad?'<b>'+x.bad+' problema(s) detetado(s).</b>':'<b>Todas as verificações passaram.</b>')+'</div><div class="card" style="margin-top:12px">'+x.results.map(r=>'<p>'+icon[r.status]+' <b>'+r.label+'</b>'+(r.detail?' — '+r.detail:'')+'</p>').join('')+'</div><div class="actions"><button class="primary" type="button" onclick="GSTestAgentV4.report()">Testar novamente</button></div></div>';
  const m=document.getElementById('modal');if(m){document.getElementById('modalTitle').textContent='Diagnóstico automático';document.getElementById('modalBody').innerHTML=body;m.showModal()}
 }
-window.GSTestAgentV4={run,report,sandbox,seedPersistent,cleanup,saveReport,reportsPanel,panel,runPersistentUI,cleanupUI,last:null,sandboxLast:null};
+window.GSTestAgentV4={run,functionalUI,report,sandbox,seedPersistent,cleanup,saveReport,reportsPanel,panel,runPersistentUI,cleanupUI,last:null,sandboxLast:null};
 document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{run();const nav=document.getElementById('tablesSubmenu')||document.getElementById('nav');if(nav&&!document.getElementById('gsTestAgentButton')){const b=document.createElement('button');b.id='gsTestAgentButton';b.type='button';b.className='secondary';b.textContent='Agente de Testes';b.onclick=panel;nav.appendChild(b)}},1200));
 window.addEventListener('gs:reserved-areas-updated',()=>setTimeout(run,50));
 })();

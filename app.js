@@ -15,8 +15,16 @@ const App = (() => {
     {id:'c2', name:'Clínica Norte', lat:41.1579, lng:-8.6291, radius:250, specialties:{Fisioterapia:['Dr. Tiago Luz'], Psicologia:['Dra. Inês Melo'], Nutrição:['Dra. Marta Dias']}},
     {id:'c3', name:'Clínica Sul', lat:38.5244, lng:-8.8882, radius:250, specialties:{Fisioterapia:['Dra. Ana Silva','Dr. Pedro Sá'], Fisiatria:['Dra. Eva Lima']}}
   ];
-  // Sem utilizadores fictícios: os acessos são criados a partir dos colaboradores reais guardados no RH.
-  const users = [];
+  // Perfis-base persistentes para testes reais. São criados uma única vez e depois podem ser editados no RH.
+  const users = [
+    {id:'u1',name:'CEO',role:'CEO',clinics:['c1','c2','c3'],active:true,hr:{reservedAccess:true}},
+    {id:'test_admin',name:'Administração Teste',email:'administracao.teste@gruposaude.local',role:'ADMINISTRAÇÃO',clinics:['c1','c2','c3'],active:true,hr:{reservedAccess:true}},
+    {id:'test_adm',name:'Administrativa Teste',email:'administrativa.teste@gruposaude.local',role:'ADMINISTRATIVA',clinics:['c1'],active:true,hr:{reservedAccess:true}},
+    {id:'test_call',name:'Call Center Teste',email:'callcenter.teste@gruposaude.local',role:'CALL CENTER',clinics:['c1','c2','c3'],active:true,hr:{reservedAccess:true}},
+    {id:'test_med',name:'Médico Teste',email:'medico.teste@gruposaude.local',role:'MEDICO/A',clinics:['c1'],active:true,hr:{reservedAccess:true}},
+    {id:'test_tec',name:'Técnico Teste',email:'tecnico.teste@gruposaude.local',role:'TECNICO/A',clinics:['c1'],active:true,hr:{reservedAccess:true}},
+    {id:'test_bas',name:'Colaborador Básico Teste',email:'basico.teste@gruposaude.local',role:'BASICO',clinics:['c1'],active:true,hr:{reservedAccess:true}}
+  ];
   const requestStages = ['Novo pedido','Por contactar','Contactado','A aguardar vaga','Proposta de consulta','Marcado'];
   const indicatorDefs=[{id:'consultations',label:'Consultas a trabalhar/marcar'},{id:'waitClicloud',label:'Lista de Espera Clicloud'},{id:'suspended',label:'Suspensos'},{id:'revals',label:'Reavaliações'},{id:'confirmations',label:'Consultas por confirmar'},{id:'internalQueue',label:'Lista interna de pedidos'}];
   const candidateStages = ['Candidato','Contacto','Entrevista','Proposta','Documentação','Contratação/Admissão','Ativo'];
@@ -58,7 +66,10 @@ const App = (() => {
   function load(){ try { state=JSON.parse(localStorage.getItem(KEY)) || seed(); } catch { state=seed(); } migrate(); }
   function syncState(){try{state=JSON.parse(localStorage.getItem(KEY))||state}catch{}}
   function migrate(){
-    state.audit ||= []; state.tasks ||= baseTasks; state.jobRoles ||= [{id:'jr1',name:'Fisioterapeuta',active:true},{id:'jr2',name:'Administrativa',active:true}]; state.timeEntries ||= []; state.timeOccurrences ||= []; state.internalQueue ||= [];
+    state.audit ||= []; state.tasks ||= baseTasks;
+    state.users ||= []; state.employees ||= {};
+    users.forEach(base=>{if(base.id==='u1')return;let u=state.users.find(x=>String(x.id)===base.id);if(!u){u=JSON.parse(JSON.stringify(base));state.users.push(u)}if(!state.employees[base.id])state.employees[base.id]={...JSON.parse(JSON.stringify(u)),id:base.id,kind:u.role,reservedAccess:u.hr?.reservedAccess!==false};});
+    state.testBaseSeededV1=true; state.jobRoles ||= [{id:'jr1',name:'Fisioterapeuta',active:true},{id:'jr2',name:'Administrativa',active:true}]; state.timeEntries ||= []; state.timeOccurrences ||= []; state.internalQueue ||= [];
     const waitTask=state.tasks.find(t=>t.id==='waitcalls'); if(waitTask){waitTask.name='Atualizar contador Lista de Espera Clicloud';waitTask.action='waitClicloud'}
     const confirmTask=state.tasks.find(t=>t.id==='confirm');if(confirmTask)confirmTask.action='confirmations';
     Object.values(state.days||{}).forEach(d=>{[...(d.open?.professionals||[]),...(d.close?.professionals||[])].forEach(p=>{if(!p.kind)p.kind=/^(Dr\.|Dra\.)/.test(p.name)?'doctor':'therapist'});d.indicators ||= {};indicatorDefs.forEach(def=>{if(!d.indicators[def.id]){const legacy={waitClicloud:d.open?.wait,suspended:d.open?.suspended,revals:d.open?.revals}[def.id];d.indicators[def.id]={source:MANUAL_INDICATOR_SOURCE,opening:+legacy||0,current:+legacy||0,closing:null,history:[]}}})}); state.candidates.forEach(c=>{if(!state.jobRoles.some(r=>r.id===c.role)){const role=state.jobRoles.find(r=>r.name===c.role);if(role)c.role=role.id} if(!c.documents){const ct=state.contractTypes.find(x=>x.id===c.contract);c.documents=(ct?.items||[]).map(i=>{const old=c.checks?.[i.id]||{};return {itemId:i.id,name:i.name,required:i.required,status:old.validated?'Validado':old.delivered?'Pendente de validação':'Em falta',sentBy:old.delivered?old.by:null,sentAt:old.delivered?old.at:null,reviewedBy:old.validated?old.by:null,reviewedAt:old.validated?old.at:null}})}});

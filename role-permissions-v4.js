@@ -1,7 +1,7 @@
 /* Grupo Saúde V4 — permissões por função, âmbito clínico e vista pessoal/gestão */
 (()=>{'use strict';
 const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}},W=s=>localStorage.setItem(K,JSON.stringify(s));
-const modules=[['dashboard','Dashboard'],['operation','Operação diária'],['wait','Pedidos'],['chat','Chat'],['hr','Recursos Humanos'],['tasks','Configuração de tarefas'],['audit','Auditoria'],['tables','Tabelas / Configuração'],['finance','Financeiro'],['reports','Relatórios'],['marketing','Marketing IA'],['alerts','Alertas'],['security','Segurança & Backups']];
+const modules=[['dashboard','Dashboard'],['clinics','Clínicas'],['operation','Operação diária'],['wait','Pedidos'],['chat','Chat'],['hr','Recursos Humanos'],['tasks','Configuração de tarefas'],['audit','Auditoria'],['tables','Tabelas / Configuração'],['finance','Financeiro'],['reports','Relatórios'],['marketing','Marketing IA'],['alerts','Alertas'],['security','Segurança & Backups']];
 const levels=[['none','Não vê'],['view','Consulta'],['execute','Executa'],['manage','Gere']];
 const adminRx=/administra[cç][aã]o|ceo/i;
 function ensure(s){s.rolePermissions=s.rolePermissions||{};const roles=new Set((s.users||[]).map(u=>u.role).concat(Object.values(s.employees||{}).map(u=>u.role||u.kind)).filter(Boolean));roles.forEach(role=>{if(!s.rolePermissions[role])s.rolePermissions[role]={scope:adminRx.test(role)?'all':'assigned',modules:Object.fromEntries(modules.map(([id])=>[id,adminRx.test(role)?'manage':(['dashboard','chat','hr','finance'].includes(id)?'view':'none')]))}});return s}

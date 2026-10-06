@@ -61,8 +61,8 @@ function sandbox(){
 }
 function seedPersistent(){
  const s=R(),RA=window.RoleAccessAdminV4,roles=RA?.ROLES||FIXED,stamp=new Date().toISOString(),batch='gstest_'+Date.now(),clinic=(s.clinics||[]).find(x=>x.active!==false&&x.operational!==false&&x.id!=='administracao');
- s.employees=s.employees||{};s.users=Array.isArray(s.users)?s.users:[];s.leave=Array.isArray(s.leave)?s.leave:[];s.audit=Array.isArray(s.audit)?s.audit:[];s.roleActionPermissions=s.roleActionPermissions||{};
- roles.forEach((role,i)=>{const id=batch+'_u'+i;s.employees[id]={id,name:'TESTE AGENTE · '+role,email:id+'@teste.invalid',role,kind:role,clinics:clinic?[clinic.id]:[],active:true,testBatch:batch,hr:{reservedAccess:true,testOnly:true,testBatch:batch}};s.roleActionPermissions[role]=s.roleActionPermissions[role]||{};(window.RoleAccessAdminV4?.actions||[]).forEach(([a])=>s.roleActionPermissions[role][a]=true)});
+ s.employees=s.employees||{};s.users=Array.isArray(s.users)?s.users:[];s.leave=Array.isArray(s.leave)?s.leave:[];s.audit=Array.isArray(s.audit)?s.audit:[];
+ roles.forEach((role,i)=>{const id=batch+'_u'+i;s.employees[id]={id,name:'TESTE AGENTE · '+role,email:id+'@teste.invalid',role,kind:role,clinics:clinic?[clinic.id]:[],active:true,testBatch:batch,testFullAccess:true,hr:{reservedAccess:true,testOnly:true,testBatch:batch,testFullAccess:true}}});
  localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();const t=R();
  const ids=roles.map((_,i)=>batch+'_u'+i),adminId=ids[1],techId=ids[4],callId=ids[6];
  t.leave=t.leave||[];t.leave.push({id:batch+'_leave',employeeId:techId,type:'Férias',status:'Pendente',start:new Date().toISOString().slice(0,10),end:new Date().toISOString().slice(0,10),testBatch:batch});

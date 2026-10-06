@@ -1,0 +1,14 @@
+/* Grupo Saúde V4 — Escalas mensais + horas extra */
+(()=>{'use strict';
+const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}},W=s=>localStorage.setItem(K,JSON.stringify(s));
+function S(){const s=R();s.monthlyRosters=s.monthlyRosters||{};s.overtime=s.overtime||[];s.currentAccounts=s.currentAccounts||{};return s}
+const id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+function saveRoster(month,clinicId,employeeId,days){const s=S(),k=month+'|'+clinicId;s.monthlyRosters[k]=s.monthlyRosters[k]||{};s.monthlyRosters[k][employeeId]={employeeId,month,clinicId,days,updatedAt:new Date().toISOString()};W(s);return s.monthlyRosters[k][employeeId]}
+function copyPrevious(month,clinicId){const s=S(),d=new Date(month+'-01T00:00:00');d.setMonth(d.getMonth()-1);const prev=d.toISOString().slice(0,7),src=s.monthlyRosters[prev+'|'+clinicId]||{},dst={};Object.keys(src).forEach(e=>dst[e]={...src[e],month,days:{...(src[e].days||{})},updatedAt:new Date().toISOString()});s.monthlyRosters[month+'|'+clinicId]=dst;W(s);return dst}
+function conflicts(month,clinicId){const s=S(),r=s.monthlyRosters[month+'|'+clinicId]||{},out=[];Object.values(r).forEach(x=>Object.entries(x.days||{}).forEach(([day,v])=>{if(v?.conflict||v?.absence)out.push({employeeId:x.employeeId,day,...v})}));return out}
+function addOvertime(employeeId,date,hours,rate,note=''){const s=S(),x={id:'ot_'+id(),employeeId,date,hours:+hours||0,rate:+rate||0,value:(+hours||0)*(+rate||0),note,status:'Pendente',invoiceDocument:null,paidAt:null,createdAt:new Date().toISOString()};s.overtime.unshift(x);W(s);return x}
+function setOvertimeStatus(overtimeId,status){const s=S(),x=s.overtime.find(v=>v.id===overtimeId);if(!x)return null;x.status=status;x.updatedAt=new Date().toISOString();if(status==='Fatura recebida'||status==='Pago'){const a=s.currentAccounts[x.employeeId]=s.currentAccounts[x.employeeId]||{employeeId:x.employeeId,movements:[]};if(!a.movements.some(m=>m.sourceOvertimeId===x.id))a.movements.unshift({id:'mov_'+id(),sourceOvertimeId:x.id,type:'Horas extra',value:x.value,date:x.date,status:status==='Pago'?'Pago':'Aprovado',document:x.invoiceDocument||null})}if(status==='Pago')x.paidAt=new Date().toISOString();W(s);return x}
+function attachInvoice(overtimeId,doc){const s=S(),x=s.overtime.find(v=>v.id===overtimeId);if(!x)return null;x.invoiceDocument=doc;x.status='Fatura recebida';W(s);return setOvertimeStatus(overtimeId,'Fatura recebida')}
+window.HRRostersV4={saveRoster,copyPrevious,conflicts};
+window.HROvertimeV4={add:addOvertime,setStatus:setOvertimeStatus,attachInvoice,list:employeeId=>S().overtime.filter(x=>!employeeId||x.employeeId===employeeId)};
+})();

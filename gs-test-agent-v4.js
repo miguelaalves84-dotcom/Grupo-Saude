@@ -62,7 +62,7 @@ function sandbox(){
 }
 function functionalUI(){
  const before=localStorage.getItem(K),base=R(),RA=window.RoleAccessAdminV4,results=[],views=['dashboard','operation','wait','chat','hr','tasks','audit','clinics','finance','reports','marketing','alerts','security','tables'];
- const key=v=>({dashboard:'personal',operation:'operation',wait:'waiting',chat:'personal',hr:'hrManage',tasks:'clinicTasks',audit:'audit',clinics:'settings',finance:'account',reports:'reports',marketing:'marketing',alerts:'alerts',security:'security',tables:'settings'}[v]||v);
+ const key=v=>({dashboard:'personal',operation:'operation',wait:'waiting',chat:'personal',hr:'hrManage',tasks:'clinicTasks',audit:'audit',clinics:'clinics',finance:'account',reports:'reports',marketing:'marketing',alerts:'alerts',security:'security',tables:'settings'}[v]||v);
  try{
   const tests=Object.entries(base.employees||{}).filter(([,e])=>e?.testBatch||e?.hr?.testOnly);
   tests.forEach(([id,e])=>{

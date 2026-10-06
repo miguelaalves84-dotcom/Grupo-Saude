@@ -40,7 +40,20 @@ function sandbox(){
   window.HRReservedAccessLinkV4?.sync?.();
   const t=R();
   roles.forEach((role,i)=>{const id='__gs_test_'+i,e=t.employees?.[id],a=(t.users||[]).find(x=>String(x.employeeId||x.id)===id),nr=RA?.norm?.(e?.role)||e?.role,ar=RA?.norm?.(a?.role)||a?.role;
-   results.push(check('sandbox-'+role,'Teste isolado — '+role,()=>{if(!e)return 'Colaborador temporário não criado';if(!a)return 'Área reservada temporária não criada';if(nr!==role||ar!==role)return 'Cargo não preservado na Área Reservada';if(role!=='CEO'&&role!=='ADMINISTRAÇÃO'&&window.AccessScopeV4?.canEmployee&&window.AccessScopeV4.canEmployee('__outro_colaborador__'))return 'Perfil consegue aceder a outro colaborador';return true}))
+   results.push(check('sandbox-'+role,'Teste isolado — '+role,()=>{if(!e)return 'Colaborador temporário não criado';if(!a)return 'Área reservada temporária não criada';if(nr!==role||ar!==role)return 'Cargo não preservado na Área Reservada';return true}));
+   t.currentUser=id;localStorage.setItem(K,JSON.stringify(t));
+   const admin=role==='CEO'||role==='ADMINISTRAÇÃO',clinic=realClinic?.id;
+   results.push(check('own-'+role,'Dados próprios — '+role,()=>window.AccessScopeV4?.canEmployee?.(id)===true));
+   results.push(check('other-'+role,'Isolamento de outros colaboradores — '+role,()=>window.AccessScopeV4?.canEmployee?.('__outro_colaborador__')===admin));
+   if(clinic){
+    const expectedWaiting=admin||role==='CALL CENTER',expectedOps=admin||role==='ADMINISTRATIVA';
+    results.push(check('waiting-'+role,'Lista de espera — '+role,()=>window.AccessScopeV4?.canClinic?.(clinic,'waiting')===expectedWaiting));
+    results.push(check('booking-'+role,'Marcações — '+role,()=>window.AccessScopeV4?.canClinic?.(clinic,'bookings')===expectedWaiting));
+    results.push(check('open-'+role,'Abertura de clínica — '+role,()=>window.AccessScopeV4?.canClinic?.(clinic,'openClinic')===expectedOps));
+    results.push(check('close-'+role,'Fecho de clínica — '+role,()=>window.AccessScopeV4?.canClinic?.(clinic,'closeClinic')===expectedOps));
+   }
+   const perms=t.roleActionPermissions?.[role]||{};
+   ['account','financeManage','leaveRequest','leaveApprove','clock','hrManage','settings'].forEach(action=>results.push(check('perm-'+role+'-'+action,action+' — '+role,()=>RA?.can?.(action)===(role==='CEO'||!!perms[action]))));
   });
  }catch(e){results.push({id:'sandbox-fatal',label:'Teste isolado',status:'error',detail:e.message})}
  finally{if(before===null)localStorage.removeItem(K);else localStorage.setItem(K,before);window.HRReservedAccessLinkV4?.sync?.()}

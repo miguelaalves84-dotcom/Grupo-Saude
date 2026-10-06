@@ -82,12 +82,19 @@ function cleanup(batch){
  if(s.finance&&Array.isArray(s.finance.movements))s.finance.movements=s.finance.movements.filter(x=>!tag(x));
  s.gsTestBatches=(s.gsTestBatches||[]).filter(x=>x.id!==batch);localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();return true;
 }
+function panel(){
+ const s=R(),b=(s.gsTestBatches||[])[0],m=document.getElementById('modal');if(!m)return;
+ document.getElementById('modalTitle').textContent='Agente de Testes V4';
+ document.getElementById('modalBody').innerHTML='<div class="modal-body"><div class="notice"><b>Bateria funcional persistente</b><br>Cria utilizadores e registos identificados como TESTE AGENTE para validação manual. Os dados ficam guardados até serem apagados aqui.</div><div class="actions" style="margin-top:14px"><button class="primary" onclick="GSTestAgentV4.runPersistentUI()">Executar bateria de testes</button>'+(b?'<button class="danger" onclick="GSTestAgentV4.cleanupUI(\''+b.id+'\')">Apagar dados de teste</button>':'')+'</div>'+(b?'<div class="card" style="margin-top:12px"><b>Última bateria:</b> '+b.id+'<br><span class="meta">'+b.createdAt+' · '+b.status+'</span></div>':'<p class="muted">Sem bateria persistente ativa.</p>')+'</div>';m.showModal();
+}
+function runPersistentUI(){const b=seedPersistent();alert('Bateria criada: '+b.id+'. Os dados TESTE AGENTE ficaram guardados para validação.');panel()}
+function cleanupUI(batch){if(!confirm('Apagar apenas os dados criados pela bateria '+batch+'?'))return;cleanup(batch);alert('Dados de teste apagados.');panel()}
 function report(){
  const x=run(),icon={ok:'✅',warn:'⚠️',error:'❌'};
  const body='<div class="modal-body"><div class="notice"><b>Agente de Testes V4</b><br>Verifica automaticamente as ligações estruturais do programa. '+(x.bad?'<b>'+x.bad+' problema(s) detetado(s).</b>':'<b>Todas as verificações passaram.</b>')+'</div><div class="card" style="margin-top:12px">'+x.results.map(r=>'<p>'+icon[r.status]+' <b>'+r.label+'</b>'+(r.detail?' — '+r.detail:'')+'</p>').join('')+'</div><div class="actions"><button class="primary" type="button" onclick="GSTestAgentV4.report()">Testar novamente</button></div></div>';
  const m=document.getElementById('modal');if(m){document.getElementById('modalTitle').textContent='Diagnóstico automático';document.getElementById('modalBody').innerHTML=body;m.showModal()}
 }
-window.GSTestAgentV4={run,report,sandbox,seedPersistent,cleanup,last:null,sandboxLast:null};
-document.addEventListener('DOMContentLoaded',()=>setTimeout(run,1200));
+window.GSTestAgentV4={run,report,sandbox,seedPersistent,cleanup,panel,runPersistentUI,cleanupUI,last:null,sandboxLast:null};
+document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{run();const nav=document.getElementById('tablesSubmenu')||document.getElementById('nav');if(nav&&!document.getElementById('gsTestAgentButton')){const b=document.createElement('button');b.id='gsTestAgentButton';b.type='button';b.className='secondary';b.textContent='Agente de Testes';b.onclick=panel;nav.appendChild(b)}},1200));
 window.addEventListener('gs:reserved-areas-updated',()=>setTimeout(run,50));
 })();

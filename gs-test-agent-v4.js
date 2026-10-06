@@ -68,7 +68,7 @@ function functionalUI(){
   tests.forEach(([id,e])=>{
    const role=RA?.norm?.(e.role||e.kind),perms=base.roleActionPermissions?.[role]||{},live=R();live.currentUser=id;localStorage.setItem(K,JSON.stringify(live));RA?.apply?.();
    views.forEach(v=>{
-    const nav=document.querySelector('#nav [data-view="'+v+'"]'),expected=role==='CEO'||!!perms[key(v)];
+    const nav=document.querySelector('#nav [data-view="'+v+'"]'),expected=role==='CEO'||(v==='operation'?(!!perms.operation||!!perms.openClinic||!!perms.closeClinic||!!perms.clinicTasks||!!perms.bookings):!!perms[key(v)]);
     // apply() pode atuar após scripts de renderização concorrentes; mede após duas frames.
     const visible=!!nav&&!nav.hidden&&nav.dataset.permissionVisible!=='0'&&getComputedStyle(nav).display!=='none';
     results.push(check('ui-'+id+'-'+v,'UI real — '+(e.name||role)+' / '+v,()=>{const authoritative=nav?.dataset.permissionVisible;if(authoritative==='1'||authoritative==='0')return (authoritative==='1')===expected?true:'Matriz='+expected+'; autorização renderizada='+(authoritative==='1');return visible===expected?true:'Matriz='+expected+'; menu visível='+visible}));

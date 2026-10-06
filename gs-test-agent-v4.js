@@ -25,6 +25,7 @@ function run(){
  results.push(check('finance-scope','Financeiro respeita âmbito de dados',()=>!!window.AccessScopeV4&&!!RA?.actions?.some?.(x=>x[0]==='account')&&!!RA?.actions?.some?.(x=>x[0]==='financeManage')));
  results.push(check('finance-links','Movimentos ligados a clínica e colaborador',()=>{const m=(Array.isArray(s.finance?.movements)?s.finance.movements:Array.isArray(s.finance)?s.finance:(s.movements||s.financialMovements||[]));if(!m.length)return true;return m.every(x=>x.employeeId||x.userId||x.collaboratorId)?true:'Existem movimentos sem colaborador associado'}));
  results.push(check('finance-permissions','Separação consultar/gerir financeiro',()=>!!RA?.actions?.find?.(x=>x[0]==='account')&&!!RA?.actions?.find?.(x=>x[0]==='financeManage')));
+ Object.entries(s.employees||{}).filter(([,e])=>e?.testBatch||e?.hr?.testOnly).forEach(([id,e])=>{const role=RA?.norm?.(e.role||e.kind),perms=s.roleActionPermissions?.[role]||{};if(role==='CEO')return;Object.keys(perms).forEach(action=>results.push(check('matrix-'+id+'-'+action,'Matriz de permissões — '+(e.name||role)+' / '+action,()=>{const old=s.currentUser;const live=R();live.currentUser=id;localStorage.setItem(K,JSON.stringify(live));const actual=!!RA?.can?.(action),expected=!!perms[action];live.currentUser=old;localStorage.setItem(K,JSON.stringify(live));return actual===expected?true:'Esperado '+expected+'; obtido '+actual}))) });
  const bad=results.filter(x=>x.status!=='ok').length;
  window.GSTestAgentV4.last={at:new Date().toISOString(),results,bad};
  window.dispatchEvent(new CustomEvent('gs:test-agent-complete',{detail:window.GSTestAgentV4.last}));
@@ -62,7 +63,7 @@ function sandbox(){
 function seedPersistent(){
  const s=R(),RA=window.RoleAccessAdminV4,roles=RA?.ROLES||FIXED,stamp=new Date().toISOString(),batch='gstest_'+Date.now(),clinic=(s.clinics||[]).find(x=>x.active!==false&&x.operational!==false&&x.id!=='administracao');
  s.employees=s.employees||{};s.users=Array.isArray(s.users)?s.users:[];s.leave=Array.isArray(s.leave)?s.leave:[];s.audit=Array.isArray(s.audit)?s.audit:[];
- roles.forEach((role,i)=>{const id=batch+'_u'+i;s.employees[id]={id,name:'TESTE AGENTE · '+role,email:id+'@teste.invalid',role,kind:role,clinics:clinic?[clinic.id]:[],active:true,testBatch:batch,testFullAccess:true,hr:{reservedAccess:true,testOnly:true,testBatch:batch,testFullAccess:true}}});
+ roles.forEach((role,i)=>{const id=batch+'_u'+i;s.employees[id]={id,name:'TESTE AGENTE · '+role,email:id+'@teste.invalid',role,kind:role,clinics:clinic?[clinic.id]:[],active:true,testBatch:batch,hr:{reservedAccess:true,testOnly:true,testBatch:batch}}});
  localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();const t=R();
  const ids=roles.map((_,i)=>batch+'_u'+i),adminId=ids[1],techId=ids[4],callId=ids[6];
  t.leave=t.leave||[];t.leave.push({id:batch+'_leave',employeeId:techId,type:'Férias',status:'Pendente',start:new Date().toISOString().slice(0,10),end:new Date().toISOString().slice(0,10),testBatch:batch});
@@ -70,7 +71,7 @@ function seedPersistent(){
  t.tasks=t.tasks||[];t.tasks.push({id:batch+'_task',name:'TESTE AGENTE · tarefa operacional',phase:'live',required:false,clinics:clinic?[clinic.id]:[],role:'ADMINISTRATIVA',active:true,testBatch:batch});
  t.requests=t.requests||[];t.requests.push({id:batch+'_request',clinic:clinic?.id||'',createdBy:callId,status:'Novo',source:'TESTE AGENTE',testBatch:batch});
  t.finance=t.finance&&typeof t.finance==='object'&&!Array.isArray(t.finance)?t.finance:{movements:Array.isArray(t.finance)?t.finance:[]};t.finance.movements=Array.isArray(t.finance.movements)?t.finance.movements:[];t.finance.movements.push({id:batch+'_finance',employeeId:techId,clinicId:clinic?.id||'',personId:techId,person:t.employees?.[techId]?.name||techId,description:'TESTE AGENTE · movimento financeiro',value:1,amount:1,status:'Pendente',createdBy:adminId,createdAt:stamp,testBatch:batch});
- t.gsTestBatches=t.gsTestBatches||[];t.gsTestBatches.unshift({id:batch,createdAt:stamp,fullAccess:true,userIds:ids,artifacts:[batch+'_leave',batch+'_clock',batch+'_task',batch+'_request',batch+'_finance'],status:'Aguardar validação manual'});
+ t.gsTestBatches=t.gsTestBatches||[];t.gsTestBatches.unshift({id:batch,createdAt:stamp,matrixAccess:true,userIds:ids,artifacts:[batch+'_leave',batch+'_clock',batch+'_task',batch+'_request',batch+'_finance'],status:'Aguardar validação manual'});
  t.audit.unshift({id:batch+'_audit',at:stamp,module:'Agente de Testes',action:'Bateria persistente criada',detail:batch,testBatch:batch});
  localStorage.setItem(K,JSON.stringify(t));window.HRReservedAccessLinkV4?.sync?.();return t.gsTestBatches[0];
 }

@@ -56,6 +56,7 @@ const App = (() => {
   }
   let state;
   function load(){ try { state=JSON.parse(localStorage.getItem(KEY)) || seed(); } catch { state=seed(); } migrate(); }
+  function syncState(){try{state=JSON.parse(localStorage.getItem(KEY))||state}catch{}}
   function migrate(){
     state.audit ||= []; state.tasks ||= baseTasks; state.jobRoles ||= [{id:'jr1',name:'Fisioterapeuta',active:true},{id:'jr2',name:'Administrativa',active:true}]; state.timeEntries ||= []; state.timeOccurrences ||= []; state.internalQueue ||= [];
     const waitTask=state.tasks.find(t=>t.id==='waitcalls'); if(waitTask){waitTask.name='Atualizar contador Lista de Espera Clicloud';waitTask.action='waitClicloud'}
@@ -174,7 +175,7 @@ const App = (() => {
   function addTask(){const name=$('tName').value.trim();if(!name)return toast('Nome obrigatório');const t={id:uid('task'),name,phase:$('tPhase').value,required:$('tRequired').value==='1',clinics:[$('tClinic').value],role:$('tRole').value,frequency:$('tFrequency').value,deadline:$('tDeadline').value,response:$('tResponse').value,action:$('tAction').value,active:true};state.tasks.push(t);audit('Configuração','Tarefa criada',t.name);persist();closeModal()}
   function toggleTask(id){const t=state.tasks.find(x=>x.id===id);t.active=!t.active;audit('Configuração',t.active?'Tarefa reativada':'Tarefa arquivada',t.name);persist()}
   function renderAudit(){$('auditContent').innerHTML=`<div class="card">${state.audit.map(a=>`<div class="audit-line"><span>${fmt(a.at)}</span><span><b>${esc(user(a.by).name)}</b><br><span class="pill">${esc(a.module)}</span></span><span><b>${esc(a.action)}</b><br><span class="meta">${esc(a.detail)}</span></span></div>`).join('')||'<p class="muted">A demonstração ainda não tem ações registadas.</p>'}</div>`}
-  function showView(id){if(window.RoleAccessAdminV4&&!RoleAccessAdminV4.guard(id))return;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));$('nav').classList.remove('open');if(id==='chat')renderChat()}
+  function showView(id){syncState();if(window.RoleAccessAdminV4&&!RoleAccessAdminV4.guard(id))return;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));$('nav').classList.remove('open');if(id==='chat')renderChat()}
   function resetDemo(){if(!confirm('Repor todos os dados de demonstração?'))return;state=seed();audit('Sistema','Dados de demonstração repostos','');persist();toast('Demonstração reposta')}
   function init(){load();document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));$('menuBtn').onclick=()=>$('nav').classList.toggle('open');$('currentUser').onchange=e=>{state.currentUser=e.target.value;audit('Sessão','Utilizador de teste alterado',user().name);persist()};renderAll()}
   document.addEventListener('DOMContentLoaded',init);

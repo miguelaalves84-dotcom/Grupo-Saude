@@ -30,12 +30,28 @@ function run(){
  window.dispatchEvent(new CustomEvent('gs:test-agent-complete',{detail:window.GSTestAgentV4.last}));
  return window.GSTestAgentV4.last;
 }
+function sandbox(){
+ const before=localStorage.getItem(K),base=R(),RA=window.RoleAccessAdminV4,roles=RA?.ROLES||FIXED,results=[];
+ try{
+  const s=JSON.parse(JSON.stringify(base));s.employees=s.employees||{};s.users=Array.isArray(s.users)?s.users:[];
+  const realClinic=(s.clinics||[]).find(x=>x.active!==false&&x.operational!==false&&x.id!=='administracao');
+  roles.forEach((role,i)=>{const id='__gs_test_'+i;s.employees[id]={id,name:'TESTE '+role,email:id+'@teste.invalid',role,kind:role,clinics:realClinic?[realClinic.id]:[],active:true,hr:{reservedAccess:true,testOnly:true}}});
+  localStorage.setItem(K,JSON.stringify(s));
+  window.HRReservedAccessLinkV4?.sync?.();
+  const t=R();
+  roles.forEach((role,i)=>{const id='__gs_test_'+i,e=t.employees?.[id],a=(t.users||[]).find(x=>String(x.employeeId||x.id)===id),nr=RA?.norm?.(e?.role)||e?.role,ar=RA?.norm?.(a?.role)||a?.role;
+   results.push(check('sandbox-'+role,'Teste isolado — '+role,()=>{if(!e)return 'Colaborador temporário não criado';if(!a)return 'Área reservada temporária não criada';if(nr!==role||ar!==role)return 'Cargo não preservado na Área Reservada';if(role!=='CEO'&&role!=='ADMINISTRAÇÃO'&&window.AccessScopeV4?.canEmployee&&window.AccessScopeV4.canEmployee('__outro_colaborador__'))return 'Perfil consegue aceder a outro colaborador';return true}))
+  });
+ }catch(e){results.push({id:'sandbox-fatal',label:'Teste isolado',status:'error',detail:e.message})}
+ finally{if(before===null)localStorage.removeItem(K);else localStorage.setItem(K,before);window.HRReservedAccessLinkV4?.sync?.()}
+ const bad=results.filter(x=>x.status!=='ok').length;window.GSTestAgentV4.sandboxLast={at:new Date().toISOString(),results,bad};return window.GSTestAgentV4.sandboxLast;
+}
 function report(){
  const x=run(),icon={ok:'✅',warn:'⚠️',error:'❌'};
  const body='<div class="modal-body"><div class="notice"><b>Agente de Testes V4</b><br>Verifica automaticamente as ligações estruturais do programa. '+(x.bad?'<b>'+x.bad+' problema(s) detetado(s).</b>':'<b>Todas as verificações passaram.</b>')+'</div><div class="card" style="margin-top:12px">'+x.results.map(r=>'<p>'+icon[r.status]+' <b>'+r.label+'</b>'+(r.detail?' — '+r.detail:'')+'</p>').join('')+'</div><div class="actions"><button class="primary" type="button" onclick="GSTestAgentV4.report()">Testar novamente</button></div></div>';
  const m=document.getElementById('modal');if(m){document.getElementById('modalTitle').textContent='Diagnóstico automático';document.getElementById('modalBody').innerHTML=body;m.showModal()}
 }
-window.GSTestAgentV4={run,report,last:null};
+window.GSTestAgentV4={run,report,sandbox,last:null,sandboxLast:null};
 document.addEventListener('DOMContentLoaded',()=>setTimeout(run,1200));
 window.addEventListener('gs:reserved-areas-updated',()=>setTimeout(run,50));
 })();

@@ -12,5 +12,6 @@ function install(){const r=tablesRoot();if(!r)return false;let c=card('Clínicas
 function back(){const b=document.querySelector('#clinics [data-back-tables]')||document.querySelector('#clinics .page-head .secondary');if(b&&!b.dataset.v4Back){b.dataset.v4Back='1';b.onclick=e=>{e.preventDefault();document.querySelectorAll('main .view').forEach(x=>x.classList.remove('active'));const t=document.getElementById('tables')||[...document.querySelectorAll('.view')].find(x=>/Tabelas\s*\/\s*Configuração/i.test(x.querySelector('h1')?.textContent||''));t?.classList.add('active')}}}
 function boot(){sync();install();back();let busy=false;new MutationObserver(()=>{if(busy)return;busy=true;requestAnimationFrame(()=>{install();back();busy=false})}).observe(document.body,{childList:true,subtree:true})}
 document.addEventListener('gs-v4-config-updated',e=>{if(['clinic','specialty','professional','master-data-restored'].includes(e.detail?.type)){sync();install()}});
+window.TablesClinicUnifiedV4={install,openClinics,back,sync};
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot):boot();
 })();

@@ -79,8 +79,9 @@ function functionalUI(){
  finally{if(before===null)localStorage.removeItem(K);else localStorage.setItem(K,before);RA?.apply?.()}
  const bad=results.filter(x=>x.status!=='ok').length;return{at:new Date().toISOString(),results,bad};
 }
+function purgeTestData(s){const tag=x=>!!(x?.testBatch||x?.hr?.testOnly||String(x?.id||'').startsWith('gstest_')||String(x?.id||'').startsWith('__gs_test_')||/^TESTE AGENTE\b/i.test(String(x?.name||'')));Object.keys(s.employees||{}).forEach(id=>{if(tag(s.employees[id]))delete s.employees[id]});s.users=(s.users||[]).filter(x=>!tag(x));['leave','timeOccurrences','tasks','requests'].forEach(k=>{if(Array.isArray(s[k]))s[k]=s[k].filter(x=>!tag(x))});if(s.finance&&Array.isArray(s.finance.movements))s.finance.movements=s.finance.movements.filter(x=>!tag(x));s.gsTestBatches=[];return s}
 function seedPersistent(){
- const s=R(),RA=window.RoleAccessAdminV4,roles=RA?.ROLES||FIXED,stamp=new Date().toISOString(),batch='gstest_'+Date.now(),clinic=(s.clinics||[]).find(x=>x.active!==false&&x.operational!==false&&x.id!=='administracao');
+ const s=purgeTestData(R()),RA=window.RoleAccessAdminV4,roles=RA?.ROLES||FIXED,stamp=new Date().toISOString(),batch='gstest_'+Date.now(),clinic=(s.clinics||[]).find(x=>x.active!==false&&x.operational!==false&&x.id!=='administracao');
  s.employees=s.employees||{};s.users=Array.isArray(s.users)?s.users:[];s.leave=Array.isArray(s.leave)?s.leave:[];s.audit=Array.isArray(s.audit)?s.audit:[];
  roles.forEach((role,i)=>{const id=batch+'_u'+i;s.employees[id]={id,name:'TESTE AGENTE · '+role,email:id+'@teste.invalid',role,kind:role,clinics:clinic?[clinic.id]:[],active:true,testBatch:batch,hr:{reservedAccess:true,testOnly:true,testBatch:batch}}});
  localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();const t=R();
@@ -110,13 +111,13 @@ function panel(){
  document.getElementById('modalBody').innerHTML='<div class="modal-body"><div class="notice"><b>Bateria funcional persistente</b><br>Cria utilizadores e registos identificados como TESTE AGENTE para validação manual. Os dados ficam guardados até serem apagados aqui.</div><div class="actions" style="margin-top:14px"><button class="primary" onclick="GSTestAgentV4.runPersistentUI()">Executar bateria de testes</button>'+(b?'<button class="danger" onclick="GSTestAgentV4.cleanupUI(\''+b.id+'\')">Apagar dados de teste</button>':'')+'</div>'+(b?'<div class="card" style="margin-top:12px"><b>Última bateria:</b> '+b.id+'<br><span class="meta">'+b.createdAt+' · '+b.status+'</span></div>':'<p class="muted">Sem bateria persistente ativa.</p>')+'</div>';m.showModal();
 }
 function runPersistentUI(){const b=seedPersistent(),struct=run(),ui=functionalUI(),x={at:new Date().toISOString(),results:[...struct.results,...ui.results],bad:struct.bad+ui.bad};saveReport('Bateria estrutural + funcional/UI',x,b.id);alert('Bateria criada: '+b.id+'. Foram testadas estrutura, visibilidade real do menu e bloqueio de navegação contra a matriz.');panel()}
-function cleanupUI(batch){if(!confirm('Apagar apenas os dados criados pela bateria '+batch+'?'))return;cleanup(batch);alert('Dados de teste apagados.');panel()}
+function cleanupUI(batch){if(!confirm('Apagar os dados criados pela bateria de testes?'))return;const s=purgeTestData(R());localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();alert('Dados de teste apagados.');panel()}
 function report(){
  const x=run(),icon={ok:'✅',warn:'⚠️',error:'❌'};
  const body='<div class="modal-body"><div class="notice"><b>Agente de Testes V4</b><br>Verifica automaticamente as ligações estruturais do programa. '+(x.bad?'<b>'+x.bad+' problema(s) detetado(s).</b>':'<b>Todas as verificações passaram.</b>')+'</div><div class="card" style="margin-top:12px">'+x.results.map(r=>'<p>'+icon[r.status]+' <b>'+r.label+'</b>'+(r.detail?' — '+r.detail:'')+'</p>').join('')+'</div><div class="actions"><button class="primary" type="button" onclick="GSTestAgentV4.report()">Testar novamente</button></div></div>';
  const m=document.getElementById('modal');if(m){document.getElementById('modalTitle').textContent='Diagnóstico automático';document.getElementById('modalBody').innerHTML=body;m.showModal()}
 }
 window.GSTestAgentV4={run,functionalUI,report,sandbox,seedPersistent,cleanup,saveReport,reportsPanel,panel,runPersistentUI,cleanupUI,last:null,sandboxLast:null};
-document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{run();const nav=document.getElementById('tablesSubmenu')||document.getElementById('nav');if(nav&&!document.getElementById('gsTestAgentButton')){const b=document.createElement('button');b.id='gsTestAgentButton';b.type='button';b.className='secondary';b.textContent='Agente de Testes';b.onclick=panel;nav.appendChild(b)}},1200));
+document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{const s=purgeTestData(R());localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();run();const nav=document.getElementById('tablesSubmenu')||document.getElementById('nav');if(nav&&!document.getElementById('gsTestAgentButton')){const b=document.createElement('button');b.id='gsTestAgentButton';b.type='button';b.className='secondary';b.textContent='Agente de Testes';b.onclick=panel;nav.appendChild(b)}},1200));
 window.addEventListener('gs:reserved-areas-updated',()=>setTimeout(run,50));
 })();

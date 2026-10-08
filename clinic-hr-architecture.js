@@ -25,7 +25,35 @@ function saveVacation(id){const s=state(),a=document.getElementById('vacStart')?
 function renderCandidates(){const s=state(),root=document.getElementById('hrContent');if(!root)return;root.innerHTML=`<div class="page-head" style="padding:0"><div><h2>Candidatos</h2><p>Recrutamento e admissão</p></div><button class="primary" onclick="App.openCandidateForm()">+ Candidato</button></div><div class="card">${s.candidates.map((c,i)=>`<div class="row"><strong>${esc(c.name)}</strong><button class="primary" onclick="V4ClinicHR.promoteCandidate(${i})">Passar para colaborador</button></div>`).join('')||'<p class="muted">Sem candidatos.</p>'}</div>`}
 function promoteCandidate(i){const s=state(),c=s.candidates[i];if(!c)return;const id=c.id||`emp_${Date.now()}`;s.employees[id]={...c,id,active:true,stage:'Ativo'};s.candidates.splice(i,1);write(s);renderCandidates()}
 function clockIn(){if(window.App?.prepareClock)return App.prepareClock();modal('Livro de ponto','<p>Marcação indisponível.</p>')} function temporaryExit(){if(window.App?.temporaryExit)return App.temporaryExit();modal('Saída temporária','<p>Marcação indisponível.</p>')} function correction(){if(window.App?.requestTimeCorrection)return App.requestTimeCorrection();modal('Correção de ponto','<p>Pedido indisponível.</p>')}
-function hrTabs(){const sec=document.getElementById('hr');if(!sec)return;const st=state(),me=(st.users||[]).find(u=>u.id===st.currentUser)||st.employees?.[st.currentUser],personal=me&&!/administra[cç][aã]o|ceo|rh|gestor/i.test(String(me.role||me.kind||''));if(personal){const head=sec.querySelector('.page-head'),old=head?.querySelector('[data-rhtabs]');if(old)old.remove();let wrap=document.getElementById('hrContent');if(wrap){wrap.dataset.v4Ready='1';wrap.innerHTML='<div class="card"><h3>Minha área pessoal</h3><p class="muted">Ficha, documentos, férias, ponto e informação pessoal.</p><div class="actions"><button class="primary" onclick="V4ClinicHR.openEmployee(\''+me.id+'\')">Abrir a minha ficha</button><button class="secondary" onclick="V4ClinicHR.vacationCenter(\''+me.id+'\')">As minhas férias</button></div></div>'}return}const head=sec.querySelector('.page-head');if(head&&!head.querySelector('[data-rhtabs]')){const old=head.querySelector('button');if(old)old.remove();const d=document.createElement('div');d.dataset.rhtabs='1';d.className='actions';d.innerHTML='<button class="secondary" onclick="V4ClinicHR.showEmployees()">Colaboradores</button><button class="secondary" onclick="V4ClinicHR.showCandidates()">Candidatos</button>';head.appendChild(d)}let wrap=document.getElementById('hrContent');if(!wrap){wrap=document.createElement('div');wrap.id='hrContent';sec.appendChild(wrap)}if(!wrap.dataset.v4Ready){wrap.dataset.v4Ready='1';wrap.innerHTML='<div class="card"><h3>Recursos Humanos</h3><p class="muted">Selecione <b>Colaboradores</b> ou <b>Candidatos</b> para abrir a respetiva área.</p></div>'}}
+function hrTabs(){
+  const sec=document.getElementById('hr');if(!sec)return;
+  const st=state(),me=(st.users||[]).find(u=>String(u.id)===String(st.currentUser))||st.employees?.[st.currentUser];
+  const personal=me&&!/administra[cç][aã]o|ceo|rh|gestor/i.test(String(me.role||me.kind||''));
+  const head=sec.querySelector('.page-head');
+  head?.querySelector('[data-rhtabs]')?.remove();
+  let tabs=sec.querySelector('[data-rh-navigation]');
+  let wrap=document.getElementById('hrContent');
+  if(!wrap){wrap=document.createElement('div');wrap.id='hrContent';sec.appendChild(wrap)}
+  if(personal){
+    tabs?.remove();
+    if(!wrap.dataset.v4Personal||!wrap.innerHTML.trim()){
+      wrap.dataset.v4Personal='1';wrap.dataset.v4Ready='1';
+      wrap.innerHTML='<div class="card"><h3>Minha área pessoal</h3><p class="muted">Ficha, documentos, férias, ponto e informação pessoal.</p><div class="actions"><button class="primary" onclick="V4ClinicHR.openEmployee(\''+me.id+'\')">Abrir a minha ficha</button><button class="secondary" onclick="V4ClinicHR.vacationCenter(\''+me.id+'\')">As minhas férias</button></div></div>';
+    }
+    return;
+  }
+  delete wrap.dataset.v4Personal;
+  if(!tabs){
+    tabs=document.createElement('div');tabs.dataset.rhNavigation='1';tabs.className='actions';
+    tabs.style.cssText='margin:12px 0 18px;display:flex;flex-wrap:wrap;gap:8px';
+    tabs.innerHTML='<button type="button" class="secondary" onclick="V4ClinicHR.showEmployees()">Colaboradores</button><button type="button" class="secondary" onclick="V4ClinicHR.showCandidates()">Candidatos</button>';
+    wrap.parentNode.insertBefore(tabs,wrap);
+  }
+  if(!wrap.innerHTML.trim()||!wrap.dataset.v4Ready){
+    wrap.dataset.v4Ready='1';
+    renderEmployees();
+  }
+}
 window.V4ClinicHR={regularizeDocuments,uploadRequired,vacationCenter,saveVacation,todayDocuments,showEmployees:renderEmployees,showCandidates:renderCandidates,openEmployee,openEmployeeForm,promoteCandidate,clockIn,temporaryExit,correction};document.addEventListener('DOMContentLoaded',()=>setTimeout(hrTabs,100));document.addEventListener('click',e=>{if(e.target.closest?.('[data-view="hr"]'))setTimeout(()=>{const sec=document.getElementById('hr');if(sec?.classList.contains('active'))hrTabs();},0)},false);
 })();
 /* V4 HR completion layer */

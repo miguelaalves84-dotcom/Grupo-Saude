@@ -4,5 +4,10 @@
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
     "@vercel/blob": "^2.0.0"
+  },
+  "scripts": {
+    "check": "node tests/syntax.cjs",
+    "test": "node tests/syntax.cjs && node tests/runtime.cjs",
+    "test:browser": "python3 tests/browser.py"
   }
 }

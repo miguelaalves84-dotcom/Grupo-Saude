@@ -8,5 +8,22 @@
 <dialog id="modal"><form method="dialog" class="modal-head"><h2 id="modalTitle">Detalhe</h2><button value="cancel" aria-label="Fechar">×</button></form><div id="modalBody"></div></dialog><div id="toast" role="status" aria-live="polite"></div>
 <script src="app.js?v=20261008-1459"></script><script src="safe-reset-v4.js"></script><script src="validation-fixes.js"></script><script src="professional-selects.js"></script><script src="scheduled-indicators.js"></script><script src="v4-master-integrations.js"></script><script src="funnel-drag.js"></script><script src="doctor-specialties.js"></script><script src="clinic-single-source-v4.js"></script><script src="hr-master-v4.js"></script><script src="hr-rosters-overtime-v4.js"></script><script src="clinic-hr-architecture.js?v=20261008-1443"></script><script src="gs-enterprise.js"></script><script src="clinic-master-v4.js"></script><script src="global-search-v4.js"></script><script src="active-clinic-filter-v4.js"></script><script src="clinic-relations-v4.js"></script><script src="clinic-structure-renderer-v4.js"></script><script src="hr-form-fix-v4.js"></script><script src="contract-types-v4.js"></script><script src="v4-data-integrity.js"></script><!-- Funil documental consolidado na Ficha Mestre RH; módulo legado removido para evitar renderização duplicada --><script src="access-scope-v4.js"></script><script src="ceo-reserved-area-switcher-v4.js?v=20261008-1450"></script><script src="vacation-calendar-v4.js?v=20261008-1437"></script><script src="clinic-calendars-v4.js"></script><script src="role-access-admin-v4.js?v=20261008-1534"></script><script src="hr-vacation-planning-v4.js"></script>
 <script src="gs-test-agent-v4.js"></script><script src="attendance-dashboard-v4.js"></script><script src="hr-separation-v4.js"></script><script src="approvals-center-v4.js?v=20261008-1432"></script><script src="tables-canonical-controller-v4.js?v=20261007-2349"></script>
-<script src="access-log-v4.js"></script><!-- Cloudflare production trigger: 2026-10-08-0041 -->
+<script src="access-log-v4.js"></script><script>
+/* Navegação RH: sincroniza menu e vista após os módulos legados processarem o clique. */
+(()=>{'use strict';
+  function activateHR(){
+    const section=document.getElementById('hr');
+    const nav=document.querySelector('#nav [data-view="hr"]');
+    if(!section||!nav||nav.hidden||nav.dataset.permissionVisible==='0')return;
+    document.querySelectorAll('section.view').forEach(el=>el.classList.toggle('active',el===section));
+    document.querySelectorAll('#nav [data-view]').forEach(el=>el.classList.toggle('active',el===nav));
+    section.style.removeProperty('display');
+    if(window.V4ClinicHR?.hrTabs)window.V4ClinicHR.hrTabs();
+  }
+  document.addEventListener('click',event=>{
+    if(!event.target.closest?.('#nav [data-view="hr"]'))return;
+    setTimeout(activateHR,0);
+  });
+})();
+</script><!-- Cloudflare production trigger: 2026-10-08-0041 -->
 </body></html>

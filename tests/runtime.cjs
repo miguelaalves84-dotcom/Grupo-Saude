@@ -20,7 +20,7 @@ function environment(initial){
   removeAttribute(k){if(k==='hidden')this.hidden=false}
   querySelector(s){if(s==='.page-head')return this.head;if(s==='button')return this.children.find(x=>x.tagName==='BUTTON')||new Element();if(s==='.cards')return this.grid;return this.querySelectorAll(s)[0]||null}
   querySelectorAll(s){if(s==='button')return this.children.filter(x=>x.tagName==='BUTTON');if(s==='[data-rhtabs]')return this.children.filter(x=>x.dataset.rhtabs);return []}
-  closest(s){if(s==='[data-leave-action]'&&this.dataset.leaveAction)return this;if(s==='[data-approval-decision]'&&this.dataset.approvalDecision)return this;if(s.includes('[data-view]')&&this.dataset.view)return this;return null}
+  closest(s){if(s==='[data-performance-action]'&&this.dataset.performanceAction)return this;if(s==='[data-leave-action]'&&this.dataset.leaveAction)return this;if(s==='[data-approval-decision]'&&this.dataset.approvalDecision)return this;if(s.includes('[data-view]')&&this.dataset.view)return this;return null}
   click(){const e={target:this,preventDefault(){},stopImmediatePropagation(){this.stopped=true}};for(const f of listeners.get('click')||[]){f(e);if(e.stopped)break}if(!e.stopped)this.onclick?.(e)}
   showModal(){this.open=true} close(){this.open=false}
  }
@@ -54,7 +54,7 @@ test('baseline: undefined clinics interrupts a seeded startup',()=>{
  assert.throws(()=>e.document.dispatchEvent({type:'DOMContentLoaded'}),/clinics is not defined/);
 });
 }else console.log('SKIP historical reproduction: set GS_BASELINE_DIR to files from upstream 84fba5a');
-function core(){const e=environment();for(const f of ['app.js','hr-leave-domain-v4.js','hr-leave-ui-v4.js','access-scope-v4.js','clinic-hr-architecture.js','ceo-reserved-area-switcher-v4.js','role-access-admin-v4.js'])e.run(f);e.document.dispatchEvent({type:'DOMContentLoaded'});e.flush();return e}
+function core(){const e=environment();for(const f of ['app.js','hr-leave-domain-v4.js','hr-leave-ui-v4.js','hr-performance-domain-v4.js','hr-performance-ui-v4.js','access-scope-v4.js','clinic-hr-architecture.js','ceo-reserved-area-switcher-v4.js','role-access-admin-v4.js'])e.run(f);e.document.dispatchEvent({type:'DOMContentLoaded'});e.flush();return e}
 test('fresh startup, synchronous initialization and direct CEO RH',()=>{
  const e=core();assert(e.read().candidates);assert(e.read().users.some(x=>x.id==='u1'));
  assert(e.context.App.showView('hr'));assert(e.elements.get('hr').classList.contains('active'));assert.match(e.elements.get('hrContent').innerHTML,/Recursos Humanos/);
@@ -134,4 +134,5 @@ test('issue6: employee sees only addressed RH notifications',()=>{const e=leaveF
 
 test('issue6: individual picker handlers compile and existing vacation click opens its exact detail',()=>{const e=leaveFixture(),U=e.context.HRLeaveUIV4;e.context.VacationCalendarV4.open('p');e.context.VacationCalendarV4.prev();const html=e.elements.get('vacCal').innerHTML;for(const m of html.matchAll(/onclick="([^"]*)"/g))new vm.Script(m[1].replaceAll('&#39;',"'").replaceAll('&quot;','"').replaceAll('&amp;','&'));const b=e.document.createElement('button');b.dataset.leaveAction='open';b.dataset.leaveId='original';b.click();assert(e.elements.get('modalBody').innerHTML.includes('Descanso'));assert(e.elements.get('modalBody').innerHTML.includes('Pessoa'));assert(U.form('original')!==false)});
 test('issue6: empty vacation/medical records cannot be approved',()=>{const e=leaveFixture(),D=e.context.HRLeaveV4,s=e.read();s.leave.push({id:'empty',employeeId:'p',type:'Férias',days:[],status:'Pendente'},{id:'empty-sick',employeeId:'p',type:'Baixa',status:'Pendente'});e.write(s);const before=e.read();assert.throws(()=>D.decide('empty','Aprovado'));assert.throws(()=>D.decide('empty-sick','Aprovado'));assert.deepEqual(e.read(),before)});
+require('./performance.cjs')({core,test,assert,vm,flat,actor,leaveFixture});
 console.log(JSON.stringify({passed,scope:'JavaScript real + DOM simulado; navegador e backend não executados'}));

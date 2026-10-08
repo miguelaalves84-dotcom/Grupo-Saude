@@ -80,14 +80,14 @@
     const entitled=entitlement(s,id,year);
     return {year:String(year),entitled,approved:approved.size,used:approved.size,pending:pending.size,available:Math.max(0,entitled-approved.size),unreserved:Math.max(0,entitled-approved.size-pending.size)};
   }
-  function context(s, x, requested=days(x), cid=clinic(s,x)) {
+  function context(s, x, requested=days(x), cid=clinic(s,x), requestDays=requested) {
     if(!canTeam(s)) return {clinicId:cid,team:[],absences:[],coverage:[],conflicts:[]};
     const p=person(s,owner(x)), role=norm(p.role || p.kind), people=new Map();
     for(const u of [...(s.users || []), ...Object.values(s.employees || {})]) people.set(String(u.id),person(s,u.id));
     const team=[...people.values()].filter(u=>u.active!==false && norm(u.role || u.kind)===role && clinics(u).includes(cid));
     const ids=new Set(team.map(u=>String(u.id))), requestedSet=new Set(requested);
     const absences=(s.leave || []).filter(v=>v.id!==x.id && owner(v)!==owner(x) && ids.has(owner(v)) && active(v) && !change(v) && (vacation(v)||sick(v)) && (!v.clinicId || String(v.clinicId)===cid)).map(v=>({record:v,employee:person(s,owner(v)),days:days(v).filter(d=>requestedSet.has(d))})).filter(v=>v.days.length);
-    const coverage=requested.map(d=>{const approved=new Set(absences.filter(v=>norm(v.record.status)==='APROVADO' && v.days.includes(d)).map(v=>owner(v.record))),pending=new Set(absences.filter(v=>norm(v.record.status)==='PENDENTE' && v.days.includes(d)).map(v=>owner(v.record)));approved.add(owner(x));const potential=new Set([...approved,...pending]);return {date:d,working:working(s,cid,d),total:team.length,available:Math.max(0,team.length-approved.size),potentialAvailable:Math.max(0,team.length-potential.size),absent:approved.size,pending:pending.size}});
+    const coverage=requested.map(d=>{const approved=new Set(absences.filter(v=>norm(v.record.status)==='APROVADO' && v.days.includes(d)).map(v=>owner(v.record))),pending=new Set(absences.filter(v=>norm(v.record.status)==='PENDENTE' && v.days.includes(d)).map(v=>owner(v.record)));if(requestDays.includes(d))approved.add(owner(x));const potential=new Set([...approved,...pending]);return {date:d,working:working(s,cid,d),total:team.length,available:Math.max(0,team.length-approved.size),potentialAvailable:Math.max(0,team.length-potential.size),absent:approved.size,pending:pending.size}});
     return {clinicId:cid,team,absences,coverage,conflicts:absences};
   }
   function snapshot(x) {return {days:days(x),start:x.start || '',end:x.end || '',status:x.status || 'Pendente',revision:Number(x.revision || 0)}}

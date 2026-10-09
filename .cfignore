@@ -13,3 +13,7 @@ workers/
 *.log
 *.sqlite
 *.sqlite-*
+
+# Generated static build; Cloudflare currently publishes root assets.
+dist/
+scripts/

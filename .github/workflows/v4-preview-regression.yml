@@ -42,3 +42,9 @@ jobs:
       - run: python tests/${{ matrix.suite }}.py
         env:
           GS_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}
+      - name: Verify deployed assets and inspect production (read-only)
+        if: matrix.suite == 'browser'
+        run: python tests/cloudflare-publication.py
+        env:
+          GS_PREVIEW_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}
+          GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}

@@ -197,7 +197,8 @@ with sync_playwright() as p:
     expect(secure_page.locator('#financeDialog')).to_contain_text('Tabelas → Lista de Emails')
     expect(secure_page.locator('#financeDialog [data-email-config]')).to_have_count(4)
     expect(secure_page.locator('[data-fin-action="email-oauth-start"]')).to_have_count(4)
-    secure_page.locator('[data-fin-action="email-sync"][data-id="payslips"]').click()
+    with secure_page.expect_response(lambda response:'action=email-sync' in response.url):
+        secure_page.locator('[data-fin-action="email-sync"][data-id="payslips"]').click()
     assert sync_calls and sync_calls[-1]['id']=='payslips'
     secure_page.locator('[data-fin-action="email-security-status"]').click()
     expect(secure_page.locator('#financeDialog')).to_contain_text('Importação real bloqueada')

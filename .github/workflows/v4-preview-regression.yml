@@ -1,8 +1,6 @@
 name: V4 preview regression
 on:
   pull_request:
-  push:
-    branches: [feat/v4-consolidation-dashboard-access]
 permissions:
   contents: read
   checks: read
@@ -19,6 +17,11 @@ jobs:
       - run: npm test
       - run: npm run build
   browser:
+    name: browser (${{ matrix.suite }})
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [browser, finance-browser, improvements-browser]
     needs: regression
     runs-on: ubuntu-latest
     steps:
@@ -29,13 +32,13 @@ jobs:
       - run: pip install playwright==1.56.0
       - run: python -m playwright install --with-deps chromium
       - run: python -m http.server 8765 --bind 127.0.0.1 > /tmp/gs-http.log 2>&1 &
-      - run: python tests/browser.py && python tests/finance-browser.py && python tests/improvements-browser.py
+      - run: python tests/${{ matrix.suite }}.py
         env:
           GS_TEST_URL: http://127.0.0.1:8765/index.html
       - run: python tests/resolve-preview.py
         env:
           GH_READ_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
-      - run: python tests/browser.py && python tests/finance-browser.py && python tests/improvements-browser.py
+      - run: python tests/${{ matrix.suite }}.py
         env:
           GS_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}

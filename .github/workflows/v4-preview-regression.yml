@@ -1,0 +1,33 @@
+name: V4 preview regression
+on:
+  pull_request:
+  push:
+    branches: [feat/v4-consolidation-dashboard-access]
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --ignore-scripts
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+  browser:
+    needs: regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.56.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python -m http.server 8765 --bind 127.0.0.1 > /tmp/gs-http.log 2>&1 &
+      - run: python tests/browser.py && python tests/finance-browser.py && python tests/improvements-browser.py
+        env:
+          GS_TEST_URL: http://127.0.0.1:8765/index.html

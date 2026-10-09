@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser]
     needs: regression
     runs-on: ubuntu-latest
     steps:

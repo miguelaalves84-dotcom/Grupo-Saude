@@ -55,7 +55,7 @@ test('baseline: undefined clinics interrupts a seeded startup',()=>{
  assert.throws(()=>e.document.dispatchEvent({type:'DOMContentLoaded'}),/clinics is not defined/);
 });
 }else console.log('SKIP historical reproduction: set GS_BASELINE_DIR to files from upstream 84fba5a');
-function core(){const e=environment();for(const f of ['app.js','hr-leave-domain-v4.js','hr-leave-ui-v4.js','hr-performance-domain-v4.js','hr-performance-ui-v4.js','access-scope-v4.js','clinic-hr-architecture.js','ceo-reserved-area-switcher-v4.js','access-policy-core-v4.js','role-access-admin-v4.js'])e.run(f);e.document.dispatchEvent({type:'DOMContentLoaded'});e.flush();return e}
+function core(){const e=environment();for(const f of ['app.js','hr-leave-domain-v4.js','hr-leave-ui-v4.js','hr-performance-domain-v4.js','hr-performance-ui-v4.js','access-scope-v4.js','clinic-hr-architecture.js','ceo-reserved-area-switcher-v4.js','access-policy-core-v4.js','role-access-admin-v4.js','communications-core-v4.js'])e.run(f);e.document.dispatchEvent({type:'DOMContentLoaded'});e.flush();return e}
 test('fresh startup, synchronous initialization and direct CEO RH',()=>{
  const e=core();assert(e.read().candidates);assert(e.read().users.some(x=>x.id==='u1'));
  assert(e.context.App.showView('hr'));assert(e.elements.get('hr').classList.contains('active'));assert.match(e.elements.get('hrContent').innerHTML,/Colaboradores/);assert.match(e.elements.get('hrContent').innerHTML,/Candidatos/);

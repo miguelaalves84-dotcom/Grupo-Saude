@@ -23,7 +23,8 @@
   const adminRole = s => String(s.currentUser) === 'u1' || ['CEO', 'ADMINISTRACAO'].includes(norm(person(s, s.currentUser).role || person(s, s.currentUser).kind));
   const canReview = s => adminRole(s) && permission(s, 'leaveApprove');
   const canTeam = s => adminRole(s) && (permission(s, 'hrManage') || permission(s, 'leaveApprove'));
-  const canRead = (s, x) => canTeam(s) || owner(x) === String(s.currentUser);
+  const teamPerson=(s,id,cid='')=>{const scope=window.AccessScopeV4;if(!scope)return true;if(scope.isAdmin(s))return true;const allowed=scope.clinics(s);return cid?allowed.includes(String(cid)):clinics(person(s,id)).some(c=>allowed.includes(c))};
+  const canRead = (s, x) => person(s,s.currentUser).active!==false&&(owner(x) === String(s.currentUser) || canTeam(s)&&teamPerson(s,owner(x),x.clinicId||x.clinic||''));
   const canEdit = s => canReview(s) && permission(s, 'hrManage');
   function date(d) {
     if(!/^\d{4}-\d{2}-\d{2}$/.test(String(d))) throw Error('Indique uma data válida.');
@@ -77,7 +78,7 @@
     return {year:String(year),entitled,approved:approved.size,used:approved.size,pending:pending.size,available:Math.max(0,entitled-approved.size),unreserved:Math.max(0,entitled-approved.size-pending.size)};
   }
   function context(s, x, requested=days(x), cid=clinic(s,x), requestDays=requested) {
-    if(!canTeam(s)) return {clinicId:cid,team:[],absences:[],coverage:[],conflicts:[]};
+    if(!canTeam(s)||!canRead(s,x)||!teamPerson(s,owner(x),cid)) return {clinicId:cid,team:[],absences:[],coverage:[],conflicts:[]};
     const p=person(s,owner(x)), role=norm(p.role || p.kind), people=new Map();
     for(const u of [...(s.users || []), ...Object.values(s.employees || {})]) people.set(String(u.id),person(s,u.id));
     const team=[...people.values()].filter(u=>u.active!==false && norm(u.role || u.kind)===role && clinics(u).includes(cid));
@@ -153,6 +154,7 @@
   }
   function createVacation(id, selected, reason='') {
     const s=read(),direct=canEdit(s),p=person(s,id);
+    if(!canRead(s,{employeeId:String(id)}))throw Error('Sem autorização para este colaborador.');
     if(!direct && (String(id)!==String(s.currentUser) || !permission(s,'leaveRequest'))) throw Error('Sem autorização para pedir férias para este colaborador.');
     if(!p.name || p.active===false) throw Error('Colaborador não encontrado ou inativo.');
     const x={id:uid('leave'),employeeId:String(id),userId:String(id),clinicId:clinics(p)[0] || '',type:'Férias',days:[...new Set(selected)].sort(),status:direct?'Aprovado':'Pendente',createdAt:new Date().toISOString(),createdBy:String(s.currentUser),reason};
@@ -165,7 +167,7 @@
   }
   function decide(id, status, note='') {
     const s=read(),x=(s.leave || []).find(v=>String(v.id)===String(id));
-    if(!canReview(s)) throw Error('Sem autorização para decidir pedidos.');
+    if(!canReview(s)||x&&!canRead(s,x)) throw Error('Sem autorização para decidir pedidos.');
     if(!x || norm(x.status || 'Pendente')!=='PENDENTE') throw Error('Este pedido já foi decidido. Uma reversão exige uma ação explícita.');
     if(!['Aprovado','Recusado'].includes(status)) throw Error('Decisão inválida.');
     if(status==='Recusado' && !String(note).trim()) throw Error('Indique o motivo da recusa.');
@@ -185,7 +187,7 @@
   }
   function reverse(id, reason) {
     const s=read(),x=(s.leave || []).find(v=>String(v.id)===String(id));
-    if(!canReview(s) || !x) throw Error('Sem autorização para reverter a decisão.');
+    if(!canReview(s) || !x || !canRead(s,x)) throw Error('Sem autorização para reverter a decisão.');
     if(!String(reason || '').trim()) throw Error('Indique um motivo para a reversão.');
     if(!['APROVADO','RECUSADO'].includes(norm(x.status))) throw Error('Não existe uma decisão a reverter.');
     const before=snapshot(x);
@@ -208,7 +210,7 @@
   }
   function editSick(id, start, end, reason) {
     const s=read(),x=(s.leave || []).find(v=>String(v.id)===String(id));
-    if(!canReview(s) || !x || !sick(x)) throw Error('Sem autorização para alterar esta baixa.');
+    if(!canReview(s) || !x || !canRead(s,x) || !sick(x)) throw Error('Sem autorização para alterar esta baixa.');
     if(!String(reason || '').trim()) throw Error('Indique o motivo da alteração.');
     range(start,end);const before=snapshot(x);
     if(norm(x.status)==='APROVADO') for(const a of x.adjustments || []) {

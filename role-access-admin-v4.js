@@ -1,17 +1,8 @@
 /* Grupo Saúde V4 — matriz de acessos por função + aprovação de férias */
 (()=>{'use strict';const K='grupo_saude_v4_demo_2',R=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch{return{}}},W=s=>localStorage.setItem(K,JSON.stringify(s)),A=/administra[cç][aã]o|ceo/i;
-const ROLES=['CEO','ADMINISTRAÇÃO','ADMINISTRATIVA','MEDICO/A','TECNICO/A','BASICO','CALL CENTER'];
-const actions=[['dashboard','Dashboard de gestão'],['personal','Área pessoal'],['clock','Livro de ponto'],['account','Conta corrente'],['operation','Operação diária'],['openClinic','Abertura da clínica'],['closeClinic','Fecho da clínica'],['clinicTasks','Executar tarefas'],['waiting','Lista de espera / pedidos'],['bookings','Marcações / nº consultas'],['leaveRequest','Pedir férias/ausências'],['leaveApprove','Aprovar/recusar férias'],['hrManage','Recursos Humanos'],['performanceManage','Propor avaliações de desempenho'],['performanceRead','Consultar o próprio desempenho'],['peerReview','Responder a questionários entre colegas'],['financeManage','Gerir financeiro'],['reports','Relatórios'],['marketing','Marketing IA'],['alerts','Alertas'],['security','Segurança e backups'],['audit','Auditoria'],['settings','Tabelas / configuração'],['clinics','Clínicas']];
-function norm(r){const n=String(r||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toUpperCase();if(n==='CEO')return'CEO';if(n==='ADMINISTRACAO')return'ADMINISTRAÇÃO';if(n==='ADMINISTRATIVA'||n==='ADMINISTRATIVO')return'ADMINISTRATIVA';if(n==='CALL CENTER'||n==='CALLCENTER')return'CALL CENTER';if(n.includes('MEDIC'))return'MEDICO/A';if(n.includes('TECNIC'))return'TECNICO/A';return'BASICO'}
+const {ROLES,actions,norm,defaults}=window.GSAccessPolicy;
 function integrity(s){const allowedRoles=new Set(ROLES),allowedActions=new Set(actions.map(x=>x[0]));s.roleActionPermissions=s.roleActionPermissions||{};Object.keys(s.roleActionPermissions).forEach(r=>{const nr=norm(r);if(!allowedRoles.has(nr)){delete s.roleActionPermissions[r];return}if(nr!==r){s.roleActionPermissions[nr]=Object.assign({},s.roleActionPermissions[nr]||{},s.roleActionPermissions[r]||{});delete s.roleActionPermissions[r]}});ROLES.forEach(r=>{const p=s.roleActionPermissions[r]=s.roleActionPermissions[r]||{};Object.keys(p).forEach(k=>{if(!allowedActions.has(k))delete p[k]});actions.forEach(([k])=>{if(typeof p[k]!=='boolean'&&p[k]!==0&&p[k]!==1)p[k]=false})});return s}
 // Valores iniciais apenas para permissões ausentes; escolhas guardadas são preservadas.
-function defaults(r){
- const personal=['personal','clock','account','leaveRequest','performanceRead','peerReview'];
- if(r==='CEO'||r==='ADMINISTRAÇÃO')return actions.map(([k])=>k);
- if(r==='ADMINISTRATIVA')return [...personal,'operation','openClinic','closeClinic','clinicTasks','waiting','bookings'];
- if(r==='CALL CENTER')return [...personal,'waiting','bookings'];
- return personal;
-}
 function ensure(){
  const s=R();s.roleActionPermissions ||= {};
  Object.entries(s.roleActionPermissions).forEach(([r,p])=>{const nr=norm(r);if(nr!==r)s.roleActionPermissions[nr]={...p,...s.roleActionPermissions[nr]}});

@@ -7,7 +7,7 @@ const assigned=p=>[...new Set([...(p.clinics||[]),...(p.clinicIds||[]),p.clinic,
 const activeClinics=s=>(s.clinics||[]).filter(c=>c.active!==false&&c.operational!==false&&!c.virtual&&c.id!=='administracao');
 function clinics(s=R()){const p=actor(s);if(p.active===false)return[];const all=activeClinics(s);return(isAdmin(s)||role(s)==='CALL CENTER'?all:all.filter(c=>assigned(p).includes(String(c.id)))).map(c=>String(c.id))}
 const canDashboard=s=>['CEO','ADMINISTRACAO'].includes(role(s))&&actor(s).active!==false&&!!window.RoleAccessAdminV4?.permission(s,'dashboard');
-function canEmployee(id,s=R()){if(String(id)===String(s.currentUser))return actor(s).active!==false;if(!window.RoleAccessAdminV4?.permission(s,'hrManage'))return false;if(isAdmin(s))return true;const p=s.employees?.[id]||(s.users||[]).find(x=>String(x.id)===String(id));return role(s)==='ADMINISTRACAO'&&assigned(p||{}).some(cid=>clinics(s).includes(cid))}
+function canEmployee(id,s=R()){if(String(id)===String(s.currentUser))return actor(s).active!==false;if(!window.RoleAccessAdminV4?.permission(s,'hrManage'))return false;if(isAdmin(s))return true;const p=s.employees?.[id]||(s.users||[]).find(x=>String(x.id)===String(id));if(p?._new&&String(p._createdBy||'')===String(s.currentUser))return role(s)==='ADMINISTRACAO';return role(s)==='ADMINISTRACAO'&&assigned(p||{}).some(cid=>clinics(s).includes(cid))}
 function canClinic(id,action,s=R()){if(!clinics(s).includes(String(id)))return false;if(action==='dashboard')return canDashboard(s);return isAdmin(s)||!!window.RoleAccessAdminV4?.permission(s,action)}
 function dashboard(s=R(),filter={}){
  if(!canDashboard(s))throw Error('Sem autorização para consultar o Dashboard.');

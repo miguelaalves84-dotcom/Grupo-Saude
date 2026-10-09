@@ -12,7 +12,7 @@ ACTORS = [('u1', 'CEO'), ('test_admin', 'Administração'),
           ('test_med', 'Médico/a'), ('test_tec', 'Técnico/a'), ('test_bas', 'Básico')]
 results = []
 with sync_playwright() as p:
-    browser = p.chromium.launch(executable_path=os.environ.get('GS_CHROMIUM', '/usr/bin/chromium'),
+    browser = p.chromium.launch(executable_path=os.environ.get('GS_CHROMIUM') or ('/usr/bin/chromium' if Path('/usr/bin/chromium').exists() else p.chromium.executable_path),
                                 headless=True, args=['--no-sandbox'])
     for uid, role in ACTORS:
         context = browser.new_context()

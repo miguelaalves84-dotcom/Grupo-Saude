@@ -8,7 +8,7 @@ KEY = 'grupo_saude_v4_demo_2'
 ACTORS = ['u1', 'test_admin', 'test_adm', 'test_call', 'test_med', 'test_tec']
 PDF = b'%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\n%%EOF'
 with sync_playwright() as p:
-    browser = p.chromium.launch(executable_path=os.environ.get('GS_CHROMIUM', '/usr/bin/chromium'), headless=True, args=['--no-sandbox'])
+    browser = p.chromium.launch(executable_path=os.environ.get('GS_CHROMIUM') or ('/usr/bin/chromium' if Path('/usr/bin/chromium').exists() else p.chromium.executable_path), headless=True, args=['--no-sandbox'])
     for actor in ACTORS:
         context = browser.new_context(viewport={'width': 1280, 'height': 900})
         page = context.new_page()
@@ -41,7 +41,7 @@ with sync_playwright() as p:
         assert Path(download.value.path()).read_bytes().startswith(b'%PDF-1.4')
         page.set_viewport_size({'width': 390, 'height': 844})
         page.locator('[data-fin-action="payslips"]').click()
-        assert 'Recibos de vencimento' in page.locator('#financeContent').inner_text()
+        assert 'Recibos de Vencimento' in page.locator('#financeContent').inner_text()
         assert not errors, (actor, errors)
         context.close()
         print('PASS browser finance:', actor)

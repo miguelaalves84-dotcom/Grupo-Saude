@@ -57,3 +57,8 @@ Para recolha automática, configurar um scheduler **de teste** externo que envie
 - `npm test`, `npm run test:finance:browser` e `npm run test:browser` num ambiente que permita Chromium. Usar contextos isolados e dados fictícios.
 
 Não promover para produção nem fazer merge enquanto estes testes de utilização não forem concluídos. Configurar limites/rate limiting no provider/proxy/backend, controlo de tamanho real, antivírus e política de retenção/backups antes de receber documentos reais.
+
+
+### Email inicial de Recursos Humanos
+
+O endereço inicial para currículos e receção de recibos de vencimento é `gruposaude.rh@gmail.com`. Pode ser alterado pelo CEO/Administração em **Tabelas → Lista de Emails**; no módulo Financeiro autenticado, a configuração de receção de recibos é guardada no servidor. As configurações já personalizadas são preservadas, incluindo endereços deliberadamente apagados. O valor inicial não ativa a integração: a recolha real exige configuração OAuth e autorização da conta correspondente. Este endereço não substitui os destinatários individuais dos pagamentos nem configura o remetente de envio.

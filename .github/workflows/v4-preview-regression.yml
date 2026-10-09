@@ -5,6 +5,7 @@ on:
     branches: [feat/v4-consolidation-dashboard-access]
 permissions:
   contents: read
+  checks: read
 jobs:
   regression:
     runs-on: ubuntu-latest
@@ -31,3 +32,10 @@ jobs:
       - run: python tests/browser.py && python tests/finance-browser.py && python tests/improvements-browser.py
         env:
           GS_TEST_URL: http://127.0.0.1:8765/index.html
+      - run: python tests/resolve-preview.py
+        env:
+          GH_READ_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+      - run: python tests/browser.py && python tests/finance-browser.py && python tests/improvements-browser.py
+        env:
+          GS_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}

@@ -1,0 +1,9 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+
+# Revalidate HTML and unversioned scripts together; do not clear browser data.
+/*
+  Cache-Control: no-cache, max-age=0, must-revalidate

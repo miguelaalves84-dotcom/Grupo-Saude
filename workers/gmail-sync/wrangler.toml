@@ -1,0 +1,10 @@
+name = "grupo-saude-v4-gmail-sync-preview"
+main = "index.js"
+compatibility_date = "2026-10-09"
+[vars]
+GS_ENVIRONMENT = "preview"
+# Add GS_GMAIL_JOB_URL for the isolated test backend before deployment.
+[triggers]
+crons = ["*/5 * * * *"]
+[observability]
+enabled = true

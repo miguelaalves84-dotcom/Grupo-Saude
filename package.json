@@ -7,7 +7,14 @@
   },
   "scripts": {
     "check": "node tests/syntax.cjs",
-    "test": "node tests/syntax.cjs && node tests/runtime.cjs",
-    "test:browser": "python3 tests/browser.py"
+    "test": "node tests/syntax.cjs && node tests/runtime.cjs && node tests/preview-proxy.cjs && node tests/finance.cjs && node tests/finance-ui.cjs && node tests/improvements.cjs && node tests/document-workflows.cjs && node tests/email-association.cjs && node tests/gmail-activation.cjs && node tests/release-readiness.cjs",
+    "test:browser": "python3 tests/browser.py",
+    "test:finance": "node tests/finance.cjs && node tests/finance-ui.cjs",
+    "test:finance:browser": "python3 tests/finance-browser.py",
+    "build": "node scripts/build-static.cjs",
+    "test:documents": "node tests/document-workflows.cjs",
+    "test:documents:browser": "python3 tests/documents-browser.py",
+    "test:emails": "node tests/email-association.cjs",
+    "test:gmail": "node tests/gmail-activation.cjs"
   }
 }

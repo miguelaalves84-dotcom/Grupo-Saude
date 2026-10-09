@@ -12,13 +12,13 @@ ACTORS = [('u1', 'CEO'), ('test_admin', 'Administração'),
           ('test_med', 'Médico/a'), ('test_tec', 'Técnico/a'), ('test_bas', 'Básico')]
 results = []
 with sync_playwright() as p:
-    browser = p.chromium.launch(executable_path=os.environ.get('GS_CHROMIUM', '/usr/bin/chromium'),
+    browser = p.chromium.launch(executable_path=os.environ.get('GS_CHROMIUM') or ('/usr/bin/chromium' if Path('/usr/bin/chromium').exists() else p.chromium.executable_path),
                                 headless=True, args=['--no-sandbox'])
     for uid, role in ACTORS:
         context = browser.new_context()
         page = context.new_page()
         errors = []
-        page.on('pageerror', lambda e: errors.append(str(e)))
+        page.on('pageerror', lambda e: errors.append(str(e)+'\n'+str(e.stack)))
         page.goto(URL)
         page.wait_for_timeout(1500)
         page.evaluate('''([key,id])=>{const s=JSON.parse(localStorage.getItem(key));
@@ -42,9 +42,9 @@ with sync_playwright() as p:
                 assert not page.evaluate('(id)=>App.showView(id)', view), (role, view, 'permission bypass')
         if role in ['CEO', 'Administração']:
             page.locator('#nav [data-view="hr"]').click()
-            page.get_by_role('button', name='Colaboradores', exact=True).click()
+            page.locator('#shortcut_employees').click()
             assert page.locator('#hrContent').inner_text().strip()
-            page.get_by_role('button', name='Candidatos', exact=True).click()
+            page.locator('#shortcut_candidates').click()
             assert 'Candidatos' in page.locator('#hrContent').inner_text()
             page.locator('#nav [data-view="dashboard"]').click()
             page.wait_for_timeout(250)
@@ -54,6 +54,7 @@ with sync_playwright() as p:
           const p=s.users.find(u=>u.id==='test_med');p.clinics=['issue6_clinic'];p.hr={...(p.hr||{}),vacationDays:22};
           s.employees.test_med={...p,id:'test_med'};
           s.clinics.push({id:'issue6_clinic',name:'Clínica de teste',active:true});
+          s.employees.test_admin.clinics=[...(s.employees.test_admin.clinics||[]),'issue6_clinic'];
           s.users.push({id:'issue6_peer',name:'Colega de teste',role:'MEDICO/A',clinics:['issue6_clinic']});
           s.leave=[{id:'issue6_original',employeeId:'test_med',type:'Férias',clinicId:'issue6_clinic',
               days:['2026-07-06','2026-07-07','2026-07-08'],start:'2026-07-06',end:'2026-07-08',status:'Aprovado'},

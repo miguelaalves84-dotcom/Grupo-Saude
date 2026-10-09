@@ -62,3 +62,5 @@ Não promover para produção nem fazer merge enquanto estes testes de utilizaç
 ### Email inicial de Recursos Humanos
 
 O endereço inicial para currículos e receção de recibos de vencimento é `gruposaude.rh@gmail.com`. Pode ser alterado pelo CEO/Administração em **Tabelas → Lista de Emails**; no módulo Financeiro autenticado, a configuração de receção de recibos é guardada no servidor. As configurações já personalizadas são preservadas, incluindo endereços deliberadamente apagados. O valor inicial não ativa a integração: a recolha real exige configuração OAuth e autorização da conta correspondente. Este endereço não substitui os destinatários individuais dos pagamentos nem configura o remetente de envio.
+
+Atualização Gmail/autenticação: o percurso Neon Auth/Better Auth em `api/v4-auth.js` e proxy `/api/auth` implementa entrada, recuperação, sessão e saída descritas acima. Não é necessário criar um bridge genérico se o fornecedor expuser os endpoints compatíveis documentados. Ver `V4-GMAIL-ATIVACAO-CONFIGURACAO.md` para cookies, origens, vínculo de identidades, migração 006, segurança e validação externa antes de documentos reais.

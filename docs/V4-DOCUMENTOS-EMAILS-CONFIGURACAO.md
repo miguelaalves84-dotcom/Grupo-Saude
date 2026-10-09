@@ -1,3 +1,5 @@
+> Atualização: para Gmail usar OAuth pela interface e migração 006, conforme [V4-GMAIL-ATIVACAO-CONFIGURACAO.md](V4-GMAIL-ATIVACAO-CONFIGURACAO.md). As variáveis de refresh token abaixo descrevem o percurso legado; não são o novo fluxo Gmail pela interface.
+
 # Configuração de teste — documentos e emails V4
 
 1. Manter `GS_FINANCE_ENVIRONMENT=preview` e os serviços SQL/Auth/Blob isolados definidos em `FINANCEIRO-V4-CONFIGURACAO.md`. Aplicar 002, 003 e depois `db/migrations/finance-v4-004.sql` e `db/migrations/finance-v4-005.sql` apenas à base de teste. Nenhuma migração é disparada pelo browser ou pelo build.
@@ -7,7 +9,7 @@
 5. Backup: `GS_BACKUP_EMAIL_API_KEY` e `GS_BACKUP_EMAIL_FROM` (remetente de domínio verificado), endereço destinatário editável na função Documentos / Backup, fornecedor `resend`, estado ativo. Nunca usar uma palavra-passe Gmail no código. Envio de anexos exige destinatário autorizado e conta de arquivo controlada. Os testes não enviam mensagens aos endereços configurados.
 6. Pagamentos individuais mantêm `GS_PAYMENT_EMAIL_API_KEY` e `GS_PAYMENT_EMAIL_FROM`, outbox e destinatários individuais anteriores. A Lista de Emails não substitui esses destinatários por um email coletivo nem autoriza usar um endereço Gmail como remetente Resend não verificado.
 7. Após envio da cópia: conservar checksum SHA-256, verificar entrega no fornecedor e arquivo na conta/sistema de conservação; confirmar manualmente referência, hash e responsabilidade no plano. `Accepted`, timeout e erro não permitem preparar remoção. Uma falha/incerteza exige reconciliação externa; não existe repetição automática que arrisque duplicar cópias. Uma mudança de destinatário não legitima reenviar uma entrega incerta.
-8. Rever fundamento, jurisdição e prazo de conservação. O prazo online de um ano só pode dar origem a um plano quando existe cópia confirmada e conserva-se o arquivo pelo prazo legal. Não existe endpoint de eliminação física; a execução futura tem de revalidar todos os bloqueios e preservar metadados/histórico.
+8. Rever fundamento, jurisdição e prazo de conservação. O prazo online de um ano só pode dar origem a um plano quando existe cópia confirmada e conserva-se o arquivo pelo prazo legal. A execução controlada da cópia operacional agora existe em `archive-execute`, desligada por defeito e com bloqueios adicionais; o arquivo privado legal e metadados/histórico permanecem. Consultar o novo guia antes de qualquer ativação.
 
 Endpoints novos autenticados: `document-check`, `receipt-decision`, `regularization-list/decision`, `mail-document-list/classify`, `email-list/save/test`, `archive-list/review/backup/confirm/prepare`. A autorização deriva da sessão verificada e das permissões do servidor; identificadores de colaborador, roles e valores provenientes do cliente não concedem privilégios.
 

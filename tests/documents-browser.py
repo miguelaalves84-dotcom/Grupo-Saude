@@ -136,10 +136,22 @@ with sync_playwright() as p:
     people=[actor,{'id':'p4','name':'Colaborador identificado','role':'Médico/a','active':True}]
     queued={'id':'q1','document_id':'mail-doc','filename':'recibo-p4.pdf','status':'Pendente','revision':0,'uploaded_at':TODAY+'T12:00:00Z','provisional_user_id':'p4','suggested_kind':'payslip','association_status':'Provisória — aguarda aprovação','association_basis':{'basis':['Email do remetente coincide com a ficha']}}
     alert={'id':'alert1','revision':0,'status':'Pendente','error_code':'IMPORT_FAILED','attempts':1,'updated_at':TODAY,'context':{'mailbox':'finance@test.pt','from':'sender@test.pt','subject':'Documento que falhou','filename':'bad.pdf','messageId':'msg1','emailLink':'https://mail.google.com/mail/u/?authuser=finance%40test.pt#all/msg1'}}
+    email_records=[{'id':key,'name':label,'provider':'gmail','active':False,'address':address,'type':kind,'connectionStatus':'Não testada','tests':[],'oauth':None,'sync':None} for key,label,address,kind in [('cv','Currículos','gruposaude.rh@gmail.com','Upload'),('payslips','Recibos de vencimento e faturas','finance@test.pt','Upload'),('backup','Documentos e backups','backup@test.pt','Download'),('tasks','Notificações','notifications@test.pt','Download')]]
+    oauth_calls, sync_calls = [], []
     def api_fixture(route):
         action=parse_qs(urlparse(route.request.url).query).get('action',['bootstrap'])[0]
         if action=='bootstrap':
             result={'actor':actor,'people':people,'clinics':[],'invoices':[],'payslips':[],'entries':[],'mailDocuments':[queued],'emailAlerts':[alert],'notifications':{'mailPending':int(queued['status']=='Pendente'),'emailAlertsPending':int(alert['status']=='Pendente')}}
+        elif action=='email-list': result=email_records
+        elif action=='email-test': result={'status':'Ligada','address':'gruposaude.rh@gmail.com','provider':'gmail'}
+        elif action=='email-oauth-start':
+            oauth_calls.append(route.request.post_data_json)
+            result={'authorizationUrl':'https://accounts.google.com/o/oauth2/v2/auth?client_id=isolated-ui-test&response_type=code&state=fixture-state&scope=openid%20email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.readonly&code_challenge_method=S256&code_challenge=fixture'}
+        elif action=='email-sync':
+            sync_calls.append(route.request.post_data_json)
+            result={'status':'Concluído','imported':1,'duplicates':0,'errors':0}
+        elif action=='email-security-status': result={'enabled':False,'requirements':['identityVerified','serverPermissions','privateStorage','malwareScanning','encryptedOAuth','backupRecovery','retentionReviewed','privacyReviewed'],'approval':{},'configuration':{'preview':True,'deploymentOptIn':False,'scanner':False,'backup':False,'databaseRecovery':False,'encryptedOAuth':False}}
+        elif action=='mail-document-check': result={'exact':False,'similar':[],'identity':None}
         elif action=='statement':
             result={'start':'2000-01-01','end':'2100-01-01','items':[],'previousCents':0,'creditsCents':0,'debitsCents':0,'paymentsCents':0,'finalCents':0}
         elif action=='mail-document-list': result=[queued]
@@ -181,5 +193,40 @@ with sync_playwright() as p:
     assert resolved and alert['status']=='Resolvido'
     assert not secure_errors, secure_errors
     print('PASS browser email association: provisional employee preselected, explicit approval, CEO upload-failure alert, original-mail link and audited resolution form; isolated API fixtures')
+    secure_page.goto(urljoin(URL,'finance.html?view=emails'))
+    expect(secure_page.locator('#financeDialog')).to_contain_text('Tabelas → Lista de Emails')
+    expect(secure_page.locator('#financeDialog [data-email-config]')).to_have_count(4)
+    expect(secure_page.locator('[data-fin-action="email-oauth-start"]')).to_have_count(4)
+    secure_page.locator('[data-fin-action="email-sync"][data-id="payslips"]').click()
+    assert sync_calls and sync_calls[-1]['id']=='payslips'
+    secure_page.locator('[data-fin-action="email-security-status"]').click()
+    expect(secure_page.locator('#financeDialog')).to_contain_text('Importação real bloqueada')
+    expect(secure_page.locator('#financeDialog [type=checkbox]')).to_have_count(9)
+    secure_page.goto(urljoin(URL,'finance.html?view=emails'))
+    # OAuth navigation is intercepted; no Google consent or mailbox is contacted.
+    secure_page.route('https://accounts.google.com/**',lambda route:route.fulfill(status=200,content_type='text/html',body='<p>Google OAuth — isolated navigation fixture</p>'))
+    secure_page.locator('[data-fin-action="email-oauth-start"][data-id="cv"]').click()
+    secure_page.wait_for_url('https://accounts.google.com/**')
+    assert oauth_calls[-1]['id']=='cv'
+    expect(secure_page.locator('body')).to_contain_text('isolated navigation fixture')
+    assert not secure_errors, secure_errors
+    print('PASS browser Gmail setup: four editable functions, OAuth navigation, manual sync and blocked security activation; isolated API/Google fixtures')
     secure.close()
+    login=browser.new_context()
+    login_page=login.new_page()
+    def login_fixture(route):
+        submitted=route.request.post_data_json
+        assert submitted['email']=='p0@example.pt' and submitted['password']=='isolated-password-123'
+        assert set(submitted)=={'email','password'}
+        route.fulfill(status=200,content_type='application/json',body=json.dumps({'status':'Autenticado','user':{'id':'p0'}}))
+    login_page.route('**/api/auth?action=signIn',login_fixture)
+    login_page.goto(urljoin(URL,'account.html'))
+    login_page.locator('#accountEmail').fill('p0@example.pt')
+    login_page.locator('#accountPassword').fill('isolated-password-123')
+    login_page.locator('[type=submit]').click()
+    expect(login_page.locator('#accountStatus')).to_contain_text('Sessão validada pelo serviço')
+    expect(login_page.locator('#accountPassword')).to_have_value('')
+    assert login_page.evaluate('()=>localStorage.length')==0
+    print('PASS browser real-auth UI: sign-in uses server identity endpoint, clears password and stores no session locally; isolated provider fixture')
+    login.close()
     browser.close()

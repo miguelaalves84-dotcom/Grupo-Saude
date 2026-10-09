@@ -26,10 +26,11 @@ Qualidade/documentação: `tests/finance-fixture.cjs`, `tests/runtime.cjs`, `tes
 
 ## Testes
 
-- `npm test`: **212 testes aprovados localmente** (102 regressões, 8 proxy, 36 financeiro, 13 UI, 23 melhorias, 30 documentos/arquivo).
-- 30 casos novos executam SQL transacional e ficheiros privados temporários reais: hashes, semelhança, seis perfis, aprovação/recusa, documentos pagos, revisão obsoleta, pagamentos concorrentes, recibos privados/históricos, associação humana, persistência, configurações, OAuth simulado, falha/aceitação/receção de backup, bloqueios legais, integridade após reabertura e conservação de pagamentos antigos.
+- `npm test`: **215 testes aprovados localmente** (102 regressões, 8 proxy, 36 financeiro, 14 UI, 23 melhorias, 32 documentos/arquivo).
+- 32 casos novos executam SQL transacional e ficheiros privados temporários reais: hashes, semelhança, seis perfis, aprovação/recusa, documentos pagos, revisão obsoleta, pagamentos concorrentes, recibos privados/históricos, associação humana, persistência, configurações, OAuth simulado, falha/aceitação/receção de backup, bloqueios legais, integridade após reabertura e conservação de pagamentos antigos.
 - Sintaxe JavaScript, Python, `git diff --check` e build estático de **52 assets** aprovados.
 - Nova suite Chromium: utiliza formulários reais, deteta duplicado, substitui uma fatura já paga, aprova na Administração, regulariza, consulta saldo/PDF antigo, testa permissões dos seis perfis, quatro emails editáveis, ligação falhada e arquivo responsivo. Integra a pipeline juntamente com as três suites anteriores. CI verifica o SHA do preview Cloudflare antes de testar esse endereço.
+- Primeira execução das quatro suites Chromium no GitHub Actions e preview Cloudflare aprovada: https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/37982337442 (commit `5a672a74bee054eff2abb00eed4af4620b7955a7`). O PR regista também a execução do commit final após as verificações adicionais de NIF, MIME e concorrência de arquivo.
 - Chromium local impedido pelo sandbox (`SIGTRAP`); os resultados reais de navegador são obtidos na pipeline GitHub Actions e registados no PR com o commit/preview correspondentes.
 
 ## Configuração pendente e limites

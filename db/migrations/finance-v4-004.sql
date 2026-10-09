@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS finance_regularizations(id text PRIMARY KEY,user_id u
 CREATE UNIQUE INDEX IF NOT EXISTS finance_regularization_pair ON finance_regularizations(old_entry_id,new_entry_id);
 CREATE TABLE IF NOT EXISTS finance_mail_documents(id text PRIMARY KEY,document_id uuid NOT NULL UNIQUE REFERENCES documents(id),file_hash text NOT NULL UNIQUE,source_key text NOT NULL UNIQUE,status text NOT NULL DEFAULT 'Pendente',kind text,entity_id text,uploaded_at timestamptz NOT NULL,uploaded_by uuid NOT NULL REFERENCES users(id),revision integer NOT NULL DEFAULT 0,last_operation text);
 CREATE TABLE IF NOT EXISTS finance_email_tests(id text PRIMARY KEY,action_id text NOT NULL,address text NOT NULL,status text NOT NULL,error_code text,actor_id uuid NOT NULL REFERENCES users(id),created_at timestamptz NOT NULL);
+ALTER TABLE finance_email_tests ADD COLUMN IF NOT EXISTS provider text;
 CREATE TABLE IF NOT EXISTS finance_archive_plans(document_id uuid PRIMARY KEY REFERENCES documents(id),data jsonb NOT NULL,revision integer NOT NULL DEFAULT 0,updated_at timestamptz NOT NULL,updated_by uuid NOT NULL REFERENCES users(id));
 
 -- Separate delivery receipt from the human confirmation of a retained archive.

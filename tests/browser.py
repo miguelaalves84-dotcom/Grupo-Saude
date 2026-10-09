@@ -18,7 +18,7 @@ with sync_playwright() as p:
         context = browser.new_context()
         page = context.new_page()
         errors = []
-        page.on('pageerror', lambda e: errors.append(str(e)))
+        page.on('pageerror', lambda e: errors.append(str(e)+'\n'+str(e.stack)))
         page.goto(URL)
         page.wait_for_timeout(1500)
         page.evaluate('''([key,id])=>{const s=JSON.parse(localStorage.getItem(key));

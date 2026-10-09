@@ -1,7 +1,7 @@
 """Real browser regression, isolated contexts. GS_TEST_URL should be a TEST preview only."""
 from pathlib import Path
 import os
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 ROOT = Path(__file__).resolve().parent.parent
 URL = os.environ.get('GS_TEST_URL', (ROOT / 'index.html').as_uri())
 KEY = 'grupo_saude_v4_demo_2'
@@ -27,7 +27,8 @@ with sync_playwright() as p:
         form.locator('[name=document]').set_input_files({'name': 'invoice.pdf', 'mimeType': 'application/pdf', 'buffer': PDF+actor.encode()})
         form.locator('[type=submit]').click()
         page.wait_for_timeout(300)
-        assert page.locator('#financeContent').get_by_text('E2E-'+actor, exact=True).count()
+        expect(page.locator('#financeContent').get_by_text(('E2E-'+actor).upper(), exact=True)).to_be_visible()
+        assert page.evaluate('''([key,actor])=>JSON.parse(localStorage.getItem(key)).financeV2.invoices.some(x=>x.employeeId===actor&&x.number===('E2E-'+actor).toUpperCase())''', [KEY, actor])
         assert page.locator('[data-fin-action="manage"]').count() == int(actor in ['u1', 'test_admin'])
         if actor in ['u1', 'test_admin']:
             page.locator('[data-fin-action="invoice-approve"]').first.click()

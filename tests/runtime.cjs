@@ -13,13 +13,14 @@ function environment(initial){
   set innerHTML(html){this._html=html;for(const m of html.matchAll(/id=["']([^"']+)["']/g))if(!elements.has(m[1]))new Element(m[1]);}
   get innerHTML(){return this._html}
   addEventListener(n,f){(this.handlers[n]??=[]).push(f)}
-  appendChild(e){e.parentElement=this;this.children.push(e);return e}
+  appendChild(e){if(e.parentElement)e.parentElement.children=e.parentElement.children.filter(x=>x!==e);e.parentElement=this;this.children.push(e);return e}
+  setAttribute(k,v){this[k]=v}
   insertBefore(e){return this.appendChild(e)}
   prepend(e){e.parentElement=this;this.children.unshift(e)}
   remove(){elements.delete(this.id);if(this.parentElement)this.parentElement.children=this.parentElement.children.filter(x=>x!==this)}
   removeAttribute(k){if(k==='hidden')this.hidden=false}
   querySelector(s){if(s==='.page-head')return this.head;if(s==='button')return this.children.find(x=>x.tagName==='BUTTON')||new Element();if(s==='.cards')return this.grid;return this.querySelectorAll(s)[0]||null}
-  querySelectorAll(s){if(s==='button')return this.children.filter(x=>x.tagName==='BUTTON');if(s==='[data-rhtabs]')return this.children.filter(x=>x.dataset.rhtabs);return []}
+  querySelectorAll(s){const all=this.children.flatMap(x=>[x,...x.querySelectorAll('*')]);if(s==='*')return all;if(s==='button')return all.filter(x=>x.tagName==='BUTTON');if(s==='[data-rhtabs]')return all.filter(x=>x.dataset.rhtabs);if(s==='details[data-nav-group]')return all.filter(x=>x.dataset.navGroup);if(s==='[data-view]')return all.filter(x=>x.dataset.view);const view=/^\[data-view="([^"]+)"\]$/.exec(s);if(view)return all.filter(x=>x.dataset.view===view[1]);return []}
   closest(s){if(s==='[data-performance-action]'&&this.dataset.performanceAction)return this;if(s==='[data-leave-action]'&&this.dataset.leaveAction)return this;if(s==='[data-approval-decision]'&&this.dataset.approvalDecision)return this;if(s.includes('[data-view]')&&this.dataset.view)return this;return null}
   click(){const e={target:this,preventDefault(){},stopImmediatePropagation(){this.stopped=true}};for(const f of listeners.get('click')||[]){f(e);if(e.stopped)break}if(!e.stopped)this.onclick?.(e)}
   showModal(){this.open=true} close(){this.open=false}
@@ -30,9 +31,9 @@ function environment(initial){
  const top=new Element('top','top-actions');
  function nav(id){const b=new Element('nav-'+id,id==='dashboard'?'active':'');b.tagName='BUTTON';b.dataset.view=id;elements.get('nav').appendChild(b);return b}
  ids.forEach(nav);
- const document={readyState:'loading',activeElement:null,documentElement:new Element(),getElementById:id=>elements.get(id)||null,createElement:tag=>{const e=new Element();e.tagName=tag.toUpperCase();return e},addEventListener(n,f,options){const arr=listeners.get(n)||[];options===true?arr.unshift(f):arr.push(f);listeners.set(n,arr)},dispatchEvent(e){for(const f of [...(listeners.get(e.type)||[])])f(e)},querySelectorAll(s){const all=[...elements.values()];if(s==='.view')return all.filter(x=>x.classList.contains('view'));if(s==='.view.active'||s==='section.view.active')return all.filter(x=>x.classList.contains('view')&&x.classList.contains('active'));if(s==='[data-view]'||s==='#nav [data-view]')return elements.get('nav').children.filter(x=>x.dataset.view);if(s==='#nav [data-view].active')return this.querySelectorAll('#nav [data-view]').filter(x=>x.classList.contains('active'));return []},querySelector(s){if(s==='.top-actions')return top;const h=/^#(\w+) \.page-head$/.exec(s);if(h)return elements.get(h[1]).head;if(s.startsWith('#nav [data-view=')){const id=s.match(/"(.*?)"/)?.[1];return elements.get('nav-'+id)}return this.querySelectorAll(s)[0]||null}};
+ const document={body:new Element('body'),readyState:'loading',activeElement:null,documentElement:new Element(),getElementById:id=>elements.get(id)||null,createElement:tag=>{const e=new Element();e.tagName=tag.toUpperCase();return e},addEventListener(n,f,options){const arr=listeners.get(n)||[];options===true?arr.unshift(f):arr.push(f);listeners.set(n,arr)},dispatchEvent(e){for(const f of [...(listeners.get(e.type)||[])])f(e)},querySelectorAll(s){const all=[...elements.values()];if(s==='.view')return all.filter(x=>x.classList.contains('view'));if(s==='.view.active'||s==='section.view.active')return all.filter(x=>x.classList.contains('view')&&x.classList.contains('active'));if(s==='[data-view]'||s==='#nav [data-view]')return elements.get('nav').querySelectorAll('[data-view]');if(s==='#nav [data-view].active')return this.querySelectorAll('#nav [data-view]').filter(x=>x.classList.contains('active'));return []},querySelector(s){if(s==='.top-actions')return top;const h=/^#(\w+) \.page-head$/.exec(s);if(h)return elements.get(h[1]).head;if(s.startsWith('#nav [data-view=')){const id=s.match(/"(.*?)"/)?.[1];return elements.get('nav-'+id)}return this.querySelectorAll(s)[0]||null}};
  const context={document,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v))},console,Intl,Date,Math,JSON,Set,Map,URL,alert(){},confirm:()=>false,prompt:()=>null,location:{reload(){}},navigator:{},MutationObserver:class{observe(){}},CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail}},setTimeout:(f,delay)=>{timers.push({f,delay});return timers.length},clearTimeout(){},setInterval(){},queueMicrotask:f=>timers.push({f,delay:0}),addEventListener(){},dispatchEvent(){}};
- context.window=context;vm.createContext(context);
+ context.matchMedia=()=>({matches:false});context.window=context;vm.createContext(context);
  const run=(f,source)=>vm.runInContext(source??fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f,timeout:2000});
  const flush=()=>{const batch=timers.splice(0).sort((a,b)=>a.delay-b.delay);for(const t of batch)t.f()};
  return {context,document,elements,run,flush,nav,read:()=>JSON.parse(storage.get(KEY)),write:s=>storage.set(KEY,JSON.stringify(s))};
@@ -57,7 +58,7 @@ test('baseline: undefined clinics interrupts a seeded startup',()=>{
 function core(){const e=environment();for(const f of ['app.js','hr-leave-domain-v4.js','hr-leave-ui-v4.js','hr-performance-domain-v4.js','hr-performance-ui-v4.js','access-scope-v4.js','clinic-hr-architecture.js','ceo-reserved-area-switcher-v4.js','role-access-admin-v4.js'])e.run(f);e.document.dispatchEvent({type:'DOMContentLoaded'});e.flush();return e}
 test('fresh startup, synchronous initialization and direct CEO RH',()=>{
  const e=core();assert(e.read().candidates);assert(e.read().users.some(x=>x.id==='u1'));
- assert(e.context.App.showView('hr'));assert(e.elements.get('hr').classList.contains('active'));assert.match(e.elements.get('hrContent').innerHTML,/Recursos Humanos/);
+ assert(e.context.App.showView('hr'));assert(e.elements.get('hr').classList.contains('active'));assert.match(e.elements.get('hrContent').innerHTML,/Colaboradores/);assert.match(e.elements.get('hrContent').innerHTML,/Candidatos/);
  assert.equal(e.document.querySelectorAll('.view.active').length,1);
 });
 test('approval access follows active profile, not ceoRealUser',()=>{
@@ -91,7 +92,7 @@ test('saved duplicate identities are not deleted by the CEO selector',()=>{
  const e=core(),s=e.read();s.users.push({id:'duplicate-keep',email:s.users.find(u=>u.id==='test_admin').email,name:'Outro registo',role:'ADMINISTRAÇÃO'});s.employees['duplicate-keep']={id:'duplicate-keep',name:'Outro registo',hr:{custom:'keep'}};e.write(s);e.context.CEOReservedAreaV4.render();assert(e.read().users.some(u=>u.id==='duplicate-keep'));assert.equal(e.read().employees['duplicate-keep'].hr.custom,'keep');
 });
 test('edited actor and master clinics are used by the operation renderer',()=>{
- const e=core(),s=e.read();s.currentUser='test_admin';s.employees.test_admin.name='Nome editado no RH';s.clinics=[{id:'real',name:'Clínica real',active:true}];e.write(s);assert(e.context.App.showView('operation'));assert.match(e.elements.get('operationContent').innerHTML,/Nome editado no RH/);assert.match(e.elements.get('operationContent').innerHTML,/Clínica real/);
+ const e=core(),s=e.read();s.currentUser='test_admin';s.employees.test_admin.name='Nome editado no RH';s.employees.test_admin.clinics=['real'];s.clinics=[{id:'real',name:'Clínica real',active:true}];e.write(s);assert(e.context.App.showView('operation'));assert.match(e.elements.get('operationContent').innerHTML,/Nome editado no RH/);assert.match(e.elements.get('operationContent').innerHTML,/Clínica real/);
  s.clinics=[];e.write(s);e.context.App.showView('operation');assert.match(e.elements.get('operationContent').innerHTML,/Sem clínica/);
 });
 test('calendar and approvals generate valid inline handlers' ,()=>{
@@ -135,4 +136,5 @@ test('issue6: employee sees only addressed RH notifications',()=>{const e=leaveF
 test('issue6: individual picker handlers compile and existing vacation click opens its exact detail',()=>{const e=leaveFixture(),U=e.context.HRLeaveUIV4;e.context.VacationCalendarV4.open('p');e.context.VacationCalendarV4.prev();const html=e.elements.get('vacCal').innerHTML;for(const m of html.matchAll(/onclick="([^"]*)"/g))new vm.Script(m[1].replaceAll('&#39;',"'").replaceAll('&quot;','"').replaceAll('&amp;','&'));const b=e.document.createElement('button');b.dataset.leaveAction='open';b.dataset.leaveId='original';b.click();assert(e.elements.get('modalBody').innerHTML.includes('Descanso'));assert(e.elements.get('modalBody').innerHTML.includes('Pessoa'));assert(U.form('original')!==false)});
 test('issue6: empty vacation/medical records cannot be approved',()=>{const e=leaveFixture(),D=e.context.HRLeaveV4,s=e.read();s.leave.push({id:'empty',employeeId:'p',type:'Férias',days:[],status:'Pendente'},{id:'empty-sick',employeeId:'p',type:'Baixa',status:'Pendente'});e.write(s);const before=e.read();assert.throws(()=>D.decide('empty','Aprovado'));assert.throws(()=>D.decide('empty-sick','Aprovado'));assert.deepEqual(e.read(),before)});
 require('./performance.cjs')({core,test,assert,vm,flat,actor,leaveFixture});
+require('./consolidation.cjs')({core,test,assert,vm});
 console.log(JSON.stringify({passed,scope:'JavaScript real + DOM simulado; navegador e backend não executados'}));

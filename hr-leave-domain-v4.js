@@ -19,11 +19,7 @@
   const vacation = x => /FERIAS/.test(norm(x.type || 'Férias')) && !change(x);
   const sick = x => /BAIXA/.test(norm(x.type));
   const active = x => ['APROVADO', 'PENDENTE'].includes(norm(x.status || 'Pendente'));
-  function permission(s, action) {
-    const p = person(s, s.currentUser), role = window.RoleAccessAdminV4?.norm?.(p.role || p.kind) || norm(p.role || p.kind);
-    if(String(s.currentUser) === 'u1' || norm(role) === 'CEO') return true;
-    return !!s.roleActionPermissions?.[role]?.[action];
-  }
+  function permission(s,action){return window.RoleAccessAdminV4?.permission?.(s,action) || false}
   const adminRole = s => String(s.currentUser) === 'u1' || ['CEO', 'ADMINISTRACAO'].includes(norm(person(s, s.currentUser).role || person(s, s.currentUser).kind));
   const canReview = s => adminRole(s) && permission(s, 'leaveApprove');
   const canTeam = s => adminRole(s) && (permission(s, 'hrManage') || permission(s, 'leaveApprove'));

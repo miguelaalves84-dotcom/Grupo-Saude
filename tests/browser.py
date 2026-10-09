@@ -42,9 +42,9 @@ with sync_playwright() as p:
                 assert not page.evaluate('(id)=>App.showView(id)', view), (role, view, 'permission bypass')
         if role in ['CEO', 'Administração']:
             page.locator('#nav [data-view="hr"]').click()
-            page.get_by_role('button', name='Colaboradores', exact=True).click()
+            page.locator('#hr').get_by_role('button', name='Colaboradores', exact=True).click()
             assert page.locator('#hrContent').inner_text().strip()
-            page.get_by_role('button', name='Candidatos', exact=True).click()
+            page.locator('#hr').get_by_role('button', name='Candidatos', exact=True).click()
             assert 'Candidatos' in page.locator('#hrContent').inner_text()
             page.locator('#nav [data-view="dashboard"]').click()
             page.wait_for_timeout(250)

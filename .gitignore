@@ -7,3 +7,7 @@ __pycache__/
 
 # Generated static build; Cloudflare currently publishes root assets.
 dist/
+
+# Generated Python test caches
+__pycache__/
+*.pyc

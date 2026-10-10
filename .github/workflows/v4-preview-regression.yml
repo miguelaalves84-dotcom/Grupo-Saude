@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser]
     needs: regression
     runs-on: ubuntu-latest
     steps:
@@ -48,3 +48,25 @@ jobs:
         env:
           GS_PREVIEW_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}
           GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+  p0-postgresql:
+    name: P0 isolated PostgreSQL migrations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Start a disposable local cluster
+        run: |
+          P0_PG_BIN=$(find /usr/lib/postgresql -name initdb -printf '%h\n' | sort -V | tail -1)
+          mkdir -p /tmp/gs-p0-pg-socket
+          "$P0_PG_BIN/initdb" -D /tmp/gs-p0-pg-data -A trust
+          "$P0_PG_BIN/pg_ctl" -D /tmp/gs-p0-pg-data -l /tmp/gs-p0-pg.log -o "-k /tmp/gs-p0-pg-socket -p 55439 -h ''" start
+          createdb -h /tmp/gs-p0-pg-socket -p 55439 p0_synthetic
+      - run: python tests/p0-migrations.py
+        env:
+          GS_P0_POSTGRES_DISPOSABLE: 'true'
+          GS_P0_POSTGRES_DSN: host=/tmp/gs-p0-pg-socket port=55439 dbname=p0_synthetic

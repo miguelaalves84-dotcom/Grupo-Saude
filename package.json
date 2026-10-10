@@ -7,7 +7,7 @@
   },
   "scripts": {
     "check": "node tests/syntax.cjs",
-    "test": "node tests/syntax.cjs && node tests/runtime.cjs && node tests/preview-proxy.cjs && node tests/finance.cjs && node tests/finance-ui.cjs && node tests/improvements.cjs && node tests/document-workflows.cjs && node tests/email-association.cjs && node tests/gmail-activation.cjs && node tests/release-readiness.cjs",
+    "test": "node tests/syntax.cjs && node tests/runtime.cjs && node tests/preview-proxy.cjs && node tests/finance.cjs && node tests/finance-ui.cjs && node tests/improvements.cjs && node tests/document-workflows.cjs && node tests/email-association.cjs && node tests/gmail-activation.cjs && node tests/release-readiness.cjs && node tests/p0-security.cjs && node tests/p0-retention.cjs",
     "test:browser": "python3 tests/browser.py",
     "test:finance": "node tests/finance.cjs && node tests/finance-ui.cjs",
     "test:finance:browser": "python3 tests/finance-browser.py",
@@ -15,6 +15,8 @@
     "test:documents": "node tests/document-workflows.cjs",
     "test:documents:browser": "python3 tests/documents-browser.py",
     "test:emails": "node tests/email-association.cjs",
-    "test:gmail": "node tests/gmail-activation.cjs"
+    "test:gmail": "node tests/gmail-activation.cjs",
+    "test:p0": "node tests/p0-security.cjs && node tests/p0-retention.cjs",
+    "test:p0:browser": "python3 tests/p0-browser.py"
   }
 }

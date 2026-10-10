@@ -1,16 +1,34 @@
-const { put }=require('@vercel/blob');
-const { neon }=require('@neondatabase/serverless');
-function detectedMime(buf){if(buf.length>=5&&buf.subarray(0,5).toString('ascii')==='%PDF-')return'application/pdf';if(buf.length>=3&&buf[0]===0xff&&buf[1]===0xd8&&buf[2]===0xff)return'image/jpeg';if(buf.length>=8&&buf.subarray(0,8).equals(Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a])))return'image/png';if(buf.length>=12&&buf.subarray(0,4).toString('ascii')==='RIFF'&&buf.subarray(8,12).toString('ascii')==='WEBP')return'image/webp';return null}
-module.exports=async function(req,res){
+'use strict';
+const Auth=require('../lib/authorization-service'),Storage=require('../lib/document-storage-service'),{randomUUID}=require('node:crypto');
+function detectedMime(buf){if(buf.subarray(0,5).toString()==='%PDF-')return'application/pdf';if(buf.length>=3&&buf[0]===255&&buf[1]===216&&buf[2]===255)return'image/jpeg';if(buf.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])))return'image/png';if(buf.subarray(0,4).toString()==='RIFF'&&buf.subarray(8,12).toString()==='WEBP')return'image/webp';return null;}
+module.exports=async(req,res)=>{
+ res.setHeader('Cache-Control','private, no-store');res.setHeader('X-Content-Type-Options','nosniff');
  if(req.method!=='POST')return res.status(405).json({ok:false,code:'METHOD_NOT_ALLOWED'});
- if(!process.env.DATABASE_URL)return res.status(503).json({ok:false,code:'DATABASE_NOT_CONFIGURED'});
- if(!process.env.BLOB_READ_WRITE_TOKEN)return res.status(503).json({ok:false,code:'BLOB_NOT_CONFIGURED'});
- const base=process.env.DATABASE_NEON_AUTH_BASE_URL,cookie=req.headers.cookie||'';if(!base||!cookie)return res.status(401).json({ok:false,code:'AUTH_REQUIRED'});
- const sr=await fetch(base.replace(/\/$/,'')+'/get-session',{headers:{cookie,accept:'application/json'}});if(!sr.ok)return res.status(401).json({ok:false,code:'AUTH_REQUIRED'});const session=await sr.json();if(!session?.user?.id)return res.status(401).json({ok:false,code:'AUTH_REQUIRED'});
- const sql=neon(process.env.DATABASE_URL);const u=await sql.query("select id,role,active from users where auth_subject=$1",[String(session.user.id)]);const me=u[0];if(!me?.active)return res.status(403).json({ok:false,code:'FORBIDDEN'});
- const employeeId=String(req.headers['x-employee-id']||'').trim()||null,candidateId=String(req.headers['x-candidate-id']||'').trim()||null;if((employeeId||candidateId)&&!['Administração','CEO'].includes(me.role))return res.status(403).json({ok:false,code:'FORBIDDEN'});const kind=String(req.headers['x-document-kind']||'Documento').slice(0,80),description=decodeURIComponent(String(req.headers['x-document-description']||'')).trim().slice(0,300),receiptNo=decodeURIComponent(String(req.headers['x-receipt-number']||'')).trim().slice(0,80),receiptValue=Number(req.headers['x-receipt-value']||0),receiptDate=String(req.headers['x-receipt-date']||'').slice(0,10),startsAt=String(req.headers['x-starts-at']||'').slice(0,10)||null,validUntil=String(req.headers['x-valid-until']||'').slice(0,10)||null,name=decodeURIComponent(String(req.headers['x-file-name']||'documento.bin')).replace(/[^a-zA-Z0-9._ -]/g,'_'),mime=String(req.headers['content-type']||'application/octet-stream').split(';')[0].trim().toLowerCase();
- if(!description)return res.status(400).json({ok:false,code:'DESCRIPTION_REQUIRED'});if(kind==='Recibo'&&(!receiptNo||!receiptDate||!(receiptValue>=0)))return res.status(400).json({ok:false,code:'RECEIPT_METADATA_REQUIRED'});const allowed=['application/pdf','image/jpeg','image/png','image/webp'];if(!allowed.includes(mime))return res.status(415).json({ok:false,code:'FILE_TYPE_NOT_ALLOWED'});
- const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>10*1024*1024)return res.status(413).json({ok:false,code:'FILE_TOO_LARGE'});chunks.push(chunk)}if(!size)return res.status(400).json({ok:false,code:'EMPTY_FILE'});const body=Buffer.concat(chunks),actual=detectedMime(body);if(!actual||actual!==mime){await sql.query("insert into audit_log(actor_id,module,action,entity_type,detail) values($1,'Segurança','UPLOAD_REJEITADO','document',$2::jsonb)",[me.id,JSON.stringify({name,declaredMime:mime,detectedMime:actual,size})]);return res.status(415).json({ok:false,code:'FILE_SIGNATURE_MISMATCH'})}
- const path='rh/'+me.id+'/'+Date.now()+'-'+name;const blob=await put(path,body,{access:'private',addRandomSuffix:true,contentType:actual,token:process.env.BLOB_READ_WRITE_TOKEN});
- const rows=await sql.query("insert into documents(employee_id,candidate_id,kind,filename,storage_key,mime_type,starts_at,valid_until,status,data) values($8,$9,$1,$2,$3,$4,$5,$6,case when $6::date is not null and $6::date<current_date then 'Caducado' when $6::date is not null and $6::date<=current_date+interval '30 days' then 'A caducar' else 'Regularizado' end,$7::jsonb) returning id,kind,filename,mime_type,status,received_at",[kind,name,blob.pathname,actual,startsAt,validUntil,JSON.stringify({ownerUserId:me.id,private:true,description,receiptNo:kind==='Recibo'?receiptNo:null,receiptValue:kind==='Recibo'?receiptValue:null,receiptDate:kind==='Recibo'?receiptDate:null}),employeeId,candidateId]);await sql.query("insert into audit_log(actor_id,module,action,entity_type,entity_id,detail) values($1,'Documentos','UPLOAD_PRIVADO','document',$2,$3::jsonb)",[me.id,String(rows[0].id),JSON.stringify({kind,name,size,mime:actual,description,receiptNo:kind==='Recibo'?receiptNo:null,receiptValue:kind==='Recibo'?receiptValue:null,receiptDate:kind==='Recibo'?receiptDate:null})]);return res.status(201).json({ok:true,item:rows[0]});
+ try{
+  const {s,actor:a}=await Auth.context(req),employeeId=String(req.headers['x-employee-id']||'').trim(),candidateId=String(req.headers['x-candidate-id']||'').trim();
+  if(!!employeeId===!!candidateId)Auth.deny('ONE_DOCUMENT_OWNER_REQUIRED',400);
+  let owner=null;
+  if(employeeId){owner=(await s.people()).find(p=>String(p.employeeId)===employeeId);Auth.person(a,owner,'hrManage',String(owner?.id)===String(a.id)?'read':'create');}
+  else{if(!Auth.manager(a,'hrManage'))Auth.deny();const row=(await s.query('select id,clinic_id from candidates where id=$1',[candidateId]))[0];if(!row)Auth.deny('OWNER_NOT_FOUND',404);if(row.clinic_id)Auth.clinic(a,row.clinic_id);else if(a.role!=='CEO')Auth.deny('UNSCOPED_CANDIDATE');}
+  const kind=String(req.headers['x-document-kind']||'Documento').slice(0,80);
+  if(/fatura|recibo/i.test(kind))Auth.deny('USE_FINANCIAL_VALIDATION_WORKFLOW',409);
+  const description=decodeURIComponent(String(req.headers['x-document-description']||'')).trim().slice(0,300),name=decodeURIComponent(String(req.headers['x-file-name']||'documento')).replace(/[^a-zA-Z0-9._ -]/g,'_').slice(0,150),mime=String(req.headers['content-type']||'').split(';')[0];
+  if(!description)Auth.deny('DESCRIPTION_REQUIRED',400);
+  const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>10*1024*1024)Auth.deny('FILE_TOO_LARGE',413);chunks.push(chunk);}
+  const bytes=Buffer.concat(chunks);if(!size||detectedMime(bytes)!==mime)Auth.deny('FILE_SIGNATURE_MISMATCH',415);
+  const hash=Storage.sha(bytes),id=randomUUID(),key='rh/'+(employeeId||candidateId)+'/'+hash;
+  const duplicate=await s.query("select id from documents where (employee_id=$1 or candidate_id=$2) and data->>'contentHash'=$3",[employeeId||null,candidateId||null,hash]);if(duplicate.length)Auth.deny('DUPLICATE_DOCUMENT',409);
+  // Scanner, verified independent private backup and deployment security approval are enforced here.
+  await s.storage.put(key,bytes,mime);
+  const data={ownerUserId:owner?.id||null,private:true,description,contentHash:hash,uploadedBy:a.id},at=new Date().toISOString();
+  const results=await s.db.batch([
+   {sql:'select pg_advisory_xact_lock(hashtext($1))',params:[key]},
+   {sql:"insert into documents(id,employee_id,candidate_id,kind,filename,storage_key,mime_type,status,data,received_at) select $1,$2,$3,$4,$5,$6,$7,'Pendente',$8,$9 where not exists(select 1 from documents where (employee_id=$2 or candidate_id=$3) and data->>'contentHash'=$10) returning id,kind,filename,status,received_at",params:[id,employeeId||null,candidateId||null,kind,name,key,mime,JSON.stringify(data),at,hash]},
+   s.event('document',id,a,'UPLOAD_PRIVADO_PENDENTE',null,{hash,employeeId,candidateId},'exists(select 1 from documents where id=$1)',[id])
+  ]);
+  if(!results[1].length)Auth.deny('DUPLICATE_DOCUMENT',409);
+  return res.status(201).json({ok:true,item:results[1][0]});
+ }catch(e){return Auth.error(res,e)}
 };
+module.exports.config={api:{bodyParser:false}};
+module.exports.detectedMime=detectedMime;

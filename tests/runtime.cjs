@@ -22,7 +22,7 @@ function environment(initial){
   querySelector(s){if(s==='.page-head')return this.head;if(s==='button')return this.children.find(x=>x.tagName==='BUTTON')||new Element();if(s==='.cards')return this.grid;return this.querySelectorAll(s)[0]||null}
   querySelectorAll(s){const all=this.children.flatMap(x=>[x,...x.querySelectorAll('*')]);if(s==='*')return all;if(s==='button')return all.filter(x=>x.tagName==='BUTTON');if(s==='[data-rhtabs]')return all.filter(x=>x.dataset.rhtabs);if(s==='details[data-nav-group]')return all.filter(x=>x.dataset.navGroup);if(s==='[data-view]')return all.filter(x=>x.dataset.view);const view=/^\[data-view="([^"]+)"\]$/.exec(s);if(view)return all.filter(x=>x.dataset.view===view[1]);return []}
   closest(s){if(s==='[data-performance-action]'&&this.dataset.performanceAction)return this;if(s==='[data-leave-action]'&&this.dataset.leaveAction)return this;if(s==='[data-approval-decision]'&&this.dataset.approvalDecision)return this;if(s.includes('[data-view]')&&this.dataset.view)return this;return null}
-  click(){const e={target:this,preventDefault(){},stopImmediatePropagation(){this.stopped=true}};for(const f of listeners.get('click')||[]){f(e);if(e.stopped)break}if(!e.stopped)this.onclick?.(e)}
+  click(){const e={target:this,preventDefault(){},stopPropagation(){},stopImmediatePropagation(){this.stopped=true}};for(const f of listeners.get('click')||[]){f(e);if(e.stopped)break}if(!e.stopped)this.onclick?.(e)}
   showModal(){this.open=true} close(){this.open=false}
  }
  const ids=['tables','clock','dashboard','operation','wait','chat','hr','tasks','audit','clinics'];
@@ -35,6 +35,7 @@ function environment(initial){
  const context={document,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v))},console,Intl,Date,Math,JSON,Set,Map,URL,alert(){},confirm:()=>false,prompt:()=>null,location:{reload(){}},navigator:{},MutationObserver:class{observe(){}},CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail}},setTimeout:(f,delay)=>{timers.push({f,delay});return timers.length},clearTimeout(){},setInterval(){},queueMicrotask:f=>timers.push({f,delay:0}),addEventListener(){},dispatchEvent(){}};
  context.matchMedia=()=>({matches:false});context.window=context;vm.createContext(context);
  const run=(f,source)=>vm.runInContext(source??fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f,timeout:2000});
+ run('safe-actions-v4.js');
  const flush=()=>{const batch=timers.splice(0).sort((a,b)=>a.delay-b.delay);for(const t of batch)t.f()};
  return {context,document,elements,run,flush,nav,read:()=>JSON.parse(storage.get(KEY)),write:s=>storage.set(KEY,JSON.stringify(s))};
 }

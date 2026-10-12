@@ -1,5 +1,5 @@
 """P0 regression against an isolated local server. Synthetic data and mocked identity only."""
-import os,json
+import os,json,datetime
 from playwright.sync_api import sync_playwright,expect
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html')
 BASE=URL.rsplit('/',1)[0]
@@ -40,7 +40,7 @@ with sync_playwright() as p:
   pg.goto(BASE+'/authenticated.html');expect(pg.locator('#sessionModules')).to_be_hidden()
   assert pg.evaluate("typeof window.App==='undefined'")
   pg.unroute('**/api/auth?action=session')
-  pg.route('**/api/auth?action=session',lambda route,request,r=role:route.fulfill(json={'user':{'id':'synthetic-'+r,'name':'Synthetic','role':r,'permissions':{'account':True}},'status':'Autenticado'}))
+  pg.route('**/api/auth?action=session',lambda route,request,r=role:route.fulfill(json={'user':{'id':'synthetic-'+r,'name':'Synthetic','role':r,'permissions':{'account':True}},'expiresAt':(datetime.datetime.now(datetime.timezone.utc)+datetime.timedelta(minutes=5)).isoformat(),'status':'Autenticado'}))
   pg.reload();expect(pg.locator('#sessionModules')).to_be_visible();expect(pg.locator('#sessionStatus')).to_contain_text(role)
   pg.unroute('**/api/auth?action=session')
   pg.route('**/api/auth?action=session',lambda route:route.fulfill(status=401,json={'error':'Sessão expirada'}))

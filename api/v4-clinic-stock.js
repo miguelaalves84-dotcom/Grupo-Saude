@@ -1,6 +1,6 @@
 'use strict';
 const Auth=require('../lib/authorization-service'),Stock=require('../stock-core-v4'),{ClinicStockService}=require('../lib/clinic-stock-service');
-function configured(env){return env.GS_MODULES_ENVIRONMENT==='isolated'&&env.GS_MODULES_DATA_SYNTHETIC==='true'&&env.VERCEL_ENV!=='production'&&!require('../lib/development-mode').locked(env)&&!!env.GS_MODULES_DATABASE_URL&&env.GS_MODULES_DATABASE_URL!==env.DATABASE_URL;}
+function configured(env){return require('./v4-finance').configured(env)&&env.GS_MODULES_DATABASE_URL===env.GS_FINANCE_DATABASE_URL&&env.GS_MODULES_ENVIRONMENT==='isolated'&&env.GS_MODULES_DATA_SYNTHETIC==='true'&&env.VERCEL_ENV!=='production'&&!require('../lib/development-mode').locked(env)&&!!env.GS_MODULES_DATABASE_URL&&env.GS_MODULES_DATABASE_URL!==env.DATABASE_URL;}
 function service(env){const finance=require('./v4-finance').service(env),{Pool}=require('@neondatabase/serverless'),pool=new Pool({connectionString:env.GS_MODULES_DATABASE_URL});const db={query:async(q,p=[])=>(await pool.query(q,p)).rows,transaction:async fn=>{const client=await pool.connect();try{await client.query('BEGIN');const result=await fn({query:async(q,p=[])=>(await client.query(q,p)).rows});await client.query('COMMIT');return result}catch(e){await client.query('ROLLBACK');throw e}finally{client.release()}}};return new ClinicStockService(db,finance.storage);}
 async function handler(req,res,dependencies={}){
  const env=dependencies.env||process.env;res.setHeader('Cache-Control','private, no-store');res.setHeader('X-Content-Type-Options','nosniff');

@@ -27,3 +27,11 @@ Preview: preparar apenas artefactos estáticos testados, sem APIs/env de produç
 Os dois diffs RH/Administração/mobile estavam inteiramente no retângulo 0,0,354,210 do cabeçalho fixo que sobrepunha a captura do elemento após scrollIntoView. Análise local dos PNG: diferença abaixo da linha 215 = zero pixels. O conteúdo RH não mudou. O harness passa a medir a sobreposição na fonte imutável 4a58d5e e no candidato, excluir apenas esse overlay global da comparação do componente e publicar também capturas completas com cabeçalho/navegação. Mantém limite 16/0,3% e exige pelo menos 50% da área visível comparada; não mascara cartões RH nem aumenta tolerância. Alterações deliberadas em Clínicas/Stock permanecem candidatos para revisão humana.
 
 Run 38313552764: 16 testes PostgreSQL/API aprovados, incluindo anexos de compras e proteção de custos no histórico; suites antigas e Clínicas aprovadas. Stock passou gestão de inventário/receção/consumo/encomendas/documentos em CEO/Administração; teste restante falhou por seletor ambíguo Pendente versus Assuntos pendentes, corrigido com âmbito stockPanel.
+
+## Consolidação validada antes do pacote de preview
+
+Run 38314244607, fonte 5f801ac: 12 jobs aprovados, oito suites Chromium, 16 testes de PostgreSQL/HTTP e 36 comparações de componentes por pixels aprovadas (zero falhas, tolerância original). Os 144 cenários de seis perfis, três viewports e dois temas registam carregamento/permissões; alterações intencionais Clínicas/Stock têm capturas completas para revisão humana.
+
+O pacote estático é condicionado à aprovação de todos os jobs e não contém APIs, envs ou bindings. O serviço modular exige também a configuração isolada autenticada existente e a mesma base canónica da autorização, impedindo cruzamento acidental de realms SQL. Quantidades/preços rejeitam booleanos e arrays, além dos casos numéricos inválidos. Nova execução obrigatória para este último pacote/guardas.
+
+Stock evita criar dois produtos com a mesma referência ao transferir para uma clínica que já tem esse SKU; valida compatibilidade de unidade/lote/validade e reutiliza o ID local do destino. Custos de consumo usam o preço unitário registado no lote no momento do consumo, mantendo os preços das compras no histórico; não se declara um motor contabilístico FIFO/custo médio ou integração financeira externa.

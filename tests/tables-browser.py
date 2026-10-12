@@ -9,7 +9,7 @@ with sync_playwright() as p:
  for actor in ACTORS:
   c=browser.new_context(viewport={'width':1280,'height':900});page=c.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
   page.goto(os.environ['GS_TEST_URL']);page.wait_for_function('window.DocumentCatalogV4 && window.GSModuleDemo');page.wait_for_timeout(700)
-  page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoViewingAs=actor==='u1'?null:actor;localStorage.setItem(key,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:user-changed'));}''',[KEY,actor]);page.wait_for_timeout(100)
+  page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoViewingAs=actor==='u1'?null:actor;const cid=s.clinics.find(c=>c.active!==false&&!c.legacyDemo&&!c.virtual).id;s.users.find(u=>u.id===actor).clinics=[cid];if(s.employees?.[actor])s.employees[actor].clinics=[cid];localStorage.setItem(key,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:user-changed'));}''',[KEY,actor]);page.wait_for_timeout(100)
   manager=actor in ['u1','test_admin']
   if not manager:
    assert page.evaluate("TablesCanonicalV4.open()") is False

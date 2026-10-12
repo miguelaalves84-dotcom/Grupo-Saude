@@ -1,5 +1,5 @@
 """Deterministic synthetic module captures. Never authenticates against a provider."""
-import http.server, functools, threading, os, json
+import http.server, functools, threading, os, json, math
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(os.environ.get('GS_VISUAL_SOURCE','/source'))
@@ -35,6 +35,14 @@ with sync_playwright() as p:
       assert locator.inner_text().strip(),row
       assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 2'),row
       locator.screenshot(path=str(OUT/filename),animations='disabled')
+      bounds=locator.bounding_box();header=page.locator('.topbar').bounding_box()
+      if bounds and header:
+       left=max(0,header['x']-bounds['x']);top=max(0,header['y']-bounds['y'])
+       right=min(bounds['width'],header['x']+header['width']-bounds['x']);bottom=min(bounds['height'],header['y']+header['height']-bounds['y'])
+       if right>left and bottom>top:row['global_header_overlay']=[math.floor(left),math.floor(top),math.ceil(right),math.ceil(bottom)]
+      if os.environ.get('GS_VISUAL_FULLPAGE')=='true':
+       page.screenshot(path=str(OUT/('full-'+filename)),full_page=True,animations='disabled')
+
      elif present:
       assert page.evaluate('(module)=>App.showView(module)',module) is False,row
      manifest['scenarios'].append(row)

@@ -37,7 +37,7 @@ with sync_playwright() as p:
    # Configure a synthetic fixture as CEO; return to the real test profile before any action.
    page.evaluate('''([key,actor,cid])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser='u1';s.ceoViewingAs=null;localStorage.setItem(key,JSON.stringify(s));GSModuleDemo.call('category-save',{clinicId:cid,id:'cat',name:'Consumíveis'});GSModuleDemo.call('product-save',{clinicId:cid,id:'p',name:'Produto sintético',reference:'SYN',unit:'un',categoryId:'cat',minimum:3,maximum:100});const after=JSON.parse(localStorage.getItem(key));after.currentUser=actor;after.ceoViewingAs=actor;localStorage.setItem(key,JSON.stringify(after));StockUIV4.render();}''',[KEY,actor,cid])
    page.locator('[data-stock-action="request-create"]').first.click();page.locator('#stockForm [name="quantity"]').fill('2');page.locator('#stockForm [name="reason"]').fill('Pedido sintético');page.locator('#stockForm [type="submit"]').click()
-   page.locator('[data-stock-action="tab"][data-stock-id="requests"]').click();expect(page.locator('#stockContent').get_by_text('Pendente',exact=False)).to_be_visible();assert page.locator('[data-stock-action="request-decide"]').count()==0
+   page.locator('[data-stock-action="tab"][data-stock-id="requests"]').click();expect(page.locator('#stockPanel').get_by_text('Pendente',exact=False)).to_be_visible();assert page.locator('[data-stock-action="request-decide"]').count()==0
    assert page.evaluate('(cid)=>!JSON.stringify(GSModuleDemo.call("stock",{clinicId:cid})).includes("unitCostCents")',cid)
   for width in [820,390]:
    page.set_viewport_size({'width':width,'height':900});assert page.evaluate('document.documentElement.scrollWidth<=window.innerWidth+2')

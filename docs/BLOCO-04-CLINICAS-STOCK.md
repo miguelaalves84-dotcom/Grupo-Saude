@@ -21,3 +21,9 @@ Run 38312002367: npm test/build, regressões existentes e 14 testes de PostgreSQ
 Browser usa localStorage explicitamente demonstrativo. O serviço SQL foi exercitado em PostgreSQL local descartável com provider de identidade simulado; isso não configura nem prova Neon remoto, fornecedor real, scanners/backup externos ou sessão operacional completa da UI. Nenhum writer real RH, Operação ou Stock foi ativado. Migrações são aditivas, com checksum e runner controlado; nenhuma execução em base remota. Backend prefix P0 e produção continuam bloqueados.
 
 Preview: preparar apenas artefactos estáticos testados, sem APIs/env de produção. Publicação/hospedagem remota exige o plano e aprovação do utilizador; não há URL pública nova enquanto não for efetivamente criada.
+
+## Diagnóstico visual comprovado
+
+Os dois diffs RH/Administração/mobile estavam inteiramente no retângulo 0,0,354,210 do cabeçalho fixo que sobrepunha a captura do elemento após scrollIntoView. Análise local dos PNG: diferença abaixo da linha 215 = zero pixels. O conteúdo RH não mudou. O harness passa a medir a sobreposição na fonte imutável 4a58d5e e no candidato, excluir apenas esse overlay global da comparação do componente e publicar também capturas completas com cabeçalho/navegação. Mantém limite 16/0,3% e exige pelo menos 50% da área visível comparada; não mascara cartões RH nem aumenta tolerância. Alterações deliberadas em Clínicas/Stock permanecem candidatos para revisão humana.
+
+Run 38313552764: 16 testes PostgreSQL/API aprovados, incluindo anexos de compras e proteção de custos no histórico; suites antigas e Clínicas aprovadas. Stock passou gestão de inventário/receção/consumo/encomendas/documentos em CEO/Administração; teste restante falhou por seletor ambíguo Pendente versus Assuntos pendentes, corrigido com âmbito stockPanel.

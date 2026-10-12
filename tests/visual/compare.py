@@ -21,5 +21,5 @@ for before in old['scenarios']:
  if not passed:diff.save(CURRENT/('diff-'+after['file']));failed.append(results[-1])
 report={'reference':old['source_commit'],'tolerance':old['tolerance'],'results':results,'failed':failed,'new_designs':'Clínicas/Stock captures versioned as candidate baseline, human review still required.'}
 (CURRENT/'pixel-results.json').write_text(json.dumps(report,indent=2))
-print(json.dumps({'compared':sum(r['status'] in {'passed','failed'} for r in results),'failed':len(failed),'intentional_changes':'Clinics/Stock only'}))
+print(json.dumps({'failures':failed,'compared':sum(r['status'] in {'passed','failed'} for r in results),'failed':len(failed),'intentional_changes':'Clinics/Stock only'}))
 if failed:raise SystemExit(1)

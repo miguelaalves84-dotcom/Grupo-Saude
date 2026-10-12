@@ -161,3 +161,22 @@ jobs:
           path: ${{ runner.temp }}/gs-pixels
           if-no-files-found: error
           retention-days: 30
+
+  diagnose-reference-differences:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 38312002367
+          name: visual-pixels-d581c5b4daa96bb9d023c5712e1f88797916fe8d
+          path: prior-pixel-report
+      - name: Inspect effective pixel differences from the previous run
+        run: |
+          python3 - <<'PYREPORT'
+          import json
+          print(json.dumps(json.load(open('prior-pixel-report/pixel-results.json'))['failed'], indent=2))
+          PYREPORT

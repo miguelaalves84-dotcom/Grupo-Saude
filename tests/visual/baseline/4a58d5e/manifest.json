@@ -1,0 +1,1308 @@
+{
+  "source_commit": "4a58d5eb06090900ca12be4a9856c6e4a69a972a",
+  "scenarios": [
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "u1-desktop-light-clinics.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "u1-desktop-light-hr.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "u1-desktop-light-operation.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "u1-desktop-dark-clinics.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "u1-desktop-dark-hr.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "u1-desktop-dark-operation.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "u1-tablet-light-clinics.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "u1-tablet-light-hr.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "u1-tablet-light-operation.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "u1-tablet-dark-clinics.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "u1-tablet-dark-hr.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "u1-tablet-dark-operation.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "u1-mobile-light-clinics.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "u1-mobile-light-hr.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "u1-mobile-light-operation.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "u1-mobile-dark-clinics.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "u1-mobile-dark-hr.png"
+    },
+    {
+      "actor": "u1",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "u1-mobile-dark-operation.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-desktop-light-clinics.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-desktop-light-hr.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-desktop-light-operation.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-desktop-dark-clinics.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-desktop-dark-hr.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-desktop-dark-operation.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-tablet-light-clinics.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-tablet-light-hr.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-tablet-light-operation.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-tablet-dark-clinics.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-tablet-dark-hr.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-tablet-dark-operation.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-mobile-light-clinics.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-mobile-light-hr.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-mobile-light-operation.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-mobile-dark-clinics.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-mobile-dark-hr.png"
+    },
+    {
+      "actor": "test_admin",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_admin-mobile-dark-operation.png"
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_adm-desktop-light-operation.png"
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_adm-desktop-dark-operation.png"
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_adm-tablet-light-operation.png"
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_adm-tablet-dark-operation.png"
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_adm-mobile-light-operation.png"
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_adm",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_adm-mobile-dark-operation.png"
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_call-desktop-light-operation.png"
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_call-desktop-dark-operation.png"
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_call-tablet-light-operation.png"
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_call-tablet-dark-operation.png"
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_call-mobile-light-operation.png"
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_call",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": true,
+      "file": "test_call-mobile-dark-operation.png"
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_med",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "desktop",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "tablet",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "light",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "clinics",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "stock",
+      "present": false,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "hr",
+      "present": true,
+      "allowed": false,
+      "file": null
+    },
+    {
+      "actor": "test_tec",
+      "viewport": "mobile",
+      "theme": "dark",
+      "module": "operation",
+      "present": true,
+      "allowed": false,
+      "file": null
+    }
+  ],
+  "clock": "2026-10-12T10:00:00Z",
+  "browser": "playwright-1.56.0-chromium",
+  "tolerance": {
+    "channel_delta": 16,
+    "maximum_changed_pixel_ratio": 0.003,
+    "reason": "Allow minor antialiasing; layouts, text, module presence and permissions must remain stable."
+  }
+}

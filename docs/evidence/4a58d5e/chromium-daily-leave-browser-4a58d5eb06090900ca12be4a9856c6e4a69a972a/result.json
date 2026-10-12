@@ -1,0 +1,8 @@
+{
+  "suite": "daily-leave-browser",
+  "status": "passed",
+  "url": "http://127.0.0.1:8765/index.html",
+  "external_requests_blocked": [],
+  "scope": "synthetic demo and mocked authentication; no provider or database",
+  "visual_evidence": "screenshots and traces; no approved pixel baseline"
+}

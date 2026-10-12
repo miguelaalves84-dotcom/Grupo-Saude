@@ -9,7 +9,7 @@ with sync_playwright() as p:
  for actor in ACTORS:
   c=browser.new_context(viewport={'width':1280,'height':900});page=c.new_page();errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
   page.goto(os.environ['GS_TEST_URL']);page.wait_for_function('window.GSModuleDemo && window.ClinicDocumentsUIV4')
-  page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoViewingAs=actor==='u1'?null:actor;localStorage.setItem(key,JSON.stringify(s));}''',[KEY,actor]);page.reload();page.wait_for_function('window.GSModuleDemo && window.ClinicDocumentsUIV4')
+  page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoViewingAs=actor==='u1'?null:actor;const cid=s.clinics.find(c=>c.active!==false&&!c.virtual&&!c.legacyDemo&&c.operational!==false).id;const p=s.users.find(p=>p.id===actor);p.clinics=[cid];if(s.employees?.[actor])s.employees[actor].clinics=[cid];localStorage.setItem(key,JSON.stringify(s));}''',[KEY,actor]);page.reload();page.wait_for_function('window.GSModuleDemo && window.ClinicDocumentsUIV4')
   manager=actor in ['u1','test_admin'];has_docs=page.evaluate("RoleAccessAdminV4.guard('clinics')")
   assert page.evaluate('ClinicMasterV4.canManage()')==manager
   if not manager:

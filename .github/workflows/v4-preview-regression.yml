@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser, clinics-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser, clinics-browser, stock-browser]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -168,6 +168,9 @@ jobs:
       contents: read
       actions: read
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
@@ -179,4 +182,7 @@ jobs:
           python3 - <<'PYREPORT'
           import json
           print(json.dumps(json.load(open('prior-pixel-report/pixel-results.json'))['failed'], indent=2))
+          import base64
+          for label, path in [('BEFORE','tests/visual/baseline/4a58d5e/test_admin-mobile-light-hr.png'),('AFTER','prior-pixel-report/test_admin-mobile-light-hr.png')]:
+              print(label+'_PNG_BASE64='+base64.b64encode(open(path,'rb').read()).decode())
           PYREPORT

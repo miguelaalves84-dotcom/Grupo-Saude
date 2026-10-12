@@ -1,72 +1,66 @@
-name: V4 preview regression
+name: V4 isolated Chromium regression
 on:
+  push:
+    branches: [fix/v4-p0-security-hardening-session]
   pull_request:
+    branches: [fix/v4-p0-security-hardening-session]
 permissions:
   contents: read
-  checks: read
+concurrency:
+  group: v4-isolated-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   regression:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          node-version: '24'
-      - run: npm install --ignore-scripts
-      - run: npm run check
-      - run: npm test
-      - run: npm run build
+          persist-credentials: false
+      - name: Existing automated tests and build without network or application credentials
+        run: |
+          docker pull node:24-bookworm-slim
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges --tmpfs /tmp:rw,exec,size=1g \
+            --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
+            node:24-bookworm-slim sh -ec '
+              cp -R /source /tmp/project
+              cd /tmp/project
+              rm -rf .git
+              npm test
+              npm run build
+            '
   browser:
-    name: browser (${{ matrix.suite }})
+    name: Chromium (${{ matrix.suite }})
+    needs: regression
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser]
-    needs: regression
-    runs-on: ubuntu-latest
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          python-version: '3.12'
-      - run: pip install playwright==1.56.0
-      - run: python -m playwright install --with-deps chromium
-      - run: python -m http.server 8765 --bind 127.0.0.1 > /tmp/gs-http.log 2>&1 &
-      - run: python tests/${{ matrix.suite }}.py
+          persist-credentials: false
+      - name: Prepare browser image (no application execution)
+        run: docker build -t gs-visual-tests -f tests/ci/Dockerfile tests/ci
+      - name: Execute synthetic tests in a container with no network
         env:
-          GS_TEST_URL: http://127.0.0.1:8765/index.html
-      - run: python tests/resolve-preview.py
-        env:
-          GH_READ_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
-      - run: python tests/${{ matrix.suite }}.py
-        env:
-          GS_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}
-      - name: Verify deployed assets and inspect production (read-only)
-        if: matrix.suite == 'browser'
-        run: python tests/cloudflare-publication.py
-        env:
-          GS_PREVIEW_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}
-          GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
-  p0-postgresql:
-    name: P0 isolated PostgreSQL migrations
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Start a disposable local cluster
+          SUITE: ${{ matrix.suite }}
         run: |
-          P0_PG_BIN=$(find /usr/lib/postgresql -name initdb -printf '%h\n' | sort -V | tail -1)
-          mkdir -p /tmp/gs-p0-pg-socket
-          "$P0_PG_BIN/initdb" -D /tmp/gs-p0-pg-data -A trust
-          "$P0_PG_BIN/pg_ctl" -D /tmp/gs-p0-pg-data -l /tmp/gs-p0-pg.log -o "-k /tmp/gs-p0-pg-socket -p 55439 -h ''" start
-          createdb -h /tmp/gs-p0-pg-socket -p 55439 p0_synthetic
-      - run: python tests/p0-migrations.py
-        env:
-          GS_P0_POSTGRES_DISPOSABLE: 'true'
-          GS_P0_POSTGRES_DSN: host=/tmp/gs-p0-pg-socket port=55439 dbname=p0_synthetic
+          mkdir -p "$RUNNER_TEMP/gs-artifacts"
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges --shm-size=1g \
+            --tmpfs /tmp:rw,exec,size=1g \
+            --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
+            --mount type=bind,source="$RUNNER_TEMP/gs-artifacts",target=/artifacts \
+            --workdir /source gs-visual-tests python tests/ci/run-browser.py "$SUITE"
+      - name: Upload synthetic screenshots, traces and effective result
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: chromium-${{ matrix.suite }}-${{ github.sha }}
+          path: ${{ runner.temp }}/gs-artifacts
+          if-no-files-found: error
+          retention-days: 7

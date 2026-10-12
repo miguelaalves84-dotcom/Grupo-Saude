@@ -38,6 +38,10 @@ with sync_playwright() as p:
                 assert page.locator(f'#{view}').evaluate("e=>e.classList.contains('active')"), (role, view)
                 assert page.locator(f'#{view}').inner_text().strip(), (role, view, 'empty view')
                 checked.append(view)
+                if os.environ.get('GS_TEST_ARTIFACTS'):
+                    artifacts = Path(os.environ['GS_TEST_ARTIFACTS'])
+                    artifacts.mkdir(parents=True, exist_ok=True)
+                    page.screenshot(path=str(artifacts / f'navigation-{uid}-{view}.png'), full_page=True)
             else:
                 assert not page.evaluate('(id)=>App.showView(id)', view), (role, view, 'permission bypass')
         if role in ['CEO', 'Administração']:
@@ -141,3 +145,4 @@ with sync_playwright() as p:
         context.close()
     browser.close()
 print(json.dumps(results, ensure_ascii=False, indent=2))
+

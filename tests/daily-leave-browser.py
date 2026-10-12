@@ -11,18 +11,19 @@ with sync_playwright() as p:
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto(os.environ['GS_TEST_URL'])
     page.wait_for_function('window.HRLeaveV4 && window.App && window.RoleAccessAdminV4')
-    page.evaluate('''key => {
+    clinic_id = page.evaluate('JSON.parse(localStorage.getItem("'+KEY+'")).clinics.find(c => c.active !== false).id')
+    page.evaluate('''([key, clinicId]) => {
         const s = JSON.parse(localStorage.getItem(key));
         s.currentUser = 'u1'; s.ceoViewingAs = null;
-        s.opClinic = 'c1'; s.opDate = '2026-10-12'; s.opPhase = 'open'; s.days = {};
+        s.opClinic = clinicId; s.opDate = '2026-10-12'; s.opPhase = 'open'; s.days = {};
         s.leave = [
-            {id:'synthetic-vacation',employeeId:'test_med',clinicId:'c1',type:'Férias',
+            {id:'synthetic-vacation',employeeId:'test_med',clinicId,type:'Férias',
              days:['2026-10-12','2026-10-13','2026-10-14'],status:'Aprovado'},
-            {id:'synthetic-sick',employeeId:'test_med',clinicId:'c1',type:'Baixa',
+            {id:'synthetic-sick',employeeId:'test_med',clinicId,type:'Baixa',
              days:['2026-10-13'],start:'2026-10-13',end:'2026-10-13',status:'Pendente'}
         ];
         localStorage.setItem(key, JSON.stringify(s));
-    }''', KEY)
+    }''', [KEY, clinic_id])
     page.reload()
     page.wait_for_function('window.HRLeaveV4 && window.App')
     page.evaluate("HRLeaveUIV4.open('synthetic-sick')")
@@ -37,25 +38,25 @@ with sync_playwright() as p:
     assert page.locator('[data-leave-id="synthetic-vacation"]').count() > 0
     page.locator('#modal .modal-head button').click()
     page.evaluate("App.showView('operation')")
-    expect(page.locator('#opClinic')).to_have_value('c1')
+    expect(page.locator('#opClinic')).to_have_value(clinic_id)
     page.get_by_role('button', name='Guardar abertura', exact=True).click()
     state = page.evaluate('(key) => JSON.parse(localStorage.getItem(key))', KEY)
-    assert state['days']['2026-10-12_c1']['open']['saved']
+    assert state['days']['2026-10-12_' + clinic_id]['open']['saved']
     page.evaluate("App.setPhase('close')")
     page.get_by_role('button', name='Fechar dia e criar resumo', exact=True).click()
     expect(page.locator('#modalTitle')).to_have_text('Fecho bloqueado')
     state = page.evaluate('(key) => JSON.parse(localStorage.getItem(key))', KEY)
-    assert not state['days']['2026-10-12_c1']['closed']
+    assert not state['days']['2026-10-12_' + clinic_id]['closed']
     page.locator('#modal .modal-head button').click()
     # Complete only the synthetic day's required tasks using the existing domain API.
-    page.evaluate('''key => {
+    page.evaluate('''([key, clinicId]) => {
         const s = JSON.parse(localStorage.getItem(key));
         for (const t of s.tasks.filter(t => t.active && t.required && ['live','close'].includes(t.phase)
-            && (t.clinics.includes('all') || t.clinics.includes('c1')))) App.setTask(t.id, 'done');
-    }''', KEY)
+            && (t.clinics.includes('all') || t.clinics.includes(clinicId)))) App.setTask(t.id, 'done');
+    }''', [KEY, clinic_id])
     page.get_by_role('button', name='Fechar dia e criar resumo', exact=True).click()
     state = page.evaluate('(key) => JSON.parse(localStorage.getItem(key))', KEY)
-    day = state['days']['2026-10-12_c1']
+    day = state['days']['2026-10-12_' + clinic_id]
     assert day['closed'] and day['summary'] and day['closedBy'] == 'u1', day
     assert not errors, errors
     print(json.dumps({'passed': ['sick leave adjusts only overlapping vacation days',

@@ -55,6 +55,7 @@ jobs:
             --tmpfs /tmp:rw,exec,size=1g \
             --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
             --mount type=bind,source="$RUNNER_TEMP/gs-artifacts",target=/artifacts \
+            --user "$(id -u):$(id -g)" \
             --workdir /source gs-visual-tests python tests/ci/run-browser.py "$SUITE"
       - name: Upload synthetic screenshots, traces and effective result
         if: always()

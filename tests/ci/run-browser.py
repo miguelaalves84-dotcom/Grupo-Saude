@@ -10,6 +10,7 @@ import threading
 import traceback
 from urllib.parse import urlsplit
 from playwright.sync_api import Browser, BrowserContext, BrowserType
+from playwright.sync_api._context_manager import PlaywrightContextManager
 
 ROOT = Path(__file__).resolve().parents[2]
 SUITES = {'browser', 'finance-browser', 'improvements-browser', 'documents-browser',
@@ -62,6 +63,15 @@ def close(self, *args, **kwargs):
     return original_close(self, *args, **kwargs)
 
 Browser.new_context, BrowserContext.close, BrowserType.launch = new_context, close, launch
+original_exit = PlaywrightContextManager.__exit__
+
+def exit_playwright(self, *args):
+    # Persist failure evidence before the sync manager stops its event loop.
+    for context, _ in list(contexts):
+        context.close()
+    return original_exit(self, *args)
+
+PlaywrightContextManager.__exit__ = exit_playwright
 failed = False
 try:
     runpy.run_path(str(ROOT / 'tests' / (suite + '.py')), run_name='__main__')

@@ -27,3 +27,7 @@ Isto comprova apenas funcionalidades demo e contratos de autenticação com resp
 A rede do terminal falhou na ligação ao proxy; os ficheiros da base foram recuperados pelo conector GitHub, por SHA imutável. Servidor local e Chromium falharam por sockets não permitidos no sandbox. Não se declara navegador local aprovado. Nenhum resultado histórico substitui uma execução da nova pipeline.
 
 Estado da validação remota: PENDENTE até inspecionar um run GitHub Actions do commit sincronizado. Só o run efetivo e os seus artefactos determinam aprovação/falha. Bloqueios de Actions, pull de imagens ou testes devem ser reportados com o link do run, sem os ocultar com skips/retries automáticos.
+
+## Primeiro resultado efetivo e correção da infraestrutura
+
+Run https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/38292500237, commit c62a258: regression aprovado; Chromium falhou. A execução demonstrou Chromium funcional num container sem rede. Falhas concretas: UID do container sem escrita no mount de artefactos (capabilities removidas); fixture Operação usava c1 em vez da clínica canónica da branch. Correções: usar UID/GID do runner, selecionar clínica disponível no estado da demo e guardar evidência antes de Playwright encerrar o event loop. Não se alterou a aplicação para contornar os testes. Nova execução obrigatória antes de aprovação.

@@ -24,7 +24,10 @@ with sync_playwright() as p:
     if key=='clinics':expect(page.locator('#clinicMasterTable')).to_be_visible()
     elif key=='staff':expect(page.locator('#hr')).to_have_class('view active')
     else:
-     expect(page.locator('#modal')).to_be_visible();title=page.locator('#modalTitle').inner_text();assert DEST[key].lower() in title.lower(),(key,title);page.locator('#modal .modal-head button').click()
+     expect(page.locator('#modal')).to_be_visible();title=page.locator('#modalTitle').inner_text();assert DEST[key].lower() in title.lower(),(key,title);
+     if key=='structure':
+      expect(page.get_by_role('button',name='Editar especialidades').first).to_be_visible();expect(page.get_by_role('button',name='Gerir médicos / técnicos').first).to_be_visible()
+     page.locator('#modal .modal-head button').click()
    page.evaluate('TablesCanonicalV4.open()');page.locator('[data-table-action="catalog"]').click();page.locator('[data-catalog-new]').click()
    form=page.locator('#documentCatalogForm');form.locator('[name="name"]').fill('Documento sintético');form.locator('[name="dateRule"]').select_option('inicio_validade');form.locator('[name="validityDays"]').fill('365');form.locator('[name="warningDays"]').fill('45');form.locator('[name="requirements"]').fill('Cópia assinada');form.locator('[type="submit"]').click()
    did=page.evaluate('(key)=>JSON.parse(localStorage.getItem(key)).documentCatalog.find(d=>d.name==="Documento sintético").id',KEY);page.locator('#modal .modal-head button').click()

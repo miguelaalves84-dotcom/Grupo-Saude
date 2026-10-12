@@ -1,9 +1,9 @@
 name: V4 isolated Chromium regression
 on:
   push:
-    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog]
   pull_request:
-    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog]
 permissions:
   contents: read
 concurrency:
@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser, clinics-browser, stock-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser, clinics-browser, stock-browser, tables-browser]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:

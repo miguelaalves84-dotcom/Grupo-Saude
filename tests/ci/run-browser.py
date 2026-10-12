@@ -14,7 +14,7 @@ from playwright.sync_api._context_manager import PlaywrightContextManager
 
 ROOT = Path(__file__).resolve().parents[2]
 SUITES = {'browser', 'finance-browser', 'improvements-browser', 'documents-browser',
-          'p0-browser', 'daily-leave-browser', 'clinics-browser', 'stock-browser'}
+          'p0-browser', 'daily-leave-browser', 'clinics-browser', 'stock-browser', 'tables-browser'}
 suite = sys.argv[1]
 if suite not in SUITES:
     raise SystemExit('Unknown suite')

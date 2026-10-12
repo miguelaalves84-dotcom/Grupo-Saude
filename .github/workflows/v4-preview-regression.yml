@@ -167,3 +167,33 @@ jobs:
           path: ${{ runner.temp }}/gs-pixels
           if-no-files-found: error
           retention-days: 30
+
+  preview-package:
+    needs: [regression, browser, server-postgresql, visual-pixels]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Package tested static synthetic preview without APIs or credentials
+        run: |
+          mkdir -p "$RUNNER_TEMP/gs-preview"
+          docker pull node:24-bookworm-slim
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges --tmpfs /tmp:rw,exec,size=1g \
+            --user "$(id -u):$(id -g)" -e HOME=/tmp \
+            -e GS_PREVIEW_COMMIT="${{ github.sha }}" \
+            --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
+            --mount type=bind,source="$RUNNER_TEMP/gs-preview",target=/artifacts \
+            node:24-bookworm-slim sh -ec 'cp -R /source /tmp/project; cd /tmp/project; node scripts/build-static.cjs; node tests/ci/package-preview.cjs /artifacts'
+          python3 - <<'PREVIEWZIP'
+          import os,shutil
+          shutil.make_archive(os.environ['RUNNER_TEMP']+'/gs-preview/preview-static','zip',os.environ['RUNNER_TEMP']+'/gs-preview/preview-static')
+          PREVIEWZIP
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: synthetic-preview-${{ github.sha }}
+          path: ${{ runner.temp }}/gs-preview
+          if-no-files-found: error
+          retention-days: 30

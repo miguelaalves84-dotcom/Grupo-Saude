@@ -54,7 +54,8 @@
   "outputDirectory": "dist",
   "git": {
     "deploymentEnabled": {
-      "fix/v4-p0-security-hardening-session": false
+      "fix/v4-p0-security-hardening-session": false,
+      "fix/v4-p0-security-hardening-clinics-stock": false
     }
   }
 }

@@ -1,9 +1,9 @@
 name: V4 isolated Chromium regression
 on:
   push:
-    branches: [fix/v4-p0-security-hardening-session]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock]
   pull_request:
-    branches: [fix/v4-p0-security-hardening-session]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock]
 permissions:
   contents: read
 concurrency:
@@ -65,3 +65,54 @@ jobs:
           path: ${{ runner.temp }}/gs-artifacts
           if-no-files-found: error
           retention-days: 7
+
+  preserve-baseline:
+    if: github.ref == 'refs/heads/fix/v4-p0-security-hardening-clinics-stock'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - id: required
+        run: |
+          if [ -f tests/visual/baseline/4a58d5e/manifest.json ]; then
+            echo "capture=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "capture=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Retrieve approved synthetic screenshots and traces
+        if: steps.required.outputs.capture == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 38293004119
+          path: docs/evidence/4a58d5e
+      - name: Checkout immutable approved source
+        if: steps.required.outputs.capture == 'true'
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 4a58d5eb06090900ca12be4a9856c6e4a69a972a
+          path: approved-source
+          persist-credentials: false
+      - name: Capture desktop, tablet, mobile and both themes without network
+        if: steps.required.outputs.capture == 'true'
+        run: |
+          docker build -t gs-visual-tests -f tests/ci/Dockerfile tests/ci
+          mkdir -p tests/visual/baseline/4a58d5e
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges --shm-size=1g --tmpfs /tmp:rw,exec,size=1g \
+            --user "$(id -u):$(id -g)" \
+            --mount type=bind,source="$GITHUB_WORKSPACE/approved-source",target=/source,readonly \
+            --mount type=bind,source="$GITHUB_WORKSPACE/tests/visual",target=/harness,readonly \
+            --mount type=bind,source="$GITHUB_WORKSPACE/tests/visual/baseline/4a58d5e",target=/artifacts \
+            -e GS_VISUAL_SHA=4a58d5eb06090900ca12be4a9856c6e4a69a972a \
+            gs-visual-tests python /harness/capture.py
+      - name: Preserve baseline and original evidence in the development branch
+        if: steps.required.outputs.capture == 'true'
+        env:
+          GH_EVIDENCE_TOKEN: ${{ github.token }}
+        run: python3 tests/visual/publish-evidence.py

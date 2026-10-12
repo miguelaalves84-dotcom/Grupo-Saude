@@ -1,0 +1,6 @@
+FROM node:24-bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends postgresql postgresql-client python3 && rm -rf /var/lib/apt/lists/* \
+    && npm install --prefix /opt/isolated --ignore-scripts pg@8.16.3 \
+    && useradd --uid 1001 --create-home gs-test
+ENV NODE_PATH=/opt/isolated/node_modules HOME=/tmp
+USER gs-test

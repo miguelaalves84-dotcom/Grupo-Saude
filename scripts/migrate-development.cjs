@@ -2,7 +2,7 @@
 /* Explicit isolated-development migration entrypoint. No default DATABASE_URL fallback. */
 const fs=require('node:fs'),path=require('node:path'),{createHash}=require('node:crypto');
 async function transaction(sql,version,source){
- if(version!=='v4-p0-gps-001')throw Error('Unknown controlled migration');
+ if(!['v4-p0-gps-001','v4-clinics-stock-001'].includes(version))throw Error('Unknown controlled migration');
  const checksum=createHash('sha256').update(source).digest('hex');
  // Serializable transaction: lock, ledger, DDL and ledger entry commit or roll back together.
  return sql.transaction([

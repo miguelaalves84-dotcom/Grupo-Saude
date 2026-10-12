@@ -11,7 +11,7 @@ with sync_playwright() as p:
  page.goto(URL);page.wait_for_timeout(900)
  payload="c1');window.__p0XSS=1;//"
  name='Synthetic <img src=x onerror="window.__p0XSS=2"> & \'quoted\''
- page.evaluate('''([key,id,name])=>{window.__p0XSS=0;const s=JSON.parse(localStorage.getItem(key));s.clinics.push({id,name,active:true,phones:[],gps:{radius:50},ers:{}});localStorage.setItem(key,JSON.stringify(s));App.showView('clinics');ClinicMasterV4.render();}''',[KEY,payload,name])
+ page.evaluate('''([key,id,name])=>{window.__p0XSS=0;const s=JSON.parse(localStorage.getItem(key));s.clinics.push({id,name,active:true,phones:[],gps:{radius:50},ers:{}});localStorage.setItem(key,JSON.stringify(s));App.showView('tables');ClinicMasterV4.render();}''',[KEY,payload,name])
  row=page.locator('.clinic-master-row').filter(has_text=name)
  expect(row).to_have_count(1);row.locator('button').click()
  expect(page.locator('#cmName')).to_have_value(name)

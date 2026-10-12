@@ -11,7 +11,10 @@ with sync_playwright() as p:
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto(os.environ['GS_TEST_URL'])
     page.wait_for_function('window.HRLeaveV4 && window.App && window.RoleAccessAdminV4')
-    clinic_id = page.evaluate('JSON.parse(localStorage.getItem("'+KEY+'")).clinics.find(c => c.active !== false).id')
+    # The clinic catalogue also contains administrative units, excluded from daily operation.
+    page.evaluate("App.showView('operation')")
+    expect(page.locator('#opClinic')).to_be_visible()
+    clinic_id = page.locator('#opClinic').input_value()
     page.evaluate('''([key, clinicId]) => {
         const s = JSON.parse(localStorage.getItem(key));
         s.currentUser = 'u1'; s.ceoViewingAs = null;

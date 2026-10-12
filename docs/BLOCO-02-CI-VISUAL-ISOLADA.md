@@ -31,3 +31,5 @@ Estado da validação remota: PENDENTE até inspecionar um run GitHub Actions do
 ## Primeiro resultado efetivo e correção da infraestrutura
 
 Run https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/38292500237, commit c62a258: regression aprovado; Chromium falhou. A execução demonstrou Chromium funcional num container sem rede. Falhas concretas: UID do container sem escrita no mount de artefactos (capabilities removidas); fixture Operação usava c1 em vez da clínica canónica da branch. Correções: usar UID/GID do runner, selecionar clínica disponível no estado da demo e guardar evidência antes de Playwright encerrar o event loop. Não se alterou a aplicação para contornar os testes. Nova execução obrigatória antes de aprovação.
+
+Run 38292760969 (642ea1c): os artefactos passaram a ser escritos e publicados; regression, P0/autenticação, financeiro, documentos e melhorias aprovados. A suite diária revelou que o catálogo inclui uma unidade administrativa ativa, que não é uma clínica operacional. A fixture foi corrigida para selecionar a clínica oferecida pelo próprio seletor de Operação, mantendo a exclusão administrativa existente.

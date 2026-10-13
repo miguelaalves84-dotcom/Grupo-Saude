@@ -1,0 +1,5315 @@
+{
+  "base": "0e2f7996b6c658e3dff2f878202bcce3bca299a9",
+  "destination": "fix/v4-p0-security-hardening-consolidation",
+  "branches": [
+    {
+      "name": "codex/desenvolver-projeto-grupo-saude-v4-4sagir",
+      "sha": "a2df7b54195854d74708b1ce099105e3847618b0",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 556,
+      "base": "a2df7b54195854d74708b1ce099105e3847618b0",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "codex/desenvolver-projeto-grupo-saude-v4",
+      "sha": "616730187c0d06585a052e43da951c96a3af957d",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 561,
+      "base": "616730187c0d06585a052e43da951c96a3af957d",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "feat/v4-consolidation-dashboard-access",
+      "sha": "f999aea5d8edbc2477f53a4f689367d41f6a0427",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 25,
+      "base": "f999aea5d8edbc2477f53a4f689367d41f6a0427",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "feat/v4-rh-leave-context-issue-6",
+      "sha": "1b8f244886fa6a114badad3a78251b207195c158",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 42,
+      "base": "1b8f244886fa6a114badad3a78251b207195c158",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "feat/v4-rh-performance-issue-8",
+      "sha": "b9a50bd14bc0a2706bec63031e31f4615db41f1a",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 41,
+      "base": "b9a50bd14bc0a2706bec63031e31f4615db41f1a",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "fix/rh-ceo-empty-view-20261008",
+      "sha": "3fdd34f4144b944a3381f38f042a81c650f96c34",
+      "status": "diverged",
+      "ahead": 4,
+      "behind": 44,
+      "base": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+      "commits": [
+        {
+          "sha": "898c6c2c91c21829b8a588674e2952bbc7d6b621",
+          "message": "fix(rh): restore employee panel when CEO HR navigation leaves content empty"
+        },
+        {
+          "sha": "5fad2caf9ea37b2c0bfecbad6ab5e916c9df6d35",
+          "message": "fix(rh): initialize CEO HR with employee list instead of placeholder"
+        },
+        {
+          "sha": "62d1f9a8d4c91eb3cc8779f3b8bc551172e62147",
+          "message": "fix(rh): invoke canonical RH renderer from main navigation"
+        },
+        {
+          "sha": "3fdd34f4144b944a3381f38f042a81c650f96c34",
+          "message": "refactor(rh): remove duplicate HR navigation handler and expose single entry point"
+        }
+      ],
+      "files": [
+        {
+          "path": "app.js",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1
+        },
+        {
+          "path": "clinic-hr-architecture.js",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 2
+        }
+      ]
+    },
+    {
+      "name": "fix/rh-navigation-isolation-20261008",
+      "sha": "d21c5c2134ea783dbe49b62517e4032e11419198",
+      "status": "diverged",
+      "ahead": 3,
+      "behind": 44,
+      "base": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+      "commits": [
+        {
+          "sha": "e5a87e7381bdd19a611dea3b80d9c4b6339a46b2",
+          "message": "fix(rh): stop legacy click handler overriding canonical navigation"
+        },
+        {
+          "sha": "54509dd666a0d9e44a36ef7831fa136f6c41a765",
+          "message": "fix(rh): reconcile CEO RH navigation after legacy view handlers"
+        },
+        {
+          "sha": "d21c5c2134ea783dbe49b62517e4032e11419198",
+          "message": "fix(rh): restore employee list and separate HR tabs from approvals"
+        }
+      ],
+      "files": [
+        {
+          "path": "clinic-hr-architecture.js",
+          "status": "modified",
+          "additions": 30,
+          "deletions": 2
+        },
+        {
+          "path": "index.html",
+          "status": "modified",
+          "additions": 18,
+          "deletions": 1
+        }
+      ]
+    },
+    {
+      "name": "fix/v4-p0-security-hardening",
+      "sha": "81439172a17576970957ebe0af13faec62b19e9f",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 24,
+      "base": "81439172a17576970957ebe0af13faec62b19e9f",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-clinics-stock",
+      "sha": "854bfe41d10dd29ee541c1e4159188bc30e91603",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 10,
+      "base": "854bfe41d10dd29ee541c1e4159188bc30e91603",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-profile-audit",
+      "sha": "0e2f7996b6c658e3dff2f878202bcce3bca299a9",
+      "status": "identical",
+      "ahead": 0,
+      "behind": 0,
+      "base": "0e2f7996b6c658e3dff2f878202bcce3bca299a9",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-session",
+      "sha": "4a58d5eb06090900ca12be4a9856c6e4a69a972a",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 20,
+      "base": "4a58d5eb06090900ca12be4a9856c6e4a69a972a",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-tables-catalog",
+      "sha": "112b4e930d666f371be08e87277d95024e2a806e",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 4,
+      "base": "112b4e930d666f371be08e87277d95024e2a806e",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "fix/v4-rh-session-initialization",
+      "sha": "53b40dab6c9f49e6890a000b20ab65ebc90aeb82",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 43,
+      "base": "53b40dab6c9f49e6890a000b20ab65ebc90aeb82",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "fix-clinic-source",
+      "sha": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 376,
+      "base": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "main",
+      "sha": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 44,
+      "base": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "preview",
+      "sha": "94a129cfede5c8c6ba91fd988b65fd628574085c",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 227,
+      "base": "94a129cfede5c8c6ba91fd988b65fd628574085c",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "preview-clinic-source-fix",
+      "sha": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 376,
+      "base": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "teste-escrita-chatgpt",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 548,
+      "base": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "tmp-ignore",
+      "sha": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 376,
+      "base": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-fecho-20261004-b",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 548,
+      "base": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-fecho-20261004-c",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 548,
+      "base": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-fecho-20261004-d",
+      "sha": "944f9025f548e6ad70163d4441d310d2616de6be",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 415,
+      "base": "944f9025f548e6ad70163d4441d310d2616de6be",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-fecho-20261004",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 548,
+      "base": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-fecho-work",
+      "sha": "ac2d317cc2a1bde3daf8311385646797d46d9b05",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 411,
+      "base": "ac2d317cc2a1bde3daf8311385646797d46d9b05",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-preview-944f9025",
+      "sha": "944f9025f548e6ad70163d4441d310d2616de6be",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 415,
+      "base": "944f9025f548e6ad70163d4441d310d2616de6be",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-preview-705138b",
+      "sha": "705138b4c7dfa8c0be077831a435d03e5ab9520d",
+      "status": "behind",
+      "ahead": 0,
+      "behind": 413,
+      "base": "705138b4c7dfa8c0be077831a435d03e5ab9520d",
+      "commits": [],
+      "files": []
+    },
+    {
+      "name": "v4-preview-clinic-master",
+      "sha": "3123c9ead480edd7804bf2079e21fac96865ee60",
+      "status": "diverged",
+      "ahead": 2,
+      "behind": 410,
+      "base": "003918accc4809bb870973d37ef8cc7ce86b415e",
+      "commits": [
+        {
+          "sha": "463e8986cb4708af805e9a6f3c7ad6608c501c17",
+          "message": "feat: reorganiza RH e ficha completa do colaborador"
+        },
+        {
+          "sha": "3123c9ead480edd7804bf2079e21fac96865ee60",
+          "message": "feat: ativa nova ficha 360 RH na V4"
+        }
+      ],
+      "files": [
+        {
+          "path": "index.html",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1
+        },
+        {
+          "path": "v4-hr-employee-profile.js",
+          "status": "added",
+          "additions": 28,
+          "deletions": 0
+        }
+      ]
+    }
+  ],
+  "pullRequests": [
+    {
+      "number": 12,
+      "title": "fix(v4): corrigir bloqueios críticos P0 de segurança",
+      "state": "open",
+      "merged": null,
+      "head": "fix/v4-p0-security-hardening",
+      "sha": "81439172a17576970957ebe0af13faec62b19e9f",
+      "base": "feat/v4-consolidation-dashboard-access",
+      "mergeCommit": "a97d07dba042e47fcd75aa1259a64619dd3a24d3"
+    },
+    {
+      "number": 11,
+      "title": "V4: consolidação e preparação segura de Gmail, documentos e automação",
+      "state": "open",
+      "merged": null,
+      "head": "feat/v4-consolidation-dashboard-access",
+      "sha": "f999aea5d8edbc2477f53a4f689367d41f6a0427",
+      "base": "feat/v4-rh-performance-issue-8",
+      "mergeCommit": "2a00d7f2d44059786c9369205324bf7727e494c4"
+    },
+    {
+      "number": 9,
+      "title": "V4 RH: calendários, desempenho e questionários entre colegas (#8)",
+      "state": "open",
+      "merged": null,
+      "head": "feat/v4-rh-performance-issue-8",
+      "sha": "b9a50bd14bc0a2706bec63031e31f4615db41f1a",
+      "base": "feat/v4-rh-leave-context-issue-6",
+      "mergeCommit": "4a75c723f6176a86f47ba2bd4d706340a793a49f"
+    },
+    {
+      "number": 7,
+      "title": "V4 RH: calendário de conflitos e reagendamento parcial auditado (#6)",
+      "state": "open",
+      "merged": null,
+      "head": "feat/v4-rh-leave-context-issue-6",
+      "sha": "1b8f244886fa6a114badad3a78251b207195c158",
+      "base": "fix/v4-rh-session-initialization",
+      "mergeCommit": "49eb6ec355012b10f719e532e0fba4c0485c60e7"
+    },
+    {
+      "number": 5,
+      "title": "Corrigir arranque e navegação do RH no CEO/Administração (V4)",
+      "state": "open",
+      "merged": null,
+      "head": "fix/v4-rh-session-initialization",
+      "sha": "53b40dab6c9f49e6890a000b20ab65ebc90aeb82",
+      "base": "main",
+      "mergeCommit": "d9fd2403d9264cc3f68f29ac13f6cec33e20e9b1"
+    },
+    {
+      "number": 4,
+      "title": "V4 — fecho de correções e atualização do preview",
+      "state": "closed",
+      "merged": "2026-10-05T02:01:16Z",
+      "head": "v4-fecho-work",
+      "sha": "5dfed21f747e9f571f41a57dcb7a1da999d0a01a",
+      "base": "v4-fecho-20261004-d",
+      "mergeCommit": "a4abb8072e15fb025f40cbaa9d51fe6e2dc8b0db"
+    },
+    {
+      "number": 2,
+      "title": "Add interactive SPA frontend with app.js, updated index.html and styles.css",
+      "state": "closed",
+      "merged": "2026-10-02T12:03:43Z",
+      "head": "codex/desenvolver-projeto-grupo-saude-v4-4sagir",
+      "sha": "a2df7b54195854d74708b1ce099105e3847618b0",
+      "base": "teste-escrita-chatgpt",
+      "mergeCommit": "6896a849267a1b59f93822f6aef5c7b5b0e4c569"
+    },
+    {
+      "number": 1,
+      "title": "feat: disponibilizar fluxos operacionais completos do Grupo Saúde V4",
+      "state": "closed",
+      "merged": "2026-10-02T09:55:56Z",
+      "head": "codex/desenvolver-projeto-grupo-saude-v4",
+      "sha": "616730187c0d06585a052e43da951c96a3af957d",
+      "base": "teste-escrita-chatgpt",
+      "mergeCommit": "0b06521ead311fadfd6da2c97d4949af8a31f655"
+    }
+  ],
+  "commits": [
+    {
+      "sha": "0e2f7996b6c658e3dff2f878202bcce3bca299a9",
+      "date": "2026-10-13T08:46:55Z",
+      "message": "fix(v4): persist chat read state and verify individual permission changes [CF-Pages-Skip]",
+      "parents": [
+        "df157890241231ac69261cdca3ae4cfed5db5ab0"
+      ]
+    },
+    {
+      "sha": "df157890241231ac69261cdca3ae4cfed5db5ab0",
+      "date": "2026-10-13T08:43:56Z",
+      "message": "fix(v4): close mobile navigation when opening authorized modules [CF-Pages-Skip]",
+      "parents": [
+        "780e0f9c21024969bb9a91d400cc9a1ec72f56a0"
+      ]
+    },
+    {
+      "sha": "780e0f9c21024969bb9a91d400cc9a1ec72f56a0",
+      "date": "2026-10-13T08:39:21Z",
+      "message": "fix(v4): open RH dialogs and validate all devices across six profiles [CF-Pages-Skip]",
+      "parents": [
+        "bf26883e3d80be261523754e1c8e9fea65811348"
+      ]
+    },
+    {
+      "sha": "bf26883e3d80be261523754e1c8e9fea65811348",
+      "date": "2026-10-13T08:20:31Z",
+      "message": "fix(v4): audit six profiles and enforce scoped permissions [CF-Pages-Skip]",
+      "parents": [
+        "112b4e930d666f371be08e87277d95024e2a806e"
+      ]
+    },
+    {
+      "sha": "112b4e930d666f371be08e87277d95024e2a806e",
+      "date": "2026-10-12T23:17:25Z",
+      "message": "test(v4): scope synthetic employee checklist fixtures to assigned clinics [CF-Pages-Skip]",
+      "parents": [
+        "35dcf0c7c3e2d4d204013106438212d8fb43f7e2"
+      ]
+    },
+    {
+      "sha": "35dcf0c7c3e2d4d204013106438212d8fb43f7e2",
+      "date": "2026-10-12T23:17:02Z",
+      "message": "test(v4): assign canonical synthetic clinics in table permission fixtures [CF-Pages-Skip]",
+      "parents": [
+        "09fda5d2d2793a9534c3f216d35d0c8e184fac03"
+      ]
+    },
+    {
+      "sha": "09fda5d2d2793a9534c3f216d35d0c8e184fac03",
+      "date": "2026-10-12T23:13:30Z",
+      "message": "fix(v4): register guarded contract checklist requirement actions [CF-Pages-Skip]",
+      "parents": [
+        "ae6906fbf872036c624dff3b6881b1a53e7fa404"
+      ]
+    },
+    {
+      "sha": "ae6906fbf872036c624dff3b6881b1a53e7fa404",
+      "date": "2026-10-12T23:10:21Z",
+      "message": "fix(v4): retain specialty and professional editing in the consolidated clinic entry [CF-Pages-Skip]",
+      "parents": [
+        "1ebae246760bfd56ebd666f835dd4b4fee190954"
+      ]
+    },
+    {
+      "sha": "1ebae246760bfd56ebd666f835dd4b4fee190954",
+      "date": "2026-10-12T23:09:16Z",
+      "message": "fix(v4): retain injector markers and preserve contract rename references [CF-Pages-Skip]",
+      "parents": [
+        "12fedf1d8647930923b1689f28ec8761e49adfe6"
+      ]
+    },
+    {
+      "sha": "12fedf1d8647930923b1689f28ec8761e49adfe6",
+      "date": "2026-10-12T23:06:32Z",
+      "message": "fix(v4): separate document catalogue and consolidate configuration tables [CF-Pages-Skip]",
+      "parents": [
+        "854bfe41d10dd29ee541c1e4159188bc30e91603"
+      ]
+    },
+    {
+      "sha": "854bfe41d10dd29ee541c1e4159188bc30e91603",
+      "date": "2026-10-12T22:30:38Z",
+      "message": "fix(v4): normalize PostgreSQL document dates and verify expiry through HTTP [CF-Pages-Skip]",
+      "parents": [
+        "d0a1747a134dbcabe7feef22c979c0ef0a40f3e2"
+      ]
+    },
+    {
+      "sha": "d0a1747a134dbcabe7feef22c979c0ef0a40f3e2",
+      "date": "2026-10-12T22:17:14Z",
+      "message": "ci(v4): prepare a tested static synthetic preview without remote publication [CF-Pages-Skip]",
+      "parents": [
+        "06e56806e5ca624ce28238b2493065def651e22f"
+      ]
+    },
+    {
+      "sha": "06e56806e5ca624ce28238b2493065def651e22f",
+      "date": "2026-10-12T22:13:10Z",
+      "message": "fix(v4): enforce canonical isolated database and prevent duplicate transfer products [CF-Pages-Skip]",
+      "parents": [
+        "5f801ac2eef9207faa1b520eec1ce9696fbe1fe0"
+      ]
+    },
+    {
+      "sha": "5f801ac2eef9207faa1b520eec1ce9696fbe1fe0",
+      "date": "2026-10-12T22:01:39Z",
+      "message": "test(v4): distinguish fixed-header overlays from module pixel regressions [CF-Pages-Skip]",
+      "parents": [
+        "3963a6e9e6e98adb3647481bab93769d2d84d86b"
+      ]
+    },
+    {
+      "sha": "3963a6e9e6e98adb3647481bab93769d2d84d86b",
+      "date": "2026-10-12T21:54:41Z",
+      "message": "feat(v4): consolidate stock inventory purchasing and clinic-scoped audit [CF-Pages-Skip]",
+      "parents": [
+        "d686f00fda2cc7becdd93b6afc95ca54b1085ae6"
+      ]
+    },
+    {
+      "sha": "d686f00fda2cc7becdd93b6afc95ca54b1085ae6",
+      "date": "2026-10-12T21:43:42Z",
+      "message": "fix(v4): resolve synthetic clinic aliases without expanding server access [CF-Pages-Skip]",
+      "parents": [
+        "d581c5b4daa96bb9d023c5712e1f88797916fe8d"
+      ]
+    },
+    {
+      "sha": "d581c5b4daa96bb9d023c5712e1f88797916fe8d",
+      "date": "2026-10-12T21:39:31Z",
+      "message": "feat(v4): move clinic configuration and validate document compliance in isolation [CF-Pages-Skip]",
+      "parents": [
+        "f342136d139d88266a8365a63af27fdac7ffb80a"
+      ]
+    },
+    {
+      "sha": "f342136d139d88266a8365a63af27fdac7ffb80a",
+      "date": "2026-10-12T21:18:40Z",
+      "message": "test(v4): preserve synthetic Chromium evidence and pre-change visual baseline [CF-Pages-Skip]",
+      "parents": [
+        "bc0a4f9b15d8cf090af698ef9487757f0fd5362a"
+      ]
+    },
+    {
+      "sha": "bc0a4f9b15d8cf090af698ef9487757f0fd5362a",
+      "date": "2026-10-12T21:17:10Z",
+      "message": "fix(ci): preserve binary visual evidence through a non-forced Git push [CF-Pages-Skip]",
+      "parents": [
+        "eb6d798fd53015da5e44340aed273f0b45057265"
+      ]
+    },
+    {
+      "sha": "eb6d798fd53015da5e44340aed273f0b45057265",
+      "date": "2026-10-12T21:13:53Z",
+      "message": "test(v4): preserve approved evidence and capture immutable visual baseline [CF-Pages-Skip]",
+      "parents": [
+        "4a58d5eb06090900ca12be4a9856c6e4a69a972a"
+      ]
+    },
+    {
+      "sha": "4a58d5eb06090900ca12be4a9856c6e4a69a972a",
+      "date": "2026-10-12T18:44:54Z",
+      "message": "test(v4): select an operational clinic for synthetic daily flow [CF-Pages-Skip]",
+      "parents": [
+        "642ea1cf6c17749533c73f75c50af8c8b021396c"
+      ]
+    },
+    {
+      "sha": "642ea1cf6c17749533c73f75c50af8c8b021396c",
+      "date": "2026-10-12T18:42:43Z",
+      "message": "fix(ci): write Chromium evidence as runner and use canonical clinic fixtures [CF-Pages-Skip]",
+      "parents": [
+        "c62a258ad54f66392cbcbb099d2edd526288ecf8"
+      ]
+    },
+    {
+      "sha": "c62a258ad54f66392cbcbb099d2edd526288ecf8",
+      "date": "2026-10-12T18:40:12Z",
+      "message": "ci(v4): isolate Chromium regression with synthetic data and visual evidence [CF-Pages-Skip]",
+      "parents": [
+        "e92ab989356b751784fc2ee6d1e82111dcc429b5"
+      ]
+    },
+    {
+      "sha": "e92ab989356b751784fc2ee6d1e82111dcc429b5",
+      "date": "2026-10-12T18:11:45Z",
+      "message": "fix(v4): invalidate stale sessions and preserve verified development checkpoints [skip ci] [CF-Pages-Skip]",
+      "parents": [
+        "81439172a17576970957ebe0af13faec62b19e9f"
+      ]
+    },
+    {
+      "sha": "81439172a17576970957ebe0af13faec62b19e9f",
+      "date": "2026-10-10T10:53:24Z",
+      "message": "fix(v4): corrigir mecanismos críticos P0 e isolar testes [skip ci] [CF-Pages-Skip]\n\nCentralizar sessão e autorização; bloquear APIs sem âmbito; consolidar retenção recuperável; retirar DDL do GPS; substituir handlers dinâmicos por eventos e dados.\n348 testes Node, cinco cenários PostgreSQL descartável e cinco suites Chromium aprovados. Autenticação/persistência integral e preview Cloudflare permanecem bloqueados/parciais conforme relatório.\nNão publicar automaticamente: falta confirmar configuração Cloudflare em leitura. Sem main, merges, alterações a produção ou dados reais.",
+      "parents": [
+        "f999aea5d8edbc2477f53a4f689367d41f6a0427"
+      ]
+    },
+    {
+      "sha": "f999aea5d8edbc2477f53a4f689367d41f6a0427",
+      "date": "2026-10-09T23:40:06Z",
+      "message": "fix(v4): retain deployable assets and verify Cloudflare release identity",
+      "parents": [
+        "07dc4120758bd9b795642cf88d8e18ef93d64676"
+      ]
+    },
+    {
+      "sha": "07dc4120758bd9b795642cf88d8e18ef93d64676",
+      "date": "2026-10-09T21:59:24Z",
+      "message": "fix(v4): preserve Microsoft intake and bind Gmail consent to the identity session",
+      "parents": [
+        "805bd022e87540731bff808e9ffadeb08c7afaf1"
+      ]
+    },
+    {
+      "sha": "805bd022e87540731bff808e9ffadeb08c7afaf1",
+      "date": "2026-10-09T21:53:56Z",
+      "message": "feat(v4): prepare encrypted Gmail OAuth, durable document intake and gated preview automation",
+      "parents": [
+        "b18d22211ca52a41c137f6b8c75771cc8d604677"
+      ]
+    },
+    {
+      "sha": "b18d22211ca52a41c137f6b8c75771cc8d604677",
+      "date": "2026-10-09T21:08:08Z",
+      "message": "feat(v4): provisionally associate emailed documents and alert managers on import failures",
+      "parents": [
+        "872ca7f7829784a3cdb3f23df5938fc74157bf4f"
+      ]
+    },
+    {
+      "sha": "872ca7f7829784a3cdb3f23df5938fc74157bf4f",
+      "date": "2026-10-09T19:49:12Z",
+      "message": "fix(v4): preserve tax identity and guard document classification and archive races",
+      "parents": [
+        "5a672a74bee054eff2abb00eed4af4620b7955a7"
+      ]
+    },
+    {
+      "sha": "5a672a74bee054eff2abb00eed4af4620b7955a7",
+      "date": "2026-10-09T19:44:52Z",
+      "message": "feat(v4): add approved document replacements, shared email queue and guarded archive plans",
+      "parents": [
+        "b2c69a7fbf4835f3dbe1634e60f3a823cc73e9b6"
+      ]
+    },
+    {
+      "sha": "b2c69a7fbf4835f3dbe1634e60f3a823cc73e9b6",
+      "date": "2026-10-09T18:22:58Z",
+      "message": "fix(v4): set editable RH mailbox defaults without overriding saved configuration",
+      "parents": [
+        "7161c46be1703c5d8a7795f3e535c78300904cc2"
+      ]
+    },
+    {
+      "sha": "7161c46be1703c5d8a7795f3e535c78300904cc2",
+      "date": "2026-10-09T18:13:22Z",
+      "message": "fix(v4): safely resume cancelled payment mail without resetting delivered messages",
+      "parents": [
+        "0ae5ad6418d52ecf86831f59b4a69bd0c4836f9a"
+      ]
+    },
+    {
+      "sha": "0ae5ad6418d52ecf86831f59b4a69bd0c4836f9a",
+      "date": "2026-10-09T18:09:43Z",
+      "message": "fix(v4): deduplicate financial attention and cover operational delivery failures",
+      "parents": [
+        "75077743ca85191148b7fc374783ec930f404b7a"
+      ]
+    },
+    {
+      "sha": "75077743ca85191148b7fc374783ec930f404b7a",
+      "date": "2026-10-09T18:04:48Z",
+      "message": "test(v4): exercise canonical RH navigation with explicit clinic authorization",
+      "parents": [
+        "aa45ab5f5a44bf050928a586bbe58106fd71016d"
+      ]
+    },
+    {
+      "sha": "aa45ab5f5a44bf050928a586bbe58106fd71016d",
+      "date": "2026-10-09T17:59:07Z",
+      "message": "fix(v4): keep grouped menus reachable and test the exact Cloudflare preview",
+      "parents": [
+        "cc7bff6f46a5fb86ba34dede3cd806bae5077690"
+      ]
+    },
+    {
+      "sha": "cc7bff6f46a5fb86ba34dede3cd806bae5077690",
+      "date": "2026-10-09T17:55:50Z",
+      "message": "fix(v4): insert approval navigation inside the canonical RH menu group",
+      "parents": [
+        "de8d9a09e81d6c3c61f82889f80e9c71fd786143"
+      ]
+    },
+    {
+      "sha": "de8d9a09e81d6c3c61f82889f80e9c71fd786143",
+      "date": "2026-10-09T17:53:18Z",
+      "message": "feat(v4): add transactional payment email outbox and persistent attention regressions",
+      "parents": [
+        "71134662a65d0f3056528c8ce56c362aa385b6ac"
+      ]
+    },
+    {
+      "sha": "71134662a65d0f3056528c8ce56c362aa385b6ac",
+      "date": "2026-10-09T17:53:07Z",
+      "message": "feat(v4): consolidate attention, per-user layout and scoped employee master",
+      "parents": [
+        "c070007888e6a07c8b6ae457c41976f21699bea5"
+      ]
+    },
+    {
+      "sha": "c070007888e6a07c8b6ae457c41976f21699bea5",
+      "date": "2026-10-09T11:01:50Z",
+      "message": "feat(v4): consolidate secure employee finance workflows\n\nSeparate invoices, validated payslips and individual statements; enforce CEO/Admin management on UI and server. Add private persistent finance API, additive migration, audit, exact-cent payment accounting, OAuth mailbox queue and scoped notifications. Preserve existing RH, calendars, performance and historical financial data.\n\n157 automated tests pass; syntax checks 64 JS files. PDF parsed and totals verified. Chromium blocked by sandbox; live auth, Neon/Blob and OAuth require isolated test configuration. Preview/draft review only, no production migration or merge.",
+      "parents": [
+        "27359e817bb56af4354ee2a881338ca3bd8ecbbf"
+      ]
+    },
+    {
+      "sha": "27359e817bb56af4354ee2a881338ca3bd8ecbbf",
+      "date": "2026-10-09T01:13:28Z",
+      "message": "feat(v4): consolidate access, RH recruitment, dashboard and preview integrations\n\nPreserve PR #9 leave/performance behavior and historical records. Add clinic-scoped management dashboard, grouped themed UI, individual permissions, incremental identity/clinic sync, idempotent candidate conversion and fail-closed Cloudflare auth/email adapter.\n\n109 tests pass; 112 with historical reproductions. Chromium E2E blocked by sandbox. Live auth/email pending isolated backend; no production promotion, data migrations or merge to main.",
+      "parents": [
+        "b9a50bd14bc0a2706bec63031e31f4615db41f1a"
+      ]
+    },
+    {
+      "sha": "b9a50bd14bc0a2706bec63031e31f4615db41f1a",
+      "date": "2026-10-08T23:56:24Z",
+      "message": "feat(v4): add performance reviews, peer questionnaires and calendar-first RH (#8)\n\nReuse PR #7 leave rules and calendar rendering; add CEO-validated versioned performance proposals and privacy-limited peer cycle aggregates.\n\n78 regression tests pass; 81 including historical reproductions. Chromium E2E is blocked by sandbox restrictions. Preview only; no financial automation, production promotion, or data migrations.",
+      "parents": [
+        "1b8f244886fa6a114badad3a78251b207195c158"
+      ]
+    },
+    {
+      "sha": "1b8f244886fa6a114badad3a78251b207195c158",
+      "date": "2026-10-08T23:30:29Z",
+      "message": "feat(v4): add leave conflict calendar and audited partial rebooking (#6)\n\nMonthly same-clinic/role context, readable decisions, exact partial changes, shared holiday/balance rules and internal notifications.\n\n45 DOM regression tests pass. Chromium E2E is prepared but blocked by the execution sandbox. Preview only; no production promotion or data migration.",
+      "parents": [
+        "53b40dab6c9f49e6890a000b20ab65ebc90aeb82"
+      ]
+    },
+    {
+      "sha": "53b40dab6c9f49e6890a000b20ab65ebc90aeb82",
+      "date": "2026-10-08T22:58:25Z",
+      "message": "fix(v4): repair RH parsing, initialization and profile navigation\n\nPublish the reviewed changes from local commit e8a68b6990dd1240028f8d83126eb86906883d5c on the existing upstream history.\n\nNo production promotion, database migration, or data reset.",
+      "parents": [
+        "84fba5a2d6d7afcb0723ca312f4e617acc22823d"
+      ]
+    },
+    {
+      "sha": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+      "date": "2026-10-08T14:31:20Z",
+      "message": "deploy: fix CEO navigation recursion",
+      "parents": [
+        "ad7340ff7839e2f94378d1e9922ed026f4a642a3"
+      ]
+    },
+    {
+      "sha": "ad7340ff7839e2f94378d1e9922ed026f4a642a3",
+      "date": "2026-10-08T14:31:10Z",
+      "message": "fix(nav): remove recursive view render and always allow real CEO",
+      "parents": [
+        "5017d6024237ab8c0a1e9a4265b8bd4172274a59"
+      ]
+    },
+    {
+      "sha": "5017d6024237ab8c0a1e9a4265b8bd4172274a59",
+      "date": "2026-10-08T13:56:01Z",
+      "message": "deploy: force canonical module navigation",
+      "parents": [
+        "96c419aab0538effe3f5679deb79d47d8f42b3b1"
+      ]
+    },
+    {
+      "sha": "96c419aab0538effe3f5679deb79d47d8f42b3b1",
+      "date": "2026-10-08T13:55:56Z",
+      "message": "fix(nav): render permitted views after permission layer",
+      "parents": [
+        "1b99acb9850c20edd3c5f53fce768170e619caea"
+      ]
+    },
+    {
+      "sha": "1b99acb9850c20edd3c5f53fce768170e619caea",
+      "date": "2026-10-08T13:55:48Z",
+      "message": "deploy: expose canonical navigation renderer",
+      "parents": [
+        "8a0026b0ae8f6852a4ec57dd75694197c4b904a8"
+      ]
+    },
+    {
+      "sha": "8a0026b0ae8f6852a4ec57dd75694197c4b904a8",
+      "date": "2026-10-08T13:55:45Z",
+      "message": "fix(nav): expose canonical view renderer for late-loaded modules",
+      "parents": [
+        "85127f93b838f8b02dc3c85619fe4e320269d903"
+      ]
+    },
+    {
+      "sha": "85127f93b838f8b02dc3c85619fe4e320269d903",
+      "date": "2026-10-08T13:53:34Z",
+      "message": "deploy: restore RH navigation click handling",
+      "parents": [
+        "f637022cab35c12c53232ae706ac59924768786b"
+      ]
+    },
+    {
+      "sha": "f637022cab35c12c53232ae706ac59924768786b",
+      "date": "2026-10-08T13:53:23Z",
+      "message": "fix(nav): scope permission guard to sidebar navigation only",
+      "parents": [
+        "a856f1972bea1b0e7484fbc0ec78e85636367a46"
+      ]
+    },
+    {
+      "sha": "a856f1972bea1b0e7484fbc0ec78e85636367a46",
+      "date": "2026-10-08T13:49:37Z",
+      "message": "deploy: consolidate RH approval rendering",
+      "parents": [
+        "c5f8afdebd28cff1a3558e837d6fc035d0c55c7c"
+      ]
+    },
+    {
+      "sha": "c5f8afdebd28cff1a3558e837d6fc035d0c55c7c",
+      "date": "2026-10-08T13:49:30Z",
+      "message": "refactor(rh): use single approvals controller for vacation decisions",
+      "parents": [
+        "ebf202171e7e7742fb9659ebfe5eb7bef7d071cf"
+      ]
+    },
+    {
+      "sha": "ebf202171e7e7742fb9659ebfe5eb7bef7d071cf",
+      "date": "2026-10-08T13:47:44Z",
+      "message": "deploy: restore CEO module navigation rendering",
+      "parents": [
+        "f5ba0b6caba21d00cf9fcba3f4694d07b01cb402"
+      ]
+    },
+    {
+      "sha": "f5ba0b6caba21d00cf9fcba3f4694d07b01cb402",
+      "date": "2026-10-08T13:47:38Z",
+      "message": "fix(ceo): stop startup rerender from blocking module navigation",
+      "parents": [
+        "1435eb55914a2b9c417918c0f4c010e1d6eef5d3"
+      ]
+    },
+    {
+      "sha": "1435eb55914a2b9c417918c0f4c010e1d6eef5d3",
+      "date": "2026-10-08T13:42:54Z",
+      "message": "deploy: refresh CEO modules at startup",
+      "parents": [
+        "499565a79d21a6838230b49754010ff787d39da2"
+      ]
+    },
+    {
+      "sha": "499565a79d21a6838230b49754010ff787d39da2",
+      "date": "2026-10-08T13:42:49Z",
+      "message": "fix(ceo): initialize CEO modules on first load",
+      "parents": [
+        "379c459f4d2cc4f1c9caa207935e1f6d42947476"
+      ]
+    },
+    {
+      "sha": "379c459f4d2cc4f1c9caa207935e1f6d42947476",
+      "date": "2026-10-08T13:39:34Z",
+      "message": "deploy: load unified RH clinic calendar",
+      "parents": [
+        "fa28aa0be4c96f55d1d00e3418554424feb29923"
+      ]
+    },
+    {
+      "sha": "fa28aa0be4c96f55d1d00e3418554424feb29923",
+      "date": "2026-10-08T13:39:29Z",
+      "message": "feat(rh): unify clinic vacation and sick leave calendar",
+      "parents": [
+        "bf827fabb72ed92aa300e2df0e51ec0a465a0349"
+      ]
+    },
+    {
+      "sha": "bf827fabb72ed92aa300e2df0e51ec0a465a0349",
+      "date": "2026-10-08T13:35:19Z",
+      "message": "deploy: load vacation change requests",
+      "parents": [
+        "9ee2c1f339317e59752906cfc8df68b70f8262a8"
+      ]
+    },
+    {
+      "sha": "9ee2c1f339317e59752906cfc8df68b70f8262a8",
+      "date": "2026-10-08T13:35:15Z",
+      "message": "feat(rh): allow employees to request vacation changes",
+      "parents": [
+        "783a970834299355f80901633d967e22d512cf09"
+      ]
+    },
+    {
+      "sha": "783a970834299355f80901633d967e22d512cf09",
+      "date": "2026-10-08T13:30:51Z",
+      "message": "deploy: enforce RH approval permissions",
+      "parents": [
+        "0cb2b339292511658fefac89826f1798b8f7603e"
+      ]
+    },
+    {
+      "sha": "0cb2b339292511658fefac89826f1798b8f7603e",
+      "date": "2026-10-08T13:30:46Z",
+      "message": "fix(rh): restrict approval queues to CEO and administration",
+      "parents": [
+        "74bba4976986a4a2590b7b3e2f4ccf6fc198cbfe"
+      ]
+    },
+    {
+      "sha": "74bba4976986a4a2590b7b3e2f4ccf6fc198cbfe",
+      "date": "2026-10-08T13:19:21Z",
+      "message": "deploy: load consolidated RH approvals",
+      "parents": [
+        "bf9c85de572b9192294f521cc178e88ac935bcdc"
+      ]
+    },
+    {
+      "sha": "bf9c85de572b9192294f521cc178e88ac935bcdc",
+      "date": "2026-10-08T13:19:12Z",
+      "message": "fix(rh): consolidate vacation and sick leave approvals",
+      "parents": [
+        "4c246b6d31c20a5ba10e49925b7a746c566cdf78"
+      ]
+    },
+    {
+      "sha": "4c246b6d31c20a5ba10e49925b7a746c566cdf78",
+      "date": "2026-10-07T23:46:22Z",
+      "message": "fix(rh): preserve vacation days outside sick leave and allow sick leave editing",
+      "parents": [
+        "ee4de7664b1138445c60eefd250608590ea9c4f4"
+      ]
+    },
+    {
+      "sha": "ee4de7664b1138445c60eefd250608590ea9c4f4",
+      "date": "2026-10-07T23:46:12Z",
+      "message": "fix(rh): keep vacation calendar accessible during sick leave",
+      "parents": [
+        "3781ce48d1a6a2b3b0ff54abda66c249445497b7"
+      ]
+    },
+    {
+      "sha": "3781ce48d1a6a2b3b0ff54abda66c249445497b7",
+      "date": "2026-10-07T23:41:23Z",
+      "message": "deploy: load rebuilt approvals modal",
+      "parents": [
+        "87678c9f78cb78a172c9b6cc89ec037bb357490e"
+      ]
+    },
+    {
+      "sha": "87678c9f78cb78a172c9b6cc89ec037bb357490e",
+      "date": "2026-10-07T23:41:18Z",
+      "message": "fix(rh): read pending leave requests directly in approval modal",
+      "parents": [
+        "e93aa0dda4816d094bd79aae8de68f8b660c6361"
+      ]
+    },
+    {
+      "sha": "e93aa0dda4816d094bd79aae8de68f8b660c6361",
+      "date": "2026-10-07T23:40:35Z",
+      "message": "deploy: bust approvals cache on Cloudflare",
+      "parents": [
+        "3fd3e5a180555bab08650298bd8f5bd1cb0cae4f"
+      ]
+    },
+    {
+      "sha": "3fd3e5a180555bab08650298bd8f5bd1cb0cae4f",
+      "date": "2026-10-07T23:40:08Z",
+      "message": "fix(rh): authorize approvals using real CEO identity",
+      "parents": [
+        "7d0cc4ea43727119b419a872b4dda099924d8783"
+      ]
+    },
+    {
+      "sha": "7d0cc4ea43727119b419a872b4dda099924d8783",
+      "date": "2026-10-07T23:39:05Z",
+      "message": "fix(rh): wire approval buttons to request categories",
+      "parents": [
+        "707699dd9488121f917ab6a94eea0e991b66f681"
+      ]
+    },
+    {
+      "sha": "707699dd9488121f917ab6a94eea0e991b66f681",
+      "date": "2026-10-07T23:39:00Z",
+      "message": "fix(rh): filtered approval queues and pending counters",
+      "parents": [
+        "3961b0d772634af7594eea84a3889031bf6ccfe1"
+      ]
+    },
+    {
+      "sha": "3961b0d772634af7594eea84a3889031bf6ccfe1",
+      "date": "2026-10-07T23:36:24Z",
+      "message": "feat(rh): show employee request history and approval status",
+      "parents": [
+        "3b6a50accc6fdb7f755334d8daeec9764c7d0ecc"
+      ]
+    },
+    {
+      "sha": "3b6a50accc6fdb7f755334d8daeec9764c7d0ecc",
+      "date": "2026-10-07T23:33:20Z",
+      "message": "fix(rh): rebuild sick leave submission and verify persistence",
+      "parents": [
+        "3845076a4b67ee9c36582fd8aa2d490102612232"
+      ]
+    },
+    {
+      "sha": "3845076a4b67ee9c36582fd8aa2d490102612232",
+      "date": "2026-10-07T23:32:21Z",
+      "message": "fix(ceo): preserve viewed employee when switching reserved areas",
+      "parents": [
+        "4437f86765f85a98875ce33f15afec269c148495"
+      ]
+    },
+    {
+      "sha": "4437f86765f85a98875ce33f15afec269c148495",
+      "date": "2026-10-07T23:30:53Z",
+      "message": "fix(rh): persist sick leave approval request",
+      "parents": [
+        "aa76d87396d2d43386c206023c4588b84d18a9fd"
+      ]
+    },
+    {
+      "sha": "aa76d87396d2d43386c206023c4588b84d18a9fd",
+      "date": "2026-10-07T23:28:13Z",
+      "message": "fix(rh): register sick leave for viewed employee",
+      "parents": [
+        "afb06ede9c732c6efd4829720a2423ec40dff9a3"
+      ]
+    },
+    {
+      "sha": "afb06ede9c732c6efd4829720a2423ec40dff9a3",
+      "date": "2026-10-07T23:25:58Z",
+      "message": "feat(rh): add leave request approval shortcuts",
+      "parents": [
+        "8590146015d7550b5efbea8c642205111f03fc54"
+      ]
+    },
+    {
+      "sha": "8590146015d7550b5efbea8c642205111f03fc54",
+      "date": "2026-10-07T23:22:36Z",
+      "message": "fix(rh): expose approvals in RH header",
+      "parents": [
+        "ddd9de14755966a6157bfae29ba82057ae38cf8c"
+      ]
+    },
+    {
+      "sha": "ddd9de14755966a6157bfae29ba82057ae38cf8c",
+      "date": "2026-10-07T23:16:31Z",
+      "message": "feat(reserved-area): show employee remaining vacation balance",
+      "parents": [
+        "8a504a464ca9fadf2bece69b15a2b3f932722030"
+      ]
+    },
+    {
+      "sha": "8a504a464ca9fadf2bece69b15a2b3f932722030",
+      "date": "2026-10-07T23:14:52Z",
+      "message": "feat(rh): show employee vacation day balance",
+      "parents": [
+        "07904b23feffdf89a2c1755dd96377055ccdef37"
+      ]
+    },
+    {
+      "sha": "07904b23feffdf89a2c1755dd96377055ccdef37",
+      "date": "2026-10-07T23:13:19Z",
+      "message": "fix(rh): repair approvals script syntax",
+      "parents": [
+        "70998e68fbed2d6e78099328838af11e7b0d196b"
+      ]
+    },
+    {
+      "sha": "70998e68fbed2d6e78099328838af11e7b0d196b",
+      "date": "2026-10-07T23:13:10Z",
+      "message": "feat(rh): centralize RH approvals in Recursos Humanos",
+      "parents": [
+        "6945fb6dd4a6da2727002fc67baca03f601ac66d"
+      ]
+    },
+    {
+      "sha": "6945fb6dd4a6da2727002fc67baca03f601ac66d",
+      "date": "2026-10-07T23:13:03Z",
+      "message": "fix(rh): remove approvals from attendance dashboard",
+      "parents": [
+        "f95b9f42011d98ca8ca033787e9debb24b27bab2"
+      ]
+    },
+    {
+      "sha": "f95b9f42011d98ca8ca033787e9debb24b27bab2",
+      "date": "2026-10-07T23:05:43Z",
+      "message": "fix: impedir acumulação de utilizadores do agente de testes",
+      "parents": [
+        "51bb34333fe6dd106042fb4027bfdcba66d6cbdb"
+      ]
+    },
+    {
+      "sha": "51bb34333fe6dd106042fb4027bfdcba66d6cbdb",
+      "date": "2026-10-07T23:03:26Z",
+      "message": "perf: otimizar seletor de áreas reservadas e remover duplicados",
+      "parents": [
+        "f12ef9436a52da70b054e1eebf84de34437795ab"
+      ]
+    },
+    {
+      "sha": "f12ef9436a52da70b054e1eebf84de34437795ab",
+      "date": "2026-10-07T23:00:57Z",
+      "message": "chore: trigger Cloudflare production deployment",
+      "parents": [
+        "f0a3f1a0a76455828e10c50e32823db58041f0f6"
+      ]
+    },
+    {
+      "sha": "f0a3f1a0a76455828e10c50e32823db58041f0f6",
+      "date": "2026-10-07T22:54:30Z",
+      "message": "fix: consolidar férias com períodos de baixa",
+      "parents": [
+        "6901a3dfb512b19d2dca2f90815885c5bd3ee082"
+      ]
+    },
+    {
+      "sha": "6901a3dfb512b19d2dca2f90815885c5bd3ee082",
+      "date": "2026-10-07T22:49:24Z",
+      "message": "refactor: eliminar editor legado dependente de backend removido",
+      "parents": [
+        "2d39ccb8ab7cc1264bee7f06ff32fcc23a08b2a6"
+      ]
+    },
+    {
+      "sha": "2d39ccb8ab7cc1264bee7f06ff32fcc23a08b2a6",
+      "date": "2026-10-07T22:49:17Z",
+      "message": "feat: adicionar controlador canónico de Tabelas",
+      "parents": [
+        "bdea11bf3c4f777b8e2352996871f155c0df1d8f"
+      ]
+    },
+    {
+      "sha": "bdea11bf3c4f777b8e2352996871f155c0df1d8f",
+      "date": "2026-10-07T22:49:10Z",
+      "message": "refactor: controlador único para navegação de Tabelas",
+      "parents": [
+        "c48710413425436db8ba386843dcbf046ab96bfb"
+      ]
+    },
+    {
+      "sha": "c48710413425436db8ba386843dcbf046ab96bfb",
+      "date": "2026-10-07T22:47:36Z",
+      "message": "refactor: eliminar controlador obsoleto nav-tables-v4.js",
+      "parents": [
+        "946df85bf5443349baac9f7e812a03e7d64d26b8"
+      ]
+    },
+    {
+      "sha": "946df85bf5443349baac9f7e812a03e7d64d26b8",
+      "date": "2026-10-07T22:47:31Z",
+      "message": "refactor: eliminar controlador obsoleto tables-clinic-unified-v4.js",
+      "parents": [
+        "d44f86653ac40edb5a70d5669f7752aa18226d11"
+      ]
+    },
+    {
+      "sha": "d44f86653ac40edb5a70d5669f7752aa18226d11",
+      "date": "2026-10-07T22:47:23Z",
+      "message": "refactor: remover controladores duplicados de Tabelas",
+      "parents": [
+        "7d2658ba4c0b8d24874ffb6fb91df57e1d7e8da2"
+      ]
+    },
+    {
+      "sha": "7d2658ba4c0b8d24874ffb6fb91df57e1d7e8da2",
+      "date": "2026-10-07T22:44:26Z",
+      "message": "fix: permitir CEO/Administração editar baixa no detalhe",
+      "parents": [
+        "ee05cbd297bd86d4e545fc0eb101424a3c65686b"
+      ]
+    },
+    {
+      "sha": "ee05cbd297bd86d4e545fc0eb101424a3c65686b",
+      "date": "2026-10-07T22:41:55Z",
+      "message": "fix: eliminar duplicados e consolidar catálogo de Tabelas",
+      "parents": [
+        "76e69fbd8346d7854a303dafb7b357a75a327ade"
+      ]
+    },
+    {
+      "sha": "76e69fbd8346d7854a303dafb7b357a75a327ade",
+      "date": "2026-10-07T22:37:01Z",
+      "message": "feat: bloquear férias durante baixa aprovada",
+      "parents": [
+        "427d06d088417dc2fa65ee6d45fd52a70f47f379"
+      ]
+    },
+    {
+      "sha": "427d06d088417dc2fa65ee6d45fd52a70f47f379",
+      "date": "2026-10-07T22:36:52Z",
+      "message": "feat: bloquear livro de ponto durante baixa aprovada",
+      "parents": [
+        "5921771ec1097196db9e58829df782dee6816c8a"
+      ]
+    },
+    {
+      "sha": "5921771ec1097196db9e58829df782dee6816c8a",
+      "date": "2026-10-07T22:36:43Z",
+      "message": "feat: regras de aprovação e suspensão de baixa",
+      "parents": [
+        "0d2cb6266cebbb5e2db9ea3ef4b03a2f885139b6"
+      ]
+    },
+    {
+      "sha": "0d2cb6266cebbb5e2db9ea3ef4b03a2f885139b6",
+      "date": "2026-10-07T22:26:50Z",
+      "message": "feat: restaurar interação documental e baixas no Meu RH",
+      "parents": [
+        "90eab9b13de31222b37cfaab19a9c1dd1e80bb9c"
+      ]
+    },
+    {
+      "sha": "90eab9b13de31222b37cfaab19a9c1dd1e80bb9c",
+      "date": "2026-10-07T22:23:34Z",
+      "message": "fix: consolidar Tabelas como vista estática canónica",
+      "parents": [
+        "717c890e8a67a41e90d2c35cf0b90c08969d474b"
+      ]
+    },
+    {
+      "sha": "717c890e8a67a41e90d2c35cf0b90c08969d474b",
+      "date": "2026-10-07T22:21:13Z",
+      "message": "fix: expor controlador canónico de Tabelas",
+      "parents": [
+        "18e6b10be016487bb4231273d018326ce508db76"
+      ]
+    },
+    {
+      "sha": "18e6b10be016487bb4231273d018326ce508db76",
+      "date": "2026-10-07T22:15:48Z",
+      "message": "fix: tabelas sem erro de modal e ponto GPS com fallback determinístico",
+      "parents": [
+        "a11f940da11043f908fce06afa232c7b67aaa42d"
+      ]
+    },
+    {
+      "sha": "a11f940da11043f908fce06afa232c7b67aaa42d",
+      "date": "2026-10-07T22:13:02Z",
+      "message": "chore: remover módulo órfão role-permissions-v4.js",
+      "parents": [
+        "6ff508c946c397101c7f721a1ca00e3744b869d6"
+      ]
+    },
+    {
+      "sha": "6ff508c946c397101c7f721a1ca00e3744b869d6",
+      "date": "2026-10-07T22:12:59Z",
+      "message": "chore: remover módulo órfão hr-document-funnel-v4.js",
+      "parents": [
+        "354f9953d35c18f53c867c281c885ec696aac8c3"
+      ]
+    },
+    {
+      "sha": "354f9953d35c18f53c867c281c885ec696aac8c3",
+      "date": "2026-10-07T22:12:55Z",
+      "message": "chore: remover módulo órfão fixed-roles-dynamic-permissions-v4.js",
+      "parents": [
+        "5e32160e2f60efcbc082502f42fb20c5008a430c"
+      ]
+    },
+    {
+      "sha": "5e32160e2f60efcbc082502f42fb20c5008a430c",
+      "date": "2026-10-07T22:12:11Z",
+      "message": "fix: renderizar explicitamente módulos ao abrir cada vista",
+      "parents": [
+        "b673623de0082d90572acd4369667efdbacfeaab"
+      ]
+    },
+    {
+      "sha": "b673623de0082d90572acd4369667efdbacfeaab",
+      "date": "2026-10-07T22:09:13Z",
+      "message": "fix: restaurar Tabelas Configuração como secção canónica",
+      "parents": [
+        "92dad1b5e0965714d71885a5c4b9e86e7d062f10"
+      ]
+    },
+    {
+      "sha": "92dad1b5e0965714d71885a5c4b9e86e7d062f10",
+      "date": "2026-10-07T22:03:59Z",
+      "message": "chore: limpar referências a módulos legados removidos",
+      "parents": [
+        "97735e86c9fd8612435b4f7903b78731612c206c"
+      ]
+    },
+    {
+      "sha": "97735e86c9fd8612435b4f7903b78731612c206c",
+      "date": "2026-10-07T22:03:53Z",
+      "message": "chore: remover módulo legado v4-backend.js",
+      "parents": [
+        "9f1a0739f5b4b2b7d076ac3b28b629878523ebce"
+      ]
+    },
+    {
+      "sha": "9f1a0739f5b4b2b7d076ac3b28b629878523ebce",
+      "date": "2026-10-07T22:03:50Z",
+      "message": "chore: remover módulo legado v4-core-fixes.js",
+      "parents": [
+        "6173079a3c41fac4a1f6c9df14a6394c7ba0ba12"
+      ]
+    },
+    {
+      "sha": "6173079a3c41fac4a1f6c9df14a6394c7ba0ba12",
+      "date": "2026-10-07T22:03:46Z",
+      "message": "chore: remover módulo legado v4-pending-features.js",
+      "parents": [
+        "31d129e9eb657dc577ea3fa900b88f0c11e84b3f"
+      ]
+    },
+    {
+      "sha": "31d129e9eb657dc577ea3fa900b88f0c11e84b3f",
+      "date": "2026-10-07T22:03:39Z",
+      "message": "chore: remover renderer RH legado duplicado",
+      "parents": [
+        "aa9c2c394d9385344510af85a999d1fdcef764f7"
+      ]
+    },
+    {
+      "sha": "aa9c2c394d9385344510af85a999d1fdcef764f7",
+      "date": "2026-10-07T22:01:12Z",
+      "message": "restore: recuperar hr-separation-v4.js da última base RH funcional",
+      "parents": [
+        "e900d6135d1521cc96d19e984018789a2c480932"
+      ]
+    },
+    {
+      "sha": "e900d6135d1521cc96d19e984018789a2c480932",
+      "date": "2026-10-07T22:01:07Z",
+      "message": "restore: recuperar attendance-dashboard-v4.js da última base RH funcional",
+      "parents": [
+        "2f17f9b5557fc1552a98d318596794d4a83898bb"
+      ]
+    },
+    {
+      "sha": "2f17f9b5557fc1552a98d318596794d4a83898bb",
+      "date": "2026-10-07T21:58:16Z",
+      "message": "refactor: remover polling do seletor de área reservada",
+      "parents": [
+        "a518d852d0fdc92700d6bdf8f792ec959cb78dd0"
+      ]
+    },
+    {
+      "sha": "a518d852d0fdc92700d6bdf8f792ec959cb78dd0",
+      "date": "2026-10-07T21:58:08Z",
+      "message": "refactor: desativar observers legados concorrentes na V4",
+      "parents": [
+        "530f129cf60b434d033b52cd295a05953b0ebdf1"
+      ]
+    },
+    {
+      "sha": "530f129cf60b434d033b52cd295a05953b0ebdf1",
+      "date": "2026-10-07T21:57:31Z",
+      "message": "chore: checkpoint consolidação RH V4",
+      "parents": [
+        "86c65e0a6d72f6b4fe0444fcfbd87e6b3edd4175"
+      ]
+    },
+    {
+      "sha": "86c65e0a6d72f6b4fe0444fcfbd87e6b3edd4175",
+      "date": "2026-10-07T21:57:22Z",
+      "message": "fix: consolidar renderer RH sobre base única",
+      "parents": [
+        "303411da9366281a06ec338d467f49cf1b952e22"
+      ]
+    },
+    {
+      "sha": "303411da9366281a06ec338d467f49cf1b952e22",
+      "date": "2026-10-07T21:53:22Z",
+      "message": "fix: tornar aplicação de permissões atómica",
+      "parents": [
+        "6d70e467f8ef7371ddab2cd6a44b9f685e4a18ee"
+      ]
+    },
+    {
+      "sha": "6d70e467f8ef7371ddab2cd6a44b9f685e4a18ee",
+      "date": "2026-10-07T21:53:15Z",
+      "message": "fix: controlador RH determinístico sem observer ou renderer concorrente",
+      "parents": [
+        "69502e7b0acc46716ddecdb48a0949620de6c427"
+      ]
+    },
+    {
+      "sha": "69502e7b0acc46716ddecdb48a0949620de6c427",
+      "date": "2026-10-07T21:50:21Z",
+      "message": "fix: impedir renderer administrativo durante visualizar como",
+      "parents": [
+        "b19d655758fe885f849537cc3eeabdd7c7982f59"
+      ]
+    },
+    {
+      "sha": "b19d655758fe885f849537cc3eeabdd7c7982f59",
+      "date": "2026-10-07T21:47:58Z",
+      "message": "fix: permissões respeitam utilizador visualizado pelo CEO",
+      "parents": [
+        "57a65fb43435a931ab3ecfdda90fd4f0c49edff4"
+      ]
+    },
+    {
+      "sha": "57a65fb43435a931ab3ecfdda90fd4f0c49edff4",
+      "date": "2026-10-07T21:47:52Z",
+      "message": "fix: tratar CEO em visualizar como colaborador sem fallback administrativo",
+      "parents": [
+        "56e6646c369ab2f8096de43436b53954d67382e5"
+      ]
+    },
+    {
+      "sha": "56e6646c369ab2f8096de43436b53954d67382e5",
+      "date": "2026-10-07T21:45:13Z",
+      "message": "fix: remover observer global duplicado dos calendários",
+      "parents": [
+        "74d57ccae98149d408a118f8db2f7ba791f726ff"
+      ]
+    },
+    {
+      "sha": "74d57ccae98149d408a118f8db2f7ba791f726ff",
+      "date": "2026-10-07T21:45:05Z",
+      "message": "fix: integrar calendário diretamente na tabela canónica",
+      "parents": [
+        "071a73287144b6020b38bce239f14e2d171eecf0"
+      ]
+    },
+    {
+      "sha": "071a73287144b6020b38bce239f14e2d171eecf0",
+      "date": "2026-10-07T21:44:58Z",
+      "message": "fix: separar permissões da renderização de conteúdo",
+      "parents": [
+        "039d9aa87b6e99795448d9c114631738100342d9"
+      ]
+    },
+    {
+      "sha": "039d9aa87b6e99795448d9c114631738100342d9",
+      "date": "2026-10-07T21:44:50Z",
+      "message": "fix: consolidar identidade e renderer único de Meu RH/ponto",
+      "parents": [
+        "3671390441c0aa9bdc5bf3e1259e533f058fa8d6"
+      ]
+    },
+    {
+      "sha": "3671390441c0aa9bdc5bf3e1259e533f058fa8d6",
+      "date": "2026-10-07T21:41:57Z",
+      "message": "fix: renderizar conteúdo autorizado depois de aplicar permissões",
+      "parents": [
+        "564d2a9e1cc1be4d30ded74cd5cfb90c54ca61e5"
+      ]
+    },
+    {
+      "sha": "564d2a9e1cc1be4d30ded74cd5cfb90c54ca61e5",
+      "date": "2026-10-07T21:41:49Z",
+      "message": "fix: restaurar Meu RH e renderizar ponto após permissões",
+      "parents": [
+        "03a9127053c3cef6933e210c6c4fcd6a854edfa7"
+      ]
+    },
+    {
+      "sha": "03a9127053c3cef6933e210c6c4fcd6a854edfa7",
+      "date": "2026-10-07T21:38:09Z",
+      "message": "feat: ativar calendários por clínica na V4",
+      "parents": [
+        "8d818c42541f37c024494881639e1ce38c57d08c"
+      ]
+    },
+    {
+      "sha": "8d818c42541f37c024494881639e1ce38c57d08c",
+      "date": "2026-10-07T21:38:02Z",
+      "message": "feat: adicionar calendários e feriados por clínica nas tabelas",
+      "parents": [
+        "e8101b27bff3587f1fc2a6ce51459fc6fd244765"
+      ]
+    },
+    {
+      "sha": "e8101b27bff3587f1fc2a6ce51459fc6fd244765",
+      "date": "2026-10-07T21:37:43Z",
+      "message": "fix: aplicar permissões também a menus adicionados dinamicamente",
+      "parents": [
+        "6f9bf62a343403296def992bb13843755165b878"
+      ]
+    },
+    {
+      "sha": "6f9bf62a343403296def992bb13843755165b878",
+      "date": "2026-10-07T21:32:40Z",
+      "message": "feat: tornar férias e documentos RH consultáveis no Meu RH",
+      "parents": [
+        "1179827c688a63745c2c26bf46ea55a8fa95086e"
+      ]
+    },
+    {
+      "sha": "1179827c688a63745c2c26bf46ea55a8fa95086e",
+      "date": "2026-10-07T21:32:27Z",
+      "message": "fix: sincronizar permissões imediatamente ao trocar utilizador",
+      "parents": [
+        "58f53c1c434a507c638609770f5a577a98816bee"
+      ]
+    },
+    {
+      "sha": "58f53c1c434a507c638609770f5a577a98816bee",
+      "date": "2026-10-07T21:32:22Z",
+      "message": "fix: eliminar atraso visual das permissões no arranque",
+      "parents": [
+        "6467ce2ef690207bd638dd88ba95769f6aa0c453"
+      ]
+    },
+    {
+      "sha": "6467ce2ef690207bd638dd88ba95769f6aa0c453",
+      "date": "2026-10-07T21:26:17Z",
+      "message": "fix: consolidar controlador único do Livro de Ponto e Meu RH",
+      "parents": [
+        "50998c4855478026a578464a1f72061407d9c8c7"
+      ]
+    },
+    {
+      "sha": "50998c4855478026a578464a1f72061407d9c8c7",
+      "date": "2026-10-07T21:26:10Z",
+      "message": "fix: deixar renderização do ponto para o controlador único",
+      "parents": [
+        "0d158085c9575e4a4220420e8816ff8719dd5dca"
+      ]
+    },
+    {
+      "sha": "0d158085c9575e4a4220420e8816ff8719dd5dca",
+      "date": "2026-10-07T21:26:03Z",
+      "message": "fix: remover rerender concorrente do livro de ponto",
+      "parents": [
+        "7ff14359ff5782c7c0f4e4fba78af35ac1025b83"
+      ]
+    },
+    {
+      "sha": "7ff14359ff5782c7c0f4e4fba78af35ac1025b83",
+      "date": "2026-10-07T21:16:50Z",
+      "message": "feat: configurar GPS da clínica pela localização atual",
+      "parents": [
+        "d3f2fa98c013f6b2be7364a2bb4c3ce37d923bee"
+      ]
+    },
+    {
+      "sha": "d3f2fa98c013f6b2be7364a2bb4c3ce37d923bee",
+      "date": "2026-10-07T21:12:07Z",
+      "message": "feat: reconstruir Meu RH sobre ficha mestre do colaborador",
+      "parents": [
+        "1aab4903dd3f7db270ccd9c56bd31bfbf11eeba2"
+      ]
+    },
+    {
+      "sha": "1aab4903dd3f7db270ccd9c56bd31bfbf11eeba2",
+      "date": "2026-10-07T21:11:53Z",
+      "message": "fix: watchdog independente na validação GPS do ponto",
+      "parents": [
+        "832ecf6334a4a4d5181b20bb7e80c5d9c1db26bb"
+      ]
+    },
+    {
+      "sha": "832ecf6334a4a4d5181b20bb7e80c5d9c1db26bb",
+      "date": "2026-10-07T21:04:50Z",
+      "message": "fix: criar ocorrência quando validação GPS falha",
+      "parents": [
+        "4ff1dcba5d5b43d54e5d6a812bccc2d5dfbe8bb4"
+      ]
+    },
+    {
+      "sha": "4ff1dcba5d5b43d54e5d6a812bccc2d5dfbe8bb4",
+      "date": "2026-10-07T20:56:35Z",
+      "message": "fix: impedir bloqueio do livro de ponto ao validar GPS",
+      "parents": [
+        "d431e2f591994d843c4fb6e50df66181f3a5292b"
+      ]
+    },
+    {
+      "sha": "d431e2f591994d843c4fb6e50df66181f3a5292b",
+      "date": "2026-10-07T12:02:21Z",
+      "message": "fix: remover renderer legado duplicado do Livro de Ponto",
+      "parents": [
+        "38c158964e2e0d568e597ed49b8549b2732c29d9"
+      ]
+    },
+    {
+      "sha": "38c158964e2e0d568e597ed49b8549b2732c29d9",
+      "date": "2026-10-07T12:00:19Z",
+      "message": "fix: unificar documentos do colaborador no Meu RH",
+      "parents": [
+        "2241022c103d8ed3f083b2d5dc545d6fcc77f77f"
+      ]
+    },
+    {
+      "sha": "2241022c103d8ed3f083b2d5dc545d6fcc77f77f",
+      "date": "2026-10-07T11:52:51Z",
+      "message": "fix: exigir GPS em todas as marcações do livro de ponto",
+      "parents": [
+        "1cc4a9c3a2e8f2fb46be386d4a1ae14829809403"
+      ]
+    },
+    {
+      "sha": "1cc4a9c3a2e8f2fb46be386d4a1ae14829809403",
+      "date": "2026-10-07T11:52:46Z",
+      "message": "fix: validar GPS também no almoço e regresso",
+      "parents": [
+        "293654a79bab500dc7648e2ddd78415eed0bdf27"
+      ]
+    },
+    {
+      "sha": "293654a79bab500dc7648e2ddd78415eed0bdf27",
+      "date": "2026-10-07T11:51:31Z",
+      "message": "fix: upload RH associado diretamente ao documento obrigatório",
+      "parents": [
+        "1fbdd03b86b160efed9807fe1cff5a9a58b07921"
+      ]
+    },
+    {
+      "sha": "1fbdd03b86b160efed9807fe1cff5a9a58b07921",
+      "date": "2026-10-07T11:47:52Z",
+      "message": "fix: remover adapter backend conflitante do preview V4",
+      "parents": [
+        "8192ab7df44397f57bb89f47f12adc5b89bbd850"
+      ]
+    },
+    {
+      "sha": "8192ab7df44397f57bb89f47f12adc5b89bbd850",
+      "date": "2026-10-07T11:47:40Z",
+      "message": "fix: consolidar Meu RH nos fluxos locais sem upload backend",
+      "parents": [
+        "b5032b7c93df917501cac18468c02bf6faf9edcf"
+      ]
+    },
+    {
+      "sha": "b5032b7c93df917501cac18468c02bf6faf9edcf",
+      "date": "2026-10-07T11:45:11Z",
+      "message": "fix: usar modulo App lexical na assinatura do ponto",
+      "parents": [
+        "b2a333b5f4a8fed10f348f1717b80a6452695bf8"
+      ]
+    },
+    {
+      "sha": "b2a333b5f4a8fed10f348f1717b80a6452695bf8",
+      "date": "2026-10-07T11:40:16Z",
+      "message": "fix: consolidar pesquisa RH e mostrar clinicas pela fonte mestre",
+      "parents": [
+        "62b2d1d8c72156a5dacbda7acec6154b8d2613b9"
+      ]
+    },
+    {
+      "sha": "62b2d1d8c72156a5dacbda7acec6154b8d2613b9",
+      "date": "2026-10-07T11:40:09Z",
+      "message": "fix: pesquisa RH contar apenas colaboradores e evitar resultados duplicados",
+      "parents": [
+        "7ea2d2489103c8ed3b53a95fe2716962c6c1649d"
+      ]
+    },
+    {
+      "sha": "7ea2d2489103c8ed3b53a95fe2716962c6c1649d",
+      "date": "2026-10-07T11:40:03Z",
+      "message": "fix: eliminar handler inexistente na assinatura do livro de ponto",
+      "parents": [
+        "5590634015252e8bc801c7949093b0496df41309"
+      ]
+    },
+    {
+      "sha": "5590634015252e8bc801c7949093b0496df41309",
+      "date": "2026-10-07T11:20:24Z",
+      "message": "fix: tornar assinatura do livro de ponto funcional e renomear acao",
+      "parents": [
+        "d8578a4320a1fc782ed8eb9d5fffab8a47debac5"
+      ]
+    },
+    {
+      "sha": "d8578a4320a1fc782ed8eb9d5fffab8a47debac5",
+      "date": "2026-10-07T11:12:48Z",
+      "message": "feat: mostrar horario RH no livro de ponto do colaborador",
+      "parents": [
+        "8be7cbb97e4276a64d795c7d227c9940a381a6af"
+      ]
+    },
+    {
+      "sha": "8be7cbb97e4276a64d795c7d227c9940a381a6af",
+      "date": "2026-10-07T10:45:07Z",
+      "message": "fix: permitir upload local seguro no preview sem sessao backend",
+      "parents": [
+        "f18d199197dc360335d42b253177db152e142099"
+      ]
+    },
+    {
+      "sha": "f18d199197dc360335d42b253177db152e142099",
+      "date": "2026-10-07T10:45:04Z",
+      "message": "fix: manter alertas de aprovacoes visiveis ao CEO em modo reservado",
+      "parents": [
+        "9beebe57c5ef09791d9f808084ef7ce6d5691f98"
+      ]
+    },
+    {
+      "sha": "9beebe57c5ef09791d9f808084ef7ce6d5691f98",
+      "date": "2026-10-07T10:05:28Z",
+      "message": "feat: avaliacao detalhada antes de aprovar pedidos",
+      "parents": [
+        "29ce0cd2944dca5efbdfcbde54542253da1a38cd"
+      ]
+    },
+    {
+      "sha": "29ce0cd2944dca5efbdfcbde54542253da1a38cd",
+      "date": "2026-10-07T09:54:41Z",
+      "message": "feat: ativar central de aprovacoes",
+      "parents": [
+        "bf605521cb9c3d619af84589f906a7e9cc5e1656"
+      ]
+    },
+    {
+      "sha": "bf605521cb9c3d619af84589f906a7e9cc5e1656",
+      "date": "2026-10-07T09:54:36Z",
+      "message": "feat: central visual de aprovacoes CEO e Administracao",
+      "parents": [
+        "512c7d05e49712b3fbb263b6836edf7f71849923"
+      ]
+    },
+    {
+      "sha": "512c7d05e49712b3fbb263b6836edf7f71849923",
+      "date": "2026-10-07T09:49:06Z",
+      "message": "fix: ativar separacao Meu RH e Livro de Ponto",
+      "parents": [
+        "5b9ce480a0531ebd0c1b48ba9c5d691e43ad91bd"
+      ]
+    },
+    {
+      "sha": "5b9ce480a0531ebd0c1b48ba9c5d691e43ad91bd",
+      "date": "2026-10-07T09:49:00Z",
+      "message": "fix: separar Livro de Ponto e Meu RH",
+      "parents": [
+        "9496e6daa53586e8a5b5b81c99ea587e2250db8c"
+      ]
+    },
+    {
+      "sha": "9496e6daa53586e8a5b5b81c99ea587e2250db8c",
+      "date": "2026-10-07T09:48:45Z",
+      "message": "fix: uploads reais e regularizacao direta de documentos RH",
+      "parents": [
+        "8c64ff76ed3d9117aed8c3d3c6df0a4af35ba85c"
+      ]
+    },
+    {
+      "sha": "8c64ff76ed3d9117aed8c3d3c6df0a4af35ba85c",
+      "date": "2026-10-07T09:39:51Z",
+      "message": "feat: ativar Meu RH na area reservada",
+      "parents": [
+        "338fccd94b4a69e18637ff6d0812efae172f46dd"
+      ]
+    },
+    {
+      "sha": "338fccd94b4a69e18637ff6d0812efae172f46dd",
+      "date": "2026-10-07T09:39:46Z",
+      "message": "feat: consolidar area reservada Meu RH",
+      "parents": [
+        "e59e6b5f37064beb1a8fef1f076acfe46f768c11"
+      ]
+    },
+    {
+      "sha": "e59e6b5f37064beb1a8fef1f076acfe46f768c11",
+      "date": "2026-10-07T01:02:50Z",
+      "message": "fix: remover bloco duplicado do livro de ponto no RH",
+      "parents": [
+        "86b66456985431a7914eb8378d3adab9d65b519a"
+      ]
+    },
+    {
+      "sha": "86b66456985431a7914eb8378d3adab9d65b519a",
+      "date": "2026-10-07T01:01:37Z",
+      "message": "feat: pedidos e histórico anual de férias na área reservada",
+      "parents": [
+        "3dfb6725c8ffe42c00ae804253cc8a4b5dce32fd"
+      ]
+    },
+    {
+      "sha": "3dfb6725c8ffe42c00ae804253cc8a4b5dce32fd",
+      "date": "2026-10-07T01:01:20Z",
+      "message": "fix: desbloquear sequência diária de entradas e saídas",
+      "parents": [
+        "f0e3382b8787bf383f999dcc4be93b0302e986e8"
+      ]
+    },
+    {
+      "sha": "f0e3382b8787bf383f999dcc4be93b0302e986e8",
+      "date": "2026-10-07T00:50:48Z",
+      "message": "fix: próximo ponto respeita saída temporária almoço e GPS",
+      "parents": [
+        "459cf46f413a66cef14b777ad9e4bb34f47662d1"
+      ]
+    },
+    {
+      "sha": "459cf46f413a66cef14b777ad9e4bb34f47662d1",
+      "date": "2026-10-07T00:50:15Z",
+      "message": "fix: sequência do próximo ponto após saída temporária",
+      "parents": [
+        "1e5e53e605e973aa718060a5f36c40be70382465"
+      ]
+    },
+    {
+      "sha": "1e5e53e605e973aa718060a5f36c40be70382465",
+      "date": "2026-10-07T00:46:36Z",
+      "message": "fix: pesquisa RH filtra colaboradores e métricas por clínica",
+      "parents": [
+        "4b6fdd3d58f860baa5b8ca273b8ca6f7e6ebd65f"
+      ]
+    },
+    {
+      "sha": "4b6fdd3d58f860baa5b8ca273b8ca6f7e6ebd65f",
+      "date": "2026-10-07T00:40:17Z",
+      "message": "feat: painel RH com uploads recebidos hoje",
+      "parents": [
+        "da58f0c3e026c141428459ac6d414aae525cd011"
+      ]
+    },
+    {
+      "sha": "da58f0c3e026c141428459ac6d414aae525cd011",
+      "date": "2026-10-07T00:36:16Z",
+      "message": "feat: destacar períodos de férias no painel do colaborador",
+      "parents": [
+        "629056de8818e29245f21d95c6f689b1a089fe87"
+      ]
+    },
+    {
+      "sha": "629056de8818e29245f21d95c6f689b1a089fe87",
+      "date": "2026-10-07T00:34:20Z",
+      "message": "feat: destacar fluxo de baixa com datas e documento",
+      "parents": [
+        "f533127cfd4fa1b73b624a61f904b11c719014c9"
+      ]
+    },
+    {
+      "sha": "f533127cfd4fa1b73b624a61f904b11c719014c9",
+      "date": "2026-10-07T00:34:10Z",
+      "message": "feat: anexar justificativo aos pedidos de correção de ponto",
+      "parents": [
+        "2a4fe7264825d2c9e64d59e8130c44c7f5de2967"
+      ]
+    },
+    {
+      "sha": "2a4fe7264825d2c9e64d59e8130c44c7f5de2967",
+      "date": "2026-10-07T00:31:59Z",
+      "message": "feat: hora explícita em saída temporária e regresso",
+      "parents": [
+        "d3eaeb46e4cc8ae5c51a8f45ae481ce267805ec3"
+      ]
+    },
+    {
+      "sha": "d3eaeb46e4cc8ae5c51a8f45ae481ce267805ec3",
+      "date": "2026-10-07T00:27:41Z",
+      "message": "fix: validar horas extra em blocos inteiros de 1 a 4 horas",
+      "parents": [
+        "c62204c7900747ae81140244dd2e25d17464f8fd"
+      ]
+    },
+    {
+      "sha": "c62204c7900747ae81140244dd2e25d17464f8fd",
+      "date": "2026-10-07T00:26:03Z",
+      "message": "feat: CEO define minutos extra exatos a pagar",
+      "parents": [
+        "8176b866af9604b364874eab3d6ee4487d7493d0"
+      ]
+    },
+    {
+      "sha": "8176b866af9604b364874eab3d6ee4487d7493d0",
+      "date": "2026-10-07T00:25:52Z",
+      "message": "feat: circuito visual de documentos entre colaborador e CEO",
+      "parents": [
+        "d045373a5adcc3c08627f1a3409135d12f3a875d"
+      ]
+    },
+    {
+      "sha": "d045373a5adcc3c08627f1a3409135d12f3a875d",
+      "date": "2026-10-07T00:22:36Z",
+      "message": "feat: saída temporária sem GPS e justificativo no próprio evento",
+      "parents": [
+        "f31562ff5d2725ad93911e9979ab73f86495cfb7"
+      ]
+    },
+    {
+      "sha": "f31562ff5d2725ad93911e9979ab73f86495cfb7",
+      "date": "2026-10-07T00:22:26Z",
+      "message": "feat: associar documentos de ausência a eventos existentes",
+      "parents": [
+        "ecaaa81e2d77be9e66ef132831cc8f867b1ff97f"
+      ]
+    },
+    {
+      "sha": "ecaaa81e2d77be9e66ef132831cc8f867b1ff97f",
+      "date": "2026-10-07T00:11:11Z",
+      "message": "fix: restaurar perfis canónicos após limpeza de duplicados",
+      "parents": [
+        "a40c1a295ced0373e7ab305d3df055fd86ffa0ef"
+      ]
+    },
+    {
+      "sha": "a40c1a295ced0373e7ab305d3df055fd86ffa0ef",
+      "date": "2026-10-07T00:08:37Z",
+      "message": "fix: eliminar utilizadores duplicados e consolidar fichas pelo perfil canónico",
+      "parents": [
+        "cee7b836879f0f0a3ec967319d5ed5a4e1de8950"
+      ]
+    },
+    {
+      "sha": "cee7b836879f0f0a3ec967319d5ed5a4e1de8950",
+      "date": "2026-10-07T00:07:49Z",
+      "message": "feat: filtros por clínica e pesquisa na visão CEO de assiduidade",
+      "parents": [
+        "a279875c2bd832677c1f78649d855574d06e2a1d"
+      ]
+    },
+    {
+      "sha": "a279875c2bd832677c1f78649d855574d06e2a1d",
+      "date": "2026-10-07T00:06:01Z",
+      "message": "feat: aprovação de tempo extra cria valor exato por hora",
+      "parents": [
+        "5158d3510ec413451e1fdf46ad6857a115fca2ca"
+      ]
+    },
+    {
+      "sha": "5158d3510ec413451e1fdf46ad6857a115fca2ca",
+      "date": "2026-10-07T00:05:51Z",
+      "message": "fix: ponto usa horário RH e envia tempo extra para aprovação",
+      "parents": [
+        "9cf6c959fc260a9692c504d127fbeb21f4b63432"
+      ]
+    },
+    {
+      "sha": "9cf6c959fc260a9692c504d127fbeb21f4b63432",
+      "date": "2026-10-07T00:05:34Z",
+      "message": "feat: visão CEO de assiduidade por estado e navegação mensal",
+      "parents": [
+        "862953d63fd255b6e9662e86770e591b701c3d33"
+      ]
+    },
+    {
+      "sha": "862953d63fd255b6e9662e86770e591b701c3d33",
+      "date": "2026-10-07T00:05:19Z",
+      "message": "feat: horários RH com seletores de hora e minutos",
+      "parents": [
+        "f9051c48fd5eb7bb4479613b4323d37956f220cb"
+      ]
+    },
+    {
+      "sha": "f9051c48fd5eb7bb4479613b4323d37956f220cb",
+      "date": "2026-10-07T00:05:10Z",
+      "message": "fix: consolidar utilizadores e áreas reservadas pelo ID canónico",
+      "parents": [
+        "278fcd3693d9533a298df4989f7a3cc49dfa476b"
+      ]
+    },
+    {
+      "sha": "278fcd3693d9533a298df4989f7a3cc49dfa476b",
+      "date": "2026-10-06T23:55:47Z",
+      "message": "fix: ligar perfis da Área Reservada às fichas de colaboradores RH",
+      "parents": [
+        "457e00e4309aece7e41201afe2beb247b095106b"
+      ]
+    },
+    {
+      "sha": "457e00e4309aece7e41201afe2beb247b095106b",
+      "date": "2026-10-06T23:51:43Z",
+      "message": "fix: consolidar Livro de Ponto numa única renderização",
+      "parents": [
+        "eab269171d4658c64321efa676cb93db3544901f"
+      ]
+    },
+    {
+      "sha": "eab269171d4658c64321efa676cb93db3544901f",
+      "date": "2026-10-06T23:47:28Z",
+      "message": "fix: impedir renderer RH antigo de sobrescrever a arquitetura consolidada",
+      "parents": [
+        "f7adf358daf054d01f3784239ab6f63118e18d6b"
+      ]
+    },
+    {
+      "sha": "f7adf358daf054d01f3784239ab6f63118e18d6b",
+      "date": "2026-10-06T23:46:05Z",
+      "message": "fix: remover injeção RH legada que recriava bloco duplicado",
+      "parents": [
+        "088c44a0789c2d7be90f0ddea15868c46d7be7c8"
+      ]
+    },
+    {
+      "sha": "088c44a0789c2d7be90f0ddea15868c46d7be7c8",
+      "date": "2026-10-06T23:44:48Z",
+      "message": "fix: desativar renderizador legado duplicado de documentos RH",
+      "parents": [
+        "f742b444c341a22f50b3be1b5711f713cf957d40"
+      ]
+    },
+    {
+      "sha": "f742b444c341a22f50b3be1b5711f713cf957d40",
+      "date": "2026-10-06T23:42:58Z",
+      "message": "fix: remover bloco documental duplicado da vista colaboradores",
+      "parents": [
+        "7eb2227f24151f4b143db130983da893f20c98b5"
+      ]
+    },
+    {
+      "sha": "7eb2227f24151f4b143db130983da893f20c98b5",
+      "date": "2026-10-06T23:40:42Z",
+      "message": "feat: painel visual de assiduidade e upload de ausencias",
+      "parents": [
+        "bb5980c465ee6f587a7eafea089756ee68def2cd"
+      ]
+    },
+    {
+      "sha": "bb5980c465ee6f587a7eafea089756ee68def2cd",
+      "date": "2026-10-06T23:40:14Z",
+      "message": "feat: ligar painel visual de assiduidade ao livro de ponto",
+      "parents": [
+        "dab4c753ac07b56743b3613c35bcb71b35bfc465"
+      ]
+    },
+    {
+      "sha": "dab4c753ac07b56743b3613c35bcb71b35bfc465",
+      "date": "2026-10-06T23:30:31Z",
+      "message": "fix: consolidar navegação da área RH sem conflito de captura",
+      "parents": [
+        "89853160b4a005e2db2f3b786f674f5c7e1c3c36"
+      ]
+    },
+    {
+      "sha": "89853160b4a005e2db2f3b786f674f5c7e1c3c36",
+      "date": "2026-10-06T23:19:43Z",
+      "message": "fix: estabilizar campo valor hora na ficha RH",
+      "parents": [
+        "433bffbd373ace74a9bd72e71e6da7ea8589175b"
+      ]
+    },
+    {
+      "sha": "433bffbd373ace74a9bd72e71e6da7ea8589175b",
+      "date": "2026-10-06T23:17:48Z",
+      "message": "feat: adicionar valor hora à ficha do colaborador",
+      "parents": [
+        "77813dd7496e88b7828e7c692dd62a0451a252cf"
+      ]
+    },
+    {
+      "sha": "77813dd7496e88b7828e7c692dd62a0451a252cf",
+      "date": "2026-10-06T23:13:48Z",
+      "message": "fix: corrigir sintaxe final da ficha mestre RH",
+      "parents": [
+        "879b2219508456f9fb16eb468bc1d6c74431ee84"
+      ]
+    },
+    {
+      "sha": "879b2219508456f9fb16eb468bc1d6c74431ee84",
+      "date": "2026-10-06T22:52:45Z",
+      "message": "fix: completar ramos tempo e desenvolvimento da ficha RH",
+      "parents": [
+        "8c83549018be6c6e2ab30ebcdb79baccfd35e7a2"
+      ]
+    },
+    {
+      "sha": "8c83549018be6c6e2ab30ebcdb79baccfd35e7a2",
+      "date": "2026-10-06T22:51:16Z",
+      "message": "fix: corrigir erro de sintaxe que impedia carregamento da ficha mestre RH",
+      "parents": [
+        "9ae8d0729b21540c54500a46acea12aae0d47a25"
+      ]
+    },
+    {
+      "sha": "9ae8d0729b21540c54500a46acea12aae0d47a25",
+      "date": "2026-10-06T22:50:11Z",
+      "message": "fix: remover dependencia de runtime da ficha mestre RH",
+      "parents": [
+        "e2f37ff71c35062def280774e30e3c8b6f25b95e"
+      ]
+    },
+    {
+      "sha": "e2f37ff71c35062def280774e30e3c8b6f25b95e",
+      "date": "2026-10-06T22:47:22Z",
+      "message": "fix: ficha mestre RH deixa de depender do carregamento das permissoes",
+      "parents": [
+        "ea6b08d2135f79167fabdac3993dcfa3a1624152"
+      ]
+    },
+    {
+      "sha": "ea6b08d2135f79167fabdac3993dcfa3a1624152",
+      "date": "2026-10-06T22:44:44Z",
+      "message": "fix: eliminar perfis de teste duplicados no seletor CEO",
+      "parents": [
+        "01858b8def72a726429ae4084ccbd6e5c0008af6"
+      ]
+    },
+    {
+      "sha": "01858b8def72a726429ae4084ccbd6e5c0008af6",
+      "date": "2026-10-06T22:42:38Z",
+      "message": "fix: impedir seletor CEO de fechar durante atualização automática",
+      "parents": [
+        "878b9f0d228e493e7ebd7faa7e7710f243abc959"
+      ]
+    },
+    {
+      "sha": "878b9f0d228e493e7ebd7faa7e7710f243abc959",
+      "date": "2026-10-06T22:39:59Z",
+      "message": "fix: manter perfis de teste no seletor CEO",
+      "parents": [
+        "96d39ea362c7aaeb36499e299a3bca738c259344"
+      ]
+    },
+    {
+      "sha": "96d39ea362c7aaeb36499e299a3bca738c259344",
+      "date": "2026-10-06T22:38:27Z",
+      "message": "feat: gerar aviso email ao colaborador quando pagamento fica pago",
+      "parents": [
+        "ca97beda5be487beca922a892227419da03776c3"
+      ]
+    },
+    {
+      "sha": "ca97beda5be487beca922a892227419da03776c3",
+      "date": "2026-10-06T22:35:45Z",
+      "message": "feat: permitir upload de recibos nas horas extra",
+      "parents": [
+        "fe72bf99c16dd7216b064f64a9b5325f8156a3d2"
+      ]
+    },
+    {
+      "sha": "fe72bf99c16dd7216b064f64a9b5325f8156a3d2",
+      "date": "2026-10-06T22:35:29Z",
+      "message": "feat: ativar módulo de escalas e horas extra",
+      "parents": [
+        "6bb0ea1fb6dabf648caaad82a9580969de8668b7"
+      ]
+    },
+    {
+      "sha": "6bb0ea1fb6dabf648caaad82a9580969de8668b7",
+      "date": "2026-10-06T22:35:25Z",
+      "message": "feat: adicionar escalas mensais e circuito de horas extra",
+      "parents": [
+        "d3e031120bb83768644d8d02e4b2800210a52be2"
+      ]
+    },
+    {
+      "sha": "d3e031120bb83768644d8d02e4b2800210a52be2",
+      "date": "2026-10-06T22:32:37Z",
+      "message": "feat: adicionar áreas de tempo e desenvolvimento à ficha RH",
+      "parents": [
+        "fb799b6952939a27740659dba38867a728303619"
+      ]
+    },
+    {
+      "sha": "fb799b6952939a27740659dba38867a728303619",
+      "date": "2026-10-06T22:32:32Z",
+      "message": "feat: preparar estruturas RH para formação equipamentos despesas e avaliação",
+      "parents": [
+        "99ac3108944c1f7fae878fa49e6740819d8819fa"
+      ]
+    },
+    {
+      "sha": "99ac3108944c1f7fae878fa49e6740819d8819fa",
+      "date": "2026-10-06T22:11:20Z",
+      "message": "refactor: carregar ficha mestre RH antes da arquitetura de colaboradores",
+      "parents": [
+        "8d84040b43470a550ebcab9fb89a570b8ade345c"
+      ]
+    },
+    {
+      "sha": "8d84040b43470a550ebcab9fb89a570b8ade345c",
+      "date": "2026-10-06T22:11:15Z",
+      "message": "refactor: remover renderização duplicada da ficha antiga RH",
+      "parents": [
+        "dc67361eedc1063ee6ecad633f581c3f3624820c"
+      ]
+    },
+    {
+      "sha": "dc67361eedc1063ee6ecad633f581c3f3624820c",
+      "date": "2026-10-06T22:09:58Z",
+      "message": "fix: garantir carregamento da ficha mestre RH ao abrir colaborador",
+      "parents": [
+        "de3a6f86ae99f153f5e29547e84309c3079f6662"
+      ]
+    },
+    {
+      "sha": "de3a6f86ae99f153f5e29547e84309c3079f6662",
+      "date": "2026-10-06T22:05:10Z",
+      "message": "ux: tornar abertura e edição da ficha RH explícita na lista",
+      "parents": [
+        "8fdcaf9a125cf8c7d49c6f0033667c78929e6e30"
+      ]
+    },
+    {
+      "sha": "8fdcaf9a125cf8c7d49c6f0033667c78929e6e30",
+      "date": "2026-10-06T21:59:07Z",
+      "message": "fix: limpar estado hidden residual nos menus autorizados",
+      "parents": [
+        "c721746dc6e553f948f029358a5e8b1c9c46658f"
+      ]
+    },
+    {
+      "sha": "c721746dc6e553f948f029358a5e8b1c9c46658f",
+      "date": "2026-10-06T21:58:13Z",
+      "message": "fix: remover display none residual ao autorizar menu",
+      "parents": [
+        "6def59ab4b79bcf5a5417b716474e2034f294d30"
+      ]
+    },
+    {
+      "sha": "6def59ab4b79bcf5a5417b716474e2034f294d30",
+      "date": "2026-10-06T21:57:29Z",
+      "message": "test: alinhar agente com permissão autoritativa de Clínicas",
+      "parents": [
+        "b66c19942cd2e24603cf6fb0d64d8a3682a6eb4c"
+      ]
+    },
+    {
+      "sha": "b66c19942cd2e24603cf6fb0d64d8a3682a6eb4c",
+      "date": "2026-10-06T21:52:41Z",
+      "message": "fix: tornar permissão Clínicas autoritativa no menu",
+      "parents": [
+        "fdaf5f20b14c47b2cfacc1b02f2a23a29d2b02a8"
+      ]
+    },
+    {
+      "sha": "fdaf5f20b14c47b2cfacc1b02f2a23a29d2b02a8",
+      "date": "2026-10-06T21:51:03Z",
+      "message": "fix: unificar Clínicas na fonte legada de permissões",
+      "parents": [
+        "94a129cfede5c8c6ba91fd988b65fd628574085c"
+      ]
+    },
+    {
+      "sha": "94a129cfede5c8c6ba91fd988b65fd628574085c",
+      "date": "2026-10-06T17:57:18Z",
+      "message": "fix: restaurar Clínicas no menu autorizado do CEO",
+      "parents": [
+        "f0c8bb9c8c412d18f0cf99e5511380ab80a17414"
+      ]
+    },
+    {
+      "sha": "f0c8bb9c8c412d18f0cf99e5511380ab80a17414",
+      "date": "2026-10-06T17:54:50Z",
+      "message": "fix: alinhar agente de testes com matriz autoritativa e subpermissões",
+      "parents": [
+        "1f8ca1a40324f6c6390323349e4365bffbe31b54"
+      ]
+    },
+    {
+      "sha": "1f8ca1a40324f6c6390323349e4365bffbe31b54",
+      "date": "2026-10-06T17:54:38Z",
+      "message": "fix: tornar CEO real autoritativo na renderização de permissões",
+      "parents": [
+        "bace3791667e8fce0a430419186942a43fac4133"
+      ]
+    },
+    {
+      "sha": "bace3791667e8fce0a430419186942a43fac4133",
+      "date": "2026-10-06T17:51:02Z",
+      "message": "fix: aplicar permissões de abertura tarefas e fecho dentro da operação",
+      "parents": [
+        "1a0c54174dee85d63b3becb23da3601ab45bec2c"
+      ]
+    },
+    {
+      "sha": "1a0c54174dee85d63b3becb23da3601ab45bec2c",
+      "date": "2026-10-06T17:50:54Z",
+      "message": "fix: preservar subpermissões da operação diária sem esconder módulo",
+      "parents": [
+        "49be2e23dc59d84f36e883ac1cc0f3217620103f"
+      ]
+    },
+    {
+      "sha": "49be2e23dc59d84f36e883ac1cc0f3217620103f",
+      "date": "2026-10-06T17:37:00Z",
+      "message": "fix: carregar ficha RH após arquitetura clínica para evitar render duplicado",
+      "parents": [
+        "6c5bba24b43fd5b2c4ef166ea8704b318ae4a77e"
+      ]
+    },
+    {
+      "sha": "6c5bba24b43fd5b2c4ef166ea8704b318ae4a77e",
+      "date": "2026-10-06T17:36:54Z",
+      "message": "fix: usar ficha RH mestre como única fonte para colaboradores",
+      "parents": [
+        "9c5ae24ebe34a6d0a1f075c74b6344574b54c51b"
+      ]
+    },
+    {
+      "sha": "9c5ae24ebe34a6d0a1f075c74b6344574b54c51b",
+      "date": "2026-10-06T16:59:54Z",
+      "message": "feat: registar primeiro acesso e última atividade diária",
+      "parents": [
+        "68b2d309014e1ce628d03eb05216af93d36caa9c"
+      ]
+    },
+    {
+      "sha": "68b2d309014e1ce628d03eb05216af93d36caa9c",
+      "date": "2026-10-06T16:59:52Z",
+      "message": "feat: adicionar Livro de Ponto como área autorizável",
+      "parents": [
+        "da6f5e72f6b2eee65c923165bcf85747c9093af0"
+      ]
+    },
+    {
+      "sha": "da6f5e72f6b2eee65c923165bcf85747c9093af0",
+      "date": "2026-10-06T16:59:44Z",
+      "message": "fix: restaurar ficha RH e restringir edição a CEO/Administração",
+      "parents": [
+        "eae076913185de0fceec7620dbcf593cc0ef2045"
+      ]
+    },
+    {
+      "sha": "eae076913185de0fceec7620dbcf593cc0ef2045",
+      "date": "2026-10-06T16:59:35Z",
+      "message": "fix: ligar Livro de Ponto à matriz de permissões",
+      "parents": [
+        "a78a7cadbbe8486a9ecfccab6e5b18522f5cb7fb"
+      ]
+    },
+    {
+      "sha": "a78a7cadbbe8486a9ecfccab6e5b18522f5cb7fb",
+      "date": "2026-10-06T15:25:53Z",
+      "message": "fix: make test agent read authoritative rendered permissions",
+      "parents": [
+        "4e734592fcf7e9279b61a3637d090ae4aea9d862"
+      ]
+    },
+    {
+      "sha": "4e734592fcf7e9279b61a3637d090ae4aea9d862",
+      "date": "2026-10-06T15:11:30Z",
+      "message": "fix: show permissions control only in real CEO area",
+      "parents": [
+        "c9f3967caede19e16f109994e2446606d65d6517"
+      ]
+    },
+    {
+      "sha": "c9f3967caede19e16f109994e2446606d65d6517",
+      "date": "2026-10-06T15:11:22Z",
+      "message": "fix: make permission matrix authoritative for reserved-area menu",
+      "parents": [
+        "ec71ba75e96cbd9349a147d417f482ff652bac5b"
+      ]
+    },
+    {
+      "sha": "ec71ba75e96cbd9349a147d417f482ff652bac5b",
+      "date": "2026-10-06T14:55:09Z",
+      "message": "feat: add employee photo and marketing identity",
+      "parents": [
+        "df52611e216034140ebaa959d668d927a60c6444"
+      ]
+    },
+    {
+      "sha": "df52611e216034140ebaa959d668d927a60c6444",
+      "date": "2026-10-06T14:52:55Z",
+      "message": "feat: add persistent editable test user base",
+      "parents": [
+        "4d8a0b0e4958b7f70f869b632fcd022b77a98df1"
+      ]
+    },
+    {
+      "sha": "4d8a0b0e4958b7f70f869b632fcd022b77a98df1",
+      "date": "2026-10-06T14:47:48Z",
+      "message": "refactor: give dynamic Tables button one explicit navigation path",
+      "parents": [
+        "4c7a63f69387de2c762ea790852c28d3ef66e55a"
+      ]
+    },
+    {
+      "sha": "4c7a63f69387de2c762ea790852c28d3ef66e55a",
+      "date": "2026-10-06T14:47:41Z",
+      "message": "refactor: render permissions inside Tables page only",
+      "parents": [
+        "4b2cb52864000f593db13017d009bbfac286dfb6"
+      ]
+    },
+    {
+      "sha": "4b2cb52864000f593db13017d009bbfac286dfb6",
+      "date": "2026-10-06T14:47:32Z",
+      "message": "refactor: remove duplicate Tables submenu architecture",
+      "parents": [
+        "fead082e22beb6b3220e78be1227d3f10df39f18"
+      ]
+    },
+    {
+      "sha": "fead082e22beb6b3220e78be1227d3f10df39f18",
+      "date": "2026-10-06T14:44:35Z",
+      "message": "fix: rebuild CEO reserved-area selector from employees and users",
+      "parents": [
+        "75ed1579a05fbe81aa0d6b314f22c847a5174d16"
+      ]
+    },
+    {
+      "sha": "75ed1579a05fbe81aa0d6b314f22c847a5174d16",
+      "date": "2026-10-06T14:44:29Z",
+      "message": "fix: preserve system CEO permissions in access guard",
+      "parents": [
+        "378d3b4290f26764b9b78ffe5f52423661733ea8"
+      ]
+    },
+    {
+      "sha": "378d3b4290f26764b9b78ffe5f52423661733ea8",
+      "date": "2026-10-06T14:42:06Z",
+      "message": "fix: use single navigation owner for Tables view",
+      "parents": [
+        "79e3a4d0da291ec0d8bb1c3f8ff30883b8c96429"
+      ]
+    },
+    {
+      "sha": "79e3a4d0da291ec0d8bb1c3f8ff30883b8c96429",
+      "date": "2026-10-06T14:41:58Z",
+      "message": "fix: stop legacy scope from granting administration global access",
+      "parents": [
+        "b632eaf60d62e5e5b928c33eba551f9927e11739"
+      ]
+    },
+    {
+      "sha": "b632eaf60d62e5e5b928c33eba551f9927e11739",
+      "date": "2026-10-06T14:41:52Z",
+      "message": "fix: remove duplicate Tables navigation handlers",
+      "parents": [
+        "0785291feca63b58f3928485ae2435c949e582b4"
+      ]
+    },
+    {
+      "sha": "0785291feca63b58f3928485ae2435c949e582b4",
+      "date": "2026-10-06T14:38:47Z",
+      "message": "fix: enforce selected reserved-area identity before reload",
+      "parents": [
+        "fa560c26040094e72f881b8fadcac8d647fcc981"
+      ]
+    },
+    {
+      "sha": "fa560c26040094e72f881b8fadcac8d647fcc981",
+      "date": "2026-10-06T14:38:40Z",
+      "message": "fix: make dynamic Tables navigation open reliably",
+      "parents": [
+        "036d99b95e278619e24edc2f047c67a8c4757b39"
+      ]
+    },
+    {
+      "sha": "036d99b95e278619e24edc2f047c67a8c4757b39",
+      "date": "2026-10-06T00:33:50Z",
+      "message": "fix: keep CEO permission editor available while viewing reserved areas",
+      "parents": [
+        "af3e6bbb9f2cff5f77fd2ec133deab273043bbb4"
+      ]
+    },
+    {
+      "sha": "af3e6bbb9f2cff5f77fd2ec133deab273043bbb4",
+      "date": "2026-10-06T00:33:43Z",
+      "message": "fix: remove legacy permission presets and repair test contamination",
+      "parents": [
+        "e5968ded25c5e10e17db381a71557aac775d8c63"
+      ]
+    },
+    {
+      "sha": "e5968ded25c5e10e17db381a71557aac775d8c63",
+      "date": "2026-10-06T00:29:39Z",
+      "message": "test: add real UI and navigation permission validation",
+      "parents": [
+        "b8c456b6668d2486a869a49ea934848200ec8e67"
+      ]
+    },
+    {
+      "sha": "b8c456b6668d2486a869a49ea934848200ec8e67",
+      "date": "2026-10-06T00:27:49Z",
+      "message": "fix: sync legacy app state before permission checks",
+      "parents": [
+        "730bf9247bb043b8035f218429ddfc520047c426"
+      ]
+    },
+    {
+      "sha": "730bf9247bb043b8035f218429ddfc520047c426",
+      "date": "2026-10-06T00:26:09Z",
+      "message": "fix: enforce settings permission in legacy tables view",
+      "parents": [
+        "2f92b6ae65b951921990afe8ac0aff212d0ff250"
+      ]
+    },
+    {
+      "sha": "2f92b6ae65b951921990afe8ac0aff212d0ff250",
+      "date": "2026-10-06T00:26:03Z",
+      "message": "fix: enforce permissions in enterprise navigation",
+      "parents": [
+        "66b3ebbb230d1b967bc09b6237299c5ddff01005"
+      ]
+    },
+    {
+      "sha": "66b3ebbb230d1b967bc09b6237299c5ddff01005",
+      "date": "2026-10-06T00:25:56Z",
+      "message": "fix: enforce permissions inside legacy app navigation",
+      "parents": [
+        "87ccd1235c42e61e72e33a095d244ba96c1d01b4"
+      ]
+    },
+    {
+      "sha": "87ccd1235c42e61e72e33a095d244ba96c1d01b4",
+      "date": "2026-10-06T00:24:49Z",
+      "message": "fix: block unauthorized reserved-area navigation",
+      "parents": [
+        "5f261e7fd848d119df8309c4dd523db96b6c695b"
+      ]
+    },
+    {
+      "sha": "5f261e7fd848d119df8309c4dd523db96b6c695b",
+      "date": "2026-10-06T00:20:57Z",
+      "message": "test: validate reserved areas strictly against role matrix",
+      "parents": [
+        "2166933b1001835f7c63983b72aeba242446e0fe"
+      ]
+    },
+    {
+      "sha": "2166933b1001835f7c63983b72aeba242446e0fe",
+      "date": "2026-10-06T00:20:49Z",
+      "message": "fix: enforce role matrix for every reserved area",
+      "parents": [
+        "d5f5bc6ec8bb87ce63e334521c1ee2d0b19e3974"
+      ]
+    },
+    {
+      "sha": "d5f5bc6ec8bb87ce63e334521c1ee2d0b19e3974",
+      "date": "2026-10-06T00:19:51Z",
+      "message": "fix: isolate test full access from real role permissions",
+      "parents": [
+        "150b74c13de0c691d6da4fd0ed0397d80e7e5f74"
+      ]
+    },
+    {
+      "sha": "150b74c13de0c691d6da4fd0ed0397d80e7e5f74",
+      "date": "2026-10-06T00:16:11Z",
+      "message": "fix: isolate full access to test users only",
+      "parents": [
+        "51ae5e28dc7f384b0843ec9737fdc1d4095944d7"
+      ]
+    },
+    {
+      "sha": "51ae5e28dc7f384b0843ec9737fdc1d4095944d7",
+      "date": "2026-10-06T00:15:17Z",
+      "message": "test: grant full module access to persistent test profiles",
+      "parents": [
+        "1b4b695823096adb0dc8bd2097e3e52a328bfdb9"
+      ]
+    },
+    {
+      "sha": "1b4b695823096adb0dc8bd2097e3e52a328bfdb9",
+      "date": "2026-10-06T00:12:41Z",
+      "message": "fix: test agent recognizes finance movements structure",
+      "parents": [
+        "25623db8e1295c73d2f350a84103d61b5b6fdf82"
+      ]
+    },
+    {
+      "sha": "25623db8e1295c73d2f350a84103d61b5b6fdf82",
+      "date": "2026-10-06T00:10:38Z",
+      "message": "feat: place test agent controls on dashboard",
+      "parents": [
+        "53f3d6a7f9f7e533be1da101765f3cba6366b832"
+      ]
+    },
+    {
+      "sha": "53f3d6a7f9f7e533be1da101765f3cba6366b832",
+      "date": "2026-10-06T00:08:25Z",
+      "message": "feat: persist test agent error reports",
+      "parents": [
+        "1784346a775127371b75bc010c236f1b69f414f7"
+      ]
+    },
+    {
+      "sha": "1784346a775127371b75bc010c236f1b69f414f7",
+      "date": "2026-10-06T00:07:11Z",
+      "message": "feat: add test agent controls to app interface",
+      "parents": [
+        "1593c5dad6e4bcafb1545e9c8c8ac077f534edc5"
+      ]
+    },
+    {
+      "sha": "1593c5dad6e4bcafb1545e9c8c8ac077f534edc5",
+      "date": "2026-10-06T00:06:03Z",
+      "message": "test: persist reviewable agent test data with cleanup",
+      "parents": [
+        "7edf2e54f9b62629300a17e47f381ed838691701"
+      ]
+    },
+    {
+      "sha": "7edf2e54f9b62629300a17e47f381ed838691701",
+      "date": "2026-10-06T00:04:04Z",
+      "message": "test: exercise role scopes and permissions in sandbox",
+      "parents": [
+        "9dfa31885ccf318015c37ed20307ed98708426d6"
+      ]
+    },
+    {
+      "sha": "9dfa31885ccf318015c37ed20307ed98708426d6",
+      "date": "2026-10-06T00:03:32Z",
+      "message": "test: add isolated seven-role reserved-area sandbox",
+      "parents": [
+        "a4d6655a7ceb08fff611179e5e47540207cb3db1"
+      ]
+    },
+    {
+      "sha": "a4d6655a7ceb08fff611179e5e47540207cb3db1",
+      "date": "2026-10-06T00:00:56Z",
+      "message": "fix: connect employee role selector to master roles",
+      "parents": [
+        "534c8df295875dfc663d1280b53698d2a15ce2a3"
+      ]
+    },
+    {
+      "sha": "534c8df295875dfc663d1280b53698d2a15ce2a3",
+      "date": "2026-10-05T23:49:19Z",
+      "message": "test: add financial module integration checks",
+      "parents": [
+        "fe6235c41d413234c156d6817f53d0f9de2f73b0"
+      ]
+    },
+    {
+      "sha": "fe6235c41d413234c156d6817f53d0f9de2f73b0",
+      "date": "2026-10-05T23:47:15Z",
+      "message": "feat: enable automatic V4 integration agent",
+      "parents": [
+        "c12afb8751742a85bff8ac77e6379f9c161522b5"
+      ]
+    },
+    {
+      "sha": "c12afb8751742a85bff8ac77e6379f9c161522b5",
+      "date": "2026-10-05T23:47:13Z",
+      "message": "feat: test every reserved area and application area",
+      "parents": [
+        "c3c3616d6d5a27163ab789ed97a5d925154f163b"
+      ]
+    },
+    {
+      "sha": "c3c3616d6d5a27163ab789ed97a5d925154f163b",
+      "date": "2026-10-05T23:44:42Z",
+      "message": "feat: add automatic V4 integration test agent",
+      "parents": [
+        "0a77546be44ea5e88c6888b134960c38e41ac3a3"
+      ]
+    },
+    {
+      "sha": "0a77546be44ea5e88c6888b134960c38e41ac3a3",
+      "date": "2026-10-05T23:38:19Z",
+      "message": "fix: unify roles and permissions configuration",
+      "parents": [
+        "35f2f734787ffb28031af7a7ad7803d36a10a668"
+      ]
+    },
+    {
+      "sha": "35f2f734787ffb28031af7a7ad7803d36a10a668",
+      "date": "2026-10-05T23:16:44Z",
+      "message": "feat: add permissions matrix integrity guard",
+      "parents": [
+        "d1dfc74e8066d9ebe7fc689665a977f70bba65c8"
+      ]
+    },
+    {
+      "sha": "d1dfc74e8066d9ebe7fc689665a977f70bba65c8",
+      "date": "2026-10-05T23:15:37Z",
+      "message": "refactor: remove duplicate legacy permission systems",
+      "parents": [
+        "0c7f784c8ceedf62fe74bc543f672dde54a78071"
+      ]
+    },
+    {
+      "sha": "0c7f784c8ceedf62fe74bc543f672dde54a78071",
+      "date": "2026-10-05T23:14:04Z",
+      "message": "feat: implement single fixed roles permissions matrix",
+      "parents": [
+        "e07e7118aad6e0cced0e5e561ae92c3e5b3ec278"
+      ]
+    },
+    {
+      "sha": "e07e7118aad6e0cced0e5e561ae92c3e5b3ec278",
+      "date": "2026-10-05T23:13:20Z",
+      "message": "feat: centralize fixed roles and access matrix",
+      "parents": [
+        "54f5b9eb00d4603250ab2066c314cfb6633d2fc0"
+      ]
+    },
+    {
+      "sha": "54f5b9eb00d4603250ab2066c314cfb6633d2fc0",
+      "date": "2026-10-05T23:11:12Z",
+      "message": "fix: expose role permissions in tables RH card",
+      "parents": [
+        "945781c3b9027ba579ba1f3a099c42fdc42f1e49"
+      ]
+    },
+    {
+      "sha": "945781c3b9027ba579ba1f3a099c42fdc42f1e49",
+      "date": "2026-10-05T23:08:53Z",
+      "message": "fix: keep permissions inside tables submenu",
+      "parents": [
+        "e4838e4433f9d6c9942a414973f95730de902c39"
+      ]
+    },
+    {
+      "sha": "e4838e4433f9d6c9942a414973f95730de902c39",
+      "date": "2026-10-05T22:43:52Z",
+      "message": "feat: complete clinic employee finance flow",
+      "parents": [
+        "ac78e98b5fff1bbac774bda4de99a43ce3173416"
+      ]
+    },
+    {
+      "sha": "ac78e98b5fff1bbac774bda4de99a43ce3173416",
+      "date": "2026-10-05T22:41:25Z",
+      "message": "fix: remove overlapping permissions renderer",
+      "parents": [
+        "8c4520b3f409c36b984772ee493e1616825d1955"
+      ]
+    },
+    {
+      "sha": "8c4520b3f409c36b984772ee493e1616825d1955",
+      "date": "2026-10-05T22:41:20Z",
+      "message": "fix: enterprise modules use central permissions",
+      "parents": [
+        "d1bdf561da28bc0897697c1ed12c75df17027f70"
+      ]
+    },
+    {
+      "sha": "d1bdf561da28bc0897697c1ed12c75df17027f70",
+      "date": "2026-10-05T22:41:14Z",
+      "message": "fix: enforce saved permissions in reserved navigation",
+      "parents": [
+        "93dc8e8954f48d8851b4ca3b88abfb62be15ab93"
+      ]
+    },
+    {
+      "sha": "93dc8e8954f48d8851b4ca3b88abfb62be15ab93",
+      "date": "2026-10-05T22:41:06Z",
+      "message": "fix: preserve saved role permissions",
+      "parents": [
+        "5291b4397eab958975820c3381d76b1b82f0927b"
+      ]
+    },
+    {
+      "sha": "5291b4397eab958975820c3381d76b1b82f0927b",
+      "date": "2026-10-05T22:37:43Z",
+      "message": "fix: scope daily operation to assigned clinics",
+      "parents": [
+        "55dbe637f174855a1ae58b978176737b9cb7cba0"
+      ]
+    },
+    {
+      "sha": "55dbe637f174855a1ae58b978176737b9cb7cba0",
+      "date": "2026-10-05T22:34:46Z",
+      "message": "fix: restrict reserved finance to own account",
+      "parents": [
+        "5ffa092d3b00a91a343236c75d81320d332db43b"
+      ]
+    },
+    {
+      "sha": "5ffa092d3b00a91a343236c75d81320d332db43b",
+      "date": "2026-10-05T22:20:04Z",
+      "message": "fix: place roles permissions inside tables configuration",
+      "parents": [
+        "5d4808fd6dbdb7ee4fee73d9afdfab6f7124ff5c"
+      ]
+    },
+    {
+      "sha": "5d4808fd6dbdb7ee4fee73d9afdfab6f7124ff5c",
+      "date": "2026-10-05T22:18:24Z",
+      "message": "feat: activate scoped access model",
+      "parents": [
+        "cfa6b060e6a56671aca75388fae3f121b14b1125"
+      ]
+    },
+    {
+      "sha": "cfa6b060e6a56671aca75388fae3f121b14b1125",
+      "date": "2026-10-05T22:18:11Z",
+      "message": "feat: separate administration vacation calendar",
+      "parents": [
+        "be488d8bf7ef3ae33cdcf3be1157a7d501b2dbc5"
+      ]
+    },
+    {
+      "sha": "be488d8bf7ef3ae33cdcf3be1157a7d501b2dbc5",
+      "date": "2026-10-05T22:18:05Z",
+      "message": "feat: enforce scoped access model",
+      "parents": [
+        "2e6deb5c7b2e6334ff3bd095103940d9fac4a292"
+      ]
+    },
+    {
+      "sha": "2e6deb5c7b2e6334ff3bd095103940d9fac4a292",
+      "date": "2026-10-05T22:12:29Z",
+      "message": "fix: remove overlapping legacy permissions renderer",
+      "parents": [
+        "5e5bc52b02f534f2e21e70f12efb535151bbae5a"
+      ]
+    },
+    {
+      "sha": "5e5bc52b02f534f2e21e70f12efb535151bbae5a",
+      "date": "2026-10-05T22:10:37Z",
+      "message": "feat: enable fixed roles and dynamic permission catalogue",
+      "parents": [
+        "7970cdae251e6909e78c2723fba8a7ba09bc8df6"
+      ]
+    },
+    {
+      "sha": "7970cdae251e6909e78c2723fba8a7ba09bc8df6",
+      "date": "2026-10-05T22:10:32Z",
+      "message": "feat: lock roles and auto-discover permission items",
+      "parents": [
+        "eda98fa02a9ec9f0348d93e3d283d48188f266ce"
+      ]
+    },
+    {
+      "sha": "eda98fa02a9ec9f0348d93e3d283d48188f266ce",
+      "date": "2026-10-05T22:04:06Z",
+      "message": "feat: load HR vacation planning calendar",
+      "parents": [
+        "77aa42c784dc17a8654994c0ce502ae022e119e0"
+      ]
+    },
+    {
+      "sha": "77aa42c784dc17a8654994c0ce502ae022e119e0",
+      "date": "2026-10-05T22:04:01Z",
+      "message": "feat: administration can assign approved vacation to employee",
+      "parents": [
+        "11d7b8235718069ad1fd08b4aa30884e7cce0328"
+      ]
+    },
+    {
+      "sha": "11d7b8235718069ad1fd08b4aa30884e7cce0328",
+      "date": "2026-10-05T22:03:54Z",
+      "message": "feat: clinic vacation planning calendar for administration",
+      "parents": [
+        "e86aa3ab27e9c581d9488a9483a9c85a637e50d9"
+      ]
+    },
+    {
+      "sha": "e86aa3ab27e9c581d9488a9483a9c85a637e50d9",
+      "date": "2026-10-05T22:01:44Z",
+      "message": "feat: expose permissions matrix in configuration navigation",
+      "parents": [
+        "3d3136eb7b9cc344eb79901ef9d89c9ed8611985"
+      ]
+    },
+    {
+      "sha": "3d3136eb7b9cc344eb79901ef9d89c9ed8611985",
+      "date": "2026-10-05T21:59:30Z",
+      "message": "chore: trigger preview deploy for permissions V4",
+      "parents": [
+        "a0ce1b941240c9b18384ec7cfc9bad39348c5c09"
+      ]
+    },
+    {
+      "sha": "a0ce1b941240c9b18384ec7cfc9bad39348c5c09",
+      "date": "2026-10-05T21:58:12Z",
+      "message": "feat: enable role access administration and leave approval",
+      "parents": [
+        "851512c08b86d20c0b582ceb590e93d427da5df1"
+      ]
+    },
+    {
+      "sha": "851512c08b86d20c0b582ceb590e93d427da5df1",
+      "date": "2026-10-05T21:58:08Z",
+      "message": "feat: configurable role access matrix and leave approvals",
+      "parents": [
+        "8dac2a7aed1b4b721f01191b97b3a3750012ee21"
+      ]
+    },
+    {
+      "sha": "8dac2a7aed1b4b721f01191b97b3a3750012ee21",
+      "date": "2026-10-05T21:50:53Z",
+      "message": "feat: load vacation calendar in V4",
+      "parents": [
+        "8b6129ba87908799f2227affa17958c28aae51fa"
+      ]
+    },
+    {
+      "sha": "8b6129ba87908799f2227affa17958c28aae51fa",
+      "date": "2026-10-05T21:50:40Z",
+      "message": "feat: visual vacation calendar with Portugal holidays",
+      "parents": [
+        "db7ff075d90571b2dc45f5da2f686e254f668855"
+      ]
+    },
+    {
+      "sha": "db7ff075d90571b2dc45f5da2f686e254f668855",
+      "date": "2026-10-05T21:44:51Z",
+      "message": "fix: robust RH save after reserved-area synchronization",
+      "parents": [
+        "3f96644cc10a96942dc9a4554bdc31d0081799e8"
+      ]
+    },
+    {
+      "sha": "3f96644cc10a96942dc9a4554bdc31d0081799e8",
+      "date": "2026-10-05T21:44:18Z",
+      "message": "fix: preserve new RH collaborator until form is saved",
+      "parents": [
+        "9821cadf0a81acc296de9e101790eb0899749b00"
+      ]
+    },
+    {
+      "sha": "9821cadf0a81acc296de9e101790eb0899749b00",
+      "date": "2026-10-05T21:41:28Z",
+      "message": "fix: CEO switcher reads reserved areas directly from RH",
+      "parents": [
+        "3c754c14a009deaa35368d69ea682717ebf1f215"
+      ]
+    },
+    {
+      "sha": "3c754c14a009deaa35368d69ea682717ebf1f215",
+      "date": "2026-10-05T21:41:19Z",
+      "message": "fix: make RH collaborators the source of reserved areas",
+      "parents": [
+        "530ec4bae5568442bc87339a6cf66b11a65105b6"
+      ]
+    },
+    {
+      "sha": "530ec4bae5568442bc87339a6cf66b11a65105b6",
+      "date": "2026-10-05T21:38:09Z",
+      "message": "fix: make CEO area independent from empty legacy users",
+      "parents": [
+        "7afff05203f5586a31457e107626fc3a00e7f3e8"
+      ]
+    },
+    {
+      "sha": "7afff05203f5586a31457e107626fc3a00e7f3e8",
+      "date": "2026-10-05T21:32:07Z",
+      "message": "fix: force CEO mode in V4 preview",
+      "parents": [
+        "d43f1989a05c6c447232ef6bfa2abdec20a07710"
+      ]
+    },
+    {
+      "sha": "d43f1989a05c6c447232ef6bfa2abdec20a07710",
+      "date": "2026-10-05T21:27:04Z",
+      "message": "fix: CEO reserved area switcher detects legacy user model",
+      "parents": [
+        "81d2d9f4b8f02081c5794f69e6d8074bc3d1668f"
+      ]
+    },
+    {
+      "sha": "81d2d9f4b8f02081c5794f69e6d8074bc3d1668f",
+      "date": "2026-10-05T21:24:50Z",
+      "message": "feat: load CEO reserved area switcher",
+      "parents": [
+        "4df14bf458ea0017922b3924c76ce52258d22e9f"
+      ]
+    },
+    {
+      "sha": "4df14bf458ea0017922b3924c76ce52258d22e9f",
+      "date": "2026-10-05T21:24:36Z",
+      "message": "feat: CEO reserved area switcher",
+      "parents": [
+        "8daa9d800c5f8dc17d8fe649b87f450226ecf335"
+      ]
+    },
+    {
+      "sha": "8daa9d800c5f8dc17d8fe649b87f450226ecf335",
+      "date": "2026-10-05T21:14:00Z",
+      "message": "fix: RH reserved access mapping ready",
+      "parents": [
+        "3fb1a4b0884d55011baafc5bef5057b9458f6a4f"
+      ]
+    },
+    {
+      "sha": "3fb1a4b0884d55011baafc5bef5057b9458f6a4f",
+      "date": "2026-10-05T16:25:34Z",
+      "message": "chore: force permissions preview deployment",
+      "parents": [
+        "2e39d754fd95d457ae34e531f7ecd52bd962fb36"
+      ]
+    },
+    {
+      "sha": "2e39d754fd95d457ae34e531f7ecd52bd962fb36",
+      "date": "2026-10-05T16:23:35Z",
+      "message": "chore: deploy permissions preview",
+      "parents": [
+        "90fe3e3fb48115534d5a1ad074dfc6a2b0e1986e"
+      ]
+    },
+    {
+      "sha": "90fe3e3fb48115534d5a1ad074dfc6a2b0e1986e",
+      "date": "2026-10-05T16:23:25Z",
+      "message": "feat: render simplified personal RH area for collaborators",
+      "parents": [
+        "23b20f0f69181e46da3d0b6b6bdd486e0bab6801"
+      ]
+    },
+    {
+      "sha": "23b20f0f69181e46da3d0b6b6bdd486e0bab6801",
+      "date": "2026-10-05T16:22:59Z",
+      "message": "feat: load role permissions layer",
+      "parents": [
+        "8bf4279146114080f711e97ccecb47db94f6b5f7"
+      ]
+    },
+    {
+      "sha": "8bf4279146114080f711e97ccecb47db94f6b5f7",
+      "date": "2026-10-05T16:22:53Z",
+      "message": "feat: add role module permissions clinic scope and personal views",
+      "parents": [
+        "3bfe9525fa6cd9bb684a9f400f2c3fb92504a1b6"
+      ]
+    },
+    {
+      "sha": "3bfe9525fa6cd9bb684a9f400f2c3fb92504a1b6",
+      "date": "2026-10-05T16:18:16Z",
+      "message": "fix: remove fictitious users from session selector",
+      "parents": [
+        "788e554cbc4afcc640f80557dc4ea28c52733562"
+      ]
+    },
+    {
+      "sha": "788e554cbc4afcc640f80557dc4ea28c52733562",
+      "date": "2026-10-05T16:13:31Z",
+      "message": "chore: retrigger preview deployment",
+      "parents": [
+        "eb164c04d0a8311daf10a0d57170dea844f326d0"
+      ]
+    },
+    {
+      "sha": "eb164c04d0a8311daf10a0d57170dea844f326d0",
+      "date": "2026-10-05T16:03:22Z",
+      "message": "feat: enforce vacation permissions ownership and admin conflict workflow",
+      "parents": [
+        "8fc400655f875b7fc01867b28db9ac7e9f43e761"
+      ]
+    },
+    {
+      "sha": "8fc400655f875b7fc01867b28db9ac7e9f43e761",
+      "date": "2026-10-05T16:01:26Z",
+      "message": "fix: restore current RH renderer and scope vacation action correctly",
+      "parents": [
+        "fc0fb2120c0dc996ab51dff04e16e13f895951d3"
+      ]
+    },
+    {
+      "sha": "fc0fb2120c0dc996ab51dff04e16e13f895951d3",
+      "date": "2026-10-05T15:58:40Z",
+      "message": "fix: allow vacation requests directly from vacation calendar",
+      "parents": [
+        "09eede74d23213411ab3980b02a5e83fda479541"
+      ]
+    },
+    {
+      "sha": "09eede74d23213411ab3980b02a5e83fda479541",
+      "date": "2026-10-05T15:56:18Z",
+      "message": "feat: prorate vacation entitlement from admission date",
+      "parents": [
+        "7fb44524eb385f83b86d9d3d1b22ca7b61b3e632"
+      ]
+    },
+    {
+      "sha": "7fb44524eb385f83b86d9d3d1b22ca7b61b3e632",
+      "date": "2026-10-05T15:53:37Z",
+      "message": "feat: show vacation balance cards in collaborator profile",
+      "parents": [
+        "ea1d6a261375c89377e297ddd255c08bb77159a6"
+      ]
+    },
+    {
+      "sha": "ea1d6a261375c89377e297ddd255c08bb77159a6",
+      "date": "2026-10-05T15:52:58Z",
+      "message": "feat: vacation requests balances approvals and conflict alerts",
+      "parents": [
+        "4f9ef966d6a0803e061f75fb2b752be284b782f9"
+      ]
+    },
+    {
+      "sha": "4f9ef966d6a0803e061f75fb2b752be284b782f9",
+      "date": "2026-10-05T15:50:02Z",
+      "message": "feat: add individual and clinic vacation calendars",
+      "parents": [
+        "f7094ce5321b2aa86fdea33af15dab9a8bccb6a6"
+      ]
+    },
+    {
+      "sha": "f7094ce5321b2aa86fdea33af15dab9a8bccb6a6",
+      "date": "2026-10-05T15:49:44Z",
+      "message": "feat: configure vacation entitlement by contract type",
+      "parents": [
+        "0bb745697c8cc921564ea0959c661f66a74b4e62"
+      ]
+    },
+    {
+      "sha": "0bb745697c8cc921564ea0959c661f66a74b4e62",
+      "date": "2026-10-05T15:46:09Z",
+      "message": "feat: complete collaborator profile with documents leave and history",
+      "parents": [
+        "81101e96a9d21b012ce134e72ebb4b2586e17217"
+      ]
+    },
+    {
+      "sha": "81101e96a9d21b012ce134e72ebb4b2586e17217",
+      "date": "2026-10-05T15:44:34Z",
+      "message": "fix: render clickable document funnel after RH updates",
+      "parents": [
+        "2e031b184c1bcf3a18ecd567dd035923f9ab8899"
+      ]
+    },
+    {
+      "sha": "2e031b184c1bcf3a18ecd567dd035923f9ab8899",
+      "date": "2026-10-05T15:40:53Z",
+      "message": "perf: remove continuous clinic structure observer",
+      "parents": [
+        "a11dbd9791c70cf6207c82aa959be0c6b403d156"
+      ]
+    },
+    {
+      "sha": "a11dbd9791c70cf6207c82aa959be0c6b403d156",
+      "date": "2026-10-05T15:40:41Z",
+      "message": "perf: remove redundant clinic relations polling",
+      "parents": [
+        "46d6091d9fc527a0ea22d43428ca562e5abdf6b3"
+      ]
+    },
+    {
+      "sha": "46d6091d9fc527a0ea22d43428ca562e5abdf6b3",
+      "date": "2026-10-05T15:38:13Z",
+      "message": "perf: remove continuous document funnel observer",
+      "parents": [
+        "bd60b8072b7ff6a39cb847561ad358ec11674e52"
+      ]
+    },
+    {
+      "sha": "bd60b8072b7ff6a39cb847561ad358ec11674e52",
+      "date": "2026-10-05T15:38:04Z",
+      "message": "perf: remove legacy continuous RH tab observer",
+      "parents": [
+        "94fe10b413234b52753fbaf1aaf160705bbb917d"
+      ]
+    },
+    {
+      "sha": "94fe10b413234b52753fbaf1aaf160705bbb917d",
+      "date": "2026-10-05T15:37:54Z",
+      "message": "perf: remove duplicate RH observers and renders",
+      "parents": [
+        "7da0e51c84718dc0d5fd3e47e18d5458dcee944f"
+      ]
+    },
+    {
+      "sha": "7da0e51c84718dc0d5fd3e47e18d5458dcee944f",
+      "date": "2026-10-05T15:35:49Z",
+      "message": "fix: specialties apply only to doctors",
+      "parents": [
+        "f797caef1f6113964c151bde1417988ed2117f0d"
+      ]
+    },
+    {
+      "sha": "f797caef1f6113964c151bde1417988ed2117f0d",
+      "date": "2026-10-05T15:30:52Z",
+      "message": "fix: show add collaborator only inside collaborators view",
+      "parents": [
+        "9eb6041f65a593e1c026468f982c7921378805df"
+      ]
+    },
+    {
+      "sha": "9eb6041f65a593e1c026468f982c7921378805df",
+      "date": "2026-10-05T15:28:28Z",
+      "message": "fix: use one canonical RH collaborator creation flow",
+      "parents": [
+        "571d4c8fb463eaf18f533ba83b1068e7f74d9306"
+      ]
+    },
+    {
+      "sha": "571d4c8fb463eaf18f533ba83b1068e7f74d9306",
+      "date": "2026-10-05T15:23:40Z",
+      "message": "fix: disable legacy RH DOM enhancer conflicts",
+      "parents": [
+        "4b24419ef63de11991fe8cc70b5a06e6acd67c53"
+      ]
+    },
+    {
+      "sha": "4b24419ef63de11991fe8cc70b5a06e6acd67c53",
+      "date": "2026-10-05T15:21:00Z",
+      "message": "fix: make RH selectors native and stable for unlimited collaborators",
+      "parents": [
+        "71663a251bba69f69450f7f76887b4e1edfd6796"
+      ]
+    },
+    {
+      "sha": "71663a251bba69f69450f7f76887b4e1edfd6796",
+      "date": "2026-10-05T15:19:58Z",
+      "message": "fix: restrict bonus to technical and administration roles",
+      "parents": [
+        "8bb450a77bdf85d677a6152e8e98b0fed30138e8"
+      ]
+    },
+    {
+      "sha": "8bb450a77bdf85d677a6152e8e98b0fed30138e8",
+      "date": "2026-10-05T15:19:30Z",
+      "message": "feat: support fixed and percentage medical remuneration",
+      "parents": [
+        "3cf36b43df3d73bcb4bd78fdc2e76c8bb1d79e88"
+      ]
+    },
+    {
+      "sha": "3cf36b43df3d73bcb4bd78fdc2e76c8bb1d79e88",
+      "date": "2026-10-05T15:12:51Z",
+      "message": "fix: keep RH collaborator form stable across repeated creation",
+      "parents": [
+        "0b31d590c67872577a34d87fbd04ae7f4143ce28"
+      ]
+    },
+    {
+      "sha": "0b31d590c67872577a34d87fbd04ae7f4143ce28",
+      "date": "2026-10-05T15:10:38Z",
+      "message": "feat: complete RH remuneration and link to current accounts",
+      "parents": [
+        "fa7bba3818d98fe69ebaaf5cd83584462557200d"
+      ]
+    },
+    {
+      "sha": "fa7bba3818d98fe69ebaaf5cd83584462557200d",
+      "date": "2026-10-05T15:05:17Z",
+      "message": "fix: stabilize repeated collaborator creation and add meal card account",
+      "parents": [
+        "236d7b6079b67f6e668bdd3533ba9c8f56f2fdd4"
+      ]
+    },
+    {
+      "sha": "236d7b6079b67f6e668bdd3533ba9c8f56f2fdd4",
+      "date": "2026-10-05T15:05:14Z",
+      "message": "fix: isolate document funnel from collaborator creation",
+      "parents": [
+        "dcc4c75ee03adc44cb8356ed9d6b28bb8766ef9e"
+      ]
+    },
+    {
+      "sha": "dcc4c75ee03adc44cb8356ed9d6b28bb8766ef9e",
+      "date": "2026-10-05T14:57:58Z",
+      "message": "fix: allow consecutive RH collaborator creation",
+      "parents": [
+        "7c6b9ca7aaea6c884b884a45a1b12aecd35e2682"
+      ]
+    },
+    {
+      "sha": "7c6b9ca7aaea6c884b884a45a1b12aecd35e2682",
+      "date": "2026-10-05T14:49:53Z",
+      "message": "feat(v4): ativar funil documental RH interativo",
+      "parents": [
+        "e64f6ac6189b1c48a15939f3f59121845c02fad4"
+      ]
+    },
+    {
+      "sha": "e64f6ac6189b1c48a15939f3f59121845c02fad4",
+      "date": "2026-10-05T14:49:37Z",
+      "message": "feat(v4): tornar funil documental RH clicável e operacional",
+      "parents": [
+        "9f8b693ebe0057c73c5b8f3ae4d18f3cb71306a7"
+      ]
+    },
+    {
+      "sha": "9f8b693ebe0057c73c5b8f3ae4d18f3cb71306a7",
+      "date": "2026-10-05T14:32:54Z",
+      "message": "fix: connect contract documents to HR document funnel",
+      "parents": [
+        "d838c6745f0114cc96da5f04bf140acfd2841ef0"
+      ]
+    },
+    {
+      "sha": "d838c6745f0114cc96da5f04bf140acfd2841ef0",
+      "date": "2026-10-05T14:29:34Z",
+      "message": "fix: isolate contract document checklist from HR form controls",
+      "parents": [
+        "25460c475de76a00537bdac24840fca1afd113b8"
+      ]
+    },
+    {
+      "sha": "25460c475de76a00537bdac24840fca1afd113b8",
+      "date": "2026-10-05T14:24:27Z",
+      "message": "fix: manter seletores RH clean após re-render",
+      "parents": [
+        "d949128e8483f2def8656db75033ec16fa5ed4a1"
+      ]
+    },
+    {
+      "sha": "d949128e8483f2def8656db75033ec16fa5ed4a1",
+      "date": "2026-10-05T14:21:20Z",
+      "message": "fix(v4): stop contract selector refresh loop while editing RH",
+      "parents": [
+        "5b7d7feba1069ab6eb7d44525fda36495b32dbb0"
+      ]
+    },
+    {
+      "sha": "5b7d7feba1069ab6eb7d44525fda36495b32dbb0",
+      "date": "2026-10-05T14:21:01Z",
+      "message": "fix(v4): stop RH form rerender loop and preserve selections",
+      "parents": [
+        "f1db2bba26cd1ff8b2ae23098f2c8e79d4460ff8"
+      ]
+    },
+    {
+      "sha": "f1db2bba26cd1ff8b2ae23098f2c8e79d4460ff8",
+      "date": "2026-10-05T14:17:57Z",
+      "message": "fix(v4): restore native HR select interaction",
+      "parents": [
+        "43c8c69fb70afd5c42d96354aba96d9444678c2c"
+      ]
+    },
+    {
+      "sha": "43c8c69fb70afd5c42d96354aba96d9444678c2c",
+      "date": "2026-10-05T14:15:32Z",
+      "message": "chore(v4): load data-integrity layer after all table modules",
+      "parents": [
+        "fe86eb3ee2536d7e78b5efaf413aa4f86683df17"
+      ]
+    },
+    {
+      "sha": "fe86eb3ee2536d7e78b5efaf413aa4f86683df17",
+      "date": "2026-10-05T14:15:18Z",
+      "message": "fix(v4): enforce master-table links and stabilize HR selectors",
+      "parents": [
+        "647b4009f3ba6af49d59176abae495df455b83cf"
+      ]
+    },
+    {
+      "sha": "647b4009f3ba6af49d59176abae495df455b83cf",
+      "date": "2026-10-05T14:08:06Z",
+      "message": "ui(v4): clean dropdown selection for contract documents",
+      "parents": [
+        "9412b758d2d009e9cf584ad9cd458be4bf715a42"
+      ]
+    },
+    {
+      "sha": "9412b758d2d009e9cf584ad9cd458be4bf715a42",
+      "date": "2026-10-05T14:05:03Z",
+      "message": "fix(v4): migrate master document catalog and make contract cards editable",
+      "parents": [
+        "a94128018f180fff0e85f15bde3dd136e850cf7f"
+      ]
+    },
+    {
+      "sha": "a94128018f180fff0e85f15bde3dd136e850cf7f",
+      "date": "2026-10-05T14:02:54Z",
+      "message": "fix: ligar tipos de contrato ao catálogo mestre de documentos",
+      "parents": [
+        "2d909adc164fc8f7e94bd87bda47b4dbbf0c78e9"
+      ]
+    },
+    {
+      "sha": "2d909adc164fc8f7e94bd87bda47b4dbbf0c78e9",
+      "date": "2026-10-05T14:00:39Z",
+      "message": "fix: editar contratos e reutilizar documentos existentes na checklist",
+      "parents": [
+        "55a229bb20764d62a2d9f0cbf5db6b475873c609"
+      ]
+    },
+    {
+      "sha": "55a229bb20764d62a2d9f0cbf5db6b475873c609",
+      "date": "2026-10-05T13:57:30Z",
+      "message": "feat: carregar tabela mestre de tipos de contrato na V4",
+      "parents": [
+        "f62a61fd618ae9d003ac55f4bfad795b17228144"
+      ]
+    },
+    {
+      "sha": "f62a61fd618ae9d003ac55f4bfad795b17228144",
+      "date": "2026-10-05T13:57:14Z",
+      "message": "feat: integrar tipos de contrato com documentos obrigatorios no RH",
+      "parents": [
+        "97a4448f8f12faa6a46da20b065e9e78624e9e61"
+      ]
+    },
+    {
+      "sha": "97a4448f8f12faa6a46da20b065e9e78624e9e61",
+      "date": "2026-10-05T13:52:05Z",
+      "message": "fix: aplicar seletor compacto às especialidades do RH",
+      "parents": [
+        "221ddb015a9c01aad0c408bd0c7ee44304d25d30"
+      ]
+    },
+    {
+      "sha": "221ddb015a9c01aad0c408bd0c7ee44304d25d30",
+      "date": "2026-10-05T13:40:37Z",
+      "message": "ui: tornar especialidades compactas como clínicas no RH",
+      "parents": [
+        "40cd8c98afdd8627fa7dd2e829535f6c0402c88c"
+      ]
+    },
+    {
+      "sha": "40cd8c98afdd8627fa7dd2e829535f6c0402c88c",
+      "date": "2026-10-05T13:37:20Z",
+      "message": "fix: ativar seletor compacto de clínicas no formulário RH",
+      "parents": [
+        "0b174171b4c6de93b1b50d30b2dbb6b300b6bd30"
+      ]
+    },
+    {
+      "sha": "0b174171b4c6de93b1b50d30b2dbb6b300b6bd30",
+      "date": "2026-10-05T13:37:03Z",
+      "message": "fix: seletor compacto de clínicas e função robusta no RH",
+      "parents": [
+        "36b3e57d5744894302584f161a08080116fe83fa"
+      ]
+    },
+    {
+      "sha": "36b3e57d5744894302584f161a08080116fe83fa",
+      "date": "2026-10-05T13:31:59Z",
+      "message": "fix: carregar renderizador mestre da estrutura clínica por último",
+      "parents": [
+        "269e6f611c08e4c0c3f05c0330ae23d478e51484"
+      ]
+    },
+    {
+      "sha": "269e6f611c08e4c0c3f05c0330ae23d478e51484",
+      "date": "2026-10-05T13:31:46Z",
+      "message": "fix: renderizar estrutura clínica diretamente da tabela mestre",
+      "parents": [
+        "3f077c8d656b7a400eac42ac0dec9becc1eff7ae"
+      ]
+    },
+    {
+      "sha": "3f077c8d656b7a400eac42ac0dec9becc1eff7ae",
+      "date": "2026-10-05T13:28:59Z",
+      "message": "fix: carregar fonte única de clínicas antes dos módulos",
+      "parents": [
+        "04aac7936ce5e06340da4dd85e7068c1a96ec955"
+      ]
+    },
+    {
+      "sha": "04aac7936ce5e06340da4dd85e7068c1a96ec955",
+      "date": "2026-10-05T13:28:47Z",
+      "message": "fix: centralizar clínicas na tabela mestre",
+      "parents": [
+        "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61"
+      ]
+    },
+    {
+      "sha": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61",
+      "date": "2026-10-05T13:20:05Z",
+      "message": "fix: usar exclusivamente tabela mestre de clínicas nas associações",
+      "parents": [
+        "188531144ce07e1bf1d55357ecdc77d4e32eb30a"
+      ]
+    },
+    {
+      "sha": "188531144ce07e1bf1d55357ecdc77d4e32eb30a",
+      "date": "2026-10-05T13:12:07Z",
+      "message": "feat: sincronizar automaticamente médicos RH com tabelas clínicas",
+      "parents": [
+        "ccd4b9c90b83ae9b5a6484d993d6fc43ed7110e2"
+      ]
+    },
+    {
+      "sha": "ccd4b9c90b83ae9b5a6484d993d6fc43ed7110e2",
+      "date": "2026-10-05T13:11:14Z",
+      "message": "fix: carregar sincronização central clínica RH",
+      "parents": [
+        "09114a2d10ced805bb600fd67731fc4ca6ae563d"
+      ]
+    },
+    {
+      "sha": "09114a2d10ced805bb600fd67731fc4ca6ae563d",
+      "date": "2026-10-05T13:11:00Z",
+      "message": "fix: fonte única de clínicas e sincronização automática RH",
+      "parents": [
+        "b2834892b6c517c6b409ff138ebae53ffe4b0ac8"
+      ]
+    },
+    {
+      "sha": "b2834892b6c517c6b409ff138ebae53ffe4b0ac8",
+      "date": "2026-10-05T13:04:51Z",
+      "message": "fix: usar fonte única de clínicas ativas nas associações V4",
+      "parents": [
+        "fa2898cd668d640ba0459cf70dc000a0333e8b88"
+      ]
+    },
+    {
+      "sha": "fa2898cd668d640ba0459cf70dc000a0333e8b88",
+      "date": "2026-10-05T12:57:16Z",
+      "message": "feat: reorganizar ficha RH 360 com férias documentos e ligações",
+      "parents": [
+        "2f85ad11bcc7440f18d04c5b9195013e1fc7d9b8"
+      ]
+    },
+    {
+      "sha": "2f85ad11bcc7440f18d04c5b9195013e1fc7d9b8",
+      "date": "2026-10-05T12:56:46Z",
+      "message": "fix: evitar campos RH duplicados e usar ficha mestre",
+      "parents": [
+        "09293256afebceb9860e335de30a7a028cebc4ba"
+      ]
+    },
+    {
+      "sha": "09293256afebceb9860e335de30a7a028cebc4ba",
+      "date": "2026-10-05T12:46:54Z",
+      "message": "feat: corrigir criação de colaborador e completar ficha RH V4",
+      "parents": [
+        "d51b6c23391784d1e15da6b50898aa4ddecbf720"
+      ]
+    },
+    {
+      "sha": "d51b6c23391784d1e15da6b50898aa4ddecbf720",
+      "date": "2026-10-05T12:42:49Z",
+      "message": "fix: carregar filtro global de clínicas ativas",
+      "parents": [
+        "28d8a175d5a892e210850ceb7d4ff18cd06af6f4"
+      ]
+    },
+    {
+      "sha": "28d8a175d5a892e210850ceb7d4ff18cd06af6f4",
+      "date": "2026-10-05T12:42:37Z",
+      "message": "fix: ocultar clínicas inativas em todos os módulos operacionais",
+      "parents": [
+        "44170767530372f2f1327286edbc4b6e5189ec51"
+      ]
+    },
+    {
+      "sha": "44170767530372f2f1327286edbc4b6e5189ec51",
+      "date": "2026-10-05T12:38:33Z",
+      "message": "fix: navegação central direta para tabela mestre de clínicas",
+      "parents": [
+        "3a34303f4b1ee31d2fedab61315dfbb86e42af3d"
+      ]
+    },
+    {
+      "sha": "3a34303f4b1ee31d2fedab61315dfbb86e42af3d",
+      "date": "2026-10-05T12:36:01Z",
+      "message": "fix: criar secção nativa de Clínicas no Preview V4",
+      "parents": [
+        "9c81ba62060a12698288d6ec23bb4237949cbb61"
+      ]
+    },
+    {
+      "sha": "9c81ba62060a12698288d6ec23bb4237949cbb61",
+      "date": "2026-10-05T12:33:53Z",
+      "message": "fix: abrir tabela de clínicas diretamente em Tabelas V4",
+      "parents": [
+        "7846f7946c1ed6c5141fabc347e4fd08b30cb62b"
+      ]
+    },
+    {
+      "sha": "7846f7946c1ed6c5141fabc347e4fd08b30cb62b",
+      "date": "2026-10-05T12:33:08Z",
+      "message": "fix: recuperar clínicas base sem apagar configuração existente",
+      "parents": [
+        "83a5bbffdfbd17cebd80b3aafe5aa2302659e519"
+      ]
+    },
+    {
+      "sha": "83a5bbffdfbd17cebd80b3aafe5aa2302659e519",
+      "date": "2026-10-05T12:30:39Z",
+      "message": "fix: ativar proteção de dados mestre no restauro V4",
+      "parents": [
+        "09dbc7d612f1e4b0841644aa8075a9ef16c96291"
+      ]
+    },
+    {
+      "sha": "09dbc7d612f1e4b0841644aa8075a9ef16c96291",
+      "date": "2026-10-05T12:30:20Z",
+      "message": "fix: proteger dados mestre contra restauro da demonstração",
+      "parents": [
+        "ab75fc12136c8c6b807ef9bac62eea93012fb14c"
+      ]
+    },
+    {
+      "sha": "ab75fc12136c8c6b807ef9bac62eea93012fb14c",
+      "date": "2026-10-05T12:27:13Z",
+      "message": "fix: restaurar cartões e ligações clínicas especialidades profissionais",
+      "parents": [
+        "bc72299468be5d0b8fc4b92a514902db2d8c123e"
+      ]
+    },
+    {
+      "sha": "bc72299468be5d0b8fc4b92a514902db2d8c123e",
+      "date": "2026-10-05T12:20:00Z",
+      "message": "fix: integrar Clínicas diretamente em Tabelas e unificar estrutura V4",
+      "parents": [
+        "3fe0b53cefcc832ab3036cdb866ba5ef7c6e410c"
+      ]
+    },
+    {
+      "sha": "3fe0b53cefcc832ab3036cdb866ba5ef7c6e410c",
+      "date": "2026-10-05T12:16:38Z",
+      "message": "feat: carregar estrutura unificada de clínicas no preview V4",
+      "parents": [
+        "f9b55ac30dfed809edfca02ec79990b6b68cfbd8"
+      ]
+    },
+    {
+      "sha": "f9b55ac30dfed809edfca02ec79990b6b68cfbd8",
+      "date": "2026-10-05T12:16:27Z",
+      "message": "feat: unificar clínicas, especialidades e profissionais em Tabelas V4",
+      "parents": [
+        "d9e10b45283ee220b874b98261531fc364fd327a"
+      ]
+    },
+    {
+      "sha": "d9e10b45283ee220b874b98261531fc364fd327a",
+      "date": "2026-10-05T12:11:05Z",
+      "message": "fix: restaurar módulos do menu e agrupar apenas Clínicas em Tabelas",
+      "parents": [
+        "81b08460340dfaf8f40854b4ebbcfe10c373e7ad"
+      ]
+    },
+    {
+      "sha": "81b08460340dfaf8f40854b4ebbcfe10c373e7ad",
+      "date": "2026-10-05T12:09:04Z",
+      "message": "feat: organizar Tabelas/Configuração como menu pai no preview V4",
+      "parents": [
+        "09bf5b86a953a6256f669f732a47901462782b2c"
+      ]
+    },
+    {
+      "sha": "09bf5b86a953a6256f669f732a47901462782b2c",
+      "date": "2026-10-05T12:07:57Z",
+      "message": "ux: ativar submenu Tabelas / Configuração no Preview V4",
+      "parents": [
+        "03ff2ef8b90a391c3dd00df029ff91af8ddc322e"
+      ]
+    },
+    {
+      "sha": "03ff2ef8b90a391c3dd00df029ff91af8ddc322e",
+      "date": "2026-10-05T12:07:46Z",
+      "message": "ux: colocar Clínicas dentro de Tabelas / Configuração",
+      "parents": [
+        "6155e9988ecb432200a2ded0ce521c040e0fa06c"
+      ]
+    },
+    {
+      "sha": "6155e9988ecb432200a2ded0ce521c040e0fa06c",
+      "date": "2026-10-05T12:05:43Z",
+      "message": "feat: ativar ficha mestre RH no Preview V4",
+      "parents": [
+        "aa8d253c14049b54d55d074491edcb244ea14e35"
+      ]
+    },
+    {
+      "sha": "aa8d253c14049b54d55d074491edcb244ea14e35",
+      "date": "2026-10-05T12:05:32Z",
+      "message": "feat: ficha mestre completa de colaboradores RH",
+      "parents": [
+        "a988c9866e021aa73fc1eb6a340273d23a038c61"
+      ]
+    },
+    {
+      "sha": "a988c9866e021aa73fc1eb6a340273d23a038c61",
+      "date": "2026-10-05T12:03:06Z",
+      "message": "feat: carregar pesquisa transversal V4",
+      "parents": [
+        "fa685d33ed2c1f9b060f4b1196ed7a7547846309"
+      ]
+    },
+    {
+      "sha": "fa685d33ed2c1f9b060f4b1196ed7a7547846309",
+      "date": "2026-10-05T12:02:56Z",
+      "message": "feat: melhorar pesquisa transversal por separador",
+      "parents": [
+        "52e96b0d4ba1c100c94cf6484df75722c914a672"
+      ]
+    },
+    {
+      "sha": "52e96b0d4ba1c100c94cf6484df75722c914a672",
+      "date": "2026-10-05T12:01:36Z",
+      "message": "feat: adicionar pesquisa por escrita em todos os separadores",
+      "parents": [
+        "0a8ca532a3900754945bf13443d2a24115b3d1b4"
+      ]
+    },
+    {
+      "sha": "0a8ca532a3900754945bf13443d2a24115b3d1b4",
+      "date": "2026-10-05T11:56:16Z",
+      "message": "feat: adicionar Google Maps à localização das clínicas",
+      "parents": [
+        "3a715fd53b9fe209f3fb7a72e989de75c030938c"
+      ]
+    },
+    {
+      "sha": "3a715fd53b9fe209f3fb7a72e989de75c030938c",
+      "date": "2026-10-05T11:51:51Z",
+      "message": "fix: ligar nova clínica à ficha mestre completa V4",
+      "parents": [
+        "64bd04b9136ff97e777a57044ec744c313e2e274"
+      ]
+    },
+    {
+      "sha": "64bd04b9136ff97e777a57044ec744c313e2e274",
+      "date": "2026-10-05T11:47:15Z",
+      "message": "Clínicas: linha clicável, GPS 50m, contactos, ERS e inativação",
+      "parents": [
+        "379e50725858691bb40a5f432da141ec0a22b8c0"
+      ]
+    },
+    {
+      "sha": "379e50725858691bb40a5f432da141ec0a22b8c0",
+      "date": "2026-10-05T11:44:03Z",
+      "message": "feat: ativar ficha mestre completa de clínicas no preview V4",
+      "parents": [
+        "b54c0237779cbc55771ab6fd8027eef096f69e1c"
+      ]
+    },
+    {
+      "sha": "b54c0237779cbc55771ab6fd8027eef096f69e1c",
+      "date": "2026-10-05T11:43:51Z",
+      "message": "feat: completar ficha mestre das clínicas com GPS, contactos e ERS",
+      "parents": [
+        "003918accc4809bb870973d37ef8cc7ce86b415e"
+      ]
+    },
+    {
+      "sha": "003918accc4809bb870973d37ef8cc7ce86b415e",
+      "date": "2026-10-05T11:33:09Z",
+      "message": "fix: make cron compatible with Vercel Hobby preview deployments",
+      "parents": [
+        "ac2d317cc2a1bde3daf8311385646797d46d9b05"
+      ]
+    },
+    {
+      "sha": "ac2d317cc2a1bde3daf8311385646797d46d9b05",
+      "date": "2026-10-05T11:16:09Z",
+      "message": "feat: enable direct editing from V4 tables",
+      "parents": [
+        "76bc268d67da36f00cb9072d7809267e53c00692"
+      ]
+    },
+    {
+      "sha": "76bc268d67da36f00cb9072d7809267e53c00692",
+      "date": "2026-10-05T11:15:59Z",
+      "message": "feat: make configurable table rows clickable and add clinic editor",
+      "parents": [
+        "705138b4c7dfa8c0be077831a435d03e5ab9520d"
+      ]
+    },
+    {
+      "sha": "705138b4c7dfa8c0be077831a435d03e5ab9520d",
+      "date": "2026-10-05T11:12:23Z",
+      "message": "feat: wire editable clinic GPS API into V4 backend",
+      "parents": [
+        "50424bb2b43d5f8c0a5d3f59263168fa60e22afd"
+      ]
+    },
+    {
+      "sha": "50424bb2b43d5f8c0a5d3f59263168fa60e22afd",
+      "date": "2026-10-05T11:12:07Z",
+      "message": "feat: integrate editable clinic GPS and 50m attendance API",
+      "parents": [
+        "944f9025f548e6ad70163d4441d310d2616de6be"
+      ]
+    },
+    {
+      "sha": "944f9025f548e6ad70163d4441d310d2616de6be",
+      "date": "2026-10-05T02:04:52Z",
+      "message": "chore: retrigger V4 preview after enabling previews",
+      "parents": [
+        "470b91d2bdd6e1cafd372b12f6cfd4035b0d08bb"
+      ]
+    },
+    {
+      "sha": "470b91d2bdd6e1cafd372b12f6cfd4035b0d08bb",
+      "date": "2026-10-05T02:04:07Z",
+      "message": "chore: trigger V4 preview deployment",
+      "parents": [
+        "a4abb8072e15fb025f40cbaa9d51fe6e2dc8b0db"
+      ]
+    },
+    {
+      "sha": "a4abb8072e15fb025f40cbaa9d51fe6e2dc8b0db",
+      "date": "2026-10-05T02:01:16Z",
+      "message": "V4 — integrar fecho de correções e preview\n\nIntegra a branch v4-fecho-work na V4 de teste para validação, sem alterar a produção.",
+      "parents": [
+        "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+        "5dfed21f747e9f571f41a57dcb7a1da999d0a01a"
+      ]
+    },
+    {
+      "sha": "5dfed21f747e9f571f41a57dcb7a1da999d0a01a",
+      "date": "2026-10-05T00:36:35Z",
+      "message": "security: remove hardcoded Blob store identifier from private uploads",
+      "parents": [
+        "4d5ed57b5e1a630ea5d4aa52ccbce02d136d452f"
+      ]
+    },
+    {
+      "sha": "4d5ed57b5e1a630ea5d4aa52ccbce02d136d452f",
+      "date": "2026-10-04T23:35:27Z",
+      "message": "security: add baseline HTTP security headers to V4 preview",
+      "parents": [
+        "a4193f8eb453130c02cb1214240d84dc4522c056"
+      ]
+    },
+    {
+      "sha": "a4193f8eb453130c02cb1214240d84dc4522c056",
+      "date": "2026-10-04T22:37:58Z",
+      "message": "security: remove hardcoded blob store identifier from retention worker",
+      "parents": [
+        "03a2fb6459c69e4639da542acd44eeeace9e87ec"
+      ]
+    },
+    {
+      "sha": "03a2fb6459c69e4639da542acd44eeeace9e87ec",
+      "date": "2026-10-04T20:41:44Z",
+      "message": "feat: allow protected scheduled RH retention processing",
+      "parents": [
+        "4e37f04ea79546acfd46f22b6523601d285f4ae6"
+      ]
+    },
+    {
+      "sha": "4e37f04ea79546acfd46f22b6523601d285f4ae6",
+      "date": "2026-10-04T19:39:39Z",
+      "message": "feat: add controlled RH document retention worker",
+      "parents": [
+        "493e715db7c9b53f9cce0c5a01bdccccfcfd589e"
+      ]
+    },
+    {
+      "sha": "493e715db7c9b53f9cce0c5a01bdccccfcfd589e",
+      "date": "2026-10-04T16:33:50Z",
+      "message": "security: validate uploaded document signatures before private storage",
+      "parents": [
+        "1eb33d55248d3b06481108cf6ccf2baa5926f118"
+      ]
+    },
+    {
+      "sha": "1eb33d55248d3b06481108cf6ccf2baa5926f118",
+      "date": "2026-10-04T15:34:12Z",
+      "message": "fix: restore missing V4 backend bridge functions",
+      "parents": [
+        "e7ee70172408cff57133bac3b2772173b3ba99bc"
+      ]
+    },
+    {
+      "sha": "e7ee70172408cff57133bac3b2772173b3ba99bc",
+      "date": "2026-10-04T14:44:04Z",
+      "message": "feat: connect system health monitor to V4 client",
+      "parents": [
+        "eb5a55b7467c6789ab1cd59b33311870e112b49a"
+      ]
+    },
+    {
+      "sha": "eb5a55b7467c6789ab1cd59b33311870e112b49a",
+      "date": "2026-10-04T14:43:55Z",
+      "message": "feat: add protected V4 health monitoring endpoint",
+      "parents": [
+        "d2d5c19ed97cbe2080fc0cf8c840dd5e85f59994"
+      ]
+    },
+    {
+      "sha": "d2d5c19ed97cbe2080fc0cf8c840dd5e85f59994",
+      "date": "2026-10-04T14:42:00Z",
+      "message": "fix: wire audit and privacy export into V4 backend bridge",
+      "parents": [
+        "f304414134edd1d2cf129db3dce66b19efe5315b"
+      ]
+    },
+    {
+      "sha": "f304414134edd1d2cf129db3dce66b19efe5315b",
+      "date": "2026-10-04T14:38:01Z",
+      "message": "feat: add protected immutable audit reader and GDPR export",
+      "parents": [
+        "1ef0eda4ee8cc6998fbc0072b8962c3cba62917f"
+      ]
+    },
+    {
+      "sha": "1ef0eda4ee8cc6998fbc0072b8962c3cba62917f",
+      "date": "2026-10-04T14:37:08Z",
+      "message": "feat: connect atomic clinic day operations to V4 client",
+      "parents": [
+        "6dc267e298d9e48dcd7fed7362cd9208b0090577"
+      ]
+    },
+    {
+      "sha": "6dc267e298d9e48dcd7fed7362cd9208b0090577",
+      "date": "2026-10-04T14:37:00Z",
+      "message": "feat: enforce atomic single-admin clinic opening and closing",
+      "parents": [
+        "fe96a0cca0311ff9b668e94a7b7a4579c3c2b312"
+      ]
+    },
+    {
+      "sha": "fe96a0cca0311ff9b668e94a7b7a4579c3c2b312",
+      "date": "2026-10-04T14:36:40Z",
+      "message": "security: add authenticated private RH document delivery",
+      "parents": [
+        "a8cb94c2b314ea21f13b056e334ec1e73d8f3694"
+      ]
+    },
+    {
+      "sha": "a8cb94c2b314ea21f13b056e334ec1e73d8f3694",
+      "date": "2026-10-04T14:21:38Z",
+      "message": "feat: add management evolution and consolidated billing UI",
+      "parents": [
+        "177bc1863245963bded1649c8f6b79deb65437c6"
+      ]
+    },
+    {
+      "sha": "177bc1863245963bded1649c8f6b79deb65437c6",
+      "date": "2026-10-04T14:21:24Z",
+      "message": "feat: expose persistent BI and consolidation reports",
+      "parents": [
+        "5141481706077e55be4299cb77bad05d134f6cfa"
+      ]
+    },
+    {
+      "sha": "5141481706077e55be4299cb77bad05d134f6cfa",
+      "date": "2026-10-04T14:21:11Z",
+      "message": "feat: add persistent management reports and monthly consolidation",
+      "parents": [
+        "023f6583abfafda23d3f3836213845e0e41dfff4"
+      ]
+    },
+    {
+      "sha": "023f6583abfafda23d3f3836213845e0e41dfff4",
+      "date": "2026-10-04T14:13:53Z",
+      "message": "feat: schedule V4 alert worker hourly",
+      "parents": [
+        "a3f6def8066a8b5a7c367199873a229f36b1482d"
+      ]
+    },
+    {
+      "sha": "a3f6def8066a8b5a7c367199873a229f36b1482d",
+      "date": "2026-10-04T14:13:42Z",
+      "message": "feat: add secured hourly alert escalation worker",
+      "parents": [
+        "701c2b2e93947a494c40f9e8d5af262098bbdcae"
+      ]
+    },
+    {
+      "sha": "701c2b2e93947a494c40f9e8d5af262098bbdcae",
+      "date": "2026-10-04T14:13:26Z",
+      "message": "fix: create alerts before notification delivery foreign keys",
+      "parents": [
+        "791371ea98e13cb6ae554e230328a00a31113950"
+      ]
+    },
+    {
+      "sha": "791371ea98e13cb6ae554e230328a00a31113950",
+      "date": "2026-10-04T14:12:22Z",
+      "message": "feat: send employee and candidate ownership on document uploads",
+      "parents": [
+        "8fb204c082110f6678f01bb3cfdea7da42b24c00"
+      ]
+    },
+    {
+      "sha": "8fb204c082110f6678f01bb3cfdea7da42b24c00",
+      "date": "2026-10-04T14:12:09Z",
+      "message": "feat: securely attach private documents to employees and candidates",
+      "parents": [
+        "cbb75831b7a4ac624ff4d6cb8c60d1c7cede6625"
+      ]
+    },
+    {
+      "sha": "cbb75831b7a4ac624ff4d6cb8c60d1c7cede6625",
+      "date": "2026-10-04T14:11:17Z",
+      "message": "feat: expose candidate email intake bridge",
+      "parents": [
+        "694215bde98bbdb06d526b982ebd9c499a1661d1"
+      ]
+    },
+    {
+      "sha": "694215bde98bbdb06d526b982ebd9c499a1661d1",
+      "date": "2026-10-04T14:11:10Z",
+      "message": "feat: add secure candidate email intake and duplicate review",
+      "parents": [
+        "3fce5b6cdf80f65938a4dc4f6fe7567a06dfe284"
+      ]
+    },
+    {
+      "sha": "3fce5b6cdf80f65938a4dc4f6fe7567a06dfe284",
+      "date": "2026-10-04T14:10:25Z",
+      "message": "security: restrict user directory and permissions to administration",
+      "parents": [
+        "d11f5610cc87dc2632e4f39199315f42d20601b9"
+      ]
+    },
+    {
+      "sha": "d11f5610cc87dc2632e4f39199315f42d20601b9",
+      "date": "2026-10-04T14:10:15Z",
+      "message": "security: verify Neon Auth session for private uploads",
+      "parents": [
+        "220c586ebf98ff89ef4665f9b9559bc69dc1dbbd"
+      ]
+    },
+    {
+      "sha": "220c586ebf98ff89ef4665f9b9559bc69dc1dbbd",
+      "date": "2026-10-04T14:10:04Z",
+      "message": "security: verify Neon Auth session server-side",
+      "parents": [
+        "acd5a0646abcd3384b685c1f129d89301a6272ea"
+      ]
+    },
+    {
+      "sha": "acd5a0646abcd3384b685c1f129d89301a6272ea",
+      "date": "2026-10-04T13:36:26Z",
+      "message": "feat: add clickable RH document alerts linked to compliance",
+      "parents": [
+        "72ef18d813f173d1c3f597ba3f32d732c1f23c2c"
+      ]
+    },
+    {
+      "sha": "72ef18d813f173d1c3f597ba3f32d732c1f23c2c",
+      "date": "2026-10-04T13:36:00Z",
+      "message": "feat: refresh RH compliance funnel immediately after document renewal",
+      "parents": [
+        "99d09632384f2fa5cd192e3be4107a0311d2ce73"
+      ]
+    },
+    {
+      "sha": "99d09632384f2fa5cd192e3be4107a0311d2ce73",
+      "date": "2026-10-04T13:35:15Z",
+      "message": "feat: complete document renewal replacement flow",
+      "parents": [
+        "59188053e6ce645c2659cfebfba72ee7484fff13"
+      ]
+    },
+    {
+      "sha": "59188053e6ce645c2659cfebfba72ee7484fff13",
+      "date": "2026-10-04T13:34:33Z",
+      "message": "feat: add clickable document history and renewal UI",
+      "parents": [
+        "fe016b749932e04e453b4d216f2c9de8cb6ec943"
+      ]
+    },
+    {
+      "sha": "fe016b749932e04e453b4d216f2c9de8cb6ec943",
+      "date": "2026-10-04T13:34:06Z",
+      "message": "feat: expose document history and replacement API",
+      "parents": [
+        "7d10557720f6121249e7cc184d1d0a87e13b413c"
+      ]
+    },
+    {
+      "sha": "7d10557720f6121249e7cc184d1d0a87e13b413c",
+      "date": "2026-10-04T13:33:58Z",
+      "message": "feat: preserve employee document history and renewals",
+      "parents": [
+        "f3c52e4803aa8b71da9e0b179b768fca3ece5b0e"
+      ]
+    },
+    {
+      "sha": "f3c52e4803aa8b71da9e0b179b768fca3ece5b0e",
+      "date": "2026-10-04T13:33:20Z",
+      "message": "feat: expose employee document history and replacement API",
+      "parents": [
+        "73fcfa66a66bda60c3b519bf2fd27107b95277cb"
+      ]
+    },
+    {
+      "sha": "73fcfa66a66bda60c3b519bf2fd27107b95277cb",
+      "date": "2026-10-04T13:33:17Z",
+      "message": "feat: preserve employee document history and renewals",
+      "parents": [
+        "59d9bcf79eb73692906ea99d7f3278bf31aeacd1"
+      ]
+    },
+    {
+      "sha": "59d9bcf79eb73692906ea99d7f3278bf31aeacd1",
+      "date": "2026-10-04T13:32:31Z",
+      "message": "feat: add actionable RH document compliance funnel",
+      "parents": [
+        "ee7f5817de2cce95a54f11362108f2d3949c0b85"
+      ]
+    },
+    {
+      "sha": "ee7f5817de2cce95a54f11362108f2d3949c0b85",
+      "date": "2026-10-04T13:27:30Z",
+      "message": "feat: expose editable RH email configuration",
+      "parents": [
+        "d8f8fcb178cb634457cc644e0c929c43aef6dfe3"
+      ]
+    },
+    {
+      "sha": "d8f8fcb178cb634457cc644e0c929c43aef6dfe3",
+      "date": "2026-10-04T13:27:26Z",
+      "message": "feat: configure RH inbox and backup email settings",
+      "parents": [
+        "8a7c9631aefbd5bb0d81a31a68dbd2b3d1e61e57"
+      ]
+    },
+    {
+      "sha": "8a7c9631aefbd5bb0d81a31a68dbd2b3d1e61e57",
+      "date": "2026-10-04T13:20:19Z",
+      "message": "feat: expose alert escalation and notification history",
+      "parents": [
+        "01013dc2c6529bc6c827b41519727ea77330a60c"
+      ]
+    },
+    {
+      "sha": "01013dc2c6529bc6c827b41519727ea77330a60c",
+      "date": "2026-10-04T13:20:16Z",
+      "message": "feat: queue hourly alert emails and escalate unresolved issues",
+      "parents": [
+        "efc247d017a1c020a30247a8bb0b2054b58a4669"
+      ]
+    },
+    {
+      "sha": "efc247d017a1c020a30247a8bb0b2054b58a4669",
+      "date": "2026-10-04T13:19:48Z",
+      "message": "feat: expose persistent actionable alert APIs",
+      "parents": [
+        "2efc089087d8ab15176cc4a9075fab29e6e28e65"
+      ]
+    },
+    {
+      "sha": "2efc089087d8ab15176cc4a9075fab29e6e28e65",
+      "date": "2026-10-04T13:19:45Z",
+      "message": "feat: create actionable RH document alerts with hourly reminders",
+      "parents": [
+        "287317036bf5224f1f5b3fe3678ca8e109697470"
+      ]
+    },
+    {
+      "sha": "287317036bf5224f1f5b3fe3678ca8e109697470",
+      "date": "2026-10-04T13:18:59Z",
+      "message": "feat: expose RH document compliance and requirements API",
+      "parents": [
+        "8396cc65a1d4a06e040f241d3c1d943079c3f8b5"
+      ]
+    },
+    {
+      "sha": "8396cc65a1d4a06e040f241d3c1d943079c3f8b5",
+      "date": "2026-10-04T13:18:56Z",
+      "message": "feat: add configurable employee document compliance engine",
+      "parents": [
+        "d5057ae376842fca8802f4ff2dbe77a1612d6aa2"
+      ]
+    },
+    {
+      "sha": "d5057ae376842fca8802f4ff2dbe77a1612d6aa2",
+      "date": "2026-10-04T13:18:25Z",
+      "message": "feat: capture document start and validity dates in RH uploads",
+      "parents": [
+        "1ccd52694865026e2128670a7646c9dad3eec15a"
+      ]
+    },
+    {
+      "sha": "1ccd52694865026e2128670a7646c9dad3eec15a",
+      "date": "2026-10-04T13:18:22Z",
+      "message": "feat: send document validity metadata on upload",
+      "parents": [
+        "f5ea6cb9c9aa820f0c84a7fa414bc183d1fd0699"
+      ]
+    },
+    {
+      "sha": "f5ea6cb9c9aa820f0c84a7fa414bc183d1fd0699",
+      "date": "2026-10-04T13:18:18Z",
+      "message": "feat: persist document validity dates and lifecycle status",
+      "parents": [
+        "84826d2fecd9fffb21fda2304082c71f2409b953"
+      ]
+    },
+    {
+      "sha": "84826d2fecd9fffb21fda2304082c71f2409b953",
+      "date": "2026-10-04T13:17:53Z",
+      "message": "feat: wire contextual uploads into HR and current accounts",
+      "parents": [
+        "2a361933e612b13f2c07fabf8e9ca13f59d5fbf6"
+      ]
+    },
+    {
+      "sha": "2a361933e612b13f2c07fabf8e9ca13f59d5fbf6",
+      "date": "2026-10-04T13:17:27Z",
+      "message": "feat: add contextual document and receipt upload form",
+      "parents": [
+        "ea1ddf5111063dab39598398e0f239816f4742e6"
+      ]
+    },
+    {
+      "sha": "ea1ddf5111063dab39598398e0f239816f4742e6",
+      "date": "2026-10-04T13:16:59Z",
+      "message": "feat: send document and receipt metadata with private uploads",
+      "parents": [
+        "0dc4345eb1edc76a48d108feffb2d9c26ecdf5c8"
+      ]
+    },
+    {
+      "sha": "0dc4345eb1edc76a48d108feffb2d9c26ecdf5c8",
+      "date": "2026-10-04T13:16:55Z",
+      "message": "feat: require document description and receipt metadata on uploads",
+      "parents": [
+        "870c4d9de28455aa67b16708b3157c270a049b60"
+      ]
+    },
+    {
+      "sha": "870c4d9de28455aa67b16708b3157c270a049b60",
+      "date": "2026-10-04T13:15:29Z",
+      "message": "feat: upload authenticated documents to private Blob storage",
+      "parents": [
+        "c54b34da9620d0548e0f87c199c97c47786452b8"
+      ]
+    },
+    {
+      "sha": "c54b34da9620d0548e0f87c199c97c47786452b8",
+      "date": "2026-10-04T13:15:26Z",
+      "message": "feat: add private Vercel Blob document storage SDK",
+      "parents": [
+        "37b19ea2825e9ecdd9a870bd442a4981f461c2a4"
+      ]
+    },
+    {
+      "sha": "37b19ea2825e9ecdd9a870bd442a4981f461c2a4",
+      "date": "2026-10-04T13:14:23Z",
+      "message": "feat: connect full current account movements and documents",
+      "parents": [
+        "ff229fbb117e983941392d7ee23c19604a275c76"
+      ]
+    },
+    {
+      "sha": "ff229fbb117e983941392d7ee23c19604a275c76",
+      "date": "2026-10-04T13:14:20Z",
+      "message": "feat: add acts percentages bonuses and account documents",
+      "parents": [
+        "5defc7e1be90ddcc2c9d9314edf7d989d0ff7b7e"
+      ]
+    },
+    {
+      "sha": "5defc7e1be90ddcc2c9d9314edf7d989d0ff7b7e",
+      "date": "2026-10-04T13:13:53Z",
+      "message": "feat: expose persistent current account API",
+      "parents": [
+        "1740d76b512d6017fc14433e335ebad2a9aef206"
+      ]
+    },
+    {
+      "sha": "1740d76b512d6017fc14433e335ebad2a9aef206",
+      "date": "2026-10-04T13:13:50Z",
+      "message": "feat: persist technician bonuses in current account ledger",
+      "parents": [
+        "8f32d25245c1fca78b6ec0c5faaa6dd15661ba9b"
+      ]
+    },
+    {
+      "sha": "8f32d25245c1fca78b6ec0c5faaa6dd15661ba9b",
+      "date": "2026-10-04T13:13:19Z",
+      "message": "feat: connect technician daily sales UI to Neon",
+      "parents": [
+        "1da1ba05ccd040ab7f6718e148c26f18e26f9657"
+      ]
+    },
+    {
+      "sha": "1da1ba05ccd040ab7f6718e148c26f18e26f9657",
+      "date": "2026-10-04T13:13:16Z",
+      "message": "feat: add technician sales step to clinic close UI",
+      "parents": [
+        "5dee4a4a3087ef38d294b9c81c36b555a709c12d"
+      ]
+    },
+    {
+      "sha": "5dee4a4a3087ef38d294b9c81c36b555a709c12d",
+      "date": "2026-10-04T13:12:46Z",
+      "message": "security: send idempotency keys on V4 mutations",
+      "parents": [
+        "43a91bae249ce364f6cc58848cccf9f22fe4d496"
+      ]
+    },
+    {
+      "sha": "43a91bae249ce364f6cc58848cccf9f22fe4d496",
+      "date": "2026-10-04T13:12:43Z",
+      "message": "security: add backend idempotency guard for confirmed writes",
+      "parents": [
+        "44eabe1e6435d6af0ef4972b22a70e2aff7dba55"
+      ]
+    },
+    {
+      "sha": "44eabe1e6435d6af0ef4972b22a70e2aff7dba55",
+      "date": "2026-10-04T13:12:16Z",
+      "message": "ux: prevent duplicate confirmations and add edit action",
+      "parents": [
+        "9423c3a8d30cd96fda1b99043a099a2103d9f138"
+      ]
+    },
+    {
+      "sha": "9423c3a8d30cd96fda1b99043a099a2103d9f138",
+      "date": "2026-10-04T13:10:55Z",
+      "message": "fix: track technician sale counts not invoiced value",
+      "parents": [
+        "6c394cf5d65367c240618b5764e533570db4cc26"
+      ]
+    },
+    {
+      "sha": "6c394cf5d65367c240618b5764e533570db4cc26",
+      "date": "2026-10-04T13:09:21Z",
+      "message": "feat: add daily technician sales and bonus ledger",
+      "parents": [
+        "325b8cc1d6aadcec3aa178cb04ef670ecddbcd34"
+      ]
+    },
+    {
+      "sha": "325b8cc1d6aadcec3aa178cb04ef670ecddbcd34",
+      "date": "2026-10-04T13:06:06Z",
+      "message": "security: deny V4 writes without authenticated authorized user",
+      "parents": [
+        "6d7dfc166c9368a923cfa6bf51af0fab62641790"
+      ]
+    },
+    {
+      "sha": "6d7dfc166c9368a923cfa6bf51af0fab62641790",
+      "date": "2026-10-04T13:04:38Z",
+      "message": "feat: expose V4 user and permission persistence bridge",
+      "parents": [
+        "cda238e045ca2334240181adc3b35f1ced06106d"
+      ]
+    },
+    {
+      "sha": "cda238e045ca2334240181adc3b35f1ced06106d",
+      "date": "2026-10-04T13:04:35Z",
+      "message": "feat: persist users roles clinics and audit in Neon",
+      "parents": [
+        "c5e9931dcbfaa74f0ad81e75da8220a4ffe50cd7"
+      ]
+    },
+    {
+      "sha": "c5e9931dcbfaa74f0ad81e75da8220a4ffe50cd7",
+      "date": "2026-10-04T13:04:06Z",
+      "message": "feat: seed verified clinic master records in V4 database",
+      "parents": [
+        "11278c8934465e97dd4dd5b4527fafb716162c12"
+      ]
+    },
+    {
+      "sha": "11278c8934465e97dd4dd5b4527fafb716162c12",
+      "date": "2026-10-04T13:03:13Z",
+      "message": "fix: use Neon query API for V4 database operations",
+      "parents": [
+        "51362723d23e9b9bd31a71e541a9e940d4cc9623"
+      ]
+    },
+    {
+      "sha": "51362723d23e9b9bd31a71e541a9e940d4cc9623",
+      "date": "2026-10-04T13:01:57Z",
+      "message": "feat: sync clinic master data with Neon",
+      "parents": [
+        "fc90a75dafa5a683d986df7a55ebdb4bd2c8c4d1"
+      ]
+    },
+    {
+      "sha": "fc90a75dafa5a683d986df7a55ebdb4bd2c8c4d1",
+      "date": "2026-10-04T13:01:25Z",
+      "message": "feat: persist clinics and read users from Neon",
+      "parents": [
+        "958441b3f5ba7f9a7767c78df904627a66d9de05"
+      ]
+    },
+    {
+      "sha": "958441b3f5ba7f9a7767c78df904627a66d9de05",
+      "date": "2026-10-04T13:00:39Z",
+      "message": "feat: bootstrap V4 Neon schema safely on preview",
+      "parents": [
+        "866babb2e106ba2c4e395e4cb36fd77aefadc50e"
+      ]
+    },
+    {
+      "sha": "866babb2e106ba2c4e395e4cb36fd77aefadc50e",
+      "date": "2026-10-04T12:59:48Z",
+      "message": "feat: add recruitment intake and document backup schema",
+      "parents": [
+        "e9e01bcba0a66357e3e80835a652c7c155f1c44a"
+      ]
+    },
+    {
+      "sha": "e9e01bcba0a66357e3e80835a652c7c155f1c44a",
+      "date": "2026-10-04T12:59:00Z",
+      "message": "docs: restore automatic CV intake and document email backup requirements",
+      "parents": [
+        "4cb2335b305813cc5a4d47da583e5fa9baa4995f"
+      ]
+    },
+    {
+      "sha": "4cb2335b305813cc5a4d47da583e5fa9baa4995f",
+      "date": "2026-10-04T12:54:57Z",
+      "message": "feat: connect V4 API health to Neon PostgreSQL",
+      "parents": [
+        "35912a939b24a8a158489c161973e97f1c37390a"
+      ]
+    },
+    {
+      "sha": "35912a939b24a8a158489c161973e97f1c37390a",
+      "date": "2026-10-04T12:54:55Z",
+      "message": "build: add Neon serverless database driver",
+      "parents": [
+        "cf30ea39276074d47fd00dec564dd02af3e725d4"
+      ]
+    },
+    {
+      "sha": "cf30ea39276074d47fd00dec564dd02af3e725d4",
+      "date": "2026-10-04T12:54:52Z",
+      "message": "feat: add V4 PostgreSQL core schema",
+      "parents": [
+        "b9922964103cc8b3188ebea3e461d8919578a0b8"
+      ]
+    },
+    {
+      "sha": "b9922964103cc8b3188ebea3e461d8919578a0b8",
+      "date": "2026-10-04T12:45:07Z",
+      "message": "feat: load V4 backend adapter",
+      "parents": [
+        "c7c2b04a1bcf81371e2cb8abe293f1a1015add52"
+      ]
+    },
+    {
+      "sha": "c7c2b04a1bcf81371e2cb8abe293f1a1015add52",
+      "date": "2026-10-04T12:45:04Z",
+      "message": "feat: add V4 backend readiness client",
+      "parents": [
+        "d51074090207caaac55aa1a043b908d5c27afd90"
+      ]
+    },
+    {
+      "sha": "d51074090207caaac55aa1a043b908d5c27afd90",
+      "date": "2026-10-04T12:45:02Z",
+      "message": "feat: scaffold secure V4 backend health endpoint",
+      "parents": [
+        "a3396dc77a8c61ed39845c4ff033b3176a8fef56"
+      ]
+    },
+    {
+      "sha": "a3396dc77a8c61ed39845c4ff033b3176a8fef56",
+      "date": "2026-10-04T12:44:04Z",
+      "message": "docs: consolidate V4 master implementation checklist",
+      "parents": [
+        "4efd574f30a9fcd3c738d41ebb59c3f1598bbd1d"
+      ]
+    },
+    {
+      "sha": "4efd574f30a9fcd3c738d41ebb59c3f1598bbd1d",
+      "date": "2026-10-04T12:43:31Z",
+      "message": "feat: add verified backups restore and security health",
+      "parents": [
+        "4d0116a346b17ce419e7e2aac7f65bc0ed0260eb"
+      ]
+    },
+    {
+      "sha": "4d0116a346b17ce419e7e2aac7f65bc0ed0260eb",
+      "date": "2026-10-04T12:42:44Z",
+      "message": "feat: add dedicated marketing AI request chat",
+      "parents": [
+        "7b8123ef6be191b89ea24da775d0791eed0f46ff"
+      ]
+    },
+    {
+      "sha": "7b8123ef6be191b89ea24da775d0791eed0f46ff",
+      "date": "2026-10-04T12:42:00Z",
+      "message": "feat: enforce Portuguese healthcare advertising compliance in marketing AI",
+      "parents": [
+        "442b5be3a35a0e9b2b800933997fe5bce3482a92"
+      ]
+    },
+    {
+      "sha": "442b5be3a35a0e9b2b800933997fe5bce3482a92",
+      "date": "2026-10-04T12:40:50Z",
+      "message": "feat: add executive BI comparisons revenue and anomaly detection",
+      "parents": [
+        "c3637aac80a38e911a3b047eb847d613732f23e7"
+      ]
+    },
+    {
+      "sha": "c3637aac80a38e911a3b047eb847d613732f23e7",
+      "date": "2026-10-04T12:40:23Z",
+      "message": "feat: add planning hourly capacity indicators and Clicloud adapter",
+      "parents": [
+        "7bfd372e873250af3cc8bb96a5459436313b4544"
+      ]
+    },
+    {
+      "sha": "7bfd372e873250af3cc8bb96a5459436313b4544",
+      "date": "2026-10-04T12:39:47Z",
+      "message": "feat: add editable clinic specialty professional matrix",
+      "parents": [
+        "4605d9fc94c76e3ebf084173c00177899218b560"
+      ]
+    },
+    {
+      "sha": "4605d9fc94c76e3ebf084173c00177899218b560",
+      "date": "2026-10-04T12:39:08Z",
+      "message": "feat: migrate legacy records to real clinic master data",
+      "parents": [
+        "adde1688f9815a46be403589802626e785456717"
+      ]
+    },
+    {
+      "sha": "adde1688f9815a46be403589802626e785456717",
+      "date": "2026-10-04T12:37:53Z",
+      "message": "feat: migrate real Grupo Saude clinics into master data",
+      "parents": [
+        "46a0e943949cb886aa2a1da7b5209a1ae648bfaa"
+      ]
+    },
+    {
+      "sha": "46a0e943949cb886aa2a1da7b5209a1ae648bfaa",
+      "date": "2026-10-04T12:35:18Z",
+      "message": "feat: use master clinics and indifferent doctor in requests",
+      "parents": [
+        "920fc91ff2a519dd7a2c83aaa1b157ebb68ea7e4"
+      ]
+    },
+    {
+      "sha": "920fc91ff2a519dd7a2c83aaa1b157ebb68ea7e4",
+      "date": "2026-10-04T12:35:16Z",
+      "message": "fix: align consultation request funnel stages",
+      "parents": [
+        "7844eb67fdf4e9d82ca49c56cc5537b88b3494e3"
+      ]
+    },
+    {
+      "sha": "7844eb67fdf4e9d82ca49c56cc5537b88b3494e3",
+      "date": "2026-10-04T12:34:39Z",
+      "message": "feat: add actionable alerts hourly reminders and internal chat",
+      "parents": [
+        "1e40deea772600f729ce27a036e3c81917a039f7"
+      ]
+    },
+    {
+      "sha": "1e40deea772600f729ce27a036e3c81917a039f7",
+      "date": "2026-10-04T12:34:07Z",
+      "message": "feat: add daily checkpoints task escalation and clinic locks",
+      "parents": [
+        "c960d7ff42dbc5a48b69829b04ecd4c68ceb9861"
+      ]
+    },
+    {
+      "sha": "c960d7ff42dbc5a48b69829b04ecd4c68ceb9861",
+      "date": "2026-10-04T12:33:32Z",
+      "message": "feat: implement six-level permission matrix",
+      "parents": [
+        "9b53fa77779f16779114e34c32ebba34b1b00742"
+      ]
+    },
+    {
+      "sha": "9b53fa77779f16779114e34c32ebba34b1b00742",
+      "date": "2026-10-04T12:33:04Z",
+      "message": "feat: add current accounts acts commissions and quarterly bonuses",
+      "parents": [
+        "05d81dacd199adbb4234ddde8bff78696fc250a2"
+      ]
+    },
+    {
+      "sha": "05d81dacd199adbb4234ddde8bff78696fc250a2",
+      "date": "2026-10-04T12:32:30Z",
+      "message": "feat: add leave approvals and quarterly bonus eligibility",
+      "parents": [
+        "0d95448147d0c378c3896f2d0d8cc0d9115df560"
+      ]
+    },
+    {
+      "sha": "0d95448147d0c378c3896f2d0d8cc0d9115df560",
+      "date": "2026-10-04T12:31:55Z",
+      "message": "feat: unify employee time clock history and audit trail",
+      "parents": [
+        "70bf9747f69bfbfe5ad44b5eb07273ffd91ffd5f"
+      ]
+    },
+    {
+      "sha": "70bf9747f69bfbfe5ad44b5eb07273ffd91ffd5f",
+      "date": "2026-10-04T12:31:20Z",
+      "message": "feat: add time occurrence detail approval and reversal",
+      "parents": [
+        "befc9e85424e13855e6ce514c8d5f26584942d77"
+      ]
+    },
+    {
+      "sha": "befc9e85424e13855e6ce514c8d5f26584942d77",
+      "date": "2026-10-04T12:30:39Z",
+      "message": "feat: complete HR leave documents remuneration actions",
+      "parents": [
+        "6f0803c4880b996ffc3898ba47de79cb5cda44c6"
+      ]
+    },
+    {
+      "sha": "6f0803c4880b996ffc3898ba47de79cb5cda44c6",
+      "date": "2026-10-04T12:29:21Z",
+      "message": "feat: load enterprise modules in V4 preview",
+      "parents": [
+        "33aebc89b259780275d46dfdc8e5a47d6a25c49e"
+      ]
+    },
+    {
+      "sha": "33aebc89b259780275d46dfdc8e5a47d6a25c49e",
+      "date": "2026-10-04T12:29:11Z",
+      "message": "feat: add enterprise finance marketing reports security clinics modules",
+      "parents": [
+        "9c23fff2e4d0f9932b3871b715691c3cb22a2535"
+      ]
+    },
+    {
+      "sha": "9c23fff2e4d0f9932b3871b715691c3cb22a2535",
+      "date": "2026-10-04T12:24:45Z",
+      "message": "fix(v4): restore RH employee records, document funnel and time clock actions",
+      "parents": [
+        "1b52a9a87aba7288bb0ab3f198febaaa422442c5"
+      ]
+    },
+    {
+      "sha": "1b52a9a87aba7288bb0ab3f198febaaa422442c5",
+      "date": "2026-10-04T12:24:01Z",
+      "message": "fix: restore employee file, document funnel and time clock in HR",
+      "parents": [
+        "7429715ae445c6b2a1870d825614446802a57eeb"
+      ]
+    },
+    {
+      "sha": "7429715ae445c6b2a1870d825614446802a57eeb",
+      "date": "2026-10-04T12:21:29Z",
+      "message": "feat: adicionar colaborador diretamente no RH",
+      "parents": [
+        "bffa0186b36ab38061061d217972bfc52b45fe86"
+      ]
+    },
+    {
+      "sha": "bffa0186b36ab38061061d217972bfc52b45fe86",
+      "date": "2026-10-04T12:20:57Z",
+      "message": "feat: permitir passar candidato para colaborador",
+      "parents": [
+        "29adb0db0cf1f79d14bdd8a72cfcea1054f5b47d"
+      ]
+    },
+    {
+      "sha": "29adb0db0cf1f79d14bdd8a72cfcea1054f5b47d",
+      "date": "2026-10-04T12:18:14Z",
+      "message": "feat: carregar arquitetura de clínicas e RH",
+      "parents": [
+        "30aa017389d2a84538975cd510489a63fdd8b69d"
+      ]
+    },
+    {
+      "sha": "30aa017389d2a84538975cd510489a63fdd8b69d",
+      "date": "2026-10-04T12:18:04Z",
+      "message": "feat: tabela mestre de clínicas e separação RH colaboradores/candidatos",
+      "parents": [
+        "65acbf9b71b2ce66398f3050b5cc81be39c1754e"
+      ]
+    },
+    {
+      "sha": "65acbf9b71b2ce66398f3050b5cc81be39c1754e",
+      "date": "2026-10-04T12:14:05Z",
+      "message": "ui: seletores multivalor para clínicas e especialidades no RH",
+      "parents": [
+        "cdd199ab5d666a5600a6c264e39e15e9ac933091"
+      ]
+    },
+    {
+      "sha": "cdd199ab5d666a5600a6c264e39e15e9ac933091",
+      "date": "2026-10-04T12:10:45Z",
+      "message": "fix: carregar correções centrais do RH e funil",
+      "parents": [
+        "16809cea089d8521b87fa2d4a652f1fcb551fb7f"
+      ]
+    },
+    {
+      "sha": "16809cea089d8521b87fa2d4a652f1fcb551fb7f",
+      "date": "2026-10-04T12:10:34Z",
+      "message": "fix: preservar utentes, nomenclatura final do funil e função Médico/a",
+      "parents": [
+        "c862943b0a24cf7767e67b3490e4fd2e0c089344"
+      ]
+    },
+    {
+      "sha": "c862943b0a24cf7767e67b3490e4fd2e0c089344",
+      "date": "2026-10-04T12:04:19Z",
+      "message": "fix: especialidade médica visível e seleção multiclínica no RH",
+      "parents": [
+        "2ace63d8667ea771fbc1dc11929d2ab53e07a9ad"
+      ]
+    },
+    {
+      "sha": "2ace63d8667ea771fbc1dc11929d2ab53e07a9ad",
+      "date": "2026-10-04T11:59:01Z",
+      "message": "fix: mostrar especialidade ao selecionar médico e criar acesso reservado",
+      "parents": [
+        "83f330684c27bb20328e5567ee815b9455a6e90c"
+      ]
+    },
+    {
+      "sha": "83f330684c27bb20328e5567ee815b9455a6e90c",
+      "date": "2026-10-04T11:50:40Z",
+      "message": "feat: carregar especialidades dos médicos",
+      "parents": [
+        "d5d99d02bcf0a98dfce13fabe2874dde1729c503"
+      ]
+    },
+    {
+      "sha": "d5d99d02bcf0a98dfce13fabe2874dde1729c503",
+      "date": "2026-10-04T11:50:28Z",
+      "message": "feat: associar especialidades aos médicos e filtrar preferência nos pedidos",
+      "parents": [
+        "97416cf283b8940ca796ab283017a22d988752ec"
+      ]
+    },
+    {
+      "sha": "97416cf283b8940ca796ab283017a22d988752ec",
+      "date": "2026-10-04T11:44:55Z",
+      "message": "V4: simplificar funil de pedidos para 4 etapas",
+      "parents": [
+        "32c8f9c2e1d079312b1e54ac7e838f85b9e680e9"
+      ]
+    },
+    {
+      "sha": "32c8f9c2e1d079312b1e54ac7e838f85b9e680e9",
+      "date": "2026-10-04T11:33:37Z",
+      "message": "fix: manter utilizador na página Pedidos após mover no funil",
+      "parents": [
+        "6fa54e290b65e2449bffda7034fca973b7239550"
+      ]
+    },
+    {
+      "sha": "6fa54e290b65e2449bffda7034fca973b7239550",
+      "date": "2026-10-04T11:31:18Z",
+      "message": "fix: carregar drag and drop no funil",
+      "parents": [
+        "23825f310cc70924c983bd4062126441030098a8"
+      ]
+    },
+    {
+      "sha": "23825f310cc70924c983bd4062126441030098a8",
+      "date": "2026-10-04T11:31:08Z",
+      "message": "fix: permitir arrastar pedidos entre etapas do funil",
+      "parents": [
+        "1185813cf0b7b70758c2b4df83c9fe787a4f617b"
+      ]
+    },
+    {
+      "sha": "1185813cf0b7b70758c2b4df83c9fe787a4f617b",
+      "date": "2026-10-04T11:29:22Z",
+      "message": "fix: usar tabela mestre de especialidades nos pedidos",
+      "parents": [
+        "d4e3fddcd1bade1c1f855354dfa2a5d765b864df"
+      ]
+    },
+    {
+      "sha": "d4e3fddcd1bade1c1f855354dfa2a5d765b864df",
+      "date": "2026-10-04T11:25:47Z",
+      "message": "feat: carregar integrações das tabelas mestre",
+      "parents": [
+        "88544f72674fe97b1b86b389963f77b83abddded"
+      ]
+    },
+    {
+      "sha": "88544f72674fe97b1b86b389963f77b83abddded",
+      "date": "2026-10-04T11:25:35Z",
+      "message": "feat: ligar especialidades e documentos aos fluxos",
+      "parents": [
+        "1d7def3f32e704a3afdfa43e7fc4486bb78b0ae8"
+      ]
+    },
+    {
+      "sha": "1d7def3f32e704a3afdfa43e7fc4486bb78b0ae8",
+      "date": "2026-10-04T11:24:43Z",
+      "message": "feat: tabelas mestre de especialidades e documentos",
+      "parents": [
+        "b5c8c0d89af67fed7b524a633488faadc25c7037"
+      ]
+    },
+    {
+      "sha": "b5c8c0d89af67fed7b524a633488faadc25c7037",
+      "date": "2026-10-04T11:19:44Z",
+      "message": "feat: carregar atualizações operacionais programadas",
+      "parents": [
+        "089426ca047673b0fc1f1422866d00624a50e979"
+      ]
+    },
+    {
+      "sha": "089426ca047673b0fc1f1422866d00624a50e979",
+      "date": "2026-10-04T11:19:30Z",
+      "message": "feat: atualizações operacionais às 10 12 14 16 18",
+      "parents": [
+        "50c8910f76b239d858e97f16d58e0336dbafa319"
+      ]
+    },
+    {
+      "sha": "50c8910f76b239d858e97f16d58e0336dbafa319",
+      "date": "2026-10-04T11:13:55Z",
+      "message": "fix: ocultar abertura após registo da primeira administrativa",
+      "parents": [
+        "a3fc733496019d4ef4fe464aa5ab2d702df42ddf"
+      ]
+    },
+    {
+      "sha": "a3fc733496019d4ef4fe464aa5ab2d702df42ddf",
+      "date": "2026-10-04T11:06:56Z",
+      "message": "V4: load validation fixes in preview",
+      "parents": [
+        "2c41df7d80f3237e580187e56dd054ec1631b697"
+      ]
+    },
+    {
+      "sha": "2c41df7d80f3237e580187e56dd054ec1631b697",
+      "date": "2026-10-04T11:06:45Z",
+      "message": "V4: fix validation findings for opening, point, documents and audit",
+      "parents": [
+        "268776791a41d4696717b611c66aaa8bbc3d5592"
+      ]
+    },
+    {
+      "sha": "268776791a41d4696717b611c66aaa8bbc3d5592",
+      "date": "2026-10-04T00:11:40Z",
+      "message": "V4: connect visible RH tasks and tables interface",
+      "parents": [
+        "02413ba95e97c62b27996ecd15eaaf576b69105a"
+      ]
+    },
+    {
+      "sha": "02413ba95e97c62b27996ecd15eaaf576b69105a",
+      "date": "2026-10-04T00:04:20Z",
+      "message": "V4: load closing feature module",
+      "parents": [
+        "83ae29a5c2ff6aa9c9907f0d23c179b1c4f4648a"
+      ]
+    },
+    {
+      "sha": "83ae29a5c2ff6aa9c9907f0d23c179b1c4f4648a",
+      "date": "2026-10-04T00:04:10Z",
+      "message": "V4: add RH tasks catalogs funnel and chat rules",
+      "parents": [
+        "41c6d08613bf91f9127fc758b877099ee6ba95d1"
+      ]
+    },
+    {
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1",
+      "date": "2026-10-03T19:41:48Z",
+      "message": "fix: separar corretamente médicos e técnicos nas listas",
+      "parents": [
+        "19d38ba5fa983c74f8f4532dd27cde76680f23f9"
+      ]
+    },
+    {
+      "sha": "19d38ba5fa983c74f8f4532dd27cde76680f23f9",
+      "date": "2026-10-03T19:00:16Z",
+      "message": "feat: ativar listas de profissionais na interface completa",
+      "parents": [
+        "b816ca10df996042dee5d69ffb0658cd32e47f87"
+      ]
+    },
+    {
+      "sha": "b816ca10df996042dee5d69ffb0658cd32e47f87",
+      "date": "2026-10-03T19:00:07Z",
+      "message": "feat: aplicar listas de médicos e técnicos sem remover módulos",
+      "parents": [
+        "73ee2dcf2a949dfb65fed2b93cab845ad6836045"
+      ]
+    },
+    {
+      "sha": "73ee2dcf2a949dfb65fed2b93cab845ad6836045",
+      "date": "2026-10-03T18:58:33Z",
+      "message": "fix: recuperar todos os módulos da V4",
+      "parents": [
+        "8127fe9848ad4d834370c4e02dd7a79463042540"
+      ]
+    },
+    {
+      "sha": "8127fe9848ad4d834370c4e02dd7a79463042540",
+      "date": "2026-10-03T18:57:44Z",
+      "message": "feat: selecionar médicos e técnicos por lista na operação",
+      "parents": [
+        "b5c63a961b3619238162ed53c008f40f406e0a64"
+      ]
+    },
+    {
+      "sha": "b5c63a961b3619238162ed53c008f40f406e0a64",
+      "date": "2026-10-03T18:56:27Z",
+      "message": "docs: fixar regra de seleção de médicos e técnicos por lista",
+      "parents": [
+        "9816e467431edd27499b2a0e7d2a5fc104c98eef"
+      ]
+    },
+    {
+      "sha": "9816e467431edd27499b2a0e7d2a5fc104c98eef",
+      "date": "2026-10-03T16:02:51Z",
+      "message": "chore: checkpoint antes das listas de profissionais",
+      "parents": [
+        "6896a849267a1b59f93822f6aef5c7b5b0e4c569"
+      ]
+    },
+    {
+      "sha": "6896a849267a1b59f93822f6aef5c7b5b0e4c569",
+      "date": "2026-10-02T12:03:42Z",
+      "message": "Merge pull request #2 from miguelaalves84-dotcom/codex/desenvolver-projeto-grupo-saude-v4-4sagir\n\nAdd interactive SPA frontend with app.js, updated index.html and styles.css",
+      "parents": [
+        "0b06521ead311fadfd6da2c97d4949af8a31f655",
+        "a2df7b54195854d74708b1ce099105e3847618b0"
+      ]
+    },
+    {
+      "sha": "a2df7b54195854d74708b1ce099105e3847618b0",
+      "date": "2026-10-02T12:01:34Z",
+      "message": "Merge branch 'teste-escrita-chatgpt' into codex/desenvolver-projeto-grupo-saude-v4-4sagir",
+      "parents": [
+        "a8cb666f32e293ac17534f99ba5be4d0dce426bb",
+        "0b06521ead311fadfd6da2c97d4949af8a31f655"
+      ]
+    },
+    {
+      "sha": "a8cb666f32e293ac17534f99ba5be4d0dce426bb",
+      "date": "2026-10-02T11:45:54Z",
+      "message": "chore: reconciliar app.js com a base do PR",
+      "parents": [
+        "9f44d9492cc66e08f14980ba7d4ba81124e03f75"
+      ]
+    },
+    {
+      "sha": "9f44d9492cc66e08f14980ba7d4ba81124e03f75",
+      "date": "2026-10-02T11:20:01Z",
+      "message": "feat: completar operação manual e gestão de RH",
+      "parents": [
+        "91bab299a499b0805161a33510052e31e1feec51"
+      ]
+    },
+    {
+      "sha": "91bab299a499b0805161a33510052e31e1feec51",
+      "date": "2026-10-02T10:18:36Z",
+      "message": "fix: separar planning e indicadores operacionais",
+      "parents": [
+        "954273fd7073affd24105dfd2874918a6ceb5d6a"
+      ]
+    },
+    {
+      "sha": "0b06521ead311fadfd6da2c97d4949af8a31f655",
+      "date": "2026-10-02T09:55:56Z",
+      "message": "Merge pull request #1 from miguelaalves84-dotcom/codex/desenvolver-projeto-grupo-saude-v4\n\nfeat: disponibilizar fluxos operacionais completos do Grupo Saúde V4",
+      "parents": [
+        "954273fd7073affd24105dfd2874918a6ceb5d6a",
+        "616730187c0d06585a052e43da951c96a3af957d"
+      ]
+    },
+    {
+      "sha": "616730187c0d06585a052e43da951c96a3af957d",
+      "date": "2026-10-02T09:54:09Z",
+      "message": "feat: completar fluxos operacionais V4",
+      "parents": [
+        "954273fd7073affd24105dfd2874918a6ceb5d6a"
+      ]
+    },
+    {
+      "sha": "954273fd7073affd24105dfd2874918a6ceb5d6a",
+      "date": "2026-10-02T01:23:20Z",
+      "message": "feat: implementar abertura fecho e tarefas operacionais vivas",
+      "parents": [
+        "17631dcf27da71e0ec774dd296e5bc2b9fd798b6"
+      ]
+    },
+    {
+      "sha": "17631dcf27da71e0ec774dd296e5bc2b9fd798b6",
+      "date": "2026-10-02T00:58:54Z",
+      "message": "docs: detalhar tarefas operacionais diarias das clinicas",
+      "parents": [
+        "99d5ff4eb5f15eb7b6eb1ab9292fbcdfebb7ee93"
+      ]
+    },
+    {
+      "sha": "99d5ff4eb5f15eb7b6eb1ab9292fbcdfebb7ee93",
+      "date": "2026-10-02T00:42:00Z",
+      "message": "chore: iniciar plano de desenvolvimento V4",
+      "parents": [
+        "c74d3054b3b604f0392d9e9267c379ff9fb17bb0"
+      ]
+    },
+    {
+      "sha": "c74d3054b3b604f0392d9e9267c379ff9fb17bb0",
+      "date": "2026-10-01T21:03:24Z",
+      "message": "Update README.txt",
+      "parents": [
+        "fadee5eff1059eafc2c5520656ebb4d050c56e31"
+      ]
+    },
+    {
+      "sha": "fadee5eff1059eafc2c5520656ebb4d050c56e31",
+      "date": "2026-10-01T20:55:29Z",
+      "message": "Add files via upload",
+      "parents": []
+    },
+    {
+      "sha": "898c6c2c91c21829b8a588674e2952bbc7d6b621",
+      "message": "fix(rh): restore employee panel when CEO HR navigation leaves content empty"
+    },
+    {
+      "sha": "5fad2caf9ea37b2c0bfecbad6ab5e916c9df6d35",
+      "message": "fix(rh): initialize CEO HR with employee list instead of placeholder"
+    },
+    {
+      "sha": "62d1f9a8d4c91eb3cc8779f3b8bc551172e62147",
+      "message": "fix(rh): invoke canonical RH renderer from main navigation"
+    },
+    {
+      "sha": "3fdd34f4144b944a3381f38f042a81c650f96c34",
+      "message": "refactor(rh): remove duplicate HR navigation handler and expose single entry point"
+    },
+    {
+      "sha": "e5a87e7381bdd19a611dea3b80d9c4b6339a46b2",
+      "message": "fix(rh): stop legacy click handler overriding canonical navigation"
+    },
+    {
+      "sha": "54509dd666a0d9e44a36ef7831fa136f6c41a765",
+      "message": "fix(rh): reconcile CEO RH navigation after legacy view handlers"
+    },
+    {
+      "sha": "d21c5c2134ea783dbe49b62517e4032e11419198",
+      "message": "fix(rh): restore employee list and separate HR tabs from approvals"
+    },
+    {
+      "sha": "463e8986cb4708af805e9a6f3c7ad6608c501c17",
+      "message": "feat: reorganiza RH e ficha completa do colaborador"
+    },
+    {
+      "sha": "3123c9ead480edd7804bf2079e21fac96865ee60",
+      "message": "feat: ativa nova ficha 360 RH na V4"
+    },
+    {
+      "sha": "2a00d7f2d44059786c9369205324bf7727e494c4",
+      "message": "Merge f999aea5d8edbc2477f53a4f689367d41f6a0427 into b9a50bd14bc0a2706bec63031e31f4615db41f1a"
+    },
+    {
+      "sha": "a97d07dba042e47fcd75aa1259a64619dd3a24d3",
+      "message": "Merge 81439172a17576970957ebe0af13faec62b19e9f into f999aea5d8edbc2477f53a4f689367d41f6a0427"
+    },
+    {
+      "sha": "d9fd2403d9264cc3f68f29ac13f6cec33e20e9b1",
+      "message": "Merge 53b40dab6c9f49e6890a000b20ab65ebc90aeb82 into 84fba5a2d6d7afcb0723ca312f4e617acc22823d"
+    },
+    {
+      "sha": "49eb6ec355012b10f719e532e0fba4c0485c60e7",
+      "message": "Merge 1b8f244886fa6a114badad3a78251b207195c158 into 53b40dab6c9f49e6890a000b20ab65ebc90aeb82"
+    },
+    {
+      "sha": "4a75c723f6176a86f47ba2bd4d706340a793a49f",
+      "message": "Merge b9a50bd14bc0a2706bec63031e31f4615db41f1a into 1b8f244886fa6a114badad3a78251b207195c158"
+    }
+  ],
+  "scope": "All reachable commits in currently visible branches and PR refs; deleted/unreferenced objects cannot be enumerated through this connector.",
+  "decisions": [
+    {
+      "origin": "3fdd34f/d21c5c2",
+      "target": "app.js + clinic-hr-architecture.js",
+      "decision": "Preserve canonical navigation already tested; do not duplicate legacy handlers",
+      "risk": "high if legacy App.showView overwrites security/Stock routing"
+    },
+    {
+      "origin": "3123c9e / 463e898",
+      "target": "HRMasterV4 + V4ClinicHR",
+      "decision": "Verify feature parity and preserve recovered source as evidence, not a runtime override",
+      "risk": "high: unscoped employee list, wrong timeHistory source, incomplete contracts and renderer overwrite"
+    }
+  ],
+  "localCheckpoints": [
+    {
+      "ref": "refs/heads/local/checkpoint-clinics-stock-before-alignment",
+      "sha": "d0a1747a134dbcabe7feef22c979c0ef0a40f3e2",
+      "localOnlyPaths": [],
+      "changedSourcePaths": [
+        ".github/workflows/v4-preview-regression.yml",
+        "access-policy-core-v4.js",
+        "access-scope-v4.js",
+        "app.js",
+        "approvals-center-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js",
+        "clinic-structure-renderer-v4.js",
+        "contract-types-v4.js",
+        "docs/BLOCO-04-CLINICAS-STOCK.md",
+        "finance-core-v4.js",
+        "finance-demo-v4.js",
+        "gs-enterprise.js",
+        "hr-master-v4.js",
+        "hr-separation-v4.js",
+        "index.html",
+        "lib/authorization-service.js",
+        "lib/clinic-stock-service.js",
+        "package.json",
+        "role-access-admin-v4.js",
+        "safe-actions-v4.js",
+        "stock-core-v4.js",
+        "stock-ui-v4.js",
+        "tables-canonical-controller-v4.js",
+        "tests/ci/run-browser.py",
+        "tests/modules-postgres.cjs",
+        "tests/visual/capture.py",
+        "tests/visual/compare.py",
+        "v4-master-integrations.js",
+        "validation-fixes.js",
+        "vercel.json",
+        "workspace-shell-v4.js"
+      ],
+      "decision": "Preserve checkpoint; compare canonical source and do not replace audited code with an earlier snapshot"
+    },
+    {
+      "ref": "refs/heads/local/checkpoint-profile-audit-before-alignment",
+      "sha": "112b4e930d666f371be08e87277d95024e2a806e",
+      "localOnlyPaths": [],
+      "changedSourcePaths": [
+        ".github/workflows/v4-preview-regression.yml",
+        "access-policy-core-v4.js",
+        "access-scope-v4.js",
+        "app.js",
+        "approvals-center-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js",
+        "finance-core-v4.js",
+        "finance-demo-v4.js",
+        "hr-separation-v4.js",
+        "index.html",
+        "lib/authorization-service.js",
+        "role-access-admin-v4.js",
+        "stock-core-v4.js",
+        "stock-ui-v4.js",
+        "tests/ci/run-browser.py",
+        "tests/modules-postgres.cjs",
+        "tests/visual/capture.py",
+        "tests/visual/compare.py",
+        "v4-master-integrations.js",
+        "vercel.json",
+        "workspace-shell-v4.js"
+      ],
+      "decision": "Preserve checkpoint; compare canonical source and do not replace audited code with an earlier snapshot"
+    },
+    {
+      "ref": "refs/heads/local/checkpoint-tables-before-alignment",
+      "sha": "09fda5d2d2793a9534c3f216d35d0c8e184fac03",
+      "localOnlyPaths": [],
+      "changedSourcePaths": [
+        ".github/workflows/v4-preview-regression.yml",
+        "access-policy-core-v4.js",
+        "access-scope-v4.js",
+        "app.js",
+        "approvals-center-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js",
+        "finance-core-v4.js",
+        "finance-demo-v4.js",
+        "hr-separation-v4.js",
+        "index.html",
+        "lib/authorization-service.js",
+        "role-access-admin-v4.js",
+        "stock-core-v4.js",
+        "stock-ui-v4.js",
+        "tests/ci/run-browser.py",
+        "tests/modules-postgres.cjs",
+        "tests/tables-browser.py",
+        "tests/visual/capture.py",
+        "tests/visual/compare.py",
+        "v4-master-integrations.js",
+        "vercel.json",
+        "workspace-shell-v4.js"
+      ],
+      "decision": "Preserve checkpoint; compare canonical source and do not replace audited code with an earlier snapshot"
+    },
+    {
+      "ref": "refs/heads/local/import-checkpoint",
+      "sha": "e0292342a7f825cd29385c838716606152ed8635",
+      "localOnlyPaths": [],
+      "changedSourcePaths": [
+        ".cfignore",
+        ".github/workflows/v4-preview-regression.yml",
+        ".gitignore",
+        "DEPLOY_PREVIEW.txt",
+        "PLANO-V4.md",
+        "README.txt",
+        "_headers",
+        "access-log-v4.js",
+        "access-policy-core-v4.js",
+        "access-scope-v4.js",
+        "account.html",
+        "account.js",
+        "active-clinic-filter-v4.js",
+        "api/finance.js",
+        "api/v4-auth.js",
+        "api/v4-clinic-gps.js",
+        "api/v4-cron-alerts.js",
+        "api/v4-document.js",
+        "api/v4-finance-email-job.js",
+        "api/v4-finance.js",
+        "api/v4-gmail-callback.js",
+        "api/v4-retention.js",
+        "api/v4-upload.js",
+        "api/v4.js",
+        "app.js",
+        "approvals-center-v4.js",
+        "attendance-dashboard-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js",
+        "authenticated-v4.js",
+        "authenticated.html",
+        "ceo-reserved-area-switcher-v4.js",
+        "clinic-calendars-v4.js",
+        "clinic-hr-architecture.js",
+        "clinic-master-v4.js",
+        "clinic-relations-v4.js",
+        "clinic-single-source-v4.js",
+        "clinic-structure-renderer-v4.js",
+        "communications-core-v4.js",
+        "communications-v4.js",
+        "contract-types-v4.js",
+        "db/migrations/finance-v4-002.sql",
+        "db/migrations/finance-v4-003.sql",
+        "db/migrations/finance-v4-004.sql",
+        "db/migrations/finance-v4-005.sql",
+        "db/migrations/finance-v4-006.sql",
+        "db/migrations/v4-p0-gps-001.sql",
+        "db/schema.sql",
+        "deployment-version-v4.js",
+        "docs/AUDITORIA-V4-RH.md",
+        "docs/BLOCO-01-SESSAO.md",
+        "docs/CONFIGURACAO-TESTE-AUTH-EMAIL.md",
+        "docs/CONSOLIDACAO-V4-RELATORIO.md",
+        "docs/FASE1-P0-FICHEIROS.md",
+        "docs/FASE1-P0-SEGURANCA.md",
+        "docs/FINANCEIRO-V4-CONFIGURACAO.md",
+        "docs/FINANCEIRO-V4-RELATORIO.md",
+        "docs/ISSUE-6-RH-FERIAS.md",
+        "docs/ISSUE-8-DESEMPENHO-PRIVACIDADE.md",
+        "docs/MATRIZ-14-GRUPOS.md",
+        "docs/REGRAS-SELECAO-PROFISSIONAIS.md",
+        "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+        "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+        "docs/V4-DOCUMENTOS-EMAILS-CONFIGURACAO.md",
+        "docs/V4-GMAIL-ATIVACAO-CONFIGURACAO.md",
+        "docs/V4-GMAIL-ATIVACAO-RELATORIO.md",
+        "docs/V4-PAGAMENTOS-NOTIFICACOES-CONFIGURACAO.md",
+        "docs/V4-PUBLICACAO-VALIDACAO.md",
+        "doctor-specialties.js",
+        "finance-core-v4.js",
+        "finance-demo-v4.js",
+        "finance-ui-v4.js",
+        "finance-v4.css",
+        "finance.html",
+        "functions/_middleware.js",
+        "functions/api/auth.js",
+        "functions/api/finance.js",
+        "functions/api/gmail/callback.js",
+        "functions/api/preview.js",
+        "functions/api/version.js",
+        "funnel-drag.js",
+        "global-search-v4.js",
+        "gs-enterprise.js",
+        "gs-test-agent-v4.js",
+        "hr-form-fix-v4.js",
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js",
+        "hr-master-v4.js",
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js",
+        "hr-rosters-overtime-v4.js",
+        "hr-separation-v4.js",
+        "hr-vacation-planning-v4.js",
+        "index.html",
+        "lib/attention-service.js",
+        "lib/authorization-service.js",
+        "lib/development-mode.js",
+        "lib/document-archive-service.js",
+        "lib/document-security-service.js",
+        "lib/document-storage-service.js",
+        "lib/email-settings-service.js",
+        "lib/finance-authorization-service.js",
+        "lib/finance-document-workflow.js",
+        "lib/finance-email-alerts.js",
+        "lib/finance-email-ingest.js",
+        "lib/finance-mail-queue.js",
+        "lib/finance-payment-email.js",
+        "lib/finance-service.js",
+        "lib/gmail-automation-service.js",
+        "lib/gmail-message.js",
+        "lib/gmail-oauth-service.js",
+        "lib/gmail-sync-service.js",
+        "lib/schema-version-service.js",
+        "package.json",
+        "professional-selects.js",
+        "role-access-admin-v4.js",
+        "safe-actions-v4.js",
+        "safe-reset-v4.js",
+        "scheduled-indicators.js",
+        "scripts/build-static.cjs",
+        "scripts/migrate-development.cjs",
+        "session-v4.js",
+        "styles.css",
+        "tables-canonical-controller-v4.js",
+        "tests/browser.py",
+        "tests/build.cjs",
+        "tests/cloudflare-publication.py",
+        "tests/consolidation.cjs",
+        "tests/document-workflows.cjs",
+        "tests/documents-browser.py",
+        "tests/email-association.cjs",
+        "tests/finance-browser.py",
+        "tests/finance-fixture.cjs",
+        "tests/finance-ui.cjs",
+        "tests/finance.cjs",
+        "tests/gmail-activation.cjs",
+        "tests/improvements-browser.py",
+        "tests/improvements.cjs",
+        "tests/p0-browser.py",
+        "tests/p0-migrations.py",
+        "tests/p0-retention.cjs",
+        "tests/p0-security.cjs",
+        "tests/performance.cjs",
+        "tests/preview-proxy.cjs",
+        "tests/release-readiness.cjs",
+        "tests/resolve-preview.py",
+        "tests/runtime.cjs",
+        "tests/session-lifecycle.cjs",
+        "tests/syntax.cjs",
+        "v4-data-integrity.js",
+        "v4-master-integrations.js",
+        "vacation-calendar-v4.js",
+        "validation-fixes.js",
+        "vercel.json",
+        "workers/gmail-sync/index.js",
+        "workers/gmail-sync/wrangler.toml",
+        "workspace-shell-v4.js"
+      ],
+      "decision": "Preserve checkpoint; compare canonical source and do not replace audited code with an earlier snapshot"
+    }
+  ]
+}

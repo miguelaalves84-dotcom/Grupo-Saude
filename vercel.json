@@ -57,7 +57,8 @@
       "fix/v4-p0-security-hardening-session": false,
       "fix/v4-p0-security-hardening-clinics-stock": false,
       "fix/v4-p0-security-hardening-tables-catalog": false,
-      "fix/v4-p0-security-hardening-profile-audit": false
+      "fix/v4-p0-security-hardening-profile-audit": false,
+      "fix/v4-p0-security-hardening-consolidation": false
     }
   }
 }

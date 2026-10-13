@@ -3,7 +3,7 @@ import json,os
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw
 CURRENT=Path(os.environ.get('GS_VISUAL_OUTPUT','/artifacts'))
-BASE=Path('/source/tests/visual/baseline/4a58d5e')
+BASE=Path(os.environ.get('GS_PIXEL_BASE','/source/tests/visual/baseline/4a58d5e'))
 old=json.loads((BASE/'manifest.json').read_text());new=json.loads((CURRENT/'manifest.json').read_text())
 index={(r['actor'],r['viewport'],r['theme'],r['module']):r for r in new['scenarios']}
 geometry=json.loads(Path(os.environ['GS_REFERENCE_GEOMETRY']).read_text())
@@ -13,8 +13,8 @@ geo={(r['actor'],r['viewport'],r['theme'],r['module']):r for r in geometry['scen
 results=[];failed=[]
 for before in old['scenarios']:
  key=(before['actor'],before['viewport'],before['theme'],before['module']);after=index[key]
- if before['module'] in {'clinics','stock'}:
-  results.append({'scenario':key,'status':'intentional-change-review-required','baseline':before['file'],'current':after['file']});continue
+ if before['module']=='operation' and before['actor']=='test_call':
+  results.append({'scenario':key,'status':'intentional-clinic-scope-fix-review-required','baseline':before['file'],'current':after['file']});continue
  assert before['present']==after['present'] and before['allowed']==after['allowed'],('Permission or module regression',key)
  if not before['file']:continue
  a=Image.open(BASE/before['file']).convert('RGB');b=Image.open(CURRENT/after['file']).convert('RGB')
@@ -34,7 +34,7 @@ for before in old['scenarios']:
  mask=ImageChops.multiply(mask,region);ratio=mask.histogram()[255]/compared
  passed=ratio<=0.003;results.append({'scenario':key,'status':'passed' if passed else 'failed','changed_pixel_ratio':ratio,'global_header_overlays':overlays,'compared_pixels':compared})
  if not passed:diff.save(CURRENT/('diff-'+after['file']));failed.append(results[-1])
-report={'reference':old['source_commit'],'tolerance':old['tolerance'],'results':results,'failed':failed,'overlay_policy':'Compare module pixels outside fixed global-header overlays; complete screenshots retain navigation/header for human review and functional assertions.', 'new_designs':'Clínicas/Stock captures versioned as candidate baseline, human review still required.'}
+report={'reference':old['source_commit'],'tolerance':old['tolerance'],'results':results,'failed':failed,'overlay_policy':'Compare module pixels outside fixed global-header overlays; complete screenshots retain navigation/header for human review and functional assertions.', 'new_designs':'Reference 112b4e9 with identical synthetic clinic assignments; Call Center operation scope correction requires visual review.'}
 (CURRENT/'pixel-results.json').write_text(json.dumps(report,indent=2))
-print(json.dumps({'failures':failed,'compared':sum(r['status'] in {'passed','failed'} for r in results),'failed':len(failed),'intentional_changes':'Clinics/Stock only'}))
+print(json.dumps({'failures':failed,'compared':sum(r['status'] in {'passed','failed'} for r in results),'failed':len(failed),'intentional_changes':'Call Center operation clinic scope'}))
 if failed:raise SystemExit(1)

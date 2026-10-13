@@ -2,7 +2,7 @@
 (function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./access-policy-core-v4'):root.GSAccessPolicy);if(typeof module==='object'&&module.exports)module.exports=api;else root.GSStockCore=api})(typeof globalThis!=='undefined'?globalThis:this,P=>{'use strict';
 const clone=x=>JSON.parse(JSON.stringify(x)),text=(x,n=300)=>String(x??'').trim().slice(0,n);
 function fail(message,status=400){throw Object.assign(Error(message),{status,moduleDomain:true})}
-function can(a,key){return a?.active===true&&(a.permissions?.[key]===undefined?P.defaults(P.norm(a.role)).includes(key):a.permissions[key]===true)}
+function can(a,key){return a?.active===true&&P.enabled(a.role,key,a.permissions||{})}
 function authorize(a,key,cid,manage=false){if(a?.readOnly||!can(a,key)||manage&&!['CEO','ADMINISTRAÇÃO'].includes(P.norm(a.role)))fail('Sem autorização para esta ação.',403);if(!a.activeClinicIds?.includes(String(cid))||P.norm(a.role)!=='CEO'&&!a.clinics?.includes(String(cid)))fail('Clínica não autorizada.',403)}
 function quantity(v,signed=false){if(!['number','string'].includes(typeof v))fail('Quantidade inválida.');const n=Number(v);if(v===''||v==null||!Number.isFinite(n)||Math.abs(n)>10000000||(!signed&&n<=0)||signed&&n===0||Math.abs(n*1000-Math.round(n*1000))>0.000001)fail('Quantidade inválida (até três casas decimais).');return Math.round(n*1000)}
 function money(v){v=v??0;if(!['number','string'].includes(typeof v))fail('Preço inválido.');const n=Number(v);if(!Number.isSafeInteger(n)||n<0||n>1000000000)fail('Preço inválido em cêntimos.');return n}

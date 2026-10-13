@@ -21,7 +21,7 @@ with sync_playwright() as p:
     c.add_init_script(freeze)
     page=c.new_page();errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
     page.goto('http://127.0.0.1:8765/index.html');page.wait_for_function('window.RoleAccessAdminV4 && window.WorkspaceShellV4')
-    page.evaluate('''([key,actor,theme])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoViewingAs=actor==='u1'?null:actor;localStorage.setItem(key,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+encodeURIComponent(actor),theme);}''',[KEY,actor,theme])
+    page.evaluate(('''([key,actor,theme])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoViewingAs=actor==='u1'?null:actor;if(SCOPED){const ids=s.clinics.filter(c=>c.active!==false&&!c.legacyDemo&&!c.virtual&&c.operational!==false).map(c=>c.id);for(const id of ['u1','test_admin','test_adm','test_med','test_tec','test_call']){const scope=id==='u1'?ids:['test_admin','test_call'].includes(id)?ids.slice(0,2):ids.slice(0,1);const u=s.users.find(u=>u.id===id);if(u)u.clinics=scope;if(s.employees[id])s.employees[id].clinics=scope;}}localStorage.setItem(key,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+encodeURIComponent(actor),theme);}''').replace('SCOPED','true' if os.environ.get('GS_VISUAL_SCOPED_FIXTURES')=='true' else 'false'),[KEY,actor,theme])
     page.reload();page.wait_for_timeout(350)
     for module in ['clinics','stock','hr','operation']:
      present=page.locator('#'+module).count()>0

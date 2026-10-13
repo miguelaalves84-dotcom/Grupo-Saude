@@ -1,9 +1,9 @@
 name: V4 isolated Chromium regression
 on:
   push:
-    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog, fix/v4-p0-security-hardening-profile-audit]
   pull_request:
-    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog, fix/v4-p0-security-hardening-profile-audit]
 permissions:
   contents: read
 concurrency:
@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser, clinics-browser, stock-browser, tables-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser, clinics-browser, stock-browser, tables-browser, profile-audit-browser]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -128,11 +128,22 @@ jobs:
         run: docker build -t gs-postgres-tests -f tests/ci/Dockerfile.postgres tests/ci
       - name: Real SQL, HTTP, authorization and concurrency without external network
         run: |
+          mkdir -p "$RUNNER_TEMP/gs-api-audit"
+          chmod 777 "$RUNNER_TEMP/gs-api-audit"
           docker run --rm --network none --read-only --cap-drop ALL \
             --security-opt no-new-privileges --tmpfs /tmp:rw,exec,size=1g \
             --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
-            -e GS_TEST_DISPOSABLE_POSTGRES=true --workdir /source \
+            --mount type=bind,source="$RUNNER_TEMP/gs-api-audit",target=/artifacts \
+            -e GS_TEST_ARTIFACTS=/artifacts -e GS_TEST_DISPOSABLE_POSTGRES=true --workdir /source \
             gs-postgres-tests node tests/modules-postgres.cjs
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: profile-api-matrix-${{ github.sha }}
+          path: ${{ runner.temp }}/gs-api-audit
+          if-no-files-found: error
+          retention-days: 30
 
   visual-pixels:
     needs: regression
@@ -144,7 +155,7 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: 4a58d5eb06090900ca12be4a9856c6e4a69a972a
+          ref: 112b4e930d666f371be08e87277d95024e2a806e
           path: approved-pixel-source
           persist-credentials: false
       - name: Build pinned visual environment
@@ -158,8 +169,9 @@ jobs:
             --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
             --mount type=bind,source="$GITHUB_WORKSPACE/approved-pixel-source",target=/reference-source,readonly \
             --mount type=bind,source="$RUNNER_TEMP/gs-pixels",target=/artifacts \
+            -e GS_VISUAL_SCOPED_FIXTURES=true -e GS_PIXEL_BASE=/tmp/reference \
             -e GS_VISUAL_SHA="${{ github.sha }}" gs-visual-tests \
-            sh -ec 'GS_VISUAL_SOURCE=/reference-source GS_VISUAL_OUTPUT=/tmp/reference GS_VISUAL_SHA=4a58d5eb06090900ca12be4a9856c6e4a69a972a python /source/tests/visual/capture.py; GS_VISUAL_FULLPAGE=true python /source/tests/visual/capture.py; GS_REFERENCE_GEOMETRY=/tmp/reference/manifest.json python /source/tests/visual/compare.py'
+            sh -ec 'GS_VISUAL_SOURCE=/reference-source GS_VISUAL_OUTPUT=/tmp/reference GS_VISUAL_SHA=112b4e930d666f371be08e87277d95024e2a806e python /source/tests/visual/capture.py; cp -R /tmp/reference /artifacts/reference-scoped-112b4e9; GS_VISUAL_FULLPAGE=true python /source/tests/visual/capture.py; GS_REFERENCE_GEOMETRY=/tmp/reference/manifest.json python /source/tests/visual/compare.py'
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

@@ -12,4 +12,4 @@ function defaults(r){
  return [...personal,'stockRead','stockRequest'];
 }
 
-return{ROLES,actions,norm,defaults};});
+const managerOnly=new Set(['dashboard','settings','hrManage','leaveApprove','financeManage','performanceManage','security','audit','reports']);function roleAllows(role,key){return !managerOnly.has(key)||['CEO','ADMINISTRAÇÃO'].includes(norm(role));}function enabled(role,key,values={}){role=norm(role);const raw=k=>values[k]===undefined?defaults(role).includes(k):values[k]===true||values[k]===1;if(!roleAllows(role,key)||!raw(key))return false;if(key==='financeManage'&&!raw('account'))return false;if(key.startsWith('stock')&&key!=='stockRead'&&!raw('stockRead'))return false;if(key==='clinicDocumentsUpdate'&&!raw('clinics'))return false;return true;}return{ROLES,actions,norm,defaults,roleAllows,enabled};});

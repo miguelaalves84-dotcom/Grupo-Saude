@@ -1,9 +1,9 @@
 name: V4 isolated Chromium regression
 on:
   push:
-    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog, fix/v4-p0-security-hardening-profile-audit]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog, fix/v4-p0-security-hardening-profile-audit, fix/v4-p0-security-hardening-consolidation]
   pull_request:
-    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog, fix/v4-p0-security-hardening-profile-audit]
+    branches: [fix/v4-p0-security-hardening-session, fix/v4-p0-security-hardening-clinics-stock, fix/v4-p0-security-hardening-tables-catalog, fix/v4-p0-security-hardening-profile-audit, fix/v4-p0-security-hardening-consolidation]
 permissions:
   contents: read
 concurrency:
@@ -48,6 +48,7 @@ jobs:
           - {suite: clinics-browser}
           - {suite: stock-browser}
           - {suite: tables-browser}
+          - {suite: consolidation-browser}
           - {suite: profile-audit-browser, actor: u1}
           - {suite: profile-audit-browser, actor: test_admin}
           - {suite: profile-audit-browser, actor: test_adm}
@@ -172,7 +173,7 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: 112b4e930d666f371be08e87277d95024e2a806e
+          ref: 0e2f7996b6c658e3dff2f878202bcce3bca299a9
           path: approved-pixel-source
           persist-credentials: false
       - name: Build pinned visual environment
@@ -188,7 +189,7 @@ jobs:
             --mount type=bind,source="$RUNNER_TEMP/gs-pixels",target=/artifacts \
             -e GS_VISUAL_SCOPED_FIXTURES=true -e GS_PIXEL_BASE=/tmp/reference \
             -e GS_VISUAL_SHA="${{ github.sha }}" gs-visual-tests \
-            sh -ec 'GS_VISUAL_SOURCE=/reference-source GS_VISUAL_OUTPUT=/tmp/reference GS_VISUAL_SHA=112b4e930d666f371be08e87277d95024e2a806e python /source/tests/visual/capture.py; cp -R /tmp/reference /artifacts/reference-scoped-112b4e9; GS_VISUAL_FULLPAGE=true python /source/tests/visual/capture.py; GS_REFERENCE_GEOMETRY=/tmp/reference/manifest.json python /source/tests/visual/compare.py'
+            sh -ec 'GS_VISUAL_SOURCE=/reference-source GS_VISUAL_OUTPUT=/tmp/reference GS_VISUAL_SHA=0e2f7996b6c658e3dff2f878202bcce3bca299a9 python /source/tests/visual/capture.py; cp -R /tmp/reference /artifacts/reference-scoped-0e2f799; GS_VISUAL_FULLPAGE=true python /source/tests/visual/capture.py; GS_REFERENCE_GEOMETRY=/tmp/reference/manifest.json python /source/tests/visual/compare.py'
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -196,6 +197,33 @@ jobs:
           path: ${{ runner.temp }}/gs-pixels
           if-no-files-found: error
           retention-days: 30
+
+  central-integration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Prepare browser, Node and local PostgreSQL image
+        run: docker build -t gs-central-tests -f tests/ci/Dockerfile.central tests/ci
+      - name: Browser to verified cookie to API to disposable SQL, without external network
+        run: |
+          mkdir -p "$RUNNER_TEMP/gs-central"
+          chmod 777 "$RUNNER_TEMP/gs-central"
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges --shm-size=1g --tmpfs /tmp:rw,exec,size=1g \
+            --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
+            --mount type=bind,source="$RUNNER_TEMP/gs-central",target=/artifacts \
+            -e GS_TEST_DISPOSABLE_POSTGRES=true -e GS_TEST_ARTIFACTS=/artifacts \
+            --workdir /source gs-central-tests python tests/central-browser.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: central-integration-${{ github.sha }}
+          path: ${{ runner.temp }}/gs-central
+          retention-days: 30
+          if-no-files-found: error
 
   profile-matrix:
     needs: browser
@@ -230,7 +258,7 @@ jobs:
           retention-days: 30
 
   preview-package:
-    needs: [regression, browser, server-postgresql, visual-pixels, profile-matrix]
+    needs: [regression, browser, server-postgresql, visual-pixels, profile-matrix, central-integration]
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:

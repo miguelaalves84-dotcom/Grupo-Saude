@@ -13,7 +13,7 @@ geo={(r['actor'],r['viewport'],r['theme'],r['module']):r for r in geometry['scen
 results=[];failed=[]
 for before in old['scenarios']:
  key=(before['actor'],before['viewport'],before['theme'],before['module']);after=index[key]
- if before['module']=='operation' and before['actor']=='test_call':
+ if before['module']=='operation' and before['actor']=='test_call' and old['source_commit'].startswith('112b4e9'):
   results.append({'scenario':key,'status':'intentional-clinic-scope-fix-review-required','baseline':before['file'],'current':after['file']});continue
  assert before['present']==after['present'] and before['allowed']==after['allowed'],('Permission or module regression',key)
  if not before['file']:continue
@@ -34,7 +34,7 @@ for before in old['scenarios']:
  mask=ImageChops.multiply(mask,region);ratio=mask.histogram()[255]/compared
  passed=ratio<=0.003;results.append({'scenario':key,'status':'passed' if passed else 'failed','changed_pixel_ratio':ratio,'global_header_overlays':overlays,'compared_pixels':compared})
  if not passed:diff.save(CURRENT/('diff-'+after['file']));failed.append(results[-1])
-report={'reference':old['source_commit'],'tolerance':old['tolerance'],'results':results,'failed':failed,'overlay_policy':'Compare module pixels outside fixed global-header overlays; complete screenshots retain navigation/header for human review and functional assertions.', 'new_designs':'Reference 112b4e9 with identical synthetic clinic assignments; Call Center operation scope correction requires visual review.'}
+report={'reference':old['source_commit'],'tolerance':old['tolerance'],'results':results,'failed':failed,'overlay_policy':'Compare module pixels outside fixed global-header overlays; complete screenshots retain navigation/header for human review and functional assertions.', 'new_designs':'Reference 0e2f799 with identical synthetic clinic assignments; authenticated central UI screenshots are separate synthetic integration evidence.'}
 (CURRENT/'pixel-results.json').write_text(json.dumps(report,indent=2))
-print(json.dumps({'failures':failed,'compared':sum(r['status'] in {'passed','failed'} for r in results),'failed':len(failed),'intentional_changes':'Call Center operation clinic scope'}))
+print(json.dumps({'failures':failed,'compared':sum(r['status'] in {'passed','failed'} for r in results),'failed':len(failed),'intentional_changes':'None in the preserved demo modules'}))
 if failed:raise SystemExit(1)

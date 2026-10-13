@@ -1,0 +1,11 @@
+FROM node:24-bookworm-slim AS node
+FROM mcr.microsoft.com/playwright/python:v1.56.0-noble
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN apt-get update && apt-get install -y --no-install-recommends postgresql postgresql-client \
+    && rm -rf /var/lib/apt/lists/* \
+    && node /usr/local/lib/node_modules/npm/bin/npm-cli.js install --prefix /opt/isolated --ignore-scripts pg@8.16.3 \
+    && python -m pip install --no-cache-dir playwright==1.56.0 \
+    && useradd --uid 1001 --create-home gs-test
+ENV NODE_PATH=/opt/isolated/node_modules HOME=/tmp PYTHONDONTWRITEBYTECODE=1
+USER gs-test

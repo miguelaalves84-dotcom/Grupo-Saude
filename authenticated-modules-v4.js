@@ -3,7 +3,7 @@
  const root=document.getElementById('authenticatedClinicModules');if(!root)return;
  const select=document.getElementById('sessionClinic'),result=document.getElementById('sessionModuleResult'),status=document.getElementById('sessionModuleStatus');let generation=0;
  const can=key=>{const a=GSSessionV4.user;return !!a&&GSAccessPolicy.enabled(a.role,key,a.permissions||{})};
- function clear(){generation++;root.hidden=true;select.replaceChildren();result.replaceChildren();status.textContent='';}
+ function clear(){generation++;root.hidden=true;document.getElementById('sessionStock').hidden=true;document.getElementById('sessionClinicDocuments').hidden=true;select.replaceChildren();result.replaceChildren();status.textContent='';}
  async function refresh(){
   clear();if(!can('clinics')&&!can('stockRead'))return;
   const version=generation,identity=GSSessionV4.user?.id;

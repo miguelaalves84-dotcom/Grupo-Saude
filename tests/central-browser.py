@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1];OUT=Path(os.environ.get('GS_TEST_ARTIFA
 ready=Path('/tmp/gs-central-ready.json');ready.unlink(missing_ok=True)
 env={**os.environ,'GS_CENTRAL_READY_FILE':str(ready)};log=(OUT/'central-server.log').open('w')
 proc=subprocess.Popen(['node',str(ROOT/'tests/central-server.cjs')],env=env,stdout=log,stderr=subprocess.STDOUT)
-rows=[];current={}
+rows=[];current={};execution_complete=False
 def record(feature,fn):
  try:fn();state='Aprovada';detail='Browser, resposta e estado verificados'
  except Exception as e:state='Falhou';detail=str(e)[:1500];print('CENTRAL_FAILURE '+json.dumps({**current,'feature':feature,'detail':detail},ensure_ascii=False),flush=True)
@@ -86,9 +86,9 @@ try:
   page.evaluate('()=>{window.oldCentralReply=GSSessionV4.modules.call("stock",{clinicId:"a"}).then(()=>"LEAK").catch(e=>e.message)}');page.wait_for_timeout(100)
   def stale():
    check(len(held)==1);page.evaluate('async(email)=>{await GSSessionV4.signOut();const r=await fetch("/api/auth?action=signIn",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email,password:"SYNTHETIC-TEST-PASSWORD-ONLY"})});if(!r.ok)throw Error("Synthetic switch failed");await GSSessionV4.refresh()}',actors[3]['email']);held[0][0].fulfill(response=held[0][1]);check('Dados anteriores descartados' in page.evaluate('async()=>await window.oldCentralReply'));check(page.evaluate('GSSessionV4.user.id')==actors[3]['id'])
-  record('Resposta SQL tardia descartada após troca real de cookie/identidade',stale);context.close();browser.close()
+  record('Resposta SQL tardia descartada após troca real de cookie/identidade',stale);context.close();browser.close();execution_complete=True
 finally:
- (OUT/'matrix-central.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2));print('CENTRAL_SUMMARY '+json.dumps({'executions':len(rows),'passed':sum(r['state']=='Aprovada' for r in rows),'failed':sum(r['state']=='Falhou' for r in rows),'provider':'synthetic','database':'disposable PostgreSQL','production':'not accessed'}),flush=True)
+ (OUT/'matrix-central.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2));print('CENTRAL_SUMMARY '+json.dumps({'complete':execution_complete,'executions':len(rows),'passed':sum(r['state']=='Aprovada' for r in rows),'failed':sum(r['state']=='Falhou' for r in rows),'provider':'synthetic','database':'disposable PostgreSQL','production':'not accessed'}),flush=True)
  proc.terminate()
  try:proc.wait(timeout=10)
  except subprocess.TimeoutExpired:proc.kill()

@@ -34,6 +34,14 @@ def flows(page,actor,ids):
  record('Identidade','Alternância imediata sem reload e sem herdar privilégios','Perfil simulado',lambda:check(page.evaluate('(a)=>GSModuleDemo.actor().id===a',actor)))
  record('Clínicas','Isolamento: terceira clínica não atribuída','CEO global; outros recusados',lambda:check(page.evaluate('(c)=>AccessScopeV4.canClinic(c,"stockRead")',c)==(actor=='u1')))
  record('Clínicas','Associação a várias clínicas','CEO/Administração/Call Center em A+B',lambda:check(page.evaluate('(b)=>GSModuleDemo.clinics("stockRead").some(c=>c.id===b)',b)==(actor in ['u1','test_admin','test_call'])))
+ def configured_access():
+  if actor=='u1':
+   check(page.evaluate('()=>{try{RoleAccessAdminV4.setIndividual("u1",{personal:false});return false}catch{return true}}'),'CEO perdeu proteção fixa');return
+  switch(page,'u1');page.evaluate('(a)=>RoleAccessAdminV4.setIndividual(a,{clinics:true,stockRead:false,personal:false})',actor);switch(page,actor)
+  check(page.evaluate('RoleAccessAdminV4.can("clinics")&&!RoleAccessAdminV4.can("stockRead")&&!RoleAccessAdminV4.can("personal")'),'Configuração individual não aplicada imediatamente')
+  check(page.evaluate('(a)=>AccessScopeV4.canEmployee(a)===false',actor),'Revogação não bloqueou ficha própria')
+  switch(page,'u1');page.evaluate('(a)=>RoleAccessAdminV4.setIndividual(a,{})',actor);switch(page,actor);check(page.evaluate('RoleAccessAdminV4.can("personal")&&RoleAccessAdminV4.can("stockRead")'),'Reposição não restaurou acessos')
+ record('Permissões','Configuração individual autorizada → concessão/remoção imediata → reposição','CEO configura; acesso base revogado bloqueia ações',configured_access)
  record('RH','Ficha própria: pessoa e documentos corretos','personal',lambda:(page.evaluate('HRSeparationV4.myRH()'),check(page.locator('#modal').is_visible())))
  page.evaluate('document.getElementById("modal").close()')
  def financial_private():

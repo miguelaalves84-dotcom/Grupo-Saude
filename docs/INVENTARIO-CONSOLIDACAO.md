@@ -24,11 +24,11 @@ Nenhum merge para main, alteração de branch de origem, eliminação de histór
 | Capacidade antiga | Fonte única atual | Preservação / verificação |
 |---|---|---|
 | Lista compacta e pesquisa por nome/função/clínica | V4ClinicHR.showEmployees + GSSearchV4 | Com âmbito AccessScopeV4 e identidades users/employees deduplicadas |
-| Dados profissionais / especialidades / contratos | HRMasterV4 dados/contrato | Campos atuais hr e catálogos partilhados, sem segunda tabela |
+| Dados profissionais / especialidades / contratos | HRMasterV4 dados/contrato | Campos atuais hr e projeção de campos legados; contrato atual antigo/inativo permanece selecionado, sem segunda tabela |
 | Remuneração e dependentes | HRMasterV4 dados; FinanceUIV4 | UI de edição autorizada e financeiro próprio/gestão |
 | Documentos e regularização | HRMasterV4 docs + HRSeparationV4 | Bytes, checklist, estados e validade nas fontes existentes |
 | Férias e ausências | HRLeaveV4/HRLeaveUIV4 | Pedidos, decisões e histórico atuais, sem copiar leave |
-| Livro de ponto | timeEntries/timeOccurrences + HRMasterV4 tempo/resumo | Não trocar por timeHistory legado |
+| Livro de ponto | timeEntries/timeOccurrences + HRMasterV4 tempo/resumo | Leitura histórica compatível e deduplicada; timeEntries prevalece sobre timeHistory legado |
 | Histórico | HRMasterV4 histórico + audit | Não filtrar apenas por nome, preservar referências por identificador |
 
 O ficheiro antigo está em `docs/evidence/recovered-3123c9e/v4-hr-employee-profile.js`, não é carregado nem empacotado no preview. Compatibilidade é delegação às fontes atuais, não outro renderer.

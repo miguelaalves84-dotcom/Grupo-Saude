@@ -1,11 +1,12 @@
 'use strict';
 /* Test harness only. Reuses production handlers/services with fake provider and local disposable SQL.
    Never packaged as an API, never reads a supplied DSN or credentials. */
-const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),http=require('node:http'),{execFileSync}=require('node:child_process'),{randomUUID}=require('node:crypto'),{Pool}=require('pg');
+const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),https=require('node:https'),{execFileSync}=require('node:child_process'),{randomUUID}=require('node:crypto'),{Pool}=require('pg');
 if(process.env.GS_TEST_DISPOSABLE_POSTGRES!=='true'||process.env.VERCEL_ENV==='production')throw Error('Isolated synthetic opt-in required');
 const root=path.resolve(__dirname,'..'),temp=fs.mkdtempSync('/tmp/gs-central-'),socket=path.join(temp,'socket');fs.mkdirSync(socket);
 const version=fs.readdirSync('/usr/lib/postgresql').sort((a,b)=>Number(b)-Number(a))[0],bin='/usr/lib/postgresql/'+version+'/bin',data=path.join(temp,'data');
 execFileSync(bin+'/initdb',['-D',data,'-A','trust','-U','synthetic'],{stdio:'ignore'});execFileSync(bin+'/pg_ctl',['-D',data,'-l',path.join(temp,'postgres.log'),'-o',`-k ${socket} -p 55442 -h ''`,'start'],{stdio:'ignore'});
+execFileSync('openssl',['req','-x509','-newkey','rsa:2048','-nodes','-keyout',path.join(temp,'synthetic.key'),'-out',path.join(temp,'synthetic.crt'),'-days','1','-subj','/CN=localhost','-addext','subjectAltName=DNS:localhost,IP:127.0.0.1'],{stdio:'ignore'});
 const pool=new Pool({host:socket,port:55442,user:'synthetic',database:'postgres',max:12});
 const db={query:async(q,p=[])=>(await pool.query(q,p)).rows,transaction:async fn=>{const c=await pool.connect();try{await c.query('BEGIN');const result=await fn({query:async(q,p=[])=>(await c.query(q,p)).rows});await c.query('COMMIT');return result}catch(e){await c.query('ROLLBACK');throw e}finally{c.release()}}};
 const files=new Map(),storage={put:async(key,bytes,mime)=>{files.set(key,{bytes:Buffer.from(bytes),mime});return{key}},get:async key=>files.get(key)};
@@ -52,7 +53,7 @@ async function start(){
  for(const a of actors){await pool.query('insert into users(id,auth_subject,email,name,role) values($1,$2,$3,$4,$5)',[a.id,a.subject,a.email,a.name,a.role]);for(const cid of ['CEO','ADMINISTRAÇÃO','CALL CENTER'].includes(a.role)?['a','b']:['a'])await pool.query('insert into user_clinics(user_id,clinic_id) values($1,$2)',[a.id,cid]);}
  const ceo={...actors[0],active:true,clinics:['a','b','c'],activeClinicIds:['a','b','c'],permissions:{}};
  const key=()=>randomUUID();await Modules.stockWrite(ceo,'category-save',{clinicId:'a',id:'synthetic-category',name:'SYNTHETIC CATEGORY',idempotencyKey:key()});await Modules.stockWrite(ceo,'product-save',{clinicId:'a',id:'synthetic-product',reference:'SYN-001',name:'SYNTHETIC PRODUCT',unit:'un',categoryId:'synthetic-category',minimum:5,maximum:1000,idempotencyKey:key()});await Modules.stockWrite(ceo,'receive',{clinicId:'a',productId:'synthetic-product',quantity:500,idempotencyKey:key()});
- server=http.createServer(async(req,res)=>{try{
+ server=https.createServer({key:fs.readFileSync(path.join(temp,'synthetic.key')),cert:fs.readFileSync(path.join(temp,'synthetic.crt'))},async(req,res)=>{try{
   const url=new URL(req.url,origin);req.query=Object.fromEntries(url.searchParams);const chunks=[];for await(const chunk of req)chunks.push(chunk);if(chunks.reduce((n,x)=>n+x.length,0)>7000000){res.writeHead(413);return res.end();}req.body=chunks.length?JSON.parse(Buffer.concat(chunks)):{};
   res.status=n=>{res.statusCode=n;return res};res.json=value=>{res.setHeader('Content-Type','application/json');res.end(JSON.stringify(value));return res};
   if(url.pathname==='/api/auth'){
@@ -67,7 +68,7 @@ async function start(){
   if(!/^[a-zA-Z0-9_.-]+\.(html|js|css)$/.test(name)||!fs.existsSync(path.join(root,name))){res.writeHead(404);return res.end();}
   res.setHeader('Content-Type',name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':'text/html');res.setHeader('Cache-Control','no-store');res.end(fs.readFileSync(path.join(root,name)));
  }catch(e){res.statusCode=500;res.end(JSON.stringify({error:'Synthetic harness failure'}));console.error('HARNESS_ERROR '+e.message);}});
- await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin='http://127.0.0.1:'+server.address().port;env.GS_FINANCE_ORIGINS=origin;
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin='https://127.0.0.1:'+server.address().port;env.GS_FINANCE_ORIGINS=origin;
  fs.writeFileSync(process.env.GS_CENTRAL_READY_FILE||'/tmp/gs-central-ready.json',JSON.stringify({origin,actors}));console.log('CENTRAL_READY synthetic-only');
 }
 let closing=false;async function close(){if(closing)return;closing=true;if(server)await new Promise(resolve=>server.close(resolve));await pool.end();execFileSync(bin+'/pg_ctl',['-D',data,'stop','-m','immediate'],{stdio:'ignore'});process.exit();}

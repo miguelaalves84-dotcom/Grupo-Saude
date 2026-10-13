@@ -31,7 +31,7 @@ try:
   for a in actors:
    for device,width,height in [('desktop',1280,900),('tablet',820,900),('mobile',390,844)]:
     for theme in ['light','dark']:
-     current={'profile':a['role'],'viewport':device,'theme':theme};context=browser.new_context(viewport={'width':width,'height':height},service_workers='block');page=context.new_page();page.set_default_timeout(6000);errors=[];blocked=[]
+     current={'profile':a['role'],'viewport':device,'theme':theme};context=browser.new_context(viewport={'width':width,'height':height},service_workers='block',ignore_https_errors=True);page=context.new_page();page.set_default_timeout(6000);errors=[];blocked=[]
      context.route('**/*',lambda r:r.continue_() if r.request.url.startswith(origin+'/') else (blocked.append(r.request.url),r.abort()))
      page.on('pageerror',lambda e:errors.append(str(e)));context.tracing.start(screenshots=True,snapshots=True,sources=True)
      control(page,'begin');control(page,'restore')
@@ -81,7 +81,7 @@ try:
      record('Revogação no fornecedor sintético bloqueia API e fecha interface',revoked)
      context.tracing.stop(path=str(OUT/('central-'+str(actors.index(a))+'-'+device+'-'+theme+'.zip')));context.close()
   # Delay an actual SQL response, change cookie identity, then release the old response.
-  current={'profile':'CEO → Médico','viewport':'desktop','theme':'light'};context=browser.new_context(service_workers='block');page=context.new_page();page.set_default_timeout(6000);control(page,'begin');control(page,'restore');login(page,actors[0]);held=[]
+  current={'profile':'CEO → Médico','viewport':'desktop','theme':'light'};context=browser.new_context(service_workers='block',ignore_https_errors=True);page=context.new_page();page.set_default_timeout(6000);control(page,'begin');control(page,'restore');login(page,actors[0]);held=[]
   page.route('**/api/clinic-stock?action=stock*',lambda r:held.append((r,r.fetch())))
   page.evaluate('()=>{window.oldCentralReply=GSSessionV4.modules.call("stock",{clinicId:"a"}).then(()=>"LEAK").catch(e=>e.message)}');page.wait_for_timeout(100)
   def stale():

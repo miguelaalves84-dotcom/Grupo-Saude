@@ -14,7 +14,7 @@ session tem 120 consultas por janela de 10 minutos/IP; tentativas de credenciais
 
 ## Execução e evidência
 
-central-integration constrói tests/ci/Dockerfile.central e executa central-browser.py com --network none, fonte read-only e PostgreSQL por socket Unix em /tmp. central-server.cjs exige GS_TEST_DISPOSABLE_POSTGRES=true, não aceita DSN fornecido e recusa VERCEL_ENV=production. Fornecedor/storage efémeros, schemas e migrações aditivas existentes.
+central-integration constrói tests/ci/Dockerfile.central e executa central-browser.py com --network none, fonte read-only e PostgreSQL por socket Unix em /tmp. central-server.cjs exige GS_TEST_DISPOSABLE_POSTGRES=true, não aceita DSN fornecido e recusa VERCEL_ENV=production. HTTPS loopback com certificado sintético efémero (exceção de confiança apenas neste navegador de teste, sem rede externa). Fornecedor/storage efémeros, schemas e migrações aditivas existentes.
 
 Seis perfis, três tamanhos/dois temas; formulário/cookies/identidade SQL; leituras UI/API; default/custom permissions SQL; isolamento/spoofing; consume/concorrência/idempotência API; documentos; view-as; expiração ausente; inativação/revogação; resposta SQL tardia após troca de cookie. matrix-central.json, capturas, traces e log sem credenciais reais. Só resultados efetivos no Actions aprovam casos novos.
 

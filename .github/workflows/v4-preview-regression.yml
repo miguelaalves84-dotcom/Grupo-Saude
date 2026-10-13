@@ -31,14 +31,29 @@ jobs:
               npm run build
             '
   browser:
-    name: Chromium (${{ matrix.suite }})
+    name: Chromium (${{ matrix.suite }}) ${{ matrix.actor }}
     needs: regression
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, daily-leave-browser, clinics-browser, stock-browser, tables-browser, profile-audit-browser]
+        include:
+          - {suite: browser}
+          - {suite: finance-browser}
+          - {suite: improvements-browser}
+          - {suite: documents-browser}
+          - {suite: p0-browser}
+          - {suite: daily-leave-browser}
+          - {suite: clinics-browser}
+          - {suite: stock-browser}
+          - {suite: tables-browser}
+          - {suite: profile-audit-browser, actor: u1}
+          - {suite: profile-audit-browser, actor: test_admin}
+          - {suite: profile-audit-browser, actor: test_adm}
+          - {suite: profile-audit-browser, actor: test_med}
+          - {suite: profile-audit-browser, actor: test_tec}
+          - {suite: profile-audit-browser, actor: test_call}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -48,6 +63,7 @@ jobs:
       - name: Execute synthetic tests in a container with no network
         env:
           SUITE: ${{ matrix.suite }}
+          GS_AUDIT_ACTOR: ${{ matrix.actor }}
         run: |
           mkdir -p "$RUNNER_TEMP/gs-artifacts"
           docker run --rm --network none --read-only --cap-drop ALL \
@@ -56,15 +72,16 @@ jobs:
             --mount type=bind,source="$GITHUB_WORKSPACE",target=/source,readonly \
             --mount type=bind,source="$RUNNER_TEMP/gs-artifacts",target=/artifacts \
             --user "$(id -u):$(id -g)" \
+            -e GS_AUDIT_ACTOR="$GS_AUDIT_ACTOR" \
             --workdir /source gs-visual-tests python tests/ci/run-browser.py "$SUITE"
       - name: Upload synthetic screenshots, traces and effective result
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: chromium-${{ matrix.suite }}-${{ github.sha }}
+          name: chromium-${{ matrix.suite }}-${{ matrix.actor || 'shared' }}-${{ github.sha }}
           path: ${{ runner.temp }}/gs-artifacts
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 30
 
   preserve-baseline:
     if: github.ref == 'refs/heads/fix/v4-p0-security-hardening-clinics-stock'
@@ -180,8 +197,40 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+  profile-matrix:
+    needs: browser
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chromium-profile-audit-browser-*
+          path: matrix-input
+      - name: Consolidate effective results of all six profiles
+        run: |
+          python3 - <<'MATRIX'
+          import json,csv
+          from pathlib import Path
+          rows=[]
+          for p in Path('matrix-input').rglob('matrix-ui.json'): rows.extend(json.loads(p.read_text()))
+          assert len({r['profile'] for r in rows})==6
+          assert not any(r['state']=='Falhou' for r in rows)
+          out=Path('profile-matrix');out.mkdir()
+          (out/'matrix-ui.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+          with (out/'matrix-ui.csv').open('w',newline='') as f:
+            w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+          print(json.dumps({'profiles':6,'executions':len(rows),'failed':0}))
+          MATRIX
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: profile-validation-matrix-${{ github.sha }}
+          path: profile-matrix
+          retention-days: 30
+
   preview-package:
-    needs: [regression, browser, server-postgresql, visual-pixels]
+    needs: [regression, browser, server-postgresql, visual-pixels, profile-matrix]
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:

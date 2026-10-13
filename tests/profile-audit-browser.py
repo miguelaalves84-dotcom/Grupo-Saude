@@ -4,6 +4,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 KEY='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/artifacts'));OUT.mkdir(parents=True,exist_ok=True)
 ACTORS={'u1':'CEO','test_admin':'Administração','test_adm':'Administrativo','test_med':'Médico','test_tec':'Técnico','test_call':'Call Center'}
+if os.environ.get('GS_AUDIT_ACTOR'):ACTORS={a:p for a,p in ACTORS.items() if a==os.environ['GS_AUDIT_ACTOR']}
 MANAGERS={'u1','test_admin'}
 VIEWS={'dashboard':'dashboard','operation':'operation','wait':'waiting','chat':'personal','hr':'hrManage','tasks':'clinicTasks','audit':'audit','clinics':'clinics','stock':'stockRead','reports':'reports','marketing':'marketing','alerts':'alerts','security':'security','tables':'settings','clock':'clock'}
 rows=[];current={}
@@ -16,6 +17,7 @@ def record(module,action,expected,fn,layer='UI'):
    active_page.evaluate('document.getElementById("modal")?.close();document.getElementById("financeDialog")?.close()');switch(active_page,current['actor'])
   except Exception:pass
  rows.append({**current,'module':module,'functionality':action,'expected_permission':expected,'effective_result':detail,'state':state,'layer':layer})
+ if state=='Falhou':print('AUDIT_UI_CASE_FAILURE '+json.dumps(rows[-1],ensure_ascii=False),flush=True)
  return state=='Aprovada'
 def pending(module,action,state,detail):rows.append({**current,'module':module,'functionality':action,'expected_permission':'Dependência externa ou funcionalidade ausente','effective_result':detail,'state':state,'layer':'Integração real'})
 def check(value,message='Resultado diferente do esperado'):
@@ -24,8 +26,11 @@ def check(value,message='Resultado diferente do esperado'):
 def fixture(page,actor):
  return page.evaluate('''([k,a])=>{const s=JSON.parse(localStorage.getItem(k)),cs=s.clinics.filter(c=>c.active!==false&&!c.legacyDemo&&!c.virtual&&c.operational!==false);const ids=cs.slice(0,3).map(c=>c.id);for(const u of s.users.filter(u=>['u1','test_admin','test_adm','test_call','test_med','test_tec'].includes(u.id))){const scope=u.id==='u1'?ids:['test_admin','test_call'].includes(u.id)?ids.slice(0,2):ids.slice(0,1);u.clinics=scope;if(s.employees[u.id]){s.employees[u.id].clinics=scope;s.employees[u.id].hr={...s.employees[u.id].hr,vacationDays:22};}}s.users.push({id:'audit_forbidden',name:'SYNTHETIC OUTSIDE CLINIC',email:'outside@example.invalid',role:'TECNICO/A',active:true,clinics:[ids[2]],hr:{reservedAccess:true}});s.employees.audit_forbidden=s.users.at(-1);s.currentUser=a;s.ceoViewingAs=a==='u1'?null:a;s.leave=[];s.stockLedgers={};s.financeV2={invoices:[],payslips:[],entries:[],events:[]};s.employeeDocuments={};s.userActionPermissions={};localStorage.setItem(k,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:user-changed'));return ids;}''',[KEY,actor])
 def switch(page,actor):page.evaluate('(a)=>CEOReservedAreaV4.select(a===\'u1\'?\'__CEO__\':a)',actor)
+def click_shortcut(page,name):
+ if page.viewport_size['width']<=760 and not page.locator('body').evaluate('(e)=>e.classList.contains("menu-open")'):page.locator('#menuBtn').click()
+ page.locator('#shortcut_'+name).click()
 def flows(page,actor,ids):
- a,b,c=ids;current['mode']='padrão';current['viewport']='desktop';current['theme']='light'
+ a,b,c=ids;current['mode']='padrão'
  record('Identidade','Alternância imediata sem reload e sem herdar privilégios','Perfil simulado',lambda:check(page.evaluate('(a)=>GSModuleDemo.actor().id===a',actor)))
  record('Clínicas','Isolamento: terceira clínica não atribuída','CEO global; outros recusados',lambda:check(page.evaluate('(c)=>AccessScopeV4.canClinic(c,"stockRead")',c)==(actor=='u1')))
  record('Clínicas','Associação a várias clínicas','CEO/Administração/Call Center em A+B',lambda:check(page.evaluate('(b)=>GSModuleDemo.clinics().some(c=>c.id===b)',b)==(actor in ['u1','test_admin','test_call'])))
@@ -36,7 +41,7 @@ def flows(page,actor,ids):
   data=page.evaluate('async()=>FinanceDemoV4.bootstrap()');check(any(x['id']=='audit_secret_finance' for x in data['entries'])==(actor=='u1'),'Movimento de outra clínica exposto')
  record('Financeiro','Conta corrente: isolamento financeiro por pessoa/clínica','account + clínica atribuída; CEO global',financial_private)
  def invoice_flow():
-  page.locator('#shortcut_invoices').click();page.locator('[data-fin-action="invoice-new"]').click();f=page.locator('#financeDialog form');f.locator('[name="number"]').fill('AUDIT-'+actor);f.locator('[name="value"]').fill('21.30');f.locator('[name="document"]').set_input_files({'name':'synthetic.pdf','mimeType':'application/pdf','buffer':b'%PDF-1.4\nAUDIT-'+actor.encode()+b'\n%%EOF'});f.locator('[type="submit"]').click();page.wait_for_timeout(150)
+  click_shortcut(page,'invoices');page.locator('[data-fin-action="invoice-new"]').click();f=page.locator('#financeDialog form');f.locator('[name="number"]').fill('AUDIT-'+actor);f.locator('[name="value"]').fill('21.30');f.locator('[name="document"]').set_input_files({'name':'synthetic.pdf','mimeType':'application/pdf','buffer':b'%PDF-1.4\nAUDIT-'+actor.encode()+b'\n%%EOF'});f.locator('[type="submit"]').click();page.wait_for_timeout(150)
   invoice=page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).financeV2.invoices[0]',KEY);check(invoice['employeeId']==actor);return invoice['id']
  invoice_id=[]
  record('Faturas','Submissão por formulário e associação ao próprio','account',lambda:invoice_id.append(invoice_flow()))
@@ -63,10 +68,10 @@ def flows(page,actor,ids):
   page.evaluate('''([k,a])=>{const s=JSON.parse(localStorage.getItem(k));s.employeeDocuments[a]=[{id:'audit_personal_doc',name:'SYNTHETIC PERSONAL DOCUMENT',required:true,status:'Em falta',employeeId:a}];localStorage.setItem(k,JSON.stringify(s));HRSeparationV4.uploadMissing('audit_personal_doc');}''',[KEY,actor]);page.locator('#missingDocFile').set_input_files({'name':'synthetic-personal.pdf','mimeType':'application/pdf','buffer':b'%PDF-1.4\nSYNTHETIC PERSONAL DOCUMENT\n%%EOF'});page.locator('#missingDocExpiry').fill('2099-01-01');page.get_by_role('button',name='Enviar para validação',exact=True).click();page.wait_for_timeout(40);check(page.evaluate('(a)=>HRLeaveV4.read().employeeDocuments[a][0].status',actor)=='Pendente');switch(page,'u1');check(page.evaluate('()=>ApprovalsV4.decide("doc","audit_personal_doc",'+json.dumps(actor)+',"Aprovado")') is True);switch(page,actor);page.evaluate('HRSeparationV4.documents()');check('Aprovado' in page.locator('#modalBody').inner_text());check(not page.evaluate('()=>AttentionUIV4.items().some(x=>x.kind==="document"&&x.entityId==="audit_personal_doc")'));page.evaluate('document.getElementById("modal").close()')
  record('Documentos RH','Upload efetivo → validação CEO → consulta própria → contador atualizado','personal / CEO hrManage+leaveApprove',employee_document)
  def simulated_clock():
-  page.context.grant_permissions(['geolocation']);page.context.set_geolocation({'latitude':38.72,'longitude':-9.1,'accuracy':5});page.evaluate('''([k,a,u])=>{const s=JSON.parse(localStorage.getItem(k));s.clinics.find(c=>c.id===a).gps={lat:'38.72',lng:'-9.1',radius:50};delete s.users.find(p=>p.id===u).clinic;if(s.employees[u])delete s.employees[u].clinic;localStorage.setItem(k,JSON.stringify(s));App.showView('clock');App.confirmClock('Entrada','09:00');}''',[KEY,a,actor]);page.wait_for_function('(u)=>JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).timeEntries.some(x=>String(x.user||x.userId||x.employeeId)===u)',arg=actor,timeout=2500);check(page.evaluate('(u)=>HRLeaveV4.read().timeEntries.some(x=>String(x.user||x.userId||x.employeeId)===u)',actor));return 'Coordenadas Chromium simuladas; não valida GPS físico'
+  page.context.grant_permissions(['geolocation']);page.context.set_geolocation({'latitude':38.72,'longitude':-9.1,'accuracy':5});page.evaluate('''([k,a,u])=>{const s=JSON.parse(localStorage.getItem(k));s.clinics.find(c=>c.id===a).gps={lat:'38.72',lng:'-9.1',radius:50};delete s.users.find(p=>p.id===u).clinic;if(s.employees[u])delete s.employees[u].clinic;localStorage.setItem(k,JSON.stringify(s));App.showView('clock');App.confirmClock('Entrada',new Date().toTimeString().slice(0,5));}''',[KEY,a,actor]);page.wait_for_function('(u)=>JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).timeEntries.some(x=>String(x.user||x.userId||x.employeeId)===u)',arg=actor,timeout=2500);check(page.evaluate('(u)=>HRLeaveV4.read().timeEntries.some(x=>String(x.user||x.userId||x.employeeId)===u)',actor));return 'Coordenadas Chromium simuladas; não valida GPS físico'
  record('Livro de ponto','Entrada com geolocalização simulada produz marcação','clock + clínica + GPS sintético',simulated_clock)
  def chat():
-  page.evaluate("App.showView('chat');App.newConversation()");page.locator('#convTitle').fill('AUDIT CHAT '+actor);target='test_med' if actor!='test_med' else 'test_tec';page.locator('[name="member"][value="'+target+'"]').check();page.get_by_role('button',name='Criar conversa',exact=True).click();page.locator('#chatMessage').fill('Mensagem sintética');page.evaluate('App.sendMessage()');conv=page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).conversations.find(c=>c.title.startsWith("AUDIT CHAT"))',KEY);check(conv['messages'][-1]['from']==actor);switch(page,target);check(page.evaluate('(id)=>AttentionUIV4.items().some(x=>x.kind==="chat"&&x.entityId===id)',conv['messages'][-1]['id']));page.evaluate('(id)=>{App.showView("chat");App.selectConversation(id)}',conv['id']);check(not page.evaluate('(id)=>AttentionUIV4.items().some(x=>x.entityId===id)',conv['messages'][-1]['id']));switch(page,actor)
+  page.evaluate("App.showView('chat');App.newConversation()");page.locator('#convTitle').fill('AUDIT CHAT '+actor);target='test_med' if actor!='test_med' else 'test_tec';page.locator('[name="member"][value="'+target+'"]').check();page.get_by_role('button',name='Criar conversa',exact=True).click();page.locator('#chatMessage').fill('Mensagem sintética');page.evaluate('App.sendMessage()');conv=page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).conversations.find(c=>c.title.startsWith("AUDIT CHAT"))',KEY);check(conv['messages'][-1]['from']==actor);page.evaluate('App.showView("clock")');switch(page,target);check(page.evaluate('(id)=>AttentionUIV4.items().some(x=>x.kind==="chat"&&x.entityId===id)',conv['messages'][-1]['id']));page.evaluate('(id)=>{App.showView("chat");App.selectConversation(id)}',conv['id']);check(not page.evaluate('(id)=>AttentionUIV4.items().some(x=>x.entityId===id)',conv['messages'][-1]['id']));switch(page,actor)
  record('Chat','Criar conversa → enviar → destinatário lê → contador resolve','personal + membro',chat)
  def stock():
   switch(page,'u1');page.evaluate('''(a)=>{GSModuleDemo.call('category-save',{clinicId:a,id:'audit_cat',name:'SYNTHETIC CATEGORY'});GSModuleDemo.call('product-save',{clinicId:a,id:'audit_product',name:'SYNTHETIC PRODUCT',reference:'AUDIT-P',unit:'un',categoryId:'audit_cat',minimum:4,maximum:100});GSModuleDemo.call('receive',{clinicId:a,productId:'audit_product',quantity:20,idempotencyKey:'audit_seed'});}''',a);switch(page,actor);page.evaluate('StockUIV4.open()');check(page.locator('#stockClinic').is_visible());req=page.evaluate('(a)=>GSModuleDemo.call("request-create",{clinicId:a,productId:"audit_product",quantity:2,reason:"Pedido sintético"})',a);check(req['requestedBy']==actor);switch(page,'u1');page.evaluate('([a,id])=>GSModuleDemo.call("request-decide",{clinicId:a,id,status:"Aprovado",reason:"Validado"})',[a,req['id']]);switch(page,actor);check(page.evaluate('([a,id])=>GSModuleDemo.call("stock",{clinicId:a}).requests.find(x=>x.id===id).status',[a,req['id']])=='Aprovado');note=page.evaluate('(id)=>AttentionUIV4.items().find(x=>x.kind==="stock-decision"&&x.entityId===id)',req['id']);check(note is not None);page.evaluate('(id)=>AttentionUIV4.open(id)',note['id']);check(page.locator('#stockPanel').get_by_text('Aprovado',exact=False).count()>0);page.evaluate('(id)=>AttentionUIV4.ack(id)',note['id']);check(not page.evaluate('(id)=>AttentionUIV4.items().some(x=>x.id===id)',note['id']));check(page.evaluate('(c)=>{try{GSModuleDemo.call("stock",{clinicId:c});return true}catch{return false}}',c)==(actor=='u1'))
@@ -75,7 +80,7 @@ def flows(page,actor,ids):
  record('Stock','Repetição de uma receção não duplica existências','idempotência',lambda:check(page.evaluate('(a)=>{const s=GSModuleDemo.read(),old=s.currentUser;s.currentUser="u1";s.ceoViewingAs=null;localStorage.setItem("grupo_saude_v4_demo_2",JSON.stringify(s));const before=JSON.stringify(GSModuleDemo.call("stock",{clinicId:a}).balances);GSModuleDemo.call("receive",{clinicId:a,productId:"audit_product",quantity:20,idempotencyKey:"audit_seed"});const result=before===JSON.stringify(GSModuleDemo.call("stock",{clinicId:a}).balances);CEOReservedAreaV4.select(old==="u1"?"__CEO__":old);return result}',a)))
  record('Notificações','Contador global coincide com assuntos autorizados','sem contagens herdadas',lambda:check(page.evaluate('()=>{AttentionUIV4.refresh();return true}') and page.evaluate('()=>{const n=AttentionUIV4.items().length,b=document.querySelector("#attentionToggle [data-attention-count]");return !!b&&b.textContent===(n>99?"99+":String(n))}')))
  def financial_pdf():
-  page.locator('#shortcut_account').click();page.wait_for_timeout(80)
+  click_shortcut(page,'account');page.wait_for_timeout(80)
   with page.expect_download() as d:page.locator('[data-fin-action="pdf"]').click()
   check(Path(d.value.path()).read_bytes().startswith(b'%PDF-1.4'))
  record('Conta corrente','Exportação PDF efetiva','account',financial_pdf)
@@ -101,8 +106,8 @@ try:
    for size,width,height in [('desktop',1280,900),('tablet',820,900),('mobile',390,844)]:
     for theme in ['light','dark']:
      current={'profile':profile,'actor':actor,'viewport':size,'theme':theme,'mode':'padrão'}
-     context=browser.new_context(viewport={'width':width,'height':height});page=context.new_page();active_page=page;errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('dialog',lambda d:d.accept());page.goto(os.environ['GS_TEST_URL']);page.wait_for_function('window.GSModuleDemo && window.AttentionUIV4');page.wait_for_timeout(600);ids=fixture(page,actor);page.evaluate('(t)=>{document.documentElement.dataset.theme=t}',theme);page.wait_for_timeout(20)
-     if size=='desktop' and theme=='light':flows(page,actor,ids)
+     context=browser.new_context(viewport={'width':width,'height':height});context.add_init_script("const originalAdd=EventTarget.prototype.addEventListener;EventTarget.prototype.addEventListener=function(type,...args){if(type==='click')this.__auditClickListener=true;return originalAdd.call(this,type,...args)}");page=context.new_page();page.set_default_timeout(4000);active_page=page;errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('dialog',lambda d:d.accept());page.goto(os.environ['GS_TEST_URL']);page.wait_for_function('window.GSModuleDemo && window.AttentionUIV4');page.wait_for_timeout(600);ids=fixture(page,actor);page.evaluate('(t)=>{localStorage.setItem("gs-v4-theme",t);document.documentElement.dataset.theme=t}',theme);page.wait_for_timeout(20)
+     flows(page,actor,ids)
      for mode in ['padrão','concessão','remoção']:
       current.update(mode=mode,viewport=size,theme=theme)
       page.evaluate('''([k,a,m])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser=a;s.ceoViewingAs=a==='u1'?null:a;s.userActionPermissions={};if(a!=='u1'&&m!=='padrão')s.userActionPermissions[a]=Object.fromEntries(GSAccessPolicy.actions.map(([key])=>[key,m==='concessão']));localStorage.setItem(k,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:permissions-applied'));}''',[KEY,actor,mode]);page.wait_for_timeout(20)
@@ -142,13 +147,13 @@ try:
       for view,key in VIEWS.items():
        if not page.evaluate('(v)=>RoleAccessAdminV4.guard(v)',view):continue
        page.evaluate('(v)=>App.showView(v)',view)
-       controls=page.locator('#'+view+' button').evaluate_all('''els=>els.map(e=>({label:e.textContent.trim(),action:e.dataset.gsAction||e.dataset.stockAction||e.dataset.cdAction||e.dataset.tableAction||e.getAttribute('onclick')||'',bound:typeof e.onclick==='function'||[...e.attributes].some(a=>/action|decision|attention|open-clinics|role-permissions/.test(a.name))||!!e.closest('form')||typeof e.parentElement?.onclick==='function'}))''')
+       controls=page.locator('#'+view+' button').evaluate_all('''els=>els.map(e=>({label:e.textContent.trim(),action:e.dataset.gsAction||e.dataset.stockAction||e.dataset.cdAction||e.dataset.tableAction||e.getAttribute('onclick')||'',bound:e.__auditClickListener===true||typeof e.onclick==='function'||[...e.attributes].some(a=>/action|decision|attention|open-clinics|role-permissions/.test(a.name))||!!e.closest('form')||typeof e.parentElement?.onclick==='function'}))''')
        for control in controls:
         if not control['label']:continue
         record(view,'Ligação de botão: '+control['label']+' / '+control['action'][:80],'Callback/ação/formulário definido',lambda control=control:check(control['bound'],'Botão sem destino/handler detetado'),layer='Ligação de controlos (não aprovação do fluxo)')
      record('Runtime','Ausência de exceções Javascript','Sem erros',lambda:check(not errors,repr(errors)))
      if size=='desktop' and theme=='light':page.screenshot(path=str(OUT/('audit-'+actor+'.png')),full_page=True)
-     context.close()
+     print('AUDIT_UI_SCENARIO '+json.dumps(current,ensure_ascii=False),flush=True);context.close()
   browser.close()
 finally:
  (OUT/'matrix-ui.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
@@ -161,5 +166,5 @@ finally:
    key=(r['module'],r['functionality'],r['layer']);rank={'Aprovada':0,'Não testável no ambiente demonstrativo':1,'Não implementada':2,'Falhou':3}
    if key not in features or rank[r['state']]>rank[features[key]]:features[key]=r['state']
   summaries[profile]={'unique_functionality_checks':len(features),'executions':len(rs),'states':{s:list(features.values()).count(s) for s in ['Aprovada','Falhou','Não implementada','Não testável no ambiente demonstrativo']}}
- print('AUDIT_UI_SUMMARY '+json.dumps(summaries,ensure_ascii=False));failures=[r for r in rows if r['state']=='Falhou'];print('AUDIT_UI_FAILURES '+json.dumps(failures[:35],ensure_ascii=False))
+ print('AUDIT_UI_SUMMARY '+json.dumps(summaries,ensure_ascii=False));failures=[r for r in rows if r['state']=='Falhou'];print('AUDIT_UI_FAILURES '+json.dumps(failures,ensure_ascii=False))
  if failures:raise SystemExit(1)

@@ -9,6 +9,8 @@ function clinics(s=R()){const p=actor(s);if(p.active===false)return[];const all=
 const canDashboard=s=>['CEO','ADMINISTRACAO'].includes(role(s))&&actor(s).active!==false&&!!window.RoleAccessAdminV4?.permission(s,'dashboard');
 function canEmployee(id,s=R()){if(String(id)===String(s.currentUser))return actor(s).active!==false&&!!window.RoleAccessAdminV4?.permission(s,'personal');if(!window.RoleAccessAdminV4?.permission(s,'hrManage'))return false;if(isAdmin(s))return true;const p=s.employees?.[id]||(s.users||[]).find(x=>String(x.id)===String(id));if(p?._new&&String(p._createdBy||'')===String(s.currentUser))return role(s)==='ADMINISTRACAO';return role(s)==='ADMINISTRACAO'&&assigned(p||{}).some(cid=>clinics(s).includes(cid))}
 function canClinic(id,action,s=R()){if(!clinics(s).includes(String(id)))return false;if(action==='dashboard')return canDashboard(s);return isAdmin(s)||!!window.RoleAccessAdminV4?.permission(s,action)}
+function canTimeOccurrence(x,s=R()){if(!x||actor(s).active===false||!['CEO','ADMINISTRACAO'].includes(role(s))||!window.RoleAccessAdminV4?.permission(s,'hrManage'))return false;const cid=x.clinicId||x.clinic;return cid?clinics(s).includes(String(cid)):canEmployee(x.employeeId||x.userId||x.user,s)}
+function canCandidate(x,s=R()){if(!x||actor(s).active===false||!['CEO','ADMINISTRACAO'].includes(role(s))||!window.RoleAccessAdminV4?.permission(s,'hrManage'))return false;const ids=assigned(x);return isAdmin(s)||ids.length>0&&ids.every(cid=>clinics(s).includes(cid))}
 function dashboard(s=R(),filter={}){
  if(!canDashboard(s))throw Error('Sem autorização para consultar o Dashboard.');
  const permitted=clinics(s),selected=String(filter.clinicId||'');if(selected&&!permitted.includes(selected))throw Error('Clínica não autorizada ou inativa.');
@@ -27,5 +29,5 @@ function dashboard(s=R(),filter={}){
  return{start,end,clinicId:selected,clinics:activeClinics(s).filter(c=>permitted.includes(String(c.id))).map(c=>({id:String(c.id),name:c.name})),totals,compare,trend,alerts:(s.alerts||[]).filter(a=>ids.has(String(a.clinic||a.clinicId))&&(!a.to||String(a.to)===String(s.currentUser))&&a.status!=='Resolvido').map(a=>({title:a.title,status:a.status}))};
 }
 function ensureAdministrationEntity(){const s=R();s.clinics||=[];if(!s.clinics.some(c=>c.id==='administracao')){s.clinics.push({id:'administracao',name:'Administração',active:true,entityType:'administration',operational:false,virtual:true});localStorage.setItem(K,JSON.stringify(s))}}
-ensureAdministrationEntity();window.AccessScopeV4={actor,role,isAdmin,clinics,canEmployee,canClinic,canDashboard,dashboard,assigned,activeClinics,scope:s=>isAdmin(s)?'global':'assigned-clinics',ensureAdministrationEntity};
+ensureAdministrationEntity();window.AccessScopeV4={actor,role,isAdmin,clinics,canEmployee,canClinic,canTimeOccurrence,canCandidate,canDashboard,dashboard,assigned,activeClinics,scope:s=>isAdmin(s)?'global':'assigned-clinics',ensureAdministrationEntity};
 })();

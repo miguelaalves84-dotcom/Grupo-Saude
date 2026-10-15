@@ -1,0 +1,40 @@
+import os
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+ b=p.chromium.launch(headless=True,args=['--no-sandbox'])
+ c=b.new_context();page=c.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+ page.goto(os.environ['GS_TEST_URL']);page.wait_for_function('window.App && App.__validationFixes')
+ page.evaluate('App.temporaryExit()')
+ page.wait_for_selector('#tempReason');page.get_by_role('button',name='Confirmar',exact=True).click()
+ assert page.locator('#tempReason').is_visible()
+ assert page.get_by_role('button',name='Confirmar',exact=True).is_enabled()
+ page.locator('#tempReason').fill('Saída temporária sintética')
+ page.get_by_role('button',name='Confirmar',exact=True).click()
+ page.wait_for_function('!document.getElementById("modal").open')
+ count=page.evaluate('JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).timeOccurrences.filter(x=>x.type==="Saída temporária").length')
+ assert count==1
+ page.evaluate('App.temporaryExit()');page.wait_for_selector('#tempReason');page.get_by_role('button',name='Confirmar',exact=True).click()
+ page.wait_for_function('!document.getElementById("modal").open')
+ assert page.evaluate('JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).timeEntries.find(x=>x.type==="Saída temporária").returnAt')
+ page.evaluate('App.temporaryExit()');page.wait_for_selector('#tempReason')
+ page.locator('#tempReason').fill('Saída com documento sintético')
+ page.locator('#tempDoc').set_input_files({'name':'test.pdf','mimeType':'application/pdf','buffer':b'%PDF-1.4 synthetic'})
+ page.evaluate('()=>{window.originalReader=FileReader;window.FileReader=class{readAsDataURL(){window.pendingReader=this}}}')
+ page.get_by_role('button',name='Confirmar',exact=True).click()
+ assert page.get_by_role('button',name='Confirmar',exact=True).is_disabled()
+ page.evaluate('App.confirmTemporary("Saída temporária","")')
+ assert page.evaluate('JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).timeOccurrences.length')==2
+ page.evaluate('()=>{pendingReader.onerror();window.FileReader=originalReader}')
+ assert page.get_by_role('button',name='Confirmar',exact=True).is_enabled()
+ page.get_by_role('button',name='Confirmar',exact=True).click()
+ page.wait_for_function('!document.getElementById("modal").open')
+ assert page.evaluate('JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).timeOccurrences.length')==3
+ page.evaluate('App.attemptClose()')
+ page.locator('#modal .modal-head button').click()
+ page.evaluate('App.confirmClock("Entrada","09:00")')
+ page.wait_for_function('!document.getElementById("modal").open',timeout=9000)
+ assert page.locator('#modal .modal-head button').is_enabled()
+ page.evaluate('App.attemptClose()');page.locator('#modal .modal-head button').click()
+ assert not errors,errors
+ c.close();b.close()
+print('PASS clock: first temporary exit, validation retry, return and unrelated dialog close remain usable')

@@ -44,8 +44,12 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
             assert time.monotonic()<deadline,'Horizontal autoscroll did not reach '+stage+' '+str(page.evaluate('()=>({trace:window.__dragTrace,input:window.__lastDropInput,status:document.querySelector(".candidate-drag-status")?.textContent,board:{scroll:document.querySelector(".candidate-board").scrollLeft,rect:document.querySelector(".candidate-board").getBoundingClientRect().toJSON()},ghost:!!document.querySelector(".candidate-drag-ghost")})'))
             x=r['x']+r['width']-10 if b['x']+b['width']/2>=r['x']+r['width']/2 else r['x']+10
             move(x,max(r['y']+25,min(start['y'],r['y']+r['height']-25,page.viewport_size['height']-25)));page.wait_for_timeout(70)
-        end={'x':(left+right)/2,'y':max(r['y']+18,min(start['y'],r['y']+r['height']-18))}
-        move(end['x'],end['y']);page.wait_for_selector('.candidate-drop-target')
+        for attempt in range(30):
+            r=board.bounding_box();b=col.bounding_box();left=max(r['x'],b['x']);right=min(r['x']+r['width'],b['x']+b['width']);top=max(r['y'],b['y'],100);bottom=min(r['y']+r['height'],b['y']+b['height'],page.viewport_size['height']-20)
+            assert right>left+20 and bottom>top+20,'Destination must intersect the visible tablet area'
+            end={'x':(left+right)/2,'y':(top+bottom)/2};move(end['x'],end['y'])
+            if page.locator('.candidate-drop-target[data-stage="'+stage+'"]').count()==1:break
+        verify('drop point hits the intended visible column '+stage,page.evaluate('([x,y,s])=>document.elementFromPoint(x,y)?.closest(".candidate-column")?.dataset.stage===s',[end['x'],end['y'],stage]))
         verify('correct destination highlighted for '+stage,page.locator('.candidate-drop-target').get_attribute('data-stage')==stage)
         if cancel:page.screenshot(path=str(OUT/(scope['device']+'-'+scope['profile']+'-drag-cancel.png')))
     page.evaluate('([x,y])=>window.__lastDropInput={x,y,hit:document.elementFromPoint(x,y)?.closest(".candidate-column")?.dataset.stage,highlight:document.querySelector(".candidate-drop-target")?.dataset.stage,board:document.querySelector(".candidate-board").getBoundingClientRect().toJSON(),scroll:document.querySelector(".candidate-board").scrollLeft}',[end['x'],end['y']])

@@ -30,13 +30,28 @@ function openInterview(id){
  '<p><strong>Função:</strong> '+E(c.role||'Por confirmar')+' · <strong>Clínica:</strong> '+E(c.clinic||'Por confirmar')+'</p>'+
  '<p><strong>Entrevista:</strong> '+E(i.at||c.interviewAt||'Por agendar')+' · '+E(i.mode==='tele'?'Tele-entrevista':'Presencial')+'</p>'+
  '<fieldset><legend>Gravação de áudio (opcional)</legend><label><input type="checkbox" id="interviewConsent"> Confirmei que todos os intervenientes foram informados e autorizaram a gravação quando aplicável</label><div class="actions"><button id="interviewRecord">Iniciar gravação</button><button id="interviewPause" disabled>Pausar</button><button id="interviewStop" disabled>Terminar</button></div><p id="interviewRecordingStatus" role="status">Sem gravação</p><div id="interviewPlayback"></div><label>Ou selecionar gravação existente (apenas reprodução local)<input id="interviewUpload" type="file" accept="audio/*"></label></fieldset>'+
- '<fieldset><legend>Transcrição</legend><p>Serviço de transcrição automática não configurado. Pode introduzir ou corrigir a transcrição manualmente.</p><textarea id="interviewTranscript" rows="6" placeholder="Perguntas e respostas transcritas..."></textarea></fieldset>'+
+ '<fieldset><legend>Transcrição</legend><p id="interviewAIStatus" role="status">'+(server?'Após terminar a gravação, a transcrição e o relatório são gerados automaticamente se o serviço estiver configurado.':'Demonstração local: a IA só funciona na área autenticada de testes, com configuração segura.')+'</p><textarea id="interviewTranscript" rows="6" placeholder="Perguntas e respostas transcritas..."></textarea></fieldset>'+
  '<label>Notas e resumo da entrevista<textarea id="interviewCenterNotes" rows="7">'+E(c.notes||c.result||'')+'</textarea></label>'+
  '<fieldset><legend>Guião inicial — perguntas editáveis</legend>'+questions.map((q,n)=>'<label>Pergunta '+(n+1)+'<textarea class="interview-question" rows="2">'+E(q)+'</textarea></label>').join('')+'</fieldset>'+
- '<fieldset><legend>Análise e relatório</legend><p>A análise por IA está indisponível até existir uma integração segura. Não são feitas avaliações automáticas de voz, personalidade ou contratação.</p><label>Relatório e conclusões do entrevistador<textarea id="interviewAssessment" rows="5" placeholder="Competências demonstradas, evidências, questões por esclarecer e próximos passos..."></textarea></label></fieldset>'+
+ '<fieldset><legend>Análise e relatório</legend><p>Relatório de apoio à entrevista, sem decisões automáticas de contratação.</p><label>Relatório e conclusões do entrevistador<textarea id="interviewAssessment" rows="5" placeholder="Competências demonstradas, evidências, questões por esclarecer e próximos passos..."></textarea></label></fieldset>'+
  '<div class="actions"><button class="primary" id="interviewCenterSave">Guardar registo</button><button class="secondary" id="interviewCenterBack">Voltar à candidatura</button></div>');
  const status=document.getElementById('interviewRecordingStatus'),record=document.getElementById('interviewRecord'),pause=document.getElementById('interviewPause'),stop=document.getElementById('interviewStop');
  const playback=document.getElementById('interviewPlayback');
+ async function processInterviewAudio(blob){
+  const state=document.getElementById('interviewAIStatus');
+  if(!server){state.textContent='Demonstração local: transcrição automática indisponível. Utilize a área autenticada de testes.';return}
+  if(blob.size>2900000){state.textContent='Áudio demasiado longo para processamento automático nesta fase (limite de 2,8 MB). Descarregue-o e guarde-o em segurança.';return}
+  state.textContent='A transcrever áudio e a preparar o relatório...';
+  const bytes=new Uint8Array(await blob.arrayBuffer());let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));
+  try{
+   const result=await api('interview-ai',{candidateId:id,audio:btoa(binary),consent:document.getElementById('interviewConsent').checked});
+   if(!document.getElementById('interviewTranscript'))return;
+   document.getElementById('interviewTranscript').value=result.transcript||'';
+   document.getElementById('interviewAssessment').value=result.report||'';
+   state.textContent='Transcrição e relatório concluídos. Reveja e guarde o registo da entrevista.';
+  }catch(err){state.textContent='Não foi possível processar automaticamente: '+err.message+' Descarregue o áudio e conserve-o para nova tentativa.'}
+ }
+
  function preview(blob){const url=URL.createObjectURL(blob);playback.replaceChildren();const audio=document.createElement('audio');audio.controls=true;audio.src=url;const link=document.createElement('a');link.href=url;link.download='entrevista-'+String(id).replace(/[^a-z0-9_-]/gi,'')+'.webm';link.textContent='Descarregar gravação (guardar antes de sair)';playback.append(audio,link)}
  record.onclick=safe(async()=>{
   if(!document.getElementById('interviewConsent').checked)throw Error('Confirme a informação e autorização dos participantes antes de gravar.');
@@ -54,7 +69,7 @@ function openInterview(id){
   interviewChunks=[];
   interviewRecorder=new MediaRecorder(interviewStream);
   interviewRecorder.ondataavailable=e=>{if(e.data.size)interviewChunks.push(e.data)};
-  interviewRecorder.onstop=()=>{preview(new Blob(interviewChunks,{type:interviewRecorder.mimeType||'audio/webm'}));interviewStream?.getTracks().forEach(t=>t.stop());interviewStream=null;status.textContent='Gravação terminada. Descarregue o ficheiro.'};
+  interviewRecorder.onstop=()=>{const blob=new Blob(interviewChunks,{type:interviewRecorder.mimeType||'audio/webm'});preview(blob);interviewStream?.getTracks().forEach(t=>t.stop());interviewStream=null;status.textContent='Gravação terminada. Descarregue o ficheiro.';void processInterviewAudio(blob)};
   interviewRecorder.start();record.disabled=true;pause.disabled=false;stop.disabled=false;status.textContent='A gravar...';
  });
  pause.onclick=()=>{if(!interviewRecorder)return;if(interviewRecorder.state==='recording'){interviewRecorder.pause();pause.textContent='Retomar';status.textContent='Gravação pausada'}else if(interviewRecorder.state==='paused'){interviewRecorder.resume();pause.textContent='Pausar';status.textContent='A gravar...'}};

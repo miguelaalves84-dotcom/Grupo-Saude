@@ -38,7 +38,7 @@ Não foram criados recursos, configuradas credenciais, aplicadas migrações rem
 
 ## Testes e limites
 
-`npm test` inclui os testes anteriores e `tests/recruitment.cjs` (32 cenários com regras reais, SQLite temporário, CV privados sintéticos e fornecedor simulado). `tests/gmail-activation.cjs` acrescenta sincronização Gmail → funil com fornecedor sintético. `npm run build` exclui API, testes, credenciais, documentos e bases do pacote estático.
+`npm test` inclui os testes anteriores e `tests/recruitment.cjs` (33 cenários com regras reais, SQLite temporário, CV privados sintéticos e fornecedor simulado). `tests/gmail-activation.cjs` acrescenta sincronização Gmail → funil com fornecedor sintético. `npm run build` exclui API, testes, credenciais, documentos e bases do pacote estático.
 
 GitHub Actions: `.github/workflows/v4-stabilization.yml`, regressão + sete suites Chromium. `tests/stabilization-browser.py`: seis perfis × computador/tablet/telemóvel × claro/escuro, navegação preservada e novos fluxos. `tests/recruitment-browser.py`: Chromium → API → SQL/ficheiros temporários, duas sessões sintéticas independentes, seis perfis, edição, entrevistas, notificações e conversão. A fixture não substitui autenticação real, PostgreSQL ou entrega real de email. Os resultados efetivos devem ser consultados no run do commit; código de teste preparado não equivale a aprovação.
 

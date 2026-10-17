@@ -23,7 +23,7 @@ try:
                 page.wait_for_selector('.candidate-column')
                 verify(actor+' five columns in order',page.locator('.candidate-column h2').all_text_contents()==['Candidatos (1)','Entrevista marcada (0)','Recusado (0)','Em análise (0)','Contratado (0)'])
             else:
-                page.wait_for_function('document.querySelector("#recruitmentContent").textContent.includes("revogado")')
+                page.wait_for_function('!document.querySelector("#recruitmentContent").textContent.includes("A verificar")')
                 verify(actor+' no candidate data and API forbidden',page.locator('.candidate-card').count()==0 and c.request.get('http://127.0.0.1:8766/api/recruitment?action=list').status==403)
             contexts.append((c,page))
         ceo, page=contexts[0]; admin, other=contexts[1]

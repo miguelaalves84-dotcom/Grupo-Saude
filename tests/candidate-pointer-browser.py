@@ -41,7 +41,7 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
             if right-left>=160:break
             assert time.monotonic()<deadline,'Horizontal autoscroll did not reach '+stage+' '+str(page.evaluate('()=>({trace:window.__dragTrace,status:document.querySelector(".candidate-drag-status")?.textContent,board:{scroll:document.querySelector(".candidate-board").scrollLeft,rect:document.querySelector(".candidate-board").getBoundingClientRect().toJSON()},ghost:!!document.querySelector(".candidate-drag-ghost")})'))
             x=r['x']+r['width']-10 if b['x']+b['width']/2>=r['x']+r['width']/2 else r['x']+10
-            move(x,start['y']);page.wait_for_timeout(70)
+            move(x,max(r['y']+25,min(start['y'],r['y']+r['height']-25,page.viewport_size['height']-25)));page.wait_for_timeout(70)
         end={'x':(left+right)/2,'y':max(r['y']+18,min(start['y'],r['y']+r['height']-18))}
         move(end['x'],end['y']);page.wait_for_selector('.candidate-drop-target')
         verify('correct destination highlighted for '+stage,page.locator('.candidate-drop-target').get_attribute('data-stage')==stage)

@@ -40,20 +40,21 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
         while True:
             r=board.bounding_box();b=col.bounding_box();left=max(r['x'],b['x']);right=min(r['x']+r['width'],b['x']+b['width'])
             if right-left>=160:break
-            assert time.monotonic()<deadline,'Horizontal autoscroll did not reach '+stage+' '+str(page.evaluate('()=>({trace:window.__dragTrace,status:document.querySelector(".candidate-drag-status")?.textContent,board:{scroll:document.querySelector(".candidate-board").scrollLeft,rect:document.querySelector(".candidate-board").getBoundingClientRect().toJSON()},ghost:!!document.querySelector(".candidate-drag-ghost")})'))
+            assert time.monotonic()<deadline,'Horizontal autoscroll did not reach '+stage+' '+str(page.evaluate('()=>({trace:window.__dragTrace,input:window.__lastDropInput,status:document.querySelector(".candidate-drag-status")?.textContent,board:{scroll:document.querySelector(".candidate-board").scrollLeft,rect:document.querySelector(".candidate-board").getBoundingClientRect().toJSON()},ghost:!!document.querySelector(".candidate-drag-ghost")})'))
             x=r['x']+r['width']-10 if b['x']+b['width']/2>=r['x']+r['width']/2 else r['x']+10
             move(x,max(r['y']+25,min(start['y'],r['y']+r['height']-25,page.viewport_size['height']-25)));page.wait_for_timeout(70)
         end={'x':(left+right)/2,'y':max(r['y']+18,min(start['y'],r['y']+r['height']-18))}
         move(end['x'],end['y']);page.wait_for_selector('.candidate-drop-target')
         verify('correct destination highlighted for '+stage,page.locator('.candidate-drop-target').get_attribute('data-stage')==stage)
-        page.screenshot(path=str(OUT/(scope['device']+'-'+scope['profile']+'-'+stage.replace(' ','_')+'-drag.png')))
+        if cancel:page.screenshot(path=str(OUT/(scope['device']+'-'+scope['profile']+'-drag-cancel.png')))
+    page.evaluate('([x,y])=>window.__lastDropInput={x,y,hit:document.elementFromPoint(x,y)?.closest(".candidate-column")?.dataset.stage,highlight:document.querySelector(".candidate-drop-target")?.dataset.stage,board:document.querySelector(".candidate-board").getBoundingClientRect().toJSON(),scroll:document.querySelector(".candidate-board").scrollLeft}',[end['x'],end['y']])
     if kind=='touch':touch(cdp,'touchCancel' if cancel else 'touchEnd',end['x'],end['y'])
     else:cdp.send('Input.dispatchMouseEvent',{'type':'mouseReleased','x':end['x'],'y':end['y'],'button':'left','buttons':0,'clickCount':1,'pointerType':kind})
     page.wait_for_timeout(100)
     verify('ghost and destination cleaned after gesture',page.locator('.candidate-drag-ghost,.candidate-drop-target').count()==0)
     if not cancel and not small and stage in ['Entrevista marcada','Recusado','Contratado']:
         opened=page.locator('#modal').is_visible()
-        if not opened:print('POST_DROP_DIAGNOSTIC',page.evaluate('()=>({trace:window.__dragTrace,status:document.querySelector(".candidate-drag-status")?.textContent,open:document.querySelector("#modal").open,title:document.querySelector("#modalTitle").textContent,stage:JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).candidates[0].stage})'),flush=True)
+        if not opened:print('POST_DROP_DIAGNOSTIC',page.evaluate('()=>({trace:window.__dragTrace,input:window.__lastDropInput,status:document.querySelector(".candidate-drag-status")?.textContent,open:document.querySelector("#modal").open,title:document.querySelector("#modalTitle").textContent,stage:JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).candidates[0].stage})'),flush=True)
         verify('required dialog remains open after release '+stage,opened)
 
 try:
@@ -83,7 +84,7 @@ try:
         page.locator('[data-candidate-target]').select_option('Em análise');page.locator('[data-candidate-move]').click();verify('accessible selector remains available',candidate(page)['stage']=='Em análise')
         inputs=page.evaluate('window.__inputs');verify('trusted '+kind+' Pointer Events were exercised',any(i['type']==kind and i['trusted'] for i in inputs))
         if not mobile:verify('trusted pen input was exercised',any(i['type']=='pen' and i['trusted'] for i in inputs))
-        verify('no JavaScript exceptions',not errors);context.close()
+        verify('no JavaScript exceptions',not errors);page.screenshot(path=str(OUT/(device+'-'+actor+'-complete.png')),full_page=True);context.close()
     for actor in ['test_adm','test_med','test_tec','test_call']:
         scope={'device':'android-tablet-portrait','profile':actor};context=browser.new_context(viewport={'width':820,'height':1180},is_mobile=True,has_touch=True);context.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=context.new_page();prepare(page,actor)
         verify('unauthorized profile has no drag handles or candidate access',page.locator('.candidate-drag-handle').count()==0 and page.evaluate('()=>{try{CommunicationsV4.candidates();return false}catch{return V4ClinicHR.showCandidates()===false}}'));context.close()

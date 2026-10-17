@@ -15,7 +15,7 @@ def prepare(page,actor):
     page.goto(URL);page.wait_for_function('window.CommunicationsV4 && window.CandidateDragV4')
     page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoRealUser='u1';s.ceoViewingAs=actor==='u1'?null:actor;s.candidates=[];for(const u of s.users){u.name='SYNTHETIC '+u.id;u.email=u.id+'@example.invalid';if(s.employees[u.id])s.employees[u.id].name=u.name}localStorage.setItem(key,JSON.stringify(s))}''',[KEY,actor]);page.reload();page.wait_for_function('window.RecruitmentV4')
     if actor in ['u1','test_admin']:
-        page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));CommunicationsV4.importCV({sourceId:'pointer-synthetic',name:'SYNTHETIC POINTER CANDIDATE',email:'pointer@example.invalid',phone:'912000000',role:s.jobRoles[0].id,clinic:s.clinics[0].id,document:{name:'synthetic.pdf',dataUrl:'data:application/pdf;base64,JVBERi0xLjQK'}});V4ClinicHR.showCandidates();window.__pointerPageToken='same-document';window.__inputs=[];document.addEventListener('pointerdown',e=>window.__inputs.push({type:e.pointerType,trusted:e.isTrusted}),true)}''');page.wait_for_selector('.candidate-drag-handle')
+        page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));CommunicationsV4.importCV({sourceId:'pointer-synthetic',name:'SYNTHETIC POINTER CANDIDATE',email:'pointer@example.invalid',phone:'912000000',role:s.jobRoles[0].id,clinic:s.clinics[0].id,document:{name:'synthetic.pdf',dataUrl:'data:application/pdf;base64,JVBERi0xLjQK'}});V4ClinicHR.showCandidates();window.__pointerPageToken='same-document';window.__inputs=[];window.__dragTrace=[];for(const name of ['pointerdown','pointermove','pointercancel','pointerup','dragstart','dragover','drop','lostpointercapture'])document.addEventListener(name,e=>{window.__dragTrace.push({event:name,x:e.clientX,y:e.clientY,type:e.pointerType,target:e.target.className});window.__dragTrace=window.__dragTrace.slice(-25)},true);document.addEventListener('pointerdown',e=>window.__inputs.push({type:e.pointerType,trusted:e.isTrusted}),true)}''');page.wait_for_selector('.candidate-drag-handle')
 
 def point(locator):
     b=locator.bounding_box();return {'x':b['x']+min(b['width']/2,80),'y':b['y']+b['height']/2}
@@ -39,7 +39,7 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
         while True:
             r=board.bounding_box();b=col.bounding_box();left=max(r['x'],b['x']);right=min(r['x']+r['width'],b['x']+b['width'])
             if right-left>=60:break
-            assert time.monotonic()<deadline,'Horizontal autoscroll did not reach '+stage
+            assert time.monotonic()<deadline,'Horizontal autoscroll did not reach '+stage+' '+str(page.evaluate('()=>({trace:window.__dragTrace,status:document.querySelector(".candidate-drag-status")?.textContent,board:{scroll:document.querySelector(".candidate-board").scrollLeft,rect:document.querySelector(".candidate-board").getBoundingClientRect().toJSON()},ghost:!!document.querySelector(".candidate-drag-ghost")})'))
             x=r['x']+r['width']-10 if b['x']>=r['x']+r['width'] else r['x']+10
             move(x,start['y']);page.wait_for_timeout(70)
         end={'x':(left+right)/2,'y':max(r['y']+18,min(start['y'],r['y']+r['height']-18))}

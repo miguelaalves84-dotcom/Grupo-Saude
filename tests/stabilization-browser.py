@@ -81,8 +81,8 @@ try:
                         page.locator('[data-candidate-move]').click()
                         verify('Repeating the same stage does not duplicate history', len(stored(page)['candidates'][0]['history']) == history)
                         if device == 'desktop':
-                            page.locator('.candidate-card strong').drag_to(page.locator('.candidate-column[data-stage="Candidatos"]'))
-                            verify('Desktop drag uses the canonical transition and history', stored(page)['candidates'][0]['stage'] == 'Candidatos')
+                            page.locator('.candidate-card').drag_to(page.locator('.candidate-column[data-stage="Candidatos"]'))
+                            verify('Desktop drag uses the canonical transition and history '+page.locator('.candidate-drag-status').inner_text(), stored(page)['candidates'][0]['stage'] == 'Candidatos')
                         old_stage = stored(page)['candidates'][0]['stage']
                         page.locator('[data-candidate-target]').select_option('Entrevista marcada')
                         page.locator('[data-candidate-move]').click()

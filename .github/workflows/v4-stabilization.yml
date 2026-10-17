@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, stabilization-browser, recruitment-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, stabilization-browser, recruitment-browser, candidate-pointer-browser]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -50,7 +50,7 @@ jobs:
           GS_TEST_URL: http://127.0.0.1:8765/index.html
           GS_TEST_ARTIFACTS: /tmp/gs-stabilization-artifacts
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser')
+        if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser' || matrix.suite == 'candidate-pointer-browser')
         with:
           name: ${{ matrix.suite }}-synthetic-${{ github.sha }}
           path: /tmp/gs-stabilization-artifacts

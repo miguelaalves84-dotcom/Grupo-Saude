@@ -81,7 +81,7 @@ try:
                         page.locator('[data-candidate-move]').click()
                         verify('Repeating the same stage does not duplicate history', len(stored(page)['candidates'][0]['history']) == history)
                         if device == 'desktop':
-                            page.locator('.candidate-card').drag_to(page.locator('.candidate-column[data-stage="Candidatos"]'))
+                            page.locator('.candidate-card strong').drag_to(page.locator('.candidate-column[data-stage="Candidatos"]'))
                             verify('Desktop drag uses the canonical transition and history', stored(page)['candidates'][0]['stage'] == 'Candidatos')
                         old_stage = stored(page)['candidates'][0]['stage']
                         page.locator('[data-candidate-target]').select_option('Entrevista marcada')
@@ -108,7 +108,7 @@ try:
                         page.locator('input[name="candidateCreate"][value="no"]').check()
                         page.locator('#candidateConfirmMove').click()
                         verify('Hiring without employee preserves process and does not create access', stored(page)['candidates'][0]['stage'] == 'Contratado' and not stored(page)['candidates'][0].get('employeeId'))
-                        page.locator('.candidate-card button').first.click()
+                        page.locator('.candidate-card [data-gs-action="CommunicationsV4.candidate"]').click()
                         page.locator('#candidateName').fill('SYNTHETIC EDITED CANDIDATE')
                         page.locator('#candidateEmail').fill('edited@example.invalid')
                         page.locator('#candidatePhone').fill('912000000')

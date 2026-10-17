@@ -33,7 +33,7 @@ function openInterview(id){
  '<div class="actions"><button class="primary" id="interviewCenterSave">Guardar notas</button><button class="secondary" id="interviewCenterBack">Voltar à candidatura</button></div>');
  document.getElementById('interviewCenterBack').onclick=()=>candidate(id);
  document.getElementById('interviewCenterSave').onclick=safe(async()=>{
-  const notes=document.getElementById('interviewCenterNotes').value;
+  const questionsText=Array.from(document.querySelectorAll('.interview-question')).map((el,n)=>(n+1)+'. '+el.value.trim()).filter(x=>x.length>3).join('\n');const notes=document.getElementById('interviewCenterNotes').value+'\n\nGuião de perguntas:\n'+questionsText;
   const button=document.getElementById('interviewCenterSave');button.disabled=true;
   try{await save(id,{notes});candidate(id)}finally{button.disabled=false}
  });

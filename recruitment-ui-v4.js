@@ -41,7 +41,17 @@ function openInterview(id){
  record.onclick=safe(async()=>{
   if(!document.getElementById('interviewConsent').checked)throw Error('Confirme a informação e autorização dos participantes antes de gravar.');
   if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder)throw Error('O navegador não suporta gravação de áudio.');
-  interviewStream=await navigator.mediaDevices.getUserMedia({audio:true});interviewChunks=[];
+  try {
+   interviewStream=await navigator.mediaDevices.getUserMedia({audio:true});
+  } catch(err) {
+   const blocked=['NotAllowedError','PermissionDeniedError','SecurityError'].includes(err?.name)||/permission denied/i.test(err?.message||'');
+   const policy=document.permissionsPolicy||document.featurePolicy;
+   const restricted=typeof policy?.allowsFeature==='function'&&!policy.allowsFeature('microphone');
+   const message=restricted?'A política de segurança desta página impede o acesso ao microfone. É necessária uma correção na configuração do preview.':blocked?'O Chrome recusou o acesso ao microfone. Verifique a permissão deste site e do Chrome no Android, e se o acesso geral ao microfone está ativo. Se já autorizou tudo, envie este diagnóstico para verificarmos a configuração do preview.':'Não foi possível iniciar o microfone. Verifique se está ligado e disponível.';
+   status.textContent=message+' (diagnóstico: '+String(err?.name||'desconhecido')+')';
+   throw Error(message);
+  }
+  interviewChunks=[];
   interviewRecorder=new MediaRecorder(interviewStream);
   interviewRecorder.ondataavailable=e=>{if(e.data.size)interviewChunks.push(e.data)};
   interviewRecorder.onstop=()=>{preview(new Blob(interviewChunks,{type:interviewRecorder.mimeType||'audio/webm'}));interviewStream?.getTracks().forEach(t=>t.stop());interviewStream=null;status.textContent='Gravação terminada. Descarregue o ficheiro.'};

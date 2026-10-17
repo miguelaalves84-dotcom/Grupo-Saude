@@ -8,7 +8,8 @@ KEY='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/gs
 rows=[];scope={}
 def verify(name,value):
     rows.append({**scope,'case':name,'state':'Aprovada' if value else 'Falhou'})
-    assert value,name
+    print(json.dumps({**scope,'case':name,'passed':bool(value)}),flush=True)
+    assert value,json.dumps(scope)+': '+name
 def state(page):return page.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',KEY)
 def candidate(page):return state(page)['candidates'][0]
 def prepare(page,actor):
@@ -68,7 +69,7 @@ try:
         drag(page,cdp,'Em análise',kind,small=True)
         verify('short tap does not change data/history',candidate(page)==initial)
         if mobile:
-            board=page.locator('.candidate-board');board.evaluate('(b)=>b.scrollLeft=0');r=board.bounding_box();x=r['x']+min(r['width']-20,350);y=r['y']+r['height']-30
+            board=page.locator('.candidate-board');board.evaluate('(b)=>b.scrollLeft=0');r=board.bounding_box();x=r['x']+min(r['width']-20,350);y=min(r['y']+r['height']-30,page.viewport_size['height']-30)
             touch(cdp,'touchStart',x,y)
             for i in range(1,9):touch(cdp,'touchMove',x-i*25,y);page.wait_for_timeout(20)
             touch(cdp,'touchEnd',x-200,y);page.wait_for_timeout(350)

@@ -38,9 +38,9 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
         deadline=time.monotonic()+5
         while True:
             r=board.bounding_box();b=col.bounding_box();left=max(r['x'],b['x']);right=min(r['x']+r['width'],b['x']+b['width'])
-            if right-left>=60:break
+            if right-left>=160:break
             assert time.monotonic()<deadline,'Horizontal autoscroll did not reach '+stage+' '+str(page.evaluate('()=>({trace:window.__dragTrace,status:document.querySelector(".candidate-drag-status")?.textContent,board:{scroll:document.querySelector(".candidate-board").scrollLeft,rect:document.querySelector(".candidate-board").getBoundingClientRect().toJSON()},ghost:!!document.querySelector(".candidate-drag-ghost")})'))
-            x=r['x']+r['width']-10 if b['x']>=r['x']+r['width'] else r['x']+10
+            x=r['x']+r['width']-10 if b['x']+b['width']/2>=r['x']+r['width']/2 else r['x']+10
             move(x,start['y']);page.wait_for_timeout(70)
         end={'x':(left+right)/2,'y':max(r['y']+18,min(start['y'],r['y']+r['height']-18))}
         move(end['x'],end['y']);page.wait_for_selector('.candidate-drop-target')

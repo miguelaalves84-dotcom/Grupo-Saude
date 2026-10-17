@@ -49,6 +49,7 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
         verify('correct destination highlighted for '+stage,page.locator('.candidate-drop-target').get_attribute('data-stage')==stage)
         if cancel:page.screenshot(path=str(OUT/(scope['device']+'-'+scope['profile']+'-drag-cancel.png')))
     page.evaluate('([x,y])=>window.__lastDropInput={x,y,hit:document.elementFromPoint(x,y)?.closest(".candidate-column")?.dataset.stage,highlight:document.querySelector(".candidate-drop-target")?.dataset.stage,board:document.querySelector(".candidate-board").getBoundingClientRect().toJSON(),scroll:document.querySelector(".candidate-board").scrollLeft}',[end['x'],end['y']])
+    if cancel and kind!='touch':page.keyboard.press('Escape')
     if kind=='touch':touch(cdp,'touchCancel' if cancel else 'touchEnd',end['x'],end['y'])
     else:cdp.send('Input.dispatchMouseEvent',{'type':'mouseReleased','x':end['x'],'y':end['y'],'button':'left','buttons':0,'clickCount':1,'pointerType':kind})
     page.wait_for_timeout(100)

@@ -23,7 +23,8 @@ def point(locator):
 def touch(cdp,kind,x,y):
     cdp.send('Input.dispatchTouchEvent',{'type':kind,'touchPoints':[] if kind in ['touchEnd','touchCancel'] else [{'x':x,'y':y,'id':1,'radiusX':4,'radiusY':4,'force':1}]})
 def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
-    handle=page.locator('.candidate-drag-handle');handle.scroll_into_view_if_needed();start=point(handle)
+    handle=page.locator('.candidate-drag-handle');handle.evaluate("async e=>{e.scrollIntoView({block:'center',inline:'center',behavior:'instant'});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))}");start=point(handle)
+    verify('gesture starts on the visible handle',page.evaluate('([x,y])=>document.elementFromPoint(x,y)?.classList.contains("candidate-drag-handle")',[start['x'],start['y']]))
     if kind=='touch':touch(cdp,'touchStart',start['x'],start['y'])
     else:cdp.send('Input.dispatchMouseEvent',{'type':'mousePressed','x':start['x'],'y':start['y'],'button':'left','buttons':1,'clickCount':1,'pointerType':kind})
     def move(x,y):

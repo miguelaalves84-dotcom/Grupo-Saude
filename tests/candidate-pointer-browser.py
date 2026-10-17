@@ -15,7 +15,7 @@ def prepare(page,actor):
     page.goto(URL);page.wait_for_function('window.CommunicationsV4 && window.CandidateDragV4')
     page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoRealUser='u1';s.ceoViewingAs=actor==='u1'?null:actor;s.candidates=[];for(const u of s.users){u.name='SYNTHETIC '+u.id;u.email=u.id+'@example.invalid';if(s.employees[u.id])s.employees[u.id].name=u.name}localStorage.setItem(key,JSON.stringify(s))}''',[KEY,actor]);page.reload();page.wait_for_function('window.RecruitmentV4')
     if actor in ['u1','test_admin']:
-        page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));CommunicationsV4.importCV({sourceId:'pointer-synthetic',name:'SYNTHETIC POINTER CANDIDATE',email:'pointer@example.invalid',phone:'912000000',role:s.jobRoles[0].id,clinic:s.clinics[0].id,document:{name:'synthetic.pdf',dataUrl:'data:application/pdf;base64,JVBERi0xLjQK'}});V4ClinicHR.showCandidates();window.__pointerPageToken='same-document';window.__inputs=[];window.__dragTrace=[];for(const name of ['pointerdown','pointermove','pointercancel','pointerup','dragstart','dragover','drop','lostpointercapture'])document.addEventListener(name,e=>{window.__dragTrace.push({event:name,x:e.clientX,y:e.clientY,type:e.pointerType,target:e.target.className});window.__dragTrace=window.__dragTrace.slice(-25)},true);document.addEventListener('pointerdown',e=>window.__inputs.push({type:e.pointerType,trusted:e.isTrusted}),true)}''');page.wait_for_selector('.candidate-drag-handle')
+        page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));CommunicationsV4.importCV({sourceId:'pointer-synthetic',name:'SYNTHETIC POINTER CANDIDATE',email:'pointer@example.invalid',phone:'912000000',role:s.jobRoles[0].id,clinic:s.clinics[0].id,document:{name:'synthetic.pdf',dataUrl:'data:application/pdf;base64,JVBERi0xLjQK'}});V4ClinicHR.showCandidates();window.__pointerPageToken='same-document';window.__inputs=[];window.__dragTrace=[];for(const name of ['pointerdown','pointermove','pointercancel','pointerup','click','dragstart','dragover','drop','lostpointercapture'])document.addEventListener(name,e=>{window.__dragTrace.push({event:name,x:e.clientX,y:e.clientY,type:e.pointerType,target:e.target.className});window.__dragTrace=window.__dragTrace.slice(-35)},true);document.addEventListener('pointerdown',e=>window.__inputs.push({type:e.pointerType,trusted:e.isTrusted}),true)}''');page.wait_for_selector('.candidate-drag-handle')
 
 def point(locator):
     b=locator.bounding_box();return {'x':b['x']+min(b['width']/2,80),'y':b['y']+b['height']/2}
@@ -50,6 +50,10 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
     else:cdp.send('Input.dispatchMouseEvent',{'type':'mouseReleased','x':end['x'],'y':end['y'],'button':'left','buttons':0,'clickCount':1,'pointerType':kind})
     page.wait_for_timeout(100)
     verify('ghost and destination cleaned after gesture',page.locator('.candidate-drag-ghost,.candidate-drop-target').count()==0)
+    if not cancel and not small and stage in ['Entrevista marcada','Recusado','Contratado']:
+        opened=page.locator('#modal').is_visible()
+        if not opened:print('POST_DROP_DIAGNOSTIC',page.evaluate('()=>({trace:window.__dragTrace,status:document.querySelector(".candidate-drag-status")?.textContent,open:document.querySelector("#modal").open,title:document.querySelector("#modalTitle").textContent,stage:JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2")).candidates[0].stage})'),flush=True)
+        verify('required dialog remains open after release '+stage,opened)
 
 try:
  with sync_playwright() as p:

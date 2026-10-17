@@ -51,5 +51,10 @@
       "schedule": "0 8 * * *"
     }
   ],
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "git": {
+    "deploymentEnabled": {
+      "dev/v4-stabilization-20261017": false
+    }
+  }
 }

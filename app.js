@@ -198,7 +198,7 @@ const App = (() => {
     document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
     document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
     $('nav').classList.remove('open');
-    const renderers={dashboard:renderDashboard,operation:renderOperation,wait:renderRequests,chat:renderChat,hr:()=>window.V4ClinicHR?window.V4ClinicHR.render():renderHr(),tasks:renderTasks,audit:renderAudit,clock:()=>window.AttendanceV4?.render?.(),tables:()=>window.TablesCanonicalV4?.install?.()};
+    const renderers={dashboard:renderDashboard,operation:renderOperation,wait:renderRequests,chat:renderChat,myhr:()=>window.HRSeparationV4?.myRH(true),hr:()=>window.V4ClinicHR?window.V4ClinicHR.render():renderHr(),tasks:renderTasks,audit:renderAudit,clock:()=>window.AttendanceV4?.render?.(),tables:()=>window.TablesCanonicalV4?.install?.()};
     if(renderers[id])renderers[id]();else window.GSEnterprise?.render?.(id);
     document.dispatchEvent(new CustomEvent('gs:view-changed',{detail:{id}}));
     return true;

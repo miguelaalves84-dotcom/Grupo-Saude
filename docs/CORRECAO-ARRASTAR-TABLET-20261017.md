@@ -10,11 +10,13 @@ Cada cartão tem uma pega «⠿ Arrastar», com área mínima de 44 px. Arrastar
 
 Próximo das extremidades, o funil desloca-se automaticamente para alcançar colunas fora do ecrã. Ao largar, o controlador chama o fluxo de movimentação já existente, sem escrever diretamente em dados: entrevista, recusa e contratação continuam a exigir os mesmos formulários/confirmações antes de guardar. Mantém-se o seletor acessível de etapa, os cartões, contagens, documentos e histórico.
 
+O cartão existente de Aprovações RH é montado imediatamente ao redesenhar o funil. Assim, a sua atualização periódica não insere um bloco acima das colunas durante um gesto nem desloca o destino de largada. O cartão e todas as suas ações são preservados.
+
 ## Validação
 
 - Sintaxe, regressão npm test e build estático.
 - `tests/candidate-pointer-browser.py`: eventos de entrada reais do Chromium por CDP (não eventos DOM artificiais), contexto Android/Pixel Tablet com hasTouch/isMobile, retrato 820×1180 e paisagem 1280×800; rato e caneta em computador.
-- Gestos curtos, pan horizontal sem mudança, pointercancel, indicação visual, autoscroll entre colunas, contagens/histórico sem recarga, formulários obrigatórios, currículo preservado e seletor alternativo.
+- Gesto mantido durante a atualização periódica de Aprovações RH, sem deslocar as colunas; gestos curtos, pan horizontal sem mudança, pointercancel, indicação visual, autoscroll entre colunas, contagens/histórico sem recarga, formulários obrigatórios, currículo preservado e seletor alternativo.
 - CEO e Administração executam os movimentos; os outros quatro perfis são testados contra acesso não autorizado. A regressão anterior mantém seis perfis × três dispositivos × dois temas.
 - GitHub Actions conserva resultados JSON e capturas sintéticas durante 14 dias. Aprovação só após resultado efetivo do run do commit.
 

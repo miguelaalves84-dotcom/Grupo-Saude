@@ -14,7 +14,7 @@ def state(page):return page.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',
 def candidate(page):return state(page)['candidates'][0]
 def prepare(page,actor):
     page.goto(URL);page.wait_for_function('window.CommunicationsV4 && window.CandidateDragV4')
-    page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoRealUser='u1';s.ceoViewingAs=actor==='u1'?null:actor;s.candidates=[];for(const u of s.users){u.name='SYNTHETIC '+u.id;u.email=u.id+'@example.invalid';if(s.employees[u.id])s.employees[u.id].name=u.name}localStorage.setItem(key,JSON.stringify(s))}''',[KEY,actor]);page.reload();page.wait_for_function('window.RecruitmentV4')
+    page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoRealUser='u1';s.ceoViewingAs=actor==='u1'?null:actor;s.candidates=[];for(const u of s.users){u.name='SYNTHETIC '+u.id;u.email=u.id+'@example.invalid';if(s.employees[u.id])s.employees[u.id].name=u.name}localStorage.setItem(key,JSON.stringify(s))}''',[KEY,actor]);page.reload();page.wait_for_function('window.RecruitmentV4');page.wait_for_selector('#gsTestAgentButton',state='attached')
     if actor in ['u1','test_admin']:
         page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));CommunicationsV4.importCV({sourceId:'pointer-synthetic',name:'SYNTHETIC POINTER CANDIDATE',email:'pointer@example.invalid',phone:'912000000',role:s.jobRoles[0].id,clinic:s.clinics[0].id,document:{name:'synthetic.pdf',dataUrl:'data:application/pdf;base64,JVBERi0xLjQK'}});V4ClinicHR.showCandidates();window.__pointerPageToken='same-document';window.__inputs=[];window.__dragTrace=[];for(const name of ['pointerdown','pointermove','pointercancel','pointerup','click','dragstart','dragover','drop','lostpointercapture'])document.addEventListener(name,e=>{window.__dragTrace.push({event:name,x:e.clientX,y:e.clientY,type:e.pointerType,target:e.target.className});window.__dragTrace=window.__dragTrace.slice(-35)},true);document.addEventListener('pointerdown',e=>window.__inputs.push({type:e.pointerType,trusted:e.isTrusted}),true)}''');page.wait_for_selector('.candidate-drag-handle')
 
@@ -35,8 +35,12 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
         move(start['x']+3,start['y']+2);end=start
     else:
         move(start['x']+14,start['y']+12)
+        page.locator('.candidate-drag-ghost').wait_for(state='visible',timeout=3000)
         verify('drag ghost is visible for '+kind,page.locator('.candidate-drag-ghost').count()==1)
         board=page.locator('.candidate-board');col=page.locator('.candidate-column[data-stage="'+stage+'"]')
+        if cancel:
+            before_top=board.bounding_box()['y'];page.wait_for_timeout(850)
+            verify('existing approvals refresh keeps the board stable during drag',page.locator('#hrApprovalsCard').count()==1 and abs(board.bounding_box()['y']-before_top)<2 and page.locator('.candidate-drag-ghost').count()==1)
         deadline=time.monotonic()+5
         while True:
             r=board.bounding_box();b=col.bounding_box();left=max(r['x'],b['x']);right=min(r['x']+r['width'],b['x']+b['width'])

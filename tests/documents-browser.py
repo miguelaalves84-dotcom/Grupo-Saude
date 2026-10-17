@@ -17,6 +17,7 @@ def switch(page, actor):
     page.wait_for_timeout(700)
 
 def invoices(page):
+    page.locator('#shortcut_invoices').evaluate('(b)=>{const g=b.closest("details");if(g&&!g.open)g.querySelector("summary").click()}')
     page.locator('#shortcut_invoices').click()
     expect(page.locator('#financeContent h2').get_by_text('Faturas', exact=True)).to_be_visible()
 

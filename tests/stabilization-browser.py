@@ -102,6 +102,9 @@ try:
                         employee = page.evaluate('(id)=>CommunicationsV4.convert(id)', cid)
                         page.evaluate('V4ClinicHR.showCandidates()')
                         verify('Converted candidates retain a visible process and history', page.locator('.candidate-history .candidate-card').count() == 1 and stored(page)['candidates'][0]['employeeId'] == employee and page.locator('.candidate-history [data-candidate-move]').count() == 0)
+                        if actor == 'test_admin':
+                            page.evaluate('''(key)=>{const s=JSON.parse(localStorage.getItem(key));s.userActionPermissions||={};s.userActionPermissions.test_admin={hrManage:false};localStorage.setItem(key,JSON.stringify(s));RoleAccessAdminV4.apply();document.dispatchEvent(new CustomEvent('gs:permissions-applied'));}''', KEY)
+                            verify('Revoking management permission clears the candidate content immediately', not page.evaluate('RoleAccessAdminV4.guard("hr")') and not page.locator('#hrContent').inner_text().strip())
                     else:
                         verify('Direct candidate and HR access do not bypass permissions', page.evaluate('()=>{try{CommunicationsV4.candidates();return false}catch{return App.showView("hr")===false&&V4ClinicHR.showCandidates()===false}}'))
                     page.evaluate('document.getElementById("modal").close();App.showView("myhr")')

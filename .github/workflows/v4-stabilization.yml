@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, stabilization-browser, recruitment-browser, candidate-pointer-browser, interview-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, stabilization-browser, recruitment-browser, candidate-pointer-browser, interview-browser, complaints-browser]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -50,8 +50,37 @@ jobs:
           GS_TEST_URL: http://127.0.0.1:8765/index.html
           GS_TEST_ARTIFACTS: /tmp/gs-stabilization-artifacts
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser' || matrix.suite == 'candidate-pointer-browser' || matrix.suite == 'interview-browser')
+        if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser' || matrix.suite == 'candidate-pointer-browser' || matrix.suite == 'interview-browser' || matrix.suite == 'complaints-browser')
         with:
           name: ${{ matrix.suite }}-synthetic-${{ github.sha }}
           path: /tmp/gs-stabilization-artifacts
           retention-days: 14
+  postgres:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: gs_v4_synthetic
+          POSTGRES_USER: gs_synthetic
+          # Synthetic credential used only by the disposable job service.
+          POSTGRES_PASSWORD: synthetic-ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U gs_synthetic -d gs_v4_synthetic"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3
+      - run: node tests/interviews-complaints-postgres.cjs
+        env:
+          CI: 'true'
+          PGHOST: 127.0.0.1
+          PGDATABASE: gs_v4_synthetic
+          PGPASSWORD: synthetic-ci-only

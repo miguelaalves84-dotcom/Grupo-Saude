@@ -39,13 +39,17 @@ try:
       while True:
        queue=page.locator('[data-op-queue="'+queue_type+'"]');pending=queue.locator('[data-op-queue-row]').filter(has=page.locator('[data-pending-done]:not(:checked)'))
        if pending.count()==0:break
-       row=pending.first
+       row_id=pending.first.get_attribute('data-op-queue-row');row=page.locator('[data-op-queue-row='+json.dumps(row_id)+']')
        if not row.locator('[data-patient-ref]').input_value():row.locator('[data-patient-ref]').fill('SYN-'+str(pending.count()))
-       row.locator('[data-pending-done]').check();row.locator('[data-op-action="rowtask"]').click()
+       before_count=pending.count();row.locator('[data-pending-done]').check();row.locator('[data-op-action="rowtask"]').click();page.wait_for_function('([k,c,t,n])=>GSOperationCore.remaining(JSON.parse(localStorage.getItem(k)),c,"2026-10-20",t)===n',arg=[K,CL,queue_type,before_count-1])
      check('zero pending completes numeric tasks',day(page,'2026-10-20')['taskStatus']['confirm']['status']=='done' and day(page,'2026-10-20')['taskStatus']['revalcalls']['status']=='done');page.evaluate('CEOReservedAreaV4.select("synthetic_second")');page.evaluate('App.showView("operation")');check('second clerk sees shared completions',page.locator('[data-op-queue="evaluation"] [data-op-pending]').inner_text()=='0');r=page.locator('[data-op-queue="evaluation"] [data-op-queue-row]').first;r.locator('[data-pending-done]').uncheck();r.locator('[data-op-action="rowtask"]').click();check('numeric task reopens when work returns',day(page,'2026-10-20')['taskStatus']['revalcalls']['status']=='todo');r=page.locator('[data-op-queue="evaluation"] [data-op-queue-row]').first;r.locator('[data-pending-done]').check();r.locator('[data-op-action="rowtask"]').click();save_close(page);page.locator('#opClose').click();check('complete workflow closes with 100 percent occupancy and 93.75 attendance',day(page,'2026-10-20')['closed'] and next(x for x in day(page,'2026-10-20')['summary'] if x['employeeId']=='test_tec')['attendance']==93.75)
      page.locator('#opReopenReason').fill('SYN follow-up');page.locator('#opClose').click();check('reopening retains original team and history',not day(page,'2026-10-20')['closed'] and len(day(page,'2026-10-20')['history'])>10 and day(page)['pendingRows'][0]['patientRef']=='SYN-OLD');page.reload();page.wait_for_function('window.GSOperationCore');page.evaluate('App.showView("operation")');check('reload preserves multi-day data',day(page)['pendingRows'][0]['done'] and day(page,'2026-10-20')['open']['by']==actor);check('no JS errors',not errors)
      if actor in ['u1','test_admin']:
       page.evaluate('(a)=>CEOReservedAreaV4.select(a)',actor);phase(page,'stats');page.locator('#opStatsPeriod').select_option('month');page.locator('[data-op-action="stats"]').click();check('management statistics aggregate period and authorized clinics','93,75%' in page.locator('#phasePanel').inner_text())
      page.screenshot(path=str(OUT/('operation-'+actor+'-'+device+'-'+theme+'.png')),full_page=True);ctx.close()
   browser.close()
+except Exception:
+ if 'page' in globals() and not page.is_closed():
+  page.screenshot(path=str(OUT/'operation-failure.png'),full_page=True);(OUT/'operation-failure-state.json').write_text(json.dumps(state(page),indent=2))
+ raise
 finally:(OUT/'operation-results.json').write_text(json.dumps({'cases':rows,'passed':sum(r['state']=='Aprovada' for r in rows),'scope':'Real Chromium controls, synthetic browser-only storage; Android/tablet emulation, not physical device; server PostgreSQL tested separately'},indent=2))

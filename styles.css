@@ -44,3 +44,7 @@ body{background:var(--canvas);color:var(--ink);font-family:Inter,ui-sans-serif,s
 .interview-center textarea { width:100%;box-sizing:border-box;min-height:85px; }
 .interview-center pre { white-space:pre-wrap;overflow-wrap:anywhere; }
 @media(max-width:600px) { .interview-identity { grid-template-columns:1fr; } }
+
+/* Independent complaint stages do not register as candidate drag targets. */
+.complaints-board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:1rem;overflow-x:auto;padding:1rem 0;overscroll-behavior-x:contain;}
+.complaints-column{min-width:260px;overflow-wrap:anywhere;}

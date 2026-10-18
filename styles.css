@@ -58,3 +58,11 @@ body{background:var(--canvas);color:var(--ink);font-family:Inter,ui-sans-serif,s
 
 /* Existing operation flow: responsive row cards, queues and evidence. */
 .operation-professional{margin:12px 0}.operation-professional input{min-width:100px}.operation-queue{margin:16px 0}.operation-queue input:not([type=checkbox]){min-width:150px}.operation-overdue{border-left:4px solid #b54708}.operation-done{opacity:.75}#operationContent select[multiple]{min-height:120px}#operationContent pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto}#operationContent .task-row{flex-wrap:wrap}
+
+/* One identity card, three category values; secondary capacities stay available. */
+#operationContent .operation-doctor-categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#operationContent .operation-category{min-width:0;padding:10px;border:1px solid var(--line,#dce5e7);border-radius:10px}
+#operationContent .operation-category h4{margin:0 0 8px}#operationContent .operation-category .form-grid{grid-template-columns:1fr}
+#operationContent .operation-category input{min-width:0;width:100%}#operationContent .operation-category details{margin-top:8px}
+#opOpeningErrors,#opWaitingErrors{color:#b42318;white-space:pre-line}#opSaveOpening{min-height:48px;font-weight:700}
+@media(max-width:600px){#operationContent .operation-doctor-categories{grid-template-columns:1fr}#opSaveOpening{width:100%}}

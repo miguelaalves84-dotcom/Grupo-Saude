@@ -41,3 +41,9 @@ A inspeção cobre fontes carregadas, ligações, sobreposições e suites exist
 - Validação Chrome Android: Chromium com viewport/toque emulado; não substitui teste num tablet físico.
 
 Detalhes: [Centro de Entrevistas](CENTRO-ENTREVISTAS-20261017.md) · [Reclamações](RECLAMACOES-20261018.md).
+
+## Correções verificadas pelas regressões novas
+
+O job PostgreSQL revelou mutação acidental do objeto JSONB original ao editar critérios; o serviço passou a copiar o valor antes de aplicar o compare-and-swap. O funil de Reclamações passou a ter seletores próprios, para não ser confundido com o de candidatos. A clínica virtual Administração foi excluída das escolhas operacionais.
+
+A demonstração antiga contém associações a clínicas legadas que podem estar inativas, em particular no perfil Administrativo. Não são remapeadas nem ampliadas automaticamente. Reclamações informa quando não existem clínicas ativas atribuídas e bloqueia o registo. As fixtures Chromium configuram explicitamente uma associação sintética válida para testar o fluxo. Rever as associações reais exige a ficha RH e autorização; não é uma falha corrigível concedendo acesso a todas as clínicas.

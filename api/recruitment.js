@@ -5,6 +5,7 @@ async function handler(req,res,deps={}){const env=deps.env||process.env;res.setH
  if(action==='list')result=await R.list(s,a);
  else if(action==='update'||action==='convert'){result=await R.update(s,a,b,{convert:action==='convert'});if(result.notificationKey)result.email=await require('../lib/recruitment-mail-service').send(s,a,{id:result.id,key:result.notificationKey},env,deps.fetch||fetch)}
  else if(action==='interview-ai'){
+  if(env.VERCEL_ENV==='production'||env.GS_INTERVIEW_PROCESSING_APPROVED!=='true'||env.GS_INTERVIEW_STORAGE_VALIDATED!=='true')return res.status(503).json({error:'Transcrição indisponível — configuração pendente'});
   if(!env.OPENAI_API_KEY)return res.status(503).json({error:'Transcrição automática indisponível: configure OPENAI_API_KEY no ambiente de testes.'});
   if(!b.candidateId||typeof b.audio!=='string'||!/^[-A-Za-z0-9+/=]+$/.test(b.audio)||b.audio.length>3900000||b.audio.length<128)return res.status(400).json({error:'Áudio inválido ou demasiado grande (limite aproximado: 2,8 MB).'});
   await R.row(s,a,b.candidateId);
@@ -23,6 +24,7 @@ async function handler(req,res,deps={}){const env=deps.env||process.env;res.setH
   await s.audit(a,'candidate',b.candidateId,'PROCESSAR_ENTREVISTA_IA',null,{transcriptLength:transcript.length,reportLength:report.length});
   result={transcript,report};
  }
+ else if(action==='criteria')result=await R.criteria(s,a,b);
  else if(action==='import')result=await R.importCV(s,a,b,env,deps.fetch||fetch);
  else if(action==='send')result=await require('../lib/recruitment-mail-service').send(s,a,b,env,deps.fetch||fetch);
  else if(action==='document'){const d=(await s.query('select * from documents where id=$1',[b.documentId]))[0];if(!d?.candidate_id)Auth.deny('DOCUMENT_NOT_FOUND',404);await R.row(s,a,d.candidate_id);const file=await s.storage.get(d.storage_key);await s.audit(a,'candidate',d.candidate_id,'CONSULTAR_CURRICULO',null,{documentId:d.id});res.setHeader('Content-Type',d.mime_type);res.setHeader('Content-Disposition','attachment; filename="curriculo"');if(file.bytes)return res.status(200).end(file.bytes);return require('node:stream').Readable.fromWeb(file.stream).pipe(res)}

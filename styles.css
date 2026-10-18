@@ -34,7 +34,7 @@ body{background:var(--canvas);color:var(--ink);font-family:Inter,ui-sans-serif,s
 .layout>main{min-width:0}
 
 /* Only the explicit handle captures gestures; the card body keeps normal tablet panning. */
-.candidate-drag-handle{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:grab;min-width:110px;min-height:44px;margin-bottom:8px;border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit}.candidate-drag-handle:focus-visible{outline:3px solid #009eaa;outline-offset:3px}.candidate-dragging{opacity:.45}.candidate-drop-target{outline:3px solid #009eaa;outline-offset:-3px;background-color:color-mix(in srgb,#009eaa 14%,transparent)}.candidate-drag-ghost{position:fixed;left:0;top:0;z-index:10000;pointer-events:none;max-width:240px;padding:14px;border:2px solid #009eaa;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#172d35);box-shadow:0 6px 24px #0004;overflow-wrap:anywhere}.candidate-drag-help,.candidate-drag-status{font-size:.9rem;overflow-wrap:anywhere}.candidate-drag-status{height:3em;overflow:auto;overflow-anchor:none}.candidate-board{overflow-anchor:none}
+.candidate-drag-handle,.complaint-drag-handle{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:grab;min-width:110px;min-height:44px;margin-bottom:8px;border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit}.candidate-drag-handle:focus-visible,.complaint-drag-handle:focus-visible{outline:3px solid #009eaa;outline-offset:3px}.candidate-dragging{opacity:.45}.candidate-drop-target{outline:3px solid #009eaa;outline-offset:-3px;background-color:color-mix(in srgb,#009eaa 14%,transparent)}.candidate-drag-ghost{position:fixed;left:0;top:0;z-index:10000;pointer-events:none;max-width:240px;padding:14px;border:2px solid #009eaa;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#172d35);box-shadow:0 6px 24px #0004;overflow-wrap:anywhere}.candidate-drag-help,.candidate-drag-status,.complaint-drag-help,.complaint-drag-status{font-size:.9rem;overflow-wrap:anywhere}.candidate-drag-status,.complaint-drag-status{height:3em;overflow:auto;overflow-anchor:none}.candidate-board{overflow-anchor:none}
 
 /* Interview center shares the existing dialog, theme and form components. */
 .interview-center { min-width:0; }
@@ -48,3 +48,10 @@ body{background:var(--canvas);color:var(--ink);font-family:Inter,ui-sans-serif,s
 /* Independent complaint stages do not register as candidate drag targets. */
 .complaints-board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:1rem;overflow-x:auto;padding:1rem 0;overscroll-behavior-x:contain;}
 .complaints-column{min-width:260px;overflow-wrap:anywhere;}
+
+.complaint-timeline{list-style:none;margin:1rem 0;padding:0 0 0 1.2rem;border-left:3px solid var(--accent,#087f82);}
+.complaint-timeline>li{position:relative;margin:0 0 1.2rem;padding:.8rem;background:var(--surface);border-radius:.6rem;overflow-wrap:anywhere;}
+.complaint-timeline>li::before{content:"";position:absolute;left:-1.6rem;top:1rem;width:.65rem;height:.65rem;border-radius:50%;background:var(--accent,#087f82);}
+.complaint-stage-overview{display:flex;flex-wrap:wrap;gap:.7rem;padding:0;list-style:none;}
+.complaint-stage-overview [aria-current="step"]{font-weight:bold;text-decoration:underline;}
+.complaint-drag-handle{min-height:44px;min-width:44px;touch-action:none;user-select:none;cursor:grab;}

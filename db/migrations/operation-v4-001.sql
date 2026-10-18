@@ -1,0 +1,2 @@
+-- Reuse the existing clinic_days structure from api/v4.js. Additive, for disposable tests only until authorized.
+create table if not exists clinic_days(id uuid primary key default gen_random_uuid(),clinic_id text not null references clinics(id),work_date date not null,opened_by uuid not null references users(id),opened_at timestamptz not null default now(),closed_by uuid references users(id),closed_at timestamptz,status text not null default 'Aberta',data jsonb not null default '{}'::jsonb,unique(clinic_id,work_date));

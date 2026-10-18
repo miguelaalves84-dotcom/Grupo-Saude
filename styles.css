@@ -55,3 +55,6 @@ body{background:var(--canvas);color:var(--ink);font-family:Inter,ui-sans-serif,s
 .complaint-stage-overview{display:flex;flex-wrap:wrap;gap:.7rem;padding:0;list-style:none;}
 .complaint-stage-overview [aria-current="step"]{font-weight:bold;text-decoration:underline;}
 .complaint-drag-handle{min-height:44px;min-width:44px;touch-action:none;user-select:none;cursor:grab;}
+
+/* Existing operation flow: responsive row cards, queues and evidence. */
+.operation-professional{margin:12px 0}.operation-professional input{min-width:100px}.operation-queue{margin:16px 0}.operation-queue input:not([type=checkbox]){min-width:150px}.operation-overdue{border-left:4px solid #b54708}.operation-done{opacity:.75}#operationContent select[multiple]{min-height:120px}#operationContent pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto}#operationContent .task-row{flex-wrap:wrap}

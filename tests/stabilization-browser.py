@@ -122,6 +122,8 @@ try:
                         if actor == 'test_admin':
                             page.evaluate('''(key)=>{const s=JSON.parse(localStorage.getItem(key));s.userActionPermissions||={};s.userActionPermissions.test_admin={hrManage:false};localStorage.setItem(key,JSON.stringify(s));RoleAccessAdminV4.apply();document.dispatchEvent(new CustomEvent('gs:permissions-applied'));}''', KEY)
                             verify('Revoking management permission clears the candidate content immediately', not page.evaluate('RoleAccessAdminV4.guard("hr")') and not page.locator('#hrContent').inner_text().strip())
+                            page.wait_for_timeout(850)
+                            verify('Legacy approval refresh cannot repopulate a revoked HR module', not page.locator('#hrContent').inner_text().strip() and page.locator('#hrApprovalsCard').count()==0)
                     else:
                         verify('Direct candidate and HR access do not bypass permissions', page.evaluate('()=>{try{CommunicationsV4.candidates();return false}catch{return App.showView("hr")===false&&V4ClinicHR.showCandidates()===false}}'))
                     page.evaluate('document.getElementById("modal").close();App.showView("myhr")')

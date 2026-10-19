@@ -20,6 +20,7 @@ with sync_playwright() as p:
      scope={'profile':actor,'device':device,'theme':theme};context=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');context.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=context.new_page();page.set_default_timeout(15000);page.on('dialog',lambda d:d.accept());errors=[];page.on('pageerror',lambda e:errors.append(str(e)));setup(page,actor,theme)
      if actor not in ['u1','test_admin']:
       check('default profile cannot navigate to Marketing',page.evaluate('App.showView("marketing")')==False)
+      page.evaluate('''a=>{CEOReservedAreaV4.select('u1');RoleAccessAdminV4.setIndividual(a,{marketing:true});CEOReservedAreaV4.select(a);MarketingUIV4.selectTab('campaigns')}''',actor);page.wait_for_selector('#mkPanel');check('read-only Marketing grant does not grant campaign creation',page.locator('#mkNewCampaign').count()==0);page.locator('[data-campaign-edit="legacy"]').click();check('read-only campaign history remains accessible without save',page.locator('#modalBody').inner_text().find('SYN preserved')>=0 and page.locator('#mkSave').count()==0);close(page)
       page.evaluate('''a=>{CEOReservedAreaV4.select('u1');RoleAccessAdminV4.setIndividual(a,{marketing:true,marketingCampaigns:true,marketingBudgets:true,marketingEditorial:true,waiting:true,bookings:true,marketingApprove:false});CEOReservedAreaV4.select(a)}''',actor)
      page.evaluate('App.showView("marketing");MarketingUIV4.selectTab("dashboard")');page.wait_for_selector('#mkFilters');opts=page.locator('#mkFilterClinic option').evaluate_all('(xs)=>xs.map(x=>x.value)');check('global managers and assigned staff have correct clinic scope',opts==(['','mk-a','mk-b'] if actor in ['u1','test_admin'] else ['','mk-a']));check('unconfirmed revenue and provider metrics are never invented','Indisponível' in page.locator('#mkPanel').inner_text());check('legacy campaign and chat preserved without migration copies',len(state(page)['marketing']['campaigns'])==2 and len(state(page)['marketing']['agentChat'])==1)
      for t in ['campaigns','goals','budgets','leads','calendar','tasks','assistant','integrations','dashboard']:tab(page,t);check('tab opens '+t,page.locator('#mkPanel').inner_text().strip()!='')
@@ -41,5 +42,9 @@ with sync_playwright() as p:
      if actor!='u1':
       page.evaluate('''a=>{CEOReservedAreaV4.select('u1');RoleAccessAdminV4.setIndividual(a,{marketing:false});CEOReservedAreaV4.select(a)}''',actor);check('permission removal takes effect immediately',page.evaluate('App.showView("marketing")')==False)
      context.close()
+ except Exception:
+  if 'page' in locals() and not page.is_closed():
+   page.screenshot(path=str(OUT/'marketing-failure.png'),full_page=True);diagnostic={'scope':scope,'errors':errors,'text':page.locator('#marketingContent').inner_text() if page.locator('#marketingContent').count() else 'Missing marketing root'};print(json.dumps(diagnostic),flush=True);(OUT/'marketing-failure.json').write_text(json.dumps(diagnostic))
+  raise
  finally:
   browser.close();(OUT/'marketing-results.json').write_text(json.dumps({'cases':results,'passed':sum(x['passed'] for x in results),'failed':sum(not x['passed'] for x in results),'scope':'Synthetic browser storage only, real Chromium controls; tablet/mobile emulated, server PostgreSQL tested separately'},indent=2))

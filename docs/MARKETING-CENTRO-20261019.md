@@ -5,7 +5,7 @@ Branch exclusiva `dev/v4-stabilization-20261017`, PR #13 em rascunho. Base prese
 ## Inventário anterior e decisões
 
 - `app.js` / `operation-core-v4.js`: abertura canónica, capacidades RH, fecho e estatísticas. Retirados apenas os detalhes de capacidade/vagas e textos de abertura/atualização dos médicos na abertura. As capacidades continuam a vir da ficha RH e permanecem no modelo; os técnicos e o botão único mantêm-se.
-- `gs-enterprise.js`: já criava o separador Marketing e `state.marketing.campaigns`, ideias, aprovações, chat e revisão publicitária. Mantém-se a entrada e todos os dados. O renderer, editores e funções públicas legadas encaminham para o centro novo. O verificador textual continua disponível como auxiliar; aprovação requer intervenção humana e nunca equivale a conformidade jurídica automática.
+- `gs-enterprise.js`: já criava o separador Marketing e `state.marketing.campaigns`, ideias, aprovações, chat e revisão publicitária. Mantém-se a entrada e todos os dados. O renderer, editores e funções públicas legadas encaminham para o centro novo. A secção usa o mesmo ID no HTML inicial; a instalação antiga deteta a sua existência e não a recria, corrigindo a corrida de abertura por URL antes do temporizador legado. O verificador textual continua disponível como auxiliar; aprovação requer intervenção humana e nunca equivale a conformidade jurídica automática.
 - O chat antigo escrevia uma resposta fixa do “agente” sem chamada a IA. Deixa de produzir essas respostas no fluxo consolidado. Conversas e rascunhos históricos permanecem intactos; IA fica explicitamente indisponível.
 - Call Center: `state.requests` / tabela PostgreSQL `requests` já contêm o funil de pedidos. São a única fonte de contactos. Origem, campanha, consentimento e evidência da realização são acrescentados ao mesmo pedido, com revisão e histórico. Não há segunda tabela ou array de contactos.
 - `attention-core-v4.js` e `attention-ui-v4.js`: reutilizados para contadores globais. Alertas derivados das campanhas, despesas, conteúdos e tarefas, sem cópia persistida de notificações. Associações clínicas antigas por nome só são resolvidas se unívocas. Registos sem correspondência são preservados e podem ser associados explicitamente por gestores autorizados.
@@ -15,6 +15,8 @@ Branch exclusiva `dev/v4-stabilization-20261017`, PR #13 em rascunho. Base prese
 ## Fase 1 — base funcional implementada
 
 Dashboard com filtros por clínica autorizada, especialidade, campanha, canal e dia/semana/mês/trimestre/ano/intervalo. Comparação com intervalo anterior de igual duração, série diária interativa e comparação de clínicas. Campanhas com objetivo, público-alvo descritivo, especialidade, canal, datas, responsável, orçamento, texto/material descritivo, estados internos, revisão humana e histórico. Registo de investimento efetivo por data/clínica e referência documental; não confundir orçamento com despesa.
+
+Catálogo de canais extensível em Tabelas internas do centro, sem alterar código e sem criar ligações a fornecedores. Política de conservação proposta pode ser registada por gestores, com execução explicitamente pendente e sem eliminação automática.
 
 Objetivos mensais e orçamentos por clínica, especialidade, campanha e canal. Consulta do progresso das contagens e diferença entre previsto/registado. Atribuição a campanhas usa apenas campanhas da clínica do pedido e mantém o ID original. Nenhum investimento ou anúncio é executado pela aplicação.
 

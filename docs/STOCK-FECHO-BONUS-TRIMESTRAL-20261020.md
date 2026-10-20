@@ -32,6 +32,8 @@ O consumo total inclui as vendas. A validação exige vendas <= consumo do produ
 
 ## Segurança e limites
 
+A consulta operacional e o respetivo histórico ocultam taxas e montantes individuais a perfis sem gestão financeira; a evidência original mantém-se armazenada e disponível no apuramento autorizado. Replays continuam sujeitos às permissões efetivas atuais.
+
 O preview é sintético/local, não é um backend partilhado nem prova de autenticação real. Os testes API/PostgreSQL usam exclusivamente o serviço efémero do GitHub Actions (`gs_v4_synthetic`); escritores reais continuam desativados. Não foram criados recursos remotos, usadas credenciais reais ou executadas migrações em bases existentes.
 
 O servidor usa as datas de baixa dos documentos RH existentes; documentos de baixa sem datas bloqueiam o apuramento. A validação de completude das ausências e do vínculo RH na integração central continua necessária antes de utilização real. Admissão em falta bloqueia elegibilidade, sem inventar datas. O trimestre em curso permite registo de vendas, mas não lançamento antecipado do bónus.
@@ -40,7 +42,7 @@ Uploads privados, retenção/fiscalidade da empresa e autenticação/persistênc
 
 ## Verificação
 
-- `npm test`: sintaxe, regressões existentes e onze cenários de domínio específicos.
+- `npm test`: sintaxe, regressões existentes e doze cenários de domínio específicos.
 - `npm run build`: pacote estático sem backend, segredos ou documentos privados.
 - `tests/stock-closing-postgres.cjs`: Stock + dia na mesma transação, concorrência, seis perfis, isolamento clínico, apuramento único, aprovação e bloqueio de pagamento desatualizado.
 - `tests/stock-closing-browser.py`: controlos reais, seis perfis × três formatos × dois temas; guardar, corrigir, recarregar, fechar e discriminar bónus.

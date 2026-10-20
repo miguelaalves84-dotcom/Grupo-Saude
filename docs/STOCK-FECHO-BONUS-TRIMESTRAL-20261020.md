@@ -15,6 +15,8 @@ Branch exclusiva: `dev/v4-stabilization-20261017`; PR #13 permanece em rascunho.
 | Bónus trimestral | Movimento manual `Bónus` e verificação antiga de baixas do trimestre atual | Agrega vendas do trimestre escolhido ao mesmo movimento, discrimina outras componentes e exige aprovação |
 | Elegibilidade | Verificação local de baixas, sem apuramento de vendas | Trimestre terminado, admissão até início, baixas >30 dias excluem; dias sobrepostos contados uma vez |
 
+A integração PostgreSQL detetou e corrigiu também a conversão de datas SQL no Financeiro: o driver pode devolver objetos `Date`; agora são normalizados para ISO, sem cortar o texto do dia da semana.
+
 Não foram apagadas tabelas, documentos, registos financeiros, históricos ou dados de candidaturas. O escritor financeiro diário contraditório foi desativado; movimentos históricos diários NÃO foram automaticamente convertidos, estornados ou incluídos no trimestre, pois isso exigiria reconciliação para evitar dupla contagem.
 
 ## Fontes únicas e comportamento

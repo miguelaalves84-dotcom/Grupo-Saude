@@ -8,7 +8,7 @@ Este documento atualiza prioridades; relatórios anteriores permanecem como evid
 |---|---|---|---|
 | P0 | Composição da abertura | Correção implementada no código, sujeita aos resultados efetivos do Actions | Só médicos, só técnicos, ambos e nenhum com justificação. Domínio partilhado, UI, API/PostgreSQL e Chromium dedicados |
 | P0 | Capacidade médica | Correção de 110d32c preservada | Médicos só têm três contagens; capacidade/vagas apenas técnicos |
-| P0 | Tarefas e fecho condicionais | Implementado | Planning só com técnicos; fecho médico só com médicos; abertura administrativa sem movimentos clínicos fictícios. Pendências administrativas reais continuam preservadas |
+| P0 | Tarefas e fecho condicionais | Implementado | Planning só com técnicos; fecho médico só com médicos; notificações e contadores do Dashboard usam a mesma aplicabilidade; abertura administrativa sem movimentos clínicos fictícios. Pendências administrativas reais continuam preservadas |
 | P0 | Publicidade por presença | Implementado: propostas, não publicação | Apenas especialidades presentes e autorizadas; vagas só quando fiáveis de técnicos. Propostas existentes de especialidades removidas são suspensas com histórico e não geráveis, sem apagar versões |
 | P1 | Tabelas — destinos e sobreposições | Parcial; falhas confirmadas | Catálogo ainda aponta para contratos; botão estático de permissões sem handler; entradas de especialidades/estrutura sobrepostas. Consolidar controladores sem perder funções |
 | P1 | Stock | Não implementado nesta branch, implementação antiga localizada | Recuperar por comparação; não reconstruir nem copiar versões antigas sobre módulos recentes |

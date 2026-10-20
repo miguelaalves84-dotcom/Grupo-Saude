@@ -23,7 +23,7 @@ Não foram apagadas tabelas, documentos, registos financeiros, históricos ou da
 
 - `stock-core-v4.js`: produtos, fornecedores, preços, encomendas, entradas previstas e movimentos no ledger existente.
 - `stock-closing-v4.js`: regras partilhadas de consumo e vendas; dados guardados em `clinic_days.data.stockClosing`, sem tabela de comissões nem lançamento diário.
-- `operation-core-v4.js` / `app.js`: duas tarefas obrigatórias de fecho, formulário único e bloqueios do fecho. Sem produtos aplicáveis: tarefa concluída sem movimento.
+- `operation-core-v4.js` / `app.js`: duas tarefas obrigatórias de fecho, formulário único e bloqueios do fecho. Sem produtos aplicáveis: tarefa concluída sem movimento. Dias históricos já fechados antes da introdução destas tarefas não ficam retroativamente bloqueados; não são criados consumos/vendas históricos.
 - `lib/operation-service.js`: persistência atómica de dia e Stock, comparação de revisões e snapshots RH; autor vem da sessão.
 - `finance-demo-v4.js` / `lib/finance-service.js` / `lib/quarterly-bonus-service.js`: apuramento no movimento trimestral existente; outras componentes são preservadas. Duplicação por colaborador/trimestre bloqueada.
 - `finance-ui-v4.js`: detalhe legível por dia, clínica, produto e técnico; valor observado e parcela elegível discriminados.
@@ -40,7 +40,7 @@ Uploads privados, retenção/fiscalidade da empresa e autenticação/persistênc
 
 ## Verificação
 
-- `npm test`: sintaxe, regressões existentes e dez cenários de domínio específicos.
+- `npm test`: sintaxe, regressões existentes e onze cenários de domínio específicos.
 - `npm run build`: pacote estático sem backend, segredos ou documentos privados.
 - `tests/stock-closing-postgres.cjs`: Stock + dia na mesma transação, concorrência, seis perfis, isolamento clínico, apuramento único, aprovação e bloqueio de pagamento desatualizado.
 - `tests/stock-closing-browser.py`: controlos reais, seis perfis × três formatos × dois temas; guardar, corrigir, recarregar, fechar e discriminar bónus.

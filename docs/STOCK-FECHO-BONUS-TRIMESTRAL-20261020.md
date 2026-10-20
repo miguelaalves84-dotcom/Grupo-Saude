@@ -32,7 +32,7 @@ O consumo total inclui as vendas. A validação exige vendas <= consumo do produ
 
 ## Segurança e limites
 
-A consulta operacional e o respetivo histórico ocultam taxas e montantes individuais a perfis sem gestão financeira; a evidência original mantém-se armazenada e disponível no apuramento autorizado. Replays continuam sujeitos às permissões efetivas atuais.
+A consulta operacional e o respetivo histórico ocultam taxas e montantes individuais a perfis sem gestão financeira; custos de Stock também são ocultados nas respostas de escrita/reenvio e no histórico a perfis sem essa permissão. A evidência original mantém-se armazenada e disponível no apuramento autorizado. Replays continuam sujeitos às permissões efetivas atuais.
 
 O preview é sintético/local, não é um backend partilhado nem prova de autenticação real. Os testes API/PostgreSQL usam exclusivamente o serviço efémero do GitHub Actions (`gs_v4_synthetic`); escritores reais continuam desativados. Não foram criados recursos remotos, usadas credenciais reais ou executadas migrações em bases existentes.
 

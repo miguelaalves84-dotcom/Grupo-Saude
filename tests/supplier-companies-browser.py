@@ -1,0 +1,58 @@
+"""Synthetic supplier company workflows on Chromium. No external services or real fiscal documents."""
+import os,json
+from pathlib import Path
+from playwright.sync_api import sync_playwright,expect
+URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/supplier-company-tests'));OUT.mkdir(parents=True,exist_ok=True);cases=[];scope={}
+def check(name,ok):
+ row={**scope,'case':name,'passed':bool(ok)};cases.append(row);print(json.dumps(row),flush=True);assert ok,name
+def state(p):return p.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',K)
+def ledger(p):return state(p)['stockLedgers']['syn-supp-a']
+def close(p):p.evaluate('document.querySelectorAll("dialog[open]").forEach(d=>d.close())')
+def submit(p,form,values):
+ for name,value in values.items():p.locator('#'+form+' [name="'+name+'"]').fill(str(value))
+ p.locator('#'+form+' button[type=submit]').click()
+ if p.locator('#modal').is_visible():print({'formError':p.locator('#modal [role=alert]').all_text_contents()},flush=True)
+ expect(p.locator('#modal')).not_to_be_visible()
+def detail(p,oid):p.evaluate('(id)=>StockUIV4.detail(id,true)',oid)
+def delivery(p,oid,quantity):
+ detail(p,oid);p.locator('#modal [data-stock-action=order-deliver]').click();submit(p,'stockForm',{'quantity':quantity,'lot':'SYN-LOT','expiresOn':'2027-10-20','reference':'SYN GUIDE','reason':'SYN delivered to clinic'})
+def receive(p,oid,quantity,rejected=0):
+ detail(p,oid);p.locator('#modal [data-stock-action=order-receive]').last.click();submit(p,'stockForm',{'quantity':quantity,'rejectedQuantity':rejected,'reason':'SYN damaged or missing' if rejected else 'SYN checked','location':'SYN Shelf'})
+with sync_playwright() as pw:
+ browser=pw.chromium.launch(args=['--no-sandbox'])
+ try:
+  for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
+   for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
+    for theme in ['light','dark']:
+     scope={'actor':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=ctx.new_page();p.set_default_timeout(7000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.on('dialog',lambda d:d.dismiss());p.goto(URL);p.wait_for_function('window.SupplierCompaniesUIV4&&window.StockUIV4&&window.CEOReservedAreaV4');p.wait_for_timeout(1100)
+     ids=p.evaluate('''([k,actor,theme])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser=actor;s.ceoViewingAs=actor==='u1'?null:actor;s.clinics.push({id:'syn-supp-a',name:'SYN Company Clinic A',active:true},{id:'syn-supp-b',name:'SYN Company Clinic B',active:true});for(const u of [...s.users,...Object.values(s.employees||{})]){u.clinics=['syn-supp-a'];u.clinicIds=['syn-supp-a'];u.clinic='syn-supp-a'}const a={id:'u1',role:'CEO',active:true,clinics:['syn-supp-a'],activeClinicIds:['syn-supp-a','syn-supp-b']};let stocks={'syn-supp-a':GSStockCore.empty()},registry=GSSupplierCompanies.empty(),n=0;const key=()=>('synthetic-fixture-'+(++n)),run=(action,b)=>{const out=GSStockCore.execute(stocks,a,action,{clinicId:'syn-supp-a',revision:stocks['syn-supp-a'].revision,idempotencyKey:key(),...b},{supplierOffers:GSSupplierCompanies.offers(registry,a,'syn-supp-a',true)});stocks=out.states;return out.result},company=(action,b)=>{const out=GSSupplierCompanies.execute(registry,a,action,{revision:registry.revision,idempotencyKey:key(),...b},{inventory:stocks});registry=out.state;return out.result};run('category-save',{id:'cat',name:'SYN Supplies'});run('product-save',{id:'p',name:'SYN Clinic Product',reference:'SYN',unit:'un',categoryId:'cat',minimum:1,maximum:100,trackLots:true,trackExpiry:true});const companyId=company('company-save',{name:'SYN Independent Company',taxId:'509000005',internalNotes:'PRIVATE CUSTOMERS SENTINEL',fiscalNotes:'PRIVATE FISCAL SENTINEL'}).companyId,productId=company('company-product-save',{companyId,name:'SYN Company Product',reference:'OWN-SYN',unit:'un',internalPurchaseCents:42137,salePriceCents:200,internalNotes:'PRIVATE PRICE SENTINEL'}).productId;company('company-offer-save',{companyId,companyProductId:productId,clinicId:'syn-supp-a',clinicProductId:'p',salePriceCents:200});company('company-document-save',{companyId,name:'PRIVATE FILE SENTINEL',reference:'PRIVATE DOCUMENT SENTINEL'});const order=run('order-create',{supplierCompanyId:companyId,lines:[{productId:'p',quantity:5,unitCostCents:200}]});run('order-submit',{id:order.id});run('order-prepare',{id:order.id});run('order-dispatch',{id:order.id});if(actor!=='u1')run('order-deliver',{id:order.id,lines:[{productId:'p',quantity:3,lot:'SYN-LOT',expiresOn:'2027-10-20'}]});s.stockLedgers=stocks;s.supplierCompanies=registry;localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+actor,theme);return{companyId,orderId:order.id}}''',[K,actor,theme]);p.reload();p.wait_for_timeout(1100);p.evaluate("StockUIV4.open('syn-supp-a')")
+     owner=actor=='u1';check('private company tab is exclusive to actual CEO',bool(p.locator('[data-stock-action=tab][data-stock-id=companies]').count())==owner)
+     public=p.evaluate("JSON.stringify(GSStockDemo.call('stock',{clinicId:'syn-supp-a'}))");check('clinic view contains no acquisition, customers, fiscal notes or private documents','PRIVATE' not in public and '42137' not in public and 'internalPurchaseCents' not in public)
+     check('clinic-specific public offers available',p.evaluate("GSStockDemo.call('stock',{clinicId:'syn-supp-a'}).supplierOffers.length")==1)
+     if not owner:
+      check('direct company endpoint adapter denies other profiles',p.evaluate("(()=>{try{GSStockDemo.call('companies',{});return false}catch{return true}})()"));check('direct private interface entry denies other profiles',p.evaluate("(()=>{try{SupplierCompaniesUIV4.open('syn-supp-a');return false}catch{return true}})()"));check('public adapter read excludes private registry',p.evaluate("!('supplierCompanies' in GSStockDemo.read())"));check('backup response does not export private company contents',p.evaluate("(()=>{const b=V4Backup.backup('SYN privacy test');return !b.data.includes('PRIVATE')&&!b.data.includes('supplierCompanies')})()"))
+     # Existing clinical request form, with an authorized company selection.
+     p.evaluate("StockUIV4.selectTab('requests')");p.locator('#stockPanel [data-stock-action=request-create]').click();p.locator('#stockForm [name=supplierCompanyId]').select_option(ids['companyId']);submit(p,'stockForm',{'quantity':2,'reason':'SYN company material request'});check('clinic request references existing company without duplicate product',ledger(p)['requests'][0]['supplierCompanyId']==ids['companyId'] and len(ledger(p)['products'])==1)
+     check('delivery registration alone has not incremented clinic stock',len(ledger(p)['balances'])==0 and len(ledger(p)['movements'])==0)
+     if owner:
+      p.evaluate("SupplierCompaniesUIV4.open('syn-supp-a')");p.locator('[data-company-action=company-save]').first.click();submit(p,'supplierCompanyForm',{'name':'SYN Other Independent Company','taxId':'509000006','internalNotes':'PRIVATE SECOND COMPANY'});check('CEO creates a distinct company',len(state(p)['supplierCompanies']['companies'])==2)
+      p.locator('[data-company-action=company-product-save]').first.click();submit(p,'supplierCompanyForm',{'name':'SYN Other Company Product','reference':'OTHER-SYN','unit':'un','internalPurchaseCents':123,'salePriceCents':200});p.locator('[data-company-action=company-offer-save]').click();submit(p,'supplierCompanyForm',{'salePriceCents':200});p.locator('[data-company-action=company-order-create]').first.click();submit(p,'supplierCompanyForm',{'quantity':2});check('CEO company order uses existing clinical ledger',len(ledger(p)['orders'])==2 and ledger(p)['orders'][1]['status']=='Rascunho')
+      p.evaluate("StockUIV4.selectTab('orders')");delivery(p,ids['orderId'],3);check('mark delivered persists guide and still leaves zero stock',ledger(p)['orders'][0]['deliveries'][0]['reference']=='SYN GUIDE' and len(ledger(p)['balances'])==0)
+     else:
+      check('direct supplier delivery cannot be made by clinic roles',p.evaluate('''(id)=>{try{GSStockDemo.call('order-deliver',{clinicId:'syn-supp-a',id,revision:GSStockDemo.call('stock',{clinicId:'syn-supp-a'}).revision,idempotencyKey:'synthetic-denied-delivery',lines:[{productId:'p',quantity:1,lot:'SYN-LOT',expiresOn:'2027-10-20'}]});return false}catch{return true}}''',ids['orderId']))
+     p.evaluate("StockUIV4.selectTab('orders')");detail(p,ids['orderId']);can_receive=actor in ['u1','test_admin','test_adm'];check('receipt action respects profile',bool(p.locator('#modal [data-stock-action=order-receive]').count())==can_receive)
+     if can_receive:
+      close(p);receive(p,ids['orderId'],2,1);check('only accepted units enter stock',ledger(p)['balances'][0]['quantity']==2000 and ledger(p)['orders'][0]['lines'][0]['received']==2);check('divergence retains delivery history and author',ledger(p)['orders'][0]['deliveries'][0]['lines'][0]['rejected']==1 and ledger(p)['orders'][0]['deliveries'][0]['history'][0]['by']==actor)
+      check('different retry cannot count same delivery twice',p.evaluate('''(id)=>{const d=GSStockDemo.call('stock',{clinicId:'syn-supp-a'});try{GSStockDemo.call('order-receive',{clinicId:'syn-supp-a',id,revision:d.revision,idempotencyKey:'synthetic-duplicate-receipt',deliveryId:d.orders[0].deliveries[0].id,lines:[{productId:'p',quantity:1}]});return false}catch{return true}}''',ids['orderId']))
+      if owner:
+       delivery(p,ids['orderId'],3);receive(p,ids['orderId'],3);check('replacement delivery closes with exactly five received units',ledger(p)['balances'][0]['quantity']==5000 and ledger(p)['orders'][0]['status']=='Recebida' and len(ledger(p)['movements'])==2)
+     else:
+      close(p);check('forbidden direct receipt leaves stock untouched',p.evaluate('''(id)=>{try{GSStockDemo.call('order-receive',{clinicId:'syn-supp-a',id,revision:GSStockDemo.call('stock',{clinicId:'syn-supp-a'}).revision,idempotencyKey:'synthetic-forbidden-receipt',lines:[{productId:'p',quantity:1}]});return false}catch{return true}}''',ids['orderId']) and len(ledger(p)['balances'])==0)
+     p.reload();p.wait_for_timeout(1100);check('company data preserved through clinic actions and reload',state(p)['supplierCompanies']['companies'][0]['products'][0]['internalPurchaseCents']==42137);p.evaluate("StockUIV4.open('syn-supp-a')")
+     if owner:
+      p.evaluate("SupplierCompaniesUIV4.open('syn-supp-a');CEOReservedAreaV4.sw('test_admin')");check('CEO simulation removes commercial management access',p.locator('[data-stock-action=tab][data-stock-id=companies]').count()==0 and p.evaluate("(()=>{try{GSStockDemo.call('companies',{});return false}catch{return true}})()"));check('no private contents left in rendered simulated area','PRIVATE' not in p.locator('body').inner_text());p.evaluate("CEOReservedAreaV4.sw('__CEO__');SupplierCompaniesUIV4.open('syn-supp-a')")
+     check('no JavaScript runtime errors',not errors)
+     if actor in ['u1','test_admin','test_adm']:p.screenshot(path=str(OUT/(actor+'-'+device+'-'+theme+'.png')),full_page=True)
+     ctx.close()
+ finally:
+  (OUT/'supplier-companies-results.json').write_text(json.dumps({'cases':cases,'passed':sum(x['passed'] for x in cases),'failed':sum(not x['passed'] for x in cases)},ensure_ascii=False,indent=2));browser.close()

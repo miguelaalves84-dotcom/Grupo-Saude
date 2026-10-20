@@ -1,0 +1,52 @@
+"""Recovered Stock, canonical Tables/catalogue and audit UX. Synthetic loopback only."""
+import os,json
+from pathlib import Path
+from playwright.sync_api import sync_playwright,expect
+URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/stock-tables'));OUT.mkdir(parents=True,exist_ok=True);rows=[];scope={}
+def check(name,ok):
+ row={**scope,'case':name,'passed':bool(ok)};rows.append(row);print(json.dumps(row),flush=True);assert ok,name
+def state(p):return p.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',K)
+def close(p):p.evaluate('document.querySelectorAll("dialog[open]").forEach(x=>x.close())')
+def submit(p,values):
+ for k,v in values.items():p.locator('#stockForm [name="'+k+'"]').fill(str(v))
+ p.locator('#stockForm button[type=submit]').click();expect(p.locator('#stockForm')).to_have_count(0)
+with sync_playwright() as pw:
+ browser=pw.chromium.launch(args=['--no-sandbox'])
+ try:
+  for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
+   for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
+    for theme in ['light','dark']:
+     scope={'actor':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=ctx.new_page();p.set_default_timeout(7000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.on('dialog',lambda d:d.dismiss());p.goto(URL);p.wait_for_function('window.StockUIV4&&window.DocumentCatalogV4&&window.WorkspaceShellV4');p.wait_for_timeout(1100)
+     p.evaluate('''([k,a,t])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser=a;s.ceoViewingAs=a==='u1'?null:a;s.clinics.push({id:'syn-stock-a',name:'SYN Stock A',active:true},{id:'syn-stock-b',name:'SYN Stock B',active:true});for(const u of [...s.users,...Object.values(s.employees||{})])if(u.id===a){u.clinics=['syn-stock-a'];u.clinicIds=['syn-stock-a'];u.clinic='syn-stock-a'}s.stockLedgers={};const ceo={id:'u1',role:'CEO',active:true,clinics:['syn-stock-a','syn-stock-b'],activeClinicIds:['syn-stock-a','syn-stock-b']};let i=0;for(const [action,b]of [['category-save',{id:'cat',name:'SYN Consumíveis'}],['product-save',{id:'p',name:'SYN Luvas',reference:'SYN-LUV',unit:'un',categoryId:'cat',minimum:5,maximum:100}],['supplier-save',{id:'supplier',name:'SYN Fornecedor'}],['receive',{productId:'p',quantity:10}]])s.stockLedgers=GSStockCore.execute(s.stockLedgers,ceo,action,{clinicId:'syn-stock-a',idempotencyKey:'synthetic-seed-'+(++i),...b}).states;s.stockLedgers['syn-stock-b']=GSStockCore.empty();s.masterDocuments=[{id:'syn-doc',name:'SYN Seguro',dateRule:'validade',required:true,warningDays:30}];s.documentCatalog=[];s.documentCatalogRevision=0;delete s.documentCatalogMigration;s.contractTypes=[{id:'syn-contract',name:'SYN Contrato',active:true,items:[{id:'syn-item',masterDocumentId:'syn-doc',name:'SYN Seguro',required:true}]}];s.employeeDocuments['test_med']=[{id:'syn-evidence',masterDocumentId:'syn-doc',sourceItemId:'syn-item',fileName:'synthetic.pdf',status:'Validado',marker:'PRESERVE'}];localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+a,t)}''',[K,actor,theme]);p.reload();p.wait_for_timeout(1100);p.evaluate("StockUIV4.open('syn-stock-a')");expect(p.locator('#stockClinic')).to_be_visible()
+     check('one Stock route and selected clinic',p.locator('#nav [data-view=stock]').count()==1 and p.locator('#stockClinic').input_value()=='syn-stock-a')
+     manager=actor in ['u1','test_admin'];check('default configure permissions',bool(p.locator('#stockContent [data-stock-action=product-save]').count())==manager)
+     check('exact clinic boundary including Call Center',p.evaluate("(()=>{try{GSStockDemo.call('stock',{clinicId:'syn-stock-b'});return GSStockDemo.actor().role==='CEO'}catch{return GSStockDemo.actor().role!=='CEO'}})()"))
+     p.locator('[data-stock-action=tab][data-stock-id=requests]').click();p.locator('#stockPanel [data-stock-action=request-create]').click();submit(p,{'quantity':2,'reason':'SYN material request'});check('material request persisted',len(state(p)['stockLedgers']['syn-stock-a']['requests'])==1)
+     if manager:
+      p.locator('[data-stock-action=request-decide]').click();p.locator('#stockForm [name=status]').select_option('Aprovado');submit(p,{'reason':'SYN approved'});check('approval persists',state(p)['stockLedgers']['syn-stock-a']['requests'][0]['status']=='Aprovado')
+      p.locator('[data-stock-action=tab][data-stock-id=orders]').click();p.locator('[data-stock-action=order-create]').click();submit(p,{'quantity':3,'unitCostCents':20});p.locator('[data-stock-action=order-submit]').click();submit(p,{'reason':'SYN order approval'});p.locator('[data-stock-action=order-receive]').click();submit(p,{'quantity':1,'location':'SYN Shelf'});check('partial receipt is not a full receipt',state(p)['stockLedgers']['syn-stock-a']['orders'][0]['status']=='Parcial');p.locator('[data-stock-action=order-receive]').click();submit(p,{'quantity':2,'location':'SYN Shelf'});check('completed receipt and history',state(p)['stockLedgers']['syn-stock-a']['orders'][0]['status']=='Recebida')
+     p.locator('[data-stock-action=tab][data-stock-id=movements]').click()
+     if actor!='test_call':
+      p.locator('[data-stock-action=consume]').click();submit(p,{'quantity':1,'reason':'SYN consumption'});check('consumption ledger and audit',any(x['kind']=='consume' for x in state(p)['stockLedgers']['syn-stock-a']['movements']))
+     else:check('Call Center cannot consume by direct command',p.evaluate("(()=>{try{GSStockDemo.call('consume',{clinicId:'syn-stock-a',productId:'p',quantity:1,reason:'forbidden',revision:GSStockDemo.read().stockLedgers['syn-stock-a'].revision,idempotencyKey:'synthetic-forbidden'});return false}catch{return true}})()"))
+     check('cost visibility matches permission',p.evaluate("JSON.stringify(GSStockDemo.call('stock',{clinicId:'syn-stock-a'})).includes('unitCostCents')") == manager)
+     if manager:
+      p.evaluate("App.showView('tables')");p.wait_for_timeout(300);titles=p.locator('#tablesContent .cards>.card h3').all_text_contents();check('no duplicated table cards',len(titles)==len(set(titles)))
+      p.get_by_role('button',name='Gerir documentos e checklists',exact=True).click();expect(p.locator('#modalTitle')).to_have_text('Catálogo Mestre de Documentos');check('catalogue opens independently',p.locator('#documentCatalogList').count()==1)
+      p.locator('[data-catalog-edit=syn-doc]').click();p.locator('#documentCatalogForm [name=name]').fill('SYN Seguro atualizado');p.locator('#documentCatalogForm [name=requirements]').fill('SYN Apólice válida');p.locator('#documentCatalogForm button[type=submit]').click();check('catalogue edit preserves original evidence',state(p)['employeeDocuments']['test_med'][0]['marker']=='PRESERVE');close(p)
+      p.get_by_role('button',name='Gerir tipos de contrato',exact=True).click();expect(p.locator('#modalTitle')).to_have_text('Tipos de contrato');p.locator('[data-contract=syn-contract]>summary').click();check('contract reads current catalogue rule',p.locator('#modalBody').inner_text().count('SYN Seguro atualizado')>=1)
+      p.locator('[data-gs-action="ContractTypesV4.requirement"]').uncheck();check('optional requirement persists without replacing item',state(p)['contractTypes'][0]['items'][0]['required'] is False and state(p)['contractTypes'][0]['items'][0]['id']=='syn-item');close(p)
+      for label,title in [('Funções / cargos e permissões','Funções e permissões'),('Gerir estrutura clínica','Clínicas · Especialidades · Profissionais')]:
+       p.get_by_role('button',name=label,exact=True).click();expect(p.locator('#modalTitle')).to_have_text(title);check('table destination '+label,True);close(p)
+      p.get_by_role('button',name='Gerir clínicas',exact=True).click();check('clinic table route works',p.locator('#clinics.view.active').count()==1)
+     else:
+      check('catalogue and contracts reject other roles',p.evaluate("(()=>{try{DocumentCatalogV4.edit('syn-doc');return false}catch{return !RoleAccessAdminV4.guard('tables')}})()"))
+     p.evaluate('''()=>{const s=GSStockDemo.read(),a=s.currentUser;s.userActionPermissions ||= {};s.userActionPermissions[a]={...s.userActionPermissions[a],stockRead:false};if(a==='u1')return;localStorage.setItem('grupo_saude_v4_demo_2',JSON.stringify(s));}''')
+     if actor!='u1':check('revoking read revokes writes and direct reads',p.evaluate("!RoleAccessAdminV4.can('stockRead')&&!RoleAccessAdminV4.can('stockRequest')&&(()=>{try{GSStockDemo.call('stock',{clinicId:'syn-stock-a'});return false}catch{return true}})()"))
+     # All roles inspect the same escaped read-only history projection; route permissions remain tested separately.
+     result=p.evaluate('''()=>{const events=[{id:'old',at:'2026-07-20T09:00:00Z',by:'test_adm',clinic:'syn-stock-a',action:'Abertura',before:null,after:{booked:5}},{id:'new',at:'2026-07-20T10:00:00Z',by:'test_adm',clinic:'syn-stock-a',action:'Fecho',before:{done:0},after:{done:4}}],before=JSON.stringify(events),holder=document.createElement('div');holder.id='synthetic-history-test';holder.innerHTML=GSOperationHistory.render(events,{people:[{id:'test_adm',name:'SYN Administrative'}],clinics:[{id:'syn-stock-a',name:'SYN Stock A'}]});document.querySelector('.view.active').appendChild(holder);return before===JSON.stringify(events)}''');check('history render keeps original trail',result);check('history has records and no raw JSON',p.locator('#synthetic-history-test [data-history-event]').count()==2 and p.locator('#synthetic-history-test pre').count()==0);p.locator('#synthetic-history-test [data-history-search]').fill('Fecho');check('history search does not delete events',p.locator('#synthetic-history-test [data-history-event]:visible').count()==1 and p.locator('#synthetic-history-test [data-history-event]').count()==2)
+     check('no JavaScript runtime errors',not errors)
+     if actor in ['u1','test_adm']:p.screenshot(path=str(OUT/(actor+'-'+device+'-'+theme+'.png')),full_page=True)
+     ctx.close()
+ finally:
+  (OUT/'stock-tables-results.json').write_text(json.dumps({'cases':rows,'passed':sum(x['passed'] for x in rows),'failed':sum(not x['passed'] for x in rows)},ensure_ascii=False,indent=2));browser.close()

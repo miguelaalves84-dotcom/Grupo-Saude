@@ -61,7 +61,7 @@ with sync_playwright() as p:
       try:
        before_form=page.locator('.view.active').inner_text();page.evaluate(expr);page.wait_for_timeout(70);visible=page.locator('dialog[open]').count()>0 or page.locator('.view.active').inner_text()!=before_form;check(module,'Abrir formulário '+label,visible);inventory(page,module)
       except Exception as e:record(module,'Abrir formulário '+label,'Formulário existente acessível',str(e)[:400],False)
-     close(page);page.evaluate('App.showView("myhr")');check('Dados','Marcador sintético e histórico preservados',page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).auditMarker',KEY)=='SYN AUDIT PRESERVE');check('Runtime','Sem erros JavaScript no perfil',not errors,observed=errors.copy());page.screenshot(path=str(OUT/f'audit-{actor}-{device}-{theme}.png'),full_page=True)
+     close(page);page.evaluate('HRSeparationV4.documents()');page.locator('#modalBody button').filter(has_text='Voltar').click();check('RH','Voltar fecha modal e regressa a Meu RH',page.locator('dialog[open]').count()==0 and page.evaluate('document.querySelector(".view.active")?.id')=='myhr');check('Dados','Marcador sintético e histórico preservados',page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).auditMarker',KEY)=='SYN AUDIT PRESERVE');check('Runtime','Sem erros JavaScript no perfil',not errors,observed=errors.copy());page.screenshot(path=str(OUT/f'audit-{actor}-{device}-{theme}.png'),full_page=True)
      if actor=='u1':
       for target,_ in PROFILES:
        if target=='u1':continue

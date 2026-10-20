@@ -9,9 +9,9 @@ def state(p):return p.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',K)
 def close(p):p.evaluate('document.querySelectorAll("dialog[open]").forEach(x=>x.close())')
 def submit(p,values):
  for k,v in values.items():p.locator('#stockForm [name="'+k+'"]').fill(str(v))
- p.locator('#stockForm button[type=submit]').click();expect(p.locator('#stockForm')).to_have_count(0)
+ p.locator('#stockForm button[type=submit]').click();expect(p.locator('#modal')).not_to_be_visible()
 with sync_playwright() as pw:
- browser=pw.chromium.launch(args=['--no-sandbox'])
+ browser=pw.chromium.launch(args=['--no-sandbox'],executable_path=os.environ.get('GS_TEST_CHROMIUM'))
  try:
   for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
    for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:

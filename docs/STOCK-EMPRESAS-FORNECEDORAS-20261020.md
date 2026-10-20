@@ -31,7 +31,7 @@ Backup privado da base verificado fora do Git: `/workspace/supplier-company-chec
 6. **Confirmar receção desta entrega** permite aceitar quantidades e registar material recusado/em falta, com justificação obrigatória para divergências. Apenas a quantidade aceite entra em stock, com autor, data e histórico.
 7. Entregas parciais ficam pendentes; material recusado pode ser reposto em nova entrega. Não se permite receber mais que o entregue ou voltar a contabilizar uma entrega já conferida, mesmo com nova chave de envio.
 
-Idempotência e revisões protegem repetições; as transações CAS mantêm stock/auditoria atómicos e impedem pedidos/encomendas contra uma oferta alterada durante a gravação. Cancelamentos não apagam entregas ou receções. As receções anteriores de fornecedores convencionais e transferências entre clínicas permanecem no fluxo original.
+Idempotência e revisões protegem repetições; as transações CAS mantêm stock/auditoria atómicos e impedem pedidos/encomendas contra uma oferta alterada durante a gravação. Cancelamentos não apagam entregas ou receções. As receções anteriores de fornecedores convencionais e transferências entre clínicas permanecem no fluxo original. A reposição demonstrativa preserva os ledgers e o cadastro empresarial; outros perfis não podem executar essa reposição quando há empresas cadastradas.
 
 ## Estado e limites
 

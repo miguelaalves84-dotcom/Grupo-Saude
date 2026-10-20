@@ -193,7 +193,7 @@ const App = (() => {
     document.dispatchEvent(new CustomEvent('gs:view-changed',{detail:{id}}));
     return true;
   }
-  function resetDemo(){if(window.RoleAccessAdminV4&&!RoleAccessAdminV4.can('settings'))return toast('Sem autorização para repor dados');if(!confirm('Repor todos os dados de demonstração?'))return;state=seed();audit('Sistema','Dados de demonstração repostos','');persist();toast('Demonstração reposta')}
+  function resetDemo(){syncState();if(state.supplierCompanies?.companies?.length&&!window.GSSupplierCompanies?.owner(window.GSStockDemo?.actor()))return toast('Reposição com empresas fornecedoras reservada ao CEO efetivo.');if(window.RoleAccessAdminV4&&!RoleAccessAdminV4.can('settings'))return toast('Sem autorização para repor dados');if(!confirm('Repor todos os dados de demonstração?'))return;state=seed();audit('Sistema','Dados de demonstração repostos','');persist();toast('Demonstração reposta')}
   function init(){
     syncState();
     document.addEventListener('click',e=>{const b=e.target.closest?.('[data-view]');if(b)showView(b.dataset.view)});

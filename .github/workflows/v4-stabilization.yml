@@ -78,7 +78,7 @@ jobs:
         with:
           node-version: '24'
       - run: npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3
-      - run: node tests/interviews-complaints-postgres.cjs && node tests/operation-postgres.cjs && node tests/marketing-postgres.cjs && node tests/stock-catalog-postgres.cjs && node tests/supplier-companies-postgres.cjs && node tests/stock-closing-postgres.cjs
+      - run: node tests/interviews-complaints-postgres.cjs && node tests/operation-postgres.cjs && node tests/marketing-postgres.cjs && node tests/stock-catalog-postgres.cjs && node tests/supplier-companies-postgres.cjs && node tests/stock-closing-postgres.cjs && node tests/attendance-postgres.cjs
         env:
           CI: 'true'
           PGHOST: 127.0.0.1

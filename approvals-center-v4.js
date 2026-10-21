@@ -3,6 +3,7 @@
 function items(s){const a=[];(s.leave||[]).filter(x=>x.status==='Pendente').forEach(x=>a.push({kind:'leave',id:x.id,title:x.type||'Férias',who:user(s,x.employeeId||x.userId).name,detail:window.HRLeaveUIV4.periods(window.HRLeaveV4.days(x)),at:x.createdAt}));(s.timeOccurrences||[]).filter(x=>x.status==='Pendente').forEach(x=>a.push({kind:'time',id:x.id,title:'Ocorrência de ponto',who:user(s,x.user||x.userId||x.employeeId).name,detail:(x.type||'')+' · '+(x.reason||''),at:x.at||x.createdAt}));Object.entries(s.employeeDocuments||{}).forEach(([uid,ds])=>(ds||[]).filter(d=>d.status==='Pendente'&&(d.uploadedAt||d.receivedAt||d.dataUrl||d.file)).forEach(d=>a.push({kind:'doc',id:d.id,uid,title:'Documento RH',who:user(s,uid).name,detail:d.name||d.category||'Documento',at:d.uploadedAt||d.receivedAt})));(s.timeCorrections||s.timeCorrectionRequests||[]).filter(x=>x.status==='Pendente').forEach(x=>a.push({kind:'correction',id:x.id,title:'Correção de ponto',who:user(s,x.user||x.userId||x.employeeId).name,detail:x.reason||x.detail||'',at:x.createdAt}));return a.sort((x,y)=>String(y.at||'').localeCompare(String(x.at||'')))}
 function raw(s,kind,id,uid){if(kind==='leave')return (s.leave||[]).find(z=>String(z.id)===String(id));if(kind==='time')return (s.timeOccurrences||[]).find(z=>String(z.id)===String(id));if(kind==='doc')return (s.employeeDocuments?.[uid]||[]).find(z=>String(z.id)===String(id));return (s.timeCorrections||s.timeCorrectionRequests||[]).find(z=>String(z.id)===String(id))}
 function decide(kind,id,uid,status,note=''){
+ if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
  if(kind==='time')return window.AttendanceBookV4?.decision(id);
  try {
   if(kind==='leave'){window.HRLeaveV4.decide(id,status,note);window.HRLeaveUIV4.open(id);sync();return true}
@@ -15,6 +16,7 @@ function decide(kind,id,uid,status,note=''){
  }catch(e){alert(e.message);return false}
 }
 function reverse(kind,id,uid){
+ if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
  if(kind==='time')return window.AttendanceBookV4?.decision(id);
  if(kind==='leave')return window.HRLeaveUIV4.reversalForm(id);
  const s=R(),x=raw(s,kind,id,uid);if(!admin(s)||!x)return alert('Sem autorização.');if(!['Aprovado','Recusado'].includes(x.status))return alert('Não existe uma decisão a reverter.');
@@ -25,6 +27,8 @@ function reverse(kind,id,uid){
 function editSickEnd(id){try{const d=window.HRLeaveV4,s=d.read(),x=(s.leave||[]).find(v=>String(v.id)===String(id));if(!d.canReview(s)||!x||!d.sick(x))throw Error('Sem autorização para alterar esta baixa.');const start=prompt('Data de início da baixa (AAAA-MM-DD)',x.start||'');if(!start)return;const end=prompt('Data de fim da baixa (AAAA-MM-DD)',x.end||x.start||'');if(!end)return;const reason=prompt('Motivo obrigatório para alterar a baixa:');if(!reason?.trim())return;d.editSick(id,start,end,reason);window.HRLeaveUIV4.open(id);sync()}catch(e){alert(e.message)}}
 
 function detail(kind,id,uid){
+ if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
+ if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
  if(kind==='time')return window.AttendanceBookV4?.decision(id);
  if(kind==='leave')return window.HRLeaveUIV4.open(id);
  const s=R();if(!admin(s))return alert('Sem autorização para consultar este pedido.');const x=raw(s,kind,id,uid);if(!x)return alert('Pedido não encontrado.');const p=user(s,x.employeeId||x.userId||x.user||uid),c=(s.clinics||[]).find(c=>String(c.id)===String(x.clinicId||x.clinic||p.clinics?.[0]||p.clinic)),fmt=v=>v?new Date(v).toLocaleString('pt-PT'):'—',f=(label,value)=>'<div><dt class="muted">'+E(label)+'</dt><dd style="margin:4px 0 12px">'+E(value??'—')+'</dd></div>',pending=x.status==='Pendente';

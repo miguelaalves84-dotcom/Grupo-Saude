@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),output=path.join(root,'dist');
-const assets=fs.readdirSync(root).filter(name=>/\.(html|css|js)$/.test(name)&&fs.statSync(path.join(root,name)).isFile());
+const assets=fs.readdirSync(root).filter(name=>/\.(html|css|js|svg)$/.test(name)&&fs.statSync(path.join(root,name)).isFile());
 // Validate before replacing only the generated output; never touch data or source.
 for(const name of assets){
  if(!name.endsWith('.html'))continue;

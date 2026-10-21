@@ -94,3 +94,8 @@ body{background:var(--canvas);color:var(--ink);font-family:Inter,ui-sans-serif,s
 [data-theme="dark"] #nav details[data-nav-group]>button.active{color:#f2fffd;background:#264c50;border-left-color:#69d3c6}
 button[aria-disabled="true"]{cursor:not-allowed;opacity:.65}
 @media(max-width:760px){#nav details[data-nav-group]>summary{font-size:16px}#nav details[data-nav-group]>button{min-height:46px;font-size:14px}}
+
+/* Original supplied artwork; never recolour, crop or stretch. */
+.gs-official-logo{display:block;width:62px;height:auto!important;aspect-ratio:1210 / 1280;object-fit:contain;flex:0 0 auto;background:#fff;border-radius:4px;filter:none!important;mix-blend-mode:normal}.gs-login-logo{width:150px;max-width:45vw;margin:0 auto 20px}.gs-print-brand{display:none}body:has(.gs-login-logo) main{width:calc(100% - 32px)}
+@media(max-width:760px){.topbar>.gs-official-logo{width:46px}.gs-login-logo{width:125px}}
+@media print{.gs-print-brand{display:block!important;position:static;background:#fff;color:#172235;margin:0 0 18px;break-inside:avoid}.gs-print-brand .gs-official-logo{width:85px}.gs-print-brand p{font-size:10px}.topbar{display:none!important}.gs-print-brand{position:absolute;top:0;left:20px}body{padding-top:125px!important}}

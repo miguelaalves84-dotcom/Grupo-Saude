@@ -75,3 +75,22 @@ body{background:var(--canvas);color:var(--ink);font-family:Inter,ui-sans-serif,s
 .operation-timeline{list-style:none;padding:0;border-left:3px solid var(--primary,#0f7b80)}.operation-timeline>li{padding:8px 16px;margin:12px 0}.operation-timeline h4{margin:0}.history-comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}.operation-history-values{margin:6px 0;overflow-wrap:anywhere}.operation-history-values>div{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid #8883;padding:5px}.operation-history-values dt{font-weight:600}.operation-history-values dd{margin:0;min-width:0}.operation-history li[hidden]{display:none}
 
 .stock-list{max-width:100%;overflow-x:auto}.stock-list table{min-width:620px}.module-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.module-tabs [aria-selected=true]{background:var(--primary,#0f7b80);color:white}.compliance-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid #8883}.stock-metrics .metric{display:block}.stock-empty{padding:16px}
+/* Canonical navigation groups: preserve existing accordion and permission guards. */
+#nav details[data-nav-group]{margin:10px 0 16px;padding-top:8px;border-top:1px solid var(--line,#d6e0e5)}
+#nav details[data-nav-group]>summary{min-height:48px;padding:12px 10px;color:var(--ink,#142c36);font-size:15px;font-weight:800;letter-spacing:.015em;text-transform:none;line-height:1.35;border-radius:10px;cursor:pointer;gap:10px;background:var(--soft,#edf5f5)}
+#nav details[data-nav-group]>summary::before{content:'▦';font-size:19px;color:var(--ink,#142c36);width:22px;text-align:center;flex:none}
+#nav details[data-nav-group="Área pessoal"]>summary::before{content:'◉'}
+#nav details[data-nav-group="Gestão"]>summary::before{content:'▤'}
+#nav details[data-nav-group="Operação"]>summary::before{content:'⚙'}
+#nav details[data-nav-group="Recursos Humanos"]>summary::before{content:'♧'}
+#nav details[data-nav-group="Financeiro"]>summary::before{content:'€'}
+#nav details[data-nav-group="Administração do sistema"]>summary::before{content:'☷'}
+#nav details[data-nav-group]>button{margin:4px 0 4px 12px;padding-left:18px;width:calc(100% - 12px);min-height:44px;font-size:13px;font-weight:500;color:var(--muted,#49606a);border-left:2px solid transparent}
+#nav details[data-nav-group]>button.active{font-weight:750;color:var(--ink,#142c36);background:var(--soft,#e2f2f1);border-left-color:#087f86}
+#nav details[data-nav-group]:has(>button.active)>summary{box-shadow:inset 3px 0 #087f86}
+[data-theme="dark"] #nav details[data-nav-group]>summary{color:#f0f7fa;background:#243b45}
+[data-theme="dark"] #nav details[data-nav-group]>summary::before{color:#b9e9e4}
+[data-theme="dark"] #nav details[data-nav-group]>button{color:#bdced6}
+[data-theme="dark"] #nav details[data-nav-group]>button.active{color:#f2fffd;background:#264c50;border-left-color:#69d3c6}
+button[aria-disabled="true"]{cursor:not-allowed;opacity:.65}
+@media(max-width:760px){#nav details[data-nav-group]>summary{font-size:16px}#nav details[data-nav-group]>button{min-height:46px;font-size:14px}}

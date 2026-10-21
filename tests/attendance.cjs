@@ -37,4 +37,7 @@ check('recusa de pedido manual não produz ponto nem altera saldos',()=>{let s=r
 
 
 check('pedido manual sem clínica é recusado sem criar registos órfãos',()=>{assert.throws(()=>run(base(),'manual-request',{clinicId:'',type:'Saída',date:'2026-10-19',time:'18:00',reason:'SYN'},'09:00'),/clínica autorizada/)});
+
+
+check('GPS reutiliza a ficha mestre aninhada e as colunas centrais sem duplicar configuração',()=>{assert(A.gps({gps:{lat:'38',lng:'-9',radius:100}},point).validated);assert(A.gps({latitude:38,longitude:-9,radius:100,gps:{lat:'',lng:'',radius:50}},point).validated);assert.throws(()=>A.gps({gps:{lat:'',lng:'',radius:50}},point),/por configurar/)});
 console.log('PASS attendance domain and rosters: '+checks+' scenarios (synthetic; not browser or real authentication).');

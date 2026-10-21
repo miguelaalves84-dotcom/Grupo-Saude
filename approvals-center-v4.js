@@ -28,7 +28,6 @@ function editSickEnd(id){try{const d=window.HRLeaveV4,s=d.read(),x=(s.leave||[])
 
 function detail(kind,id,uid){
  if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
- if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
  if(kind==='time')return window.AttendanceBookV4?.decision(id);
  if(kind==='leave')return window.HRLeaveUIV4.open(id);
  const s=R();if(!admin(s))return alert('Sem autorização para consultar este pedido.');const x=raw(s,kind,id,uid);if(!x)return alert('Pedido não encontrado.');const p=user(s,x.employeeId||x.userId||x.user||uid),c=(s.clinics||[]).find(c=>String(c.id)===String(x.clinicId||x.clinic||p.clinics?.[0]||p.clinic)),fmt=v=>v?new Date(v).toLocaleString('pt-PT'):'—',f=(label,value)=>'<div><dt class="muted">'+E(label)+'</dt><dd style="margin:4px 0 12px">'+E(value??'—')+'</dd></div>',pending=x.status==='Pendente';

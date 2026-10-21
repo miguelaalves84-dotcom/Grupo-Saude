@@ -3,18 +3,30 @@ Opening a page is reported separately from mutating flows in the dedicated suite
 No real sign-in, external providers, production or destructive cleanup.
 """
 import os,json,time
+from audit_visual import inspect
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];KEY='grupo_saude_v4_demo_2'
 OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/profile-audit-artifacts'));OUT.mkdir(parents=True,exist_ok=True)
-rows=[];controls=[];scope={};errors=[]
+rows=[];controls=[];scope={};errors=[];visual=[];screen=0
 PROFILES=[('test_call','Call Center'),('test_med','Médico'),('test_tec','Técnico'),('test_adm','Administrativo'),('test_admin','Administração'),('u1','CEO')]
 def record(module,action,expected,observed,ok,**extra):
  row={**scope,'module':module,'action':action,'expected':expected,'observed':observed,'state':'Aprovada' if ok else 'Falhou',**extra};rows.append(row);print(json.dumps(row,ensure_ascii=False),flush=True)
 def check(module,action,ok,expected='Resultado coerente com permissões',observed=None,**extra):record(module,action,expected,observed if observed is not None else bool(ok),ok,**extra)
 def close(page):page.evaluate("document.querySelectorAll('dialog[open]').forEach(d=>d.close())")
 def inventory(page,module):
+ global screen
+ issues=inspect(page);visual.extend([{**scope,'module':module,**x} for x in issues]);screen+=1
+ if issues or scope['actor']=='u1':page.screenshot(path=str(OUT/f"surface-{scope['actor']}-{scope['device']}-{scope['theme']}-{screen}.png"),full_page=True)
  controls.extend([{**scope,'module':module,**x,'state':'Inventariado — ação não exercitada por este percurso'} for x in page.evaluate('''()=>[...document.querySelectorAll('.view.active button,.view.active input,.view.active select,.view.active textarea,dialog[open] button,dialog[open] input,dialog[open] select,dialog[open] textarea')].filter(e=>e.getClientRects().length).map(e=>({tag:e.tagName,id:e.id,label:(e.innerText||e.getAttribute('aria-label')||e.closest('label')?.innerText||e.placeholder||e.name||'').trim().slice(0,180),disabled:e.disabled===true,handler:e.getAttribute('onclick')||e.dataset.gsAction||e.dataset.opAction||e.dataset.leaveAction||'',type:e.type||''}))''')])
+def subtabs(page,module):
+ selector={'marketing':'[data-mk-tab]','stock':'[data-stock-action="tab"]'}.get(module)
+ if not selector:return
+ ids=page.locator(selector).evaluate_all('(es)=>es.map(e=>({key:e.dataset.mkTab||e.dataset.stockId,label:e.textContent.trim()}))')
+ for entry in ids:
+  loc=page.locator(selector).filter(has_text=entry['label'])
+  if not loc.count():continue
+  loc.first.click();page.wait_for_timeout(30);check(module,'Abrir separador '+entry['label'],bool(page.locator('.view.active').inner_text().strip()));inventory(page,module+' / '+entry['key'])
 def click_nav(page,bid,view,width):
  locator=page.locator('#'+bid) if bid else page.locator('#nav [data-view="'+view+'"]')
  if width<=760 and not page.evaluate('document.body.classList.contains("menu-open")'):page.locator('#menuBtn').click()
@@ -46,7 +58,7 @@ with sync_playwright() as p:
        click_nav(page,b['id'],b['view'],w);page.wait_for_timeout(45);elapsed=round((time.monotonic()-start)*1000)
        active=page.evaluate('document.querySelector(".view.active")?.id');text=page.locator('dialog[open]').first.inner_text() if page.locator('dialog[open]').count() else page.locator('.view.active').inner_text()
        ok=(active==b['view'] if b['view'] else bool(text.strip())) and bool(text.strip());check(module,'Abrir entrada '+b['label'],ok,observed={'active':active,'chars':len(text)},elapsedMs=elapsed)
-       inventory(page,module)
+       inventory(page,module);subtabs(page,module)
        check(module,'Sem exceções ao carregar',not errors,observed=errors.copy());check(module,'Conteúdo contido no viewport',page.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
        close(page)
       except Exception as e:record(module,'Abrir entrada '+b['label'],'Destino funcional',str(e)[:500],False);close(page)
@@ -61,6 +73,12 @@ with sync_playwright() as p:
       try:
        before_form=page.locator('.view.active').inner_text();page.evaluate(expr);page.wait_for_timeout(70);visible=page.locator('dialog[open]').count()>0 or page.locator('.view.active').inner_text()!=before_form;check(module,'Abrir formulário '+label,visible);inventory(page,module)
       except Exception as e:record(module,'Abrir formulário '+label,'Formulário existente acessível',str(e)[:400],False)
+     if actor in ['u1','test_admin']:
+      for tab in ['resumo','dados','ferias','tempo','financeiro','desenvolvimento','equipamentos','historico']:
+       close(page)
+       try:
+        page.evaluate('([id,tab])=>HRMasterV4.open(id,tab)',[actor,tab]);check('RH 360','Abrir ficha '+tab,page.locator('dialog[open]').count()>0);inventory(page,'RH 360 / '+tab)
+       except Exception as e:record('RH 360',tab,'Ficha existente acessível',str(e)[:400],False)
      close(page);page.evaluate('HRSeparationV4.documents()');page.locator('#modalBody button').filter(has_text='Voltar').click();check('RH','Voltar fecha modal e regressa a Meu RH',page.locator('dialog[open]').count()==0 and page.evaluate('document.querySelector(".view.active")?.id')=='myhr');check('Dados','Marcador sintético e histórico preservados',page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).auditMarker',KEY)=='SYN AUDIT PRESERVE');check('Runtime','Sem erros JavaScript no perfil',not errors,observed=errors.copy());page.screenshot(path=str(OUT/f'audit-{actor}-{device}-{theme}.png'),full_page=True)
      if actor=='u1':
       for target,_ in PROFILES:
@@ -69,8 +87,8 @@ with sync_playwright() as p:
      # Unavailable integrations explicitly excluded from approvals.
      for module in ['Autenticação real','Persistência entre dispositivos','Emails reais','IA externa','Uploads privados reais']:
       rows.append({**scope,'module':module,'action':'Integração efetiva','expected':'Serviço configurado e sessão real','observed':'Preview estático / sem serviço externo','state':'Não testável no ambiente demonstrativo'})
-     rows.append({**scope,'module':'Stock','action':'Módulo da branch','expected':'Disponível após recuperação compatível','observed':'Ausente nesta branch; preservado em a6edf53/ebc2df5','state':'Não implementada nesta branch'})
+     check('Stock','Implementação recuperada e controladores disponíveis',page.evaluate('!!(window.GSStockDemo&&window.StockUIV4)'))
      ctx.close()
  finally:
-  browser.close();report={'scope':'Perfis demonstrativos independentes; navegação/formulários separados dos fluxos mutáveis das suites dedicadas. Inventário de controlos não significa ação aprovada. Sem sessão real ou serviços externos.','cases':rows,'controls':controls,'passed':sum(r['state']=='Aprovada' for r in rows),'failed':sum(r['state']=='Falhou' for r in rows),'notTestable':sum(r['state']=='Não testável no ambiente demonstrativo' for r in rows)};(OUT/'profile-audit-matrix.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps({k:report[k] for k in ['passed','failed','notTestable']},ensure_ascii=False),flush=True)
+  browser.close();report={'scope':'Perfis demonstrativos independentes; navegação/formulários separados dos fluxos mutáveis das suites dedicadas. Inventário de controlos não significa ação aprovada. Sem sessão real ou serviços externos.','cases':rows,'controls':controls,'passed':sum(r['state']=='Aprovada' for r in rows),'failed':sum(r['state']=='Falhou' for r in rows),'notTestable':sum(r['state']=='Não testável no ambiente demonstrativo' for r in rows)};(OUT/'global-visual-findings.json').write_text(json.dumps(visual,ensure_ascii=False,indent=2));print('VISUAL_FINDINGS '+json.dumps({'count':len(visual),'byKind':{k:sum(x['kind']==k for x in visual) for k in set(x['kind'] for x in visual)},'examples':list({(x['kind'],x.get('selector'),x.get('fg'),x.get('bg')):x for x in visual}.values())[:65]},ensure_ascii=False),flush=True);(OUT/'profile-audit-matrix.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps({k:report[k] for k in ['passed','failed','notTestable']},ensure_ascii=False),flush=True)
  if report['failed']:raise AssertionError(str(report['failed'])+' profile audit failures; inspect profile-audit-matrix.json')

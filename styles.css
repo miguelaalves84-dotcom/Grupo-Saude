@@ -99,3 +99,31 @@ button[aria-disabled="true"]{cursor:not-allowed;opacity:.65}
 .gs-official-logo{display:block;width:62px;height:auto!important;aspect-ratio:1210 / 1280;object-fit:contain;flex:0 0 auto;background:#fff;border-radius:4px;filter:none!important;mix-blend-mode:normal}.gs-login-logo{width:150px;max-width:45vw;margin:0 auto 20px}.gs-print-brand{display:none}body:has(.gs-login-logo) main{width:calc(100% - 32px)}
 @media(max-width:760px){.topbar>.gs-official-logo{width:46px}.gs-login-logo{width:125px}}
 @media print{.gs-print-brand{display:block!important;position:static;background:#fff;color:#172235;margin:0 0 18px;break-inside:avoid}.gs-print-brand .gs-official-logo{width:85px}.gs-print-brand p{font-size:10px}.topbar{display:none!important}.gs-print-brand{position:absolute;top:0;left:20px}body{padding-top:125px!important}}
+
+/* Global audit 2026-10-21: shared tokens replace conflicting fixed surfaces. */
+:root{--muted:#536873;--success:#126647;--warning:#805100;--danger:#a91b37;--success-bg:#e8f7f1;--warning-bg:#fff4df;--danger-bg:#fbecee;--bg:var(--canvas);--white:var(--surface)}
+:root[data-theme=dark]{--muted:#abc2cc;--success:#91e5bd;--warning:#ffd27c;--danger:#ffb0b7;--success-bg:#163d32;--warning-bg:#47391c;--danger-bg:#512d38}
+label{color:var(--muted)}
+.cards>*,.form-grid>*,.split>*,.finance-workspace,.finance-workspace>.card,#financeContent{min-width:0;max-width:100%}
+.card,.modal-body,.modal-pad,.page-head{overflow-wrap:anywhere}
+.table-wrap{background:var(--surface);max-width:100%}
+.tabs button{background:var(--surface);color:var(--ink)}
+.tabs button.on{background:var(--brand);color:#fff}
+.pill{background:var(--soft);color:var(--ink)}
+.green{color:var(--success)}.orange{color:var(--warning)}.red{color:var(--danger)}
+.pill.green{background:var(--success-bg);color:var(--success)}
+.pill.orange{background:var(--warning-bg);color:var(--warning)}
+.pill.red,.danger{background:var(--danger-bg);color:var(--danger)}
+.counter{background:#b91c46;color:#fff}
+.messages,.funnel-col,.kanban-col{background:var(--soft)}
+.bubble,.funnel-card{background:var(--surface);color:var(--ink)}
+.bubble.mine,.conversation.active{background:var(--soft);color:var(--ink)}
+.notice.ok{background:var(--success-bg);color:var(--ink)}.notice.bad{background:var(--danger-bg);color:var(--ink)}
+.marketing-bar small{color:var(--muted);background:var(--canvas)}
+#opOpeningErrors,#opWaitingErrors,#mkError{color:var(--danger)}
+.finance-workspace .finance-tabs button{min-width:0;max-width:100%;overflow-wrap:anywhere;white-space:normal}
+.finance-workspace .finance-filters label{min-width:min(160px,100%)}
+@media(max-width:760px){.menu{display:block}.topbar{height:auto;min-height:64px}.finance-workspace .page-head{align-items:flex-start}.finance-workspace .page-head>*{min-width:0;max-width:100%}}
+/* Dialogs keep their shared close control and scroll vertically within the screen. */
+dialog{max-height:90dvh;max-width:95vw}.modal-head{gap:12px}.modal-head h2{min-width:0;overflow-wrap:anywhere}.modal-head button{flex:none;min-width:44px;min-height:44px;color:var(--ink)}
+th{background:var(--soft);color:var(--muted)}

@@ -36,12 +36,12 @@ São 3 912 verificações repetidas em seis contextos por perfil, não 3 912 fun
 | G07 | Baixa | Polling de 800 ms para um único atalho de calendário | `hr-vacation-planning-v4.js`: eventos de arranque, vista, utilizador e permissões; uma única entrada por ID |
 | G08 | Média | Auditoria ainda declarava Stock ausente após recuperação | `tests/profile-audit-browser.py`: verifica controladores recuperados. Relatórios anteriores são snapshots históricos, não estado atual |
 | G09 | Baixa | Um separador inventariado como Equipamentos abria fallback Dados, não um separador independente | Corrigido o percurso de teste para os separadores efetivamente definidos; Equipamentos permanece na secção de desenvolvimento existente. Não foi inventado um novo separador |
-
 | G10 | Alta | Botões de Segurança marcavam backup/restauro como concluídos sem os executar | `gs-enterprise.js`: usam cópia local sintética existente e checksum/JSON efetivo; sem marcar restauro real. Registos antigos preservados e identificados como declarativos |
 | G11 | Alta | Escritor antigo de clínicas não reutilizava o editor/permissões atuais | `gs-enterprise.js`: entradas antigas delegam para ClinicMaster; escritor antigo bloqueado quando o atual está disponível; testes negativos para os seis perfis |
-
 | G12 | Alta | Administração/Médico/Técnico de demonstração podiam ficar sem associação válida, bloqueando operações autorizadas | `demo-clinic-associations-v4.js`: reparação única, só IDs/emails/perfis sintéticos conhecidos, sem alterar permissões; não repara revogações posteriores nem identidades reais |
 | G13 | Alta | Normalizador apagava referências de clínicas/especialidades desconhecidas | `v4-data-integrity.js`: preserva referências originais não resolvidas; não concede acesso a clínicas ausentes/inativas. Dados perdidos anteriormente não são reconstruídos automaticamente |
+| G14 | Média | Exportação PDF nativa da conta corrente não incluía o logótipo oficial | `finance-core-v4.js`, `finance-ui-v4.js`: JPEG original reutilizado a partir do único recurso oficial, sem redesenho/recompressão; logo em todas as páginas e preservação de saldos/linhas |
+| G15 | Média | Ficha RH reaberta mantinha scroll anterior, deixando campo sob o cabeçalho fixo | `hr-master-v4.js`: reposiciona a ficha no início ao abrir; capturas e diagnóstico de controlos após correção |
 
 ## Matriz de módulos e operações
 
@@ -87,6 +87,10 @@ As imagens antes e depois e as matrizes estão nos artefactos dos commits corres
 ## Falha intermédia efetivamente encontrada
 
 O commit `7a7d983` teve 23/24 jobs aprovados. O percurso de perfis parou ao tentar selecionar uma clínica para Administração Teste: o seletor não tinha opções autorizadas. Não foi considerado aprovado. As primeiras 2 314 verificações passavam e a inspeção visual não encontrou cortes/contraste nos ecrãs já percorridos; isso não provava o percurso completo. A correção G12 mantém a exigência de clínica e corrige apenas os dados sintéticos identificados. O commit final tem de repetir integralmente a auditoria.
+
+## Resultado intermédio das correções de âmbito e segurança
+
+Commit `9a6b0ed`: [Actions 39637679915](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/39637679915), **24/24 jobs aprovados**. Percurso ampliado: **4 350 verificações, zero falhas**, 180 classificações externas não testáveis. Por perfil: Call Center 600, Médico 576, Técnico 576, Administrativo 612, Administração 960, CEO 1 026. O diagnóstico visual passou de 4 656 ocorrências para **4 sobreposições**, sem cortes ou falhas de contraste nas superfícies inspecionadas. As quatro estavam na reabertura da ficha RH com scroll anterior; G15 corrige esse comportamento e exige nova execução. G14 acrescenta o logótipo ao PDF nativo, preservando bytes do JPEG e contas/linhas; o PDF demonstrativo identifica-se como não oficial. PDF sintético também validado e renderizado localmente, sem dados reais.
 
 ## Funcionalidades incompletas e prioridades seguintes
 

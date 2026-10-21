@@ -41,7 +41,7 @@ with sync_playwright() as p:
         assert 'NaN' not in page.locator('#financeContent').inner_text()
         with page.expect_download() as download:
             page.locator('[data-fin-action="pdf"]').click()
-        assert Path(download.value.path()).read_bytes().startswith(b'%PDF-1.4')
+        pdf=Path(download.value.path()).read_bytes();assert pdf.startswith(b'%PDF-1.4');assert b'/Subtype /Image' in pdf and b'/OfficialLogo Do' in pdf;assert b'NAO E DOCUMENTO OFICIAL' in pdf
         page.set_viewport_size({'width': 390, 'height': 844})
         page.locator('[data-fin-action="payslips"]').click()
         assert 'Recibos de Vencimento' in page.locator('#financeContent').inner_text()

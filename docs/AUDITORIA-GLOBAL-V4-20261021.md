@@ -37,6 +37,12 @@ São 3 912 verificações repetidas em seis contextos por perfil, não 3 912 fun
 | G08 | Média | Auditoria ainda declarava Stock ausente após recuperação | `tests/profile-audit-browser.py`: verifica controladores recuperados. Relatórios anteriores são snapshots históricos, não estado atual |
 | G09 | Baixa | Um separador inventariado como Equipamentos abria fallback Dados, não um separador independente | Corrigido o percurso de teste para os separadores efetivamente definidos; Equipamentos permanece na secção de desenvolvimento existente. Não foi inventado um novo separador |
 
+| G10 | Alta | Botões de Segurança marcavam backup/restauro como concluídos sem os executar | `gs-enterprise.js`: usam cópia local sintética existente e checksum/JSON efetivo; sem marcar restauro real. Registos antigos preservados e identificados como declarativos |
+| G11 | Alta | Escritor antigo de clínicas não reutilizava o editor/permissões atuais | `gs-enterprise.js`: entradas antigas delegam para ClinicMaster; escritor antigo bloqueado quando o atual está disponível; testes negativos para os seis perfis |
+
+| G12 | Alta | Administração/Médico/Técnico de demonstração podiam ficar sem associação válida, bloqueando operações autorizadas | `demo-clinic-associations-v4.js`: reparação única, só IDs/emails/perfis sintéticos conhecidos, sem alterar permissões; não repara revogações posteriores nem identidades reais |
+| G13 | Alta | Normalizador apagava referências de clínicas/especialidades desconhecidas | `v4-data-integrity.js`: preserva referências originais não resolvidas; não concede acesso a clínicas ausentes/inativas. Dados perdidos anteriormente não são reconstruídos automaticamente |
+
 ## Matriz de módulos e operações
 
 | Área | Implementação / operações abrangidas | Evidência de regressão | Limites / pendências |
@@ -74,9 +80,13 @@ São 3 912 verificações repetidas em seis contextos por perfil, não 3 912 fun
 
 ## Testes e evidências finais
 
-Executar `npm test`, build, `node tests/consolidation.cjs`, os oito conjuntos PostgreSQL descartáveis e as suites Chromium do workflow `v4-stabilization.yml`. A nova suite `global-layout-browser` verifica Financeiro, filtros, tabelas, modal e menu a 700 px, em ambos os temas. A suite de perfis guarda a matriz esperado/observado, inventário de controlos, tempos de abertura e diagnóstico visual por superfície; os cenários de regressão exercitam as operações dos respetivos módulos.
+Executar `npm test`, build, consolidação executada por `tests/runtime.cjs`, os oito conjuntos PostgreSQL descartáveis e as suites Chromium do workflow `v4-stabilization.yml`. A nova suite `global-layout-browser` verifica Financeiro, filtros, tabelas, modal e menu a 700 px, em ambos os temas. A suite de perfis guarda a matriz esperado/observado, inventário de controlos, tempos de abertura e diagnóstico visual por superfície; os cenários de regressão exercitam as operações dos respetivos módulos.
 
 As imagens antes e depois e as matrizes estão nos artefactos dos commits correspondentes. A comparação quantitativa de diagnósticos não é uma comparação automática de pixels. A recolha não mede carga de produção, não valida serviços externos e não constitui garantia de ausência de todos os defeitos. Os resultados finais só são válidos quando a execução do commit entregue estiver concluída no GitHub Actions.
+
+## Falha intermédia efetivamente encontrada
+
+O commit `7a7d983` teve 23/24 jobs aprovados. O percurso de perfis parou ao tentar selecionar uma clínica para Administração Teste: o seletor não tinha opções autorizadas. Não foi considerado aprovado. As primeiras 2 314 verificações passavam e a inspeção visual não encontrou cortes/contraste nos ecrãs já percorridos; isso não provava o percurso completo. A correção G12 mantém a exigência de clínica e corrige apenas os dados sintéticos identificados. O commit final tem de repetir integralmente a auditoria.
 
 ## Funcionalidades incompletas e prioridades seguintes
 

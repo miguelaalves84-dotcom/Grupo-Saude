@@ -6,7 +6,7 @@ Base preservada: beb8ddb, branch dev/v4-stabilization-20261017. PR #13, comentá
 
 - Escalas CEO/Administração: aplicação direta, sem motivo nem aprovação adicional. Pedidos dos colaboradores: justificação e aprovação; aprovação sem motivo, recusa com motivo obrigatório. Mantidos registos antes/depois, validação de ausências, limites operacionais, isolamento e controlo de concorrência existente.
 - Conversão: profissão removida da confirmação, preservada da candidatura, também no serviço central. Os seis perfis de acesso mantêm-se independentes.
-- Ficha: campos existentes agrupados em secções recolhíveis por assunto, sem desmontar campos ou perder rascunhos. Remuneração e pagamento do subsídio juntos; contrato separado. Secções abertas inicialmente para preservar a descoberta dos campos e compatibilidade.
+- Ficha: campos existentes agrupados em secções recolhíveis por assunto, sem desmontar campos ou perder rascunhos. Remuneração e pagamento do subsídio juntos; contrato separado. Na ficha existente, dados pessoais e estado ficam abertos; os restantes assuntos podem ser expandidos, reduzindo a deslocação. No novo colaborador, os campos ficam abertos para facilitar o preenchimento.
 - Documentos: reutilização integral do catálogo/checklist e controlador existentes. CEO/Administração pode carregar em nome do colaborador autorizado, com proprietário e autor distintos no histórico. Retorno à mesma ficha, sem mudar de módulo. Outros perfis não adquirem esta permissão mesmo com permissões personalizadas de revisão. Validação, versões, validade, histórico e contadores mantidos.
 
 ## Validação

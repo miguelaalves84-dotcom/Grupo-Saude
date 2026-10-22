@@ -140,3 +140,10 @@ th{background:var(--soft);color:var(--muted)}
 
 /* Employee editor: existing controls grouped by subject, without duplicate forms. */
 .hr-subject{border:1px solid var(--border,#cbd5db);border-radius:12px;margin:12px 0;padding:14px;min-width:0}.hr-subject>summary{font-size:1.05rem;font-weight:700;cursor:pointer;padding:8px 0}.hr-subject[open]>summary{margin-bottom:12px}.hr-subject input,.hr-subject select{max-width:100%;min-width:0}.hr-subject>.row{flex-wrap:wrap}.hr-subject>.row>div{min-width:min(100%,220px);flex:1}
+
+/* Responsive employee development and attendance metrics: no fixed-height clipping. */
+.attendance-daily-plan{display:flex;flex-direction:column;gap:6px;padding:12px;border-left:4px solid var(--primary,#16818a);line-height:1.6}.attendance-daily-plan span{font-size:1rem}
+#clockContent .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}#clockContent .metric{display:block;position:static;white-space:normal;overflow-wrap:anywhere;font-size:clamp(1.25rem,3vw,2rem);margin-top:10px;line-height:1.25}
+[data-development-modal] .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}[data-development-modal] .card strong{display:block;font-size:1.1rem;line-height:1.5;overflow-wrap:anywhere}[data-development-modal] .development-record{margin:12px 0;padding:16px}[data-development-modal] fieldset{min-width:0;margin:14px 0}[data-development-modal] fieldset label{display:block;padding:7px 0}[data-development-modal] fieldset input[type=checkbox]{width:auto;display:inline-block}[data-development-modal] .actions{display:flex;gap:10px;flex-wrap:wrap}[data-development-modal] input,[data-development-modal] select{max-width:100%;min-width:0}
+.hr-subject[hidden]{display:none!important}.hr-subject>summary{font-weight:700;line-height:1.5}.hr-subject>summary:focus-visible{outline:3px solid var(--primary,#16818a);outline-offset:4px}
+@media(max-width:600px){#modalBody .actions{gap:8px}#modalBody .actions button{white-space:normal;min-height:42px}.development-record h4{font-size:1.05rem}#clockContent .card{min-width:0;height:auto}}

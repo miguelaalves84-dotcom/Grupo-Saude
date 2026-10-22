@@ -1,0 +1,2 @@
+/* Native details keep their form controls mounted. Comparison and navigation groups are independent. */
+(()=>{'use strict';document.addEventListener('toggle',event=>{const d=event.target;if(!(d instanceof HTMLDetailsElement)||!d.open||d.closest('#nav')||d.hasAttribute('data-accordion-independent'))return;const group=d.parentElement;if(!group?.closest('#modalBody,.view,form'))return;for(const sibling of group.children)if(sibling!==d&&sibling instanceof HTMLDetailsElement&&!sibling.hasAttribute('data-accordion-independent'))sibling.open=false;},true);})();

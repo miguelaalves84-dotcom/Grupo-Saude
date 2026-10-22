@@ -26,3 +26,7 @@ Branch dev/v4-stabilization-20261017, PR #13 em rascunho. Comentários de origem
 Reutilizadas as fontes monthlyRosters/timeOccurrences, leave.document, hr, financeV2/current_account_entries, communicationRuns/emailActions e clinics. Sem tabelas novas, sem eliminações nem migrações.
 
 Os testes novos devem confirmar a acessibilidade real dos controlos, notificação ao CEO, aprovação pela fila visível, mudança efetiva do horário só após decisão, seis perfis, formatos/temas, conversão, comprovativos, impressão e configuração documental. Resultados finais correspondem ao SHA entregue e à execução efetiva no GitHub Actions; não são antecipados neste relatório.
+
+## Estabilidade da infraestrutura Chromium
+
+No seguimento da execução 39802712124, cinco suites ficaram retidas na instalação apt/Chromium, antes dos testes. O job browser passa a usar a imagem oficial `mcr.microsoft.com/playwright/python:v1.56.0-noble`, alinhada com `playwright==1.56.0`, verificando o executável pré-instalado. Cada suite mantém contentor próprio, dados sintéticos, rede de navegador limitada ao loopback e permissões GitHub apenas de leitura. Não há repetição de apt nem download do navegador dentro das suites. O serviço PostgreSQL descartável mantém-se separado.

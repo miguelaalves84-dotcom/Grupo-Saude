@@ -15,6 +15,7 @@ Regra prevalecente: comentário PR #13 / 6352287217. Branch dev/v4-stabilization
 - Regra única no domínio, incluindo listagens, saldos, alertas, regras anuais e comandos. Uma concessão individual hrManage não contorna a exclusividade por perfil.
 - Backend recusa antes de consultar dados. Simulação usa o perfil efetivo. Mudança de perfil/permissões elimina o conteúdo do modal.
 - Anexos carregados pelo formulário de desenvolvimento reutilizam employeeDocuments, com restrição managementOnly persistida e preservada nas substituições. Listagens, versões, revisão e download respeitam essa restrição.
+- Um anexo reservado novo não preenche nem substitui automaticamente um requisito normal em falta do contrato; os dois circuitos reutilizam o mesmo arquivo, mantendo visibilidade e validação próprias.
 - Documentos pessoais normais já existentes não são reclassificados nem retirados indiscriminadamente. Dados e históricos não são apagados.
 - Regras legais de formação, revisões, prevenção de duplicados e concorrência preservadas.
 

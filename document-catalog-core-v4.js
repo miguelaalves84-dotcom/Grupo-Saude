@@ -17,5 +17,6 @@ function command(original,ctx,action,b){guard(ctx);const s=normalize(copy(origin
  else if(action==='contract-document'){const d=s.masterDocuments.find(x=>x.id===b.documentId);if(!d||b.on&&d.active===false)throw Error('Documento indisponível para novas associações.');let i=c.items.find(x=>x.masterDocumentId===d.id);if(b.on){if(!i){i={id:ctx.id(),masterDocumentId:d.id,catalogId:d.id,name:d.name,dateRule:d.dateRule};c.items.push(i)}i.active=true;i.required=b.required??i.required??d.required??true;}else if(i)i.active=false;}
  else throw Error('Ação de catálogo desconhecida.');}}
  s.documentCatalog=s.masterDocuments;normalize(s);s.documentCatalogRevision=(s.documentCatalogRevision||0)+1;s.documentCatalogHistory ||= [];const event={id:ctx.id(),at:ctx.at,by:ctx.actor,action,before,after:copy({masterDocuments:s.masterDocuments,contractTypes:s.contractTypes})};s.documentCatalogHistory.push(event);s.audit ||= [];s.audit.unshift({...event,module:'Tabelas'});return s;}
-return {normalize,items,validate,rules,command,guard};});
+function expiry(d,r={}){if(d?.validUntil)return d.validUntil;if(!d?.issuedAt||!r.months)return '';const base=new Date(d.issuedAt+'T12:00:00Z');if(!Number.isFinite(+base))return '';const target=new Date(Date.UTC(base.getUTCFullYear(),base.getUTCMonth()+Number(r.months),1,12)),last=new Date(Date.UTC(target.getUTCFullYear(),target.getUTCMonth()+1,0)).getUTCDate();target.setUTCDate(Math.min(base.getUTCDate(),last));return target.toISOString().slice(0,10)}
+return {expiry,normalize,items,validate,rules,command,guard};});
 

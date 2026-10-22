@@ -13,7 +13,7 @@ with sync_playwright() as p:
  name='Synthetic <img src=x onerror="window.__p0XSS=2"> & \'quoted\''
  page.evaluate('''([key,id,name])=>{window.__p0XSS=0;const s=JSON.parse(localStorage.getItem(key));s.clinics.push({id,name,active:true,phones:[],gps:{radius:50},ers:{}});localStorage.setItem(key,JSON.stringify(s));App.showView('clinics');ClinicMasterV4.render();}''',[KEY,payload,name])
  row=page.locator('.clinic-master-row').filter(has_text=name)
- expect(row).to_have_count(1);row.locator('button').click()
+ expect(row).to_have_count(1);row.locator('[data-cm-action="edit"]').click()
  expect(page.locator('#cmName')).to_have_value(name)
  assert page.evaluate('window.__p0XSS')==0
  page.locator('[data-cm-action="save"]').click()

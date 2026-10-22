@@ -129,3 +129,11 @@ dialog{max-height:90dvh;max-width:95vw}.modal-head{gap:12px}.modal-head h2{min-w
 th{background:var(--soft);color:var(--muted)}
 
 .roster-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px;margin:16px 0}.roster-days .form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.roster-days input[type=checkbox]{width:auto}.roster-days input{min-width:0}
+
+/* Header actions must wrap when a new approval entry is available. */
+.topbar{height:auto;min-height:64px;flex-wrap:wrap;gap:8px}
+.top-actions{min-width:0;flex:1 1 650px;flex-wrap:wrap;justify-content:flex-end}
+.top-actions>*,.page-head>*{max-width:100%;min-width:0}
+.page-head{flex-wrap:wrap;min-width:0}
+#rosterApprovalOpen{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:760px){.top-actions{flex-basis:100%;justify-content:flex-start}#ceoAreaBox{width:100%}}

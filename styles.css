@@ -137,3 +137,6 @@ th{background:var(--soft);color:var(--muted)}
 .page-head{flex-wrap:wrap;min-width:0}
 #rosterApprovalOpen{white-space:normal;overflow-wrap:anywhere}
 @media(max-width:760px){.top-actions{flex-basis:100%;justify-content:flex-start}#ceoAreaBox{width:100%}}
+
+/* Employee editor: existing controls grouped by subject, without duplicate forms. */
+.hr-subject{border:1px solid var(--border,#cbd5db);border-radius:12px;margin:12px 0;padding:14px;min-width:0}.hr-subject>summary{font-size:1.05rem;font-weight:700;cursor:pointer;padding:8px 0}.hr-subject[open]>summary{margin-bottom:12px}.hr-subject input,.hr-subject select{max-width:100%;min-width:0}.hr-subject>.row{flex-wrap:wrap}.hr-subject>.row>div{min-width:min(100%,220px);flex:1}

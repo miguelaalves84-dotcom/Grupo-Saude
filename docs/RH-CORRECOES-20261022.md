@@ -8,7 +8,8 @@ Origem: PR #13, comentário 6329675979. Base preservada: 199cc09. Branch: dev/v4
 |---|---|---|
 | Documentos em falta / total e lista divergentes (8) | Projeção única de documentos materializados e requisitos obrigatórios do contrato; lista integral agrupada por colaborador; estados distintos; upload preenche requisito sem duplicação; atualização dos contadores. | employee-documents-core-v4.js; employee-documents-ui-v4.js; hr-master-v4.js; attention-core-v4.js |
 | Escalas rotativas administrativas (2) | Editor semanal, cópia da semana anterior aprovada como proposta, troca pontual, aprovação ou recusa exclusiva CEO/Administração, anterior horário efetivo preservado até aprovação, histórico e notificações. | administrative-rosters-core-v4.js; administrative-rosters-ui-v4.js; lib/administrative-rosters-service.js |
-| Restantes pontos 1, 3–7 e 9–11 | Não concluídos neste incremento; exigem auditoria e desenvolvimento próprios. | Ver prioridades abaixo. |
+| Reclamações: prazo operacional (1) | Mantidos data de receção e 15 dias corridos; alertas consolidados aos 7/3/1 dias e vencimento, sem nova tabela nem alteração dos registos. Regra operacional, não declaração de conformidade jurídica. | complaints-core-v4.js |
+| Restantes pontos 3–7 e 9–11 | Não concluídos neste incremento; exigem auditoria e desenvolvimento próprios. | Ver prioridades abaixo. |
 
 Não foram criadas tabelas paralelas. Escalas aprovadas usam monthlyRosters; propostas/decisões usam timeOccurrences com discriminador roster-change. Serviço isolado usa app_settings existente e auditoria existente. O editor mensal antigo não pode gravar diretamente quando a implementação consolidada está carregada. As decisões genéricas de ponto não aprovam escalas.
 
@@ -23,7 +24,7 @@ Não foram criadas tabelas paralelas. Escalas aprovadas usam monthlyRosters; pro
 
 ## Prioridades restantes do comentário
 
-1. Completar verificação do prazo operacional das Reclamações e alertas 7/3/1 dias.
+1. Validar juridicamente prazos e procedimentos específicos das Reclamações, mantendo a regra operacional de 15 dias.
 2. Ausências/documentos em 48h com análise humana; onboarding seguro; licença de técnicos e ERS condicional.
 3. Percentagens por técnica/tratamento com vigência e snapshots financeiros preservados.
 4. Resumo A4 e impressão contextual; documentos obrigatórios por clínica.
@@ -32,3 +33,5 @@ Não foram criadas tabelas paralelas. Escalas aprovadas usam monthlyRosters; pro
 ## Verificação
 
 Testes unitários novos: tests/administrative-rosters.cjs e extensão de tests/employee-documents.cjs. PostgreSQL: tests/administrative-rosters-postgres.cjs. Chromium: tests/rh-20261022-browser.py, seis perfis × computador/tablet/telemóvel × claro/escuro; artefactos com imagens e resultados. Resultados efetivos e SHA final são comunicados após conclusão do workflow GitHub Actions. Este documento não constitui declaração de aprovação antecipada.
+
+A primeira execução PostgreSQL do incremento de escalas detetou comparação incorreta da ordem das propriedades JSONB. Corrigida comparação estrutural e acrescentada regressão específica; resultados finais devem corresponder ao SHA posterior à correção.

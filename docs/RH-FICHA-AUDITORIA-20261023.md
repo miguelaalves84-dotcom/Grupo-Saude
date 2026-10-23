@@ -73,6 +73,8 @@ Base: `4314b2e`. Inventário sem dados de colaboradores. O JSON adjacente inclui
 8. Gravar valida que o formulário pertence ao colaborador indicado; auditoria acrescenta antes/depois dos campos editáveis, sem duplicar bytes de fotografias/documentos nem dados médicos.
 9. `users` e `employees` são projeções de compatibilidade por um mesmo ID, não dois colaboradores. Mantida sincronização existente; nenhum novo cadastro.
 
+10. Um contrato histórico ausente/inativo no catálogo deixava de aparecer selecionado e podia ser substituído por vazio ao guardar outra alteração. Passa a permanecer no seletor como histórico, conservando o valor. Especialidades históricas fora do seletor ativo também são conservadas.
+
 ## Informação que não deve ser fundida
 
 - Perfil de acesso ≠ profissão/especialidade. Não inferir contrato, remuneração ou obrigações pela profissão.

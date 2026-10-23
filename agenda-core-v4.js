@@ -4,7 +4,7 @@ const copy=x=>JSON.parse(JSON.stringify(x)),roles=['CEO','ADMINISTRAÇÃO','ADMI
 function allowed(a){return a?.active===true&&roles.includes(norm(a))&&(a.permissions?.agenda===undefined?P.defaults(norm(a)).includes('agenda'):a.permissions.agenda===true)}
 function manager(a){return allowed(a)&&['CEO','ADMINISTRAÇÃO'].includes(norm(a))}
 function check(a,write=false){if(!allowed(a)||write&&a.readOnly)fail('Sem autorização para a Agenda.',403)}
-const activeIds=s=>new Set((s.clinics||[]).filter(c=>c.active!==false&&!c.virtual&&c.operational!==false).map(c=>String(c.id))),assigned=(s,p)=>T.assigned(p).filter(id=>activeIds(s).has(id));
+const activeIds=s=>new Set((s.clinics||[]).filter(c=>c.active!==false&&!c.virtual&&c.operational!==false).map(c=>String(c.id))),assigned=(s,p)=>(Array.isArray(p?.clinics)?[...new Set(p.clinics.map(String))]:T.assigned(p)).filter(id=>activeIds(s).has(id));
 function people(s){return T.people(s).filter(p=>p.active!==false&&roles.includes(norm(p)))}
 function target(s,a,id){check(a);const p=people(s).find(p=>String(p.id)===String(id));if(!p)fail('Agenda não autorizada.',403);if(manager(a)||String(p.id)===String(a.id))return p;if(norm(p)!=='ADMINISTRATIVA'||!assigned(s,p).some(id=>assigned(s,a).includes(id)))fail('Agenda não autorizada.',403);return p}
 function scope(s,a,event,write=false){check(a,write);const p=target(s,a,event.ownerId),cid=String(event.clinicId||'');if(cid){if(!assigned(s,p).includes(cid)||!manager(a)&&!assigned(s,a).includes(cid))fail('Clínica não autorizada para esta marcação.',403)}else if(!manager(a)&&String(p.id)!==String(a.id))fail('Marcações pessoais de outros utilizadores não são partilhadas.',403);return p}

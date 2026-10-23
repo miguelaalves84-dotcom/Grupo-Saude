@@ -10,7 +10,7 @@ original=audit_visual.inspect
 records=[];section_checks=[];new_failures=[]
 PROOF=r'''({a,b})=>{
 const root=document.querySelector('dialog[open]')||document.querySelector('.view.active');
-const locate=m=>{const es=[...root.querySelectorAll(m.selector)];return es.find(e=>(e.innerText||e.getAttribute('aria-label')||e.name||'').slice(0,110)===m.text)||es[0]};
+const locate=m=>{const es=[...root.querySelectorAll(m.selector.replace(/\.$/,''))];return es.find(e=>(e.innerText||e.getAttribute('aria-label')||e.name||'').slice(0,110)===m.text)||es[0]};
 const details=[...root.querySelectorAll('.hr-subject')],rendered=e=>{if(!e)return false;for(let p=e.parentElement;p;p=p.parentElement)if(p.tagName==='DETAILS'&&!p.open&&!p.querySelector(':scope > summary')?.contains(e))return false;return e.checkVisibility?e.checkVisibility({checkVisibilityCSS:true,contentVisibilityAuto:true}):e.getClientRects().length>0};
 const info=e=>{if(!e)return{found:false};const r=e.getBoundingClientRect();return{found:true,rendered:rendered(e),rect:{x:r.x,y:r.y,width:r.width,height:r.height},section:details.indexOf(e.closest('.hr-subject')),closedAncestors:[...function*(n){for(let p=n.parentElement;p;p=p.parentElement)if(p.tagName==='DETAILS'&&!p.open&&!p.querySelector(':scope > summary')?.contains(n))yield p.querySelector(':scope > summary')?.textContent?.trim()||'Sem título'}(e)]}};
 const x=locate(a),y=locate(b),xi=info(x),yi=info(y);let overlap=false;if(x&&y){const r=x.getBoundingClientRect(),s=y.getBoundingClientRect(),w=Math.min(r.right,s.right)-Math.max(r.left,s.left),h=Math.min(r.bottom,s.bottom)-Math.max(r.top,s.top);overlap=w>5&&h>5&&w*h/Math.min(r.width*r.height,s.width*s.height)>.25}

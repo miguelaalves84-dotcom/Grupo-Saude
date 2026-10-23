@@ -51,6 +51,11 @@ jobs:
         env:
           GS_TEST_URL: http://127.0.0.1:8765/index.html
           GS_TEST_ARTIFACTS: /tmp/gs-stabilization-artifacts
+      - name: Read-only domain audit probes
+        if: matrix.suite == 'audit-complete-browser'
+        run: node tests/audit-domain-findings.cjs
+        env:
+          GS_TEST_ARTIFACTS: /tmp/gs-stabilization-artifacts
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser' || matrix.suite == 'candidate-pointer-browser' || matrix.suite == 'interview-browser' || matrix.suite == 'complaints-browser' || matrix.suite == 'complaints-enhancements-browser' || matrix.suite == 'operation-browser' || matrix.suite == 'marketing-browser' || matrix.suite == 'profile-audit-browser' || matrix.suite == 'opening-composition-browser' || matrix.suite == 'stock-tables-browser' || matrix.suite == 'supplier-companies-browser' || matrix.suite == 'stock-closing-browser' || matrix.suite == 'attendance-browser' || matrix.suite == 'employee-documents-browser' || matrix.suite == 'branding-browser' || matrix.suite == 'global-layout-browser' || matrix.suite == 'rh-20261022-browser' || matrix.suite == 'rh-followup-browser' || matrix.suite == 'rh-development-browser' || matrix.suite == 'payroll-export-browser' || matrix.suite == 'audit-complete-browser')
         with:

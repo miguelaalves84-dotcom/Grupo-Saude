@@ -93,3 +93,9 @@ Férias/baixas: `leave`, projeção HRLeave e saldos existentes. Ponto: eventos 
 O inventário não certifica conformidade jurídica/fiscal nem converte persistência local em central. Não foram eliminados registos, documentos, versões, associações ou chaves legadas. Não se executou uma migração da base de dados. As rotas de RH existentes continuam com as limitações de autenticação/arquivo central dos relatórios anteriores. Dados médicos ocupacionais não são incluídos no novo snapshot genérico. Revisões jurídicas de contratos/formação/retenção continuam necessárias antes de ativação real.
 
 Resultados de testes e novo preview serão registados no relatório de entrega deste bloco.
+
+## Áreas associadas — rastreabilidade adicional
+
+O inventário [RH-FICHA-AREAS-ASSOCIADAS-20261023.json](RH-FICHA-AREAS-ASSOCIADAS-20261023.json) identifica 147 campos/projeções associados, com ficheiros de origem, domínio, permissões e histórico: capacidades técnicas (sete dias), documentos, férias/baixas, ponto, correções/escalas, formação anual, formações, equipamentos, despesas, avaliações, questionários, permissões e conta corrente. Não são 147 novos campos a preencher nem uma aprovação individual de toda a lógica jurídica.
+
+A formação anual conserva uma validação jurídica de vínculo/IRCT e snapshot contratual. A reutilização automática de todos os dados salariais confirmados nessa validação anual continua como oportunidade de consolidação: não se declara eliminada toda a redundância jurídica. Alterações contratuais exigem revalidação da regra anual; não inferir regime pela profissão. Os serviços centrais e arquivo privado mantêm os bloqueios descritos na matriz dos 14 grupos.

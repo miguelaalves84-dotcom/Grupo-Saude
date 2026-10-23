@@ -79,7 +79,7 @@ const App = (() => {
   function opClinics(){const a=actor(),isCEO=String(a.role||a.kind).toUpperCase()==='CEO',permitted=isCEO?liveClinics().map(c=>String(c.id)):[...(a.clinics||[]),...(a.clinicIds||[]),a.clinic,a.clinicId].filter(Boolean).map(String);return liveClinics().filter(c=>permitted.includes(String(c.id)))}
   function opAllowed(action){syncState();if(window.RoleAccessAdminV4&&(!RoleAccessAdminV4.can(action)||!opClinics().some(c=>String(c.id)===String(state.opClinic)))){toast('Sem autorização para esta ação ou clínica');return false}return true}
   function day(){return GSOperationCore.prepare(state,String(state.opClinic),state.opDate)}
-  function renderAll(){syncState();renderUsers();const renderers={dashboard:renderDashboard,operation:renderOperation,wait:renderRequests,chat:renderChat,tasks:renderTasks,audit:renderAudit};for(const [id,render] of Object.entries(renderers)){if(!window.RoleAccessAdminV4||RoleAccessAdminV4.guard(id))render();else if($(id+'Content'))$(id+'Content').innerHTML=''}if(!window.V4ClinicHR&&(!window.RoleAccessAdminV4||RoleAccessAdminV4.guard('hr')))renderHr();updateUnread()}
+  function renderAll(){syncState();renderUsers();const renderers={agenda:()=>{if(document.getElementById('agenda')?.classList.contains('active'))window.AgendaUIV4?.render()},dashboard:renderDashboard,operation:renderOperation,wait:renderRequests,chat:renderChat,tasks:renderTasks,audit:renderAudit};for(const [id,render] of Object.entries(renderers)){if(!window.RoleAccessAdminV4||RoleAccessAdminV4.guard(id))render();else if($(id+'Content'))$(id+'Content').innerHTML=''}if(!window.V4ClinicHR&&(!window.RoleAccessAdminV4||RoleAccessAdminV4.guard('hr')))renderHr();updateUnread()}
   function renderUsers(){ const el=$('currentUser'), old=state.currentUser; el.innerHTML=options(state.users,x=>x.id,x=>`${x.name} · ${x.role}`); el.value=old; }
   function renderDashboard(){syncState();const root=$('dashboardContent');if(!window.AccessScopeV4?.canDashboard(state)){root.innerHTML='';return}window.WorkspaceShellV4?.renderDashboard?.()}
 
@@ -191,7 +191,7 @@ const App = (() => {
     document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
     document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
     $('nav').classList.remove('open');
-    const renderers={dashboard:renderDashboard,operation:renderOperation,wait:renderRequests,chat:renderChat,myhr:()=>window.HRSeparationV4?.myRH(true),hr:()=>window.V4ClinicHR?window.V4ClinicHR.render():renderHr(),tasks:renderTasks,audit:renderAudit,clock:()=>window.AttendanceV4?.render?.(),tables:()=>window.TablesCanonicalV4?.install?.()};
+    const renderers={agenda:()=>window.AgendaUIV4?.render(),dashboard:renderDashboard,operation:renderOperation,wait:renderRequests,chat:renderChat,myhr:()=>window.HRSeparationV4?.myRH(true),hr:()=>window.V4ClinicHR?window.V4ClinicHR.render():renderHr(),tasks:renderTasks,audit:renderAudit,clock:()=>window.AttendanceV4?.render?.(),tables:()=>window.TablesCanonicalV4?.install?.()};
     if(renderers[id])renderers[id]();else window.GSEnterprise?.render?.(id);
     document.dispatchEvent(new CustomEvent('gs:view-changed',{detail:{id}}));
     return true;

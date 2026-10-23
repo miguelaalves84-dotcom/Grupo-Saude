@@ -10,7 +10,7 @@ function ensure(){
  integrity(s);W(s);return s;
 }
 
-function permission(s,k){if(k.startsWith('stock')&&k!=='stockRead'&&!permission(s,'stockRead'))return false;const u=s.employees?.[s.currentUser]||(s.users||[]).find(x=>String(x.id)===String(s.currentUser));if(!u||u.active===false)return false;const role=norm(u.role||u.kind);if(k==='dashboard'&&!['CEO','ADMINISTRAÇÃO'].includes(role))return false;const individual=s.userActionPermissions?.[String(s.currentUser)]||u.hr?.actionPermissions||{};return individual[k]!==undefined?individual[k]===true||individual[k]===1:!!s.roleActionPermissions?.[role]?.[k]}
+function permission(s,k){if(k.startsWith('stock')&&k!=='stockRead'&&!permission(s,'stockRead'))return false;const u=s.employees?.[s.currentUser]||(s.users||[]).find(x=>String(x.id)===String(s.currentUser));if(!u||u.active===false)return false;const role=norm(u.role||u.kind);if(k==='dashboard'&&!['CEO','ADMINISTRAÇÃO'].includes(role))return false;if(k==='agenda'&&!['CEO','ADMINISTRAÇÃO','ADMINISTRATIVA'].includes(role))return false;const individual=s.userActionPermissions?.[String(s.currentUser)]||u.hr?.actionPermissions||{};return individual[k]!==undefined?individual[k]===true||individual[k]===1:!!s.roleActionPermissions?.[role]?.[k]}
 function can(k){return permission(R(),k)}
 function editableRole(s,role){const actor=s.employees?.[s.currentUser]||(s.users||[]).find(p=>String(p.id)===String(s.currentUser));return norm(role)!=='CEO'||norm(actor?.role||actor?.kind)==='CEO'}
 

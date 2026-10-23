@@ -53,3 +53,6 @@ Os 327 ficheiros versionados em ec0a3d8 foram comparados byte a byte com o TAR p
 
 - A validação do seletor detetou uma associação singular antiga ainda presente na fixture (`clinicId=abranfir`), além das listas recém-definidas. A normalização preservou-a corretamente. A fixture passou a configurar todos os campos de associação; a permissão não foi alargada nem foi eliminada a proteção clínica.
 - Compatibilidade de permissões: a ficha/ator do ponto normaliza também os valores históricos 0/1, em coerência com a UI e os serviços, sem alterar as escolhas guardadas.
+
+- RH multiclínica: Administração soma apenas clínicas autorizadas ao consultar outro colaborador; o próprio consulta as suas horas e CEO a visão global. Marcações sem clínica são sinalizadas e não misturadas com grupos clínicos, evitando dupla contagem. Originais mantidos. Testes de domínio e Chromium verificam 2h no âmbito da Administração contra 5h do próprio/CEO.
+- Revogação de Clínicas do CEO abrange também mestre, criação e gravação direta; não basta ocultar a navegação.

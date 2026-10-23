@@ -27,6 +27,14 @@ Antes da sincronização local com e11af05, foram preservados patch, ficheiros a
 
 A alimentação não é inferida de dias úteis. A ficha aceita uma regra explicitamente validada de minutos mínimos e referência; conta no máximo um dia por colaborador, inclusive multiclínica. Sem regra confirmada, apresenta «por apurar» e distingue dias candidatos de dias remuneráveis. Não representa um parecer sobre a regra legal/contratual concreta. Regras mais complexas continuam pendentes.
 
+## Correções após a primeira execução CI
+
+O run 39938910113 aprovou a regressão mas detetou: consulta do cadastro de empresas ao abrir uma ficha própria sem gestão; folgas comuns multiclínica interpretadas como escala em falta; função de renderização mensal definida mas não montada no modal. O commit 2578247 corrige os três problemas. Não foram apresentados como aprovados. São exercitados pela suite RH, PostgreSQL e suite salarial respetivamente.
+
+Na revisão seguinte, corrigidos ainda remoção de remuneração na ficha sem invalidar referência antiga, sobreposição escondida por três ausências parciais e acesso a marcações fora do filtro clínico. Testes específicos acrescentados.
+
+**CAL-01, P0 corrigido no controlador demonstrativo:** as funções exportadas do editor de feriados não validavam o perfil/âmbito, e a anulação removia o registo. `clinic-calendars-v4.js` passa a validar o utilizador efetivo, CEO/Administração, permissão de configuração e clínica, inclusive em chamadas diretas. Não inicia escritas para os outros quatro perfis. Anulação conserva o registo com `active:false` e auditoria. A fórmula duplicada de Páscoa foi substituída pela função canónica já usada pela conferência e férias, com datas UTC. `tests/global-audit.cjs` executa o controlador real nos seis perfis e verifica recusas, âmbito e preservação. Isto não ativa um escritor de calendários autenticado no servidor; essa integração continua pendente.
+
 ## Funcionalidades preservadas e duplicações
 
 Mantidos: seis perfis e simulação, documentos e checklists existentes, contratos, calendários, fontes de ponto e correções, movimentos financeiros/bónus, formatos e histórico de exportação, admissões/saídas e dados antigos. Nenhuma migração ou eliminação de dados foi executada.
@@ -45,7 +53,7 @@ Há várias funções com o mesmo nome em closures diferentes; isto não prova c
 
 ## Testes e limitações
 
-`npm test`, sintaxe e build são executados localmente; a nova suite cobre oito grupos de cenários de seleção, vigências, horas, feriados, ausências, multiclínica e faturação. A suite salarial anterior preserva dez grupos e valida os cinco formatos com leitores independentes. Resultados definitivos Chromium/PostgreSQL e o SHA de entrega serão indicados no relatório de execução, após GitHub Actions terminar.
+`npm test`, sintaxe e build são executados localmente; a nova suite cobre dez grupos de cenários de seleção, vigências, horas, feriados, ausências, multiclínica e faturação. A suite salarial anterior preserva dez grupos e valida os cinco formatos com leitores independentes. Resultados definitivos Chromium/PostgreSQL e o SHA de entrega serão indicados no relatório de execução, após GitHub Actions terminar.
 
 O servidor local foi bloqueado pelo sandbox ao criar o socket; a tentativa com permissão adicional foi interrompida. Não foi repetida uma instalação de browsers ou Docker. O workflow usa Chromium pré-instalado e PostgreSQL descartável com dados sintéticos, não bases reais.
 

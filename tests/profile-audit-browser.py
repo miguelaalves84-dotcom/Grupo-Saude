@@ -45,7 +45,7 @@ with sync_playwright() as p:
      check('Clínicas','Perfil sintético mantém clínica operacional autorizada',bool(page.evaluate('AccessScopeV4.clinics()')));check('Sessão','Arranque direto sem alternar perfil',page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).currentUser',KEY)==actor)
      check('Navegação','Página inicial já respeita perfil',page.evaluate('RoleAccessAdminV4.guard(document.querySelector(".view.active")?.id)'));
      check('Dashboard','Dashboard oculto nos quatro perfis sem gestão',page.evaluate('RoleAccessAdminV4.guard("dashboard")')==(actor in ['u1','test_admin']))
-     navigation=page.evaluate('''()=>[...document.querySelectorAll('#nav button')].map(b=>({id:b.id,view:b.dataset.view||'',label:b.innerText.trim(),permission:b.dataset.shellPermission||'',expected:b.dataset.view?RoleAccessAdminV4.guard(b.dataset.view):b.dataset.shellPermission?RoleAccessAdminV4.can(b.dataset.shellPermission):null,hidden:b.hidden||getComputedStyle(b).display==='none'}))''')
+     navigation=page.evaluate('''()=>[...document.querySelectorAll('#nav button')].map(b=>({id:b.id,view:b.dataset.view||'',label:b.innerText.trim(),permission:b.dataset.shellPermission||'',expected:b.id==='shortcut_cash'?GSFinanceCash.read(FinanceDemoV4.actor()):b.dataset.view?RoleAccessAdminV4.guard(b.dataset.view):b.dataset.shellPermission?RoleAccessAdminV4.can(b.dataset.shellPermission):null,hidden:b.hidden||getComputedStyle(b).display==='none'}))''')
      check('Navegação','Entradas principais sem duplicações',len([b['view'] for b in navigation if b['view']])==len(set(b['view'] for b in navigation if b['view'])))
      for b in navigation:
       if b['expected'] is None:continue

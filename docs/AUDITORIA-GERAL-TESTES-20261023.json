@@ -1,0 +1,357 @@
+{
+  "run": 39945892326,
+  "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/39945892326",
+  "auditedProduct": "ddb6023618d73ec678af742a1cfc3353b27dc903",
+  "testedCommit": "ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 120388337060,
+      "name": "postgres",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388337334,
+      "name": "regression",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388465999,
+      "name": "browser (browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466038,
+      "name": "browser (stabilization-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466052,
+      "name": "browser (improvements-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466096,
+      "name": "browser (attendance-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466100,
+      "name": "browser (candidate-pointer-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466102,
+      "name": "browser (employee-documents-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466104,
+      "name": "browser (recruitment-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466117,
+      "name": "browser (stock-tables-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466120,
+      "name": "browser (audit-complete-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466124,
+      "name": "browser (opening-composition-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466129,
+      "name": "browser (interview-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466130,
+      "name": "browser (rh-followup-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466137,
+      "name": "browser (documents-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466140,
+      "name": "browser (branding-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466144,
+      "name": "browser (stock-closing-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466155,
+      "name": "browser (complaints-enhancements-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466203,
+      "name": "browser (global-layout-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466210,
+      "name": "browser (finance-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466211,
+      "name": "browser (p0-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466222,
+      "name": "browser (profile-audit-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466268,
+      "name": "browser (rh-20261022-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466297,
+      "name": "browser (payroll-export-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466322,
+      "name": "browser (supplier-companies-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466332,
+      "name": "browser (audit-expanded-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466405,
+      "name": "browser (complaints-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466452,
+      "name": "browser (operation-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466466,
+      "name": "browser (marketing-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120388466569,
+      "name": "browser (rh-development-browser)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12498795981,
+      "name": "rh-development-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 9221662,
+      "expiresAt": "2026-11-06T11:28:53Z",
+      "digest": "sha256:f199327e7c5326424f7b63acb6e39024523b7fd8a390606ee615102af0fafe88"
+    },
+    {
+      "id": 12498775653,
+      "name": "employee-documents-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 5122115,
+      "expiresAt": "2026-11-06T11:27:54Z",
+      "digest": "sha256:e7c89240d97df442cfd9ce9a771c8db5777d17e9c755b6761a91b0477581b316"
+    },
+    {
+      "id": 12498735233,
+      "name": "interview-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 452799,
+      "expiresAt": "2026-11-06T11:26:24Z",
+      "digest": "sha256:0c1bb054ea735d8bcc1593b8954fc88acaa31938ad8ccda91057e4db21d906b8"
+    },
+    {
+      "id": 12498641075,
+      "name": "rh-20261022-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 6053762,
+      "expiresAt": "2026-11-06T11:27:22Z",
+      "digest": "sha256:ad56b4ac825335ad40f9d7915fd4a56fa6163e5af8773f4345780baaa186213a"
+    },
+    {
+      "id": 12498576625,
+      "name": "supplier-companies-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 2607820,
+      "expiresAt": "2026-11-06T11:30:03Z",
+      "digest": "sha256:908f57e4ca528dfff51c6af6e6909e1c7519e903a63d4e381679f18345123e35"
+    },
+    {
+      "id": 12498571491,
+      "name": "marketing-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 5304791,
+      "expiresAt": "2026-11-06T11:28:21Z",
+      "digest": "sha256:796ee7b573427cb3243df9eddb9270e1b9ef1d322a6a4258213f40b437b29e8b"
+    },
+    {
+      "id": 12498565946,
+      "name": "recruitment-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 40488,
+      "expiresAt": "2026-11-06T11:25:43Z",
+      "digest": "sha256:dc3655fac86c3e52f642c8bd5675616a9d4d005549d6febd41ef0532f62a3b7c"
+    },
+    {
+      "id": 12498556105,
+      "name": "audit-expanded-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 7700654,
+      "expiresAt": "2026-11-06T11:26:01Z",
+      "digest": "sha256:0e7b1bbcbafabd0593ba1427bd01558a751c3e43f57dfc62bfe16b6a83e5c20f"
+    },
+    {
+      "id": 12498546037,
+      "name": "candidate-pointer-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 1587789,
+      "expiresAt": "2026-11-06T11:26:35Z",
+      "digest": "sha256:a595d80c4ee3eb80bc31dd35bdd661637c9f61e89031a8d1c4f3c4460ed4b9e7"
+    },
+    {
+      "id": 12498531336,
+      "name": "stock-tables-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 1445411,
+      "expiresAt": "2026-11-06T11:28:11Z",
+      "digest": "sha256:338894d506bdc26465bc5bb020d16721cfdf8dab46db699a0a7dd87a5a3fe020"
+    },
+    {
+      "id": 12498476593,
+      "name": "operation-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 3840646,
+      "expiresAt": "2026-11-06T11:29:33Z",
+      "digest": "sha256:23afcbcb2bd612515f912553d431c194b81a0084e4ba61a6aad06024e1d94498"
+    },
+    {
+      "id": 12498292282,
+      "name": "complaints-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 408225,
+      "expiresAt": "2026-11-06T11:27:32Z",
+      "digest": "sha256:4a1aaaefc653aa97418ea8789d73ae24ce66e0e47245c8551a4e42e132fdd4b2"
+    },
+    {
+      "id": 12498286533,
+      "name": "stabilization-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 4410773,
+      "expiresAt": "2026-11-06T11:26:57Z",
+      "digest": "sha256:84e67e949d46efaad5a9a836e2d03eb8591c813ab72e7c5b796f45dd9ad2a798"
+    },
+    {
+      "id": 12498107738,
+      "name": "rh-followup-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 6801950,
+      "expiresAt": "2026-11-06T11:28:34Z",
+      "digest": "sha256:0602029b43faadca052979e9d40371e918f1e3bda399cd58d5cd14a690156e4b"
+    },
+    {
+      "id": 12498092782,
+      "name": "payroll-export-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 5784779,
+      "expiresAt": "2026-11-06T11:28:33Z",
+      "digest": "sha256:52f344500713447cf23311f706ac635f1a85c46a54429a0a0d863b2088f0fcb8"
+    },
+    {
+      "id": 12498058242,
+      "name": "attendance-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 6567609,
+      "expiresAt": "2026-11-06T11:29:11Z",
+      "digest": "sha256:7b5de6b219f36e44543d71b454130c214527cfacfcfb5e0dd80450318f11b31a"
+    },
+    {
+      "id": 12498048314,
+      "name": "stock-closing-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 6169449,
+      "expiresAt": "2026-11-06T11:28:14Z",
+      "digest": "sha256:fbaf47815a23d67f8f89b1468e264075aaf7b4718a2de286a09c6be93e4b4f66"
+    },
+    {
+      "id": 12498017104,
+      "name": "global-layout-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 2912283,
+      "expiresAt": "2026-11-06T11:26:11Z",
+      "digest": "sha256:ce79fad6a2bb298bcb09540aca31f656547c5a4a10b26a36a8218772538207c8"
+    },
+    {
+      "id": 12497993765,
+      "name": "audit-complete-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 65475180,
+      "expiresAt": "2026-11-06T11:29:56Z",
+      "digest": "sha256:bb3fdad6227d15f159553f8945df349fce0ec7b1f8f276f183a25496834cc3a1"
+    },
+    {
+      "id": 12497907831,
+      "name": "profile-audit-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 53369899,
+      "expiresAt": "2026-11-06T11:29:29Z",
+      "digest": "sha256:1d9c4ffa280605b9a1f1abcac77fb04deecd39af3cfafb45cc774da209f3cca7"
+    },
+    {
+      "id": 12497813779,
+      "name": "complaints-enhancements-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 1297649,
+      "expiresAt": "2026-11-06T11:26:11Z",
+      "digest": "sha256:9ab27e7e19e69d4a572471897ec4a091a222547299c3673c4ccc6107b6a4cbe0"
+    },
+    {
+      "id": 12497627856,
+      "name": "branding-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 4005833,
+      "expiresAt": "2026-11-06T11:26:27Z",
+      "digest": "sha256:fd068b4b4479acd9c26ed9b1f9f9087837f0927f54503ecc4b1394b3f08ce5b2"
+    },
+    {
+      "id": 12497623240,
+      "name": "opening-composition-browser-synthetic-ea4e8a00d229b9f4106573ee741b72f0d1eeb43d",
+      "size": 5268112,
+      "expiresAt": "2026-11-06T11:28:01Z",
+      "digest": "sha256:aee275b9ad22b5fda9b0613fa9b0dad65ed3ae52715117c1d55e59a78deff240"
+    }
+  ],
+  "limits": [
+    "PostgreSQL descartável, sem base real.",
+    "Chromium com dispositivos emulados; sem certificação de hardware ou comparação universal de pixels.",
+    "Os probes de auditoria registam falhas conhecidas sem fazer falhar o job; CI verde não significa ausência de problemas."
+  ]
+}

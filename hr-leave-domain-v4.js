@@ -45,19 +45,7 @@
     if(!x.start) return [];
     return range(x.start, x.end || x.start);
   }
-  function nationals(year) {
-    let a=year%19,b=Math.floor(year/100),c=year%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=(h+l-7*m+114)%31+1;
-    const easter = new Date(Date.UTC(year, mo-1, da, 12));
-    const out = [['01-01','Ano Novo'],['04-25','Dia da Liberdade'],['05-01','Dia do Trabalhador'],['06-10','Dia de Portugal'],['08-15','Assunção'],['10-05','Implantação da República'],['11-01','Todos os Santos'],['12-01','Restauração da Independência'],['12-08','Imaculada Conceição'],['12-25','Natal']].map(([d,name]) => ({date:year+'-'+d,name}));
-    for(const [offset,name] of [[-2,'Sexta-feira Santa'],[0,'Páscoa'],[60,'Corpo de Deus']]) {const z=new Date(easter);z.setUTCDate(z.getUTCDate()+offset);out.push({date:iso(z),name})}
-    return out;
-  }
-  function holidays(s, cid, year) {
-    const c = s.clinicCalendars?.[cid] || {}, y = c[year] || {};
-    const map = new Map(nationals(Number(year)).map(x => [x.date, x.name]));
-    for(const x of [...(c.holidays || []), ...(y.national || []), ...(y.municipal || [])]) if(x.active !== false && String(x.date).startsWith(String(year))) map.set(x.date, x.name || 'Feriado');
-    return map;
-  }
+  function holidays(s,cid,year){return GSAttendanceCore.holidays(s,cid,year)}
   function working(s, cid, d) {const w=date(d).getUTCDay();return w!==0 && w!==6 && !holidays(s,cid,d.slice(0,4)).has(d)}
   const workDays = (s, x) => days(x).filter(d => working(s, clinic(s,x), d));
   function entitlement(s, id, year) {

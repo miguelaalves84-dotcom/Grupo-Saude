@@ -27,4 +27,4 @@ with sync_playwright() as pw:
  finally:
   b.close();report={'originalAuditAdditionalFindings':6,'replayFindings':len(rows),'contexts':len(contexts),'sections':sections,'findings':rows,'real':sum(r['paintIntersection'] for r in rows),'clipped':sum(not r['paintIntersection'] for r in rows),'notice':'Revisão geométrica de pintura/recorte, não certificação visual humana nem comparação universal por pixels.'};(OUT/'expanded-paint-review.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print('EXPANDED_SUMMARY '+json.dumps({k:v for k,v in report.items() if k not in ['sections','findings']}),flush=True)
 assert len(sections)==60,'Replay must review all 60 affected sections'
-assert len(rows)==6,'Replay must reproduce the six additional findings before classifying them'
+assert len(rows)==0,'No control may intersect the close header or another control after the modal scroll correction'

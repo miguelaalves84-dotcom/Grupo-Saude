@@ -57,8 +57,11 @@ audit_visual.inspect=reviewed
 try:
  runpy.run_path(str(Path(__file__).with_name('profile-audit-browser.py')),run_name='__main__')
 finally:
- result={'auditedCode':'ddb6023618d73ec678af742a1cfc3353b27dc903','records':records,'sectionChecks':section_checks,'additionalFindings':new_failures,'summary':{k:sum(x.get('classification')==k for x in records) for k in ['FALHA_REAL','FALSO_POSITIVO','POR_CONFIRMAR']}}
+ result={'baselineCode':'ddb6023618d73ec678af742a1cfc3353b27dc903','auditedCode':os.environ.get('GITHUB_SHA','working-tree'),'records':records,'sectionChecks':section_checks,'additionalFindings':new_failures,'summary':{k:sum(x.get('classification')==k for x in records) for k in ['FALHA_REAL','FALSO_POSITIVO','POR_CONFIRMAR']}}
  (OUT/'visual-102-individual-review.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print('VISUAL_REVIEW_SUMMARY '+json.dumps({'total':len(records),**result['summary'],'expandedSections':len(section_checks),'additionalFindings':len(new_failures)},ensure_ascii=False),flush=True)
-assert len(records)==102,'The 102 previous alerts must be reproduced and individually reviewed; investigate count changes.'
+baseline=json.loads(Path(__file__).parents[1].joinpath('docs/AUDITORIA-GERAL-VISUAIS-102-20261023.json').read_text())
+assert len(baseline['records'])==102,'Historical individual proofs must remain available'
+assert not any(x.get('classification') in ['FALHA_REAL','POR_CONFIRMAR'] for x in records),'Current rendered overlaps need investigation'
+# Expanded raw-geometry candidates are classified with ancestor scroll clipping by audit-expanded-browser.py.
 assert all(x.get('classification') for x in records),'Incomplete individual review'
 assert all(x['singleSectionOpen'] for x in section_checks),'Accordion behavior changed during audit'

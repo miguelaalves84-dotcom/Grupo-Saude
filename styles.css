@@ -146,4 +146,8 @@ th{background:var(--soft);color:var(--muted)}
 #clockContent .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}#clockContent .metric{display:block;position:static;white-space:normal;overflow-wrap:anywhere;font-size:clamp(1.25rem,3vw,2rem);margin-top:10px;line-height:1.25}
 [data-development-modal] .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}[data-development-modal] .card strong{display:block;font-size:1.1rem;line-height:1.5;overflow-wrap:anywhere}[data-development-modal] .development-record{margin:12px 0;padding:16px}[data-development-modal] fieldset{min-width:0;margin:14px 0}[data-development-modal] fieldset label{display:block;padding:7px 0}[data-development-modal] fieldset input[type=checkbox]{width:auto;display:inline-block}[data-development-modal] .actions{display:flex;gap:10px;flex-wrap:wrap}[data-development-modal] input,[data-development-modal] select{max-width:100%;min-width:0}
 .hr-subject[hidden]{display:none!important}.hr-subject>summary{font-weight:700;line-height:1.5}.hr-subject>summary:focus-visible{outline:3px solid var(--primary,#16818a);outline-offset:4px}
+/* Audit VIS-EXPANDED: scroll only the body; the close header must never cover a control. */
+#modal[open]{display:flex;flex-direction:column;overflow:hidden;max-height:90dvh}
+#modal>.modal-head{position:relative;top:auto;flex:0 0 auto;margin:0}
+#modal>#modalBody{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
 @media(max-width:600px){#modalBody .actions{gap:8px}#modalBody .actions button{white-space:normal;min-height:42px}.development-record h4{font-size:1.05rem}#clockContent .card{min-width:0;height:auto}}

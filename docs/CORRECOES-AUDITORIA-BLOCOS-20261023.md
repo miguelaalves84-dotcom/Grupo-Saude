@@ -43,3 +43,10 @@ Checkpoint privado fora do repositório: `/workspace/correcoes-auditoria-2026102
 ## Verificação do checkpoint
 
 Os 327 ficheiros versionados em ec0a3d8 foram comparados byte a byte com o TAR privado, com igualdade integral. O arquivo contém também `.git`; não é um backup operacional de uma base central.
+
+
+## Bloco C — conflitos visuais e preparação P0
+
+- VIS-EXPANDED: cabeçalho do modal fora da área deslocável, corpo com scroll próprio e limites responsivos. O replay mantém os 12 contextos e 60 secções e passa a exigir zero interseções efetivamente visíveis. A prova histórica dos 102 falsos positivos permanece versionada; a contagem de geometria residual atual pode mudar depois da correção. Candidatos geométricos são distintos de sobreposições dentro da área recortada.
+- P0: [runbook de preparação e dependências](P0-PREPARACAO-ISOLADA-20261023.md). Endpoints reais exercitados em contextos VM sem variáveis da aplicação herdadas: 14 recusas por ambiente (preview incompleto e produção), zero pedidos externos. Infraestrutura real continua bloqueada, não operacional.
+- Nenhum fornecedor, base, arquivo ou segredo remoto foi criado/configurado. Quotas/acessos gratuitos por confirmar; não há ativação de faturação nem custo adicional autorizado.

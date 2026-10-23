@@ -56,3 +56,5 @@ Os 327 ficheiros versionados em ec0a3d8 foram comparados byte a byte com o TAR p
 
 - RH multiclínica: Administração soma apenas clínicas autorizadas ao consultar outro colaborador; o próprio consulta as suas horas e CEO a visão global. Marcações sem clínica são sinalizadas e não misturadas com grupos clínicos, evitando dupla contagem. Originais mantidos. Testes de domínio e Chromium verificam 2h no âmbito da Administração contra 5h do próprio/CEO.
 - Revogação de Clínicas do CEO abrange também mestre, criação e gravação direta; não basta ocultar a navegação.
+
+- Configuração CEO: somente o CEO altera permissões individuais ou a coluna do cargo CEO. Administração e simulação como Administração não recebem esse poder. Campos desativados na UI também são ignorados na gravação, alinhando a proteção do servidor existente.

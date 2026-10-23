@@ -13,7 +13,7 @@ Base ec0a3d8, branch dev/v4-stabilization-20261017, PR #13 em rascunho. Instruç
 
 Pesquisa: 30 pontas de branches, 59 blobs de app/index/extensões relevantes e 523 commits do histórico main, em leitura. A implementação encontra-se no `index.html` do commit inicial **fadee5eff1059eafc2c5520656ebb4d050c56e31**, blob **e32abcdc42cf04b50003c0e2a7bbf8451fbb8bc4**, também presente no checkpoint inicial V4 99d5ff4.
 
-Capacidades comprovadas: menu Caixa, folhas por clínica/data, total e multibanco, cálculo a depositar, valor/data de depósito, comprovativo/referência textual, observações, diferença, estados A aguardar depósito / A aguardar validação / Validada, indicador Caixas por validar. O fecho diário antigo exigia folha existente. As funções eram `calcCash`, `saveCash`, `validateCash`, `renderCash` e a coleção era `s.cash`, no armazenamento `grupo_saude_v31` (confirmar a chave exata antes de importar qualquer dado).
+Capacidades comprovadas: menu Caixa, folhas por clínica/data, total e multibanco, cálculo a depositar, valor/data de depósito, comprovativo/referência textual, observações, diferença, estados A aguardar depósito / A aguardar validação / Validada, indicador Caixas por validar. O fecho diário antigo exigia folha existente. As funções eram `calcCash`, `saveCash`, `validateCash`, `renderCash` e a coleção era `s.cash`, no armazenamento `grupo_saude_v31` (chave confirmada no código histórico).
 
 Limitações históricas: atualização substituía valores sem histórico estruturado; não havia autorização de validação por perfil demonstrada, controlo de concorrência ou idempotência. O campo de comprovativo era referência textual, não upload privado. Não recuperar essas fragilidades nem inventar integração bancária, receitas ou créditos salariais.
 
@@ -26,3 +26,20 @@ O ambiente desta sessão não tem credenciais ou identidades de backend configur
 ## Preservação
 
 Checkpoint privado fora do repositório: `/workspace/correcoes-auditoria-20261023/checkpoint-ec0a3d8.tar`; SHA-256 `f94a91242665a93914c11dd92bdc5a01b395cfd10b40ae2f292a79c4ad05ea70`. Contém código e histórico Git locais, excluindo dependências/build/cache. Não é publicado no GitHub.
+
+
+## Bloco B — Caixa recuperada
+
+- Menu Financeiro → Fecho de Caixa, integrado nas tabs atuais. Administrativas registam/consultam apenas clínicas associadas; CEO/Administração autorizados validam e reabrem. Médico, Técnico e Call Center não recebem acesso, mesmo por URL/chamada direta. Simulação não herda poderes.
+- Campos históricos recuperados: clínica/data, total, multibanco, a depositar, depósito/data, referência textual e observações; diferença em cêntimos, estados, filtro de clínica/período, histórico visual. Diferença na validação exige justificação; reabertura é auditada.
+- Uma folha por clínica/dia no campo `clinic_days.data.cash` existente; no demo usa o mesmo `days`. A coleção histórica `cash` é projetada sem apagar/copiar os originais; ao editar, guarda a versão no dia e apresenta uma única folha. Duplicados históricos ambíguos não são substituídos automaticamente.
+- Reposta a dependência histórica do fecho: exige folha existente, sem exigir que o depósito bancário já esteja validado. Zero é permitido se declarado; a folha não cria atividade clínica fictícia, movimentos de conta corrente ou bónus.
+- Histórico por autor/data/hora/antes/depois, idempotência e revisão. CAS de todo o dia e transação serializável com eventos financeiros evitam sobrescrever atualizações concorrentes da Operação. A API de Operação expõe apenas existência/estado/revisão da folha, não valores ou histórico reservados.
+- Indicadores derivados: Caixas por validar no dashboard, tab financeira e notificações autorizadas. Validar elimina o alerta; reabrir repõe-no. Não há outro contador armazenado.
+- Reutilizados valores monetários, transporte financeiro, autenticação/CSRF, política clínica, modais, eventos e tabelas existentes. Nenhuma tabela ou migração nova.
+- Limitações: preview local sintético; API/PostgreSQL preparados para testes descartáveis, sem persistência central ativa. Comprovativo histórico é referência textual, não upload privado. Não importa automaticamente dados do antigo domínio/chave V3.1: exige origem, autorização e correspondência inequívoca de clínicas. Os dados antigos não foram apagados.
+- A primeira CI do bloco A identificou um teste P0 ainda a procurar o editor no destino antigo. O teste foi atualizado para Tabelas, mantendo a prova XSS, gravação, teclado e recarregamento; não foi removida a verificação de segurança.
+
+## Verificação do checkpoint
+
+Os 327 ficheiros versionados em ec0a3d8 foram comparados byte a byte com o TAR privado, com igualdade integral. O arquivo contém também `.git`; não é um backup operacional de uma base central.

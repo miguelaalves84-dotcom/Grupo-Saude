@@ -23,7 +23,7 @@ Não se criaram novos cadastros de pessoas, contactos, clínicas ou movimentos f
 - Novos bónus: `GSStockClosing.assess`, `stock-closing-v4.js`; leitura de vendas atuais de `days[].stockClosing.sales` (correções preservadas no histórico) e unidades `technicianSales[].lasers` do esquema anterior `technician_sales`. Não somar `others` nem `bonus_value`, que duplicariam produtos ou confundiriam unidades e euros. O preview não importa a tabela remota e não simula essa ligação.
 - Função beneficiária explícita `hr.quarterlyBonusFunction` é distinta do perfil de acesso. O cálculo não infere vínculo contratual pelo perfil. A alteração fica na auditoria da ficha.
 - Prémio dos produtos usa o snapshot unitário histórico do fecho; lasers exigem vigência `bonusRateHistory`. A edição/configuração das vigências dos lasers e a reconciliação da origem continuam pendentes.
-- Financeiro independente mantém navegação quando não existe menu lateral. Rotas e controladores mantidos; nenhuma limpeza de base de dados.
+- Financeiro independente mantém navegação quando não existe menu lateral. Meu RH também deixa de repetir os botões globais de férias e baixas quando há menu lateral. Rotas e controladores mantidos; nenhuma limpeza de base de dados.
 
 ## Fórmulas e decisões pendentes
 
@@ -41,3 +41,9 @@ Backup privado verificado antes das alterações: 357 ficheiros; SHA-256 `38460a
 Só dados sintéticos. Sem novos serviços, credenciais, migrações, escritores de produção, merge ou mudança de configuração remota de produção. O preview é local por navegador; não constitui persistência central autenticada.
 
 Resultados CI, SHA e URL serão acrescentados após execução efetiva. Nenhuma aprovação Chromium/PostgreSQL é inferida de código preparado.
+
+## Regressão encontrada na primeira execução
+
+Commit `85aa48c`, execução [40080138642](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40080138642): 30 jobs aprovados, 3 falhados (Operação, RH follow-up e Fornecedores), ligados à navegação durante mudança/simulação de perfil. O novo ramo de inicialização do RH estava a chamar `showView(hr)` mesmo com outra página ativa. Corrigido para apenas selecionar o conteúdo se RH já estiver ativo, preservando a página e permitindo a limpeza/atualização do módulo atual. Acrescentado teste explícito de preservação da página e uso de toque real no intervalo livre da Agenda em viewports táteis.
+
+A suite Agenda/RH da primeira execução teve 1 158 verificações aprovadas. A nova execução integral é obrigatória; não considerar a versão aprovada pelo resultado parcial anterior.

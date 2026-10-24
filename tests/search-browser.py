@@ -1,8 +1,9 @@
 """Behavioral searches over actual authorised rendered records; no remote services."""
-import json,os,re,unicodedata
+import json,os,re,unicodedata,runpy
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/search-audit'));OUT.mkdir(parents=True,exist_ok=True)
+verify_populated=runpy.run_path(str(Path(__file__).parent/"search-populated.py"))["verify_populated"]
 results=[];inventory=[]
 def check(name,ok,**extra):
  row={**scope,'test':name,'passed':bool(ok),**extra};results.append(row);assert ok,row
@@ -68,6 +69,7 @@ with sync_playwright() as pw:
        if employee.count():employee.click();expect(p.locator('#modal')).to_be_visible();check('search result opens employee record',p.locator('#modalBody').inner_text().strip()!='');p.locator('#modal').evaluate('(d)=>d.close()')
       p.screenshot(path=str(OUT/(actor+'-'+device+'-'+theme+'-'+view+'-search.png')))
      check('navigation has one test-agent destination',p.locator('#nav #gsTestAgentButton').count()==0 and p.locator('#shortcut_testAgent').count()==1 and p.locator('#shortcut_testAgent').evaluate('(b)=>!b.hidden')==p.evaluate('RoleAccessAdminV4.can("settings")'))
+     verify_populated(p,actor,K,check,scope)
      c.close()
  finally:
   b.close();(OUT/'search-results.json').write_text(json.dumps({'baseline':baselineProof,'checks':results,'inventory':inventory,'limitations':['Default authorised records; unseeded subareas are not proof of populated-data searches.','External authentication and central persistence are not activated.']},ensure_ascii=False,indent=2))

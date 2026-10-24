@@ -11,6 +11,7 @@ with sync_playwright() as pw:
      p.evaluate('App.showView("chat")');exercise(p,'#chatMessage',cdp);p.locator('#chatMessage').fill('SYN rascunho São João');p.evaluate('App.renderAll()');check('chat background refresh preserves draft and focus',p.locator('#chatMessage').input_value()=='SYN rascunho São João' and p.locator('#chatMessage').evaluate('(e)=>document.activeElement===e'))
      p.locator('#chatMessage').dispatch_event('keydown',{'key':'Enter','keyCode':229,'isComposing':True});check('IME Enter never sends partial chat',len(state(p)['conversations'][0]['messages'])==0)
      p.locator('#chatContent button').filter(has_text='Enviar').click();check('explicit chat send stored once',len(state(p)['conversations'][0]['messages'])==1 and state(p)['conversations'][0]['messages'][0]['text']=='SYN rascunho São João');check('successful send clears only committed composer',p.locator('#chatMessage').input_value()=='')
+     p.evaluate('App.showView("clock");AttendanceBookV4.manual()');exercise(p,'#attendanceReason',cdp);close(p)
      if actor in ['test_adm','test_admin','u1']:
       p.evaluate('AgendaUIV4.open()');exercise(p,'#agendaFilters [name=search]',cdp);p.locator('[data-agenda-action=new]').click()
       for field in ['title','location','description']:exercise(p,'#agendaForm [name='+field+']',cdp)

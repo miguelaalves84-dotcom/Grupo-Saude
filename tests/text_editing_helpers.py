@@ -13,7 +13,7 @@ def exercise(p,selector,cdp,ime=True):
  f=p.locator(selector).first if isinstance(selector,str) else selector
  selector=label
  if not f.count() or not f.is_visible():return
- metadata=f.evaluate('''e=>{const label=e.labels?.[0]||e.closest('label'),copy=label?.cloneNode(true);copy?.querySelectorAll('input,textarea,select').forEach(x=>x.remove());return{id:e.id,name:e.name,type:e.type,tag:e.tagName,maxLength:e.maxLength,pattern:e.pattern||'',label:copy?.textContent.trim()||e.getAttribute('aria-label')||e.placeholder||'',readonly:e.readOnly,disabled:e.disabled}}''');entry={**scope,**metadata,'automated':'Em execução','physicalAndroid':'Pendente: Gboard/Samsung Keyboard, sugestões, seleção e colagem por toque'};fields.append(entry)
+ metadata=f.evaluate('''e=>{const label=e.labels?.[0]||e.closest('label')||(e.previousElementSibling?.tagName==='LABEL'?e.previousElementSibling:null),copy=label?.cloneNode(true);copy?.querySelectorAll('input,textarea,select').forEach(x=>x.remove());return{id:e.id,name:e.name,type:e.type,tag:e.tagName,maxLength:e.maxLength,pattern:e.pattern||'',label:copy?.textContent.trim()||e.getAttribute('aria-label')||e.placeholder||'',readonly:e.readOnly,disabled:e.disabled}}''');entry={**scope,**metadata,'selector':selector,'automated':'Em execução','physicalAndroid':'Pendente: Gboard/Samsung Keyboard, sugestões, seleção e colagem por toque'};fields.append(entry)
  if not f.is_editable():entry['automated']='Não editável — proteção preservada';check(selector+' read-only remains protected',True);return
  original=f.input_value();kind=metadata['type'];limit=metadata.get('maxLength',-1);entry['middleCaretTest']=limit<0 or limit>=16;f.focus();p.evaluate('(e)=>window.__writingNode=e',f.element_handle())
  if kind=='number':
@@ -23,7 +23,8 @@ def exercise(p,selector,cdp,ime=True):
  else:sample='João ação São'
  if limit>0:sample=sample[:limit]
  f.fill('');f.press_sequentially(sample);check(selector+' sequential Portuguese typing exact',f.input_value()==sample)
- f.press('Control+A');f.press('Control+C');check(selector+' actual clipboard copy exact',p.evaluate('navigator.clipboard.readText()')==sample)
+ if kind!='password':f.press('Control+A');f.press('Control+C');check(selector+' actual clipboard copy exact',p.evaluate('navigator.clipboard.readText()')==sample)
+ else:entry['copy']='Não aplicável: política nativa de proteção do campo de palavra-passe'
  check(selector+' original native editor connected',p.evaluate('window.__writingNode===document.activeElement&&window.__writingNode.isConnected'))
  if kind in ['text','search','tel','url','textarea','password'] and (limit<0 or limit>=16):
   f.fill('Lisboa Porto');f.evaluate('(e)=>e.setSelectionRange(6,6)');f.press_sequentially(' São');check(selector+' middle insertion exact',f.input_value()=='Lisboa São Porto');check(selector+' middle caret preserved',f.evaluate('(e)=>e.selectionStart===10&&e.selectionEnd===10'))

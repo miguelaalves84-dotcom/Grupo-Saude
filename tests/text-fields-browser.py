@@ -15,8 +15,11 @@ scenes=[
  ('Ficha RH','hr-master-v4.js','HRMasterV4.open("test_med","dados")'),
  ('Criar clínica','clinic-master-v4.js','ClinicMasterV4.create()'),
  ('Editar clínica','clinic-master-v4.js','ClinicMasterV4.edit("abranfir")'),
- ('Catálogo de documentos','document-catalog-ui-v4.js','DocumentCatalogV4.edit()'),
+ ('Catálogo de documentos','document-catalog-ui-v4.js','DocumentCatalogV4.open();DocumentCatalogV4.edit()'),
  ('Tipos de contrato','contract-types-v4.js','ContractTypesV4.open()'),
+ ('Lista de emails','communications-v4.js','CommunicationsV4.emails()'),
+ ('Empresa fornecedora CEO','supplier-companies-ui-v4.js','SupplierCompaniesUIV4.open("abranfir");SupplierCompaniesUIV4.form("company-save")'),
+ ('Avaliação — regras','hr-performance-ui-v4.js','HRPerformanceUIV4.rulesForm()'),
  ('Campanha','marketing-ui-v4.js','MarketingUIV4.campaign()'),
  ('Publicação editorial','marketing-ui-v4.js','MarketingUIV4.post()'),
  ('Investimento de marketing','marketing-ui-v4.js','MarketingUIV4.expense("syn-writing-campaign")'),
@@ -66,6 +69,7 @@ with sync_playwright() as pw:
       if fields and fields[-1].get('scene')==title:fields[-1]['automated']='Falhou — ver diagnóstico'
       scene_results.append({**H.scope,'status':'Falha durante escrita','field':key,'error':str(error)[:1800]});break
    scene_results.append({**H.scope,'status':'Campos exercitados' if len(fields)>entry_count else 'Sem campo de escrita livre editável nesta abertura','fields':len(fields)-entry_count,'feedback':alerts});close(p)
+  H.scope={'actor':'conta sintética','device':'tablet','theme':'light','scene':'Login — apenas escrita, sem autenticar','sourceFile':'account.html'};p.goto(ORIGIN+'/account.html');p.wait_for_selector('#accountEmail');H.exercise(p,'#accountEmail',c.new_cdp_session(p),ime=False);H.exercise(p,'#accountPassword',c.new_cdp_session(p),ime=False);scene_results.append({**H.scope,'status':'Escrita testada; autenticação real não ativada'})
   c.close()
  finally:
   b.close();(OUT/'text-fields-results.json').write_text(json.dumps({'checks':results,'fields':fields,'scenes':scene_results,'limitations':['Runtime census is limited to the forms explicitly opened; source inventory retains unexercised definitions.','Physical Android keyboard, autocorrection and touch paste remain pending for every field.','Numeric input editing was tested without assuming a physical Portuguese decimal keyboard.']},ensure_ascii=False,indent=2))

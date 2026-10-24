@@ -67,6 +67,7 @@ with sync_playwright() as pw:
        employee=root.locator('[data-search-item=employee]').first
        if employee.count():employee.click();expect(p.locator('#modal')).to_be_visible();check('search result opens employee record',p.locator('#modalBody').inner_text().strip()!='');p.locator('#modal').evaluate('(d)=>d.close()')
       p.screenshot(path=str(OUT/(actor+'-'+device+'-'+theme+'-'+view+'-search.png')))
+     check('navigation has one test-agent destination',p.locator('#nav #gsTestAgentButton').count()==0 and p.locator('#shortcut_testAgent').count()==1 and p.locator('#shortcut_testAgent').evaluate('(b)=>!b.hidden')==p.evaluate('RoleAccessAdminV4.can("settings")'))
      c.close()
  finally:
   b.close();(OUT/'search-results.json').write_text(json.dumps({'baseline':baselineProof,'checks':results,'inventory':inventory,'limitations':['Default authorised records; unseeded subareas are not proof of populated-data searches.','External authentication and central persistence are not activated.']},ensure_ascii=False,indent=2))

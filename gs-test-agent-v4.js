@@ -118,6 +118,6 @@ function report(){
  const m=document.getElementById('modal');if(m){document.getElementById('modalTitle').textContent='Diagnóstico automático';document.getElementById('modalBody').innerHTML=body;m.showModal()}
 }
 window.GSTestAgentV4={run,functionalUI,report,sandbox,seedPersistent,cleanup,saveReport,reportsPanel,panel,runPersistentUI,cleanupUI,last:null,sandboxLast:null};
-document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{const s=purgeTestData(R());localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();run();const nav=document.getElementById('tablesSubmenu')||document.getElementById('nav');if(nav&&!document.getElementById('gsTestAgentButton')){const b=document.createElement('button');b.id='gsTestAgentButton';b.type='button';b.className='secondary';b.textContent='Agente de Testes';b.onclick=panel;nav.appendChild(b)}},1200));
+document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{const s=purgeTestData(R());localStorage.setItem(K,JSON.stringify(s));window.HRReservedAccessLinkV4?.sync?.();run();const nav=document.getElementById('tablesSubmenu')||document.getElementById('nav');if(nav&&!document.getElementById('gsTestAgentButton')&&!document.getElementById('shortcut_testAgent')){const b=document.createElement('button');b.id='gsTestAgentButton';b.type='button';b.className='secondary';b.textContent='Agente de Testes';b.onclick=panel;nav.appendChild(b)}},1200));
 window.addEventListener('gs:reserved-areas-updated',()=>setTimeout(run,50));
 })();

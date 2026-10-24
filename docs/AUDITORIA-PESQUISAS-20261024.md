@@ -92,3 +92,28 @@ O ciclo com estes dois achados não é apresentado como aprovado. Os seus artefa
 ### Reprodução histórica isolada
 
 `tests/fixtures/agenda-search-6744ab7.js` preserva o ficheiro original da Agenda em `6744ab7`, apenas para testes, excluído do build. `search-browser.py` carrega essa fixture numa sessão tablet separada, cria uma marcação sintética pessoal e verifica a reprodução da ausência de binding, contador desatualizado, limpeza sem aplicação e incompatibilidade de acentos. O restante programa/domínio é o atual; não se afirma que foi reconstruído todo o deployment histórico. As verificações do comportamento corrigido usam o código atual em sessões novas.
+
+## Primeiro ciclo completo após as correções — `c045afa`
+
+[Run 40102064310](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40102064310): **35/35 jobs aprovados**, incluindo 33 suites Chromium, regressão automática e PostgreSQL descartável. A suite de pesquisas concluiu **1 164 verificações**, zero falhas: 384 verificações de navegação autorizada e 780 de comportamento. São 19 áreas, seis perfis, três formatos e dois temas. A reprodução histórica isolada confirmou os quatro defeitos descritos acima.
+
+| Perfil | Verificações da suite de pesquisas | Falhas |
+| --- | ---: | ---: |
+| Call Center | 114 | 0 |
+| Médico | 66 | 0 |
+| Técnico | 66 | 0 |
+| Administrativo | 126 | 0 |
+| Administração | 390 | 0 |
+| CEO | 402 | 0 |
+
+Estas quantidades são verificações, não números de funcionalidades distintas. O número varia com os acessos autorizados. A matriz detalhada está em [MATRIZ-PESQUISAS-20261024.csv](MATRIZ-PESQUISAS-20261024.csv), com 114 combinações perfil × área e limites explícitos.
+
+### Pendências de cobertura, sem declaração de aprovação total
+
+A primeira carga do extrato financeiro estava vazia nos 36 contextos da suite transversal. A pesquisa positiva de faturas é coberta por uma suite com upload/criação real de fatura sintética; isso não prova todos os casos de recibos/extratos populados em todos os dispositivos. Pedidos, Marketing, alertas e Meu RH também precisam de cenários populados adicionais para aprovação positiva integral da pesquisa transversal. Chat teve pesquisa positiva nos cenários com conversas; os restantes perfis não são aprovados por ter uma lista vazia. As linhas correspondentes da matriz são **parciais**, mesmo com jobs verdes.
+
+Não se afirma cobertura de todas as combinações possíveis de campos, paginações, estados, anexos e dados históricos nem pesquisa de conteúdo de PDFs. A autenticação real, os fornecedores externos e a persistência central continuam fora do preview.
+
+### Acabamento visual adicional comprovado nas capturas
+
+A revisão manual da captura tablet de Tabelas encontrou duas entradas «Agente de Testes»: `shortcut_testAgent`, organizado pelo menu atual, e `gsTestAgentButton`, injetado pelo inicializador antigo aos 1 200 ms. Ambos abriam `GSTestAgentV4.panel`. O inicializador antigo passa a servir apenas de fallback quando não existe o atalho canónico, e a organização do menu remove apenas a entrada redundante se ambas existirem. O módulo, painel, dados e controlador são preservados. Acrescentada verificação dos seis perfis para unicidade e permissões do destino.

@@ -14,7 +14,7 @@ def reproduce_baseline(browser):
  p.evaluate('''k=>{let s=JSON.parse(localStorage.getItem(k));s.currentUser='u1';s.ceoViewingAs=null;s.agendaEvents=[];const a=AttendanceBookV4.actor(s);s=GSAgenda.command(s,a,'save',{ownerId:'u1',clinicId:'',title:'SYN Pesquisa Évora',location:'SYN Águeda',date:GSAttendanceCore.day(),time:'09:00',duration:30,revision:0,requestId:'synthetic-search-baseline'}).state;localStorage.setItem(k,JSON.stringify(s));App.showView('agenda');AgendaUIV4.reset()}''',K)
  search=p.locator('#agendaFilters [name=search]');search.fill('zzzz-no-result');assert p.locator('[data-agenda-action=detail]').count()==1,'Baseline should reproduce missing input binding';p.screenshot(path=str(OUT/'baseline-6744ab7-tablet-search-not-applied.png'));p.locator('#agendaFilters button').click();assert p.locator('[data-agenda-action=detail]').count()==0;assert p.locator('#agendaContent p[role=status]').inner_text().startswith('1 marcações'),'Baseline counter bug';search.fill('');assert p.locator('[data-agenda-action=detail]').count()==0,'Baseline native clear bug';search.fill('evora');p.locator('#agendaFilters button').click();assert p.locator('[data-agenda-action=detail]').count()==0,'Baseline accent bug';search.fill('Évora');p.locator('#agendaFilters button').click();assert p.locator('[data-agenda-action=detail]').count()==1;c.close();return {'source':'6744ab7','viewport':'820x1180 touch','reproduced':['missing input binding','stale count','clear not applied','accent mismatch'],'method':'Original Agenda UI fixture with current domain and synthetic personal event; not a full historical deployment'}
 with sync_playwright() as pw:
- b=pw.chromium.launch(args=['--no-sandbox']);baselineProof=reproduce_baseline(b)
+ b=pw.chromium.launch(args=['--no-sandbox']);baselineProof=reproduce_baseline(b);clockBaseline=runpy.run_path(str(Path(__file__).parent/"search-populated.py"))["reproduce_clock_baseline"](b,URL,ORIGIN,K,OUT)
  try:
   for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
    for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
@@ -72,5 +72,5 @@ with sync_playwright() as pw:
      verify_populated(p,actor,K,check,scope)
      c.close()
  finally:
-  b.close();(OUT/'search-results.json').write_text(json.dumps({'baseline':baselineProof,'checks':results,'inventory':inventory,'limitations':['Default authorised records; unseeded subareas are not proof of populated-data searches.','External authentication and central persistence are not activated.']},ensure_ascii=False,indent=2))
+  b.close();(OUT/'search-results.json').write_text(json.dumps({'baseline':baselineProof,'clockBaseline':clockBaseline,'checks':results,'inventory':inventory,'limitations':['Default authorised records; unseeded subareas are not proof of populated-data searches.','External authentication and central persistence are not activated.']},ensure_ascii=False,indent=2))
 print(json.dumps({'checks':len(results),'failed':sum(not x['passed'] for x in results),'inventoried_views':len(inventory)}))

@@ -8,8 +8,12 @@ def check(name,ok,**extra):
  row={**scope,'test':name,'passed':bool(ok),**extra};results.append(row);assert ok,row
 def norm(s):return ''.join(x for x in unicodedata.normalize('NFD',s) if not unicodedata.combining(x)).lower().strip()
 RECORDS='[data-search-item="employee"],table tbody tr,.clinic-master-row,.kanban-card,.candidate-card,.funnel-card,.task-card,.task-row,.conversation,.audit-item,.audit-line,.list-item,.compliance-row,[data-search-item],.card .row,#tablesContent .cards > .card'
+def reproduce_baseline(browser):
+ c=browser.new_context(viewport={'width':820,'height':1180},has_touch=True,is_mobile=True,service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());source=(Path(__file__).parent/'fixtures/agenda-search-6744ab7.js').read_text();c.route('**/agenda-ui-v4.js',lambda r:r.fulfill(status=200,content_type='application/javascript',body=source));p=c.new_page();p.goto(URL);p.wait_for_function('window.AgendaUIV4&&window.GSAgenda');p.wait_for_timeout(600)
+ p.evaluate('''k=>{let s=JSON.parse(localStorage.getItem(k));s.currentUser='u1';s.ceoViewingAs=null;s.agendaEvents=[];const a=AttendanceBookV4.actor(s);s=GSAgenda.command(s,a,'save',{ownerId:'u1',clinicId:'',title:'SYN Pesquisa Évora',location:'SYN Águeda',date:GSAttendanceCore.day(),time:'09:00',duration:30,revision:0,requestId:'synthetic-search-baseline'}).state;localStorage.setItem(k,JSON.stringify(s));App.showView('agenda');AgendaUIV4.reset()}''',K)
+ search=p.locator('#agendaFilters [name=search]');search.fill('zzzz-no-result');assert p.locator('[data-agenda-action=detail]').count()==1,'Baseline should reproduce missing input binding';p.screenshot(path=str(OUT/'baseline-6744ab7-tablet-search-not-applied.png'));p.locator('#agendaFilters button').click();assert p.locator('[data-agenda-action=detail]').count()==0;assert p.locator('#agendaContent p[role=status]').inner_text().startswith('1 marcações'),'Baseline counter bug';search.fill('');assert p.locator('[data-agenda-action=detail]').count()==0,'Baseline native clear bug';search.fill('evora');p.locator('#agendaFilters button').click();assert p.locator('[data-agenda-action=detail]').count()==0,'Baseline accent bug';search.fill('Évora');p.locator('#agendaFilters button').click();assert p.locator('[data-agenda-action=detail]').count()==1;c.close();return {'source':'6744ab7','viewport':'820x1180 touch','reproduced':['missing input binding','stale count','clear not applied','accent mismatch'],'method':'Original Agenda UI fixture with current domain and synthetic personal event; not a full historical deployment'}
 with sync_playwright() as pw:
- b=pw.chromium.launch(args=['--no-sandbox'])
+ b=pw.chromium.launch(args=['--no-sandbox']);baselineProof=reproduce_baseline(b)
  try:
   for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
    for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
@@ -65,5 +69,5 @@ with sync_playwright() as pw:
       p.screenshot(path=str(OUT/(actor+'-'+device+'-'+theme+'-'+view+'-search.png')))
      c.close()
  finally:
-  b.close();(OUT/'search-results.json').write_text(json.dumps({'checks':results,'inventory':inventory,'limitations':['Default authorised records; unseeded subareas are not proof of populated-data searches.','External authentication and central persistence are not activated.']},ensure_ascii=False,indent=2))
+  b.close();(OUT/'search-results.json').write_text(json.dumps({'baseline':baselineProof,'checks':results,'inventory':inventory,'limitations':['Default authorised records; unseeded subareas are not proof of populated-data searches.','External authentication and central persistence are not activated.']},ensure_ascii=False,indent=2))
 print(json.dumps({'checks':len(results),'failed':sum(not x['passed'] for x in results),'inventoried_views':len(inventory)}))

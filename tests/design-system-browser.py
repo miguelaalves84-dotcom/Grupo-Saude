@@ -53,7 +53,7 @@ with sync_playwright() as pw:
         p.evaluate('(section)=>FinanceUIV4.open(section)',target);selector='#financeContent';expect(p.locator('#financeContent .finance-workspace')).to_be_visible()
        else:
         p.evaluate('App.showView("myhr")');p.evaluate('(id)=>HRMasterV4.open(id,"dados")',target);selector='#modalBody';expect(p.locator('#modal')).to_be_visible()
-       p.evaluate('window.scrollTo(0,0)');p.wait_for_timeout(100);signature=p.evaluate(SIGNATURE,selector);file=f'{actor}-{device}-{theme}-{label}-{phase}.png';p.screenshot(path=str(OUT/file))
+       p.evaluate('window.ApprovalsV4?.sync?.();window.scrollTo(0,0)');p.wait_for_timeout(100);signature=p.evaluate(SIGNATURE,selector);file=f'{actor}-{device}-{theme}-{label}-{phase}.png';p.screenshot(path=str(OUT/file))
        if phase=='before':before[label]={'signature':signature,'file':file}
        else:
         if signature!=before[label]['signature']:(OUT/f'{actor}-{device}-{theme}-{label}-control-difference.json').write_text(json.dumps({'before':before[label]['signature'],'after':signature},ensure_ascii=False,indent=2))

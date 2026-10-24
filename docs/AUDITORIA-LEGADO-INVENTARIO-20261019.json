@@ -1,0 +1,1437 @@
+{
+  "base": "be9631f1a5aff852c78be7806e5cf8564a3bba11",
+  "trackedFiles": 208,
+  "htmlScripts": {
+    "account.html": [
+      "account.js",
+      "deployment-version-v4.js"
+    ],
+    "authenticated.html": [
+      "session-v4.js",
+      "authenticated-v4.js"
+    ],
+    "complaints.html": [
+      "candidate-drag-v4.js",
+      "finance-core-v4.js",
+      "complaints-core-v4.js",
+      "complaints-ui-v4.js"
+    ],
+    "finance.html": [
+      "communications-core-v4.js",
+      "finance-core-v4.js",
+      "finance-ui-v4.js",
+      "attention-core-v4.js",
+      "attention-ui-v4.js",
+      "deployment-version-v4.js"
+    ],
+    "index.html": [
+      "marketing-core-v4.js",
+      "operation-core-v4.js",
+      "candidate-drag-v4.js",
+      "complaints-core-v4.js",
+      "recruitment-core-v4.js",
+      "safe-actions-v4.js",
+      "app.js?v=20261008-rh-session-fix",
+      "hr-leave-domain-v4.js?v=issue8-1",
+      "hr-leave-ui-v4.js?v=issue8-1",
+      "hr-performance-domain-v4.js?v=issue8-1",
+      "hr-performance-ui-v4.js?v=issue8-1",
+      "safe-reset-v4.js",
+      "validation-fixes.js",
+      "scheduled-indicators.js",
+      "v4-master-integrations.js",
+      "funnel-drag.js",
+      "doctor-specialties.js",
+      "clinic-single-source-v4.js",
+      "hr-master-v4.js?v=issue8-1",
+      "hr-rosters-overtime-v4.js",
+      "clinic-hr-architecture.js?v=issue6-1",
+      "gs-enterprise.js?v=issue8-1",
+      "clinic-master-v4.js",
+      "global-search-v4.js",
+      "active-clinic-filter-v4.js",
+      "clinic-relations-v4.js",
+      "clinic-structure-renderer-v4.js",
+      "hr-form-fix-v4.js",
+      "contract-types-v4.js",
+      "v4-data-integrity.js",
+      "access-scope-v4.js",
+      "demo-clinic-associations-v4.js",
+      "ceo-reserved-area-switcher-v4.js?v=20261008-rh-session-fix",
+      "vacation-calendar-v4.js?v=issue6-1",
+      "clinic-calendars-v4.js",
+      "access-policy-core-v4.js",
+      "role-access-admin-v4.js?v=issue8-1",
+      "hr-vacation-planning-v4.js?v=issue6-1",
+      "gs-test-agent-v4.js",
+      "attendance-dashboard-v4.js?v=issue6-1",
+      "hr-separation-v4.js?v=issue8-1",
+      "approvals-center-v4.js?v=issue8-1",
+      "tables-canonical-controller-v4.js?v=20261007-2349",
+      "access-log-v4.js",
+      "finance-core-v4.js?v=finance-2",
+      "finance-demo-v4.js?v=finance-2",
+      "finance-ui-v4.js?v=finance-2",
+      "communications-core-v4.js",
+      "communications-v4.js?v=consolidation-1",
+      "attention-core-v4.js",
+      "attention-ui-v4.js",
+      "workspace-shell-v4.js?v=consolidation-3",
+      "deployment-version-v4.js",
+      "interview-services-ui-v4.js",
+      "interview-questions-ui-v4.js",
+      "recruitment-ui-v4.js",
+      "complaints-ui-v4.js",
+      "marketing-ui-v4.js"
+    ],
+    "recruitment.html": [
+      "candidate-drag-v4.js",
+      "recruitment-core-v4.js",
+      "interview-services-ui-v4.js",
+      "interview-questions-ui-v4.js",
+      "recruitment-ui-v4.js"
+    ]
+  },
+  "imports": {
+    "access-log-v4.js": [],
+    "access-policy-core-v4.js": [],
+    "access-scope-v4.js": [],
+    "account.js": [],
+    "active-clinic-filter-v4.js": [],
+    "api/complaints.js": [
+      "../lib/authorization-service",
+      "../lib/complaints-service",
+      "./v4-finance",
+      "node:stream"
+    ],
+    "api/finance.js": [
+      "./v4-finance"
+    ],
+    "api/marketing.js": [
+      "../lib/authorization-service",
+      "../lib/marketing-service",
+      "./v4-finance",
+      "../lib/marketing-ai-service"
+    ],
+    "api/operation.js": [
+      "../lib/authorization-service",
+      "../lib/operation-service",
+      "./v4-finance"
+    ],
+    "api/recruitment.js": [
+      "../lib/authorization-service",
+      "../lib/recruitment-service",
+      "./v4-finance",
+      "../lib/recruitment-mail-service",
+      "../lib/recruitment-mail-service",
+      "node:stream"
+    ],
+    "api/v4-auth.js": [
+      "./v4-finance",
+      "../finance-core-v4",
+      "node:crypto"
+    ],
+    "api/v4-clinic-gps.js": [
+      "@neondatabase/serverless",
+      "../lib/authorization-service",
+      "../lib/schema-version-service",
+      "../lib/authorization-service"
+    ],
+    "api/v4-cron-alerts.js": [
+      "@neondatabase/serverless",
+      "../lib/development-mode"
+    ],
+    "api/v4-document.js": [
+      "./v4-finance"
+    ],
+    "api/v4-finance-email-job.js": [
+      "node:crypto",
+      "./v4-finance",
+      "../finance-core-v4",
+      "../lib/finance-payment-email",
+      "../lib/gmail-automation-service"
+    ],
+    "api/v4-finance.js": [
+      "node:crypto",
+      "../lib/finance-service",
+      "../finance-core-v4",
+      "../lib/finance-email-ingest",
+      "../lib/finance-payment-email",
+      "../lib/attention-service",
+      "../lib/finance-email-alerts",
+      "../lib/finance-mail-queue",
+      "../lib/email-settings-service",
+      "../lib/document-archive-service",
+      "../lib/development-mode",
+      "@neondatabase/serverless",
+      "@vercel/blob",
+      "../lib/document-storage-service",
+      "../lib/gmail-oauth-service",
+      "../lib/gmail-oauth-service",
+      "../lib/gmail-sync-service",
+      "../lib/document-security-service",
+      "../lib/document-security-service",
+      "../lib/document-security-service",
+      "../lib/document-storage-service",
+      "../lib/gmail-sync-service",
+      "../lib/authorization-service",
+      "../lib/finance-authorization-service",
+      "node:stream"
+    ],
+    "api/v4-gmail-callback.js": [
+      "./v4-finance",
+      "../lib/gmail-oauth-service"
+    ],
+    "api/v4-retention.js": [
+      "./v4-finance"
+    ],
+    "api/v4-upload.js": [
+      "../lib/authorization-service",
+      "../lib/document-storage-service",
+      "node:crypto"
+    ],
+    "api/v4.js": [
+      "@neondatabase/serverless",
+      "./operation",
+      "./v4-finance",
+      "../lib/authorization-service",
+      "../lib/authorization-service"
+    ],
+    "app.js": [],
+    "approvals-center-v4.js": [],
+    "attendance-dashboard-v4.js": [],
+    "attention-core-v4.js": [
+      "./complaints-core-v4",
+      "./marketing-core-v4"
+    ],
+    "attention-ui-v4.js": [],
+    "authenticated-v4.js": [],
+    "candidate-drag-v4.js": [],
+    "ceo-reserved-area-switcher-v4.js": [],
+    "clinic-calendars-v4.js": [],
+    "clinic-hr-architecture.js": [],
+    "clinic-master-v4.js": [],
+    "clinic-relations-v4.js": [],
+    "clinic-single-source-v4.js": [],
+    "clinic-structure-renderer-v4.js": [],
+    "communications-core-v4.js": [],
+    "communications-v4.js": [],
+    "complaints-core-v4.js": [],
+    "complaints-ui-v4.js": [],
+    "contract-types-v4.js": [],
+    "demo-clinic-associations-v4.js": [],
+    "deployment-version-v4.js": [],
+    "doctor-specialties.js": [],
+    "finance-core-v4.js": [],
+    "finance-demo-v4.js": [],
+    "finance-ui-v4.js": [],
+    "functions/_middleware.js": [],
+    "functions/api/auth.js": [],
+    "functions/api/finance.js": [],
+    "functions/api/gmail/callback.js": [],
+    "functions/api/preview.js": [],
+    "functions/api/version.js": [],
+    "funnel-drag.js": [],
+    "global-search-v4.js": [],
+    "gs-enterprise.js": [],
+    "gs-test-agent-v4.js": [],
+    "hr-form-fix-v4.js": [],
+    "hr-leave-domain-v4.js": [],
+    "hr-leave-ui-v4.js": [],
+    "hr-master-v4.js": [],
+    "hr-performance-domain-v4.js": [],
+    "hr-performance-ui-v4.js": [],
+    "hr-rosters-overtime-v4.js": [],
+    "hr-separation-v4.js": [],
+    "hr-vacation-planning-v4.js": [],
+    "interview-questions-ui-v4.js": [],
+    "interview-services-ui-v4.js": [],
+    "lib/attention-service.js": [
+      "../attention-core-v4",
+      "../access-policy-core-v4",
+      "../finance-core-v4",
+      "./complaints-service"
+    ],
+    "lib/authorization-service.js": [
+      "../access-policy-core-v4",
+      "../api/v4-finance"
+    ],
+    "lib/complaints-service.js": [
+      "../complaints-core-v4",
+      "./authorization-service",
+      "../access-policy-core-v4",
+      "../finance-core-v4",
+      "node:crypto",
+      "./document-security-service",
+      "./document-security-service"
+    ],
+    "lib/development-mode.js": [],
+    "lib/document-archive-service.js": [
+      "../finance-core-v4",
+      "./email-settings-service",
+      "node:crypto",
+      "./document-security-service",
+      "./document-storage-service",
+      "./document-storage-service",
+      "./finance-email-alerts",
+      "./document-security-service",
+      "./document-storage-service",
+      "./document-storage-service",
+      "./gmail-oauth-service",
+      "./gmail-message",
+      "./finance-email-alerts",
+      "./finance-email-alerts",
+      "./document-security-service",
+      "./document-storage-service",
+      "./finance-email-alerts"
+    ],
+    "lib/document-security-service.js": [
+      "../finance-core-v4",
+      "node:crypto",
+      "./email-settings-service",
+      "./email-settings-service",
+      "./email-settings-service"
+    ],
+    "lib/document-storage-service.js": [
+      "node:crypto",
+      "../finance-core-v4",
+      "./document-security-service",
+      "./document-security-service",
+      "./email-settings-service",
+      "./document-security-service",
+      "./document-archive-service"
+    ],
+    "lib/email-settings-service.js": [
+      "../finance-core-v4",
+      "../communications-core-v4",
+      "./finance-email-ingest",
+      "node:crypto",
+      "./gmail-oauth-service"
+    ],
+    "lib/finance-authorization-service.js": [
+      "./authorization-service",
+      "../access-policy-core-v4",
+      "+table+"
+    ],
+    "lib/finance-document-workflow.js": [
+      "../finance-core-v4",
+      "node:crypto"
+    ],
+    "lib/finance-email-alerts.js": [
+      "../finance-core-v4",
+      "../communications-core-v4",
+      "node:crypto"
+    ],
+    "lib/finance-email-ingest.js": [
+      "../finance-core-v4",
+      "../communications-core-v4",
+      "./finance-email-alerts",
+      "./finance-email-alerts",
+      "../communications-core-v4",
+      "./finance-email-alerts",
+      "./finance-mail-queue"
+    ],
+    "lib/finance-mail-queue.js": [
+      "../finance-core-v4",
+      "../communications-core-v4",
+      "./finance-email-alerts",
+      "node:crypto",
+      "./authorization-service"
+    ],
+    "lib/finance-payment-email.js": [
+      "../finance-core-v4",
+      "node:crypto",
+      "./email-settings-service",
+      "./document-security-service",
+      "./gmail-oauth-service",
+      "./gmail-message"
+    ],
+    "lib/finance-service.js": [
+      "../finance-core-v4.js",
+      "../access-policy-core-v4",
+      "./finance-document-workflow",
+      "node:crypto",
+      "./authorization-service",
+      "./finance-mail-queue",
+      "./finance-email-alerts",
+      "./document-archive-service",
+      "./document-storage-service"
+    ],
+    "lib/gmail-automation-service.js": [
+      "node:crypto",
+      "../finance-core-v4",
+      "./email-settings-service",
+      "./document-security-service",
+      "./email-settings-service",
+      "./gmail-sync-service",
+      "./document-archive-service",
+      "./finance-email-alerts",
+      "./finance-payment-email"
+    ],
+    "lib/gmail-message.js": [
+      "node:crypto",
+      "../finance-core-v4"
+    ],
+    "lib/gmail-oauth-service.js": [
+      "node:crypto",
+      "../finance-core-v4",
+      "./email-settings-service",
+      "./email-settings-service",
+      "./email-settings-service",
+      "./email-settings-service",
+      "./email-settings-service"
+    ],
+    "lib/gmail-sync-service.js": [
+      "node:crypto",
+      "../finance-core-v4",
+      "./gmail-oauth-service",
+      "./document-security-service",
+      "./finance-email-alerts",
+      "./finance-mail-queue",
+      "./recruitment-service",
+      "./recruitment-service",
+      "./email-settings-service",
+      "./email-settings-service",
+      "./email-settings-service",
+      "./email-settings-service",
+      "./finance-email-ingest"
+    ],
+    "lib/marketing-ai-service.js": [
+      "./marketing-service",
+      "../marketing-core-v4",
+      "./authorization-service"
+    ],
+    "lib/marketing-service.js": [
+      "../marketing-core-v4",
+      "./authorization-service",
+      "../access-policy-core-v4"
+    ],
+    "lib/operation-service.js": [
+      "../operation-core-v4",
+      "./authorization-service",
+      "../access-policy-core-v4"
+    ],
+    "lib/recruitment-mail-service.js": [
+      "./recruitment-service",
+      "../recruitment-core-v4",
+      "../finance-core-v4",
+      "node:crypto",
+      "./email-settings-service",
+      "./document-security-service",
+      "./gmail-oauth-service",
+      "./gmail-oauth-service",
+      "./gmail-message"
+    ],
+    "lib/recruitment-service.js": [
+      "../recruitment-core-v4",
+      "./authorization-service",
+      "../access-policy-core-v4",
+      "node:crypto",
+      "../finance-core-v4",
+      "./document-security-service",
+      "./document-security-service",
+      "./finance-mail-queue"
+    ],
+    "lib/schema-version-service.js": [],
+    "marketing-core-v4.js": [],
+    "marketing-ui-v4.js": [],
+    "operation-core-v4.js": [
+      "./marketing-core-v4"
+    ],
+    "professional-selects.js": [],
+    "recruitment-core-v4.js": [],
+    "recruitment-ui-v4.js": [],
+    "role-access-admin-v4.js": [],
+    "safe-actions-v4.js": [],
+    "safe-reset-v4.js": [],
+    "scheduled-indicators.js": [],
+    "scripts/build-static.cjs": [
+      "node:fs",
+      "node:path"
+    ],
+    "scripts/migrate-development.cjs": [
+      "node:fs",
+      "node:path",
+      "node:crypto",
+      "@neondatabase/serverless"
+    ],
+    "session-v4.js": [],
+    "tables-canonical-controller-v4.js": [],
+    "tests/build.cjs": [
+      "../scripts/build-static.cjs"
+    ],
+    "tests/complaints.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "../complaints-core-v4",
+      "../lib/complaints-service",
+      "../api/complaints",
+      "./finance-fixture.cjs",
+      "../attention-core-v4",
+      "../demo-clinic-associations-v4"
+    ],
+    "tests/consolidation.cjs": [
+      "node:fs",
+      "node:path"
+    ],
+    "tests/document-workflows.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "node:path",
+      "./finance-fixture.cjs",
+      "../finance-core-v4",
+      "../communications-core-v4",
+      "../lib/email-settings-service",
+      "../lib/finance-mail-queue",
+      "../lib/document-archive-service",
+      "../lib/finance-email-ingest"
+    ],
+    "tests/email-association.cjs": [
+      "node:assert/strict",
+      "./finance-fixture.cjs",
+      "../communications-core-v4",
+      "../finance-core-v4",
+      "../lib/finance-email-ingest",
+      "../lib/finance-mail-queue",
+      "../lib/finance-email-alerts",
+      "../lib/attention-service"
+    ],
+    "tests/finance-fixture.cjs": [
+      "node:fs",
+      "node:path",
+      "node:os",
+      "node:sqlite",
+      "../lib/finance-service"
+    ],
+    "tests/finance-ui.cjs": [
+      "node:fs",
+      "node:path",
+      "node:vm",
+      "node:assert/strict",
+      "node:crypto",
+      "node:crypto"
+    ],
+    "tests/finance.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "node:path",
+      "node:vm",
+      "./finance-fixture.cjs",
+      "../finance-core-v4",
+      "../api/v4-finance",
+      "../lib/finance-email-ingest"
+    ],
+    "tests/gmail-activation.cjs": [
+      "node:assert/strict",
+      "node:crypto",
+      "./finance-fixture.cjs",
+      "../lib/gmail-oauth-service",
+      "../lib/document-security-service",
+      "../lib/email-settings-service",
+      "../lib/gmail-sync-service",
+      "../lib/finance-mail-queue",
+      "../lib/finance-email-alerts",
+      "../lib/document-storage-service",
+      "../lib/document-archive-service",
+      "../api/v4-auth",
+      "../lib/finance-payment-email",
+      "../lib/gmail-automation-service",
+      "../lib/finance-payment-email",
+      "node:fs"
+    ],
+    "tests/improvements.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "node:path",
+      "node:vm",
+      "./finance-fixture.cjs",
+      "../lib/finance-payment-email",
+      "../lib/attention-service",
+      "../attention-core-v4",
+      "../access-policy-core-v4"
+    ],
+    "tests/interviews-complaints-postgres.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "node:crypto",
+      "pg",
+      "../lib/finance-service",
+      "../lib/recruitment-service",
+      "../lib/complaints-service",
+      "../lib/document-security-service",
+      "../complaints-core-v4"
+    ],
+    "tests/marketing-postgres.cjs": [
+      "node:assert/strict",
+      "node:crypto",
+      "pg",
+      "../lib/finance-service",
+      "../lib/marketing-service",
+      "../marketing-core-v4",
+      "../access-policy-core-v4",
+      "../lib/marketing-ai-service"
+    ],
+    "tests/marketing.cjs": [
+      "node:assert/strict",
+      "../marketing-core-v4",
+      "../access-policy-core-v4",
+      "../api/marketing",
+      "../lib/marketing-ai-service"
+    ],
+    "tests/operation-postgres.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "node:crypto",
+      "pg",
+      "../lib/finance-service",
+      "../lib/operation-service",
+      "../api/operation"
+    ],
+    "tests/operation.cjs": [
+      "node:assert/strict",
+      "../operation-core-v4",
+      "../access-policy-core-v4"
+    ],
+    "tests/p0-retention.cjs": [
+      "node:assert/strict",
+      "node:crypto",
+      "./finance-fixture.cjs",
+      "../lib/document-archive-service",
+      "../lib/document-security-service"
+    ],
+    "tests/p0-security.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "node:path",
+      "../lib/authorization-service",
+      "../lib/finance-authorization-service",
+      "../api/v4-finance",
+      "../access-policy-core-v4",
+      "../lib/schema-version-service",
+      "../finance-core-v4",
+      "../lib/schema-version-service",
+      "../scripts/migrate-development.cjs",
+      "../scripts/migrate-development.cjs",
+      "../scripts/migrate-development.cjs"
+    ],
+    "tests/performance.cjs": [],
+    "tests/preview-proxy.cjs": [
+      "node:fs",
+      "node:assert/strict"
+    ],
+    "tests/recruitment-server.cjs": [
+      "node:fs",
+      "node:path",
+      "node:http",
+      "./finance-fixture.cjs",
+      "../lib/recruitment-service",
+      "../lib/finance-mail-queue",
+      "../api/recruitment"
+    ],
+    "tests/recruitment.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "../recruitment-core-v4",
+      "../lib/recruitment-service",
+      "../lib/recruitment-mail-service",
+      "../lib/finance-mail-queue",
+      "./finance-fixture.cjs",
+      "../api/recruitment"
+    ],
+    "tests/release-readiness.cjs": [
+      "node:assert/strict",
+      "node:fs",
+      "node:path",
+      "node:vm",
+      "../lib/authorization-service",
+      "../scripts/build-static.cjs"
+    ],
+    "tests/runtime.cjs": [
+      "node:fs",
+      "node:vm",
+      "node:assert/strict",
+      "node:path",
+      "./performance.cjs",
+      "./consolidation.cjs"
+    ],
+    "tests/syntax.cjs": [
+      "node:fs",
+      "node:path",
+      "node:vm",
+      "node:child_process"
+    ],
+    "v4-data-integrity.js": [],
+    "v4-master-integrations.js": [],
+    "vacation-calendar-v4.js": [],
+    "validation-fixes.js": [],
+    "workers/gmail-sync/index.js": [],
+    "workspace-shell-v4.js": []
+  },
+  "rootScriptReferences": {
+    "access-log-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html"
+    ],
+    "access-policy-core-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "index.html",
+      "tests/finance-ui.cjs",
+      "tests/runtime.cjs"
+    ],
+    "access-scope-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "index.html",
+      "tests/finance-ui.cjs",
+      "tests/runtime.cjs"
+    ],
+    "account.js": [
+      "account.html",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/V4-GMAIL-ATIVACAO-RELATORIO.md"
+    ],
+    "active-clinic-filter-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "index.html"
+    ],
+    "app.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/MARKETING-CENTRO-20261019.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "docs/V4-PUBLICACAO-VALIDACAO.md",
+      "index.html",
+      "tests/cloudflare-publication.py",
+      "tests/finance-ui.cjs",
+      "tests/p0-security.cjs",
+      "tests/runtime.cjs"
+    ],
+    "approvals-center-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "attendance-dashboard-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "attention-core-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/MARKETING-CENTRO-20261019.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+      "finance.html",
+      "index.html"
+    ],
+    "attention-ui-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/MARKETING-CENTRO-20261019.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+      "finance.html",
+      "index.html"
+    ],
+    "authenticated-v4.js": [
+      "authenticated.html",
+      "docs/FASE1-P0-FICHEIROS.md"
+    ],
+    "candidate-drag-v4.js": [
+      "complaints.html",
+      "docs/CORRECAO-ARRASTAR-TABLET-20261017.md",
+      "docs/RECLAMACOES-TOQUE-HISTORICO-20261018.md",
+      "index.html",
+      "recruitment.html"
+    ],
+    "ceo-reserved-area-switcher-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "clinic-calendars-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "clinic-hr-architecture.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/CORRECAO-ARRASTAR-TABLET-20261017.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/RECRUTAMENTO-CINCO-ETAPAS-20261017.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "clinic-master-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "clinic-relations-v4.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "clinic-single-source-v4.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "index.html",
+      "tests/consolidation.cjs"
+    ],
+    "clinic-structure-renderer-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html"
+    ],
+    "communications-core-v4.js": [
+      "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+      "finance.html",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "communications-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/RECRUTAMENTO-CINCO-ETAPAS-20261017.md",
+      "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+      "docs/V4-GMAIL-ATIVACAO-RELATORIO.md",
+      "index.html",
+      "tests/consolidation.cjs"
+    ],
+    "complaints-core-v4.js": [
+      "complaints.html",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/RECLAMACOES-20261018.md",
+      "docs/RECLAMACOES-REGISTO-INICIAL-20261018.md",
+      "docs/RECLAMACOES-TOQUE-HISTORICO-20261018.md",
+      "index.html"
+    ],
+    "complaints-ui-v4.js": [
+      "complaints.html",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/RECLAMACOES-20261018.md",
+      "docs/RECLAMACOES-REGISTO-INICIAL-20261018.md",
+      "docs/RECLAMACOES-TOQUE-HISTORICO-20261018.md",
+      "index.html"
+    ],
+    "contract-types-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "demo-clinic-associations-v4.js": [
+      "docs/RECLAMACOES-TOQUE-HISTORICO-20261018.md",
+      "index.html"
+    ],
+    "deployment-version-v4.js": [
+      "account.html",
+      "docs/V4-PUBLICACAO-VALIDACAO.md",
+      "finance.html",
+      "index.html",
+      "tests/cloudflare-publication.py"
+    ],
+    "doctor-specialties.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html"
+    ],
+    "finance-core-v4.js": [
+      "complaints.html",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+      "finance.html",
+      "index.html",
+      "lib/finance-service.js",
+      "tests/finance-ui.cjs"
+    ],
+    "finance-demo-v4.js": [
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+      "index.html",
+      "tests/finance-ui.cjs"
+    ],
+    "finance-ui-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "docs/V4-DOCUMENTOS-EMAILS-ARQUIVO-RELATORIO.md",
+      "docs/V4-GMAIL-ATIVACAO-RELATORIO.md",
+      "docs/V4-PUBLICACAO-VALIDACAO.md",
+      "finance.html",
+      "index.html",
+      "tests/cloudflare-publication.py",
+      "tests/finance-ui.cjs"
+    ],
+    "funnel-drag.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html"
+    ],
+    "global-search-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "index.html"
+    ],
+    "gs-enterprise.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/MARKETING-CENTRO-20261019.md",
+      "index.html",
+      "tests/consolidation.cjs"
+    ],
+    "gs-test-agent-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "hr-form-fix-v4.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "index.html",
+      "tests/consolidation.cjs"
+    ],
+    "hr-leave-domain-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/ISSUE-6-RH-FERIAS.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "hr-leave-ui-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/ISSUE-6-RH-FERIAS.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "hr-master-v4.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "index.html",
+      "tests/improvements.cjs",
+      "tests/performance.cjs"
+    ],
+    "hr-performance-domain-v4.js": [
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "hr-performance-ui-v4.js": [
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "hr-rosters-overtime-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html"
+    ],
+    "hr-separation-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "index.html"
+    ],
+    "hr-vacation-planning-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "interview-questions-ui-v4.js": [
+      "index.html",
+      "recruitment.html"
+    ],
+    "interview-services-ui-v4.js": [
+      "index.html",
+      "recruitment.html"
+    ],
+    "marketing-core-v4.js": [
+      "docs/MARKETING-IA-AUDITORIA-20261019.md",
+      "index.html"
+    ],
+    "marketing-ui-v4.js": [
+      "index.html"
+    ],
+    "operation-core-v4.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/MARKETING-CENTRO-20261019.md",
+      "docs/MARKETING-IA-AUDITORIA-20261019.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "professional-selects.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-V4-RH.md"
+    ],
+    "recruitment-core-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/RECRUTAMENTO-CINCO-ETAPAS-20261017.md",
+      "index.html",
+      "recruitment.html",
+      "tests/runtime.cjs"
+    ],
+    "recruitment-ui-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/CENTRO-ENTREVISTAS-20261017.md",
+      "docs/CORRECAO-ARRASTAR-TABLET-20261017.md",
+      "docs/RECRUTAMENTO-CINCO-ETAPAS-20261017.md",
+      "index.html",
+      "recruitment.html"
+    ],
+    "role-access-admin-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "gs-enterprise.js",
+      "index.html",
+      "tests/finance-ui.cjs",
+      "tests/runtime.cjs"
+    ],
+    "safe-actions-v4.js": [
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "safe-reset-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html"
+    ],
+    "scheduled-indicators.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "session-v4.js": [
+      "authenticated.html",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "tests/p0-security.cjs"
+    ],
+    "tables-canonical-controller-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "index.html",
+      "tests/consolidation.cjs"
+    ],
+    "v4-data-integrity.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "index.html"
+    ],
+    "v4-master-integrations.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "vacation-calendar-v4.js": [
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html",
+      "tests/runtime.cjs"
+    ],
+    "validation-fixes.js": [
+      "docs/ABERTURA-CLINICA-AUDITORIA-20261018.md",
+      "docs/AUDITORIA-V4-RH.md",
+      "docs/FASE1-P0-FICHEIROS.md",
+      "index.html"
+    ],
+    "workspace-shell-v4.js": [
+      "docs/AUDITORIA-ESTABILIZACAO-20261018.md",
+      "docs/CONSOLIDACAO-V4-RELATORIO.md",
+      "docs/FINANCEIRO-V4-RELATORIO.md",
+      "docs/V4-CINCO-MELHORIAS-RELATORIO.md",
+      "index.html",
+      "tests/consolidation.cjs",
+      "tests/improvements.cjs"
+    ]
+  },
+  "unreferencedFilenameCandidates": [],
+  "repeatedFunctionNamesWithinFile": {
+    "clinic-hr-architecture.js": [
+      "decide",
+      "list",
+      "modal"
+    ],
+    "gs-enterprise.js": [
+      "S",
+      "install",
+      "metrics",
+      "migrate",
+      "open",
+      "review",
+      "send",
+      "show"
+    ]
+  },
+  "storageKeysAndPrefixes": {
+    "PLANO-V4.md": [],
+    "access-log-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "access-scope-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "active-clinic-filter-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-config-updated"
+    ],
+    "app.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "approvals-center-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "attendance-dashboard-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "attention-ui-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "ceo-reserved-area-switcher-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "clinic-calendars-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "clinic-hr-architecture.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-clock"
+    ],
+    "clinic-master-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-config-updated"
+    ],
+    "clinic-relations-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-config-updated"
+    ],
+    "clinic-single-source-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-clinics-master-synced",
+      "gs-v4-config-updated"
+    ],
+    "clinic-structure-renderer-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-clinics-master-synced",
+      "gs-v4-config-updated"
+    ],
+    "communications-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "complaints-ui-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "contract-types-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "docs/AUDITORIA-V4-RH.md": [
+      "grupo_saude_v4_demo_2",
+      "gs-baseline",
+      "gs-enterprise",
+      "gs-test-agent-v4"
+    ],
+    "docs/CENTRO-ENTREVISTAS-20261017.md": [],
+    "docs/CONFIGURACAO-TESTE-AUTH-EMAIL.md": [
+      "gs_session"
+    ],
+    "docs/CONSOLIDACAO-V4-RELATORIO.md": [
+      "grupo_saude_v4_demo_2",
+      "gs-baseline",
+      "gs-enterprise"
+    ],
+    "docs/FASE1-P0-SEGURANCA.md": [],
+    "docs/FINANCEIRO-V4-RELATORIO.md": [
+      "grupo_saude_v4_demo_2",
+      "gs-enterprise"
+    ],
+    "docs/ISSUE-6-RH-FERIAS.md": [],
+    "docs/ISSUE-8-DESEMPENHO-PRIVACIDADE.md": [
+      "gs-baseline"
+    ],
+    "docs/V4-GMAIL-ATIVACAO-CONFIGURACAO.md": [],
+    "docs/V4-GMAIL-ATIVACAO-RELATORIO.md": [
+      "gs-service"
+    ],
+    "docs/V4-PUBLICACAO-VALIDACAO.md": [],
+    "doctor-specialties.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "finance-demo-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-finance-demo-files-v2",
+      "gs_finance_demo_files_v2"
+    ],
+    "finance-ui-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-finance-actor"
+    ],
+    "funnel-drag.js": [
+      "grupo_saude_v4_demo_2",
+      "gs_v4_view"
+    ],
+    "gs-enterprise.js": [
+      "grupo_saude_v4_backups",
+      "grupo_saude_v4_demo_2"
+    ],
+    "gs-test-agent-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs_test_"
+    ],
+    "hr-form-fix-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "hr-leave-domain-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "hr-master-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "hr-performance-domain-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "hr-rosters-overtime-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "hr-separation-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "marketing-ui-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-copy"
+    ],
+    "recruitment-ui-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs_interview_draft:"
+    ],
+    "role-access-admin-v4.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "safe-reset-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-config-updated"
+    ],
+    "scheduled-indicators.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/candidate-pointer-browser.py": [
+      "grupo_saude_v4_demo_2",
+      "gs-pointer-artifacts"
+    ],
+    "tests/complaints-browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/complaints-enhancements-browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/consolidation.cjs": [
+      "gs-enterprise"
+    ],
+    "tests/documents-browser.py": [
+      "grupo_saude_v4_demo_2",
+      "gs-finance-actor"
+    ],
+    "tests/finance-browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/improvements-browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/improvements.cjs": [
+      "gs-payment-",
+      "gs-v4-theme:a"
+    ],
+    "tests/interview-browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/marketing-browser.py": [
+      "grupo_saude_v4_demo_2",
+      "gs-copy"
+    ],
+    "tests/operation-browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/p0-browser.py": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/p0-security.cjs": [
+      "gs-view-as",
+      "gs_schema_migrations"
+    ],
+    "tests/runtime.cjs": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "tests/stabilization-browser.py": [
+      "grupo_saude_v4_demo_2",
+      "gs-action",
+      "gs-stabilization-artifacts"
+    ],
+    "v4-data-integrity.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-config-updated"
+    ],
+    "v4-master-integrations.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-config-updated"
+    ],
+    "validation-fixes.js": [
+      "grupo_saude_v4_demo_2"
+    ],
+    "workspace-shell-v4.js": [
+      "grupo_saude_v4_demo_2",
+      "gs-v4-navigation:",
+      "gs-v4-theme",
+      "gs-v4-theme:"
+    ]
+  },
+  "apiRoutes": [
+    "api/complaints.js",
+    "api/finance.js",
+    "api/marketing.js",
+    "api/operation.js",
+    "api/recruitment.js",
+    "api/v4-auth.js",
+    "api/v4-clinic-gps.js",
+    "api/v4-cron-alerts.js",
+    "api/v4-document.js",
+    "api/v4-finance-email-job.js",
+    "api/v4-finance.js",
+    "api/v4-gmail-callback.js",
+    "api/v4-retention.js",
+    "api/v4-upload.js",
+    "api/v4.js",
+    "functions/_middleware.js",
+    "functions/api/auth.js",
+    "functions/api/finance.js",
+    "functions/api/gmail/callback.js",
+    "functions/api/preview.js",
+    "functions/api/version.js"
+  ],
+  "migrationTables": {
+    "api/v4.js": [
+      "alerts",
+      "app_settings",
+      "audit_log",
+      "candidates",
+      "clinic_days",
+      "clinic_specialties",
+      "clinics",
+      "current_account_entries",
+      "document_backup_jobs",
+      "document_requirements",
+      "documents",
+      "email_ingest",
+      "employees",
+      "idempotency_keys",
+      "notification_deliveries",
+      "requests",
+      "specialties",
+      "technician_sales",
+      "time_entries",
+      "user_clinics",
+      "users"
+    ],
+    "db/migrations/complaints-v4-001.sql": [
+      "complaint_documents",
+      "complaints"
+    ],
+    "db/migrations/finance-v4-002.sql": [
+      "app_settings",
+      "current_account_entries",
+      "finance_document_owners",
+      "finance_email_runs",
+      "finance_events",
+      "finance_invoices",
+      "finance_payslips"
+    ],
+    "db/migrations/finance-v4-003.sql": [
+      "finance_attention_read",
+      "finance_payment_mail"
+    ],
+    "db/migrations/finance-v4-004.sql": [
+      "finance_archive_dispatch",
+      "finance_archive_plans",
+      "finance_document_fingerprints",
+      "finance_email_tests",
+      "finance_mail_documents",
+      "finance_regularizations"
+    ],
+    "db/migrations/finance-v4-005.sql": [
+      "finance_email_alerts"
+    ],
+    "db/migrations/finance-v4-006.sql": [
+      "document_storage_backups",
+      "gmail_auth_limits",
+      "gmail_automation_runs",
+      "gmail_candidate_identities",
+      "gmail_oauth_connections",
+      "gmail_oauth_states",
+      "gmail_sync_messages",
+      "gmail_sync_state"
+    ],
+    "db/migrations/operation-v4-001.sql": [
+      "clinic_days"
+    ],
+    "db/migrations/recruitment-v4-001.sql": [
+      "recruitment_conversions",
+      "recruitment_imports",
+      "recruitment_mail"
+    ],
+    "db/migrations/v4-p0-gps-001.sql": [
+      "clinic_gps_attempts"
+    ],
+    "db/schema.sql": [
+      "audit_log",
+      "candidates",
+      "clinic_specialties",
+      "clinics",
+      "document_backup_jobs",
+      "documents",
+      "email_ingest",
+      "employees",
+      "requests",
+      "specialties",
+      "time_entries",
+      "user_clinics",
+      "users"
+    ]
+  },
+  "removalDecision": "None: names and zero textual filename references do not establish unreachable runtime code. Preserve compatibility wrappers, migrations, keys and records until dependency proof and review."
+}

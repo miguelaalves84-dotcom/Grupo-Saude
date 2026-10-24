@@ -1,0 +1,14 @@
+"""Read-only geometry/contrast diagnostics; findings require review, never imply approval."""
+SCRIPT=r'''()=>{
+const shown=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.visibility!=='hidden'&&s.display!=='none'&&!e.closest('[hidden]')},root=document.querySelector('dialog[open]')||document.querySelector('.view.active'),out=[];
+if(!root)return out;
+const label=e=>({tag:e.tagName,id:e.id,selector:e.id?'#'+e.id:e.tagName.toLowerCase()+'.'+[...e.classList].join('.'),text:(e.innerText||e.getAttribute('aria-label')||e.name||'').slice(0,110)});
+const scrolling=e=>{for(let p=e.parentElement;p&&p!==document.body;p=p.parentElement){const s=getComputedStyle(p);if(/auto|scroll/.test(s.overflowX)&&p.scrollWidth>p.clientWidth+2)return true}return false};
+for(const e of root.querySelectorAll('button,input,select,textarea,h1,h2,h3,label,.metric,table')){if(!shown(e)||scrolling(e)||e.closest('.candidate-board,.complaints-board,.marketing-board'))continue;const r=e.getBoundingClientRect(),rr=root.getBoundingClientRect();if(r.left<Math.max(0,rr.left)-3||r.right>Math.min(innerWidth,rr.right)+3)out.push({kind:'horizontal-clipping',...label(e),left:Math.round(r.left),right:Math.round(r.right)});if(e.tagName==='BUTTON'&&e.scrollWidth>e.clientWidth+3)out.push({kind:'button-text-clipping',...label(e)});}
+const rgb=s=>{const m=s.match(/^rgba?\(([^)]+)\)/);if(!m)return null;const a=m[1].split(',').map(Number);return a.length===4&&a[3]<.99?null:a.slice(0,3)};
+const lum=a=>a.map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4}).reduce((s,v,i)=>s+v*[.2126,.7152,.0722][i],0);
+for(const e of root.querySelectorAll('label,button,.meta,.muted,.pill,small,p')){if(!shown(e)||!e.textContent.trim()||e.disabled||e.getAttribute('aria-disabled')==='true')continue;const s=getComputedStyle(e),fg=rgb(s.color);let bg=null;for(let p=e;p&&!bg;p=p.parentElement)bg=rgb(getComputedStyle(p).backgroundColor);if(!fg||!bg)continue;const a=lum(fg),b=lum(bg),ratio=(Math.max(a,b)+.05)/(Math.min(a,b)+.05),threshold=parseFloat(s.fontSize)>=24||(parseFloat(s.fontSize)>=18.66&&parseInt(s.fontWeight)>=700)?3:4.5;if(ratio<threshold-.05)out.push({kind:'contrast',...label(e),ratio:+ratio.toFixed(2),fg:s.color,bg:bg.join(',')});}
+const buttons=[...root.querySelectorAll('button,input,select,textarea')].filter(e=>shown(e)&&!scrolling(e));for(let i=0;i<buttons.length;i++)for(let j=i+1;j<buttons.length;j++){const a=buttons[i],b=buttons[j];if(a.contains(b)||b.contains(a))continue;const x=a.getBoundingClientRect(),y=b.getBoundingClientRect(),w=Math.min(x.right,y.right)-Math.max(x.left,y.left),h=Math.min(x.bottom,y.bottom)-Math.max(x.top,y.top);if(w>5&&h>5&&w*h/Math.min(x.width*x.height,y.width*y.height)>.25)out.push({kind:'overlapping-controls',...label(a),other:label(b)})}
+return out.slice(0,100);
+}'''
+def inspect(page):return page.evaluate(SCRIPT)

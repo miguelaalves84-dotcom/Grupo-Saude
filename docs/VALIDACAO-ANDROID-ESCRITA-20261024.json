@@ -1,0 +1,15 @@
+{
+  "dateReported": "2026-10-24",
+  "source": "Confirmação explícita do utilizador nesta conversa",
+  "previewCommit": "f87e3445382b4f4caa55308b60f7bdd68305732d",
+  "device": "Tablet Android físico",
+  "testsReported": 5,
+  "passedReported": 5,
+  "result": "Aprovados pelo utilizador",
+  "exactCases": "Não discriminados individualmente na comunicação",
+  "modelAndroidChromeKeyboardVersions": "Não fornecidos",
+  "limits": [
+    "Não mapear esta confirmação a todos os campos das matrizes.",
+    "Não prova GPS, microfone, arquivo privado ou persistência central."
+  ]
+}

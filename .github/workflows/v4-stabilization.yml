@@ -1,0 +1,97 @@
+name: V4 stabilization isolated regression
+on:
+  push:
+    branches: [dev/v4-stabilization-20261017]
+permissions:
+  contents: read
+concurrency:
+  group: stabilization-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  regression:
+    if: github.ref == 'refs/heads/dev/v4-stabilization-20261017' || github.head_ref == 'dev/v4-stabilization-20261017'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - run: npm test
+      - run: npm run build
+  browser:
+    needs: regression
+    runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright/python:v1.56.0-noble
+      options: --shm-size=1g
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, stabilization-browser, recruitment-browser, candidate-pointer-browser, interview-browser, complaints-browser, complaints-enhancements-browser, operation-browser, marketing-browser, profile-audit-browser, opening-composition-browser, stock-tables-browser, supplier-companies-browser, stock-closing-browser, attendance-browser, employee-documents-browser, branding-browser, global-layout-browser, rh-20261022-browser, rh-followup-browser, rh-development-browser, payroll-export-browser, audit-complete-browser, audit-expanded-browser, audit-corrections-browser, finance-cash-browser, agenda-rh-browser, design-system-browser, search-browser, text-editing-browser, text-fields-browser, chat-browser]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - run: python -m pip install --break-system-packages --timeout 30 --retries 1 playwright==1.56.0
+        timeout-minutes: 2
+      - name: Install pinned image comparison tool for visual evidence only
+        if: matrix.suite == 'design-system-browser'
+        run: 'python -m pip install --break-system-packages --only-binary=:all: --timeout 30 --retries 1 Pillow==11.3.0'
+        timeout-minutes: 2
+      - name: Verify preinstalled matching Chromium (no apt/browser download)
+        run: python -c "import os; from playwright.sync_api import sync_playwright; p=sync_playwright().start(); assert os.path.isfile(p.chromium.executable_path); p.stop()"
+      - run: npm run build
+      - name: Start synthetic static build on loopback
+        run: python -m http.server 8765 --directory dist --bind 127.0.0.1 > /tmp/gs-http.log 2>&1 &
+      - name: Chromium against synthetic local build only
+        run: python tests/${{ matrix.suite }}.py
+        env:
+          GS_TEST_URL: http://127.0.0.1:8765/index.html
+          GS_TEST_ARTIFACTS: /tmp/gs-stabilization-artifacts
+      - name: Read-only domain audit probes
+        if: matrix.suite == 'audit-complete-browser'
+        run: node tests/audit-domain-findings.cjs
+        env:
+          GS_TEST_ARTIFACTS: /tmp/gs-stabilization-artifacts
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser' || matrix.suite == 'candidate-pointer-browser' || matrix.suite == 'interview-browser' || matrix.suite == 'complaints-browser' || matrix.suite == 'complaints-enhancements-browser' || matrix.suite == 'operation-browser' || matrix.suite == 'marketing-browser' || matrix.suite == 'profile-audit-browser' || matrix.suite == 'opening-composition-browser' || matrix.suite == 'stock-tables-browser' || matrix.suite == 'supplier-companies-browser' || matrix.suite == 'stock-closing-browser' || matrix.suite == 'attendance-browser' || matrix.suite == 'employee-documents-browser' || matrix.suite == 'branding-browser' || matrix.suite == 'global-layout-browser' || matrix.suite == 'rh-20261022-browser' || matrix.suite == 'rh-followup-browser' || matrix.suite == 'rh-development-browser' || matrix.suite == 'payroll-export-browser' || matrix.suite == 'audit-complete-browser' || matrix.suite == 'audit-expanded-browser' || matrix.suite == 'audit-corrections-browser' || matrix.suite == 'finance-cash-browser' || matrix.suite == 'agenda-rh-browser' || matrix.suite == 'design-system-browser' || matrix.suite == 'search-browser' || matrix.suite == 'text-editing-browser' || matrix.suite == 'text-fields-browser' || matrix.suite == 'chat-browser')
+        with:
+          name: ${{ matrix.suite }}-synthetic-${{ github.sha }}
+          path: /tmp/gs-stabilization-artifacts
+          retention-days: 14
+  postgres:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: gs_v4_synthetic
+          POSTGRES_USER: gs_synthetic
+          # Synthetic credential used only by the disposable job service.
+          POSTGRES_PASSWORD: synthetic-ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U gs_synthetic -d gs_v4_synthetic"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3
+      - run: node tests/interviews-complaints-postgres.cjs && node tests/operation-postgres.cjs && node tests/marketing-postgres.cjs && node tests/stock-catalog-postgres.cjs && node tests/supplier-companies-postgres.cjs && node tests/stock-closing-postgres.cjs && node tests/attendance-postgres.cjs && node tests/employee-documents-postgres.cjs && node tests/administrative-rosters-postgres.cjs && node tests/rh-followup-postgres.cjs && node tests/hr-development-postgres.cjs && node tests/payroll-export-postgres.cjs && node tests/finance-cash-postgres.cjs && node tests/agenda-postgres.cjs && node tests/chat-postgres.cjs
+        env:
+          CI: 'true'
+          PGHOST: 127.0.0.1
+          PGDATABASE: gs_v4_synthetic
+          PGPASSWORD: synthetic-ci-only

@@ -43,7 +43,7 @@ jobs:
         timeout-minutes: 2
       - name: Install pinned image comparison tool for visual evidence only
         if: matrix.suite == 'design-system-browser'
-        run: python -m pip install --break-system-packages --only-binary=:all: --timeout 30 --retries 1 Pillow==11.3.0
+        run: 'python -m pip install --break-system-packages --only-binary=:all: --timeout 30 --retries 1 Pillow==11.3.0'
         timeout-minutes: 2
       - name: Verify preinstalled matching Chromium (no apt/browser download)
         run: python -c "import os; from playwright.sync_api import sync_playwright; p=sync_playwright().start(); assert os.path.isfile(p.chromium.executable_path); p.stop()"

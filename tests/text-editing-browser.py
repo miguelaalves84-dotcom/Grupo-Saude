@@ -23,6 +23,8 @@ with sync_playwright() as pw:
       p.evaluate('HRMasterV4.open("test_med","dados")')
       for selector in ['#hrName','#hrEmail','#hrPhone','#hrAddress']:exercise(p,selector,cdp)
       p.locator('#hrName').fill('SYN João São');p.locator('[data-gs-action="HRMasterV4.save"]').click();expect(p.locator('#modal')).not_to_be_visible();saved=state(p);check('HR name saved exactly without lost letters',saved['employees']['test_med']['name']=='SYN João São' and next(u for u in saved['users'] if u['id']=='test_med')['name']=='SYN João São')
+     if actor=='u1':
+      p.evaluate('AgendaUIV4.open()');p.locator('#agendaFilters [name=search]').focus();p.evaluate('window.__privilegedEditor=document.activeElement');p.evaluate('CEOReservedAreaV4.select("test_med")');check('profile simulation never retains privileged editor',not p.evaluate('window.__privilegedEditor.isConnected') and not p.evaluate('RoleAccessAdminV4.guard("agenda")'));p.evaluate('CEOReservedAreaV4.select("__CEO__")')
      p.evaluate('App.showView("myhr")');p.screenshot(path=str(OUT/(actor+'-'+device+'-'+theme+'-writing.png')));c.close()
  finally:
   b.close();(OUT/'text-editing-results.json').write_text(json.dumps({'checks':results,'fields':fields,'limitations':['Chromium native IME via CDP is not a physical Android keyboard.','Clipboard uses native browser clipboard and desktop shortcut, not Android selection handles.','Real Gboard/Samsung autocorrection, suggestions and on-screen keyboard require physical confirmation.']},ensure_ascii=False,indent=2))

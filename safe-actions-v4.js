@@ -46,6 +46,10 @@
   if(previous!==key||!anchor||!freeField(focused)||!anchor.contains(focused)){root.innerHTML=html;return false}
   const template=document.createElement('template');template.innerHTML=html;const next=template.content.querySelector(selector);
   if(!next){root.innerHTML=html;return false}
+  /* Permission/scope changes win over retaining an editor. Never keep a stale
+     authorised-clinic picker or an input which has just become read-only. */
+  const accessShape=element=>JSON.stringify([...element.querySelectorAll('input,textarea,select')].map(e=>[e.id,e.name,e.type,e.disabled,e.readOnly,e.tagName==='SELECT'?[...e.options].map(o=>[o.value,o.disabled]):null]));
+  if(accessShape(anchor)!==accessShape(next)){root.innerHTML=html;return false}
   const path=(node,end)=>{const out=[];for(;node&&node!==end;node=node.parentNode)out.unshift(node);return out},oldPath=path(anchor,root),newPath=path(next,template.content);
   if(oldPath.length!==newPath.length||oldPath.some((node,i)=>node.nodeName!==newPath[i].nodeName)){root.innerHTML=html;return false}
   /* Patch only siblings along the path: never detach the editor or its ancestors. */

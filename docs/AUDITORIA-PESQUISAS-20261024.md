@@ -2,6 +2,12 @@
 
 Branch: `dev/v4-stabilization-20261017`. Especificação: [último comentário do PR #13](https://github.com/miguelaalves84-dotcom/Grupo-Saude/pull/13#issuecomment-6383868420). PR em rascunho; sem merge, produção, migrações ou dados reais.
 
+## Entrega verificada
+
+**Código do preview: `ff0b6a23cdfef26be7182559671d3da538d54d5a`.** [Abrir preview protegido READY](https://grupo-saude-v4-validacao-sintetica-hqalomupb-grupo-saude.vercel.app). [GitHub Actions: 35/35 jobs aprovados](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908).
+
+As correções foram implementadas e testadas. A cobertura positiva de todas as listas/subáreas ainda é **parcial** onde os cenários estavam vazios; não se declara aprovação integral das pesquisas apenas por os jobs estarem verdes. A [matriz CSV](MATRIZ-PESQUISAS-20261024.csv) identifica estes casos em 114 combinações perfil × área.
+
 ## Causa da pesquisa da Agenda em 6744ab7
 
 O input só atualizava a variável `search` no `onsubmit` de `#agendaFilters`. Escrever ou limpar pelo controlo nativo não aplicava a pesquisa; mudar de vista podia descartar o texto ainda não submetido. Havia ainda três problemas: contagem anterior à pesquisa, comparação sem normalização de acentos e ausência do nome da clínica nos campos pesquisados. A autorização do domínio não causava a falha e foi preservada.
@@ -121,3 +127,51 @@ A revisão manual da captura tablet de Tabelas encontrou duas entradas «Agente 
 O teste de gestos de candidatos aguardava o ID do botão antigo para sincronizar a inicialização. A espera passou a usar `GSTestAgentV4.ready`, ativado apenas depois de terminar a preparação existente; todos os gestos, confirmações e verificações de persistência continuam no teste. Não se substituiu a espera por um atraso arbitrário.
 
 Na revisão dos filtros de Stock, a categoria fica visível apenas no inventário, onde é aplicada. A seleção é preservada quando se regressa ao inventário. As linhas do histórico de compras/preços também são indexadas pelo mesmo campo, quando o perfil já tem acesso a custos. A suite passou a testar categoria + termo + limpeza e pesquisa de um pedido de material efetivamente criado.
+
+## Resultado final e preview — `ff0b6a2`
+
+- [GitHub Actions 40103661908](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908): **35/35 aprovados**, com 33 suites Chromium, regressão Node e PostgreSQL sintético descartável.
+- Suite transversal: **1 200 verificações, zero falhas**, em seis perfis × três formatos × dois temas. São **780 verificações de comportamento de pesquisa** e **420 de navegação/unicidade do menu**. As quantidades não representam 1 200 funcionalidades distintas.
+- Agenda/RH: **1 338 verificações, zero falhas**, incluindo pesquisa com termos parciais, pessoa, clínica, acentos, ausência de resultados, limpeza, foco, vistas e operações existentes.
+- Design: **36 contextos, 783 verificações, zero falhas**. A revisão geométrica classificou 250 ocorrências como falsos positivos, nenhuma falha real ou pendente nesse conjunto, com 74 secções abertas e seis controlos negativos de divulgação. Isto não prova ausência de todos os problemas visuais possíveis; as capturas foram também inspecionadas manualmente.
+- A suite de arrastamento de candidatos voltou a passar aguardando a prontidão efetiva, preservando os testes de rato/toque/caneta, confirmações e persistência.
+- Stock voltou a passar com os cenários adicionais de categoria e pedido criado.
+
+| Perfil | Verificações transversais finais | Falhas |
+| --- | ---: | ---: |
+| Call Center | 120 | 0 |
+| Médico | 72 | 0 |
+| Técnico | 72 | 0 |
+| Administrativo | 132 | 0 |
+| Administração | 396 | 0 |
+| CEO | 408 | 0 |
+
+### Evidências para consultar
+
+- [Pesquisas, inventário e reprodução da Agenda antiga](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908/artifacts/12564345718).
+- [Agenda/RH — operações e pesquisas](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908/artifacts/12562819886).
+- [Comparações visuais](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908/artifacts/12563856623).
+- [Layouts, tabelas e diálogos](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908/artifacts/12563408145).
+- [Gestos de candidatos](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908/artifacts/12564026553).
+- [Revisão visual completa](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40103661908/artifacts/12563962310).
+
+Os artefactos são sintéticos e têm retenção de 14 dias. Os formatos são emulados em Chromium; não se afirma execução num tablet físico. A reprodução antiga usa a fixture original da Agenda, não todo o deployment antigo.
+
+### Publicação e segurança
+
+[Preview direto](https://grupo-saude-v4-validacao-sintetica-hqalomupb-grupo-saude.vercel.app) — deployment `dpl_3k4awdcWL26rGcn26uQoivnRY4cJ`, estado **READY**, target **staging**, projeto isolado `grupo-saude-v4-validacao-sintetica`. Código `ff0b6a2`, sem promoção a produção.
+
+O pacote tem 98 ficheiros da aplicação, comparados byte a byte com o build, mais configuração isolada e manifesto. Não inclui backend, funções, cron, `.env`, credenciais, bases de dados, caches ou backups. O scanner dos padrões de segredos não encontrou ocorrências; isto complementa a seleção explícita dos ficheiros e não substitui uma garantia absoluta sobre qualquer possível segredo.
+
+Foram confirmados por HTTP autorizado: manifesto e `/api/version` com o SHA exato, HTML inicial, Agenda, pesquisa global, menu, agente de testes, Stock, Financeiro e logótipo original. Os ficheiros consultados correspondem exatamente ao pacote testado. `/api/auth`, `/api/agenda`, `/api/finance` e `/api/stock` devolvem 404: nenhum escritor foi ativado. CSP `connect-src 'self'`, política de microfone/câmara desativados e `noindex` preservados. A proteção SSO existente continua ativa para todos os deployments.
+
+Chromium foi executado no build isolado em CI. O deployment protegido foi verificado por HTTP e identidade do pacote; não se afirma navegação Chromium autenticada pelo SSO no URL publicado. A validação física no tablet continua a cargo do utilizador.
+
+Persistência exclusivamente no navegador/origem, sem sincronização entre dispositivos ou entre URLs de previews. Não foram importados ou apagados dados de previews anteriores. Main, produção e PR em rascunho foram preservados. O commit de relatório posterior contém apenas documentação, sem alterar o código servido por este preview.
+
+### Próximos testes prioritários
+
+1. Criar cenários populados adicionais para pesquisas de Pedidos, Marketing, alertas, Meu RH e conversas dos restantes perfis; manter as linhas parciais da matriz até existirem resultados positivos efetivos.
+2. Expandir a pesquisa de recibos e extratos populados em todos os formatos/temas, sem confundir a cobertura da fatura sintética com estes casos.
+3. Validar fisicamente o preview no tablet, sobretudo teclado, limpeza, troca de filtros e entrada única do menu.
+4. Manter autenticação/persistência central e fornecedores reais como bloqueios separados; esta entrega não os ativa nem os declara concluídos.

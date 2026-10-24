@@ -30,7 +30,8 @@ with sync_playwright() as p:
         page.wait_for_timeout(300)
         expect(page.locator('#financeContent').get_by_text(('E2E-'+actor).upper(), exact=True)).to_be_visible()
         assert page.evaluate('''([key,actor])=>JSON.parse(localStorage.getItem(key)).financeV2.invoices.some(x=>x.employeeId===actor&&x.number===('E2E-'+actor).toUpperCase())''', [KEY, actor])
-        assert page.locator('[data-fin-action="manage"]').count() == int(actor in ['u1', 'test_admin'])
+        assert page.locator('.finance-tabs').count()==0
+        assert page.locator('#shortcut_financialManagement').is_visible() == (actor in ['u1', 'test_admin'])
         if actor in ['u1', 'test_admin']:
             page.locator('[data-fin-action="invoice-approve"]').first.click()
             page.locator('#financeDialog [type=submit]').click()
@@ -43,7 +44,8 @@ with sync_playwright() as p:
             page.locator('[data-fin-action="pdf"]').click()
         pdf=Path(download.value.path()).read_bytes();assert pdf.startswith(b'%PDF-1.4');assert b'/Subtype /Image' in pdf and b'/OfficialLogo Do' in pdf;assert b'NAO E DOCUMENTO OFICIAL' in pdf
         page.set_viewport_size({'width': 390, 'height': 844})
-        page.locator('[data-fin-action="payslips"]').click()
+        page.locator('#menuBtn').click()
+        page.locator('#shortcut_payslips').click()
         assert 'Recibos de Vencimento' in page.locator('#financeContent').inner_text()
         assert not errors, (actor, errors)
         context.close()

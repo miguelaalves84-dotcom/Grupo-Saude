@@ -53,6 +53,7 @@ function hrTabs(){
  const root=document.getElementById('hrContent'),head=sec.querySelector('.page-head');
  if(!window.RoleAccessAdminV4?.can('hrManage')){if(root)root.innerHTML='';head?.querySelector('[data-rhtabs]')?.remove();activeHRTab='';activeHRUser='';return false;}
  const actor=String(state().currentUser);if(activeHRUser!==actor){activeHRUser=actor;activeHRTab='';}
+ if(document.getElementById('shortcut_employees')){head?.querySelector('[data-rhtabs]')?.remove();return selectHRTab(activeHRTab||'employees')}
  if(head&&!head.querySelector('[data-rhtabs]')){const tabs=document.createElement('div');tabs.dataset.rhtabs='1';tabs.className='actions';tabs.innerHTML='<button type="button" class="secondary" data-hr-tab="employees">Colaboradores</button><button type="button" class="secondary" data-hr-tab="candidates">Candidatos</button>';tabs.querySelectorAll('[data-hr-tab]').forEach(b=>b.onclick=()=>selectHRTab(b.dataset.hrTab));head.appendChild(tabs)}
  if(activeHRTab&&sec.classList.contains('active'))return selectHRTab(activeHRTab);if(root)root.innerHTML='<div class="hr-choice"><article class="card"><h2>Colaboradores</h2><p>Fichas, contratos, documentação, férias, baixas e histórico.</p><button class="primary" onclick="V4ClinicHR.showEmployees()">Entrar em Colaboradores</button></article><article class="card"><h2>Candidatos</h2><p>Currículos, entrevistas e decisões num processo independente.</p><button class="primary" onclick="V4ClinicHR.showCandidates()">Entrar em Candidatos</button></article></div>';return true;
 }

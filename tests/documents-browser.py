@@ -55,7 +55,7 @@ with sync_playwright() as p:
     page.locator('#financeDialog [type=submit]').click()
     page.wait_for_timeout(250)
     # Record a payment through the real account UI, before replacing the invoice.
-    page.locator('[data-fin-action="account"]').click()
+    page.locator('#shortcut_account').click()
     form = page.locator('#financeQuery')
     form.locator('[name=employeeId]').select_option('test_med')
     form.locator('[name=start]').fill('2000-01-01')
@@ -85,7 +85,7 @@ with sync_playwright() as p:
     page.locator('#financeDialog [type=submit]').click()
     page.wait_for_timeout(250)
     expect(page.locator('#financeContent')).to_contain_text('Substituído')
-    page.locator('[data-fin-action="manage"]').click()
+    page.locator('#shortcut_financialManagement').click()
     page.locator('[data-fin-action="regularization-list"]').click()
     expect(page.locator('#financeDialog')).to_contain_text('Pendente')
     page.locator('[data-fin-action="regularization-approve"]').click()

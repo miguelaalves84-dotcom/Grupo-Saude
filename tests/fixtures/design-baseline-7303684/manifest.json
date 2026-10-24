@@ -1,0 +1,18 @@
+{
+  "sourceCommit": "73036844f6de61ef45d4c23ffa224f7d68bf1bf0",
+  "purpose": "Read-only before/after screenshots; excluded from static build; never loaded by application",
+  "files": {
+    "styles.css": {
+      "bytes": 32266,
+      "sha256": "930b4ea797df9e9802f0b429ae3df303eccad5f02637b16a1716878fe4b6bd8e"
+    },
+    "finance-v4.css": {
+      "bytes": 1592,
+      "sha256": "a34adde1f74391624d0b8a960f0d4328f28394badb3dd709d812c3c631465370"
+    },
+    "agenda-v4.css": {
+      "bytes": 3127,
+      "sha256": "c2ad8cc5058e348f97319f189854b365c8af6690ddd9c662ca7fccb91c89752e"
+    }
+  }
+}

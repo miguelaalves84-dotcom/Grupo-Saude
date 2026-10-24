@@ -31,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, stabilization-browser, recruitment-browser, candidate-pointer-browser, interview-browser, complaints-browser, complaints-enhancements-browser, operation-browser, marketing-browser, profile-audit-browser, opening-composition-browser, stock-tables-browser, supplier-companies-browser, stock-closing-browser, attendance-browser, employee-documents-browser, branding-browser, global-layout-browser, rh-20261022-browser, rh-followup-browser, rh-development-browser, payroll-export-browser, audit-complete-browser, audit-expanded-browser, audit-corrections-browser, finance-cash-browser, agenda-rh-browser]
+        suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser, stabilization-browser, recruitment-browser, candidate-pointer-browser, interview-browser, complaints-browser, complaints-enhancements-browser, operation-browser, marketing-browser, profile-audit-browser, opening-composition-browser, stock-tables-browser, supplier-companies-browser, stock-closing-browser, attendance-browser, employee-documents-browser, branding-browser, global-layout-browser, rh-20261022-browser, rh-followup-browser, rh-development-browser, payroll-export-browser, audit-complete-browser, audit-expanded-browser, audit-corrections-browser, finance-cash-browser, agenda-rh-browser, design-system-browser]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -40,6 +40,10 @@ jobs:
         with:
           node-version: '24'
       - run: python -m pip install --break-system-packages --timeout 30 --retries 1 playwright==1.56.0
+        timeout-minutes: 2
+      - name: Install pinned image comparison tool for visual evidence only
+        if: matrix.suite == 'design-system-browser'
+        run: python -m pip install --break-system-packages --only-binary=:all: --timeout 30 --retries 1 Pillow==11.3.0
         timeout-minutes: 2
       - name: Verify preinstalled matching Chromium (no apt/browser download)
         run: python -c "import os; from playwright.sync_api import sync_playwright; p=sync_playwright().start(); assert os.path.isfile(p.chromium.executable_path); p.stop()"
@@ -57,7 +61,7 @@ jobs:
         env:
           GS_TEST_ARTIFACTS: /tmp/gs-stabilization-artifacts
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser' || matrix.suite == 'candidate-pointer-browser' || matrix.suite == 'interview-browser' || matrix.suite == 'complaints-browser' || matrix.suite == 'complaints-enhancements-browser' || matrix.suite == 'operation-browser' || matrix.suite == 'marketing-browser' || matrix.suite == 'profile-audit-browser' || matrix.suite == 'opening-composition-browser' || matrix.suite == 'stock-tables-browser' || matrix.suite == 'supplier-companies-browser' || matrix.suite == 'stock-closing-browser' || matrix.suite == 'attendance-browser' || matrix.suite == 'employee-documents-browser' || matrix.suite == 'branding-browser' || matrix.suite == 'global-layout-browser' || matrix.suite == 'rh-20261022-browser' || matrix.suite == 'rh-followup-browser' || matrix.suite == 'rh-development-browser' || matrix.suite == 'payroll-export-browser' || matrix.suite == 'audit-complete-browser' || matrix.suite == 'audit-expanded-browser' || matrix.suite == 'audit-corrections-browser' || matrix.suite == 'finance-cash-browser' || matrix.suite == 'agenda-rh-browser')
+        if: always() && (matrix.suite == 'stabilization-browser' || matrix.suite == 'recruitment-browser' || matrix.suite == 'candidate-pointer-browser' || matrix.suite == 'interview-browser' || matrix.suite == 'complaints-browser' || matrix.suite == 'complaints-enhancements-browser' || matrix.suite == 'operation-browser' || matrix.suite == 'marketing-browser' || matrix.suite == 'profile-audit-browser' || matrix.suite == 'opening-composition-browser' || matrix.suite == 'stock-tables-browser' || matrix.suite == 'supplier-companies-browser' || matrix.suite == 'stock-closing-browser' || matrix.suite == 'attendance-browser' || matrix.suite == 'employee-documents-browser' || matrix.suite == 'branding-browser' || matrix.suite == 'global-layout-browser' || matrix.suite == 'rh-20261022-browser' || matrix.suite == 'rh-followup-browser' || matrix.suite == 'rh-development-browser' || matrix.suite == 'payroll-export-browser' || matrix.suite == 'audit-complete-browser' || matrix.suite == 'audit-expanded-browser' || matrix.suite == 'audit-corrections-browser' || matrix.suite == 'finance-cash-browser' || matrix.suite == 'agenda-rh-browser' || matrix.suite == 'design-system-browser')
         with:
           name: ${{ matrix.suite }}-synthetic-${{ github.sha }}
           path: /tmp/gs-stabilization-artifacts

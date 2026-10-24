@@ -4,7 +4,7 @@ const copy=x=>JSON.parse(JSON.stringify(x)),norm=x=>String(x||'').normalize('NFD
 const canonical=s=>{const A=typeof GSAttendanceCore!=='undefined'?GSAttendanceCore:typeof require==='function'?require('./attendance-core-v4'):null;return A?A.people(s):[...new Map([...(s.users||[]),...Object.entries(s.employees||{}).map(([id,p])=>({...((s.users||[]).find(x=>String(x.id)===String(id))||{}),...p,id:p.id||id}))].map(x=>[String(x.id),x])).values()]};
 const people=s=>canonical(s).map(p=>{const P=typeof GSAccessPolicy!=='undefined'?GSAccessPolicy:typeof require==='function'?require('./access-policy-core-v4'):null,key=P?P.norm(p.role):norm(p.role),v=s.userActionPermissions?.[String(p.id)]?.personal??p.hr?.actionPermissions?.personal??p.permissions?.personal??s.roleActionPermissions?.[key]?.personal;return{...p,permissions:{...p.permissions,...(v===undefined?{}:{personal:v===true||v===1})}}}),role=a=>norm(a?.role||a?.kind),enabled=a=>a?.active===true&&a.permissions?.personal!==false,manager=a=>enabled(a)&&['CEO','ADMINISTRACAO'].includes(role(a))&&!a.readOnly;
 function assert(a,write=false){if(!enabled(a)||write&&a.readOnly)fail('Sem autorização para o Chat.');}
-const clinics=p=>[...new Set([...(p?.clinics||[]),...(p?.clinicIds||[]),p?.clinic,p?.clinicId].filter(Boolean).map(String))];
+const clinics=p=>[...new Set((Array.isArray(p?.clinics)?p.clinics:Array.isArray(p?.clinicIds)?p.clinicIds:[p?.clinic||p?.clinicId]).filter(Boolean).map(String))];
 function pair(a,b){if(!enabled(a)||!enabled(b)||String(a.id)===String(b.id))return false;if(['CEO','ADMINISTRACAO'].includes(role(a))||['CEO','ADMINISTRACAO'].includes(role(b)))return true;const scope=p=>{const ids=['CALL CENTER','CALLCENTER'].includes(role(p))&&Array.isArray(p.chatClinicIds)?p.chatClinicIds.map(String):clinics(p);return Array.isArray(p.activeClinicIds)?ids.filter(id=>p.activeClinicIds.includes(id)):ids};return scope(a).some(x=>scope(b).includes(x));}
 function directory(s,a){assert(a);return people(s).filter(p=>pair(a,p));}
 const members=c=>[...new Set((c.members||[]).map(String))],kind=c=>c.kind||(members(c).length>2?'legacy-group':'direct');
@@ -32,7 +32,7 @@ if(action==='create'){
  }else if(action==='read'){
   for(const m of c.messages){m.readBy||=[];if(!m.readBy.map(String).includes(id))m.readBy.push(id)}result={id:c.id};
  }else if(action==='done'){
-  const m=c.messages.find(m=>String(m.id)===String(b.messageId));if(!m||typeof b.done!=='boolean')fail('Mensagem ou confirmação inválida.',400);m.done||=[];m.doneHistory||=[];const prior=m.done.find(x=>x.by===id&&x.active);if(b.done&&!prior){const e=event('Feito colocado');m.done.push({...e,active:true});m.doneHistory.push({...e})}else if(!b.done&&prior){prior.active=false;prior.removedAt=at;m.doneHistory.push(event('Feito retirado'))}result={id:c.id,messageId:m.id};
+  const m=c.messages.find(m=>String(m.id)===String(b.messageId));if(!m||typeof b.done!=='boolean')fail('Mensagem ou confirmação inválida.',400);m.done||=[];m.doneHistory||=[];const prior=m.done.find(x=>x.by===id&&x.active);if(b.done&&!prior){const e=event('Feito colocado',{id:ctx.id||id+':'+requestId});m.done.push({...e,active:true});m.doneHistory.push({...e})}else if(!b.done&&prior){prior.active=false;prior.removedAt=at;m.doneHistory.push(event('Feito retirado'))}result={id:c.id,messageId:m.id};
  }else fail('Ação desconhecida.',400);
  c.revision=(c.revision||0)+1;
 }

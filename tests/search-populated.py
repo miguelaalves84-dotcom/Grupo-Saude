@@ -2,7 +2,7 @@
 from playwright.sync_api import expect
 
 def verify_populated(p,actor,key,check,scope):
- p.evaluate('''([k,a])=>{const s=JSON.parse(localStorage.getItem(k)),cid=AccessScopeV4.clinics(s)[0]?.id||'abranfir',at=new Date().toISOString();
+ p.evaluate('''([k,a])=>{const s=JSON.parse(localStorage.getItem(k)),cid=AccessScopeV4.clinics(s)[0]||'abranfir',at=new Date().toISOString();
  const other='syn-search-other';s.clinics.push({id:other,name:'SYN Outra clínica',active:true,operational:true,specialties:{}});
  for(const u of [...s.users,...Object.values(s.employees||{})]){u.name='SYN '+u.id;u.email=u.id+'@example.invalid';u.hr||={}}
  s.requests=[{id:'syn-positive-request',clinic:cid,name:'SYN Coração Águeda',patientRef:'SYN-CORAÇÃO',specialty:'SYN Consulta',created:at,stage:'Novo pedido',owner:a,doctor:'SYN Profissional',history:[]},{id:'syn-other-request',clinic:other,name:'SYN Exclusivo exterior',patientRef:'SYN-OUTSIDE',created:at,stage:'Novo pedido',owner:'u1',history:[]}];
@@ -25,11 +25,13 @@ def verify_populated(p,actor,key,check,scope):
   if not p.evaluate('(v)=>RoleAccessAdminV4.guard(v)',view):
    check('populated forbidden route remains denied',p.evaluate('(v)=>App.showView(v)',view)==False);continue
   p.evaluate('(v)=>App.showView(v)',view);search(view,selector,term)
+  if view=='wait' and not p.evaluate('(k)=>AccessScopeV4.canClinic("syn-search-other","waiting",JSON.parse(localStorage.getItem(k)))',key):check('unauthorised clinic request never rendered',p.locator('#waitContent .funnel-card').filter(has_text='Exclusivo exterior').count()==0)
   if view=='alerts':check('other recipient alert never rendered',p.locator('#alertsContent').get_by_text('SYN Alerta Exterior',exact=True).count()==0)
   if view=='chat' and actor!='u1':check('nonmember conversation never rendered',p.locator('#chatContent .conversation').filter(has_text='Reservada Exterior').count()==0)
  if p.evaluate('RoleAccessAdminV4.guard("marketing")'):
   p.evaluate('MarketingUIV4.selectTab("campaigns")');search('marketing','[data-campaign="syn-positive-campaign"]','EVORA')
   p.evaluate('MarketingUIV4.selectTab("leads")');search('marketing','[data-id="syn-positive-request"]','CORACAO')
+  cid=p.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).requests.find(x=>x.id==="syn-positive-request").clinic',key);p.locator('#mkFilterClinic').select_option(cid);p.locator('#mkApply').click();search('marketing','[data-id="syn-positive-request"]','CORACAO');check('clinic filter excludes other-clinic marketing request',p.locator('[data-id="syn-other-request"]').count()==0)
  if p.evaluate('RoleAccessAdminV4.can("account")'):
   p.evaluate('async()=>await FinanceUIV4.open("invoices")');search('finance','[data-fin-row]:has-text("SYN-FÁTURA")','fatura-agueda','#financeSearch')
   p.evaluate('async()=>await FinanceUIV4.open("payslips")');search('finance','[data-fin-row]','2026','#financeSearch')

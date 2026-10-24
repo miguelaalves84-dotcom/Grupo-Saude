@@ -53,7 +53,26 @@ Testes exercitados:
 
 A execução em `3b65202` teve 36/37 jobs aprovados; o inventário encontrou o erro de clínica antiga ao abrir Novo pedido. O ciclo `f5030e4` passou **37/37 jobs**, incluindo 35 suites Chromium, regressão Node e PostgreSQL descartável. O primeiro censo alargado testou 130 instâncias de campos em 26 aberturas; o Catálogo exigia primeiro abrir o editor antes de chamar a edição, precondição corrigida no teste seguinte.
 
-Os totais finais, matrizes e preview serão registados depois do último ciclo. Os testes PostgreSQL descartáveis não comprovam persistência central autenticada em funcionamento.
+## Resultado final automático e preview
+
+Commit testado e publicado: `f87e3445382b4f4caa55308b60f7bdd68305732d`.
+
+[GitHub Actions — 37/37 jobs aprovados](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40113904877): 35 suites Chromium, regressão Node e PostgreSQL descartável. Build estático local aprovado: 98 assets, sem backend/documentos/segredos.
+
+| Campanha de escrita | Verificações | Falhas | Contextos de campos |
+| --- | ---: | ---: | ---: |
+| Fluxos partilhados, seis perfis, três formatos e dois temas | 2736 | 0 | 294 |
+| Censo de formulários, CEO/tablet/claro e login sintético | 820 | 0 | 151 |
+| Notas e transcrição manual de entrevistas | 216 | 0 | 24 |
+| Total | 3772 | 0 | 469 |
+
+Os 469 são instâncias/contextos repetidos, não campos únicos: 430 passaram nos cenários automáticos, 37 têm edição numérica parcialmente testada e 2 mantiveram proteção contra edição. O censo alargado não submeteu todos os formulários; os fluxos de gravação explicitamente testados e as regressões existentes têm âmbito próprio. Não é certificação de todas as 422 definições/chamadas inventariadas.
+
+[Matriz de campos exercitados](MATRIZ-ESCRITA-LIVRE-CAMPOS-20261024.csv) · [Inventário de fontes e limites de conciliação](MATRIZ-ESCRITA-LIVRE-FONTES-20261024.csv). Os artefactos do run incluem JSON e capturas sintéticas; as métricas/limites foram preservados nestas matrizes versionadas.
+
+[Preview READY protegido](https://grupo-saude-v4-validacao-sintetica-91s97febp-grupo-saude.vercel.app), deployment `dpl_889oob6tdvFnkNofbZUAwEvGPWWj`, apenas staging. Os 98 assets foram comparados byte a byte com dist antes do envio. Proteção Vercel mantida para todos os deployments. HTTP autenticado confirma página, manifesto e componente partilhado; navegador completo foi executado no GitHub Actions contra o pacote sintético local, não contra uma sessão SSO no deployment.
+
+Os testes PostgreSQL descartáveis não comprovam persistência central autenticada em funcionamento. Preview com persistência apenas no navegador, sem escritores centrais nem serviços reais. Main preservada em `84fba5a2d6d7afcb0723ca312f4e617acc22823d`; PR #13 continua em rascunho; configuração de produção não alterada. Confirmação num tablet Android físico continua pendente.
 
 ## Normalizações legítimas e limites
 

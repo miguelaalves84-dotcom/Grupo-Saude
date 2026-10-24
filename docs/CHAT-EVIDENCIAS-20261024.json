@@ -1,0 +1,27 @@
+{
+  "sourceCommit": "bd71096987ca1356800ded289ad495f6c61fcaab",
+  "run": 40135703178,
+  "jobsPassed": 38,
+  "chromiumSuites": 36,
+  "chatChecks": 924,
+  "chatFailures": 0,
+  "chatContexts": 36,
+  "profileCounts": {
+    "Call Center": 150,
+    "Médico": 150,
+    "Técnico": 150,
+    "Administrativo": 150,
+    "Administração": 162,
+    "CEO": 162
+  },
+  "domainScenarioGroups": 13,
+  "centralAuthenticationOperational": false,
+  "centralUIPersistenceOperational": false,
+  "privateChatArchiveOperational": false,
+  "physicalNewChatValidation": "Pendente",
+  "limits": [
+    "Synthetic identities and same-browser profile switching, NOT authenticated independent devices.",
+    "Files in local IndexedDB; NOT operational private archive.",
+    "Android touch emulation, physical new Chat validation pending."
+  ]
+}

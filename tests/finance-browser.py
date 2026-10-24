@@ -30,6 +30,10 @@ with sync_playwright() as p:
         page.wait_for_timeout(300)
         expect(page.locator('#financeContent').get_by_text(('E2E-'+actor).upper(), exact=True)).to_be_visible()
         assert page.evaluate('''([key,actor])=>JSON.parse(localStorage.getItem(key)).financeV2.invoices.some(x=>x.employeeId===actor&&x.number===('E2E-'+actor).toUpperCase())''', [KEY, actor])
+        search=page.locator('#financeSearch');before=page.locator('[data-fin-row]:visible').count()
+        search.fill(('e2e-'+actor).lower());expect(page.locator('#financeContent').get_by_text(('E2E-'+actor).upper(), exact=True)).to_be_visible()
+        search.fill('zzzz-no-invoice-match');assert page.locator('[data-fin-row]:visible').count()==0
+        search.fill('');assert page.locator('[data-fin-row]:visible').count()==before
         assert page.locator('.finance-tabs').count()==0
         assert page.locator('#shortcut_financialManagement').is_visible() == (actor in ['u1', 'test_admin'])
         if actor in ['u1', 'test_admin']:

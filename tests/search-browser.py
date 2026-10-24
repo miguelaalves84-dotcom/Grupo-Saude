@@ -7,7 +7,7 @@ results=[];inventory=[]
 def check(name,ok,**extra):
  row={**scope,'test':name,'passed':bool(ok),**extra};results.append(row);assert ok,row
 def norm(s):return ''.join(x for x in unicodedata.normalize('NFD',s) if not unicodedata.combining(x)).lower().strip()
-RECORDS='[data-search-item="employee"],table tbody tr,.clinic-master-row,.kanban-card,.candidate-card,.funnel-card,.task-card,.task-row,.conversation,.audit-item,.audit-line,.list-item,[data-search-item]'
+RECORDS='[data-search-item="employee"],table tbody tr,.clinic-master-row,.kanban-card,.candidate-card,.funnel-card,.task-card,.task-row,.conversation,.audit-item,.audit-line,.list-item,.compliance-row,[data-search-item],.card .row'
 with sync_playwright() as pw:
  b=pw.chromium.launch(args=['--no-sandbox'])
  try:
@@ -17,11 +17,27 @@ with sync_playwright() as pw:
      scope={'actor':actor,'device':device,'theme':theme};c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(8000);p.goto(URL);p.wait_for_function('window.GSSearchV4&&window.RoleAccessAdminV4');p.wait_for_timeout(500)
      p.evaluate('''([k,a,t])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser=a;s.ceoViewingAs=a==='u1'?null:a;localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+a,t)}''',[K,actor,theme]);p.reload();p.wait_for_timeout(700)
      views=p.locator('#nav [data-view]').evaluate_all('(xs)=>[...new Set(xs.map(x=>x.dataset.view))]')
+     if 'finance' not in views:views.append('finance')
      for view in views:
       scope['view']=view
       if not p.evaluate('(v)=>RoleAccessAdminV4.guard(v)',view):continue
       p.evaluate('(v)=>App.showView(v)',view);p.wait_for_timeout(250);p.evaluate('GSSearchV4.refresh()');root=p.locator('main .view.active');check('requested authorised destination',root.get_attribute('id')==view)
       fields=root.locator('input[type=search],input[placeholder*="Nome ou função"]');inventory.append({**scope,'fields':fields.evaluate_all('(xs)=>xs.map(x=>({id:x.id,name:x.name,placeholder:x.placeholder,visible:!!x.getClientRects().length}))')})
+      for field,selector in [('#clinicDocumentSearch','[data-clinic-document-row]'),('#financeSearch','[data-fin-row]'),('#attendanceSearch','#clockContent .card:has(h3:text-matches("^Equipa")) .row')]:
+       native=root.locator(field)
+       if native.count()!=1 or not native.is_visible():continue
+       records=root.locator(selector);before=records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')
+       if not before:inventory.append({**scope,'field':field,'status':'No populated records; positive search not tested'});continue
+       text=records.first.get_attribute('data-clinic-document-row') or records.first.inner_text();terms=re.findall(r'[\wÀ-ÿ]{4,}',text)
+       if not terms:continue
+       native.fill(norm(terms[0]).upper());check(field+' case accent partial match',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')>0)
+       native.fill('zzzz-no-native-match-98247');check(field+' no results',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==0)
+       native.fill('');check(field+' clear restores',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==before)
+      dashboard=root.locator('#dashSearch')
+      if dashboard.count():
+       options=root.locator('#dashClinic option[value]:not([value=""])');total=options.count()
+       if total:
+        term=options.first.inner_text();dashboard.fill(norm(term).upper());check('dashboard clinic option match',options.evaluate_all('(xs)=>xs.some(x=>!x.hidden)'));dashboard.fill('zzzz-no-clinic');check('dashboard no matching option',options.evaluate_all('(xs)=>xs.every(x=>x.hidden)'));dashboard.fill('');check('dashboard clear',options.evaluate_all('(xs)=>xs.every(x=>!x.hidden)'))
       search=root.locator('.gs-search-input')
       if search.count()!=1 or not search.is_visible():continue
       rows=root.locator(RECORDS);baseline=rows.count();visible_before=rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')

@@ -1,5 +1,7 @@
 # Auditoria geral Grupo Saúde V4 — 23/10/2026
 
+> Relatório histórico de 23/10. Consultar a [revisão atual de estabilização, testes e pendências](ESTABILIZACAO-RELATORIO-20261024.md), a [matriz atual](ESTABILIZACAO-MATRIZ-20261024.csv) e a [validação física de escrita](VALIDACAO-ANDROID-ESCRITA-20261024.json). Os SHA/estados abaixo descrevem o ciclo histórico, não o preview mais recente.
+
 ## Resultado e âmbito
 
 Auditoria documental, estática, de domínio, API isolada, PostgreSQL descartável e Chromium concluída dentro dos limites abaixo. O programa **não está certificado como operacional com autenticação e persistência centrais**. Foram classificados **192 requisitos nos 14 grupos**, revistos individualmente os **102 alertas originais** e registados **35 achados abertos** com plano e critérios de aceitação. Não se afirma que todas as combinações de todos os controlos foram executadas.

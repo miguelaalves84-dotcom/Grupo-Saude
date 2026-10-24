@@ -1,0 +1,960 @@
+{
+  "reviewDate": "2026-10-24",
+  "sourceSnapshot": "4405994c316c665a6e9be3a31b05539d9bffc5f8",
+  "lastCompletedRun": 40129386415,
+  "currentRun": 40129386415,
+  "currentRunStatus": "Concluído: 37/37 jobs aprovados",
+  "manualWriting": {
+    "dateReported": "2026-10-24",
+    "source": "Confirmação explícita do utilizador nesta conversa",
+    "previewCommit": "f87e3445382b4f4caa55308b60f7bdd68305732d",
+    "device": "Tablet Android físico",
+    "testsReported": 5,
+    "passedReported": 5,
+    "result": "Aprovados pelo utilizador",
+    "exactCases": "Não discriminados individualmente na comunicação",
+    "modelAndroidChromeKeyboardVersions": "Não fornecidos",
+    "limits": [
+      "Não mapear esta confirmação a todos os campos das matrizes.",
+      "Não prova GPS, microfone, arquivo privado ou persistência central."
+    ]
+  },
+  "findings": [
+    {
+      "id": "BILL-01",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Empresa e NIF por vigência na ficha preservados; arquivo documental contextual central continua incompleto.",
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js",
+        "finance-core-v4.js",
+        "lib/finance-service.js",
+        "lib/finance-document-workflow.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs",
+        "tests/documents-browser.py",
+        "tests/document-workflows.cjs",
+        "tests/employee-documents-browser.py"
+      ],
+      "nextAction": "Concluir fluxo contextual documental/central de empresa com os cadastros existentes, após aprovação desta auditoria.",
+      "acceptance": "Associação e anexos seguros por vigência, dois utilizadores autorizados, faturas antigas imutáveis.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "CHAT-CENTRAL",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Sem serviço operacional de conversas autenticadas entre dispositivos.",
+      "files": [
+        "app.js",
+        "complaints-core-v4.js",
+        "operation-history-v4.js",
+        "attention-core-v4.js"
+      ],
+      "tests": [
+        "tests/complaints-enhancements-browser.py",
+        "tests/operation-history.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/improvements.cjs"
+      ],
+      "nextAction": "Definir ligação autenticada do Chat existente e regras de conservação.",
+      "acceptance": "Duas sessões autorizadas recebem/consultam a conversa; não membros e acessos diretos recusados.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "CLINIC-NAV-01",
+      "priority": "P1",
+      "state": "Regressão corrigida; cobertura sintética existente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Regressão corrigida: Gestão documental separada do mestre; testes de destinos preservados.",
+      "files": [
+        "clinic-master-v4.js",
+        "clinic-single-source-v4.js",
+        "access-scope-v4.js"
+      ],
+      "tests": [
+        "tests/stock-tables-browser.py",
+        "tests/consolidation.cjs",
+        "tests/profile-audit-browser.py"
+      ],
+      "nextAction": "Repor separação de destinos mestre/centro documental usando os editores atuais.",
+      "acceptance": "Gestão → Clínicas mostra acompanhamento documental; Tabelas abre mestre sem eliminar documentos.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "CLOCK-BANK",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Saldos/extra são apresentados; não há ciclo completo de crédito/débito validado.",
+      "files": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js",
+        "administrative-rosters-core-v4.js"
+      ],
+      "tests": [
+        "tests/attendance-browser.py",
+        "tests/administrative-rosters.cjs",
+        "tests/attendance-postgres.cjs"
+      ],
+      "nextAction": "Especificar e consolidar ledger/regras de banco de horas aprovados.",
+      "acceptance": "Créditos/débitos/compensações auditados, sem confundir horas detetadas com aprovadas.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "CLOCK-NIGHT",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: schedule rejeita end<=start e exige configuração própria não concluída.",
+      "files": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js",
+        "administrative-rosters-core-v4.js"
+      ],
+      "tests": [
+        "tests/attendance-browser.py",
+        "tests/administrative-rosters.cjs",
+        "tests/attendance-postgres.cjs"
+      ],
+      "nextAction": "Validar modelo de turno noturno/meia-noite e adaptar o fluxo existente numa fase posterior.",
+      "acceptance": "Mudança de dia e hora legal sem horas negativas, dupla contagem ou marcações sobrepostas.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "COVERAGE-RESIDUAL",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Cobertura de pesquisas ampliada: 2490 verificações, 1290 populadas, zero falhas; matriz com 114 combinações atualizada. Escrita: evidência automática anterior e cinco testes físicos aprovados pelo utilizador. Cobertura integral de todas as operações continua por demonstrar.",
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Converter controlos só inventariados em casos de operação completos por prioridade.",
+      "acceptance": "Cada operação aprovada tem entrada, validação, resultado persistido e caso negativo; botão aberto não basta.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "DEVICE-REAL",
+      "priority": "P2",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Parcial: utilizador aprovou cinco testes de escrita em tablet Android físico/f87e344. Sensor GPS, microfone e matriz completa por campo/dispositivo não comprovados.",
+      "files": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js",
+        "administrative-rosters-core-v4.js",
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/attendance-browser.py",
+        "tests/administrative-rosters.cjs",
+        "tests/attendance-postgres.cjs",
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Realizar validação em tablet/telemóvel Android físicos com dados sintéticos.",
+      "acceptance": "Toque, teclado, rotação, GPS e permissões físicas documentados.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "EXTERNAL-MKT",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Adapters/flags preparados; ligações não configuradas no preview.",
+      "files": [
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js"
+      ],
+      "tests": [
+        "tests/document-catalog.cjs",
+        "tests/stock-tables-browser.py",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs"
+      ],
+      "nextAction": "Validar OAuth/APIs oficiais/custos e apenas depois propor ativação isolada.",
+      "acceptance": "Métricas reais rastreáveis à API, sem conversões/receitas fabricadas ou investimento automático.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "HIST-BASELINE",
+      "priority": "P2",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: 121 PNG e 30 ZIP de evidência existem nas árvores históricas e faltam na branch atual; não foram apagados no Git remoto histórico.",
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Preservar referências/hashes históricos e preparar recuperação seletiva das evidências sintéticas.",
+      "acceptance": "121 PNG e 30 ZIP identificados por SHA; baseline nova comparada com revisão humana; sem importar ficheiros sensíveis.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "HIST-IDENTITY",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Consultar mapa de equivalências preservado em AUDITORIA-GERAL-EQUIVALENCIAS-20261023.md; recuperação integral autenticada não demonstrada.",
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Comparar ficheiros identity/authenticated-modules antigos com os proxies atuais e preparar recuperação seletiva.",
+      "acceptance": "Mapa equivalente ou recuperação de cada capacidade, sem reintroduzir outra identidade ou enfraquecer destino isolado.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "HISTORY-DEPTH",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Checkout continua shallow (verificado neste ciclo); não afirmar auditoria de todos os commits locais.",
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Usar as árvores remotas preservadas para completar o mapa de equivalências e lacunas.",
+      "acceptance": "Cada capacidade antiga tem destino atual ou recuperação proposta com dependências e risco.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "INF-AUTH",
+      "priority": "P0",
+      "state": "Bloqueio operacional aberto",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Proxy/testes existem. Fornecedor real de testes e sessões ponta a ponta não operacionais.",
+      "files": [
+        "api/v4-auth.js",
+        "lib/authorization-service.js",
+        "access-policy-core-v4.js"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-browser.py",
+        "tests/profile-audit-browser.py"
+      ],
+      "nextAction": "Validar fornecedor isolado, contas sintéticas, login/reset/expiração/revogação reais.",
+      "acceptance": "Duas sessões independentes; token/sessão revogados recusados; não usar storage como identidade.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "INF-CENTRAL",
+      "priority": "P0",
+      "state": "Bloqueio operacional aberto",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Preview só navegador. PostgreSQL descartável não é persistência UI/API entre dispositivos.",
+      "files": [
+        "api/v4-auth.js",
+        "lib/authorization-service.js",
+        "access-policy-core-v4.js",
+        "clinic-master-v4.js",
+        "clinic-single-source-v4.js",
+        "access-scope-v4.js",
+        "workspace-shell-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js",
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js",
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js",
+        "clinic-calendars-v4.js",
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js",
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js",
+        "operation-core-v4.js",
+        "stock-core-v4.js",
+        "supplier-company-core-v4.js",
+        "stock-closing-v4.js"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-browser.py",
+        "tests/profile-audit-browser.py",
+        "tests/stock-tables-browser.py",
+        "tests/consolidation.cjs",
+        "tests/global-layout-browser.py",
+        "tests/improvements.cjs",
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs",
+        "tests/runtime.cjs",
+        "tests/rh-20261022-browser.py",
+        "tests/performance.cjs",
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs",
+        "tests/operation-browser.py",
+        "tests/opening-composition-browser.py",
+        "tests/stock-closing-browser.py",
+        "tests/supplier-companies-browser.py"
+      ],
+      "nextAction": "Planear ligação UI/API existente por módulo, sem criar outro cadastro e sem ativar nesta fase.",
+      "acceptance": "Criação por A consultada por B noutro dispositivo, autorização efetiva e CAS concorrente.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "INF-RECOVERY",
+      "priority": "P0",
+      "state": "Bloqueio operacional aberto",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Cópia de código verificada não é restauro de dados/anexos centrais. Ensaio isolado por executar.",
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Definir RPO/RTO e testar restauro isolado a partir de backups verificados.",
+      "acceptance": "Recuperar dados e anexos com hashes e auditoria, sem escrever no ambiente original.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "INF-STORAGE",
+      "priority": "P0",
+      "state": "Bloqueio operacional aberto",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Arquivo/scanner privado real não configurado; uploads demonstrativos não são definitivos.",
+      "files": [
+        "clinic-master-v4.js",
+        "clinic-single-source-v4.js",
+        "access-scope-v4.js",
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js",
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js",
+        "clinic-calendars-v4.js",
+        "finance-core-v4.js",
+        "lib/finance-service.js",
+        "lib/finance-document-workflow.js",
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js",
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/stock-tables-browser.py",
+        "tests/consolidation.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py",
+        "tests/runtime.cjs",
+        "tests/rh-followup-browser.py",
+        "tests/rh-20261022-browser.py",
+        "tests/documents-browser.py",
+        "tests/document-workflows.cjs",
+        "tests/employee-documents-browser.py",
+        "tests/document-catalog.cjs",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs",
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Configurar arquivo privado de testes, scanner, retenção e revisão de segurança.",
+      "acceptance": "Upload/consulta/substituição por sessão; terceiros e outra clínica negados; scanner falha fechado.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "LEGACY-REVIEW",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Writers concorrentes de Operação continuam desativados/testados. Sem prova adicional de código morto: nenhuma remoção indiscriminada.",
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Separar fallback, delegação e escritor ativo; verificar dependências antes de qualquer remoção.",
+      "acceptance": "Remoção só com prova de não uso, regressões e retenção integral dos registos.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "MKT-AI",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Interface/templates/limites preparados; geração externa efetiva depende de fornecedor.",
+      "files": [
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js"
+      ],
+      "tests": [
+        "tests/document-catalog.cjs",
+        "tests/stock-tables-browser.py",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs"
+      ],
+      "nextAction": "Validar fornecedor seguro e testar geração real com dados não identificáveis.",
+      "acceptance": "Textos/imagens efetivos, identificação da origem e revisão humana, sem publicação ou despesa automática.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "MKT-COMPLIANCE",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Regras/limites existem; revisão jurídica e integração efetiva de todos os canais pendentes.",
+      "files": [
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js"
+      ],
+      "tests": [
+        "tests/document-catalog.cjs",
+        "tests/stock-tables-browser.py",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs"
+      ],
+      "nextAction": "Rever consentimentos/oposição/retenção e publicidade em saúde por canal.",
+      "acceptance": "Retirada de consentimento impede contacto e regista decisão; sem segmentação por dados sensíveis.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "PAY-ADAPTER",
+      "priority": "P2",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Há preparação arquitetural, nenhum formato proprietário certificado.",
+      "files": [
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js"
+      ],
+      "tests": [
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs"
+      ],
+      "nextAction": "Obter esquemas/versões oficiais e criar adaptadores só após a auditoria.",
+      "acceptance": "Importação validada nos programas alvo; não declarar compatibilidade apenas por gerar CSV.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "PAY-LEGAL",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Sem matriz legal completa validada; não há descontos automáticos.",
+      "files": [
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js"
+      ],
+      "tests": [
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs"
+      ],
+      "nextAction": "Obter validação jurídica/contabilística de ausências/subsídios e configurar regras com vigência.",
+      "acceptance": "Casos pagos/não pagos e regras complexas testados; nenhum desconto sem regra e confirmação.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "PAY-SOURCE",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Importação automática/conferência mensal e testes de vigência existentes; atalhos detalhados de origem e integração central ainda parciais.",
+      "files": [
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js"
+      ],
+      "tests": [
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs"
+      ],
+      "nextAction": "Ligar cada incidência à origem exata e concluir o resumo por clínica.",
+      "acceptance": "Clique abre marcação/escala/pedido certo; totais por clínica reconciliados com os totais únicos.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "PERF-YEAR",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Regras presentes/testadas em domínio; ciclo anual real completo não demonstrado.",
+      "files": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ],
+      "tests": [
+        "tests/performance.cjs",
+        "tests/rh-development-browser.py",
+        "tests/runtime.cjs"
+      ],
+      "nextAction": "Executar ciclo anual completo de dezembro com pesos, colegas e revisão autorizada.",
+      "acceptance": "Questionários sem autoavaliação; resultados reservados e histórico imutável das regras.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "PERM-CEO-01",
+      "priority": "P1",
+      "state": "Regressão corrigida; cobertura sintética existente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Regressão corrigida: negações explícitas e simulação sem herança; regressões preservadas.",
+      "files": [
+        "api/v4-auth.js",
+        "lib/authorization-service.js",
+        "access-policy-core-v4.js"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-browser.py",
+        "tests/profile-audit-browser.py"
+      ],
+      "nextAction": "Decidir explicitamente se CEO pode ter negações individuais e alinhar UI/atores de domínio/API.",
+      "acceptance": "43 negações do CEO deixam de ter flags contraditórias; simulação não ganha poderes superiores.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "REC-AI",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Serviços externos não configurados; não há transcrições reais aprovadas.",
+      "files": [
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js"
+      ],
+      "tests": [
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py"
+      ],
+      "nextAction": "Documentar fornecedor/consentimento/conservação e manter desligado até aprovação de segurança.",
+      "acceptance": "Áudio/transcrição reais autorizados, incertezas e edição, sem inferências pessoais/decisões automáticas.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "REC-EMAIL",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Fila/adapters e testes com Gmail simulado; caixa real não ligada.",
+      "files": [
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js",
+        "finance-core-v4.js",
+        "lib/finance-service.js",
+        "lib/finance-document-workflow.js",
+        "app.js",
+        "complaints-core-v4.js",
+        "operation-history-v4.js",
+        "attention-core-v4.js"
+      ],
+      "tests": [
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py",
+        "tests/documents-browser.py",
+        "tests/document-workflows.cjs",
+        "tests/employee-documents-browser.py",
+        "tests/complaints-enhancements-browser.py",
+        "tests/operation-history.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/improvements.cjs"
+      ],
+      "nextAction": "Validar serviço/email de testes no servidor e reconciliar outbox existente.",
+      "acceptance": "Entrega comprovada em caixa de testes, falhas/reenvios/idempotência e ausência de envios acidentais.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "REC-EXTRACT",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Campos editáveis/validação humana; extração geral de CV não demonstrada ponta a ponta.",
+      "files": [
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js"
+      ],
+      "tests": [
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py"
+      ],
+      "nextAction": "Definir extração real suportada e revisão humana; reutilizar a fila de CV.",
+      "acceptance": "Conjunto sintético de CV variados, campos ambíguos sinalizados, documento original preservado.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "REPORT-SCOPE",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Relatórios demo existem; nem todos os indicadores/combinações foram reconciliados centralmente.",
+      "files": [
+        "app.js",
+        "complaints-core-v4.js",
+        "operation-history-v4.js",
+        "attention-core-v4.js"
+      ],
+      "tests": [
+        "tests/complaints-enhancements-browser.py",
+        "tests/operation-history.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/improvements.cjs"
+      ],
+      "nextAction": "Reconciliar os indicadores de cada relatório com fontes e filtros efetivos.",
+      "acceptance": "Totais por período/clinica/perfil reproduzíveis e sem estimativas apresentadas como confirmadas.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "RH-EXIT",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Inativação/retenção existem; não há processo completo de devoluções e saída integrado.",
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "nextAction": "Consolidar saída com inativação, documentos, equipamentos e retenção existentes.",
+      "acceptance": "Checklist auditada de saída/devolução sem apagar conta, documentos ou movimentos.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "RH-LEGAL",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Política configurável/testada não substitui revisão jurídica do caso concreto.",
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "nextAction": "Validar formação de acordo com contrato, vigências e regime português aplicável.",
+      "acceptance": "Cálculo com casos contratuais aprovados e evidência da revisão; alteração contratual exige revalidação.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "RH-OCC",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Não localizado fluxo dedicado nem proteção específica de aptidão no código executável.",
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "nextAction": "Definir processo mínimo de aptidão ocupacional e proteção de dados antes de implementar.",
+      "acceptance": "Gestores só veem aptidão/restrições legalmente permitidas; dados clínicos ocupacionais segregados.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "RH-ORG",
+      "priority": "P2",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Não localizado módulo/fluxo no código executável atual.",
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "nextAction": "Planear organigrama aproveitando associações clínicas e funções existentes.",
+      "acceptance": "Hierarquia por clínica, permissões e histórico sem criar outros colaboradores.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "RH-TIME-01",
+      "priority": "P1",
+      "state": "Regressão corrigida; cobertura sintética existente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Regressão corrigida: horas da fonte canónica e contexto multiclínica; testes preservados.",
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "nextAction": "Delegar a projeção Tempo da ficha no motor canónico de ponto, sem migrar/apagar marcações.",
+      "acceptance": "Mesmo período/colaborador/clínica apresenta 8 h na ficha e no Livro; pausas/correções/ausências incluídas.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "SIGNATURE",
+      "priority": "P1",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Continua pendente: Sem fornecedor ou validação; não há assinatura eletrónica operacional.",
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "nextAction": "Selecionar solução adequada e validar base legal/processo; manter não operacional.",
+      "acceptance": "Assinatura verificável, identidade, integridade, evidência e conservação testadas.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "VIS-102",
+      "priority": "P2",
+      "state": "Reclassificado: falso positivo, sem correção necessária",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "102/102 revistos individualmente: falsos positivos por secções recolhidas; não são 102 erros em aberto.",
+      "files": [
+        "workspace-shell-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js"
+      ],
+      "tests": [
+        "tests/global-layout-browser.py",
+        "tests/improvements.cjs",
+        "tests/profile-audit-browser.py"
+      ],
+      "nextAction": "Classificar individualmente a geometria e verificar secções abertas reais.",
+      "acceptance": "Todos os 102 têm evidência e classificação; nenhum caso fica por confirmar.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "VIS-BASELINE",
+      "priority": "P2",
+      "state": "Parcial / pendente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Comparação visual determinística existente na suite design-system-browser, com limites; não é baseline universal de todos os ecrãs/mockups originais.",
+      "files": [
+        "workspace-shell-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js"
+      ],
+      "tests": [
+        "tests/global-layout-browser.py",
+        "tests/improvements.cjs",
+        "tests/profile-audit-browser.py"
+      ],
+      "nextAction": "Recuperar baseline preservada, fixar engine/fontes/dados e definir tolerâncias por região.",
+      "acceptance": "Comparação por pixels reproduzível e revisão humana das diferenças, não só screenshot disponível.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "VIS-EXPANDED",
+      "priority": "P2",
+      "state": "Regressão corrigida; cobertura sintética existente",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Seis sobreposições reais corrigidas; replay anterior de 12 contextos/60 secções sem interseções reais.",
+      "files": [
+        "workspace-shell-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js"
+      ],
+      "tests": [
+        "tests/global-layout-browser.py",
+        "tests/improvements.cjs",
+        "tests/profile-audit-browser.py"
+      ],
+      "nextAction": "Rever área de scroll/cabeçalho fixo da ficha e impedir oclusões de campos/ações.",
+      "acceptance": "Repetir os 12 contextos/60 secções; nenhum conflito de interação com fechar, Desenvolvimento ou fim de vigência.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    },
+    {
+      "id": "SEARCH-CLOCK-01",
+      "priority": "P1",
+      "state": "Regressão corrigida; cenários Chromium aprovados",
+      "reviewed": "2026-10-24",
+      "currentEvidence": "Histórico pessoal article.check não era indexado. Seletor partilhado corrigido com fixture da versão anterior e cenários positivos populados. Run 40129386415: suite 2490 verificações, zero falhas, incluindo 1290 populadas.",
+      "files": [
+        "global-search-v4.js",
+        "attendance-ui-v4.js"
+      ],
+      "tests": [
+        "tests/search-browser.py",
+        "tests/search-populated.py",
+        "tests/fixtures/global-search-before-attendance.js"
+      ],
+      "nextAction": "Disponível no novo preview para validação do utilizador. Não confundir com novo teste físico já executado.",
+      "acceptance": "Histórico autorizado encontrado por tipo/observações, termo inexistente oculta o registo e limpar recupera; seis perfis/formatos/temas.",
+      "operationallyComplete": false,
+      "evidenceRun": 40129386415
+    }
+  ],
+  "limits": [
+    "Revisão individual do registo anterior de 36 achados, não nova aprovação integral dos 14 grupos.",
+    "Uma suite verde não encerra lacunas declaradas nos probes.",
+    "Sem serviços/recursos novos nem alterações de produção."
+  ],
+  "currentCodeCommit": "b9e10f03f3f13a32f41a74c90af05b08e7945760",
+  "previousCompletedRun": 40113904877,
+  "preview": {
+    "url": "https://grupo-saude-v4-validacao-sintetica-l4ao48i8f-grupo-saude.vercel.app",
+    "deployment": "dpl_AwjFCabgjPyK4N9p6q5BoSSJAWV1",
+    "state": "READY",
+    "target": "staging",
+    "sha": "b9e10f03f3f13a32f41a74c90af05b08e7945760",
+    "backend": false,
+    "privateArchiveOperational": false,
+    "centralPersistenceOperational": false,
+    "ssoProtection": "all"
+  },
+  "evidenceSummary": {
+    "jobs": 37,
+    "chromiumSuites": 35,
+    "searchAssertions": 2490,
+    "populatedSearchAssertions": 1290,
+    "searchFailed": 0,
+    "quarterlyScenarioGroups": 11,
+    "physicalWritingChecksReportedPassed": 5,
+    "main": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+    "prDraft": true,
+    "productionUpdatedAt": 1791725971672
+  }
+}

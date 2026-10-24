@@ -100,3 +100,10 @@ Usar apenas nomes, emails e mensagens sintéticos. Registar modelo do tablet, ve
 | Guardar, fechar e reabrir o registo | Texto final corresponde ao pretendido, respeitando validações explícitas | Pendente físico |
 
 Não se deve declarar a tarefa integralmente validada no Android antes desta confirmação. Até lá, o estado é: correções de software testadas no âmbito automático documentado, confirmação física pendente.
+
+
+## Validação física comunicada pelo utilizador — 24/10/2026
+
+O utilizador confirmou **cinco testes de escrita concluídos com sucesso num tablet Android físico no preview `f87e344`**. Evidência: [registo estruturado](VALIDACAO-ANDROID-ESCRITA-20261024.json). Trata-se de validação manual fornecida pelo utilizador, não execução física realizada pelo agente.
+
+Os cinco casos concretos e as versões do dispositivo/teclado não foram discriminados na confirmação. Assim, fica encerrada a pendência dos cinco testes comunicados; não se converte automaticamente cada uma das 469 linhas em aprovação física individual. A coluna Android das matrizes conserva o âmbito por campo ainda não conciliado. GPS/microfone, todos os teclados e todos os cenários de rotação/seleção não recebem aprovação por inferência. As referências anteriores a físico pendente descrevem o estado anterior a esta confirmação.

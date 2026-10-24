@@ -1,6 +1,6 @@
 # Matriz global — 14 grupos do Grupo Saúde V4
 
-Atualizada em 23/10/2026 a partir da matriz preservada na consolidação ebc2df5 e da branch `dev/v4-stabilization-20261017`, base e11af05. Mantida a classificação histórica dos 14 grupos. Marketing e Reclamações aparecem como subáreas relacionadas; não foram criados grupos ou perfis paralelos.
+Atualizada em 24/10/2026: [revisão atual da estabilização](ESTABILIZACAO-RELATORIO-20261024.md) e [matriz de achados](ESTABILIZACAO-MATRIZ-20261024.csv). Base histórica preservada da consolidação ebc2df5 e classificação original dos 14 grupos. As linhas abaixo conciliam a implementação preservada com as pendências operacionais; Marketing e Reclamações continuam subáreas relacionadas, sem grupos ou perfis paralelos.
 
 **Estado global: parcial.** «Implementado em demonstração» não significa persistência central operacional. Evidências de testes anteriores não equivalem à revalidação deste commit. Ver [relatório e plano](AUDITORIA-CONSOLIDACAO-20261023.md) e [inventário](AUDITORIA-CONSOLIDACAO-INVENTARIO-20261023.json).
 
@@ -26,3 +26,7 @@ Nenhum grupo é declarado integralmente concluído apenas por abrir a página. A
 ## Atualização Caixas, ficha RH e Agenda — 23/10/2026
 
 Ver [entrega e evidências](ENTREGA-CAIXAS-RH-AGENDA-20261023.md), [inventário RH](RH-FICHA-AUDITORIA-20261023.md) e [âmbito da Agenda](AGENDA-ACESSOS-20261023.md). Código/testes aprovados em `0d9533f`; 33 jobs GitHub Actions, 606 verificações de comprovativos e 1 068 de Agenda/RH. Esta atualização não promove nenhum grupo a integralmente concluído: UI central autenticada, arquivo privado e serviços externos continuam pendentes. A Agenda não cria um 15.º grupo nem substitui agenda clínica.
+
+## Revisão da estabilização — 24/10/2026
+
+[Estado por achado e evidências](ESTABILIZACAO-RELATORIO-20261024.md) · [Matriz CSV atual](ESTABILIZACAO-MATRIZ-20261024.csv). Os 14 grupos mantêm estado parcial para operação real. Cinco testes de escrita foram aprovados pelo utilizador num tablet Android físico em f87e344; isso não encerra GPS nem persistência central. Os quatro P0 continuam abertos, com [plano isolado revisto](P0-PREPARACAO-ISOLADA-20261023.md). Novas fórmulas dos bónus continuam sem aprovação/pagamento ativados. O histórico dos relatórios anteriores foi preservado; datas/SHA antigos não representam automaticamente o preview atual.

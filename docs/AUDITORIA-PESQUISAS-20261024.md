@@ -1,5 +1,7 @@
 # Auditoria funcional das pesquisas — 24/10/2026
 
+> Atualização de estabilização: [relatório e novo preview b9e10f0](ESTABILIZACAO-RELATORIO-20261024.md). Run 40129386415: 37/37 jobs, suite de pesquisas 2490 verificações sem falhas, incluindo 1290 populadas. A matriz CSV foi atualizada. Os ciclos ff0b6a2 e anteriores abaixo são históricos, não o preview mais recente.
+
 Branch: `dev/v4-stabilization-20261017`. Especificação: [último comentário do PR #13](https://github.com/miguelaalves84-dotcom/Grupo-Saude/pull/13#issuecomment-6383868420). PR em rascunho; sem merge, produção, migrações ou dados reais.
 
 ## Entrega verificada

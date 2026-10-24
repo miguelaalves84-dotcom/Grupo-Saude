@@ -19,3 +19,27 @@ Estado: **PREPARADO PARA ENSAIOS DESCARTÁVEIS / BLOQUEADO PARA OPERAÇÃO CENTR
 6. Publicar preview integrado separado do estático apenas após validação; RH, Stock, Financeiro e Operação mantêm escritores reais desativados até autorização aplicável.
 
 `tests/p0-isolation-boundaries.cjs` invoca os endpoints reais em contextos VM sem ambiente de aplicação herdado. Exige recusa em preview sem recursos confirmados e em produção, mesmo com flags de módulo presentes, e zero pedidos externos. Não é um teste de autenticação real nem um mecanismo para aprovar recursos por variáveis declarativas.
+
+## Plano de execução e aceitação revisto — 24/10/2026
+
+Esta atualização prepara ensaios; não instala Better Auth, não cria recursos e não ativa escritores. O runtime observado não tem segredos nem identidades remotas de backend configurados. A observação de conectividade não confirma quotas, região, acesso às contas ou plano gratuito de fornecedores. Nenhuma operação paga está autorizada.
+
+| Etapa | Trabalho isolado proposto | Teste positivo e negativo obrigatório | Condição de avanço |
+| --- | --- | --- | --- |
+| 0 — destino e custos | Confirmar acessos, quotas gratuitas atuais, região UE e IDs exclusivos do projeto/base/arquivo de testes; inventariar serviços existentes para evitar outro cadastro | Recusar IDs de produção, destinos sem marcador sintético e qualquer recurso que exija faturação | Lista de recursos/quotas/limites verificada; se houver custo ou âmbito novo, parar e apresentar aprovação concreta |
+| 1 — compatibilidade | Comparar migrações e esquema preservados; recuperar só capacidades necessárias de identidade a6edf53 conforme mapa de equivalências | Base vazia e snapshot sintético legado; reaplicação/migração aditiva sem duplicar utilizadores, clínicas ou documentos | Plano de alterações e backup inicial verificados; runtime com privilégios mínimos, migração com credencial separada |
+| 2 — identidade | Integrar o fornecedor de testes selecionado com proxy existente; inscrição pública desligada, seis contas sintéticas; email de recuperação apenas numa caixa de ensaio | Login/erro genérico, reset de uso único/expirado, logout, expiração, revogação em duas sessões; cookies seguros, CSRF/origem, acesso direto à API e simulação sem herança | Provas browser→API→sessão; identidade nunca confiada ao localStorage; fornecedor não declarado instalado antes de execução real |
+| 3 — central | Ligar progressivamente identidade/perfis/permissões/clínicas; preservar identificadores e contratos UI/API existentes | A grava e B autorizado consulta em contexto/dispositivo independente; B não autorizado recebe 403/404 sem dados; revogação imediata; CAS concorrente e rollback integral, auditoria sem PII desnecessária | Registos e contadores reconciliados com a base, incluindo atualização após reload; RH/Stock/Financeiro/Operação mantêm flags de escritores desligadas |
+| 4 — arquivo | Reutilizar serviços de documentos e catálogo, arquivo privado e quarentena separados; validar scanner/MIME/tamanho/hash/versionamento | Upload sintético PDF/JPEG/PNG, documento inválido, acesso anónimo/outra clínica, URL expirada/revogada, substituição e download byte a byte; nunca publicar CV em assets | Arquivo real privado comprovado; prazos/bases legais e retenção aprovados; sem eliminação automática nem gravações reais |
+| 5 — recuperação | Backup cifrado de base, objetos e metadados/auditoria para destino separado; manifestos com hashes e acesso mínimo | Restaurar para terceira base/arquivo de testes, com IDs próprios; comparar contagens, relações, versões, hashes e autorização; indisponibilidade parcial e objeto em falta devem falhar claramente | Restauro documentado com duração e perda observadas. Objetivos RPO/RTO ainda a aprovar; não inventar valores nem classificar checksum local como restauro |
+| 6 — preview integrado | Projeto de testes separado do demonstrativo, sem reutilizar domínio principal; deploy protegido com apenas dados sintéticos | Seis perfis, multiclínica, dois utilizadores/sessões, tablet/telemóvel, temas, regressões, scanner, revogação, auditoria e recuperação | Relatório operacional por capacidade; só depois propor ativação adicional. Nenhum merge/publicação de produção autorizado |
+
+### Evidências mínimas por ensaio
+
+Registar SHA do código, IDs não secretos dos destinos, versão da migração, início/fim, dados sintéticos usados, utilizadores/sessões, resultado esperado/observado e evidência de recusa. Logs e artefactos não podem conter cookies, tokens, credenciais, URLs assinados ou dados pessoais reais. Guardar configuração secreta apenas no gestor de segredos; não pedir credenciais nesta conversa.
+
+Backup de código, backup de base e backup de anexos são três objetos diferentes. O restauro deve preservar ligações entre os três; a expiração de artefactos GitHub não é uma política de backup. Antes de qualquer eliminação automática, confirmar política legal e testar retenção suspensa e permissões de eliminação.
+
+### Bloqueios atuais de entrada em funcionamento real
+
+Os quatro P0 continuam abertos até às provas acima. Quotas/acessos dos fornecedores, gestão segura de segredos, autenticação ponta a ponta, integração UI/API, arquivo/scanner, política legal e restauro real não são substituídos pelas suites isoladas. Não foram criados recursos, consultadas bases reais ou feitas migrações nesta revisão.

@@ -30,7 +30,7 @@ Não se apagaram funcionalidades ou controladores. A extração foi feita por bl
 
 | Área | Alteração desta entrega | Estado de validação |
 |---|---|---|
-| Agenda | Semana inicial, barra contextual antes dos filtros, blocos por pessoa com hora/título separados, grelha contínua, campos compactos e modal contido | A executar no Chromium; criação/edição/reagendamento preservados |
+| Agenda | Semana inicial, barra contextual antes dos filtros, filtros adicionais recolhíveis, pesquisa única com Ctrl+F, blocos por pessoa com hora/título separados, grelha contínua e modal contido | A executar no Chromium; criação/edição/reagendamento preservados |
 | Recursos Humanos / ficha | Hierarquia e espaçamento dos componentes existentes; secções recolhíveis e único editor mantidos | A executar |
 | Financeiro / Caixas | Campos, tabelas, indicadores e modais partilhados; folhas de estados locais eliminadas | A executar |
 | Dia Clínico / Operação | Cartões, formulários e tarefas usam os componentes comuns; equipa, cálculos e comandos intactos | A executar |
@@ -54,3 +54,11 @@ Antes da reconciliação local foi guardado e verificado um backup privado de 35
 Sem alterações a regras de negócio, permissões, backend, persistência, dados ou históricos. Nenhuma migração, serviço real, publicação em produção ou merge. Mantêm-se as limitações de persistência local e as novas fórmulas de bónus apenas preliminares da entrega anterior.
 
 SHA final, CI, capturas e URL READY serão registados depois de verificados.
+
+## Revisão das primeiras capturas
+
+Foram descarregadas e consultadas capturas reais de Financeiro, ficha RH, Agenda, Dashboard e tema escuro móvel da execução inicial. A revisão identificou excesso de altura no cabeçalho em tablet/móvel e na área de filtros da Agenda. Corrigidos na fundação: notificações como ícone com contador e nome acessível preservado, controlos de perfil organizados, aviso de desenvolvimento redundante no cabeçalho oculto apenas no breakpoint compacto (o aviso completo da demonstração continua visível), botões/links com áreas de toque e hierarquia do menu móvel reforçada.
+
+A pesquisa genérica da Agenda não pesquisava os cartões desse calendário: foi retirada só dessa área, reutilizando a pesquisa funcional existente e encaminhando Ctrl+F para ela. As pesquisas dos restantes módulos foram preservadas. Filtros de agenda, clínica e estado continuam no mesmo formulário, numa secção adicional recolhível, aberta quando há filtros ativos. O teste funcional foi adaptado para abrir essa secção antes de escolher o estado, sem diminuir a validação.
+
+A primeira execução válida teve 32 jobs aprovados e duas falhas: hierarquia tipográfica do menu móvel (corrigida) e comparação de controlos RH entre fases que reutilizavam o estado modificado pelos renderers da primeira fase. A comparação agora repõe o mesmo snapshot sintético antes de cada fase e grava diferenças de controlos, se existirem, para diagnóstico. Não foram modificados dados/regras do programa para fazer passar esse teste. A execução completa seguinte é obrigatória.

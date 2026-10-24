@@ -5,6 +5,7 @@
 .agenda-toolbar [data-agenda-mode][aria-pressed=true]{background:var(--soft);color:var(--accent);border-color:var(--line)}
 .agenda-toolbar [data-agenda-action=new]{margin-inline-start:auto;background:var(--primary);border-color:var(--primary);color:#fff}
 .agenda-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;align-items:end;margin:0}
+.agenda-controls>.agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr)) auto auto}.agenda-more-filters>summary{display:flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:12px;font-weight:650;cursor:pointer;color:var(--ink)}.agenda-more-filters[open]{grid-column:1/-1}.agenda-more-filters[open]>summary{margin-bottom:12px}.agenda-more-filters>div{margin-top:12px}#agendaContent>.notice{font-size:12px;padding:10px 12px}
 .agenda-filters label{display:flex;flex-direction:column;gap:6px;min-width:0;margin:0}
 .agenda-filters input,.agenda-filters select,.agenda-filters textarea{width:100%;box-sizing:border-box}
 .agenda-scroll{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface);overscroll-behavior-x:contain}
@@ -30,7 +31,7 @@ section.agenda-today{background:var(--soft);box-shadow:inset 0 3px var(--accent)
 #agendaDialog .agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
 #agendaDialog dd{margin:4px 0 16px;overflow-wrap:anywhere}#agendaDialog dt{font-size:12px;color:var(--muted);font-weight:700}
 @media(max-width:600px){
- .agenda-controls{padding:14px}.agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.agenda-filters button{grid-column:1/-1}.agenda-toolbar{gap:6px}.agenda-toolbar button{flex:1 1 auto;padding:8px}.agenda-toolbar [data-agenda-action=new]{margin-inline-start:0;flex-basis:100%}
+ .agenda-controls{padding:14px}.agenda-controls>.agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.agenda-controls>.agenda-filters>button{grid-column:auto}.agenda-more-filters{grid-column:auto}.agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.agenda-filters button{grid-column:1/-1}.agenda-toolbar{gap:6px}.agenda-toolbar button{flex:1 1 auto;padding:8px}.agenda-toolbar [data-agenda-action=new]{margin-inline-start:0;flex-basis:100%}
  .agenda-month{grid-template-columns:repeat(7,100px)}.agenda-week{grid-template-columns:repeat(7,140px);min-width:980px}section.agenda-day{padding:10px}
  #agendaDialog{max-height:calc(100dvh - 20px)}#agendaDialog .agenda-filters{grid-template-columns:1fr}
 }

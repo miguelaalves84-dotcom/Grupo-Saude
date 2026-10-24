@@ -7,7 +7,7 @@ results=[];inventory=[]
 def check(name,ok,**extra):
  row={**scope,'test':name,'passed':bool(ok),**extra};results.append(row);assert ok,row
 def norm(s):return ''.join(x for x in unicodedata.normalize('NFD',s) if not unicodedata.combining(x)).lower().strip()
-RECORDS='[data-search-item="employee"],table tbody tr,.clinic-master-row,.kanban-card,.candidate-card,.funnel-card,.task-card,.task-row,.conversation,.audit-item,.audit-line,.list-item,.compliance-row,[data-search-item],.card .row'
+RECORDS='[data-search-item="employee"],table tbody tr,.clinic-master-row,.kanban-card,.candidate-card,.funnel-card,.task-card,.task-row,.conversation,.audit-item,.audit-line,.list-item,.compliance-row,[data-search-item],.card .row,#tablesContent .cards > .card'
 with sync_playwright() as pw:
  b=pw.chromium.launch(args=['--no-sandbox'])
  try:
@@ -28,7 +28,7 @@ with sync_playwright() as pw:
        if native.count()!=1 or not native.is_visible():continue
        records=root.locator(selector);before=records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')
        if not before:inventory.append({**scope,'field':field,'status':'No populated records; positive search not tested'});continue
-       text=records.first.get_attribute('data-clinic-document-row') or records.first.inner_text();terms=re.findall(r'[\wÀ-ÿ]{4,}',text)
+       text=records.first.get_attribute('data-clinic-document-row') or (records.first.locator('b,strong').first.inner_text() if records.first.locator('b,strong').count() else records.first.inner_text());terms=re.findall(r'[\wÀ-ÿ]{2,}',text)
        if not terms:continue
        native.fill(norm(terms[0]).upper());check(field+' case accent partial match',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')>0)
        native.fill('zzzz-no-native-match-98247');check(field+' no results',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==0)
@@ -38,6 +38,11 @@ with sync_playwright() as pw:
        options=root.locator('#dashClinic option[value]:not([value=""])');total=options.count()
        if total:
         term=options.first.inner_text();dashboard.fill(norm(term).upper());check('dashboard clinic option match',options.evaluate_all('(xs)=>xs.some(x=>!x.hidden)'));dashboard.fill('zzzz-no-clinic');check('dashboard no matching option',options.evaluate_all('(xs)=>xs.every(x=>x.hidden)'));dashboard.fill('');check('dashboard clear',options.evaluate_all('(xs)=>xs.every(x=>!x.hidden)'))
+      person_search=root.locator('#financePersonSearch')
+      if person_search.count():
+       choices=root.locator('#financeQuery [name=employeeId] option');before=choices.count();term=choices.first.inner_text().strip();target=choices.first.get_attribute('value')
+       person_search.fill(norm(term).upper());check('finance authorised person option match',choices.first.evaluate('(o)=>!o.hidden'));person_search.fill('zzzz-no-finance-person');check('finance no person match',choices.evaluate_all('(xs)=>xs.every(x=>x.hidden)'));person_search.fill('');check('finance person clear preserves options',choices.count()==before and choices.evaluate_all('(xs)=>xs.every(x=>!x.hidden)'))
+       p.evaluate('''()=>{const call=FinanceDemoV4.call;window.__searchStatementProof=[];FinanceDemoV4.call=async function(action,body){const result=await call(action,body);if(action==='statement')window.__searchStatementProof.push({requested:body.employeeId,returned:result.employeeId});return result}}''');root.locator('#financeQuery [name=employeeId]').select_option(target);root.locator('#financeQuery [type=submit]').click();p.wait_for_function('window.__searchStatementProof.length>0');check('person selection opens actual matching statement',p.evaluate('(id)=>window.__searchStatementProof.some(x=>x.requested===id&&x.returned===id)',target))
       search=root.locator('.gs-search-input')
       if search.count()!=1 or not search.is_visible():continue
       rows=root.locator(RECORDS);baseline=rows.count();visible_before=rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')
@@ -52,6 +57,8 @@ with sync_playwright() as pw:
       if term:
        search.fill(norm(term).upper());check('partial case accent tolerant match',root.locator('[data-gs-search-hidden]').count()<baseline)
        search.fill('');check('native clear restores records',rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==visible_before)
+      if view=='hr' and root.locator('[data-search-item=employee]').count():
+       search.fill('zzzz-no-rerender-match');p.evaluate('V4ClinicHR.showEmployees()');p.wait_for_timeout(80);check('HR rerender reapplies query without removing records',root.locator('[data-search-item=employee]:visible').count()==0);search.fill('');check('HR clear after rerender recovers all records',root.locator('[data-search-item=employee]:visible').count()>0)
       if view=='hr' and rows.count():
        employee=root.locator('[data-search-item=employee]').first
        if employee.count():employee.click();expect(p.locator('#modal')).to_be_visible();check('search result opens employee record',p.locator('#modalBody').inner_text().strip()!='');p.locator('#modal').evaluate('(d)=>d.close()')

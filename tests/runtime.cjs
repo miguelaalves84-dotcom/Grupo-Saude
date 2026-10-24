@@ -35,7 +35,7 @@ function environment(initial){
  const context={document,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v))},console,Intl,Date,Math,JSON,Set,Map,URL,alert(){},confirm:()=>false,prompt:()=>null,location:{reload(){}},navigator:{},MutationObserver:class{observe(){}},CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail}},setTimeout:(f,delay)=>{timers.push({f,delay});return timers.length},clearTimeout(){},setInterval(){},queueMicrotask:f=>timers.push({f,delay:0}),addEventListener(){},dispatchEvent(){}};
  context.matchMedia=()=>({matches:false});context.window=context;vm.createContext(context);
  const run=(f,source)=>vm.runInContext(source??fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f,timeout:2000});
- run('safe-actions-v4.js');run('operation-core-v4.js');run('operation-history-v4.js');run('document-catalog-core-v4.js');
+ run('safe-actions-v4.js');run('chat-core-v4.js');run('operation-core-v4.js');run('operation-history-v4.js');run('document-catalog-core-v4.js');
  const flush=()=>{const batch=timers.splice(0).sort((a,b)=>a.delay-b.delay);for(const t of batch)t.f()};
  return {context,document,elements,run,flush,nav,read:()=>JSON.parse(storage.get(KEY)),write:s=>storage.set(KEY,JSON.stringify(s))};
 }

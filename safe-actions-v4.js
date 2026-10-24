@@ -26,5 +26,37 @@
  }
  for(const event of ['click','change','input','submit'])document.addEventListener(event,dispatch);
  document.addEventListener('keydown',event=>{const node=event.target.closest?.('[data-gs-action][role="button"]');if(node&&event.target===node&&!['BUTTON','INPUT','SELECT'].includes(node.tagName)&&['Enter',' '].includes(event.key)){event.preventDefault();node.click();}});
- window.GSSafeActionsV4=Object.freeze({attrs});
+ /* Native editors must remain connected while an IME owns their selection.
+    Never rewrite values, replay keystrokes or suppress the device's correction. */
+ const composingNodes=new WeakSet(),inputBindings=new WeakMap(),renderScopes=new WeakMap();let editingScope=0;
+ const composing=(node,event)=>!!event?.isComposing||event?.keyCode===229||!!node&&composingNodes.has(node);
+ const freeField=node=>!!node&&!node.disabled&&!node.readOnly&&(node.tagName==='TEXTAREA'||node.isContentEditable||node.tagName==='INPUT'&&['text','search','email','tel','url','password','number'].includes(node.type));
+ document.addEventListener('compositionstart',e=>{if(e.target&&typeof e.target==='object')composingNodes.add(e.target)},true);
+ document.addEventListener('compositionend',e=>{if(e.target&&typeof e.target==='object')composingNodes.delete(e.target)},true);
+ for(const name of ['gs:user-changed','gs:permissions-applied'])document.addEventListener(name,()=>editingScope++);
+ function bindInput(node,callback){
+  if(!node)return;const old=inputBindings.get(node);if(old){old.callback=callback;return}
+  const binding={callback,pending:false};inputBindings.set(node,binding);
+  const schedule=event=>{if(composing(node,event)||binding.pending)return;binding.pending=true;queueMicrotask(()=>{binding.pending=false;if(node.isConnected&&!composing(node))binding.callback(event)})};
+  for(const name of ['input','search','compositionend'])node.addEventListener(name,schedule);
+ }
+ function renderAround(root,html,selector,identity=''){
+  const key=editingScope+':'+identity,previous=renderScopes.get(root);renderScopes.set(root,key);
+  const anchor=root.querySelector?.(selector),focused=document.activeElement;
+  if(previous!==key||!anchor||!freeField(focused)||!anchor.contains(focused)){root.innerHTML=html;return false}
+  const template=document.createElement('template');template.innerHTML=html;const next=template.content.querySelector(selector);
+  if(!next){root.innerHTML=html;return false}
+  const path=(node,end)=>{const out=[];for(;node&&node!==end;node=node.parentNode)out.unshift(node);return out},oldPath=path(anchor,root),newPath=path(next,template.content);
+  if(oldPath.length!==newPath.length||oldPath.some((node,i)=>node.nodeName!==newPath[i].nodeName)){root.innerHTML=html;return false}
+  /* Patch only siblings along the path: never detach the editor or its ancestors. */
+  let oldParent=root,newParent=template.content;
+  for(let i=0;i<oldPath.length;i++){
+   const keep=oldPath[i],replacement=newPath[i],children=[...newParent.childNodes];
+   for(const child of [...oldParent.childNodes])if(child!==keep)child.remove();
+   let after=false;for(const child of children){if(child===replacement){after=true;continue}if(after)oldParent.appendChild(child);else oldParent.insertBefore(child,keep)}
+   oldParent=keep;newParent=replacement;
+  }
+  return true;
+ }
+ window.GSSafeActionsV4=Object.freeze({attrs,composing,freeField,bindInput,renderAround});
 })();

@@ -117,3 +117,7 @@ Não se afirma cobertura de todas as combinações possíveis de campos, pagina�
 ### Acabamento visual adicional comprovado nas capturas
 
 A revisão manual da captura tablet de Tabelas encontrou duas entradas «Agente de Testes»: `shortcut_testAgent`, organizado pelo menu atual, e `gsTestAgentButton`, injetado pelo inicializador antigo aos 1 200 ms. Ambos abriam `GSTestAgentV4.panel`. O inicializador antigo passa a servir apenas de fallback quando não existe o atalho canónico, e a organização do menu remove apenas a entrada redundante se ambas existirem. O módulo, painel, dados e controlador são preservados. Acrescentada verificação dos seis perfis para unicidade e permissões do destino.
+
+O teste de gestos de candidatos aguardava o ID do botão antigo para sincronizar a inicialização. A espera passou a usar `GSTestAgentV4.ready`, ativado apenas depois de terminar a preparação existente; todos os gestos, confirmações e verificações de persistência continuam no teste. Não se substituiu a espera por um atraso arbitrário.
+
+Na revisão dos filtros de Stock, a categoria fica visível apenas no inventário, onde é aplicada. A seleção é preservada quando se regressa ao inventário. As linhas do histórico de compras/preços também são indexadas pelo mesmo campo, quando o perfil já tem acesso a custos. A suite passou a testar categoria + termo + limpeza e pesquisa de um pedido de material efetivamente criado.

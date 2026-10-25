@@ -35,3 +35,8 @@ Ver [entrega e evidências](ENTREGA-CAIXAS-RH-AGENDA-20261023.md), [inventário 
 ## Atualização do Chat — bd71096
 
 [Entrega e testes do novo Chat](CHAT-IMPLEMENTACAO-20261024.md): run 40135703178, 38 jobs aprovados, 924 verificações específicas em 36 contextos e 13 grupos de testes de domínio/API. [Matriz](MATRIZ-CHAT-20261024.csv). Reutilizados App/conversations/notificações/políticas/validador; escritor legado sem âmbito desativado sem apagar dados. O grupo 12 mantém-se parcial para operação real: UI local não foi ligada à autenticação/API central e arquivo privado não está ativo. Nenhum P0 é encerrado por esta entrega.
+
+
+## Redesign do Chat — 25/10/2026
+
+[Entrega atual e preview](CHAT-REDESIGN-20261025.md), código 07f3d4b: 38 jobs aprovados, 1560 verificações específicas em 36 contextos, 15 grupos de testes de domínio/API. Lista/pesquisa única, reações por toque com chips, respostas e navegação de uma conversa no telemóvel; mantidas permissões e expiração. Grupo 12 continua parcial para operação central, com os quatro P0 intactos. [Matriz](MATRIZ-CHAT-REDESIGN-20261025.csv).

@@ -1,5 +1,7 @@
 # Chat V4 — implementação e limites, 24/10/2026
 
+> Relatório histórico da primeira interface. Ver o [redesign atual aprovado pelo utilizador e novo preview](CHAT-REDESIGN-20261025.md). Os SHA, capturas e 924 verificações abaixo pertencem ao ciclo anterior.
+
 Branch `dev/v4-stabilization-20261017`, PR #13 draft. Base preservada `90983ba`; nenhum merge, produção, recurso pago, migração ou dado real. Especificações: [6389345466](https://github.com/miguelaalves84-dotcom/Grupo-Saude/pull/13#issuecomment-6389345466) e [6389411318](https://github.com/miguelaalves84-dotcom/Grupo-Saude/pull/13#issuecomment-6389411318), consolidadas com a instrução atual do utilizador.
 
 ## Auditoria e consolidação

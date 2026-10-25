@@ -109,3 +109,5 @@ textarea[data-gs-autosize]{min-height:44px!important;max-height:none!important;o
 .workspace-search{position:relative;flex:1 1 170px;max-width:260px;min-width:140px}.workspace-search input{width:100%;background:var(--surface-subtle)}
 .workspace-search-results{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:25;padding:8px;border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:var(--shadow-dialog);max-height:55dvh;overflow:auto}.workspace-search-results[hidden]{display:none}.workspace-search-results button{display:block;width:100%;text-align:left;margin:3px 0}
 @media(max-width:760px){.workspace-search{max-width:none;flex-basis:100%}.top-actions{gap:6px}}
+
+.workspace-clinic{margin:0;min-width:150px;max-width:220px;font-size:10px}.workspace-clinic select{font-size:12px;min-width:0;max-width:100%;width:100%}

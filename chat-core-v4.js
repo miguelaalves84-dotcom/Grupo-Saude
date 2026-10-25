@@ -10,7 +10,8 @@ function directory(s,a){assert(a);return people(s).filter(p=>pair(a,p));}
 const members=c=>[...new Set((c.members||[]).map(String))],kind=c=>c.kind||(members(c).length>2?'legacy-group':'direct');
 function canRead(s,a,c){if(!enabled(a)||!c||!members(c).includes(String(a.id)))return false;if(kind(c)==='group')return true;const ps=people(s);return members(c).every(id=>id===String(a.id)||pair(a,ps.find(x=>String(x.id)===id)));}
 function conversation(s,a,id){assert(a);const c=(s.conversations||[]).find(c=>String(c.id)===String(id));if(!canRead(s,a,c))fail('Conversa não autorizada.');return c;}
-function list(s,a){assert(a);return(s.conversations||[]).filter(c=>canRead(s,a,c)).map(c=>c.autoTitle&&kind(c)==='direct'?{...c,title:people(s).find(p=>members(c).includes(String(p.id))&&String(p.id)!==String(a.id))?.name||'Conversa individual'}:c);}
+function displayTitle(s,a,c){if(!canRead(s,a,c))fail('Conversa não autorizada.');return kind(c)==='direct'&&(c.autoTitle||!String(c.title||'').trim())?people(s).find(p=>members(c).includes(String(p.id))&&String(p.id)!==String(a.id))?.name||'Conversa individual':c.title;}
+function list(s,a){assert(a);return(s.conversations||[]).filter(c=>canRead(s,a,c)).map(c=>({...c,title:displayTitle(s,a,c)}));}
 function groups(s,a){if(!manager(a))fail('Gestão de grupos exclusiva de CEO/Administração.');return(s.conversations||[]).filter(c=>['group','legacy-group'].includes(kind(c))).map(c=>({id:c.id,title:c.title,members:members(c),revision:c.revision||0,kind:kind(c)}));}
 function unread(s,a){return list(s,a).flatMap(c=>(c.messages||[]).filter(m=>String(m.from)!==String(a.id)&&!(m.readBy||[]).map(String).includes(String(a.id)))).length;}
 function expiry(x){const at=Date.parse(x.uploadedAt);return Number.isFinite(at)?at+TTL:NaN;}
@@ -40,4 +41,4 @@ if(action==='create'){
  c.revision=(c.revision||0)+1;
 }
 c.receipts||=[];c.receipts.push({by:id,requestId,fingerprint,result});return{state:s,result};}
-return{TTL,people,clinics,pair,enabled,manager,directory,kind,members,canRead,conversation,list,groups,unread,expiry,attachment,command};});
+return{TTL,people,clinics,pair,enabled,manager,directory,kind,members,canRead,conversation,displayTitle,list,groups,unread,expiry,attachment,command};});

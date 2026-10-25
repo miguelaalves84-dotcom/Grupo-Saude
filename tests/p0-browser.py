@@ -22,7 +22,7 @@ with sync_playwright() as p:
  expect(page.locator('#cmName')).to_have_value(name)
  page.locator('#modal .modal-head button').click()
  # Shared dispatcher receives strings as JSON data, including imports and document-like fields.
- page.evaluate('''()=>{window.__p0Seen=[];const original=HRMasterV4.open;HRMasterV4.open=(...args)=>window.__p0Seen.push(args);const box=document.createElement('div');box.id='p0-actions';document.body.append(box);for(const value of ["x');window.__p0XSS=3;//",'\"><img src=x onerror=window.__p0XSS=4>',"document&'\\\"<>"]){const b=document.createElement('button');b.textContent=value;box.insertAdjacentHTML('beforeend','<button '+GSSafeActionsV4.attrs('HRMasterV4.open',[value,'docs'])+'>Sintético</button>');}window.__p0Original=original;}''')
+ page.evaluate('''()=>{window.__p0Seen=[];const original=HRMasterV4.open;HRMasterV4.open=(...args)=>window.__p0Seen.push(args);const box=document.createElement('div');box.id='p0-actions';document.querySelector('main').append(box);for(const value of ["x');window.__p0XSS=3;//",'\"><img src=x onerror=window.__p0XSS=4>',"document&'\\\"<>"]){const b=document.createElement('button');b.textContent=value;box.insertAdjacentHTML('beforeend','<button '+GSSafeActionsV4.attrs('HRMasterV4.open',[value,'docs'])+'>Sintético</button>');}window.__p0Original=original;}''')
  for b in page.locator('#p0-actions button').all():b.click()
  assert page.evaluate('window.__p0XSS')==0
  assert len(page.evaluate('window.__p0Seen'))==3

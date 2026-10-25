@@ -26,6 +26,10 @@ with sync_playwright() as pw:
       check('header clinic reuses exactly the existing scoped options',p.evaluate('''()=>{const v=document.querySelector('main .view.active'),source=v?.querySelector('#dashClinic,#opClinic,#stockClinic,#complaintFilterClinic,#mkFilterClinic,#agendaFilters select[name="clinicId"]'),mirror=document.getElementById('workspaceClinic');if(!source)return mirror.disabled;return mirror.value===source.value&&JSON.stringify([...mirror.options].map(o=>o.value))===JSON.stringify([...source.options].filter(o=>!o.hidden).map(o=>o.value))}'''),module=view,**scope)
       check('one expanded navigation group',p.locator('#nav details[open]').count()<=1,module=view,**scope)
       if device=='tablet' and actor in ['u1','test_adm'] or view in ['dashboard','chat','agenda']:p.screenshot(path=str(OUT/f'{actor}-{device}-{theme}-{view}.png'),full_page=False)
+      if view=='hr':check('one performance entry per employee workspace',p.get_by_role('button',name='Avaliação de Desempenho',exact=True).count()<=1,module=view,**scope)
+      if view=='chat':
+       p.evaluate('App.newConversation()');p.locator('#modal [name=member]').first.check();peer=p.locator('#modal [name=member]:checked').first.input_value();check('direct subject is optional in the real form',p.locator('#convTitle').input_value()=='',module=view,**scope);p.get_by_role('button',name='Criar conversa',exact=True).click();p.wait_for_timeout(100)
+       check('blank-subject direct conversation renders the peer name',p.locator('.chat-thread-title h3').inner_text()==p.evaluate('(id)=>GSChatCore.people(JSON.parse(localStorage.getItem("grupo_saude_v4_demo_2"))).find(p=>String(p.id)===id).name',peer),module=view,**scope)
       for field in p.locator(f'#{view} textarea:visible').all()[:2]:
        old=field.input_value();field.fill('São João — ação, informação e atenção. '*25);p.wait_for_timeout(60)
        check('textarea grows without internal scrollbar or content loss',field.evaluate('(e)=>e.scrollHeight<=e.clientHeight+2&&e.value.endsWith("atenção. ")&&e.rows===1'),module=view,**scope)

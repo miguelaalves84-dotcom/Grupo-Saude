@@ -111,3 +111,9 @@ textarea[data-gs-autosize]{min-height:44px!important;max-height:none!important;o
 @media(max-width:760px){.workspace-search{max-width:none;flex-basis:100%}.top-actions{gap:6px}}
 
 .workspace-clinic{margin:0;min-width:150px;max-width:220px;font-size:10px}.workspace-clinic select{font-size:12px;min-width:0;max-width:100%;width:100%}
+
+/* Keep identity and actions compact; the persistent synthetic banner already carries the environment warning. */
+.topbar>div:has(>.env){display:none}.workspace-clinic{max-width:180px}.workspace-search{max-width:220px}
+#ceoAreaBox{gap:6px!important;order:5;min-width:0;max-width:100%}#ceoAreaBox>span{font-size:10px!important}#ceoAreaSelect{min-width:150px!important;max-width:230px!important}#rosterApprovalOpen{order:6;font-size:12px;padding:8px 10px}
+@media(min-width:761px){.top-actions{flex-basis:580px}}
+@media(max-width:760px){.workspace-search{max-width:none}.workspace-clinic{max-width:none;flex:1 1 160px}#ceoAreaBox{order:5;width:100%}#ceoAreaSelect{max-width:100%!important}}

@@ -1,20 +1,22 @@
 /* Grupo Saúde — canonical visual components. No data, routes or business rules. */
 :root{
   --design-version:gs-visual-20261024;
-  --canvas:#f5f8fa;--surface:#fff;--surface-subtle:#f0f5f6;
+  --canvas:#f3f6fb;--surface:#fff;--surface-subtle:#edf3fa;
+  --sidebar:#14243f;--sidebar-ink:#d2dff3;--sidebar-muted:#a6bad7;--sidebar-active:#25466e;
   --ink:#18333c;--muted:#526773;--line:#dce7ea;
-  --primary:#0b6970;--accent:#12686f;--soft:#e9f5f4;
+  --primary:#1662ad;--accent:#127b80;--soft:#e8f3f6;
   --success:#126647;--success-bg:#e8f7f1;--warning:#805100;--warning-bg:#fff4df;--danger:#a52440;--danger-bg:#fff0f3;
   --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;
   --radius-sm:8px;--radius-md:12px;--radius-lg:16px;
-  --shadow-card:0 2px 8px #18333c05;--shadow-dialog:0 24px 72px #061d3655;
+  --shadow-card:0 4px 20px #183c6a08;--shadow-dialog:0 24px 72px #061d3655;
   --nav:236px;--bg:var(--canvas);--white:var(--surface);--card:var(--surface);--border:var(--line);--text:var(--ink);--brand:var(--primary);
   color-scheme:light;
 }
 :root[data-theme=dark]{
-  --canvas:#101e27;--surface:#192d38;--surface-subtle:#203641;
+  --canvas:#0c1525;--surface:#162338;--surface-subtle:#1e304a;
+  --sidebar:#0e1b30;--sidebar-ink:#e3ecfb;--sidebar-muted:#b0c4e0;--sidebar-active:#234368;
   --ink:#edf5f7;--muted:#acc4ce;--line:#38515e;
-  --primary:#0d6e75;--accent:#82ddd4;--soft:#213d45;
+  --primary:#225fa0;--accent:#84ddd7;--soft:#213c51;
   --success:#9ae8c3;--success-bg:#163d32;--warning:#ffd483;--warning-bg:#44381f;--danger:#ffb4c0;--danger-bg:#492c37;
   --shadow-card:0 2px 8px #00000010;color-scheme:dark;
 }
@@ -30,14 +32,14 @@ small,.meta{font-size:12px;line-height:1.5}.muted,.meta{color:var(--muted)}
 button,input,select,textarea{font:inherit}
 button,.primary,.secondary,.danger,.icon-btn{min-height:44px;border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 14px;background:var(--surface);color:var(--ink);font-weight:650;line-height:1.35;cursor:pointer;white-space:normal;overflow-wrap:anywhere;text-decoration:none}
 button:hover,.secondary:hover,.icon-btn:hover{background:var(--surface-subtle)}
-.primary{background:var(--primary);border-color:var(--primary);color:#fff}.primary:hover{background:#085b62;border-color:#085b62}
+.primary{background:var(--primary);border-color:var(--primary);color:#fff}.primary:hover{background:#134e89;border-color:#134e89}
 .secondary,.icon-btn{background:var(--surface);color:var(--ink)}a.primary,a.secondary,a.danger{display:inline-flex;align-items:center;justify-content:center;gap:8px}.danger{color:var(--danger);background:var(--danger-bg);border-color:transparent}
 .icon-btn,.menu{min-width:44px;display:inline-grid;place-items:center;padding:8px}
 button:disabled,button[aria-disabled=true]{cursor:not-allowed;opacity:.65}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 input,select,textarea{width:100%;min-width:0;min-height:44px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--ink);line-height:1.4}
 input:where([type=checkbox],[type=radio]){width:18px;min-height:18px;padding:0;accent-color:var(--primary);flex-shrink:0}
-input[type=hidden]{display:none}textarea{min-height:96px;resize:vertical}
+input[type=hidden]{display:none}textarea{min-height:44px;max-height:none;resize:none;overflow-y:hidden}
 input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
 input::file-selector-button{border:0;border-radius:6px;background:var(--soft);color:var(--ink);padding:8px 10px;margin-right:10px;font:inherit;cursor:pointer}
 label{display:block;margin-bottom:6px;color:var(--muted);font-size:12px;font-weight:650;line-height:1.5}
@@ -50,16 +52,16 @@ fieldset{min-width:0;margin:16px 0;padding:16px;border:1px solid var(--line);bor
 body>aside.notice{margin:0;padding:8px 24px;border:0;border-bottom:1px solid var(--line);border-radius:0;font-size:12px}
 .layout{display:grid;grid-template-columns:var(--nav) minmax(0,1fr);min-height:calc(100dvh - var(--header-height,68px))}
 .layout>main,main{min-width:0;width:100%;max-width:1600px;padding:24px;overflow:hidden}
-#nav{position:sticky;top:var(--header-height,68px);height:calc(100dvh - var(--header-height,68px));padding:16px 10px;background:var(--surface);border-right:1px solid var(--line);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable}
-#nav button{display:flex;align-items:center;gap:8px;width:100%;margin:3px 0;padding:10px 12px;border:0;border-radius:8px;background:transparent;text-align:left;color:var(--muted);font-weight:550;font-size:13px}
-#nav button:hover{background:var(--surface-subtle)}#nav button.active{background:var(--soft);color:var(--accent);font-weight:750}
-#nav details[data-nav-group]{margin:0 0 12px;padding-top:8px;border-top:1px solid var(--line)}#nav details:first-child{border-top:0}
-#nav summary{display:flex;align-items:center;gap:8px;min-height:46px;padding:10px 8px;color:var(--ink);font-size:14px;font-weight:750;line-height:1.4;border-radius:8px;cursor:pointer;list-style:none}
-#nav summary::-webkit-details-marker{display:none}#nav summary::after{content:'›';font-size:20px;margin-left:auto;color:var(--muted)}#nav details[open]>summary::after{transform:rotate(90deg)}
-#nav details[data-nav-group]>summary::before{content:'▦';font-size:18px;color:var(--accent);width:22px;text-align:center;flex:none}
+#nav{position:sticky;top:var(--header-height,68px);height:calc(100dvh - var(--header-height,68px));padding:16px 10px;background:var(--sidebar);border-right:1px solid var(--sidebar-active);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable}
+#nav button{display:flex;align-items:center;gap:8px;width:100%;margin:3px 0;padding:10px 12px;border:0;border-radius:8px;background:transparent;text-align:left;color:var(--sidebar-muted);font-weight:550;font-size:13px}
+#nav button:hover{background:var(--sidebar-active);color:var(--sidebar-ink)}#nav button.active{background:var(--sidebar-active);color:#fff;font-weight:750}
+#nav details[data-nav-group]{margin:0 0 12px;padding-top:8px;border-top:1px solid #ffffff18}#nav details:first-child{border-top:0}
+#nav summary{display:flex;align-items:center;gap:8px;min-height:46px;padding:10px 8px;color:var(--sidebar-ink);font-size:14px;font-weight:750;line-height:1.4;border-radius:8px;cursor:pointer;list-style:none}
+#nav summary::-webkit-details-marker{display:none}#nav summary::after{content:'›';font-size:20px;margin-left:auto;color:var(--sidebar-muted)}#nav details[open]>summary::after{transform:rotate(90deg)}
+#nav details[data-nav-group]>summary::before{content:'▦';font-size:18px;color:#71d5cf;width:22px;text-align:center;flex:none}
 #nav details[data-nav-group="Área pessoal"]>summary::before{content:'◉'}#nav details[data-nav-group="Gestão"]>summary::before{content:'▤'}#nav details[data-nav-group="Operação"]>summary::before{content:'⚙'}#nav details[data-nav-group="Recursos Humanos"]>summary::before{content:'♧'}#nav details[data-nav-group="Financeiro"]>summary::before{content:'€'}#nav details[data-nav-group="Administração do sistema"]>summary::before{content:'☷'}
 #nav details[data-nav-group]>button{width:calc(100% - 10px);margin-left:10px;padding-left:16px;border-left:2px solid transparent}
-#nav details[data-nav-group]>button.active{border-left-color:var(--accent)}#nav details:has(>button.active)>summary{color:var(--accent);background:var(--soft)}
+#nav details[data-nav-group]>button.active{border-left-color:var(--accent)}#nav details:has(>button.active)>summary{color:#fff;background:var(--sidebar-active)}
 #nav i{margin-left:auto;padding:1px 6px;border-radius:12px;background:var(--danger);color:var(--surface);font-size:10px;font-style:normal}
 .view{display:none}.view.active{display:block}.page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px;min-width:0}.page-head p{max-width:75ch;margin-top:5px}
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:16px}.card{min-width:0;padding:20px;margin-bottom:16px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);color:var(--ink);box-shadow:var(--shadow-card)}
@@ -96,3 +98,14 @@ dialog{width:min(820px,calc(100% - 32px));max-width:95vw;max-height:90dvh;overfl
 }
 @media(max-width:480px){.cards{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.form-grid{grid-template-columns:1fr}.span-2{grid-column:auto}.topbar strong{font-size:15px}.metric{font-size:26px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Shared premium surfaces: applies to every existing module, never to its data. */
+.metrics>.card{position:relative;border-top:3px solid var(--primary)}
+.metrics>.card:nth-child(2n){border-top-color:var(--accent)}
+.metrics .metric{color:var(--primary)}
+:root[data-theme=dark] .metrics .metric{color:#a8ceff}
+textarea[data-gs-autosize]{min-height:44px!important;max-height:none!important;overflow-y:hidden!important}
+
+.workspace-search{position:relative;flex:1 1 170px;max-width:260px;min-width:140px}.workspace-search input{width:100%;background:var(--surface-subtle)}
+.workspace-search-results{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:25;padding:8px;border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:var(--shadow-dialog);max-height:55dvh;overflow:auto}.workspace-search-results[hidden]{display:none}.workspace-search-results button{display:block;width:100%;text-align:left;margin:3px 0}
+@media(max-width:760px){.workspace-search{max-width:none;flex-basis:100%}.top-actions{gap:6px}}

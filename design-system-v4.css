@@ -117,3 +117,5 @@ textarea[data-gs-autosize]{min-height:44px!important;max-height:none!important;o
 #ceoAreaBox{gap:6px!important;order:5;min-width:0;max-width:100%}#ceoAreaBox>span{font-size:10px!important}#ceoAreaSelect{min-width:150px!important;max-width:230px!important}#rosterApprovalOpen{order:6;font-size:12px;padding:8px 10px}
 @media(min-width:761px){.top-actions{flex-basis:580px}}
 @media(max-width:760px){.workspace-search{max-width:none}.workspace-clinic{max-width:none;flex:1 1 160px}#ceoAreaBox{order:5;width:100%}#ceoAreaSelect{max-width:100%!important}}
+
+main>.standalone-theme-toggle{float:right;margin:0 0 12px 12px}

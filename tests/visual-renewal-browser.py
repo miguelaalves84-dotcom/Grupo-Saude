@@ -33,6 +33,8 @@ with sync_playwright() as pw:
       for field in p.locator(f'#{view} textarea:visible').all()[:2]:
        old=field.input_value();field.fill('São João — ação, informação e atenção. '*25);p.wait_for_timeout(60)
        check('textarea grows without internal scrollbar or content loss',field.evaluate('(e)=>e.scrollHeight<=e.clientHeight+2&&e.value.endsWith("atenção. ")&&e.rows===1'),module=view,**scope)
+       if view=='chat':
+        send=p.locator('.chat-send');send.scroll_into_view_if_needed();check('long draft retains reachable send action through conversation scrolling',send.evaluate('(e)=>{const a=e.getBoundingClientRect(),b=e.closest(".chat-thread").getBoundingClientRect();return a.top>=b.top-2&&a.bottom<=b.bottom+2}'),module=view,**scope)
        field.fill('Olá');p.wait_for_timeout(50);check('textarea shrinks and retains caret',field.evaluate('(e)=>e.getBoundingClientRect().height<70&&e.selectionStart===3&&e.value==="Olá"'),module=view,**scope);field.fill(old)
      check('no JavaScript exceptions',not errors,**scope);c.close()
  finally:

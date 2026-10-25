@@ -151,3 +151,8 @@ body:has(#shortcut_permissions:not([hidden])) #ceoPermissions{display:none}
 .executive-kpi{display:grid;grid-template-columns:minmax(0,1fr) 42px;column-gap:12px;padding:20px}.executive-kpi-icon{grid-column:2;grid-row:1/3;margin:0;align-self:start}.executive-kpi-label{grid-column:1;grid-row:1}.executive-kpi>strong{grid-column:1;grid-row:2}.executive-kpi>span{grid-column:1/-1;grid-row:3}
 @media(min-width:761px) and (max-width:1000px){.executive-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.executive-kpi{grid-template-columns:minmax(0,1fr) 34px;column-gap:8px;padding:16px}}
+/* Navigation is application chrome, never part of a printed report. */
+@media print{#nav{display:none!important}.layout{display:block!important}.layout>main{grid-column:auto;width:100%;padding:0;margin:0}.topbar{margin-left:0!important}body>aside.notice{display:none!important}.workspace-location,.workspace-search,.workspace-clinic{display:none!important}}
+
+/* Dense workspaces keep a single touch-scrollable action strip rather than a wall of buttons. */
+.page-head>.gs-page-actions:has(>:nth-child(4)){flex-basis:100%;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding-bottom:8px;max-width:100%}.gs-page-actions:has(>:nth-child(4))>*{flex:none;white-space:nowrap}

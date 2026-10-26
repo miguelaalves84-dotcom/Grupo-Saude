@@ -7,7 +7,7 @@ URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.
 OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/finance-reorganization'));OUT.mkdir(parents=True,exist_ok=True)
 results=[]
 def check(label,ok):
- results.append({**scope,'case':label,'passed':bool(ok)});assert ok,label
+ results.append({**scope,'case':label,'passed':bool(ok)});print(json.dumps(results[-1]),flush=True);(OUT/'results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2));assert ok,label
 with sync_playwright() as pw:
  browser=pw.chromium.launch(headless=True,args=['--no-sandbox'])
  for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:

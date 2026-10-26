@@ -14,18 +14,24 @@ with sync_playwright() as pw:
   for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
    for device,w,h in [('tablet',1280,800),('desktop',1440,1000),('mobile',390,844)]:
     for theme in ['light','dark']:
-     scope=dict(actor=actor,device=device,theme=theme);c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',locale='pt-PT',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(9000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.on('dialog',lambda d:d.dismiss());p.goto(URL);p.wait_for_function('window.WorkspaceShellV4&&window.HRMasterV4&&window.GSDemoClinicAssociations');p.wait_for_timeout(350);p.evaluate((ROOT/'tests/fixtures/synthetic-executive-state.js').read_text(),[K,actor,theme]);p.reload();p.wait_for_timeout(500)
+     scope=dict(actor=actor,device=device,theme=theme);c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',locale='pt-PT',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(9000);errors=[];p.on('pageerror',lambda e:(errors.append(str(e)),print('UX page error: '+str(e),flush=True)));p.on('dialog',lambda d:d.dismiss());p.goto(URL);p.wait_for_function('window.WorkspaceShellV4&&window.HRMasterV4&&window.GSDemoClinicAssociations');p.wait_for_timeout(350);p.evaluate((ROOT/'tests/fixtures/synthetic-executive-state.js').read_text(),[K,actor,theme]);p.reload();p.wait_for_timeout(500)
      manager=actor in ['u1','test_admin'];check('Dashboard respects effective role',p.evaluate('RoleAccessAdminV4.guard("dashboard")')==manager)
      if p.evaluate('RoleAccessAdminV4.guard("hr")'):
       p.evaluate('App.showView("hr");V4ClinicHR.showEmployees()');p.wait_for_selector('#hrEmployeeSearch');p.wait_for_function('document.querySelectorAll("#hr .gs-search-input").length===1');check('single employee search',p.locator('#hr .gs-search-input').count()==1)
+      
+      if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-hr-list-{theme}.png'))
       total=p.locator('[data-search-item=employee]').count();check('employee list immediately available',total>0 and p.locator('#hrEmployeeSearch').is_visible())
       p.locator('#hrEmployeeSearch').fill('zz-inexistente');check('useful no-result state',p.locator('#hrEmployeeEmpty').is_visible() and p.locator('[data-search-item=employee]:visible').count()==0)
       p.locator('#hrEmployeeSearch').fill('SYN');check('typing and clearing search restores rows',p.locator('[data-search-item=employee]:visible').count()==total)
       p.locator('#hrEmployeeSearch').fill('');p.locator('#hrEmployeeStatus').select_option('active');check('active filter matches records',p.locator('[data-search-item=employee]:visible').evaluate_all('(rs)=>rs.every(r=>r.dataset.employeeStatus==="active")'))
       clinic=p.locator('#hrEmployeeClinic option').nth(1).get_attribute('value');p.locator('#hrEmployeeClinic').select_option(clinic);check('clinic filter composes with status',p.locator('[data-search-item=employee]:visible').evaluate_all('(rs)=>rs.every(r=>JSON.parse(r.dataset.employeeClinics).includes(document.getElementById("hrEmployeeClinic").value))'))
       p.locator('#hrEmployeeClinic').select_option('');p.locator('#hrEmployeeStatus').select_option('');person=p.locator('[data-search-item=employee]:visible').first;name=person.locator('strong').inner_text();person.click();p.wait_for_selector('#employeeWorkspace');check('real employee action opens full workspace',p.locator('#employeeWorkspace h1').inner_text()==name and not p.locator('#modal').evaluate('(e)=>e.open'))
+      
+      if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-summary-{theme}.png'))
       check('no duplicate employee tabs',p.locator('.employee-tabs button').count()==len(set(p.locator('.employee-tabs button').all_text_contents())))
       p.get_by_role('button',name='Dados pessoais e contrato',exact=True).click();p.wait_for_selector('#employeeWorkspace #hrName');check('canonical form retained on page',p.locator('#hrName').input_value()==name and p.locator('#employeeWorkspace').evaluate('(e)=>e.getBoundingClientRect().width>innerWidth*.65' if device=='mobile' else '(e)=>e.getBoundingClientRect().width>(innerWidth-264)*.8'))
+      
+      if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-contract-{theme}.png'))
       old=p.locator('#hrName').input_value();p.locator('#hrName').fill(old+' Edição');p.get_by_role('button',name='Resumo',exact=True).click();check('cancelled navigation preserves unsaved values',p.locator('#hrName').input_value()==old+' Edição')
       # Accept discarding only after the negative case has demonstrated recovery.
       p.evaluate('window.confirm=()=>true');p.get_by_role('button',name='Resumo',exact=True).click();check('summary remains source-based',p.locator('#employeeWorkspace').inner_text().find('Ficha central do colaborador')>=0)

@@ -75,7 +75,7 @@ try:
         scope={'device':device,'profile':actor};mobile=device!='desktop'
         context=browser.new_context(viewport={'width':width,'height':height},has_touch=mobile,is_mobile=mobile,device_scale_factor=1,user_agent='Mozilla/5.0 (Linux; Android 13; Pixel Tablet) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36' if mobile else None,service_workers='block')
         context.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=context.new_page();page.set_default_timeout(12000);page.on('dialog',lambda d:d.accept());errors=[];page.on('pageerror',lambda e:errors.append(str(e)));prepare(page,actor);cdp=context.new_cdp_session(page)
-        verify('five unchanged ordered stages',page.locator('.candidate-column').evaluate_all('(xs)=>xs.map(x=>x.dataset.stage)')==['Candidatos','Entrevista marcada','Recusado','Em análise','Contratado'])
+        verify('five unchanged ordered stages',page.locator('.candidate-column').evaluate_all('(xs)=>xs.map(x=>x.dataset.stage)')==['Candidatos','Entrevista marcada','Em análise','Contratado','Recusado'])
         initial=candidate(page);kind='touch' if mobile else 'mouse'
         drag(page,cdp,'Em análise',kind,small=True)
         verify('short tap does not change data/history',candidate(page)==initial)

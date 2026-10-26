@@ -1,6 +1,6 @@
 /* Shared recruitment rules. No transport, credentials or persistence in this module. */
 (function(root){'use strict';
-const stages=Object.freeze(['Candidatos','Entrevista marcada','Recusado','Em análise','Contratado']);
+const stages=Object.freeze(['Candidatos','Entrevista marcada','Em análise','Contratado','Recusado']);
 const legacy={Novo:'Candidatos',Recebido:'Candidatos',Candidato:'Candidatos',Contacto:'Em análise',Contactado:'Em análise',Entrevista:'Entrevista marcada',Entrevistado:'Em análise',Proposta:'Em análise',Documentação:'Em análise',Aprovado:'Em análise','Contratação/Admissão':'Contratado',Ativo:'Contratado',Convertido:'Contratado'};
 const text=(v,n=200)=>String(v??'').trim().slice(0,n),email=v=>text(v,254).toLowerCase(),validEmail=v=>/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(v),copy=v=>JSON.parse(JSON.stringify(v));
 function migrate(value,actor,at){const c=copy(value);c.history||=[];c.notifications||=[];if(c.recruitmentVersion!==2){const old=c.stage,next=stages.includes(old)?old:legacy[old]||'Em análise';if(old!==next)c.history.push({at,by:actor,action:'Migração de etapa',before:{stage:old??null},after:{stage:next}});c.stage=next;c.recruitmentVersion=2;c.legacyStage=old??null;c.needsReview=c.needsReview||!stages.includes(old)&&!legacy[old];}return c}

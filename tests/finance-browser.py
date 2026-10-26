@@ -35,7 +35,7 @@ with sync_playwright() as p:
         search.fill('zzzz-no-invoice-match');assert page.locator('[data-fin-row]:visible').count()==0
         search.fill('');assert page.locator('[data-fin-row]:visible').count()==before
         assert page.locator('.finance-tabs').count()==0
-        assert page.locator('#shortcut_financialManagement').is_visible() == (actor in ['u1', 'test_admin'])
+        assert page.locator('#financeContent [data-fin-action=manage]').is_visible() == (actor in ['u1', 'test_admin'])
         if actor in ['u1', 'test_admin']:
             page.locator('[data-fin-action="invoice-approve"]').first.click()
             page.locator('#financeDialog [type=submit]').click()

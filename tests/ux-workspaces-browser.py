@@ -27,7 +27,7 @@ with sync_playwright() as pw:
    for device,w,h in [('tablet',1280,800),('desktop',1440,1000),('mobile',390,844)]:
     for theme in ['light','dark']:
      scope=dict(actor=actor,device=device,theme=theme);c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',locale='pt-PT',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(9000);errors=[];p.on('pageerror',lambda e:(errors.append(str(e)),print('UX page error: '+str(e),flush=True)));p.on('dialog',lambda d:(print('UX dialog: '+d.message,flush=True),d.dismiss()));p.goto(URL);p.wait_for_function('window.WorkspaceShellV4&&window.HRMasterV4&&window.GSDemoClinicAssociations');p.wait_for_timeout(350);p.evaluate((ROOT/'tests/fixtures/synthetic-executive-state.js').read_text(),[K,actor,theme]);p.reload();p.wait_for_timeout(500)
-     p.wait_for_function('(k)=>{const s=JSON.parse(localStorage.getItem(k));return Array.isArray(s.chatMessages)&&!!s.notificationPrefs}',arg=K)
+     p.wait_for_function('(k)=>{const s=JSON.parse(localStorage.getItem(k));return window.GSTestAgentV4?.ready===true&&Array.isArray(s.chatMessages)&&!!s.notificationPrefs}',arg=K)
      manager=actor in ['u1','test_admin'];check('Dashboard respects effective role',p.evaluate('RoleAccessAdminV4.guard("dashboard")')==manager)
      if manager:
       p.locator('#dashPeriodToggle').click();p.locator('#dashStart').fill('2026-10-19');p.locator('#dashEnd').fill('2026-10-25');p.locator('#dashApply').click()
@@ -97,6 +97,8 @@ with sync_playwright() as pw:
       p.evaluate('App.showView("dashboard")');p.locator('#dashPeriodToggle').click();cid=p.locator('#dashClinic option').nth(1).get_attribute('value');p.locator('#dashClinic').select_option(cid);p.locator('#dashApply').click()
       for key,label,phase in [('pending','Consultar tarefas','Durante o dia'),('opened','Consultar abertura','Abertura'),('closed','Consultar fecho','Fecho')]:
        p.locator('.dashboard-detail>summary').click();p.locator('[data-dash-detail="'+key+'"]').click();p.get_by_role('button',name=label,exact=True).first.click();check('dashboard '+key+' opens the corresponding original phase and clinic',p.locator('#opClinic').input_value()==cid and p.locator('.operation-steps [aria-current=step]').get_attribute('aria-label')==phase);p.locator('#smartContextReturn').click();check('dashboard return preserves applied period and clinic',p.locator('#dashStart').input_value()=='2026-10-19' and p.locator('#dashEnd').input_value()=='2026-10-25' and p.locator('#dashClinic').input_value()==cid)
+     if manager and device=='tablet':
+      p.evaluate('HRMasterV4.open("test_adm","resumo")');p.locator('#modal [data-hr-summary=contrato]').tap();p.wait_for_function('document.activeElement?.id==="hrContract"');check('legacy employee summary card reuses its existing protected modal form',p.locator('#modal #hrContract').is_visible() and p.locator('#employeeWorkspace').count()==0);p.get_by_role('button',name='Ficha central',exact=True).click();check('legacy summary keeps its original return action',p.locator('#modal [data-hr-summary=contrato]').is_visible());p.locator('#modal .modal-head button').click()
      check('no JavaScript exceptions',not errors);c.close()
  except Exception:
   try:p.screenshot(path=str(OUT/'ux-failure.png'))

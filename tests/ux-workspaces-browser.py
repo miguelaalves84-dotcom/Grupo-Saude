@@ -26,6 +26,11 @@ with sync_playwright() as pw:
     for theme in ['light','dark']:
      scope=dict(actor=actor,device=device,theme=theme);c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',locale='pt-PT',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(9000);errors=[];p.on('pageerror',lambda e:(errors.append(str(e)),print('UX page error: '+str(e),flush=True)));p.on('dialog',lambda d:(print('UX dialog: '+d.message,flush=True),d.dismiss()));p.goto(URL);p.wait_for_function('window.WorkspaceShellV4&&window.HRMasterV4&&window.GSDemoClinicAssociations');p.wait_for_timeout(350);p.evaluate((ROOT/'tests/fixtures/synthetic-executive-state.js').read_text(),[K,actor,theme]);p.reload();p.wait_for_timeout(500)
      manager=actor in ['u1','test_admin'];check('Dashboard respects effective role',p.evaluate('RoleAccessAdminV4.guard("dashboard")')==manager)
+     if manager:
+      before=p.evaluate('(k)=>localStorage.getItem(k)',K);start=p.locator('#dashStart').input_value();end=p.locator('#dashEnd').input_value()
+      for key in ['consultations','treatments','newRequests','pending']:
+       card=p.locator('[data-dash-kpi="'+key+'"]');card.tap() if device!='desktop' else card.click();check('dashboard '+key+' opens detail in applied period',p.locator('#modal').evaluate('(e)=>e.open') and start in p.locator('#modalBody').inner_text() and end in p.locator('#modalBody').inner_text());p.get_by_role('button',name='← Voltar ao Dashboard',exact=True).click()
+      check('dashboard drilldown never changes business records or opens task settings',p.evaluate('(k)=>localStorage.getItem(k)',K)==before and p.locator('#dashboard').get_attribute('class').find('active')>=0)
      if p.evaluate('RoleAccessAdminV4.guard("hr")'):
       p.evaluate('App.showView("hr");V4ClinicHR.showEmployees()');p.wait_for_selector('#hrEmployeeSearch');p.wait_for_function('document.querySelectorAll("#hr .gs-search-input").length===1');check('single employee search',p.locator('#hr .gs-search-input').count()==1)
       

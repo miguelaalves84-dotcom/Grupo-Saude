@@ -188,3 +188,13 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 @media(max-width:760px){.employee-chrome{position:static}.employee-heading{position:static}.employee-identity{flex-basis:100%;order:-1}.employee-list-filters{grid-template-columns:1fr}.employee-tabs{display:flex;overflow:auto;scrollbar-width:thin;padding:12px 0}.employee-tabs button{flex:0 0 160px;max-width:180px;min-height:44px}.operation-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.ux-navigation-group{flex:1 1 160px}.team-options{grid-template-columns:1fr}.employee-secondary{min-width:210px;max-width:calc(100vw - 30px)}}
 
 .executive-kpi[role=button]{cursor:pointer}.executive-kpi[role=button]:hover{border-color:var(--accent)}.executive-kpi[role=button]:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Useful destinations only: preserve the original keyboard action on record cards. */
+[data-smart-card=true],[data-smart-metric=true],.smart-summary{cursor:pointer}
+[data-smart-card=true]:hover,[data-smart-card=true]:focus-within,[data-smart-metric=true]:hover,.smart-summary:hover{outline:2px solid var(--primary,#1761cf);outline-offset:2px}
+[data-smart-metric=true]:focus-visible,.smart-summary:focus-visible{outline:3px solid var(--primary,#1761cf);outline-offset:3px}
+.smart-summary{display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;color:var(--text,#172e49);background:var(--surface,#fff);font:inherit;min-height:112px}
+.smart-card-action{display:block;margin-top:10px;font-size:.85rem;font-weight:600;color:var(--primary,#1761cf)}
+[data-theme=dark] .smart-summary{background:var(--surface,#102b42);color:var(--text,#e5eef7)}
+[data-theme=dark] .smart-card-action{color:#72d9d7}
+.smart-summary-return{min-height:44px}

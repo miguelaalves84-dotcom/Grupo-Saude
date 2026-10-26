@@ -1,0 +1,5175 @@
+{
+  "sourceCommit": "399a84c7f711daa825c15f8344111ea849fdb795",
+  "run": 40331311013,
+  "checks": 738,
+  "failures": 0,
+  "results": [
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "management HR remains prohibited",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "Dashboard respects effective role",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "single employee search",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "payroll remains inside the HR financial topic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "grouped payroll action opens the existing editor",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee list immediately available",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "useful no-result state",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "typing and clearing search restores rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "active filter matches records",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "header clinic filter composes with employee status",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "real employee action opens full workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee workspace has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "workspace starts without hiding its first content",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee header cannot reassign clinics via list filter",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no duplicate employee tabs",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "canonical form retained on page",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "visible employee label names the canonical input",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "cancelled navigation preserves unsaved values",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "summary remains source-based",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "existing protected document editor reused",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "back restores original list",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "full-page save persists canonical fields and editor audit",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "saved values survive reload in the actual workspace",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation stepper uses original authorised phases",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "touch team selection exists",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "team control reflects touch selection",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "touch preview creates no permanent opening",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clinic and colleague filters immediately visible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "specialty options come from selected clinic",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "specialty filter excludes the second differently classified event",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clearing specialty restores both authorised events",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "agenda no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock navigation grouped without duplicated controllers",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "marketing topics grouped",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "marketing no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "complaints no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "tables no horizontal overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    }
+  ],
+  "scope": "Synthetic Chromium touch emulation, not a physical Android certification"
+}

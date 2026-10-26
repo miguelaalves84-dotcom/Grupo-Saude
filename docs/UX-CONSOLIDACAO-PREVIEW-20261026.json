@@ -1,0 +1,134 @@
+{
+  "sourceCommit": "399a84c7f711daa825c15f8344111ea849fdb795",
+  "branch": "dev/v4-stabilization-20261017",
+  "synthetic": true,
+  "backend": false,
+  "writers": false,
+  "persistence": "browser-only",
+  "testedRun": 40331311013,
+  "browserSuites": 40,
+  "jobs": 42,
+  "defaultTheme": "light",
+  "themePreference": "per-user-per-browser",
+  "referenceSHA256": "af237e8f9eab8112ebd2db2ca458668d956110d975669640011a0a91f2de67e9",
+  "baseline": "d2e962c8",
+  "physicalAndroid": "pending",
+  "url": "https://grupo-saude-v4-validacao-sintetica-7090uhdv2-grupo-saude.vercel.app",
+  "deploymentId": "dpl_DfGEwfSoo1KKymoGAhxkkHM2Hui2",
+  "state": "READY",
+  "target": "staging",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 12952
+    },
+    {
+      "path": "/preview-manifest.json",
+      "status": 200,
+      "bytes": 430,
+      "manifest": {
+        "sourceCommit": "399a84c7f711daa825c15f8344111ea849fdb795",
+        "branch": "dev/v4-stabilization-20261017",
+        "synthetic": true,
+        "backend": false,
+        "writers": false,
+        "persistence": "browser-only",
+        "testedRun": 40331311013,
+        "browserSuites": 40,
+        "jobs": 42,
+        "defaultTheme": "light",
+        "themePreference": "per-user-per-browser",
+        "referenceSHA256": "af237e8f9eab8112ebd2db2ca458668d956110d975669640011a0a91f2de67e9",
+        "baseline": "d2e962c8",
+        "physicalAndroid": "pending"
+      }
+    },
+    {
+      "path": "/styles.css",
+      "status": 200,
+      "bytes": 13496,
+      "exact": true
+    },
+    {
+      "path": "/design-system-v4.css",
+      "status": 200,
+      "bytes": 59380,
+      "exact": true
+    },
+    {
+      "path": "/workspace-shell-v4.js",
+      "status": 200,
+      "bytes": 41662,
+      "exact": true
+    },
+    {
+      "path": "/visual-runtime-v4.js",
+      "status": 200,
+      "bytes": 3855,
+      "exact": true
+    },
+    {
+      "path": "/clinic-specialties-core-v4.js",
+      "status": 200,
+      "bytes": 816,
+      "exact": true
+    },
+    {
+      "path": "/agenda-core-v4.js",
+      "status": 200,
+      "bytes": 8070,
+      "exact": true
+    },
+    {
+      "path": "/agenda-ui-v4.js",
+      "status": 200,
+      "bytes": 16312,
+      "exact": true
+    },
+    {
+      "path": "/api/version",
+      "status": 200,
+      "bytes": 430,
+      "manifest": {
+        "sourceCommit": "399a84c7f711daa825c15f8344111ea849fdb795",
+        "branch": "dev/v4-stabilization-20261017",
+        "synthetic": true,
+        "backend": false,
+        "writers": false,
+        "persistence": "browser-only",
+        "testedRun": 40331311013,
+        "browserSuites": 40,
+        "jobs": 42,
+        "defaultTheme": "light",
+        "themePreference": "per-user-per-browser",
+        "referenceSHA256": "af237e8f9eab8112ebd2db2ca458668d956110d975669640011a0a91f2de67e9",
+        "baseline": "d2e962c8",
+        "physicalAndroid": "pending"
+      }
+    },
+    {
+      "path": "/api/auth/session",
+      "status": 404,
+      "bytes": 84
+    }
+  ],
+  "guards": [
+    {
+      "id": "prj_X02eCkklCYULDAFkyKXbRHWETyT1",
+      "updatedAt": 1792324022829,
+      "ssoProtection": {
+        "enabled": true,
+        "deploymentType": "all"
+      }
+    },
+    {
+      "id": "prj_uqWsAbl1oiiJrx9BaNHAJwOtuAtH",
+      "updatedAt": 1791725971672,
+      "ssoProtection": {
+        "enabled": true,
+        "deploymentType": "all_except_custom_domains"
+      }
+    }
+  ]
+}

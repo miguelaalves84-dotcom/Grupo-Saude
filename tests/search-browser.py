@@ -67,7 +67,8 @@ with sync_playwright() as pw:
        search.fill('zzzz-no-rerender-match');p.evaluate('V4ClinicHR.showEmployees()');p.wait_for_timeout(80);check('HR rerender reapplies query without removing records',root.locator('[data-search-item=employee]:visible').count()==0);search.fill('');check('HR clear after rerender recovers all records',root.locator('[data-search-item=employee]:visible').count()>0)
       if view=='hr' and rows.count():
        employee=root.locator('[data-search-item=employee]').first
-       if employee.count():employee.click();expect(p.locator('#modal')).to_be_visible();check('search result opens employee record',p.locator('#modalBody').inner_text().strip()!='');p.locator('#modal').evaluate('(d)=>d.close()')
+       if employee.count():
+        name=employee.locator('strong').inner_text();employee.click();expect(p.locator('#employeeWorkspace')).to_be_visible();check('search result opens matching employee workspace',p.locator('#employeeWorkspace h1').inner_text()==name);p.get_by_role('button',name='← Voltar à lista',exact=True).click()
       p.screenshot(path=str(OUT/(actor+'-'+device+'-'+theme+'-'+view+'-search.png')))
      check('navigation has one test-agent destination',p.locator('#nav #gsTestAgentButton').count()==0 and p.locator('#shortcut_testAgent').count()==1 and p.locator('#shortcut_testAgent').evaluate('(b)=>!b.hidden')==p.evaluate('RoleAccessAdminV4.can("settings")'))
      verify_populated(p,actor,K,check,scope)

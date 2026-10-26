@@ -1,5 +1,5 @@
 """Exercise the new information architecture through real controls, with synthetic records only."""
-import os,json
+import os,json,hashlib
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parent.parent
@@ -11,6 +11,16 @@ def check(case,passed):
 with sync_playwright() as pw:
  b=pw.chromium.launch(args=['--no-sandbox'])
  try:
+  baseline=ROOT/'tests/fixtures/ux-before-d2e962c8';manifest=json.loads((baseline/'manifest.json').read_text())
+  for name,item in manifest['files'].items():assert hashlib.sha256((baseline/name).read_bytes()).hexdigest()==item['sha256']
+  for theme in ['light','dark']:
+   before=b.new_context(viewport={'width':1280,'height':800},has_touch=True,is_mobile=True,locale='pt-PT',service_workers='block')
+   def oldroute(r):
+    if not r.request.url.startswith(ORIGIN+'/'):return r.abort()
+    name=r.request.url.split('?')[0].rsplit('/',1)[-1]
+    if name in manifest['files']:return r.fulfill(status=200,content_type='text/css' if name.endswith('.css') else 'application/javascript',body=(baseline/name).read_text())
+    return r.continue_()
+   before.route('**/*',oldroute);old=before.new_page();old.goto(URL);old.wait_for_function('window.HRMasterV4&&window.GSDemoClinicAssociations');old.wait_for_timeout(300);old.evaluate((ROOT/'tests/fixtures/synthetic-executive-state.js').read_text(),[K,'u1',theme]);old.reload();old.wait_for_timeout(500);old.evaluate('App.showView("hr");V4ClinicHR.showEmployees()');old.screenshot(path=str(OUT/f'ux-hr-list-before-d2e962c8-{theme}.png'));old.evaluate('(k)=>{const s=JSON.parse(localStorage.getItem(k));HRMasterV4.open(s.users[0].id,"dados")}',K);old.wait_for_selector('#modal[open]');old.screenshot(path=str(OUT/f'ux-employee-before-d2e962c8-{theme}.png'));before.close()
   for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
    for device,w,h in [('tablet',1280,800),('desktop',1440,1000),('mobile',390,844)]:
     for theme in ['light','dark']:
@@ -20,6 +30,7 @@ with sync_playwright() as pw:
       p.evaluate('App.showView("hr");V4ClinicHR.showEmployees()');p.wait_for_selector('#hrEmployeeSearch');p.wait_for_function('document.querySelectorAll("#hr .gs-search-input").length===1');check('single employee search',p.locator('#hr .gs-search-input').count()==1)
       
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-hr-list-{theme}.png'))
+      p.evaluate('PayrollExportV4.refresh()');p.wait_for_function('document.getElementById("payrollEntry")?.closest(".ux-action-group")?.dataset.uxSubject==="Financeiro e salários"');check('payroll remains inside the HR financial topic',p.locator('[data-ux-subject="Financeiro e salários"] #payrollEntry').count()==1)
       total=p.locator('[data-search-item=employee]').count();check('employee list immediately available',total>0 and p.locator('#hrEmployeeSearch').is_visible())
       p.locator('#hrEmployeeSearch').fill('zz-inexistente');check('useful no-result state',p.locator('#hrEmployeeEmpty').is_visible() and p.locator('[data-search-item=employee]:visible').count()==0)
       p.locator('#hrEmployeeSearch').fill('SYN');check('typing and clearing search restores rows',p.locator('[data-search-item=employee]:visible').count()==total)

@@ -25,7 +25,7 @@ with sync_playwright() as pw:
       p.locator('#hrEmployeeSearch').fill('SYN');check('typing and clearing search restores rows',p.locator('[data-search-item=employee]:visible').count()==total)
       p.locator('#hrEmployeeSearch').fill('');p.locator('#hrEmployeeStatus').select_option('active');check('active filter matches records',p.locator('[data-search-item=employee]:visible').evaluate_all('(rs)=>rs.every(r=>r.dataset.employeeStatus==="active")'))
       clinic=p.locator('#hrEmployeeClinic option').nth(1).get_attribute('value');p.locator('#hrEmployeeClinic').select_option(clinic);check('clinic filter composes with status',p.locator('[data-search-item=employee]:visible').evaluate_all('(rs)=>rs.every(r=>JSON.parse(r.dataset.employeeClinics).includes(document.getElementById("hrEmployeeClinic").value))'))
-      p.locator('#hrEmployeeClinic').select_option('');p.locator('#hrEmployeeStatus').select_option('');person=p.locator('[data-search-item=employee]:visible').first;name=person.locator('strong').inner_text();person.click();p.wait_for_selector('#employeeWorkspace');check('real employee action opens full workspace',p.locator('#employeeWorkspace h1').inner_text()==name and not p.locator('#modal').evaluate('(e)=>e.open'))
+      p.locator('#hrEmployeeClinic').select_option('');p.locator('#hrEmployeeStatus').select_option('');person=p.locator('[data-search-item=employee]:visible').first;name=person.locator('strong').inner_text();person.tap() if device!='desktop' else person.click();p.wait_for_selector('#employeeWorkspace');check('real employee action opens full workspace',p.locator('#employeeWorkspace h1').inner_text()==name and not p.locator('#modal').evaluate('(e)=>e.open'))
       
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-summary-{theme}.png'))
       check('no duplicate employee tabs',p.locator('.employee-tabs button').count()==len(set(p.locator('.employee-tabs button').all_text_contents())))
@@ -45,12 +45,16 @@ with sync_playwright() as pw:
        check('operation stepper uses original authorised phases',p.locator('.operation-steps button').count()>0)
        if p.evaluate('RoleAccessAdminV4.can("openClinic")'):
         p.evaluate('App.setPhase("open")');p.wait_for_timeout(100);check('touch team selection exists',p.locator('[data-team-picker]').count()>0)
-        before=p.evaluate('(k)=>localStorage.getItem(k)',K);box=p.locator('[data-team-picker]').first;box.set_checked(not box.is_checked());check('touch preview creates no permanent opening',p.evaluate('(k)=>JSON.stringify(JSON.parse(localStorage.getItem(k)).days)',K)==json.dumps(json.loads(before)['days'],separators=(',',':'),ensure_ascii=False))
+        before=p.evaluate('(k)=>localStorage.getItem(k)',K);box=p.locator('[data-team-picker]').first;checked=box.is_checked();box.tap() if device!='desktop' else box.click();check('team control reflects touch selection',box.is_checked()!=checked);check('touch preview creates no permanent opening',p.evaluate('(k)=>JSON.stringify(JSON.parse(localStorage.getItem(k)).days)',K)==json.dumps(json.loads(before)['days'],separators=(',',':'),ensure_ascii=False))
       if view=='agenda':check('clinic and colleague filters immediately visible',p.locator('#agendaFilters select[name=clinicId]').is_visible() and p.locator('#agendaFilters select[name=ownerId]').is_visible())
       if view=='stock':check('stock navigation grouped without duplicated controllers',p.locator('.module-tabs .ux-navigation-group').count()>0 and p.locator('[data-stock-action=tab]').count()==len(set(p.locator('[data-stock-action=tab]').evaluate_all('(bs)=>bs.map(b=>b.dataset.stockId)'))))
       if view=='marketing':check('marketing topics grouped',p.locator('.marketing-tabs .ux-navigation-group').count()==4)
       check(view+' no horizontal overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-{view}-{theme}.png'))
      check('no JavaScript exceptions',not errors);c.close()
+ except Exception:
+  try:p.screenshot(path=str(OUT/'ux-failure.png'))
+  except Exception:pass
+  raise
  finally:
   b.close();(OUT/'ux-workspaces-results.json').write_text(json.dumps({'checks':len(rows),'failures':sum(not r['passed'] for r in rows),'results':rows,'scope':'Synthetic Chromium touch emulation, not a physical Android certification'},ensure_ascii=False,indent=2))

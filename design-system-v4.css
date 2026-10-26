@@ -198,3 +198,7 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 [data-theme=dark] .smart-summary{background:var(--surface,#102b42);color:var(--text,#e5eef7)}
 [data-theme=dark] .smart-card-action{color:#72d9d7}
 .smart-summary-return{min-height:44px}
+
+/* The compact KPI grid reserves column 1 / row 4 for its drilldown hint. */
+.executive-kpi>.smart-card-action{grid-column:1;grid-row:4;margin:0;font-size:18px;line-height:24px;text-align:center;align-self:center;color:var(--primary)}
+.dashboard-secondary-metrics .smart-card-action{margin-top:4px;font-size:11px}

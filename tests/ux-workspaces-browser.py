@@ -6,6 +6,8 @@ ROOT=Path(__file__).resolve().parent.parent
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2'
 OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/gs-ux'));OUT.mkdir(parents=True,exist_ok=True)
 rows=[];scope={}
+def business_snapshot(page):
+ data=json.loads(page.evaluate('(k)=>localStorage.getItem(k)',K));data.pop('accessLogs',None);return data
 def check(case,passed):
  row={**scope,'case':case,'passed':bool(passed)};rows.append(row);print(json.dumps(row),flush=True);assert passed,row
 with sync_playwright() as pw:
@@ -28,10 +30,10 @@ with sync_playwright() as pw:
      manager=actor in ['u1','test_admin'];check('Dashboard respects effective role',p.evaluate('RoleAccessAdminV4.guard("dashboard")')==manager)
      if manager:
       p.locator('#dashPeriodToggle').click();p.locator('#dashStart').fill('2026-10-19');p.locator('#dashEnd').fill('2026-10-25');p.locator('#dashApply').click()
-      check('dashboard action hint does not overlap the metric note',p.locator('.executive-kpi').evaluate_all('(cards)=>cards.every(c=>{const a=c.querySelector(".smart-card-action").getBoundingClientRect(),n=c.querySelector("span:not(.smart-card-action)").getBoundingClientRect();return a.right<=n.left+1||a.top>=n.bottom-1||a.bottom<=n.top+1})'));before=p.evaluate('(k)=>localStorage.getItem(k)',K);start=p.locator('#dashStart').input_value();end=p.locator('#dashEnd').input_value()
+      check('dashboard action hint does not overlap the metric note',p.locator('.executive-kpi').evaluate_all('(cards)=>cards.every(c=>{const a=c.querySelector(".smart-card-action").getBoundingClientRect(),n=c.querySelector("span:not(.smart-card-action)").getBoundingClientRect();return a.right<=n.left+1||a.top>=n.bottom-1||a.bottom<=n.top+1})'));before=business_snapshot(p);start=p.locator('#dashStart').input_value();end=p.locator('#dashEnd').input_value()
       for key in ['consultations','treatments','newRequests','pending']:
        card=p.locator('[data-dash-kpi="'+key+'"]');card.tap() if device!='desktop' else card.click();check('dashboard '+key+' opens detail in applied period',p.locator('#modal').evaluate('(e)=>e.open') and start in p.locator('#modalBody').inner_text() and end in p.locator('#modalBody').inner_text());p.get_by_role('button',name='← Voltar ao Dashboard',exact=True).click()
-      check('dashboard drilldown never changes business records or opens task settings',p.evaluate('(k)=>localStorage.getItem(k)',K)==before and p.locator('#dashboard').get_attribute('class').find('active')>=0)
+      after=business_snapshot(p);print('Dashboard state changed keys:',[k for k in set(before)|set(after) if before.get(k)!=after.get(k)],flush=True);check('dashboard drilldown never changes business records or opens task settings',after==before and p.locator('#dashboard').get_attribute('class').find('active')>=0)
      if p.evaluate('RoleAccessAdminV4.guard("hr")'):
       p.evaluate('App.showView("hr");V4ClinicHR.showEmployees()');p.wait_for_selector('#hrEmployeeSearch');p.wait_for_function('document.querySelectorAll("#hr .gs-search-input").length===1');check('single employee search',p.locator('#hr .gs-search-input').count()==1)
       
@@ -86,6 +88,8 @@ with sync_playwright() as pw:
        p.wait_for_selector('.module-tabs .ux-navigation-group');check('stock navigation grouped without duplicated controllers',p.locator('.module-tabs .ux-navigation-group').count()>0 and p.locator('.module-tabs [data-stock-action=tab]').count()==len(set(p.locator('.module-tabs [data-stock-action=tab]').evaluate_all('(bs)=>bs.map(b=>b.dataset.stockId)'))))
       if view=='marketing':
        p.wait_for_selector('.marketing-tabs .ux-navigation-group');check('marketing topics grouped',p.locator('.marketing-tabs .ux-navigation-group').count()==4)
+      if view=='tables':
+       config=p.locator('#tablesContent .card').filter(has=p.get_by_role('button',name='Gerir documentos e checklists',exact=True)).last;p.wait_for_function('()=>[...document.querySelectorAll("#tablesContent .card")].some(c=>c.dataset.smartCard&&c.textContent.includes("Gerir documentos e checklists"))');config.tap(position={'x':12,'y':12}) if device!='desktop' else config.click(position={'x':12,'y':12});check('whole configuration card opens canonical document catalogue',p.locator('#modalTitle').inner_text()=='Catálogo Mestre de Documentos' and p.locator('#documentCatalogList').is_visible());p.locator('#modal .modal-head button').click()
       check(view+' no horizontal overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-{view}-{theme}.png'))
      if manager and device=='tablet':

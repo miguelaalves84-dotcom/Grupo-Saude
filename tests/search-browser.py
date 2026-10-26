@@ -51,7 +51,7 @@ with sync_playwright() as pw:
        p.evaluate('''()=>{const call=FinanceDemoV4.call;window.__searchStatementProof=[];FinanceDemoV4.call=async function(action,body){const result=await call(action,body);if(action==='statement')window.__searchStatementProof.push({requested:body.employeeId,returned:result.employeeId});return result}}''');root.locator('#financeQuery [name=employeeId]').select_option(target);root.locator('#financeQuery [type=submit]').click();p.wait_for_function('window.__searchStatementProof.length>0');check('person selection opens actual matching statement',p.evaluate('(id)=>window.__searchStatementProof.some(x=>x.requested===id&&x.returned===id)',target))
       search=root.locator('.gs-search-input')
       if search.count()!=1 or not search.is_visible():continue
-      rows=root.locator(RECORDS);baseline=rows.count();visible_before=rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')
+      rows=root.locator('[data-search-item=employee]' if view=='hr' else RECORDS);baseline=rows.count();visible_before=rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')
       search.fill('zzzz-synthetic-no-match-98247');expect(root.locator('.gs-search-empty')).to_be_visible();check('no results hides indexed records',(root.locator('[data-search-item=employee][hidden]').count()>0 if view=='hr' else root.locator('[data-gs-search-hidden]').count()>0) or baseline==0)
       root.locator('.gs-search-clear').click();check('clear restores visible records',rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==visible_before)
       term=None

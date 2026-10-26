@@ -38,7 +38,7 @@ with sync_playwright() as pw:
      fixture=p.evaluate('(k)=>localStorage.getItem(k)',K);before={}
      for phase in ['before','after']:
       use_baseline[0]=phase=='before';p.evaluate('([k,s])=>localStorage.setItem(k,s)',[K,fixture]);p.reload();p.wait_for_function('window.WorkspaceShellV4&&window.AgendaUIV4');p.wait_for_timeout(450)
-      if phase=='after':check('canonical design tokens loaded once',p.evaluate('getComputedStyle(document.documentElement).getPropertyValue("--design-version").trim()')=='gs-visual-20261024')
+      if phase=='after':check('canonical design tokens loaded once',p.evaluate('getComputedStyle(document.documentElement).getPropertyValue("--design-version").trim()')=='gs-reference-20261025')
       for label,kind,target in targets:
        p.evaluate('document.querySelectorAll("dialog[open]").forEach(d=>d.close())')
        if kind in ['view','hr']:

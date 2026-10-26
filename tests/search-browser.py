@@ -38,6 +38,7 @@ with sync_playwright() as pw:
        native.fill(norm(terms[0]).upper());check(field+' case accent partial match',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')>0)
        native.fill('zzzz-no-native-match-98247');check(field+' no results',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==0)
        native.fill('');check(field+' clear restores',records.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==before)
+      if root.locator('#dashSearch').count() and p.locator('#dashPeriodToggle').count():p.locator('#dashPeriodToggle').click()
       dashboard=root.locator('#dashSearch')
       if dashboard.count():
        options=root.locator('#dashClinic option[value]:not([value=""])');total=options.count()

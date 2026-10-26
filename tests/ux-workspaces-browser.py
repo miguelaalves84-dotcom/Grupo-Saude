@@ -39,7 +39,7 @@ with sync_playwright() as pw:
       p.locator('#hrEmployeeClinic').select_option('');p.locator('#hrEmployeeStatus').select_option('');person=p.locator('[data-search-item=employee]:visible').first;name=person.locator('strong').inner_text();person.tap() if device!='desktop' else person.click();p.wait_for_selector('#employeeWorkspace');check('real employee action opens full workspace',p.locator('#employeeWorkspace h1').inner_text()==name and not p.locator('#modal').evaluate('(e)=>e.open'))
       
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-summary-{theme}.png'))
-      check('no duplicate employee tabs',p.locator('.employee-tabs button').count()==len(set(p.locator('.employee-tabs button').all_text_contents())))
+      check('workspace starts without hiding its first content',p.evaluate('()=>{const page=document.getElementById("employeeWorkspace"),chrome=page.querySelector(".employee-chrome").getBoundingClientRect(),body=page.querySelector(".employee-body").getBoundingClientRect();return body.top>=chrome.bottom-1}'));check('no duplicate employee tabs',p.locator('.employee-tabs button').count()==len(set(p.locator('.employee-tabs button').all_text_contents())))
       p.get_by_role('button',name='Dados pessoais e contrato',exact=True).click();p.wait_for_selector('#employeeWorkspace #hrName');check('canonical form retained on page',p.locator('#hrName').input_value()==name and p.locator('#employeeWorkspace').evaluate('(e)=>e.getBoundingClientRect().width>innerWidth*.65' if device=='mobile' else '(e)=>e.getBoundingClientRect().width>(innerWidth-264)*.8'))
       
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-contract-{theme}.png'))

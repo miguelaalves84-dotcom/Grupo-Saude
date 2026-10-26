@@ -18,6 +18,11 @@ with sync_playwright() as p:
         page.wait_for_function('window.AttentionUIV4 && document.getElementById("attentionToggle")')
         manager = actor in ['u1', 'test_admin']
         assert page.evaluate('AttentionUIV4.items().some(x=>x.entityId==="browser-invoice")') == manager
+        assert page.locator('html').get_attribute('data-theme') == 'dark'
+        page.locator('#themeToggle').click()
+        assert page.locator('html').get_attribute('data-theme') == 'light'
+        page.reload()
+        page.wait_for_function('document.documentElement.dataset.theme==="light"')
         page.locator('#themeToggle').click()
         assert page.locator('html').get_attribute('data-theme') == 'dark'
         page.reload()

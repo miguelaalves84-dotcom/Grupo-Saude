@@ -177,3 +177,5 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 
 @media(max-height:740px) and (min-width:1101px){.executive-kpi{height:124px;min-height:124px;grid-template-rows:16px 32px 16px 20px;row-gap:3px;padding:12px}.executive-kpi>strong{font-size:28px;line-height:32px}.executive-overview>.card{height:244px}.dashboard-line-chart{height:166px;min-height:166px;max-height:166px}.reference-lower>.card{height:224px}.reference-distribution>svg{width:132px;height:132px}}
 @media print{:root,:root[data-theme=dark]{--canvas:#fff;--surface:#fff;--surface-subtle:#edf1f4;--ink:#193447;--muted:#536c7b;--line:#bacbd5;--primary:#87651b;--accent:#116c85;--chart-gold:#94701f}body{background:#fff!important;color:#193447!important}.card,.executive-kpi{background:#fff!important;box-shadow:none!important}}
+
+@media print{:root,:root[data-theme=dark]{--success:#126647;--success-bg:#e8f7f1;--warning:#805100;--warning-bg:#fff4df;--danger:#a52440;--danger-bg:#fff0f3}}

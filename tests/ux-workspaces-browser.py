@@ -27,6 +27,7 @@ with sync_playwright() as pw:
    for device,w,h in [('tablet',1280,800),('desktop',1440,1000),('mobile',390,844)]:
     for theme in ['light','dark']:
      scope=dict(actor=actor,device=device,theme=theme);c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',locale='pt-PT',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(9000);errors=[];p.on('pageerror',lambda e:(errors.append(str(e)),print('UX page error: '+str(e),flush=True)));p.on('dialog',lambda d:(print('UX dialog: '+d.message,flush=True),d.dismiss()));p.goto(URL);p.wait_for_function('window.WorkspaceShellV4&&window.HRMasterV4&&window.GSDemoClinicAssociations');p.wait_for_timeout(350);p.evaluate((ROOT/'tests/fixtures/synthetic-executive-state.js').read_text(),[K,actor,theme]);p.reload();p.wait_for_timeout(500)
+     p.wait_for_function('(k)=>{const s=JSON.parse(localStorage.getItem(k));return Array.isArray(s.chatMessages)&&!!s.notificationPrefs}',arg=K)
      manager=actor in ['u1','test_admin'];check('Dashboard respects effective role',p.evaluate('RoleAccessAdminV4.guard("dashboard")')==manager)
      if manager:
       p.locator('#dashPeriodToggle').click();p.locator('#dashStart').fill('2026-10-19');p.locator('#dashEnd').fill('2026-10-25');p.locator('#dashApply').click()

@@ -18,15 +18,22 @@ with sync_playwright() as p:
         page.wait_for_function('window.AttentionUIV4 && document.getElementById("attentionToggle")')
         manager = actor in ['u1', 'test_admin']
         assert page.evaluate('AttentionUIV4.items().some(x=>x.entityId==="browser-invoice")') == manager
-        assert page.locator('html').get_attribute('data-theme') == 'dark'
-        page.locator('#themeToggle').click()
         assert page.locator('html').get_attribute('data-theme') == 'light'
-        page.reload()
-        page.wait_for_function('document.documentElement.dataset.theme==="light"')
         page.locator('#themeToggle').click()
         assert page.locator('html').get_attribute('data-theme') == 'dark'
         page.reload()
         page.wait_for_function('document.documentElement.dataset.theme==="dark"')
+        page.goto(URL.rsplit('/', 1)[0] + '/account.html')
+        page.wait_for_function('document.getElementById("standaloneThemeToggle")')
+        assert page.locator('html').get_attribute('data-theme') == 'dark'
+        page.locator('#standaloneThemeToggle').click()
+        assert page.locator('html').get_attribute('data-theme') == 'light'
+        page.reload()
+        page.wait_for_function('document.documentElement.dataset.theme==="light"')
+        page.goto(URL)
+        page.wait_for_function('window.WorkspaceShellV4 && document.getElementById("attentionToggle")')
+        assert page.locator('html').get_attribute('data-theme') == 'light'
+        assert page.evaluate('(actor)=>localStorage.getItem("gs-v4-theme:"+actor)', actor) == 'light'
         page.locator('#attentionToggle').click()
         assert page.locator('#attentionDialog').is_visible()
         if manager:

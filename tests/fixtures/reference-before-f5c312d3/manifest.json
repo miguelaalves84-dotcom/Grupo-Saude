@@ -1,0 +1,18 @@
+{
+  "commit": "f5c312d32193c71f2bc0c20fa5d5d9adfddf611f",
+  "purpose": "Immutable synthetic comparison with the version physically reviewed by the user; original production data absent",
+  "files": {
+    "design-system-v4.css": {
+      "sha256": "a21e7fea8ee539d72e3629ed6b4a131c3a94984d8862c1b0f05864731f1245cf",
+      "bytes": 53112
+    },
+    "workspace-shell-v4.js": {
+      "sha256": "32dac358fe9b4d2f0329998c6b7ed45c5f1dcc4369100fe14a7bef5da2ae98c2",
+      "bytes": 37069
+    },
+    "visual-runtime-v4.js": {
+      "sha256": "c54a6eb8afc3a4f425eaf6958c460decd2d18f73e3ceb3615232589286f2e25a",
+      "bytes": 3606
+    }
+  }
+}

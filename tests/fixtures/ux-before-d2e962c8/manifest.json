@@ -25,6 +25,10 @@
     "safe-actions-v4.js": {
       "sha256": "bd175a08aef124481488559589a1956ffa25a3ded2825b191c4ee67daebc69cb",
       "bytes": 8564
+    },
+    "visual-runtime-v4.js": {
+      "sha256": "7596b2d4178aada21c2448c7bebb524ef055a0c6b5fd93521b1bc36ad8a2ba24",
+      "bytes": 3570
     }
   }
 }

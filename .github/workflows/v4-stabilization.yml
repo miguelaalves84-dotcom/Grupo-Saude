@@ -120,3 +120,72 @@ jobs:
           name: security-identity-synthetic-${{ github.sha }}
           path: /tmp/gs-security-artifacts
           retention-days: 14
+  security-browser:
+    needs: regression
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: gs_v4_synthetic
+          POSTGRES_USER: gs_synthetic
+          POSTGRES_PASSWORD: synthetic-ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U gs_synthetic -d gs_v4_synthetic"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - run: npm install --ignore-scripts
+      - run: npm run build
+      - name: Prepare isolated browser and one-day local TLS certificate
+        run: |
+          python3 -m venv /tmp/gs-security-playwright
+          /tmp/gs-security-playwright/bin/pip install playwright==1.56.0
+          /tmp/gs-security-playwright/bin/playwright install --with-deps chromium
+          mkdir -m 700 /tmp/gs-security-tls
+          openssl req -x509 -newkey rsa:2048 -nodes -keyout /tmp/gs-security-tls/key.pem -out /tmp/gs-security-tls/cert.pem -subj /CN=localhost -addext subjectAltName=IP:127.0.0.1 -days 1 > /tmp/gs-security-tls/setup.log 2>&1
+          chmod 600 /tmp/gs-security-tls/key.pem
+      - name: Start synthetic HTTPS identity backend
+        run: |
+          node tests/security-browser-server.cjs > /tmp/gs-security-server.log 2>&1 &
+          echo $! > /tmp/gs-security-server.pid
+          python3 - <<'PY'
+          import socket,time
+          for _ in range(30):
+            try:
+              socket.create_connection(('127.0.0.1',9443),timeout=1).close()
+              break
+            except OSError: time.sleep(1)
+          else: raise SystemExit('Synthetic HTTPS backend not ready; no secrets printed')
+          PY
+        env:
+          CI: 'true'
+          PGHOST: 127.0.0.1
+          PGDATABASE: gs_v4_synthetic
+          PGPASSWORD: synthetic-ci-only
+      - name: Authenticate six profiles through actual browser, HTTPS, API and PostgreSQL
+        run: /tmp/gs-security-playwright/bin/python tests/security-auth-browser.py
+      - name: Preserve sanitized browser evidence only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: security-browser-synthetic-${{ github.sha }}
+          path: /tmp/gs-security-browser-artifacts
+          retention-days: 14
+      - name: Stop isolated HTTPS fixture
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import os,signal,pathlib
+          p=pathlib.Path('/tmp/gs-security-server.pid')
+          if p.exists():
+            try: os.kill(int(p.read_text()),signal.SIGTERM)
+            except ProcessLookupError: pass
+          PY

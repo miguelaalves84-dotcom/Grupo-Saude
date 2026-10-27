@@ -1,5 +1,7 @@
 # Segurança P0 — implementação, evidências e bloqueios
 
+**Atualização da publicação:** preview sintético READY e HTTP 200 confirmado: [https://grupo-saude-v4-validacao-sintetica-aaekruecl-grupo-saude.vercel.app](https://grupo-saude-v4-validacao-sintetica-aaekruecl-grupo-saude.vercel.app). Código publicado `40301aea`. [Diagnóstico e verificações](SEGURANCA-P0-PREVIEW-VERCEL-20261027.md). A autenticação central permanece desativada neste preview estático.
+
 Atualizado em 27/10/2026. Branch `dev/v4-stabilization-20261017`. Base preservada `c32b0429`. Código de segurança: `0e7f7877`, `90c35abc`, `e090d24b`, `f44a2cbd`, `b3288a01`, `51f273ab`, `40301aea`. Main e produção não são destinos desta implementação.
 
 ## Critério de utilização
@@ -82,7 +84,7 @@ Proposta sujeita a aprovação operacional: backup diário cifrado e PITR confor
 
 Em incidente: preservar evidências minimizadas, revogar sessões/credenciais afetadas, conter acesso, identificar escopo, informar responsável de segurança/privacidade, avaliar obrigações legais e prazos aplicáveis, recuperar em ambiente validado e documentar causa/medidas. Não eliminar automaticamente documentos, auditoria ou dados de titulares sem análise de obrigações legais e autorização. Exportações e pedidos de titulares requerem identidade, autorização e registo.
 
-## Resultado final e publicação bloqueada
+## Histórico da entrega anterior — publicação então bloqueada
 
 Código **40301aeaeb82868a6d4d3b687448ec90709d0154**: **44/44 jobs aprovados**, incluindo 42 jobs Chromium, regressão npm/build e PostgreSQL. Execução [40430408470](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40430408470); [artefactos sintéticos](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40430408470#artifacts). Identidade: 16 cenários. Recuperação: 5. Chromium de identidade: 366 verificações, 36 contextos, zero falhas. Dependências: zero alertas conhecidos.
 

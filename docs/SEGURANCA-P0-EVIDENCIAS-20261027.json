@@ -15,6 +15,16 @@
   "realEmailEnabled": false,
   "realPrivateArchiveConfigured": false,
   "productionReady": false,
-  "newSecurityPreview": "not created; connector publication interrupted; read-only listing verified previous finance deployment only",
-  "evidenceUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40430408470"
+  "newSecurityPreview": {
+    "url": "https://grupo-saude-v4-validacao-sintetica-aaekruecl-grupo-saude.vercel.app",
+    "deploymentId": "dpl_Dyqo5FGkcJbYFEoBGEvJ21XWURhU",
+    "state": "READY",
+    "target": "staging",
+    "commit": "40301aeaeb82868a6d4d3b687448ec90709d0154",
+    "httpStatus": 200,
+    "protection": "Vercel Authentication retained",
+    "mainHtmlAndFiveAssetsExactMatch": true
+  },
+  "evidenceUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40430408470",
+  "previousPublicationBlock": "not created; connector publication interrupted; read-only listing verified previous finance deployment only"
 }

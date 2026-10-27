@@ -11,7 +11,7 @@ function endpoint(actor){
  await test('build leaves a deployable directory and excludes confidential/backend files',()=>{
   require('../scripts/build-static.cjs');const files=fs.readdirSync(path.join(root,'dist'));
   assert(files.includes('index.html'));assert(files.includes('finance.html'));assert(files.includes('account.html'));assert(files.includes('_headers'));
-  assert(files.every(name=>/\.(html|css|js)$/.test(name)||name==='_headers'));assert(!files.includes('api'));assert(!files.includes('docs'));assert(!files.includes('.env'));
+  assert(files.every(name=>/\.(html|css|js)$/.test(name)||name==='_headers'||name==='official-logo-v4.svg'));assert(!files.includes('api'));assert(!files.includes('docs'));assert(!files.includes('.env'));
   assert.equal(JSON.parse(fs.readFileSync(path.join(root,'vercel.json'))).outputDirectory,'dist');
   for(const name of files)assert.deepEqual(fs.readFileSync(path.join(root,'dist',name)),fs.readFileSync(path.join(root,name)));
  });

@@ -1,0 +1,3118 @@
+{
+  "sourceCommit": "9e7aa489900125b69352db21b34735757bad3ddc",
+  "runId": 40243715831,
+  "summary": {
+    "total": 274,
+    "FALHA_REAL": 0,
+    "FALSO_POSITIVO": 274,
+    "POR_CONFIRMAR": 0,
+    "expandedSections": 74,
+    "disclosures": 6,
+    "negativeDisclosureControls": 6,
+    "additionalFindings": 72,
+    "clipNegativeControls": 18
+  },
+  "clippedCases": [
+    {
+      "id": "V103",
+      "scope": {
+        "actor": "test_admin",
+        "profile": "ADMINISTRAÇÃO",
+        "theme": "light",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN test_admin",
+        "openSections": []
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-103-test_admin-390-light.png",
+      "checks": [],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    },
+    {
+      "id": "V104",
+      "scope": {
+        "actor": "test_admin",
+        "profile": "ADMINISTRAÇÃO",
+        "theme": "light",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN test_admin",
+        "openSections": [
+          {
+            "i": 0,
+            "open": true,
+            "label": "1. Dados pessoais"
+          },
+          {
+            "i": 1,
+            "open": false,
+            "label": "2. Função e acesso"
+          },
+          {
+            "i": 2,
+            "open": false,
+            "label": "3. Local de trabalho"
+          },
+          {
+            "i": 3,
+            "open": false,
+            "label": "4. Dados profissionais"
+          },
+          {
+            "i": 4,
+            "open": false,
+            "label": "5. Contrato"
+          },
+          {
+            "i": 5,
+            "open": false,
+            "label": "6. Remuneração e subsídio de alimentação"
+          },
+          {
+            "i": 6,
+            "open": false,
+            "label": "7. Atividade e remuneração variável"
+          },
+          {
+            "i": 7,
+            "open": false,
+            "label": "8. Faturação — nome próprio ou empresa"
+          },
+          {
+            "i": 8,
+            "open": false,
+            "label": "9. Horário"
+          },
+          {
+            "i": 9,
+            "open": false,
+            "label": "10. Documentação / checklist"
+          }
+        ]
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-104-test_admin-390-light.png",
+      "checks": [
+        {
+          "sectionOpened": 2,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -440.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -484.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 4,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -428.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -472.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 5,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -564.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -608.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 6,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -463.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -507.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 7,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -451.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -495.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 8,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -451.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -495.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 9,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -309.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -353.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        }
+      ],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    },
+    {
+      "id": "V133",
+      "scope": {
+        "actor": "test_admin",
+        "profile": "ADMINISTRAÇÃO",
+        "theme": "dark",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN test_admin",
+        "openSections": []
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-133-test_admin-390-dark.png",
+      "checks": [],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    },
+    {
+      "id": "V134",
+      "scope": {
+        "actor": "test_admin",
+        "profile": "ADMINISTRAÇÃO",
+        "theme": "dark",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN test_admin",
+        "openSections": [
+          {
+            "i": 0,
+            "open": true,
+            "label": "1. Dados pessoais"
+          },
+          {
+            "i": 1,
+            "open": false,
+            "label": "2. Função e acesso"
+          },
+          {
+            "i": 2,
+            "open": false,
+            "label": "3. Local de trabalho"
+          },
+          {
+            "i": 3,
+            "open": false,
+            "label": "4. Dados profissionais"
+          },
+          {
+            "i": 4,
+            "open": false,
+            "label": "5. Contrato"
+          },
+          {
+            "i": 5,
+            "open": false,
+            "label": "6. Remuneração e subsídio de alimentação"
+          },
+          {
+            "i": 6,
+            "open": false,
+            "label": "7. Atividade e remuneração variável"
+          },
+          {
+            "i": 7,
+            "open": false,
+            "label": "8. Faturação — nome próprio ou empresa"
+          },
+          {
+            "i": 8,
+            "open": false,
+            "label": "9. Horário"
+          },
+          {
+            "i": 9,
+            "open": false,
+            "label": "10. Documentação / checklist"
+          }
+        ]
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-134-test_admin-390-dark.png",
+      "checks": [
+        {
+          "sectionOpened": 2,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -440.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -484.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 4,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -428.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -472.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 5,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -564.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -608.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 6,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -463.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -507.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 7,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -451.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -495.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 8,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -451.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -495.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 9,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -309.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -353.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        }
+      ],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    },
+    {
+      "id": "V233",
+      "scope": {
+        "actor": "u1",
+        "profile": "CEO",
+        "theme": "light",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN u1",
+        "openSections": []
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-233-u1-390-light.png",
+      "checks": [],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    },
+    {
+      "id": "V234",
+      "scope": {
+        "actor": "u1",
+        "profile": "CEO",
+        "theme": "light",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN u1",
+        "openSections": [
+          {
+            "i": 0,
+            "open": true,
+            "label": "1. Dados pessoais"
+          },
+          {
+            "i": 1,
+            "open": false,
+            "label": "2. Função e acesso"
+          },
+          {
+            "i": 2,
+            "open": false,
+            "label": "3. Local de trabalho"
+          },
+          {
+            "i": 3,
+            "open": false,
+            "label": "4. Dados profissionais"
+          },
+          {
+            "i": 4,
+            "open": false,
+            "label": "5. Contrato"
+          },
+          {
+            "i": 5,
+            "open": false,
+            "label": "6. Remuneração e subsídio de alimentação"
+          },
+          {
+            "i": 6,
+            "open": false,
+            "label": "7. Atividade e remuneração variável"
+          },
+          {
+            "i": 7,
+            "open": false,
+            "label": "8. Faturação — nome próprio ou empresa"
+          },
+          {
+            "i": 8,
+            "open": false,
+            "label": "9. Horário"
+          },
+          {
+            "i": 9,
+            "open": false,
+            "label": "10. Documentação / checklist"
+          }
+        ]
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-234-u1-390-light.png",
+      "checks": [
+        {
+          "sectionOpened": 4,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -721.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -765.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 5,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -564.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -608.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 6,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -291.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -335.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 7,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -291.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -335.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 8,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -291.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -335.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 9,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -309.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -353.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        }
+      ],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    },
+    {
+      "id": "V254",
+      "scope": {
+        "actor": "u1",
+        "profile": "CEO",
+        "theme": "dark",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN u1",
+        "openSections": []
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-254-u1-390-dark.png",
+      "checks": [],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    },
+    {
+      "id": "V255",
+      "scope": {
+        "actor": "u1",
+        "profile": "CEO",
+        "theme": "dark",
+        "width": 390,
+        "height": 844,
+        "view": "hr",
+        "title": "Ficha — SYN u1",
+        "openSections": [
+          {
+            "i": 0,
+            "open": true,
+            "label": "1. Dados pessoais"
+          },
+          {
+            "i": 1,
+            "open": false,
+            "label": "2. Função e acesso"
+          },
+          {
+            "i": 2,
+            "open": false,
+            "label": "3. Local de trabalho"
+          },
+          {
+            "i": 3,
+            "open": false,
+            "label": "4. Dados profissionais"
+          },
+          {
+            "i": 4,
+            "open": false,
+            "label": "5. Contrato"
+          },
+          {
+            "i": 5,
+            "open": false,
+            "label": "6. Remuneração e subsídio de alimentação"
+          },
+          {
+            "i": 6,
+            "open": false,
+            "label": "7. Atividade e remuneração variável"
+          },
+          {
+            "i": 7,
+            "open": false,
+            "label": "8. Faturação — nome próprio ou empresa"
+          },
+          {
+            "i": 8,
+            "open": false,
+            "label": "9. Horário"
+          },
+          {
+            "i": 9,
+            "open": false,
+            "label": "10. Documentação / checklist"
+          }
+        ]
+      },
+      "original": {
+        "kind": "overlapping-controls",
+        "tag": "BUTTON",
+        "id": "",
+        "selector": "button.",
+        "text": "×",
+        "other": {
+          "tag": "BUTTON",
+          "id": "",
+          "selector": "button.secondary",
+          "text": "Permissões"
+        }
+      },
+      "before": {
+        "a": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 311,
+            "right": 355,
+            "top": 61.203125,
+            "bottom": 102.953125,
+            "visible": true,
+            "clips": [
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 311,
+            "y": 61.203125,
+            "width": 44,
+            "height": 41.75
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "b": {
+          "found": true,
+          "rendered": true,
+          "paintRect": {
+            "left": 228.875,
+            "right": 330.46875,
+            "top": 121.953125,
+            "bottom": 85.953125,
+            "visible": false,
+            "clips": [
+              {
+                "id": "modalBody",
+                "axis": "x",
+                "overflow": "auto"
+              },
+              {
+                "id": "modalBody",
+                "axis": "y",
+                "overflow": "auto"
+              },
+              {
+                "id": "modal",
+                "axis": "x",
+                "overflow": "hidden"
+              },
+              {
+                "id": "modal",
+                "axis": "y",
+                "overflow": "hidden"
+              }
+            ]
+          },
+          "rect": {
+            "x": 228.875,
+            "y": 41.953125,
+            "width": 101.59375,
+            "height": 44
+          },
+          "section": -1,
+          "closedAncestors": []
+        },
+        "geometricOverlap": true,
+        "paintedOverlap": false,
+        "visibleOverlap": false
+      },
+      "capture": "visual-255-u1-390-dark.png",
+      "checks": [
+        {
+          "sectionOpened": 4,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -721.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -765.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 5,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -564.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -608.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 6,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -291.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -335.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 7,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -291.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -335.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 8,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -291.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -335.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        },
+        {
+          "sectionOpened": 9,
+          "a": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 311,
+              "right": 355,
+              "top": 61.203125,
+              "bottom": 102.953125,
+              "visible": true,
+              "clips": [
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 311,
+              "y": 61.203125,
+              "width": 44,
+              "height": 41.75
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "b": {
+            "found": true,
+            "rendered": true,
+            "paintRect": {
+              "left": 228.875,
+              "right": 330.46875,
+              "top": 121.953125,
+              "bottom": -309.046875,
+              "visible": false,
+              "clips": [
+                {
+                  "id": "modalBody",
+                  "axis": "x",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modalBody",
+                  "axis": "y",
+                  "overflow": "auto"
+                },
+                {
+                  "id": "modal",
+                  "axis": "x",
+                  "overflow": "hidden"
+                },
+                {
+                  "id": "modal",
+                  "axis": "y",
+                  "overflow": "hidden"
+                }
+              ]
+            },
+            "rect": {
+              "x": 228.875,
+              "y": -353.046875,
+              "width": 101.59375,
+              "height": 44
+            },
+            "section": -1,
+            "closedAncestors": []
+          },
+          "geometricOverlap": false,
+          "paintedOverlap": false,
+          "visibleOverlap": false
+        }
+      ],
+      "classification": "FALSO_POSITIVO",
+      "severity": "Informativo",
+      "reason": "Retângulos brutos sobrepostos, mas a interseção está recortada pelo viewport/scroll do modal; retângulos pintados e ancestrais de recorte preservados na prova."
+    }
+  ],
+  "notice": "Painted intersections are computed with viewport and ancestor overflow clipping. Visible negative controls remain mandatory; raw candidates are not discarded."
+}

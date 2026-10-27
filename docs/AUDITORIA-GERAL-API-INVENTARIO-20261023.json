@@ -1,0 +1,291 @@
+[
+  {
+    "file": "api/attendance.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_ATTENDANCE_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/complaints.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_COMPLAINTS_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/document-catalog.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_CATALOG_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/employee-documents.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "../lib/document-security-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_EMPLOYEE_DOCUMENTS_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/finance.js",
+    "lines": 2,
+    "authorizationReferences": [
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/hr-development.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_HR_DEVELOPMENT_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/marketing.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_MARKETING_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/operation.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_OPERATION_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/payroll-export.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_PAYROLL_EXPORT_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/recruitment.js",
+    "lines": 33,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_FINANCE_ENVIRONMENT",
+      "GS_RECRUITMENT_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/stock.js",
+    "lines": 4,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_STOCK_ENABLED",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-auth.js",
+    "lines": 9,
+    "authorizationReferences": [
+      "../finance-core-v4",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "configured"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-clinic-gps.js",
+    "lines": 9,
+    "authorizationReferences": [
+      "../lib/authorization-service"
+    ],
+    "failClosedMarkers": [
+      "FORBIDDEN"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-cron-alerts.js",
+    "lines": 19,
+    "authorizationReferences": [],
+    "failClosedMarkers": [
+      "503",
+      "configured"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-document.js",
+    "lines": 6,
+    "authorizationReferences": [
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-finance-email-job.js",
+    "lines": 6,
+    "authorizationReferences": [
+      "../finance-core-v4",
+      "../lib/finance-payment-email",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_FINANCE_ENVIRONMENT",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-finance.js",
+    "lines": 21,
+    "authorizationReferences": [
+      "../finance-core-v4",
+      "../lib/authorization-service",
+      "../lib/document-security-service",
+      "../lib/finance-authorization-service",
+      "../lib/finance-email-alerts",
+      "../lib/finance-email-ingest",
+      "../lib/finance-mail-queue",
+      "../lib/finance-payment-email",
+      "../lib/finance-service",
+      "../lib/gmail-oauth-service"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "GS_FINANCE_ENVIRONMENT",
+      "configured",
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-gmail-callback.js",
+    "lines": 3,
+    "authorizationReferences": [
+      "../lib/gmail-oauth-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "503",
+      "configured"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-retention.js",
+    "lines": 15,
+    "authorizationReferences": [
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "production"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4-upload.js",
+    "lines": 34,
+    "authorizationReferences": [
+      "../lib/authorization-service"
+    ],
+    "failClosedMarkers": [],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  },
+  {
+    "file": "api/v4.js",
+    "lines": 56,
+    "authorizationReferences": [
+      "../lib/authorization-service",
+      "./v4-finance"
+    ],
+    "failClosedMarkers": [
+      "AUTH_REQUIRED",
+      "FORBIDDEN"
+    ],
+    "assessment": "Marcadores estáticos, não aprovação de segurança; cruzar com testes negativos e contexto autenticado."
+  }
+]

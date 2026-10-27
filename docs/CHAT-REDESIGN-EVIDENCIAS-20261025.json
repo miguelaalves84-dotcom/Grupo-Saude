@@ -1,0 +1,31 @@
+{
+  "sha": "07f3d4bf8820c2d906ef5ddc6d2b4e1f1a273ec7",
+  "run": 40183714251,
+  "checks": 1560,
+  "failed": 0,
+  "contexts": 36,
+  "byProfile": {
+    "Call Center": 256,
+    "Médico": 256,
+    "Técnico": 256,
+    "Administrativo": 256,
+    "Administração": 268,
+    "CEO": 268
+  },
+  "domainGroups": 15,
+  "physicalAndroid": "Pendente: novo desenho/gestos/teclado",
+  "realSessions": false,
+  "centralUIPersistence": false,
+  "privateStorage": false,
+  "jobsPassed": 38,
+  "chromiumSuites": 36,
+  "preview": {
+    "url": "https://grupo-saude-v4-validacao-sintetica-afinm432j-grupo-saude.vercel.app",
+    "id": "dpl_CSBmikEuHYsBrjqoDy748aSpzLR8",
+    "state": "READY",
+    "target": "staging"
+  },
+  "apiPublished": false,
+  "mainUnchanged": true,
+  "prDraft": true
+}

@@ -1,0 +1,423 @@
+﻿Ficheiro;Linha;Definição;Tag/família;Tipo na fonte;ID na fonte;Nome/fábrica;Classificação;Conciliação;Instâncias conciliadas;Revisão Android físico
+account.html;1;1;input;email;accountEmail;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+account.html;1;2;input;password;accountPassword;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+administrative-rosters-ui-v4.js;8;5;textarea;textarea;rosterReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+administrative-rosters-ui-v4.js;13;7;textarea;textarea;rosterReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+administrative-rosters-ui-v4.js;15;8;textarea;textarea;rosterDecisionReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+agenda-ui-v4.js;15;2;input;search;;search;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+agenda-ui-v4.js;24;3;input;text;;title;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+agenda-ui-v4.js;24;6;input;number;;duration;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+agenda-ui-v4.js;24;7;input;text;;location;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+agenda-ui-v4.js;24;8;textarea;textarea;;description;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+agenda-ui-v4.js;27;10;textarea;textarea;;reason;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;89;2;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;97;3;input;number;${id};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;107;5;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;111;8;textarea;textarea;opAdministrativeReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;113;9;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;113;10;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;115;12;input;number;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;115;13;input;number;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;115;14;textarea;textarea;stockClosingReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;116;15;input;text;opReopenReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;131;18;input;text;rName;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+app.js;131;19;input;text;rPhone;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+app.js;131;20;input;text;rPatientRef;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+app.js;131;21;textarea;textarea;rNotes;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+app.js;135;22;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;135;23;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;135;24;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;135;25;input;text;editPatientRef;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;135;26;textarea;textarea;requestResult;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;135;27;input;text;requestPathology;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;142;28;input;text;chatMessage;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";36;Pendente
+app.js;145;29;input;text;convTitle;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+app.js;154;31;input;text;pName;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;154;32;input;email;pEmail;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;154;33;input;text;pPhone;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;154;34;input;text;pNif;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;154;35;input;text;pNiss;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;154;36;input;text;pIban;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;154;38;input;text;pAddress;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;40;input;text;candidateName;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;41;input;email;candidateEmail;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;42;input;text;candidatePhone;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;43;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;44;textarea;textarea;candidateNotes;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;45;input;text;candidateStage;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;46;input;text;candidateNif;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;47;input;text;candidateNiss;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;48;input;text;candidateIban;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;49;input;text;candidateAddress;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;157;50;textarea;textarea;candidateNotes;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;163;51;input;text;role_${r.id};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;163;52;input;text;newRole;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+app.js;183;53;input;text;tName;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+app.js;183;54;input;text;tRole;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+approvals-center-v4.js;36;1;textarea;textarea;approvalNote;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+attendance-dashboard-v4.js;13;3;textarea;textarea;avNote;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+attendance-dashboard-v4.js;20;5;input;search;attendanceSearch;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";12;Pendente
+attendance-ui-v4.js;19;2;textarea;textarea;attendanceReason;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";37;Pendente
+attendance-ui-v4.js;22;5;textarea;textarea;attendanceReason;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";37;Pendente
+attendance-ui-v4.js;24;9;textarea;textarea;attendanceReason;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";37;Pendente
+attendance-ui-v4.js;27;10;textarea;textarea;attendanceDecisionReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+attendance-ui-v4.js;27;11;input;number;attendanceExtra;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+clinic-calendars-v4.js;10;1;input;number;ccYear;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+clinic-master-v4.js;18;1;input;search;clinicDocumentSearch;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+clinic-master-v4.js;19;2;input;text;cmName;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;3;input;text;cmEmployerName;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;4;input;text;cmEmployerNif;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;5;input;text;cmAddress;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;6;input;email;cmEmail;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;7;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+clinic-master-v4.js;19;8;input;text;cmLat;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;9;input;text;cmLng;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;10;input;number;cmRadius;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;11;input;text;cmMapCoords;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;19;12;input;text;cmERS;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+clinic-master-v4.js;20;17;input;number;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+clinic-master-v4.js;25;21;input;text;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+communications-v4.js;17;1;input;email;emailAddress_${x.id};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+communications-v4.js;20;3;textarea;textarea;retentionReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+communications-v4.js;25;7;input;number;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;16;1;input;text;complaintTitle;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";18;Pendente
+complaints-ui-v4.js;16;3;input;text;complaintRegistrar;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;16;4;input;text;complaintName;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";18;Pendente
+complaints-ui-v4.js;16;5;input;email;complaintEmail;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";18;Pendente
+complaints-ui-v4.js;16;6;input;text;complaintPhone;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;16;7;textarea;textarea;complaintDescription;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";18;Pendente
+complaints-ui-v4.js;27;9;input;${type};${key};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;12;textarea;textarea;lawyerResponseNotes;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;13;textarea;textarea;confirmationNotes;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;14;textarea;textarea;complaintTransitionNotes;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;15;textarea;textarea;complaintTransitionReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;16;textarea;textarea;complaintReopenReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;17;textarea;textarea;complaintCorrectionReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;34;18;input;search;complaintSearch;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";18;Pendente
+complaints-ui-v4.js;27;factory-14335;factory;Tipo definido pelo gerador;;Email da advogada;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;factory-14402;factory;Tipo definido pelo gerador;;Data/hora do envio manual;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;factory-14486;factory;Tipo definido pelo gerador;;Data/hora da confirmação de receção;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;factory-15020;factory;Tipo definido pelo gerador;;Receção da resposta;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;factory-15441;factory;Tipo definido pelo gerador;;Data/hora;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;factory-15519;factory;Tipo definido pelo gerador;;Meio de envio;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+complaints-ui-v4.js;27;factory-15973;factory;Tipo definido pelo gerador;;Data/hora;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+contract-types-v4.js;7;1;input;text;ctname_${E(c.id)};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+contract-types-v4.js;7;4;input;number;ctvac_${E(c.id)};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+contract-types-v4.js;8;6;input;text;ctNew;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+document-catalog-ui-v4.js;9;1;input;text;;name;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+document-catalog-ui-v4.js;9;2;input;number;;validityDays;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+document-catalog-ui-v4.js;9;3;input;number;;warningDays;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+document-catalog-ui-v4.js;9;4;textarea;textarea;;requirements;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+employee-documents-ui-v4.js;9;1;input;text;employeeDocumentDescription;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+employee-documents-ui-v4.js;9;2;input;text;employeeDocumentCategory;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+employee-documents-ui-v4.js;9;6;textarea;textarea;employeeDocumentReason;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+employee-documents-ui-v4.js;13;7;textarea;textarea;employeeDocumentDecision;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;14;1;input;${type};;${name};HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;14;2;textarea;textarea;;notes;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;25;5;input;search;financeSearch;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;26;6;input;search;financePersonSearch;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;30;9;textarea;textarea;;notes;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;31;10;textarea;textarea;;reason;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;16;factory-5859;factory;Tipo definido pelo gerador;;Colaborador;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;16;factory-5944;factory;Tipo definido pelo gerador;;Número da fatura;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;16;factory-6028;factory;Tipo definido pelo gerador;;Série;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;16;factory-6092;factory;Tipo definido pelo gerador;;Data da fatura;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;16;factory-6174;factory;Tipo definido pelo gerador;;Data de inserção;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;16;factory-6260;factory;Tipo definido pelo gerador;;Valor (€);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;17;factory-7022;factory;Tipo definido pelo gerador;;Colaborador;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;17;factory-7089;factory;Tipo definido pelo gerador;;Identificador;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;17;factory-7168;factory;Tipo definido pelo gerador;;Número (se aplicável);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;17;factory-7231;factory;Tipo definido pelo gerador;;Valor (€), se conhecido;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;17;factory-7349;factory;Tipo definido pelo gerador;;Mês;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;17;factory-7443;factory;Tipo definido pelo gerador;;Ano;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;17;factory-7541;factory;Tipo definido pelo gerador;;Data do documento;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;18;factory-8241;factory;Tipo definido pelo gerador;;Mês;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;18;factory-8313;factory;Tipo definido pelo gerador;;Ano;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;18;factory-8388;factory;Tipo definido pelo gerador;;Data do documento;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;18;factory-8530;factory;Tipo definido pelo gerador;;Motivo da decisão;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;19;factory-9554;factory;Tipo definido pelo gerador;;Data;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;19;factory-9612;factory;Tipo definido pelo gerador;;Descrição;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;19;factory-9701;factory;Tipo definido pelo gerador;;Quantidade;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;19;factory-9789;factory;Tipo definido pelo gerador;;Valor unitário (€);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;19;factory-10269;factory;Tipo definido pelo gerador;;Percentagem (opcional);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;19;factory-10381;factory;Tipo definido pelo gerador;;"Valor total (€); Ajuste aceita débito negativo; vazio calcula o ato";"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;19;factory-10571;factory;Tipo definido pelo gerador;;Trimestre obrigatório para bónus (AAAA-Q1…Q4);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;20;factory-11306;factory;Tipo definido pelo gerador;;Valor (€);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;20;factory-11405;factory;Tipo definido pelo gerador;;Data de pagamento;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;26;factory-15541;factory;Tipo definido pelo gerador;;Data inicial;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;26;factory-15635;factory;Tipo definido pelo gerador;;Data final;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;29;factory-18075;factory;Tipo definido pelo gerador;;De;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;29;factory-18124;factory;Tipo definido pelo gerador;;Até;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;30;factory-19904;factory;Tipo definido pelo gerador;;Data;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;30;factory-19981;factory;Tipo definido pelo gerador;;Total (€);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;30;factory-20077;factory;Tipo definido pelo gerador;;Multibanco (€);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;30;factory-20257;factory;Tipo definido pelo gerador;;Valor depositado (€);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;30;factory-20384;factory;Tipo definido pelo gerador;;Data do depósito;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;30;factory-20452;factory;Tipo definido pelo gerador;;Comprovativo / referência;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;44;factory-33278;factory;Tipo definido pelo gerador;;Motivo da substituição;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;46;factory-34904;factory;Tipo definido pelo gerador;;Endereço;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;47;factory-37528;factory;Tipo definido pelo gerador;;Referência dos testes e revisão externa;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;51;factory-41481;factory;Tipo definido pelo gerador;;Motivo da substituição;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42366;factory;Tipo definido pelo gerador;;Motivo se corrigir a associação;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42458;factory;Tipo definido pelo gerador;;Número;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42543;factory;Tipo definido pelo gerador;;Série;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42567;factory;Tipo definido pelo gerador;;Data de emissão;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42632;factory;Tipo definido pelo gerador;;Data de inserção;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42699;factory;Tipo definido pelo gerador;;Valor (€);"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42772;factory;Tipo definido pelo gerador;;Mês;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42833;factory;Tipo definido pelo gerador;;Ano;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42898;factory;Tipo definido pelo gerador;;Data de emissão;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-42964;factory;Tipo definido pelo gerador;;Valor (€), se conhecido;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;53;factory-43390;factory;Tipo definido pelo gerador;;Motivo da substituição;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;56;factory-47940;factory;Tipo definido pelo gerador;;Motivo;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;56;factory-49284;factory;Tipo definido pelo gerador;;Motivo obrigatório;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;56;factory-49760;factory;Tipo definido pelo gerador;;Nome completo;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;56;factory-49813;factory;Tipo definido pelo gerador;;Email do candidato;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;56;factory-50268;factory;Tipo definido pelo gerador;;Motivo da recuperação;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;57;factory-50793;factory;Tipo definido pelo gerador;;Como foi resolvido / tratado fora do programa;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;58;factory-51725;factory;Tipo definido pelo gerador;;Motivo obrigatório;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;59;factory-52617;factory;Tipo definido pelo gerador;;Fundamento desta execução;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;59;factory-53098;factory;Tipo definido pelo gerador;;Fundamento legal e decisão de conservação;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;59;factory-53202;factory;Tipo definido pelo gerador;;Conservar arquivo até;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;59;factory-53465;factory;Tipo definido pelo gerador;;Referência verificável do arquivo recebido;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;59;factory-53555;factory;Tipo definido pelo gerador;;SHA-256 da cópia arquivada;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;60;factory-54785;factory;Tipo definido pelo gerador;;Motivo obrigatório;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;60;factory-55346;factory;Tipo definido pelo gerador;;Trimestre;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;60;factory-58889;factory;Tipo definido pelo gerador;;Motivo;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;60;factory-59329;factory;Tipo definido pelo gerador;;Motivo da decisão;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+finance-ui-v4.js;60;factory-59689;factory;Tipo definido pelo gerador;;Motivo obrigatório;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+global-search-v4.js;10;1;input;search;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;42;1;input;text;mkTitle;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;42;2;textarea;textarea;mkBody;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;42;3;input;text;mkProfessional;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;54;4;input;text;clName;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;54;5;input;text;clAddress;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;54;6;input;text;clEmail;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;54;7;input;text;clPhone;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;113;10;input;text;cmNewSpec;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;116;11;input;text;cmProName;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+gs-enterprise.js;151;12;textarea;textarea;mkPrompt;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;2;1;input;'+type+';dev-'+id+';;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;4;2;input;number;developmentReportYear;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;4;textarea;textarea;dev-notes;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";3;Pendente
+hr-development-ui-v4.js;5;factory-5458;factory;Tipo definido pelo gerador;;title;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-5527;factory;Tipo definido pelo gerador;;category;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-5572;factory;Tipo definido pelo gerador;;entity;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-5648;factory;Tipo definido pelo gerador;;start;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-5696;factory;Tipo definido pelo gerador;;end;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-5737;factory;Tipo definido pelo gerador;;duration;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-5820;factory;Tipo definido pelo gerador;;validHours;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-5894;factory;Tipo definido pelo gerador;;allocationYear;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-6611;factory;Tipo definido pelo gerador;;category;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-6684;factory;Tipo definido pelo gerador;;serial;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-6744;factory;Tipo definido pelo gerador;;delivered;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-6809;factory;Tipo definido pelo gerador;;expectedReturn;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-6882;factory;Tipo definido pelo gerador;;returned;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-6942;factory;Tipo definido pelo gerador;;condition;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-7189;factory;Tipo definido pelo gerador;;date;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-7233;factory;Tipo definido pelo gerador;;amount;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-7286;factory;Tipo definido pelo gerador;;kilometers;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;5;factory-7472;factory;Tipo definido pelo gerador;;decisionReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;8;factory-10936;factory;Tipo definido pelo gerador;;annualHours;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;8;factory-11014;factory;Tipo definido pelo gerador;;start;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;8;factory-11089;factory;Tipo definido pelo gerador;;end;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;8;factory-11298;factory;Tipo definido pelo gerador;;irct;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;8;factory-11362;factory;Tipo definido pelo gerador;;deferPlan;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-development-ui-v4.js;8;factory-11450;factory;Tipo definido pelo gerador;;reason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;31;1;textarea;textarea;leaveDecisionNote;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;33;3;textarea;textarea;leaveProofReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;56;7;textarea;textarea;leaveChangeReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;67;8;textarea;textarea;leaveReversalReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3668;factory;Tipo definido pelo gerador;;Clínica;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3713;factory;Tipo definido pelo gerador;;Função;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3755;factory;Tipo definido pelo gerador;;Período;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3788;factory;Tipo definido pelo gerador;;Dias úteis;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3833;factory;Tipo definido pelo gerador;;Estado;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3874;factory;Tipo definido pelo gerador;;Pedido em;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3922;factory;Tipo definido pelo gerador;;Decisão em;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-3964;factory;Tipo definido pelo gerador;;Decisor;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-4046;factory;Tipo definido pelo gerador;;Motivo;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-leave-ui-v4.js;30;factory-4099;factory;Tipo definido pelo gerador;;Notas;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;28;4;input;text;hrName;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";13;Pendente
+hr-master-v4.js;28;5;input;email;hrEmail;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";13;Pendente
+hr-master-v4.js;28;6;input;text;hrPhone;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";13;Pendente
+hr-master-v4.js;28;8;input;text;hrAddress;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";13;Pendente
+hr-master-v4.js;28;9;input;text;hrNif;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;10;input;text;hrNiss;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;11;input;text;hrIban;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;13;input;text;hrLicense;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;14;input;text;hrLicenseIssuer;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;17;input;text;hrERSReference;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;28;18;input;number;hrTechniquePercentage;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;19;input;number;hrTreatmentPercentage;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;22;input;number;hrGross;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;23;input;number;hrMeal;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;24;input;${t};hrPayroll${k};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;28;25;input;number;hrPayrollMealMinimum;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;28;26;input;text;hrPayrollMealRule;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;28;27;input;number;hrConsultationFixed;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;28;input;number;hrPercentage;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;29;input;number;hrHourlyRate;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;30;input;number;hrBonus;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;28;31;input;text;hrVariableRule;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;32;input;text;hrMealCardAccount;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;28;33;input;number;hrDependents;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-master-v4.js;28;35;input;text;hrBilling${k};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-master-v4.js;36;41;input;number;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;20;1;textarea;textarea;perfDecisionReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;26;2;input;text;perfPeriod;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;26;3;textarea;textarea;perfObjectives;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;26;4;textarea;textarea;perfFeedback;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;26;5;textarea;textarea;perfProposalReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;34;6;textarea;textarea;perfCriteria;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-performance-ui-v4.js;34;7;textarea;textarea;perfPeerCriteria;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-performance-ui-v4.js;34;8;input;number;perfThreshold;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-performance-ui-v4.js;34;10;textarea;textarea;perfRuleReason;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+hr-performance-ui-v4.js;41;11;input;text;perfPeriod;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;41;12;textarea;textarea;perfCycleReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;47;13;textarea;textarea;perfCloseReason;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;13;factory-1427;factory;Tipo definido pelo gerador;;perf_score_;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;28;factory-6668;factory;Tipo definido pelo gerador;;perfEmployee;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;28;factory-6717;factory;Tipo definido pelo gerador;;perfObjectives;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;28;factory-7032;factory;Tipo definido pelo gerador;;perfKind;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;28;factory-7057;factory;Tipo definido pelo gerador;;perfPeriod;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;28;factory-7113;factory;Tipo definido pelo gerador;;perfFeedback;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;28;factory-7142;factory;Tipo definido pelo gerador;;perfProposalReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;29;factory-7303;factory;Tipo definido pelo gerador;;perfDecisionReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;36;factory-9520;factory;Tipo definido pelo gerador;;perfCriteria;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;36;factory-9583;factory;Tipo definido pelo gerador;;perfPeerCriteria;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;36;factory-9635;factory;Tipo definido pelo gerador;;perfThreshold;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;36;factory-9731;factory;Tipo definido pelo gerador;;perfRuleReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;42;factory-11998;factory;Tipo definido pelo gerador;;perfClinic;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;42;factory-12023;factory;Tipo definido pelo gerador;;perfKind;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;42;factory-12048;factory;Tipo definido pelo gerador;;perfPeriod;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;42;factory-12075;factory;Tipo definido pelo gerador;;perfCycleReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-performance-ui-v4.js;48;factory-14842;factory;Tipo definido pelo gerador;;perfCloseReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+hr-separation-v4.js;15;3;textarea;textarea;slNote;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+interview-questions-ui-v4.js;6;1;textarea;textarea;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+interview-questions-ui-v4.js;6;2;textarea;textarea;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+interview-questions-ui-v4.js;6;3;textarea;textarea;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+interview-questions-ui-v4.js;6;4;textarea;textarea;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+interview-questions-ui-v4.js;6;5;textarea;textarea;interviewCriteriaConfig;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+interview-services-ui-v4.js;9;4;textarea;textarea;interviewTranscript;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";12;Pendente
+interview-services-ui-v4.js;9;5;textarea;textarea;interviewAssessment;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;5;1;input;${type};${id};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;2;textarea;textarea;mkBody;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+marketing-ui-v4.js;17;4;textarea;textarea;mkBody;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";2;Pendente
+marketing-ui-v4.js;29;6;textarea;textarea;mkCreativeBody;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;29;7;textarea;textarea;mkCreativeTags;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;factory-5128;factory;Tipo definido pelo gerador;;mkTitle;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;factory-5160;factory;Tipo definido pelo gerador;;mkObjective;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;factory-5371;factory;Tipo definido pelo gerador;;mkAudience;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;factory-5462;factory;Tipo definido pelo gerador;;mkStart;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;factory-5512;factory;Tipo definido pelo gerador;;mkEnd;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;factory-5555;factory;Tipo definido pelo gerador;;mkBudget;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;13;factory-5956;factory;Tipo definido pelo gerador;;mkComplianceNote;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;14;factory-7388;factory;Tipo definido pelo gerador;;mkDate;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;14;factory-7426;factory;Tipo definido pelo gerador;;mkAmount;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;14;factory-7491;factory;Tipo definido pelo gerador;;mkEvidence;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;16;factory-8994;factory;Tipo definido pelo gerador;;mkMonth;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;16;factory-9033;factory;Tipo definido pelo gerador;;mkSpec;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;16;factory-9252;factory;Tipo definido pelo gerador;;mk_;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;17;factory-10148;factory;Tipo definido pelo gerador;;mkTitle;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;17;factory-10180;factory;Tipo definido pelo gerador;;mkSpec;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;17;factory-10371;factory;Tipo definido pelo gerador;;mkDate;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;17;factory-10611;factory;Tipo definido pelo gerador;;mkComplianceNote;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;18;factory-11538;factory;Tipo definido pelo gerador;;mkDate;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;18;factory-11590;factory;Tipo definido pelo gerador;;mkEvidence;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;18;factory-11657;factory;Tipo definido pelo gerador;;mkReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;19;factory-12384;factory;Tipo definido pelo gerador;;mkConsentEvidence;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;19;factory-12469;factory;Tipo definido pelo gerador;;mkReason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;20;factory-13152;factory;Tipo definido pelo gerador;;mkTitle;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;20;factory-13247;factory;Tipo definido pelo gerador;;mkDate;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;20;factory-13285;factory;Tipo definido pelo gerador;;mkRequestId;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;21;factory-14363;factory;Tipo definido pelo gerador;;mkStartFilter;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;21;factory-14417;factory;Tipo definido pelo gerador;;mkEndFilter;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;26;factory-21368;factory;Tipo definido pelo gerador;;mkCalendarMonth;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;29;factory-26855;factory;Tipo definido pelo gerador;;mkCreativeCTA;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;32;factory-29802;factory;Tipo definido pelo gerador;;mkCustomChannel;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+marketing-ui-v4.js;32;factory-29917;factory;Tipo definido pelo gerador;;mkRetentionDays;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+operation-history-v4.js;9;1;input;search;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;2;1;input;'+type+';payroll-'+id+';;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;6;factory-2361;factory;Tipo definido pelo gerador;;start;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;6;factory-2412;factory;Tipo definido pelo gerador;;end;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;6;factory-2482;factory;Tipo definido pelo gerador;;month;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;9;factory-9567;factory;Tipo definido pelo gerador;;destination;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;9;factory-9609;factory;Tipo definido pelo gerador;;reference;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;11;factory-10961;factory;Tipo definido pelo gerador;;entityNif;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;11;factory-10998;factory;Tipo definido pelo gerador;;version;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+payroll-export-ui-v4.js;11;factory-11147;factory;Tipo definido pelo gerador;;code-;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+recruitment-ui-v4.js;9;1;input;text;candidateName;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+recruitment-ui-v4.js;9;2;input;email;candidateEmail;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+recruitment-ui-v4.js;9;3;input;text;candidatePhone;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+recruitment-ui-v4.js;14;5;input;text;candidateInterviewAddress;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+recruitment-ui-v4.js;14;6;input;tel;candidateInterviewerPhone;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+recruitment-ui-v4.js;14;7;input;tel;candidateContactPhone;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+recruitment-ui-v4.js;14;8;textarea;textarea;candidateInterviewNotes;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+recruitment-ui-v4.js;20;13;textarea;textarea;candidateResult;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+recruitment-ui-v4.js;29;15;textarea;textarea;;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+recruitment-ui-v4.js;47;16;input;text;cvSource;;HTML template definition;"Há instância com mesmo ID/origem; ver matriz runtime";1;Pendente
+stock-ui-v4.js;5;1;input;search;stockSearch;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;13;2;input;${type};;${name};HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;16;factory-9921;factory;Tipo definido pelo gerador;;name;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;17;factory-10372;factory;Tipo definido pelo gerador;;name;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;17;factory-10408;factory;Tipo definido pelo gerador;;taxId;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;17;factory-10445;factory;Tipo definido pelo gerador;;email;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;17;factory-10492;factory;Tipo definido pelo gerador;;phone;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;17;factory-10534;factory;Tipo definido pelo gerador;;address;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-10932;factory;Tipo definido pelo gerador;;name;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-10961;factory;Tipo definido pelo gerador;;reference;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-11006;factory;Tipo definido pelo gerador;;unit;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-11132;factory;Tipo definido pelo gerador;;location;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-11557;factory;Tipo definido pelo gerador;;supplierPrice;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-11636;factory;Tipo definido pelo gerador;;supplierFrom;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-11730;factory;Tipo definido pelo gerador;;supplierUntil;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-12007;factory;Tipo definido pelo gerador;;minimum;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;18;factory-12062;factory;Tipo definido pelo gerador;;maximum;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;19;factory-12684;factory;Tipo definido pelo gerador;;reason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;21;factory-13128;factory;Tipo definido pelo gerador;;reference;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;21;factory-13180;factory;Tipo definido pelo gerador;;reason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;21;factory-13617;factory;Tipo definido pelo gerador;;quantity;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;21;factory-13670;factory;Tipo definido pelo gerador;;lot;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;21;factory-13692;factory;Tipo definido pelo gerador;;expiresOn;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;22;factory-13903;factory;Tipo definido pelo gerador;;reason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;22;factory-14292;factory;Tipo definido pelo gerador;;quantity;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;22;factory-14363;factory;Tipo definido pelo gerador;;rejectedQuantity;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;22;factory-14498;factory;Tipo definido pelo gerador;;lot;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;22;factory-14518;factory;Tipo definido pelo gerador;;expiresOn;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;22;factory-14560;factory;Tipo definido pelo gerador;;location;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;23;factory-14825;factory;Tipo definido pelo gerador;;reason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;24;factory-14940;factory;Tipo definido pelo gerador;;quantity;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;24;factory-15009;factory;Tipo definido pelo gerador;;reason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;24;factory-15359;factory;Tipo definido pelo gerador;;lot;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;24;factory-15379;factory;Tipo definido pelo gerador;;expiresOn;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;24;factory-15427;factory;Tipo definido pelo gerador;;location;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;24;factory-15459;factory;Tipo definido pelo gerador;;reason;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;29;factory-20100;factory;Tipo definido pelo gerador;;quantity;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+stock-ui-v4.js;29;factory-20144;factory;Tipo definido pelo gerador;;unitCostCents;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;4;1;input;${type};;${name};HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;10;factory-5270;factory;Tipo definido pelo gerador;;name;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;10;factory-5316;factory;Tipo definido pelo gerador;;taxId;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;10;factory-5357;factory;Tipo definido pelo gerador;;email;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;10;factory-5407;factory;Tipo definido pelo gerador;;phone;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;10;factory-5452;factory;Tipo definido pelo gerador;;address;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;10;factory-5496;factory;Tipo definido pelo gerador;;fiscalNotes;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;10;factory-5562;factory;Tipo definido pelo gerador;;internalNotes;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;11;factory-5787;factory;Tipo definido pelo gerador;;name;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;11;factory-5827;factory;Tipo definido pelo gerador;;reference;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;11;factory-5883;factory;Tipo definido pelo gerador;;unit;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;11;factory-5921;factory;Tipo definido pelo gerador;;internalPurchaseCents;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;11;factory-6031;factory;Tipo definido pelo gerador;;salePriceCents;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;11;factory-6122;factory;Tipo definido pelo gerador;;internalNotes;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;12;factory-6647;factory;Tipo definido pelo gerador;;salePriceCents;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;13;factory-7012;factory;Tipo definido pelo gerador;;name;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;13;factory-7046;factory;Tipo definido pelo gerador;;kind;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;13;factory-7102;factory;Tipo definido pelo gerador;;reference;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+supplier-companies-ui-v4.js;14;factory-7772;factory;Tipo definido pelo gerador;;quantity;"Factory call; not necessarily a free-text control";"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+v4-master-integrations.js;15;2;input;text;miName;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+v4-master-integrations.js;15;3;input;text;miPhone;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+v4-master-integrations.js;15;4;textarea;textarea;miNotes;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+validation-fixes.js;11;1;input;text;newDocName;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+validation-fixes.js;11;2;input;text;ct_${ct.id};;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+validation-fixes.js;11;3;input;text;newContract;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente
+workspace-shell-v4.js;5;1;input;search;dashSearch;;HTML template definition;"Sem conciliação automática; definição/gerador não é aprovação de uma instância";0;Pendente

@@ -1,0 +1,990 @@
+{
+  "base": "2a06a0fe0eb2c29f59188698c451c484ee25897c",
+  "branch": "dev/v4-stabilization-20261017",
+  "files": 267,
+  "mainScripts": [
+    "marketing-core-v4.js",
+    "access-policy-core-v4.js",
+    "attendance-core-v4.js",
+    "stock-core-v4.js",
+    "stock-closing-v4.js",
+    "operation-core-v4.js",
+    "candidate-drag-v4.js",
+    "complaints-core-v4.js",
+    "recruitment-core-v4.js",
+    "safe-actions-v4.js",
+    "supplier-company-core-v4.js",
+    "document-catalog-core-v4.js",
+    "operation-history-v4.js",
+    "app.js",
+    "hr-leave-domain-v4.js",
+    "hr-leave-ui-v4.js",
+    "hr-performance-domain-v4.js",
+    "hr-performance-ui-v4.js",
+    "safe-reset-v4.js",
+    "validation-fixes.js",
+    "scheduled-indicators.js",
+    "v4-master-integrations.js",
+    "funnel-drag.js",
+    "doctor-specialties.js",
+    "clinic-single-source-v4.js",
+    "hr-master-v4.js",
+    "hr-rosters-overtime-v4.js",
+    "clinic-hr-architecture.js",
+    "gs-enterprise.js",
+    "clinic-master-v4.js",
+    "global-search-v4.js",
+    "active-clinic-filter-v4.js",
+    "clinic-relations-v4.js",
+    "clinic-structure-renderer-v4.js",
+    "hr-form-fix-v4.js",
+    "contract-types-v4.js",
+    "v4-data-integrity.js",
+    "access-scope-v4.js",
+    "demo-clinic-associations-v4.js",
+    "ceo-reserved-area-switcher-v4.js",
+    "vacation-calendar-v4.js",
+    "clinic-calendars-v4.js",
+    "role-access-admin-v4.js",
+    "hr-vacation-planning-v4.js",
+    "gs-test-agent-v4.js",
+    "attendance-dashboard-v4.js",
+    "hr-separation-v4.js",
+    "approvals-center-v4.js",
+    "tables-canonical-controller-v4.js",
+    "access-log-v4.js",
+    "finance-core-v4.js",
+    "finance-demo-v4.js",
+    "finance-ui-v4.js",
+    "communications-core-v4.js",
+    "communications-v4.js",
+    "attention-core-v4.js",
+    "attention-ui-v4.js",
+    "workspace-shell-v4.js",
+    "deployment-version-v4.js",
+    "interview-services-ui-v4.js",
+    "interview-questions-ui-v4.js",
+    "recruitment-ui-v4.js",
+    "complaints-ui-v4.js",
+    "marketing-ui-v4.js",
+    "stock-demo-v4.js",
+    "stock-ui-v4.js",
+    "supplier-companies-ui-v4.js",
+    "document-catalog-ui-v4.js",
+    "attendance-ui-v4.js",
+    "employee-documents-core-v4.js",
+    "employee-documents-ui-v4.js"
+  ],
+  "duplicateScriptTags": [],
+  "mainViews": [
+    "tables",
+    "clock",
+    "dashboard",
+    "operation",
+    "wait",
+    "chat",
+    "myhr",
+    "hr",
+    "tasks",
+    "audit",
+    "clinics",
+    "finance",
+    "marketing",
+    "complaints"
+  ],
+  "notDirectlyLoadedRootJs": [
+    "session-v4.js",
+    "professional-selects.js",
+    "authenticated-v4.js",
+    "account.js"
+  ],
+  "repeatedFunctionNames": {
+    "actor": [
+      "stock-demo-v4.js",
+      "attendance-ui-v4.js",
+      "app.js",
+      "finance-demo-v4.js"
+    ],
+    "clinics": [
+      "stock-demo-v4.js",
+      "clinic-master-v4.js",
+      "marketing-core-v4.js",
+      "access-scope-v4.js",
+      "employee-documents-core-v4.js",
+      "hr-master-v4.js"
+    ],
+    "call": [
+      "stock-demo-v4.js",
+      "finance-ui-v4.js",
+      "marketing-ui-v4.js",
+      "finance-demo-v4.js"
+    ],
+    "api": [
+      "recruitment-ui-v4.js",
+      "complaints-ui-v4.js"
+    ],
+    "modal": [
+      "recruitment-ui-v4.js",
+      "v4-master-integrations.js",
+      "hr-performance-ui-v4.js",
+      "gs-enterprise.js",
+      "finance-ui-v4.js",
+      "validation-fixes.js",
+      "hr-leave-ui-v4.js",
+      "marketing-ui-v4.js",
+      "communications-v4.js",
+      "complaints-ui-v4.js",
+      "attendance-ui-v4.js",
+      "clinic-hr-architecture.js",
+      "clinic-hr-architecture.js",
+      "app.js",
+      "employee-documents-ui-v4.js"
+    ],
+    "safe": [
+      "recruitment-ui-v4.js",
+      "hr-performance-ui-v4.js",
+      "attention-ui-v4.js",
+      "finance-ui-v4.js",
+      "hr-leave-ui-v4.js",
+      "communications-v4.js"
+    ],
+    "refresh": [
+      "recruitment-ui-v4.js",
+      "session-v4.js",
+      "global-search-v4.js",
+      "attention-ui-v4.js",
+      "authenticated-v4.js",
+      "complaints-ui-v4.js"
+    ],
+    "save": [
+      "recruitment-ui-v4.js",
+      "clinic-master-v4.js",
+      "stock-closing-v4.js",
+      "document-catalog-ui-v4.js",
+      "role-access-admin-v4.js",
+      "hr-leave-ui-v4.js",
+      "marketing-ui-v4.js",
+      "scheduled-indicators.js",
+      "complaints-ui-v4.js",
+      "employee-documents-ui-v4.js",
+      "hr-master-v4.js",
+      "lib/email-settings-service.js"
+    ],
+    "candidate": [
+      "recruitment-ui-v4.js",
+      "communications-v4.js"
+    ],
+    "patch": [
+      "recruitment-ui-v4.js",
+      "clinic-relations-v4.js"
+    ],
+    "importForm": [
+      "recruitment-ui-v4.js",
+      "communications-v4.js"
+    ],
+    "paint": [
+      "recruitment-ui-v4.js",
+      "attention-ui-v4.js",
+      "finance-ui-v4.js",
+      "interview-questions-ui-v4.js",
+      "complaints-ui-v4.js"
+    ],
+    "reset": [
+      "recruitment-ui-v4.js",
+      "finance-ui-v4.js"
+    ],
+    "preview": [
+      "interview-services-ui-v4.js",
+      "hr-leave-ui-v4.js"
+    ],
+    "dispatch": [
+      "safe-actions-v4.js",
+      "api/v4-finance.js"
+    ],
+    "person": [
+      "hr-leave-domain-v4.js",
+      "employee-documents-core-v4.js",
+      "lib/authorization-service.js"
+    ],
+    "permission": [
+      "hr-leave-domain-v4.js",
+      "role-access-admin-v4.js"
+    ],
+    "date": [
+      "hr-leave-domain-v4.js",
+      "stock-core-v4.js",
+      "attendance-core-v4.js",
+      "operation-core-v4.js",
+      "operation-history-v4.js",
+      "employee-documents-core-v4.js"
+    ],
+    "range": [
+      "hr-leave-domain-v4.js",
+      "stock-closing-v4.js",
+      "attendance-ui-v4.js"
+    ],
+    "days": [
+      "hr-leave-domain-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "nationals": [
+      "hr-leave-domain-v4.js",
+      "clinic-calendars-v4.js"
+    ],
+    "balance": [
+      "hr-leave-domain-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "context": [
+      "hr-leave-domain-v4.js",
+      "document-catalog-ui-v4.js",
+      "marketing-ui-v4.js",
+      "attendance-ui-v4.js",
+      "lib/authorization-service.js",
+      "lib/finance-email-alerts.js",
+      "lib/gmail-sync-service.js"
+    ],
+    "snapshot": [
+      "hr-leave-domain-v4.js",
+      "supplier-company-core-v4.js",
+      "lib/quarterly-bonus-service.js"
+    ],
+    "audit": [
+      "hr-leave-domain-v4.js",
+      "clinic-master-v4.js",
+      "gs-enterprise.js",
+      "validation-fixes.js",
+      "marketing-core-v4.js",
+      "app.js",
+      "hr-performance-domain-v4.js"
+    ],
+    "preserve": [
+      "hr-leave-domain-v4.js",
+      "safe-reset-v4.js"
+    ],
+    "decide": [
+      "hr-leave-domain-v4.js",
+      "approvals-center-v4.js",
+      "hr-performance-ui-v4.js",
+      "role-access-admin-v4.js",
+      "hr-leave-ui-v4.js",
+      "attendance-ui-v4.js",
+      "clinic-hr-architecture.js",
+      "clinic-hr-architecture.js",
+      "clinic-hr-architecture.js",
+      "employee-documents-ui-v4.js"
+    ],
+    "reverse": [
+      "hr-leave-domain-v4.js",
+      "approvals-center-v4.js",
+      "hr-leave-ui-v4.js"
+    ],
+    "bind": [
+      "candidate-drag-v4.js",
+      "finance-ui-v4.js"
+    ],
+    "permitted": [
+      "candidate-drag-v4.js",
+      "vacation-calendar-v4.js"
+    ],
+    "cleanup": [
+      "candidate-drag-v4.js",
+      "finance-ui-v4.js",
+      "gs-test-agent-v4.js"
+    ],
+    "start": [
+      "candidate-drag-v4.js",
+      "lib/gmail-oauth-service.js"
+    ],
+    "finish": [
+      "candidate-drag-v4.js",
+      "lib/gmail-oauth-service.js"
+    ],
+    "sync": [
+      "doctor-specialties.js",
+      "approvals-center-v4.js",
+      "stock-closing-v4.js",
+      "hr-form-fix-v4.js",
+      "clinic-relations-v4.js",
+      "lib/gmail-sync-service.js"
+    ],
+    "open": [
+      "clinic-structure-renderer-v4.js",
+      "approvals-center-v4.js",
+      "supplier-companies-ui-v4.js",
+      "document-catalog-ui-v4.js",
+      "vacation-calendar-v4.js",
+      "hr-performance-ui-v4.js",
+      "attention-ui-v4.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "finance-ui-v4.js",
+      "role-access-admin-v4.js",
+      "hr-leave-ui-v4.js",
+      "hr-vacation-planning-v4.js",
+      "clinic-calendars-v4.js",
+      "scheduled-indicators.js",
+      "complaints-ui-v4.js",
+      "employee-documents-ui-v4.js",
+      "contract-types-v4.js",
+      "hr-master-v4.js"
+    ],
+    "install": [
+      "clinic-structure-renderer-v4.js",
+      "v4-master-integrations.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "validation-fixes.js",
+      "funnel-drag.js",
+      "tables-canonical-controller-v4.js",
+      "clinic-calendars-v4.js",
+      "communications-v4.js"
+    ],
+    "boot": [
+      "clinic-structure-renderer-v4.js",
+      "ceo-reserved-area-switcher-v4.js",
+      "attention-ui-v4.js",
+      "workspace-shell-v4.js",
+      "safe-reset-v4.js",
+      "clinic-calendars-v4.js",
+      "stock-ui-v4.js",
+      "contract-types-v4.js"
+    ],
+    "candidates": [
+      "global-search-v4.js",
+      "communications-v4.js"
+    ],
+    "ensure": [
+      "global-search-v4.js",
+      "ceo-reserved-area-switcher-v4.js",
+      "gs-enterprise.js",
+      "role-access-admin-v4.js",
+      "clinic-calendars-v4.js",
+      "contract-types-v4.js",
+      "api/v4.js"
+    ],
+    "init": [
+      "global-search-v4.js",
+      "approvals-center-v4.js",
+      "communications-v4.js",
+      "marketing-core-v4.js",
+      "app.js",
+      "hr-separation-v4.js",
+      "finance-demo-v4.js",
+      "hr-master-v4.js"
+    ],
+    "normalize": [
+      "clinic-master-v4.js",
+      "communications-core-v4.js",
+      "v4-master-integrations.js",
+      "document-catalog-core-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "render": [
+      "clinic-master-v4.js",
+      "supplier-companies-ui-v4.js",
+      "ceo-reserved-area-switcher-v4.js",
+      "vacation-calendar-v4.js",
+      "gs-enterprise.js",
+      "finance-ui-v4.js",
+      "attendance-dashboard-v4.js",
+      "role-access-admin-v4.js",
+      "marketing-ui-v4.js",
+      "hr-vacation-planning-v4.js",
+      "clinic-calendars-v4.js",
+      "attendance-ui-v4.js",
+      "operation-history-v4.js",
+      "stock-ui-v4.js"
+    ],
+    "form": [
+      "clinic-master-v4.js",
+      "supplier-companies-ui-v4.js",
+      "hr-performance-ui-v4.js",
+      "hr-leave-ui-v4.js",
+      "stock-ui-v4.js"
+    ],
+    "configure": [
+      "clinic-master-v4.js",
+      "communications-v4.js"
+    ],
+    "create": [
+      "clinic-master-v4.js",
+      "complaints-ui-v4.js",
+      "hr-master-v4.js"
+    ],
+    "edit": [
+      "clinic-master-v4.js",
+      "document-catalog-ui-v4.js"
+    ],
+    "hook": [
+      "clinic-master-v4.js",
+      "attendance-dashboard-v4.js"
+    ],
+    "user": [
+      "approvals-center-v4.js",
+      "app.js"
+    ],
+    "items": [
+      "approvals-center-v4.js",
+      "attention-ui-v4.js",
+      "document-catalog-core-v4.js",
+      "complaints-ui-v4.js"
+    ],
+    "editSickEnd": [
+      "approvals-center-v4.js",
+      "attendance-dashboard-v4.js"
+    ],
+    "detail": [
+      "approvals-center-v4.js",
+      "hr-performance-ui-v4.js",
+      "attendance-dashboard-v4.js",
+      "clinic-hr-architecture.js",
+      "stock-ui-v4.js"
+    ],
+    "validate": [
+      "communications-core-v4.js",
+      "document-catalog-core-v4.js",
+      "lib/quarterly-bonus-service.js"
+    ],
+    "collect": [
+      "attention-core-v4.js",
+      "interview-questions-ui-v4.js"
+    ],
+    "label": [
+      "attention-core-v4.js",
+      "operation-history-v4.js"
+    ],
+    "catalog": [
+      "stock-closing-v4.js",
+      "lib/recruitment-service.js"
+    ],
+    "report": [
+      "stock-closing-v4.js",
+      "gs-test-agent-v4.js"
+    ],
+    "syncEmployee": [
+      "clinic-single-source-v4.js",
+      "clinic-relations-v4.js"
+    ],
+    "allowed": [
+      "document-catalog-ui-v4.js",
+      "gs-enterprise.js",
+      "communications-v4.js",
+      "stock-ui-v4.js"
+    ],
+    "guard": [
+      "document-catalog-ui-v4.js",
+      "hr-rosters-overtime-v4.js",
+      "role-access-admin-v4.js",
+      "document-catalog-core-v4.js",
+      "supplier-company-core-v4.js"
+    ],
+    "state": [
+      "document-catalog-ui-v4.js",
+      "finance-core-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "S": [
+      "hr-rosters-overtime-v4.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "hr-master-v4.js"
+    ],
+    "conflicts": [
+      "hr-rosters-overtime-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "role": [
+      "ceo-reserved-area-switcher-v4.js",
+      "gs-enterprise.js"
+    ],
+    "openRequest": [
+      "v4-master-integrations.js",
+      "app.js"
+    ],
+    "move": [
+      "vacation-calendar-v4.js",
+      "funnel-drag.js",
+      "hr-vacation-planning-v4.js",
+      "complaints-ui-v4.js"
+    ],
+    "wire": [
+      "vacation-calendar-v4.js",
+      "hr-performance-ui-v4.js",
+      "role-access-admin-v4.js",
+      "hr-vacation-planning-v4.js",
+      "scheduled-indicators.js"
+    ],
+    "submitEvaluation": [
+      "hr-performance-ui-v4.js",
+      "hr-performance-domain-v4.js"
+    ],
+    "cycles": [
+      "hr-performance-ui-v4.js",
+      "hr-performance-domain-v4.js"
+    ],
+    "openCycle": [
+      "hr-performance-ui-v4.js",
+      "hr-performance-domain-v4.js"
+    ],
+    "targets": [
+      "hr-performance-ui-v4.js",
+      "marketing-ui-v4.js"
+    ],
+    "submitPeer": [
+      "hr-performance-ui-v4.js",
+      "hr-performance-domain-v4.js"
+    ],
+    "closeCycle": [
+      "hr-performance-ui-v4.js",
+      "hr-performance-domain-v4.js"
+    ],
+    "refreshAccess": [
+      "hr-performance-ui-v4.js",
+      "hr-leave-ui-v4.js"
+    ],
+    "repair": [
+      "v4-data-integrity.js",
+      "demo-clinic-associations-v4.js"
+    ],
+    "panel": [
+      "attention-ui-v4.js",
+      "gs-test-agent-v4.js"
+    ],
+    "show": [
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "gs-enterprise.js"
+    ],
+    "metrics": [
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "operation-core-v4.js"
+    ],
+    "send": [
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "account.js",
+      "lib/recruitment-mail-service.js",
+      "lib/finance-payment-email.js",
+      "lib/gmail-oauth-service.js"
+    ],
+    "migrate": [
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "app.js",
+      "recruitment-core-v4.js",
+      "scripts/migrate-development.cjs"
+    ],
+    "review": [
+      "gs-enterprise.js",
+      "gs-enterprise.js",
+      "employee-documents-ui-v4.js",
+      "lib/document-archive-service.js"
+    ],
+    "specialties": [
+      "gs-enterprise.js",
+      "marketing-core-v4.js"
+    ],
+    "addProfessional": [
+      "gs-enterprise.js",
+      "app.js"
+    ],
+    "period": [
+      "gs-enterprise.js",
+      "marketing-core-v4.js",
+      "hr-performance-domain-v4.js"
+    ],
+    "scan": [
+      "gs-enterprise.js",
+      "lib/document-security-service.js"
+    ],
+    "approve": [
+      "gs-enterprise.js",
+      "tests/gmail-activation.cjs",
+      "lib/document-security-service.js"
+    ],
+    "backup": [
+      "gs-enterprise.js",
+      "lib/document-archive-service.js"
+    ],
+    "test": [
+      "gs-enterprise.js",
+      "tests/finance-ui.cjs",
+      "tests/release-readiness.cjs",
+      "tests/finance.cjs",
+      "tests/operation.cjs",
+      "tests/runtime.cjs",
+      "tests/p0-security.cjs",
+      "tests/stock-domain.cjs",
+      "tests/email-association.cjs",
+      "tests/p0-retention.cjs",
+      "tests/recruitment.cjs",
+      "tests/complaints.cjs",
+      "tests/improvements.cjs",
+      "tests/document-workflows.cjs",
+      "tests/gmail-activation.cjs",
+      "tests/marketing.cjs",
+      "lib/email-settings-service.js"
+    ],
+    "restore": [
+      "gs-enterprise.js",
+      "safe-reset-v4.js"
+    ],
+    "filters": [
+      "finance-ui-v4.js",
+      "marketing-ui-v4.js"
+    ],
+    "submitDocument": [
+      "finance-ui-v4.js",
+      "app.js"
+    ],
+    "statement": [
+      "finance-ui-v4.js",
+      "finance-core-v4.js"
+    ],
+    "toast": [
+      "validation-fixes.js",
+      "app.js"
+    ],
+    "instant": [
+      "complaints-core-v4.js",
+      "attendance-core-v4.js"
+    ],
+    "receipt": [
+      "complaints-core-v4.js",
+      "finance-core-v4.js"
+    ],
+    "evidence": [
+      "complaints-core-v4.js",
+      "lib/attendance-service.js"
+    ],
+    "event": [
+      "complaints-core-v4.js",
+      "operation-core-v4.js",
+      "finance-demo-v4.js"
+    ],
+    "update": [
+      "complaints-core-v4.js",
+      "clinic-calendars-v4.js",
+      "recruitment-core-v4.js",
+      "lib/stock-service.js",
+      "lib/operation-service.js",
+      "lib/document-catalog-service.js",
+      "lib/employee-documents-service.js",
+      "lib/attendance-service.js",
+      "lib/marketing-service.js",
+      "lib/complaints-service.js",
+      "lib/recruitment-service.js",
+      "lib/supplier-company-service.js"
+    ],
+    "alerts": [
+      "complaints-core-v4.js",
+      "stock-core-v4.js",
+      "marketing-core-v4.js"
+    ],
+    "people": [
+      "attendance-dashboard-v4.js",
+      "attendance-core-v4.js",
+      "operation-core-v4.js",
+      "finance-demo-v4.js"
+    ],
+    "status": [
+      "attendance-dashboard-v4.js",
+      "lib/document-security-service.js"
+    ],
+    "can": [
+      "role-access-admin-v4.js",
+      "stock-core-v4.js",
+      "attendance-core-v4.js"
+    ],
+    "apply": [
+      "role-access-admin-v4.js",
+      "active-clinic-filter-v4.js"
+    ],
+    "authorize": [
+      "stock-core-v4.js",
+      "lib/finance-authorization-service.js",
+      "lib/document-archive-service.js",
+      "lib/email-settings-service.js"
+    ],
+    "execute": [
+      "stock-core-v4.js",
+      "supplier-company-core-v4.js",
+      "communications-v4.js",
+      "lib/document-archive-service.js"
+    ],
+    "renderDashboard": [
+      "workspace-shell-v4.js",
+      "app.js"
+    ],
+    "record": [
+      "hr-leave-ui-v4.js",
+      "lib/document-archive-service.js",
+      "lib/finance-email-alerts.js"
+    ],
+    "notifications": [
+      "hr-leave-ui-v4.js",
+      "finance-core-v4.js"
+    ],
+    "history": [
+      "hr-leave-ui-v4.js",
+      "attendance-ui-v4.js",
+      "employee-documents-ui-v4.js",
+      "lib/finance-mail-queue.js"
+    ],
+    "calendar": [
+      "hr-leave-ui-v4.js",
+      "marketing-ui-v4.js"
+    ],
+    "ctx": [
+      "marketing-ui-v4.js",
+      "lib/document-catalog-service.js"
+    ],
+    "day": [
+      "attendance-core-v4.js",
+      "scheduled-indicators.js",
+      "app.js"
+    ],
+    "assigned": [
+      "attendance-core-v4.js",
+      "complaints-ui-v4.js"
+    ],
+    "manager": [
+      "attendance-core-v4.js",
+      "lib/authorization-service.js"
+    ],
+    "scope": [
+      "attendance-core-v4.js",
+      "employee-documents-core-v4.js",
+      "lib/recruitment-service.js"
+    ],
+    "command": [
+      "attendance-core-v4.js",
+      "operation-core-v4.js",
+      "document-catalog-core-v4.js",
+      "marketing-core-v4.js",
+      "employee-documents-core-v4.js"
+    ],
+    "prepare": [
+      "operation-core-v4.js",
+      "attendance-ui-v4.js",
+      "lib/document-archive-service.js",
+      "lib/quarterly-bonus-service.js"
+    ],
+    "owner": [
+      "supplier-company-core-v4.js",
+      "finance-demo-v4.js",
+      "lib/finance-authorization-service.js"
+    ],
+    "offers": [
+      "supplier-company-core-v4.js",
+      "lib/supplier-company-service.js"
+    ],
+    "log": [
+      "communications-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "list": [
+      "communications-v4.js",
+      "clinic-hr-architecture.js",
+      "clinic-hr-architecture.js",
+      "employee-documents-core-v4.js",
+      "lib/finance-payment-email.js",
+      "lib/document-archive-service.js",
+      "lib/attention-service.js",
+      "lib/stock-service.js",
+      "lib/finance-email-alerts.js",
+      "lib/operation-service.js",
+      "lib/document-catalog-service.js",
+      "lib/employee-documents-service.js",
+      "lib/attendance-service.js",
+      "lib/email-settings-service.js",
+      "lib/complaints-service.js",
+      "lib/recruitment-service.js",
+      "lib/finance-mail-queue.js",
+      "lib/supplier-company-service.js"
+    ],
+    "importCV": [
+      "communications-v4.js",
+      "lib/recruitment-service.js"
+    ],
+    "visible": [
+      "marketing-core-v4.js",
+      "lib/employee-documents-service.js"
+    ],
+    "requests": [
+      "marketing-core-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "dashboard": [
+      "marketing-core-v4.js",
+      "access-scope-v4.js"
+    ],
+    "meta": [
+      "complaints-ui-v4.js",
+      "lib/complaints-service.js"
+    ],
+    "details": [
+      "complaints-ui-v4.js",
+      "operation-history-v4.js"
+    ],
+    "confirm": [
+      "attendance-ui-v4.js",
+      "lib/document-archive-service.js"
+    ],
+    "manual": [
+      "attendance-ui-v4.js",
+      "lib/gmail-sync-service.js"
+    ],
+    "correction": [
+      "attendance-ui-v4.js",
+      "clinic-hr-architecture.js"
+    ],
+    "temporaryExit": [
+      "clinic-hr-architecture.js",
+      "app.js"
+    ],
+    "add": [
+      "clinic-hr-architecture.js",
+      "contract-types-v4.js"
+    ],
+    "seed": [
+      "app.js",
+      "tests/operation.cjs",
+      "tests/recruitment.cjs"
+    ],
+    "load": [
+      "app.js",
+      "lib/stock-service.js",
+      "lib/operation-service.js",
+      "lib/document-catalog-service.js",
+      "lib/employee-documents-service.js",
+      "lib/attendance-service.js",
+      "lib/marketing-service.js"
+    ],
+    "clinic": [
+      "app.js",
+      "lib/authorization-service.js"
+    ],
+    "syncContractDocs": [
+      "app.js",
+      "hr-master-v4.js"
+    ],
+    "records": [
+      "recruitment-core-v4.js",
+      "employee-documents-core-v4.js"
+    ],
+    "criteria": [
+      "recruitment-core-v4.js",
+      "hr-performance-domain-v4.js",
+      "lib/recruitment-service.js"
+    ],
+    "upload": [
+      "employee-documents-ui-v4.js",
+      "lib/complaints-service.js"
+    ],
+    "download": [
+      "employee-documents-ui-v4.js",
+      "lib/employee-documents-service.js"
+    ],
+    "row": [
+      "contract-types-v4.js",
+      "lib/complaints-service.js",
+      "lib/recruitment-service.js"
+    ],
+    "check": [
+      "gs-test-agent-v4.js",
+      "tests/recruitment.cjs"
+    ],
+    "run": [
+      "gs-test-agent-v4.js",
+      "lib/finance-payment-email.js",
+      "lib/gmail-automation-service.js",
+      "lib/finance-email-ingest.js"
+    ],
+    "norm": [
+      "access-policy-core-v4.js",
+      "hr-master-v4.js"
+    ],
+    "link": [
+      "finance-demo-v4.js",
+      "tests/gmail-activation.cjs",
+      "lib/finance-email-alerts.js"
+    ],
+    "bootstrap": [
+      "finance-demo-v4.js",
+      "lib/marketing-service.js"
+    ],
+    "fixture": [
+      "tests/finance-ui.cjs",
+      "tests/stock-closing.cjs",
+      "tests/performance.cjs",
+      "tests/p0-security.cjs",
+      "tests/finance-fixture.cjs"
+    ],
+    "opened": [
+      "tests/stock-closing.cjs",
+      "tests/operation.cjs"
+    ],
+    "walk": [
+      "tests/syntax.cjs",
+      "lib/gmail-sync-service.js"
+    ],
+    "main": [
+      "tests/recruitment.cjs",
+      "scripts/migrate-development.cjs"
+    ],
+    "onRequest": [
+      "functions/_middleware.js",
+      "functions/api/version.js",
+      "functions/api/finance.js",
+      "functions/api/preview.js",
+      "functions/api/auth.js",
+      "functions/api/gmail/callback.js"
+    ],
+    "configured": [
+      "lib/finance-payment-email.js",
+      "api/v4-finance.js",
+      "api/recruitment.js"
+    ],
+    "document": [
+      "lib/finance-authorization-service.js",
+      "lib/complaints-service.js"
+    ],
+    "configuration": [
+      "lib/gmail-oauth-service.js",
+      "lib/email-settings-service.js"
+    ],
+    "access": [
+      "lib/gmail-oauth-service.js",
+      "lib/complaints-service.js",
+      "lib/recruitment-service.js"
+    ],
+    "gmail": [
+      "lib/gmail-sync-service.js",
+      "lib/finance-email-ingest.js"
+    ],
+    "handler": [
+      "api/marketing.js",
+      "api/v4.js",
+      "api/document-catalog.js",
+      "api/v4-clinic-gps.js",
+      "api/complaints.js",
+      "api/stock.js",
+      "api/v4-finance.js",
+      "api/employee-documents.js",
+      "api/recruitment.js",
+      "api/operation.js",
+      "api/attendance.js",
+      "api/v4-auth.js"
+    ]
+  },
+  "note": "Repeated names inside isolated closures are not proof of duplicated implementation; notDirectlyLoaded includes Node/shared/standalone entries; no removal authorized by this inventory."
+}

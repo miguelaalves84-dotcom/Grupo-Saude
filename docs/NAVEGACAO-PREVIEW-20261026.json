@@ -1,0 +1,128 @@
+{
+  "sourceCommit": "ba9deb0999251889cc9747bef859757158115e29",
+  "branch": "dev/v4-stabilization-20261017",
+  "synthetic": true,
+  "backend": false,
+  "writers": false,
+  "persistence": "browser-only",
+  "testedRun": 40368840169,
+  "browserSuites": 40,
+  "jobs": 42,
+  "validation": "success",
+  "feature": "contextual-navigation",
+  "physicalAndroid": "pending",
+  "url": "https://grupo-saude-v4-validacao-sintetica-nv5y6rw0m-grupo-saude.vercel.app",
+  "deploymentId": "dpl_ASjQbQrqyGvXD5dA33cywqU52k4N",
+  "state": "READY",
+  "target": "staging",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 12952,
+      "exact": true
+    },
+    {
+      "path": "/api/version",
+      "status": 200,
+      "bytes": 316,
+      "manifest": {
+        "sourceCommit": "ba9deb0999251889cc9747bef859757158115e29",
+        "branch": "dev/v4-stabilization-20261017",
+        "synthetic": true,
+        "backend": false,
+        "writers": false,
+        "persistence": "browser-only",
+        "testedRun": 40368840169,
+        "browserSuites": 40,
+        "jobs": 42,
+        "validation": "success",
+        "feature": "contextual-navigation",
+        "physicalAndroid": "pending"
+      }
+    },
+    {
+      "path": "/hr-master-v4.js",
+      "status": 200,
+      "bytes": 60924,
+      "exact": true
+    },
+    {
+      "path": "/workspace-shell-v4.js",
+      "status": 200,
+      "bytes": 53357,
+      "exact": true
+    },
+    {
+      "path": "/design-system-v4.css",
+      "status": 200,
+      "bytes": 60654,
+      "exact": true
+    },
+    {
+      "path": "/stock-core-v4.js",
+      "status": 200,
+      "bytes": 24374,
+      "exact": true
+    },
+    {
+      "path": "/stock-ui-v4.js",
+      "status": 200,
+      "bytes": 26645,
+      "exact": true
+    },
+    {
+      "path": "/finance-ui-v4.js",
+      "status": 200,
+      "bytes": 63499,
+      "exact": true
+    },
+    {
+      "path": "/attention-ui-v4.js",
+      "status": 200,
+      "bytes": 8562,
+      "exact": true
+    },
+    {
+      "path": "/safe-actions-v4.js",
+      "status": 200,
+      "bytes": 8639,
+      "exact": true
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "bytes": 101501,
+      "exact": true
+    },
+    {
+      "path": "/api/auth/session",
+      "status": 404,
+      "bytes": 84
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj_X02eCkklCYULDAFkyKXbRHWETyT1",
+      "updatedAt": 1792324022829,
+      "ssoProtection": {
+        "enabled": true,
+        "deploymentType": "all"
+      }
+    },
+    {
+      "id": "prj_uqWsAbl1oiiJrx9BaNHAJwOtuAtH",
+      "updatedAt": 1791725971672,
+      "ssoProtection": {
+        "enabled": true,
+        "deploymentType": "all_except_custom_domains"
+      }
+    }
+  ],
+  "git": {
+    "draft": true,
+    "head": "ba9deb0999251889cc9747bef859757158115e29",
+    "branch": "dev/v4-stabilization-20261017",
+    "main": "84fba5a2d6d7afcb0723ca312f4e617acc22823d"
+  }
+}

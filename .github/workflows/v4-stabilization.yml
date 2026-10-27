@@ -88,10 +88,25 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
-      - run: npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3
+      - run: npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3 better-auth@1.7.14
       - run: node tests/interviews-complaints-postgres.cjs && node tests/operation-postgres.cjs && node tests/marketing-postgres.cjs && node tests/stock-catalog-postgres.cjs && node tests/supplier-companies-postgres.cjs && node tests/stock-closing-postgres.cjs && node tests/attendance-postgres.cjs && node tests/employee-documents-postgres.cjs && node tests/administrative-rosters-postgres.cjs && node tests/rh-followup-postgres.cjs && node tests/hr-development-postgres.cjs && node tests/payroll-export-postgres.cjs && node tests/finance-cash-postgres.cjs && node tests/agenda-postgres.cjs && node tests/chat-postgres.cjs
         env:
           CI: 'true'
           PGHOST: 127.0.0.1
           PGDATABASE: gs_v4_synthetic
           PGPASSWORD: synthetic-ci-only
+
+      - name: Real isolated identity, MFA and recovery tests
+        run: node tests/security-auth-postgres.cjs
+        env:
+          CI: 'true'
+          PGHOST: 127.0.0.1
+          PGDATABASE: gs_v4_synthetic
+          PGPASSWORD: synthetic-ci-only
+      - name: Preserve minimized identity test results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: security-identity-synthetic-${{ github.sha }}
+          path: /tmp/gs-security-artifacts
+          retention-days: 14

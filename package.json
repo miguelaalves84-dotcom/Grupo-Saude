@@ -3,11 +3,13 @@
   "private": true,
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
-    "@vercel/blob": "^2.0.0"
+    "@vercel/blob": "^2.0.0",
+    "better-auth": "1.7.14",
+    "pg": "8.16.3"
   },
   "scripts": {
     "check": "node tests/syntax.cjs",
-    "test": "node tests/syntax.cjs && node tests/runtime.cjs && node tests/text-editing.cjs && node tests/preview-proxy.cjs && node tests/finance.cjs && node tests/finance-ui.cjs && node tests/finance-reorganization.cjs && node tests/improvements.cjs && node tests/document-workflows.cjs && node tests/email-association.cjs && node tests/gmail-activation.cjs && node tests/release-readiness.cjs && node tests/p0-security.cjs && node tests/p0-retention.cjs && node tests/recruitment.cjs && node tests/complaints.cjs && node tests/operation.cjs && node tests/marketing.cjs && node tests/stock-domain.cjs && node tests/document-catalog.cjs && node tests/operation-history.cjs && node tests/supplier-companies.cjs && node tests/stock-closing.cjs && node tests/attendance.cjs && node tests/employee-documents.cjs && node tests/global-audit.cjs && node tests/administrative-rosters.cjs && node tests/rh-followup.cjs && node tests/hr-development.cjs && node tests/payroll-export.cjs && node tests/payroll-reconciliation.cjs && node tests/audit-regressions.cjs && node tests/finance-cash.cjs && node tests/p0-isolation-boundaries.cjs && node tests/agenda.cjs && node tests/quarterly-formulas.cjs && node tests/chat.cjs",
+    "test": "node tests/syntax.cjs && node tests/security-foundations.cjs && node tests/runtime.cjs && node tests/text-editing.cjs && node tests/preview-proxy.cjs && node tests/finance.cjs && node tests/finance-ui.cjs && node tests/finance-reorganization.cjs && node tests/improvements.cjs && node tests/document-workflows.cjs && node tests/email-association.cjs && node tests/gmail-activation.cjs && node tests/release-readiness.cjs && node tests/p0-security.cjs && node tests/p0-retention.cjs && node tests/recruitment.cjs && node tests/complaints.cjs && node tests/operation.cjs && node tests/marketing.cjs && node tests/stock-domain.cjs && node tests/document-catalog.cjs && node tests/operation-history.cjs && node tests/supplier-companies.cjs && node tests/stock-closing.cjs && node tests/attendance.cjs && node tests/employee-documents.cjs && node tests/global-audit.cjs && node tests/administrative-rosters.cjs && node tests/rh-followup.cjs && node tests/hr-development.cjs && node tests/payroll-export.cjs && node tests/payroll-reconciliation.cjs && node tests/audit-regressions.cjs && node tests/finance-cash.cjs && node tests/p0-isolation-boundaries.cjs && node tests/agenda.cjs && node tests/quarterly-formulas.cjs && node tests/chat.cjs",
     "test:browser": "python3 tests/browser.py",
     "test:finance": "node tests/finance.cjs && node tests/finance-ui.cjs",
     "test:finance:browser": "python3 tests/finance-browser.py",

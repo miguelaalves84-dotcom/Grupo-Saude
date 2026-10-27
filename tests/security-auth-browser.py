@@ -13,7 +13,7 @@ def secret_fill(locator,value):
  locator.evaluate('(el,value)=>{el.value=value;el.dispatchEvent(new Event("input",{bubbles:true}))}',value)
 try:
  with sync_playwright() as pw:
-  browser=pw.chromium.launch(headless=True,args=['--no-sandbox']);probe=browser.new_context(ignore_https_errors=True);profiles=probe.request.get(URL+'/__synthetic-fixtures').json()['profiles'];probe.close();recovery={};context_number=0
+  browser=pw.chromium.launch(headless=True,executable_path=os.environ.get('GS_CHROMIUM_EXECUTABLE'),args=['--no-sandbox']);probe=browser.new_context(ignore_https_errors=True);profiles=probe.request.get(URL+'/__synthetic-fixtures').json()['profiles'];probe.close();recovery={};context_number=0
   for i,profile in enumerate(profiles):
    for device,width,height in [('tablet',1280,800),('desktop',1440,1000),('mobile',390,844)]:
     for theme in ['light','dark']:

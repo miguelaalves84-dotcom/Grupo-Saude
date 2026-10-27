@@ -7,7 +7,7 @@
   if(!r.ok){if(r.status===401||r.status===403){current=null;window.dispatchEvent(new CustomEvent('gs-session-ended'));}throw Error(data.error||data.code||'Serviço autenticado indisponível.');}
   return data;
  }
- async function refresh(){const version=++revision;try{const result=await request('/api/auth?action=session');if(version!==revision)return null;current=Object.freeze({...result.user});return current;}catch(e){if(version===revision){current=null;window.dispatchEvent(new CustomEvent('gs-session-ended'));}throw e;}}
+ async function refresh(){const version=++revision;try{const result=await request('/api/auth?action=session');if(version!==revision)return null;if(result.mfaRequired)throw Error('Conclua a autenticação multifator antes de abrir os módulos.');current=Object.freeze({...result.user});return current;}catch(e){if(version===revision){current=null;window.dispatchEvent(new CustomEvent('gs-session-ended'));}throw e;}}
  async function signOut(){++revision;current=null;try{await request('/api/auth?action=signOut',{method:'POST',headers:{'content-type':'application/json'},body:'{}'})}finally{window.dispatchEvent(new CustomEvent('gs-session-ended'));}}
  const data={call:async(action,body={},viewAs='')=>{
   // The server independently authorizes any view-as identifier and makes it read-only.

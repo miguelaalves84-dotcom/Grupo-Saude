@@ -88,7 +88,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
-      - run: npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3 better-auth@1.7.14
+      - run: npm install --ignore-scripts
       - name: Audit resolved dependencies
         run: node scripts/security-dependencies.cjs
       - name: Real isolated identity, MFA and recovery tests
@@ -105,6 +105,14 @@ jobs:
           PGDATABASE: gs_v4_synthetic
           PGPASSWORD: synthetic-ci-only
 
+      - name: Rehearse encrypted backup and restore to disposable clone
+        run: node tests/security-recovery-postgres.cjs
+        env:
+          CI: 'true'
+          PGHOST: 127.0.0.1
+          PGDATABASE: gs_v4_synthetic
+          PGPASSWORD: synthetic-ci-only
+          GS_POSTGRES_SERVICE_ID: ${{ job.services.postgres.id }}
       - name: Preserve minimized identity test results
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

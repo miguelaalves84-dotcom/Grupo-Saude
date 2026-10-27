@@ -17,6 +17,8 @@ CREATE OR REPLACE FUNCTION gs_security_event_chain() RETURNS trigger LANGUAGE pl
 BEGIN
  IF TG_OP <> 'INSERT' THEN RAISE EXCEPTION 'SECURITY_AUDIT_APPEND_ONLY'; END IF;
  PERFORM pg_advisory_xact_lock(734951026);
+ NEW.id := nextval(pg_get_serial_sequence('gs_security_events','id'));
+ NEW.created_at := clock_timestamp();
  NEW.previous_hash := coalesce((SELECT event_hash FROM gs_security_events ORDER BY id DESC LIMIT 1),'GENESIS');
  NEW.event_hash := encode(digest(convert_to(jsonb_build_array(NEW.id,NEW.actor_id,NEW.clinic_id,NEW.action,NEW.entity_type,NEW.entity_id,NEW.outcome,NEW.created_at,NEW.previous_hash)::text,'UTF8'),'sha256'),'hex');
  RETURN NEW;
@@ -40,6 +42,10 @@ CREATE TABLE IF NOT EXISTS gs_security_mail_queue(
 CREATE INDEX IF NOT EXISTS gs_security_invite_active ON gs_security_invites(user_id,expires_at) WHERE used_at IS NULL AND revoked_at IS NULL;
 CREATE OR REPLACE FUNCTION gs_financial_event_immutable() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'FINANCIAL_AUDIT_APPEND_ONLY'; END $$;
 DO $$ BEGIN
+ IF to_regclass('audit_log') IS NOT NULL THEN
+  DROP TRIGGER IF EXISTS gs_business_audit_guard ON audit_log;
+  CREATE TRIGGER gs_business_audit_guard BEFORE UPDATE OR DELETE ON audit_log FOR EACH ROW EXECUTE FUNCTION gs_financial_event_immutable();
+ END IF;
  IF to_regclass('finance_events') IS NOT NULL THEN
   DROP TRIGGER IF EXISTS gs_financial_event_guard ON finance_events;
   CREATE TRIGGER gs_financial_event_guard BEFORE UPDATE OR DELETE ON finance_events FOR EACH ROW EXECUTE FUNCTION gs_financial_event_immutable();

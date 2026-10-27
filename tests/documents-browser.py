@@ -222,13 +222,14 @@ with sync_playwright() as p:
         assert set(submitted)=={'email','password'}
         route.fulfill(status=200,content_type='application/json',body=json.dumps({'status':'Autenticado','user':{'id':'p0'}}))
     login_page.route('**/api/auth?action=signIn',login_fixture)
+    login_page.route('**/api/auth?action=session',lambda route:route.fulfill(status=200,content_type='application/json',body=json.dumps({'user':{'id':'p0'},'mfaRequired':False,'mfaEnabled':False})))
     login_page.goto(urljoin(URL,'account.html'))
     login_page.locator('#accountEmail').fill('p0@example.pt')
     login_page.locator('#accountPassword').fill('isolated-password-123')
-    login_page.locator('[type=submit]').click()
-    expect(login_page.locator('#accountStatus')).to_contain_text('Sessão validada pelo serviço')
+    login_page.locator('#accountForm [type=submit]').click()
+    expect(login_page.locator('#accountStatus')).to_contain_text('Sessão autenticada')
     expect(login_page.locator('#accountPassword')).to_have_value('')
     assert login_page.evaluate('()=>localStorage.length')==0
-    print('PASS browser real-auth UI: sign-in uses server identity endpoint, clears password and stores no session locally; isolated provider fixture')
+    print('PASS browser mocked-provider compatibility UI: sign-in uses server identity endpoint, clears password and stores no session locally; isolated provider fixture')
     login.close()
     browser.close()

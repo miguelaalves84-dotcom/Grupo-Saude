@@ -88,7 +88,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
       - name: Audit resolved dependencies
         run: node scripts/security-dependencies.cjs
       - name: Real isolated identity, MFA and recovery tests
@@ -142,7 +142,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
       - run: npm run build
       - name: Prepare isolated browser and one-day local TLS certificate
         run: |

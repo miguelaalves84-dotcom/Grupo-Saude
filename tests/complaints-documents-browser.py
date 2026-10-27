@@ -1,0 +1,62 @@
+"""Stage-specific synthetic evidence and real close controls; no remote services."""
+import os,json,base64
+from pathlib import Path
+from playwright.sync_api import sync_playwright,expect
+URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2'
+OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/complaints-documents'));OUT.mkdir(parents=True,exist_ok=True)
+rows=[];scope={}
+def check(name,value):
+ rows.append({**scope,'case':name,'passed':bool(value)});assert value,name
+def synthetic_pdf():
+ stream=b'BT /F1 16 Tf 40 100 Td (SYNTHETIC DOCUMENT ONLY) Tj ET'
+ objects=[b'<< /Type /Catalog /Pages 2 0 R >>',b'<< /Type /Pages /Kids [3 0 R] /Count 1 >>',b'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 400 200] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>',b'<< /Length '+str(len(stream)).encode()+b' >>\nstream\n'+stream+b'\nendstream',b'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>']
+ data=b'%PDF-1.4\n';offsets=[0]
+ for n,obj in enumerate(objects,1):offsets.append(len(data));data+=str(n).encode()+b' 0 obj\n'+obj+b'\nendobj\n'
+ start=len(data);data+=b'xref\n0 6\n0000000000 65535 f \n'+b''.join(('%010d 00000 n \n'%i).encode() for i in offsets[1:]);return data+b'trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n'+str(start).encode()+b'\n%%EOF'
+pdf=synthetic_pdf()
+png=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aocQAAAAASUVORK5CYII=')
+jpg=base64.b64decode('/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAACAAIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDIooor6E+QP//Z')
+def stored(page):return page.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',K)
+def record(page):return stored(page)['complaints'][0]
+def current_ref(c,slot):
+ paths={'lawyerProof':['lawyer','proofId'],'lawyerResponseDoc':['lawyerResponse','documentId'],'proof_claimant':['deliveries','claimant','proofId'],'proof_ers':['deliveries','ers','proofId'],'confirmationProof':['confirmation','proofId']}
+ for k in paths[slot]:c=c[k]
+ return c
+try:
+ with sync_playwright() as p:
+  browser=p.chromium.launch(args=['--no-sandbox'])
+  for device,w,h in [('desktop',1440,1000),('android-tablet-landscape',1280,800),('mobile',390,844)]:
+   for theme in ['light','dark']:
+    for actor in ['u1','test_admin','test_adm','test_med','test_tec','test_call']:
+     scope={'device':device,'theme':theme,'profile':actor};context=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');context.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=context.new_page();page.set_default_timeout(12000);decision={'discard':True,'replace':True};confirmations=[];alerts=[]
+     def dialog(d):
+      if d.type=='confirm':
+       confirmations.append(d.message);accept=decision['replace'] if d.message.startswith('Substituir') else decision['discard'];d.accept() if accept else d.dismiss()
+      else:alerts.append(d.message);d.accept()
+     page.on('dialog',dialog);errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.goto(URL);page.wait_for_function('window.ComplaintsV4 && window.CEOReservedAreaV4');page.evaluate('(a)=>CEOReservedAreaV4.select(a)',actor);page.evaluate('''([k,a,t])=>{const s=JSON.parse(localStorage.getItem(k));s.complaints=[];for(const p of [s.users.find(x=>x.id===a),s.employees[a]].filter(Boolean)){p.clinics=['abranfir'];p.clinicIds=['abranfir'];p.clinic='abranfir';p.clinicId='abranfir'}localStorage.setItem(k,JSON.stringify(s));document.documentElement.dataset.theme=t}''',[K,actor,theme]);page.evaluate('App.showView("complaints")');page.evaluate('ComplaintsV4.refresh()');allowed=actor in ['u1','test_admin','test_adm'];check('six-role access unchanged',page.evaluate('RoleAccessAdminV4.can("complaints")')==allowed)
+     if not allowed:
+      page.evaluate('ComplaintsV4.open("forbidden")');check('direct open denied',not page.locator('#modal').evaluate('(d)=>d.open'));context.close();continue
+     page.locator('#complaintNew').click();page.locator('#complaintTitle').fill('SYNTHETIC staged proofs');page.locator('#complaintName').fill('SYNTHETIC claimant');page.locator('#complaintDescription').fill('SYNTHETIC incident');page.locator('#complaintReceived').fill('2026-10-19T10:00');page.locator('#complaintClinic').select_option('abranfir');page.locator('#complaintInitialFiles').set_input_files({'name':'synthetic-original.pdf','mimeType':'application/pdf','buffer':pdf});page.locator('#complaintCreate').click();page.wait_for_selector('#complaintSave');due=record(page)['deadline'];original=record(page)['originalDocumentId'];baseline=record(page)
+     close=page.locator('#modal .modal-head button[aria-label="Fechar"]');page.locator('#complaintDescription').fill('SYNTHETIC UNSAVED');decision['discard']=False;close.tap() if device!='desktop' else close.click();check('cancel closing preserves draft',page.locator('#modal').evaluate('(d)=>d.open') and page.locator('#complaintDescription').input_value()=='SYNTHETIC UNSAVED' and record(page)==baseline);decision['discard']=True;close.tap() if device!='desktop' else close.click();check('X returns to funnel without deleting saved data',not page.locator('#modal').evaluate('(d)=>d.open') and record(page)==baseline and page.locator('.complaint-card').count()==1);page.locator('[data-complaint-open]').click();check('five direct uploads replace document selectors',page.locator('[data-proof-slot][type=file]').count()==5 and page.locator('select#lawyerProof,select#lawyerResponseDoc,select#proof_claimant,select#proof_ers,select#confirmationProof').count()==0)
+     def save(stage):
+      page.locator('#complaintStage').select_option(stage);page.locator('#complaintSave').click();page.wait_for_function('([k,s])=>JSON.parse(localStorage.getItem(k)).complaints[0].stage===s',arg=[K,stage]);page.wait_for_function('!document.getElementById("complaintSave").disabled')
+     page.locator('#lawyerEmail').fill('lawyer@example.invalid');page.locator('#lawyerSent').fill('2026-10-20T10:00');save('Enviada à advogada')
+     page.locator('#lawyerReceipt').fill('2026-10-20T11:00');page.locator('#lawyerResponseAt').fill('2026-10-20T12:00');page.locator('#complaintStage').select_option('Resposta recebida da advogada');page.locator('#complaintSave').click();check('missing proof blocks transition and preserves fields',record(page)['stage']=='Enviada à advogada' and page.locator('#lawyerReceipt').input_value()=='2026-10-20T11:00')
+     page.locator('#lawyerProof').set_input_files({'name':'invalid.pdf','mimeType':'application/pdf','buffer':b'NOT PDF'});page.locator('#complaintSave').click();check('invalid file has no persisted side effects',len(record(page)['documents'])==1)
+     inputs=[('lawyerProof','receipt.png','image/png',png),('lawyerResponseDoc','response.pdf','application/pdf',pdf)]
+     for slot,name,mime,data in inputs:page.locator('#'+slot).set_input_files({'name':name,'mimeType':mime,'buffer':data})
+     save('Resposta recebida da advogada');check('receipt and response have distinct documents',current_ref(record(page),'lawyerProof')!=current_ref(record(page),'lawyerResponseDoc'))
+     page.locator('#delivery_claimant').fill('2026-10-20T13:00');page.locator('#method_claimant').fill('SYNTHETIC manual');page.locator('#delivery_ers').fill('2026-10-20T13:01');page.locator('#method_ers').fill('SYNTHETIC manual');page.locator('#proof_claimant').set_input_files({'name':'claimant.jpg','mimeType':'image/jpeg','buffer':jpg});page.locator('#proof_ers').set_input_files({'name':'ers.png','mimeType':'image/png','buffer':png});save('Resposta enviada ao reclamante e à ERS');page.locator('#confirmationState').select_option('Recebida');page.locator('#confirmationAt').fill('2026-10-20T14:00');page.locator('#confirmationProof').set_input_files({'name':'confirmation.pdf','mimeType':'application/pdf','buffer':pdf});save('Confirmação da resposta')
+     for slot,expected in [('lawyerProof',png),('lawyerResponseDoc',pdf),('proof_claimant',jpg)]:
+      page.locator('[data-proof-section="'+slot+'"] [data-complaint-document]').click();root=page.locator('#complaintDocumentPreview')
+      if slot!='lawyerResponseDoc':page.wait_for_function('document.querySelector("#complaintDocumentPreview img")?.naturalWidth>0')
+      with page.expect_download() as dl:root.locator('[data-complaint-download]').click()
+      check(slot+' view and download preserves bytes',Path(dl.value.path()).read_bytes()==expected);root.locator('button').click()
+     for slot in ['lawyerProof','lawyerResponseDoc','proof_claimant','proof_ers','confirmationProof']:
+      c=record(page);before=len(c['documents']);previous=current_ref(c,slot);doc=next(d for d in c['documents'] if d['id']==previous);check(slot+' server-independent metadata',doc['purpose']==slot and doc['complaintId']==c['id'] and doc['clinic']==c['clinic'] and doc['by']==actor and bool(doc['at']) and previous!=original);page.locator('#'+slot).set_input_files({'name':slot+'-replacement.pdf','mimeType':'application/pdf','buffer':pdf});decision['replace']=False;page.locator('#complaintSave').click();check(slot+' replacement cancellation preserves original',len(record(page)['documents'])==before and current_ref(record(page),slot)==previous);decision['replace']=True;page.locator('#complaintSave').click();page.wait_for_function('([k,n])=>JSON.parse(localStorage.getItem(k)).complaints[0].documents.length===n',arg=[K,before+1]);page.wait_for_function('!document.getElementById("complaintSave").disabled');c=record(page);check(slot+' version retained and substitution audited',any(d['id']==previous for d in c['documents']) and c['documents'][-1]['replacesId']==previous and any(h['action']=='Comprovativo substituído' and h['by']==actor for h in c['history']))
+     page.locator('[data-proof-section="lawyerProof"] [data-complaint-document]').click();check('saved proof preview opens without replacing editor',page.locator('#complaintDocumentPreview iframe').count()==1);page.locator('#complaintDocumentPreview button').click();check('deadline original and all evidence retained',record(page)['deadline']==due and len(record(page)['documents'])==11 and len({d['id'] for d in record(page)['documents']})==11);saved=record(page);close=page.locator('#modal .modal-head button[aria-label="Fechar"]');close.tap() if device!='desktop' else close.click();check('saved close does not prompt or alter records',not page.locator('#modal').evaluate('(d)=>d.open') and record(page)==saved);page.reload();page.wait_for_function('window.ComplaintsV4');page.evaluate('App.showView("complaints")');page.locator('[data-complaint-open]').click();check('stage uploads survive reload',len(record(page)['documents'])==11 and page.locator('[data-proof-name="confirmationProof"]').inner_text()=='confirmationProof-replacement.pdf');check('no JavaScript errors',not errors)
+     if actor=='u1':page.screenshot(path=str(OUT/(device+'-'+theme+'-complaint-documents.png')))
+     context.close()
+  browser.close()
+finally:
+ (OUT/'complaints-documents-results.json').write_text(json.dumps({'cases':rows,'passed':sum(r['passed'] for r in rows),'scope':'Chromium desktop, Android touch emulation, mobile, two themes, six roles; synthetic browser data only; not physical Android or real private storage'},indent=2));print(json.dumps({'passed':sum(r['passed'] for r in rows),'failed':sum(not r['passed'] for r in rows)}),flush=True)

@@ -84,3 +84,10 @@ th{background:var(--soft);color:var(--muted)}
 #clockContent .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}#clockContent .metric{display:block;position:static;white-space:normal;overflow-wrap:anywhere;font-size:clamp(1.25rem,3vw,2rem);margin-top:10px;line-height:1.25}
 [data-development-modal] .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}[data-development-modal] .card strong{display:block;font-size:1.1rem;line-height:1.5;overflow-wrap:anywhere}[data-development-modal] .development-record{margin:12px 0;padding:16px}[data-development-modal] fieldset{min-width:0;margin:14px 0}[data-development-modal] fieldset label{display:block;padding:7px 0}[data-development-modal] fieldset input[type=checkbox]{width:auto;display:inline-block}[data-development-modal] .actions{display:flex;gap:10px;flex-wrap:wrap}[data-development-modal] input,[data-development-modal] select{max-width:100%;min-width:0}
 .hr-subject[hidden]{display:none!important}.hr-subject>summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+/* Complaints: touch-safe close and stage-specific evidence, shared modal retained. */
+#modal[data-complaint-dialog] .modal-head{position:sticky;top:0;z-index:12;background:var(--surface,#fff)}
+#modal[data-complaint-dialog] .modal-head button[aria-label="Fechar"]{min-width:48px;min-height:48px;flex-shrink:0;touch-action:manipulation}
+.complaint-proof-upload{border:1px solid var(--line,#d9e3ec);border-radius:10px;padding:12px;margin:10px 0;min-width:0;overflow-wrap:anywhere}
+.complaint-proof-upload input[type=file]{width:100%;max-width:100%;min-width:0}
+.complaint-file-preview{display:block;width:100%;max-width:100%;height:min(60vh,650px);object-fit:contain;border:1px solid var(--line,#d9e3ec);margin-top:10px}
+#modal[data-complaint-dialog] #complaintSaveStatus{white-space:normal;overflow-wrap:anywhere}

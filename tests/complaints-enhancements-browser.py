@@ -74,7 +74,8 @@ try:
       page.locator('[data-complaint-target]').select_option(stage);page.locator('[data-complaint-move]').click();page.wait_for_selector('#complaintSave')
       for key,value in fields.items():
        node=page.locator('#'+key)
-       if node.evaluate('(e)=>e.tagName')=='SELECT':node.select_option(value)
+       if node.get_attribute('type')=='file':node.set_input_files({'name':key+'-synthetic.pdf','mimeType':'application/pdf','buffer':b'%PDF-1.4\nSYNTHETIC STAGE PROOF\n%%EOF'})
+       elif node.evaluate('(e)=>e.tagName')=='SELECT':node.select_option(value)
        else:node.fill(value)
       page.locator('#complaintSave').click();page.wait_for_function('([k,s])=>JSON.parse(localStorage.getItem(k)).complaints[0].stage===s',arg=[K,stage]);page.locator('#modal').evaluate('(e)=>e.close()')
      advance('Resposta recebida da advogada',{'lawyerReceipt':'2026-10-20T13:00','lawyerProof':proof,'lawyerResponseAt':'2026-10-20T14:00','lawyerResponseDoc':proof})

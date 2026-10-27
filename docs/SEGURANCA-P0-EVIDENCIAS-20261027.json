@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "40301aeaeb82868a6d4d3b687448ec90709d0154",
+  "branch": "dev/v4-stabilization-20261017",
+  "workflowRun": 40430408470,
+  "jobsPassed": 44,
+  "jobsTotal": 44,
+  "chromiumJobs": 42,
+  "identityCases": 16,
+  "recoveryCases": 5,
+  "identityBrowserAssertions": 366,
+  "identityBrowserContexts": 36,
+  "knownDependencyAdvisories": 0,
+  "physicalAndroidValidated": false,
+  "centralBackendDeployed": false,
+  "realEmailEnabled": false,
+  "realPrivateArchiveConfigured": false,
+  "productionReady": false,
+  "newSecurityPreview": "not created; connector publication interrupted; read-only listing verified previous finance deployment only",
+  "evidenceUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40430408470"
+}

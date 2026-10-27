@@ -1,0 +1,5 @@
+'use strict';
+const fs=require('node:fs'),{spawnSync}=require('node:child_process');
+const out='/tmp/gs-security-artifacts';fs.mkdirSync(out,{recursive:true});
+const audit=spawnSync('npm',['audit','--omit=dev','--json','--fetch-retries=0','--fetch-timeout=20000'],{encoding:'utf8',timeout:30000,maxBuffer:8000000});let report;try{const raw=JSON.parse(audit.stdout);if(raw.error)throw Error();report={status:'completed',metadata:raw.metadata?.vulnerabilities,vulnerabilities:Object.entries(raw.vulnerabilities||{}).map(([name,x])=>({name,severity:x.severity,direct:x.isDirect,range:x.range,fixAvailable:x.fixAvailable,advisories:(x.via||[]).filter(x=>typeof x==='object').map(x=>({title:x.title,url:x.url,severity:x.severity,range:x.range}))}))}}catch{report={status:'unavailable',reason:'Registry/audit response unavailable; no claim of vulnerability-free dependencies'}}
+fs.writeFileSync(out+'/dependencies.json',JSON.stringify(report,null,2));console.log('DEPENDENCY_AUDIT '+JSON.stringify(report));

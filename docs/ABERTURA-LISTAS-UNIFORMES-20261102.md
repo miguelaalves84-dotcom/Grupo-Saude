@@ -30,4 +30,23 @@ As migrações legadas de contadores anteriores mantêm-se para não perder regi
 
 Testes locais de sintaxe/domínio/regressão e build executados. 11 cenários dedicados às três listas, com mês/ano, fecho histórico, arquivo, reabertura, idempotência, rollback integral, datas originais, contadores e seis perfis. A suite Chromium usa operações reais nos seis perfis, claro/escuro, computador, tablet horizontal e telemóvel, durante vários dias de novembro/dezembro/janeiro. PostgreSQL isolado exercita o lote e o arquivo entre utilizadores, incluindo falha atómica e replay.
 
-Os resultados efetivos e o novo preview serão registados após o Actions. Chromium tátil emulado não equivale a Android físico. O preview é sintético e não tem persistência central, arquivo privado ou integração Clicloud ativos.
+Resultado efetivo: **48/48 jobs aprovados**, no commit `f20ccdc98de9ee5705843e8a2d0f5647fe4d0247`. [GitHub Actions](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41473864517). Chromium tátil emulado não equivale a Android físico. O preview é sintético e não tem persistência central, arquivo privado ou integração Clicloud ativos.
+
+
+## Evidências finais
+
+- Nova suite Chromium: **972 verificações aprovadas, zero falhas**, com seis perfis, claro/escuro, computador, tablet horizontal 1280×800 e telemóvel. Usa toque nos contextos táteis.
+- Fluxo exercitado em 30/11, 02/12, 31/12 e 02/01: criação explícita nas três listas, gravação integral, arquivo, correção de visto, contadores, histórico, alertas, resumo/atalhos de fecho, preservação de IDs e recarregamento. Não produz linhas ao escrever a quantidade.
+- `npm test`, build, 11 cenários dedicados de domínio e todas as regressões existentes aprovados.
+- PostgreSQL descartável aprovado: lote válido entre dois utilizadores, arquivo consultável, rejeição integral de lote inválido sem auditoria parcial, repetição sem duplicação e correção auditada no dia seguinte. Não equivale a persistência central ativa no preview.
+- [Capturas e resultados da nova suite](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41473864517/artifacts/13156566797), com retenção até 16/11/2026. A validação num Android físico continua a cargo da revisão do utilizador.
+
+## Publicação verificada
+
+https://grupo-saude-v4-validacao-sintetica-92hdhtjgj-grupo-saude.vercel.app
+
+Código funcional: `f20ccdc98de9ee5705843e8a2d0f5647fe4d0247`. Deployment `dpl_2WzPKJ5VcUPqB83PAwqYm7q8n8jR`, **READY**, target staging, projeto sintético existente.
+
+HTTP 200 na aplicação, `/api/version`, `app.js`, `operation-core-v4.js` e `design-system-v4.css`. HTML/JS/CSS servidos iguais aos ficheiros testados. O manifesto identifica a versão 4 das listas, adição explícita e arquivo de conclusões, com backend, persistência central, emails e Clicloud desativados.
+
+Pacote estático por referências SHA, 108 ficheiros, sem backend, API executável, cron, credenciais ou documentos privados. Proteção Vercel mantida; poderá pedir sessão autorizada. Main, produção e configurações dos projetos preservadas; PR #13 em rascunho. Os dados sintéticos permanecem no navegador de cada preview, sem sincronização entre dispositivos.

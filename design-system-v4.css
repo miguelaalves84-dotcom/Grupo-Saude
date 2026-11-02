@@ -247,6 +247,8 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 .ending-table .ending-col-origin{width:16%}.ending-table .ending-col-name{width:20%}.ending-table .ending-col-patient{width:10%}.ending-table .ending-col-date{width:16%}.ending-table .ending-col-decision{width:14%}.ending-table .ending-col-notes{width:16%}.ending-table .ending-col-history{width:8%}
 #operationContent .ending-table thead{position:static;display:table-header-group}
 #operationContent .ending-table th,#operationContent .ending-table td{padding:9px 6px;white-space:normal;overflow-wrap:anywhere;vertical-align:top;text-align:left}
+#operationContent .ending-table tr.operation-overdue{border-inline-start:0}
+#operationContent .ending-table tr.operation-overdue>td:first-child{box-shadow:inset 4px 0 var(--warning)}
 #operationContent .ending-table th{font-size:11px;line-height:1.35}
 #operationContent .ending-table td{font-size:12px}
 #operationContent .ending-table .ending-cell-content{min-width:0;max-width:100%}
@@ -263,6 +265,7 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
  #operationContent .ending-table tbody{display:grid;gap:12px;padding:10px}
  #operationContent .ending-table tr.ending-patient-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface)}
  #operationContent .ending-table tr.operation-overdue{border-inline-start:4px solid var(--warning);background:var(--warning-bg)}
+ #operationContent .ending-table tr.operation-overdue>td:first-child{box-shadow:none}
  #operationContent .ending-table td{display:block;border:0;padding:0;min-width:0;max-width:100%}
  #operationContent .ending-table td:nth-child(1),#operationContent .ending-table td:nth-child(2),#operationContent .ending-table td:nth-child(5),#operationContent .ending-table td:nth-child(6),#operationContent .ending-table td:nth-child(7){grid-column:1/-1}
  .ending-table .ending-cell-label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px}

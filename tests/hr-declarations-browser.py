@@ -20,7 +20,7 @@ with sync_playwright() as pw:
      for key in models:
       click(p,'model',key);p.locator('#declReference').fill('2026-11-02')
       if p.locator('#declStart').count():p.locator('#declStart').fill('2026-11-02');p.locator('#declEnd').fill('2026-11-02')
-      click(p,'preview');paper=p.locator('#declarationPreview .declaration-paper');check(key+' populated own source', 'SYN Entidade Empregadora' in paper.inner_text() and 'NIF: 000000000' in paper.inner_text());check(key+' footer exactly one blank date',paper.locator('.declaration-signature').inner_text().count('Data: ____ / ____ / ______')==1);check(key+' not a signed final','RASCUNHO — NÃO ASSINADO' in paper.inner_text());check(key+' has no horizontal page overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
+      click(p,'preview');paper=p.locator('#declarationPreview .declaration-paper');check(key+' populated own source', 'SYN Entidade Empregadora' in paper.inner_text() and 'NIF 000000000' in paper.inner_text());check(key+' footer exactly one blank date',paper.locator('.declaration-signature').inner_text().count('Data: ____ / ____ / ______')==1);check(key+' not a signed final','RASCUNHO — NÃO ASSINADO' in paper.inner_text());check(key+' has no horizontal page overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
       if device=='tablet' and theme=='light':
        with p.expect_download() as info:click(p,'pdf')
        download=info.value;download.save_as(OUT/(profile+'-'+key+'.pdf'));check(key+' actual PDF downloaded',(OUT/(profile+'-'+key+'.pdf')).read_bytes().startswith(b'%PDF-1.4'))
@@ -35,6 +35,7 @@ with sync_playwright() as pw:
       p.evaluate('HRDeclarationsV4.open(true)');check('managers can version twelve models',p.locator('[data-decl-action=template]').count()==12);click(p,'request');p.locator('#declChecked').check();click(p,'prepare');check('conference recorded', 'Aguarda assinatura digital' in p.locator('#modalBody').inner_text());check('provider still blocked','Emissão eletrónica final bloqueada' in p.locator('#modalBody').inner_text())
      else:
       check('direct backoffice access denied',p.evaluate('(()=>{try{HRDeclarationsV4.open(true);return false}catch{return true}})()'))
+     p.evaluate('HRDeclarationsV4.open(false)');click(p,'model','salary');p.evaluate('''k=>{const s=JSON.parse(localStorage.getItem(k));s.users.find(u=>u.id===s.currentUser).hr.payrollContracts=[];localStorage.setItem(k,JSON.stringify(s))}''',K);click(p,'preview');paper=p.locator('#declarationPreview .declaration-paper');check('incomplete draft explicit and no technical placeholders','RASCUNHO INCOMPLETO' in paper.inner_text() and '[A validar' not in paper.inner_text() and 'mealCents' not in paper.inner_text());p.screenshot(path=str(OUT/(profile+'-'+device+'-'+theme+'-incomplete.png')))
      check('no page JS errors',not errors);check('theme respected',p.evaluate('document.documentElement.dataset.theme')==theme);ctx.close()
  finally:
   (OUT/'declarations-browser-results.json').write_text(json.dumps({'checks':len(cases),'passed':sum(c['passed'] for c in cases),'cases':cases,'physicalAndroid':False},ensure_ascii=False,indent=2));b.close()

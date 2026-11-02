@@ -31,4 +31,23 @@ A estrutura de origem/ID/clínica mantém a preparação futura para Clicloud, c
 
 Testes locais de domínio e regressão executados, incluindo datas de mês/ano/ano bissexto, ambos os lados das mudanças de hora, Lisboa já no dia seguinte a UTC, continuidade, decisões, datas imutáveis, histórico, concorrência/replay e seis perfis/clínicas. A nova suite Chromium testa operações reais com computador, tablet horizontal e telemóvel, claro/escuro. PostgreSQL usa apenas base descartável do CI.
 
-Resultados finais e preview serão registados após execução efetiva do Actions. A emulação não substitui um tablet Android físico. O preview continua sintético, com dados apenas no navegador, sem persistência central, arquivo privado ou Clicloud ativos.
+Resultado efetivo: **47/47 jobs aprovados** no commit `addf6194338acf55a88c6958e32beb6706a080e1`. [Execução GitHub Actions](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41455031571). A emulação não substitui um tablet Android físico. O preview continua sintético, com dados apenas no navegador, sem persistência central, arquivo privado ou Clicloud ativos.
+
+
+## Evidências finais
+
+- `npm test` e build locais aprovados; 10 cenários dedicados ao fim de tratamento, incluindo múltiplas datas e as seis permissões.
+- Suite Chromium específica: **558 verificações aprovadas, zero falhas**, nos seis perfis × dois temas × três formatos. Ações táteis executadas nos contextos de tablet/telemóvel. Não é validação em Android físico.
+- PostgreSQL isolado aprovado: previsão calculada a partir do instante do servidor, tentativa de alteração recusada, consulta noutro dia por outro ator, decisão Continua com acompanhamento separado e exatamente uma linha original preservada.
+- Todas as restantes suites de regressão passaram na mesma execução.
+- [Capturas e resultados sintéticos](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41455031571/artifacts/13145569016), com retenção no Actions até 16/11/2026.
+
+## Preview verificado
+
+https://grupo-saude-v4-validacao-sintetica-gkvpf8tig-grupo-saude.vercel.app
+
+Deployment `dpl_9D9p2GSWG4PBxZzYTGg7PCUbLbK1`, estado **READY**, target staging. Commit funcional publicado: **addf6194338acf55a88c6958e32beb6706a080e1**.
+
+HTTP 200 confirmado na aplicação, `/api/version`, `app.js`, `operation-core-v4.js` e `design-system-v4.css`. O HTML/JS/CSS servido coincide exatamente com os ficheiros testados. O manifesto confirma fila versão 3, Europe/Lisbon, previsão imutável e serviços reais desativados.
+
+Publicação estática por referências SHA, 108 ficheiros; sem backend, API executável, cron, segredos ou documentos privados. Proteção Vercel mantida; poderá exigir sessão autorizada. Main, produção, bases reais e configurações dos projetos preservadas; PR #13 em rascunho. Os dados do preview permanecem apenas no respetivo navegador e não são partilhados entre dispositivos/previews.

@@ -240,3 +240,39 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 #operationContent .operation-previous{border-inline-start:3px solid var(--accent)}
 #operationContent .operation-queue input[type=checkbox]{width:22px;height:22px}
 @media(max-width:600px){#operationContent .operation-list-add{grid-template-columns:minmax(100px,1fr) max-content}#operationContent .operation-list-add>label:last-child:not(:first-child){grid-column:1/-1}}
+
+/* Treatment-ending layout only: header/cell tracks are shared, without input intrinsic widths. */
+.ending-table-wrap{container:ending-list / inline-size;overflow-x:hidden}
+#operationContent .ending-table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse}
+.ending-table .ending-col-origin{width:16%}.ending-table .ending-col-name{width:20%}.ending-table .ending-col-patient{width:10%}.ending-table .ending-col-date{width:16%}.ending-table .ending-col-decision{width:14%}.ending-table .ending-col-notes{width:16%}.ending-table .ending-col-history{width:8%}
+#operationContent .ending-table thead{position:static;display:table-header-group}
+#operationContent .ending-table th,#operationContent .ending-table td{padding:9px 6px;white-space:normal;overflow-wrap:anywhere;vertical-align:top;text-align:left}
+#operationContent .ending-table th{font-size:11px;line-height:1.35}
+#operationContent .ending-table td{font-size:12px}
+#operationContent .ending-table .ending-cell-content{min-width:0;max-width:100%}
+#operationContent .ending-table input:not([type=checkbox]),#operationContent .ending-table select,#operationContent .ending-table textarea{box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:44px;padding:9px 6px;font-size:12px}
+#operationContent .ending-table input[type=date]{min-inline-size:0;max-inline-size:100%}
+#operationContent .ending-table input::-webkit-date-and-time-value{min-width:0;text-align:left}
+#operationContent .ending-table summary{white-space:normal;font-size:11px;overflow-wrap:anywhere;cursor:pointer}
+#operationContent .ending-table [data-ending-followup]{max-width:100%;font-size:11px}
+.ending-table .ending-cell-label{display:none}
+@container ending-list (max-width:720px){
+ #operationContent .ending-table{display:block;table-layout:auto}
+ .ending-table colgroup{display:none}
+ #operationContent .ending-table thead{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ #operationContent .ending-table tbody{display:grid;gap:12px;padding:10px}
+ #operationContent .ending-table tr.ending-patient-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface)}
+ #operationContent .ending-table tr.operation-overdue{border-inline-start:4px solid var(--warning);background:var(--warning-bg)}
+ #operationContent .ending-table td{display:block;border:0;padding:0;min-width:0;max-width:100%}
+ #operationContent .ending-table td:nth-child(1),#operationContent .ending-table td:nth-child(2),#operationContent .ending-table td:nth-child(5),#operationContent .ending-table td:nth-child(6),#operationContent .ending-table td:nth-child(7){grid-column:1/-1}
+ .ending-table .ending-cell-label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px}
+ #operationContent .ending-table input:not([type=checkbox]),#operationContent .ending-table select,#operationContent .ending-table textarea{font-size:14px;padding:9px 8px}
+ #operationContent .ending-table td:last-child:has(.ending-no-history){display:none}
+}
+
+#operationContent .ending-table .ending-history-row{display:none}
+#operationContent .ending-table .ending-patient-row:has(.ending-history-toggle[open])+.ending-history-row{display:table-row}
+#operationContent .ending-table .ending-history-content{padding:12px;max-height:360px;overflow:auto;background:var(--surface-subtle);border-radius:8px}
+@container ending-list (max-width:720px){#operationContent .ending-table .ending-patient-row:has(.ending-history-toggle[open])+.ending-history-row{display:block}#operationContent .ending-table .ending-history-row td{display:block;width:100%}}
+#operationContent .ending-table .ending-history-toggle>summary{min-height:44px;display:flex;align-items:center;justify-content:center;gap:3px;border:1px solid var(--line);border-radius:6px;padding:5px 3px;background:var(--surface)}
+#operationContent .ending-table .ending-history-toggle>summary::after{content:'⌄';font-size:12px}

@@ -27,5 +27,5 @@ for(const actor of [doctor,tech,call])await assert.rejects(()=>run('workflow',{k
 await assert.rejects(()=>run('workflow',{kind:'sgtd',answer:false,waive:true,reason:'SYN',requestId:'forbidden-waive'},'2026-11-11'),/autorização/);
 await run('workflow',{kind:'sgtd',answer:false,waive:true,reason:'SYN exception approved',requestId:'approved-waive'},'2026-11-11',ceo);assert.equal((await list('2026-11-11')).day.taskStatus.sgtd_daily.status,'done');
 await assert.rejects(()=>S.update(s,clerk,{clinic:'op-b',date:'2026-11-11',revision:0,action:'workflow',kind:'manual',rows:[],requestId:'other-clinic'}),/CLINIC/);
-passed++;
+const bookingView=await list('2026-11-10',call);assert(!JSON.stringify(bookingView).includes('SYN Insured'));assert(!JSON.stringify(bookingView).includes('SYN Manual'));passed++;
 console.log(JSON.stringify({passed,scope:'Actual disposable PostgreSQL: existing clinic_days, server policy, shared domain, cross-actor persistence, multi-day queues, CAS races, closing and audit; no production writers'}));}finally{await pool.end()}})().catch(e=>{console.error(e);process.exitCode=1});

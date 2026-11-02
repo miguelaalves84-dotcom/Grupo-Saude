@@ -28,7 +28,7 @@ with sync_playwright() as pw:
        download=info.value;download.save_as(OUT/(profile+'-'+key+'.pdf'));check(key+' actual PDF downloaded',(OUT/(profile+'-'+key+'.pdf')).read_bytes().startswith(b'%PDF-1.4'))
       if key=='employment':
        with p.expect_popup() as info:click(p,'print')
-       print_page=info.value;print_page.wait_for_load_state();check('A4 paper print with single signature date',print_page.locator('.declaration-signature').inner_text().count('Data: ____ / ____ / ______')==1);print_page.close()
+       print_page=info.value;print_page.wait_for_load_state();check('A4 paper print with single signature date',print_page.locator('.declaration-signature').inner_text().count('Data: ____ / ____ / ______')==1);print_bytes=print_page.pdf(format='A4',print_background=True,display_header_footer=False);(OUT/(profile+'-'+device+'-'+theme+'-print.pdf')).write_bytes(print_bytes);import fitz;printed=fitz.open(stream=print_bytes,filetype='pdf');print_text='\n'.join(pg.get_text() for pg in printed);check('actual browser A4 print has one blank signature date',print_text.count('Data: ____ / ____ / ______')==1);check('signature label and writing line stay on one print line',len(printed[-1].search_for('Assinatura: ______________________________________'))==1);printed.close();print_page.close()
       if key=='salary':
        click(p,'submit');check('request created once',p.evaluate('k=>JSON.parse(localStorage.getItem(k)).hrDeclarationRequests.filter(r=>r.declarationKey==="salary").length===1',K));check('electronic final blocked in UI','Emissão eletrónica final bloqueada' in p.locator('#modalBody').inner_text());p.screenshot(path=str(OUT/(profile+'-'+device+'-'+theme+'-request.png')))
       click(p,'catalogue')

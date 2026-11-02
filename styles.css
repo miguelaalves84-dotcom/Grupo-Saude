@@ -91,3 +91,6 @@ th{background:var(--soft);color:var(--muted)}
 .complaint-proof-upload input[type=file]{width:100%;max-width:100%;min-width:0}
 .complaint-file-preview{display:block;width:100%;max-width:100%;height:min(60vh,650px);object-fit:contain;border:1px solid var(--line,#d9e3ec);margin-top:10px}
 #modal[data-complaint-dialog] #complaintSaveStatus{white-space:normal;overflow-wrap:anywhere}
+
+/* Institutional declaration preview; isolated from application field styles. */
+.declaration-paper{background:#fff;color:#172635;max-width:780px;margin:18px auto;padding:clamp(16px,4vw,42px);line-height:1.65;border:1px solid #dce3eb;border-radius:8px;overflow-wrap:anywhere}.declaration-paper header{min-height:82px}.declaration-paper header img{float:right;object-fit:contain;margin-left:12px}.declaration-paper h2{font-size:1.35rem;line-height:1.4;margin:24px 0}.declaration-paper .declaration-draft{color:#805000;font-weight:750;letter-spacing:.04em}.declaration-signature{break-inside:avoid;margin-top:32px}.declaration-signature p{margin:20px 0}.declaration-panel .portal-filters{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.declaration-panel .actions{flex-wrap:wrap}

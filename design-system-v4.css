@@ -216,3 +216,16 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 #operationContent .work-history article{padding:12px;border-block-end:1px solid var(--border,#dce5ed)}
 #operationContent [data-work-total]{display:block;font-weight:600;padding:12px 0}
 @media(max-width:600px){#operationContent .operation-process{padding:10px}#operationContent .operation-workflow{padding:14px}}
+
+/* Treatment-ending queue: same compact numeric add/table pattern as opening queues. */
+#opWorkflow_ending .ending-add{grid-template-columns:minmax(110px,180px) max-content;gap:12px;align-items:end}
+#opWorkflow_ending .ending-add .operation-add{margin:0 0 1px;min-height:42px}
+.ending-table td{vertical-align:top}.ending-table th{white-space:nowrap}
+.ending-table td input:not([type=checkbox]),.ending-table td select,.ending-table td textarea{min-width:135px;min-height:42px;width:100%}
+.ending-table td input[readonly]{background:var(--surface-subtle);color:var(--ink);cursor:default}
+.ending-table td small{display:block;margin-top:6px;color:var(--muted)}
+.ending-table .ending-overdue{display:block;color:var(--danger)}
+.ending-table tr.operation-overdue{background:var(--warning-bg)}
+.ending-table [data-ending-followup]{margin-top:8px;max-width:220px}
+.ending-table [data-ending-followup][hidden]{display:none!important}
+@media(max-width:480px){#opWorkflow_ending .ending-add{grid-template-columns:minmax(90px,1fr) max-content}}

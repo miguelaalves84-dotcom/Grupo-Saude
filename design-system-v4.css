@@ -229,3 +229,14 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 .ending-table [data-ending-followup]{margin-top:8px;max-width:220px}
 .ending-table [data-ending-followup][hidden]{display:none!important}
 @media(max-width:480px){#opWorkflow_ending .ending-add{grid-template-columns:minmax(90px,1fr) max-content}}
+
+/* One add-row/count/table language for the three opening queues. */
+#operationContent .operation-list-add{grid-template-columns:minmax(110px,180px) max-content minmax(155px,210px);align-items:end;gap:12px}
+#operationContent .operation-list-add .operation-add{margin:0 0 1px;min-height:42px}
+#operationContent .operation-list-counts{display:flex;flex-wrap:wrap;gap:6px;color:var(--muted);margin:12px 0}
+#operationContent .operation-list-counts span{white-space:nowrap}
+#operationContent .operation-queue td{vertical-align:top}
+#operationContent .operation-queue td small{display:block;margin-top:5px;color:var(--muted)}
+#operationContent .operation-previous{border-inline-start:3px solid var(--accent)}
+#operationContent .operation-queue input[type=checkbox]{width:22px;height:22px}
+@media(max-width:600px){#operationContent .operation-list-add{grid-template-columns:minmax(100px,1fr) max-content}#operationContent .operation-list-add>label:last-child:not(:first-child){grid-column:1/-1}}

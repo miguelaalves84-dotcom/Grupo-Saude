@@ -47,6 +47,32 @@ Informação inexistente aparece «A validar»; permite rascunho, impede confer�
 
 ## Testes e limitações
 
-Local: npm test e build aprovados; 397 verificações específicas; 73 PDFs analisados por pypdf, incluindo paginação, A4, PT-PT e assinatura/data única. A execução Chromium e PostgreSQL será registada com o resultado efetivo do GitHub Actions antes de aprovação.
+Local: npm test e build aprovados; 398 verificações específicas; 73 PDFs analisados por pypdf, incluindo paginação, A4, PT-PT e assinatura/data única. GitHub Actions concluído: **52/52 jobs aprovados**, zero falhas, no código `979c5674995bf52fc41ef9e8d4b46c0cf68365fb`. Chromium: **2 220 verificações**, seis perfis × dois temas × computador/tablet/telemóvel; geração, pesquisa, limpeza, casos vazios, pré-visualização, downloads reais, impressão e pedidos. PostgreSQL isolado: pedidos entre identidades, fontes consultadas no servidor, IDOR/permissões, conferência, aprovação e assinatura manuscrita distinta; emissão digital bloqueada.
 
 Preview exclusivamente sintético/local ao navegador, sem autenticação central, partilha entre dispositivos ou arquivo privado operacional. O serviço autenticado mantém-se bloqueado por configuração e ambiente; testes API/PostgreSQL isolados não provam operação real em produção. A integração de assinatura, envio e armazenamento exige configuração e validação externas. Os glifos fora de WinAnsi são rejeitados explicitamente na geração PDF, sem substituir silenciosamente caracteres; impressão HTML preserva Unicode. A revisão jurídica dos textos continua necessária. Chromium tátil não é um Android físico.
+
+
+## Entrega verificada
+
+- Código publicado: `979c5674995bf52fc41ef9e8d4b46c0cf68365fb`.
+- Implementação: `d3c2c5f1`; correção do YAML: `070c849b`; correção de integridade JSONB e notificações: `979c5674`.
+- [GitHub Actions — execução efetiva](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41536536363).
+- [Capturas, PDFs sintéticos e matriz Chromium](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41536536363/artifacts/13184002502), disponíveis até 16/11/2026.
+- [Resultados estruturados](RESULTADOS-TAREFA-16-DECLARACOES.json).
+- Preview protegido **READY**, deployment `dpl_J3wK4R17p6N1QMfwKsddKR5Cfwmx`: https://grupo-saude-v4-validacao-sintetica-ja9t4ggfw-grupo-saude.vercel.app
+- HTTP 200 autenticado em `/`, `/api/version` e sete módulos/estilos alterados; comparação integral do conteúdo servido com o build testado. Manifesto confirma o SHA e capacidades desativadas. Não foi confundida uma página de autenticação Vercel com a aplicação.
+- Acesso: Meu RH → Documentos e regulamentos → Modelos de declarações. Gestão: Recursos Humanos → Documentos da empresa e declarações → Modelos de declarações.
+- A origem do novo preview é diferente: dados guardados no navegador de previews antigos não são transferidos automaticamente. Nenhum deployment antigo foi apagado.
+
+## Problemas encontrados e resolvidos
+
+1. O exportador antigo simplificava acentos. O modo A4 de declaração usa WinAnsi e mantém o comportamento das exportações anteriores.
+2. JSONB altera a ordem das propriedades; a primeira execução PostgreSQL detetou uma falsa divergência na conferência. Reutilizada a função canónica partilhada do projeto; o teste reordena chaves e confirma que alterações efetivas continuam bloqueadas. A execução final PostgreSQL passou.
+3. O estado de assinatura manuscrita tinha de concluir a pendência da gestão e notificar o colaborador. Foi integrado no sistema de atenção existente, com acesso ao pedido e sem apresentar assinatura eletrónica ou email fictício.
+4. Uma instrução YAML com `:all:` precisava de aspas; foi corrigida antes da execução final aprovada. Não houve alteração funcional nesse commit.
+
+## Segurança e validação ainda necessária
+
+Verificados os ficheiros enviados e o pacote estático: sem padrões de credenciais reais, .env, bases de dados, caches ou documentos privados. A main mantém `84fba5a2d6d7afcb0723ca312f4e617acc22823d`. PR #13 em rascunho. Configuração/proteção dos projetos Vercel mantida, sem produção, migrações ou serviços reais ativados.
+
+Ficam pendentes: revisão jurídica dos textos, assinatura digital qualificada/adequada e verificável por fornecedor validado, arquivo privado, notificações reais e ligação autenticada operacional entre dispositivos. A aprovação de um gerente e o registo de papel não substituem esses serviços. Validação física do novo fluxo PDF/impressão num tablet Android ainda deve ser feita pelo utilizador; os testes Chromium são emulação.

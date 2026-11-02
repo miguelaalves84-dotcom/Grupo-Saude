@@ -31,7 +31,13 @@ for entry in manifest:
      if 225<r.y0<700 and not sp['text'].startswith(('RASCUNHO','Por confirmar')):assert sp['size']>=10,(f,sp)
     for a,b in zip(spans,spans[1:]):assert a['bbox'][2]<=b['bbox'][0]+0.6,(f,'overlap',a,b)
   p.get_pixmap(matrix=fitz.Matrix(1.2,1.2)).save(str(root/(f.stem+'-'+str(i+1)+'.png')))
+ # The manager label is centred over, and close to, the actual writing line.
+ last=pdf[-1];manager=last.search_for('O Gerente')[0];signature=last.search_for('Assinatura:')[0];assert 5<signature.y0-manager.y1<15,(f,manager,signature)
+ label_width=fitz.Font('helv').text_length('Assinatura: ',fontsize=10.5);underline_width=fitz.Font('helv').text_length('_'*38,fontsize=10.5);assert abs((manager.x0+manager.x1)/2-(signature.x0+label_width+underline_width/2))<1.2,(f,'manager alignment')
+ if f.stem=='salary-new-contract':assert '1.450,00 €.' in text and '25,00 €' in text
+ if f.stem=='salary-historical':assert '1.123,45 €' in text and '1.450,00 €' not in text
+ if f.stem=='salary-zero-components':assert 'diuturnidades' not in text and 'subsídio de alimentação' not in text
  if f.stem=='seniority':assert '15/03/2021' in text and '5 anos,' in text and '7 meses, 18 dias' in text
- results.append({'file':f.name,'pages':len(pdf),'layout':'A4 institutional v2','passed':True,'incomplete':entry['incomplete']})
-assert len(results)==15
+ results.append({'file':f.name,'pages':len(pdf),'layout':'A4 institutional v3 copy review','passed':True,'incomplete':entry['incomplete']})
+assert len(results)==20
 (root/'layout-results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2));print(json.dumps({'pdfExamples':len(results),'passed':True,'actualPdfRasterization':True,'physicalAndroid':False}))

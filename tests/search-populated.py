@@ -16,7 +16,7 @@ def verify_populated(p,actor,key,check,scope):
  localStorage.setItem(k,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:state-changed'));App.renderAll()}''',[key,actor])
  def search(view,selector,term,field='.gs-search-input'):
   scope['view']='populated:'+view
-  root=p.locator('#'+view);field='#chatSearch' if view=='chat' else field;p.evaluate('GSSearchV4.refresh()');f=root.locator(field);expect(f).to_be_visible();rows=root.locator(selector);expect(rows.first).to_be_visible();before=rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')
+  root=p.locator('#'+view);summary=root.locator('[data-myhr-summary]');summary.evaluate('(d)=>d.open=true') if view=='myhr' and summary.count() else None;field='#chatSearch' if view=='chat' else field;p.evaluate('GSSearchV4.refresh()');f=root.locator(field);expect(f).to_be_visible();rows=root.locator(selector);expect(rows.first).to_be_visible();before=rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')
   f.fill(term);expect(rows.first).to_be_visible();check('populated positive accent search: '+selector,rows.evaluate_all('(xs)=>xs.some(x=>x.getClientRects().length)'))
   f.fill('zzzz-no-populated-result-728');expect(rows.first).not_to_be_visible();check('populated absent term: '+selector,rows.evaluate_all('(xs)=>xs.every(x=>!x.getClientRects().length)'))
   f.fill('');expect(rows.first).to_be_visible();check('populated clear restores: '+selector,rows.evaluate_all('(xs)=>xs.filter(x=>x.getClientRects().length).length')==before)

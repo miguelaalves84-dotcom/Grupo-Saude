@@ -17,7 +17,7 @@ A lista operacional anterior derivava dos pedidos de Call Center. A nova lista �
 - SGTD: Sim conclui; Não mantém pendente. Dispensa requer CEO/Administração com permissão de configuração e justificação auditada.
 - Faltas do turno anterior: manhã/tarde, contagens e contactos disjuntos (quem ligou sem contacto anterior). A soma não pode exceder as faltas; corrigir um turno substitui os valores atuais, preservando versões, sem somar novamente.
 - Fim de tratamento: introdução manual, número de utente opcional, data, notas e classificação humana Alta/Continua. Por definir bloqueia a tarefa. Grava com GUARDAR ABERTURA, sem botão por linha.
-- Pendências e seguros continuam referenciados ao dia de origem; não se copiam ao mudar de data. O fecho apresenta as tarefas obrigatórias pendentes e atalhos de resolução.
+- Pendências e seguros continuam referenciados ao dia de origem; não se copiam ao mudar de data. O fecho apresenta as tarefas obrigatórias pendentes e atalhos de resolução. Dias antigos ainda abertos também têm de satisfazer as verificações antes de um novo fecho; dias históricos já fechados não recebem bloqueios retroativos.
 - Históricos recolhidos por defeito; botões de acrescentar compactos e campos alinhados, usando os estilos claro/escuro existentes.
 
 ## Calendário e limites
@@ -32,4 +32,4 @@ Os processos já têm ID estável, clínica, origem manual, data de origem, revi
 
 ## Validação
 
-`npm test` e build locais executados; 28 cenários de regressão do domínio existente e 8 novos cenários operacionais. A execução local de HTTP/Chromium está bloqueada pelo sandbox (`socket: Operation not permitted`); as suites Chromium e PostgreSQL são executadas no GitHub Actions. Resultados efetivos e URL de preview serão registados após a execução; não se consideram aprovados antecipadamente.
+`npm test` e build locais executados; 28 cenários de regressão do domínio existente e 10 novos cenários operacionais. O primeiro Actions revelou a necessidade de atualizar os pré-requisitos num teste antigo de fecho de Stock e de tratar pedidos legados sem data sem bloquear a navegação. As correções preservam os registos. A execução local de HTTP/Chromium está bloqueada pelo sandbox (`socket: Operation not permitted`); as suites Chromium e PostgreSQL são executadas no GitHub Actions. Resultados efetivos e URL de preview serão registados após a execução; não se consideram aprovados antecipadamente.

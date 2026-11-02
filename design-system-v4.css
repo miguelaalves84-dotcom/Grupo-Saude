@@ -202,3 +202,17 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 /* The compact KPI grid reserves column 1 / row 4 for its drilldown hint. */
 .executive-kpi>.smart-card-action{grid-column:1;grid-row:4;margin:0;font-size:18px;line-height:24px;text-align:center;align-self:center;color:var(--primary)}
 .dashboard-secondary-metrics .smart-card-action{margin-top:4px;font-size:11px}
+
+/* Compact operational process rows; existing tokens cover light and dark. */
+#operationContent .operation-add{width:auto!important;min-width:0;max-width:max-content;min-height:38px;padding:.4rem .8rem;font-size:.875rem;align-self:end;margin:.5rem 0}
+#operationContent .operation-process{border:1px solid var(--border,#dce5ed);border-radius:12px;padding:14px;margin:12px 0}
+#operationContent .operation-workflow>.form-grid{align-items:end}
+#operationContent .operation-workflow [data-work-rows]{display:grid;gap:4px}
+#operationContent .operation-workflow .form-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));align-items:start}
+#operationContent .operation-workflow input:not([type=checkbox]),#operationContent .operation-workflow select,#operationContent .operation-workflow textarea{width:100%;min-height:42px}
+#operationContent .operation-workflow .work-checkbox{display:flex;align-items:center;gap:10px;min-height:44px}
+#operationContent .operation-workflow input[type=checkbox]{width:22px;height:22px;flex-shrink:0}
+#operationContent .work-history{margin:12px 0}
+#operationContent .work-history article{padding:12px;border-block-end:1px solid var(--border,#dce5ed)}
+#operationContent [data-work-total]{display:block;font-weight:600;padding:12px 0}
+@media(max-width:600px){#operationContent .operation-process{padding:10px}#operationContent .operation-workflow{padding:14px}}

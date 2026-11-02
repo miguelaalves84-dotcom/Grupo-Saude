@@ -19,8 +19,32 @@ Locais: npm test e build; testes existentes dos 12 modelos; 73 PDFs verificados 
 
 Testes de antiguidade: admissão e referência coincidentes, referência anterior, mês curto e ano bissexto. Compatibilidade de pedidos antigos e associação da morada por entidade também verificadas.
 
-A suite Chromium existente verifica os seis perfis, temas e três formatos. Foi alargada para confirmar a nova apresentação de dados em falta. Resultados efetivos e preview serão registados após GitHub Actions.
+A suite Chromium existente verifica os seis perfis, temas e três formatos. Foi alargada para confirmar a nova apresentação de dados em falta. Resultado efetivo: **52/52 jobs aprovados** no commit `d921012c07633c5ae75295a38bb2564f3557d68e`, incluindo PostgreSQL isolado e **2 256 verificações Chromium**, seis perfis, dois temas e três formatos. Os 73 PDFs foram analisados por pypdf e os 15 exemplos adicionais foram rasterizados e verificados por PyMuPDF; todos passaram. Os 12 exemplos normais cabem numa página A4; o texto longo usa cinco páginas, mantendo o bloco único de assinatura no final.
 
 ## Limitações preservadas
 
 Todos os exemplos são sintéticos e não assinados. Assinatura digital verificável, arquivo privado e operação central autenticada entre dispositivos permanecem pendentes; não foi ativado qualquer serviço real. Os textos requerem revisão jurídica antes de uso oficial. A impressão HTML depende das definições do navegador (desativar cabeçalhos/rodapés automáticos); o PDF descarregado inclui o rodapé controlado. Caracteres fora de WinAnsi continuam a ser recusados explicitamente pelo exportador. Chromium tátil não substitui teste num Android físico.
+
+
+## Entrega
+
+- Código: `d921012c07633c5ae75295a38bb2564f3557d68e`.
+- [Execução GitHub Actions](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41542505606).
+- [Capturas, PDFs e resultados detalhados](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41542505606/artifacts/13187114363), até 16/11/2026.
+- [Resultados estruturados](RESULTADOS-DECLARACOES-FORMATACAO.json).
+- Preview protegido **READY**: https://grupo-saude-v4-validacao-sintetica-2qhnv62ds-grupo-saude.vercel.app
+- [Galeria com os 12 modelos e três casos adicionais](https://grupo-saude-v4-validacao-sintetica-2qhnv62ds-grupo-saude.vercel.app/exemplos-declaracoes.html).
+- [Exemplo de Antiguidade](https://grupo-saude-v4-validacao-sintetica-2qhnv62ds-grupo-saude.vercel.app/declaracoes-exemplos/seniority.pdf).
+- Deployment `dpl_CKSR727Gr8gMKXFzG6PUKpXh8Tah`, exclusivamente staging. HTTP 200 e comparação integral de conteúdo em 23 endereços, incluindo os 15 PDFs, galeria, versão e módulos alterados.
+
+A galeria é um recurso auxiliar do pacote de preview. Todos os seus PDFs são gerados pela fixture versionada `tests/declaration-layout-examples.cjs`, com uma lista explícita de 15 nomes, sem consultar fichas reais. Não representa armazenamento privado operacional nem emissão de declarações finais. As ligações e os ficheiros servidos foram verificados; a galeria estática não foi apresentada como um novo módulo funcional da aplicação.
+
+## Ficheiros alterados
+
+`finance-core-v4.js`, `hr-declarations-core-v4.js`, `hr-declarations-ui-v4.js`, `hr-declarations-v4.css`, `hr-portal-core-v4.js`, `index.html`, `styles.css`, `package.json`, `.github/workflows/v4-stabilization.yml`, `tests/declaration-layout-examples.cjs`, `tests/declaration-layout-pdf.py`, `tests/hr-declarations-browser.py` e os relatórios desta entrega.
+
+O CSS anterior específico das declarações foi substituído pelo ficheiro partilhado, não duplicado. O serializador PDF e os controladores/pedidos existentes foram reutilizados. Não houve alteração às fontes de dados, permissões, documentos guardados ou outros módulos. Novos pedidos registam a revisão de conteúdo; os antigos conservam o texto original para não invalidar snapshots apenas por esta mudança de apresentação.
+
+## Segurança
+
+Branch de desenvolvimento limpa e sincronizada após a entrega. PR #13 em rascunho. Main preservada em `84fba5a2d6d7afcb0723ca312f4e617acc22823d`. Proteção e configurações dos projetos Vercel verificadas e inalteradas. Sem credenciais, dados pessoais reais, emails, migrações ou serviços de produção ativados.

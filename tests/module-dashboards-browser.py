@@ -21,7 +21,7 @@ with sync_playwright() as pw:
       if key=='operation' and profile in ['u1','test_admin','test_adm']:check('canonical activity and technical capacity tables visible',root.locator('.module-data-table').count()==2 and '100%' in root.locator('.module-data-table').last.inner_text())
       p.screenshot(path=str(OUT/(profile+'-'+device+'-'+theme+'-'+key+'.png')))
       if key=='management' and root.locator('[data-module-clinic]').count():
-       root.locator('[data-module-clinic]').first.click();p.wait_for_selector('#clinics.active');check('clinic name opens authorized clinic fiche', 'SYN A' in p.locator('#clinics').inner_text());p.locator('#moduleDashboardReturn').click()
+       root.locator('[data-module-clinic]').first.click();p.wait_for_selector('#clinics.active');check('clinic name opens authorized clinic fiche', 'SYN A' in p.locator('#modalTitle').inner_text() and p.locator('#modal').is_visible());p.locator('#modal').evaluate('(d)=>d.close()');p.locator('#moduleDashboardReturn').click()
       if key=='personal':check('holiday balance reuses own canonical source',root.locator('.module-context').filter(has_text='O meu saldo de férias').inner_text().find('22 dias disponíveis')>=0)
       if key=='finance':
        p.evaluate("async()=>await ModuleDashboardsV4.visit('finance','finance-account')");check('native financial shortcut keeps clinic and dates',p.locator('#financeScope [name=clinicId]').input_value()=='hub-a' if manager else p.locator('#financeQuery [name=start]').input_value()=='2026-11-01');check('native financial period matches dashboard',p.locator('#financeQuery [name=start]').input_value()=='2026-11-01' and p.locator('#financeQuery [name=end]').input_value()=='2026-11-30');p.locator('#moduleDashboardReturn').click()

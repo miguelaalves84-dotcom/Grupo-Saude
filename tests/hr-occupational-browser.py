@@ -6,6 +6,8 @@ URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.
 def check(n,v):
  cases.append({**scope,'case':n,'passed':bool(v)});print(json.dumps(cases[-1]),flush=True);assert v,n
 def action(p,a,id=None):
+ if a=='backoffice':p.evaluate("HRManagementV4.select('documents')")
+ if a=='health-backoffice':p.evaluate("HRManagementV4.select('health')")
  q=p.locator('[data-portal-action="'+a+'"]'+('[data-id="'+id+'"]' if id else '')).filter(visible=True).first
  if scope['device']=='desktop':q.click()
  else:q.tap()

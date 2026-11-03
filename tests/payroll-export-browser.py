@@ -9,6 +9,7 @@ def action(p,name):return p.locator('[data-payroll-action="'+name+'"]')
 def state(p):return p.evaluate('k=>JSON.parse(localStorage.getItem(k))',K)
 def close(p):p.evaluate('document.querySelectorAll("dialog[open]").forEach(x=>x.close())')
 def open_payroll(p):
+ p.evaluate("if(window.HRManagementV4&&document.querySelector('[data-rh-workspace]'))HRManagementV4.select('attendance')")
  p.wait_for_function('document.getElementById("payrollEntry")?.closest(".ux-action-group")')
  menu=p.locator('#payrollEntry').locator('xpath=ancestor::details[1]')
  if not menu.evaluate('(e)=>e.open'):menu.locator('summary').click()

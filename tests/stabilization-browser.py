@@ -58,11 +58,19 @@ try:
                     active = page.evaluate('document.querySelector(".view.active").id')
                     if width <= 760:
                         page.locator('#menuBtn').click()
-                    for title in page.locator('details[data-nav-group]:not([hidden])').evaluate_all('(gs)=>gs.map(g=>g.dataset.navGroup)'):
+                    for title in page.locator('details[data-nav-group]:not([hidden]):not([data-nav-group="Dashboard Geral"])').evaluate_all('(gs)=>gs.map(g=>g.dataset.navGroup)'):
                         open_group(page, title)
                         page.wait_for_function('document.querySelectorAll("details[data-nav-group][open]").length<=1')
                         verify('Opening group '+title+' keeps the selected page', page.evaluate('document.querySelector(".view.active").id') == active)
                     manager = actor in ['u1', 'test_admin']
+                    if manager:
+                        if width <= 760 and not page.evaluate('document.body.classList.contains("menu-open")'):
+                            page.locator('#menuBtn').click()
+                        page.locator('#nav [data-view="dashboard"]').click()
+                        verify('Single executive root opens Dashboard Geral directly', page.locator('#dashboard').evaluate('(e)=>e.classList.contains("active")'))
+                        verify('Executive root has no repeated submenu label', page.locator('[data-nav-group="Dashboard Geral"] summary [data-view="dashboard"]').count()==1)
+                        if width <= 760:
+                            page.locator('#menuBtn').click()
                     verify('Management HR is restricted to the configured managers', page.evaluate('RoleAccessAdminV4.guard("hr")') == manager)
                     if manager:
                         open_group(page, 'Recursos Humanos')

@@ -31,7 +31,7 @@ def click_nav(page,bid,view,width):
  locator=page.locator('#'+bid) if bid else page.locator('#nav [data-view="'+view+'"]')
  if width<=760 and not page.evaluate('document.body.classList.contains("menu-open")'):page.locator('#menuBtn').click()
  parent=locator.locator('xpath=ancestor::details[@data-nav-group]')
- if parent.count() and not parent.evaluate('(e)=>e.open'):parent.locator('summary').click()
+ if parent.count() and parent.get_attribute('data-nav-group')!='Dashboard Geral' and not parent.evaluate('(e)=>e.open'):parent.locator('summary').click()
  locator.click()
 with sync_playwright() as p:
  browser=p.chromium.launch(args=['--no-sandbox'])

@@ -29,7 +29,9 @@ if(process.env.CI!=='true'||process.env.PGHOST!=='127.0.0.1'||process.env.PGDATA
  source.query=async(q,args)=>{if(!injected&&typeof q==='string'&&q.includes('CREATE TABLE IF NOT EXISTS finance_payment_mail')){injected=true;return originalQuery('select 1/0')}return originalQuery(q,args)};
  await assert.rejects(()=>P.apply(source,c,initial.bytes,key),e=>e.code==='22012');source.query=originalQuery;
  assert.equal((await source.query("select to_regclass('public.clinics') name")).rows[0].name,null);assert.equal((await source.query("select to_regclass('public.gs_p0_migrations') name")).rows[0].name,null);passed++;
- const applied=await P.apply(source,c,initial.bytes,key);assert.equal(applied.applied,11);assert.equal((await P.verify(source,c)).migrations,11);passed++;
+ const racePool=new Pool(P.connection(c.migration,true));pools.push(racePool);const raceClient=await racePool.connect();clients.push(raceClient);
+ const race=await Promise.allSettled([P.apply(source,c,initial.bytes,key),P.apply(raceClient,c,initial.bytes,key)]);
+ assert.equal(race.filter(x=>x.status==='fulfilled').length,1);assert.equal(race.find(x=>x.status==='fulfilled').value.applied,11);assert.equal(race.find(x=>x.status==='rejected').reason.code,'P0_BACKUP_SOURCE_CHANGED');assert.equal((await P.verify(source,c)).migrations,11);passed++;
  await P.permissions(source,c);const current=await P.backup(source,c,key,tool),repeat=await P.apply(source,c,current.bytes,key);assert.equal(repeat.applied,0);passed++;
  // Existing business readiness contract is preserved, rather than a parallel GPS ledger.
  const {repository}=require('../lib/postgres-repository.cjs');await require('../lib/schema-version-service.js').assertGps(repository({query:source.query}));passed++;
@@ -50,7 +52,7 @@ if(process.env.CI!=='true'||process.env.PGHOST!=='127.0.0.1'||process.env.PGDATA
  await source.query("update gs_p0_migrations set sha256=repeat('0',64) where ordinal=0");const driftBackup=await P.backup(source,c,key,tool);await assert.rejects(()=>P.apply(source,c,driftBackup.bytes,key),/LEDGER_DRIFT/);await source.query('update gs_p0_migrations set sha256=$1 where ordinal=0',[P.loadPlan()[0].sha256]);assert.equal((await P.verify(source,c)).migrations,11);passed++;
  // Independent connections can read marker; neither has an authorized business writer.
  const cloneRuntime=new Pool(P.connection(cc.runtime,true));pools.push(cloneRuntime);await assert.rejects(()=>cloneRuntime.query('select * from clinics'),e=>e.code==='42501');passed++;
- const result={passed,migrations:11,actualPostgres:true,initialEncryptedBackupVerified:true,restoredDistinctClone:true,sourceUnchangedAfterRestore:true,runtimeBusinessWriters:false,authActivated:false,emailActivated:false,privateArchiveActivated:false,scope:'Disposable PostgreSQL: migration transaction/rollback/replay/checksums, isolated roles, content fingerprint, encrypted pg_dump/pg_restore and independent restore database. No Neon resource or production connection.'};
+ const result={passed,migrations:11,actualPostgres:true,initialEncryptedBackupVerified:true,restoredDistinctClone:true,sourceUnchangedAfterRestore:true,runtimeBusinessWriters:false,authActivated:false,emailActivated:false,privateArchiveActivated:false,scope:'Disposable PostgreSQL: migration transaction/rollback/concurrency/replay/checksums, isolated roles, content fingerprint, encrypted pg_dump/pg_restore and independent restore database. No Neon resource or production connection.'};
  fs.mkdirSync('/tmp/gs-security-artifacts',{recursive:true});fs.writeFileSync('/tmp/gs-security-artifacts/p0-environment-results.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));
  }finally{for(const x of clients)x.release();for(const x of pools)await x.end();await admin.end()}
 })().catch(e=>{console.error('P0_POSTGRES_EXPERIMENT_FAILED '+(/^[A-Z0-9_]+$/.test(e.code||'')?e.code:'DETAILS_WITHHELD'));process.exitCode=1});

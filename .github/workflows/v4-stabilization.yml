@@ -103,6 +103,14 @@ jobs:
       - run: npm ci --ignore-scripts
       - name: Audit resolved dependencies
         run: node scripts/security-dependencies.cjs
+      - name: P0 phase 1 - isolated schema, privileges, encrypted backup and restore
+        run: node tests/p0-test-environment-postgres.cjs
+        env:
+          CI: 'true'
+          PGHOST: 127.0.0.1
+          PGDATABASE: gs_v4_synthetic
+          PGPASSWORD: synthetic-ci-only
+          GS_POSTGRES_SERVICE_ID: ${{ job.services.postgres.id }}
       - name: Real isolated identity, MFA and recovery tests
         run: node tests/security-auth-postgres.cjs
         env:

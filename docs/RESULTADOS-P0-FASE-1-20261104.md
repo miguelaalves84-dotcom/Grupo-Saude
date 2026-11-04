@@ -40,7 +40,7 @@ O marcador do clone restaurado recebe apenas o novo UUID de isolamento. Não se 
 | Regressão do programa e build | Aprovados | Job 126320996960 no SHA final |
 | Novo ensaio PostgreSQL P0.1 | **20 cenários aprovados**, 11 migrações | Job 126320995523, PostgreSQL 17 descartável real |
 | Regressões PostgreSQL existentes e recuperação de segurança | Job aprovado | Mesmo job, fontes e bases sintéticas anteriores preservadas |
-| Suites Chromium preexistentes | Execução global ainda em curso na recolha | Sem alterações da interface; não se declara aprovação antecipada |
+| Suites Chromium preexistentes e pipeline integral | **54/54 jobs aprovados**, zero falhas | Execução 41752443082, código 69265de1; não é Android físico |
 
 Execução exata: [GitHub Actions 41752443082](https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41752443082), código `69265de1`. Os testes SQL desta fase não foram simulados nem executados contra Neon remoto.
 
@@ -74,3 +74,19 @@ As variáveis e passos exatos constam do procedimento. A parte remota fica suspe
 - Não se concluiu autenticação central, paridade funcional de RH/férias, arquivo privado, RGPD ou preparação para produção. Os bloqueios da auditoria não são apagados por este ensaio de infraestrutura.
 
 **Próximo passo permitido nesta fase:** apenas confirmar os acessos/quotas e repetir a preparação no destino de testes autorizado, caso sejam disponibilizados. **P0.2 e qualquer ativação de autenticação continuam dependentes de nova autorização.**
+
+## Verificação externa de conclusão — 04/11/2026
+
+A integração Neon já existe na equipa Vercel Grupo Saude, com plano Free (`free_v3`, sem método de pagamento obrigatório). A configuração devolve zero projetos Vercel associados; o preview sintético não tem variáveis de base de dados. Isso não prova inexistência de bases na conta Neon: falta a ligação Neon para inventariar projetos, regiões e consumo. Nenhuma configuração ou recurso foi criado/alterado nesta verificação.
+
+A tabela oficial e o plano instalado confirmam 1 GB de armazenamento por projeto, 100 CU-horas/projeto/mês, até 100 projetos e compute até 2 CU. A página oficial indica 10 branches/projeto e 5 GB de transferência/projeto/mês; há um limite agregado de 20 GB de Postgres no Free. Nos limites, o Free suspende compute ou recusa crescimento; não aceitar upgrade pago. A janela gratuita de recuperação é limitada a seis horas ou 1 GB de alterações e não substitui custódia/restauro dos dumps cifrados. Consumo real da conta ainda não foi consultado.
+
+Região UE confirmada como disponível: **AWS Frankfurt, aws-eu-central-1**. Não confundir Londres com UE. Não foi confirmada a região de nenhum projeto existente; não criar nem reutilizar um recurso antes desse inventário.
+
+Os roles criados pelo painel/CLI/API Neon recebem neon_superuser. Migrador, runtime e roles do clone devem ser criados por SQL com atributos mínimos, não pelo botão Add role. Uma credencial administrativa de preparação, se necessária, tem de ser temporária, restrita ao projeto de testes e fornecida apenas pelo gestor de segredos; nunca deve ser usada como runtime ou inserida em logs/SQL Editor com passwords.
+
+O ambiente Codex atual não tem bindings de segredos e não demonstra acesso TCP ao PostgreSQL remoto: a política observada tem lista TCP vazia. O driver pg/pg_dump exige ligação TLS à porta 5432, além de credenciais reais. HTTP secrets só substituem valores em HTTPS/443 e não servem para esta ligação. Antes de um ensaio remoto é necessário preparar um executor autorizado com acesso PostgreSQL e ferramentas compatíveis. Não contornar a política de rede.
+
+Ainda não existe chave operacional persistente: as chaves aleatórias dos testes CI eram descartáveis. Para backups recuperáveis entre sessões, definir um cofre persistente, proprietário e segunda cópia protegida, fora do Git, logs e artefactos. A chave terá 32 bytes aleatórios, será montada temporariamente em ficheiro 0600 numa pasta 0700 e a mesma versão será recuperada do cofre para validar/restaurar num clone. Não regenerar ou eliminar a chave enquanto houver backups dependentes. O cofre e o canal de entrega ainda precisam de ser escolhidos e testados; isto é o procedimento previsto, não uma custódia já operacional.
+
+Fontes verificadas: [Neon Pricing](https://neon.com/pricing), [regiões](https://neon.com/docs/introduction/regions), [roles](https://neon.com/docs/manage/roles), [variáveis e cofre do Codex](https://learn.chatgpt.com/docs/environments/cloud-environments). O plugin Neon foi localizado mas não está instalado/ligado nesta sessão. A sua instalação foi sugerida; não foi efetuada automaticamente.

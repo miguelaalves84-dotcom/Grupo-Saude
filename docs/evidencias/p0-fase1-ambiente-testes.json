@@ -67,7 +67,28 @@
     "scope": "npm test and npm run build on exact implementation SHA"
   },
   "globalBrowserMatrix": {
-    "status": "in_progress_at_collection",
-    "scope": "Automatic pre-existing workflow, no UI change; no Android physical claim"
+    "status": "passed",
+    "jobs": 54,
+    "passed": 54,
+    "failed": 0,
+    "run": 41752443082,
+    "codeSha": "69265de148298f87a0c3e36f6b62db07f3edb74f",
+    "physicalAndroid": false
+  },
+  "externalObservation": {
+    "date": "2026-11-04",
+    "vercelNeonIntegrationExists": true,
+    "plan": "free_v3",
+    "paymentMethodRequired": false,
+    "associatedVercelProjects": 0,
+    "previewDatabaseVariables": false,
+    "neonProjectsInventoried": false,
+    "actualRegionVerified": false,
+    "actualUsageVerified": false,
+    "confirmedAvailableEuRegion": "aws-eu-central-1",
+    "operationalBackupKeyPersisted": false,
+    "readyCredentialBindings": 0,
+    "tcpPostgresAccessVerified": false,
+    "resourcesCreated": false
   }
 }

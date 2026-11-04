@@ -86,7 +86,7 @@ Conferir que a origem não mudou e que contagens/fingerprint/restauro e proibiç
 - Testes unitários de guard, TLS, manifesto e criptografia: 22 casos, aprovados localmente.
 - Sintaxe: 275 ficheiros JavaScript verificados na primeira implementação.
 - `npm test`: aprovado localmente, incluindo regressões do programa. O replay histórico opcional continua a não equivaler a teste executado.
-- Ensaio PostgreSQL novo: incluído no job descartável existente, com bases/roles próprios. Estado final e SHA registados no relatório de resultados após o CI; não considerar aprovado pela mera existência do teste.
+- Ensaio PostgreSQL novo: incluído no job descartável existente, com bases/roles próprios. 20 cenários aprovados no CI de `69265de1`: ver [resultados e evidências](RESULTADOS-P0-FASE-1-20261104.md). Não confundir esta prova com Neon remoto operacional.
 - Docker local: acesso ao socket recusado. Não foi repetido o comando nem reiniciado o daemon.
 - Neon remoto, TLS real, quotas, segredos, backup agendado e recuperação operacional: pendentes.
 

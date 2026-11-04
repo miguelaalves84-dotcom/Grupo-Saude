@@ -19,6 +19,7 @@ if(process.env.CI!=='true'||process.env.PGHOST!=='127.0.0.1'||process.env.PGDATA
  const key=randomBytes(32);
  try{
  [source,c]=await prepare('gs_v4_p0_synthetic','gs_p0_owner','gs_p0_runtime','00000000-0000-4000-8000-000000000001');
+ await source.query('create schema p0_hidden');await source.query('create table p0_hidden.synthetic_only(id int)');await assert.rejects(()=>P.bootstrap(source,c),/UNEXPECTED_USER_SCHEMA/);await source.query('drop table p0_hidden.synthetic_only');await source.query('drop schema p0_hidden');passed++;
  await P.bootstrap(source,c);assert((await P.bootstrap(source,c)).existing);passed++;
  await assert.rejects(()=>P.marker(source,{...c,targetId:'00000000-0000-4000-8000-000000000099'}),/MARKER/);passed++;
  await admin.query('grant pg_read_all_data to gs_p0_runtime');await assert.rejects(()=>P.marker(source,c),/MEMBERSHIP/);await admin.query('revoke pg_read_all_data from gs_p0_runtime');passed++;

@@ -21,7 +21,9 @@ if(process.env.CI!=='true'||process.env.PGHOST!=='127.0.0.1'||process.env.PGDATA
  [source,c]=await prepare('gs_v4_p0_synthetic','gs_p0_owner','gs_p0_runtime','00000000-0000-4000-8000-000000000001');
  await P.bootstrap(source,c);assert((await P.bootstrap(source,c)).existing);passed++;
  await assert.rejects(()=>P.marker(source,{...c,targetId:'00000000-0000-4000-8000-000000000099'}),/MARKER/);passed++;
+ await admin.query('grant pg_read_all_data to gs_p0_runtime');await assert.rejects(()=>P.marker(source,c),/MEMBERSHIP/);await admin.query('revoke pg_read_all_data from gs_p0_runtime');passed++;
  const initial=await P.backup(source,c,key,tool);assert(!initial.bytes.includes(Buffer.from('CREATE TABLE')));assert(P.unseal(initial.bytes,key).raw.length>0);passed++;
+ const decoded=P.unseal(initial.bytes,key),badDate=P.seal(decoded.raw,key,{...decoded.meta,createdAt:'invalid'});await assert.rejects(()=>P.apply(source,c,badDate,key),/VALID_RECENT_BACKUP/);passed++;
  // Inject a genuine SQL failure halfway through a clean migration: all DDL and ledger roll back.
  const originalQuery=source.query.bind(source);let injected=false;
  source.query=async(q,args)=>{if(!injected&&typeof q==='string'&&q.includes('CREATE TABLE IF NOT EXISTS finance_payment_mail')){injected=true;return originalQuery('select 1/0')}return originalQuery(q,args)};
@@ -34,6 +36,7 @@ if(process.env.CI!=='true'||process.env.PGHOST!=='127.0.0.1'||process.env.PGDATA
  const runtimePool=new Pool(P.connection(c.runtime,true));pools.push(runtimePool);const rt=await runtimePool.connect();clients.push(rt);
  assert.equal((await rt.query('select dataset_scope from gs_p0_test_environment')).rows[0].dataset_scope,'synthetic-only');
  for(const sql of ['create table forbidden(id int)',"insert into clinics(id,name) values('forbidden','SYN')",'select * from employees','update gs_p0_test_environment set auth_enabled=true','select * from gs_p0_migrations','set role gs_p0_owner'])await assert.rejects(()=>rt.query(sql),e=>e.code==='42501');passed++;
+ await source.query("insert into audit_log(module,action) values('p0-test','SYNTHETIC SEQUENCE CHECK')");
  await source.query("insert into clinics(id,name) values('p0-synthetic-clinic','SYNTHETIC ONLY')");
  const b=await P.backup(source,c,key,tool);await source.query("update clinics set name='SYNTHETIC CHANGED'");await assert.rejects(()=>P.apply(source,c,b.bytes,key),/SOURCE_CHANGED/);passed++;
  const finalBackup=await P.backup(source,c,key,tool),before=await P.fingerprint(source);
@@ -41,6 +44,7 @@ if(process.env.CI!=='true'||process.env.PGHOST!=='127.0.0.1'||process.env.PGDATA
  await assert.rejects(()=>P.restore(source,c,finalBackup.bytes,key,tool,c),/DISTINCT_RESTORE/);passed++;
  await assert.rejects(()=>P.restore(clone,cc,finalBackup.bytes,randomBytes(32),tool,c),/INTEGRITY/);passed++;
  const restored=await P.restore(clone,cc,finalBackup.bytes,key,tool,c);assert(restored.restored);assert.equal((await clone.query('select name from clinics')).rows[0].name,'SYNTHETIC CHANGED');assert.deepEqual(await P.fingerprint(source),before);passed++;
+ const restoredId=(await clone.query("insert into audit_log(module,action) values('p0-test','SYNTHETIC RESTORE CHECK') returning id")).rows[0].id;assert(Number(restoredId)>1);passed++;
  await assert.rejects(()=>P.restore(clone,cc,finalBackup.bytes,key,tool,c),/EMPTY_MARKED_CLONE/);passed++;
  const afterRestore=await P.verify(clone,cc);assert.equal(afterRestore.auth,false);assert.equal(afterRestore.email,false);assert.equal(afterRestore.archive,false);passed++;
  await source.query("update gs_p0_migrations set sha256=repeat('0',64) where ordinal=0");const driftBackup=await P.backup(source,c,key,tool);await assert.rejects(()=>P.apply(source,c,driftBackup.bytes,key),/LEDGER_DRIFT/);await source.query('update gs_p0_migrations set sha256=$1 where ordinal=0',[P.loadPlan()[0].sha256]);assert.equal((await P.verify(source,c)).migrations,11);passed++;

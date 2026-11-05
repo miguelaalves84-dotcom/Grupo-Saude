@@ -1,0 +1,29 @@
+{
+  "codeCommit": "addf6194338acf55a88c6958e32beb6706a080e1",
+  "branch": "dev/v4-stabilization-20261017",
+  "workflowRun": 41455031571,
+  "jobsPassed": 47,
+  "jobsFailed": 0,
+  "endingBrowserChecks": 558,
+  "endingBrowserFailures": 0,
+  "endingDomainScenarios": 10,
+  "profiles": 6,
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "devices": [
+    "desktop",
+    "tablet-horizontal-touch-emulation",
+    "mobile-touch-emulation"
+  ],
+  "preview": "https://grupo-saude-v4-validacao-sintetica-gkvpf8tig-grupo-saude.vercel.app",
+  "deployment": "dpl_9D9p2GSWG4PBxZzYTGg7PCUbLbK1",
+  "status": "READY",
+  "httpStatus": 200,
+  "sourceFilesExactlyMatched": true,
+  "centralPersistence": false,
+  "clicloud": false,
+  "externalEmails": false,
+  "physicalAndroidValidated": false
+}

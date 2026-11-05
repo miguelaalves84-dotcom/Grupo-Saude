@@ -1,0 +1,174 @@
+{
+  "issue": 17,
+  "codeCommit": "1dbf0cd4983e76f0a401b32bdcfc2a3b998bb2bd",
+  "implementationCommit": "418be70a24470e7bca2e8d37148a8a66264abf60",
+  "branch": "dev/v4-stabilization-20261017",
+  "workflowRun": 41547725914,
+  "workflowUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41547725914",
+  "jobsPassed": 52,
+  "jobsFailed": 0,
+  "chromiumChecks": 3264,
+  "existingDomainChecks": 398,
+  "independentlyParsedPdfs": 73,
+  "additionalRasterizedExamples": 20,
+  "actualChromiumPrintPdfs": 36,
+  "profiles": 6,
+  "themes": 2,
+  "viewports": 3,
+  "salaryHistoricalServerProjectionTested": true,
+  "signatureDateBlank": true,
+  "singleSignatureDate": true,
+  "historicalContentRevisionsPreserved": [
+    1,
+    2
+  ],
+  "artifactId": 13190290482,
+  "artifactExpires": "2026-11-16T23:48:50Z",
+  "preview": {
+    "id": "dpl_CCNtqqeKh8sbMLByguSYaTditZvJ",
+    "url": "https://grupo-saude-v4-validacao-sintetica-7b9biyc2c-grupo-saude.vercel.app",
+    "gallery": "https://grupo-saude-v4-validacao-sintetica-7b9biyc2c-grupo-saude.vercel.app/exemplos-declaracoes.html",
+    "state": "READY",
+    "protected": true,
+    "http": [
+      {
+        "path": "/",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/api/version",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/exemplos-declaracoes.html",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/finance-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-declarations-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-declarations-v4.css",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/attendance.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/duties.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/employment-salary.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/employment.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/experience.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/holidays.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/incomplete.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/long-document.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/nursery.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/salary-historical.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/salary-inconsistent.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/salary-new-contract.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/salary-zero-components.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/salary.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/schedule.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/school-schedule.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/second-employer.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/seniority.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/termination.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/varied-clinic.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      }
+    ]
+  },
+  "syntheticOnly": true,
+  "physicalAndroidValidated": false,
+  "digitalSignatureOperational": false,
+  "privateStorageOperational": false,
+  "centralAuthenticatedRuntimeOperational": false,
+  "realEmails": false,
+  "pr13Draft": true,
+  "mainUnchanged": "84fba5a2d6d7afcb0723ca312f4e617acc22823d"
+}

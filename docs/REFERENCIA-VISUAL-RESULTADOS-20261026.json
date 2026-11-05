@@ -1,0 +1,2515 @@
+{
+  "sourceCommit": "f5c312d32193c71f2bc0c20fa5d5d9adfddf611f",
+  "run": 40250159556,
+  "reference": {
+    "sourceFile": "1000089444.jpg",
+    "sha256": "af237e8f9eab8112ebd2db2ca458668d956110d975669640011a0a91f2de67e9",
+    "imageSize": [
+      1280,
+      799
+    ],
+    "appBounds": [
+      40,
+      0,
+      1238,
+      767
+    ],
+    "regions": {
+      "sidebar": [
+        40,
+        0,
+        291,
+        767
+      ],
+      "main": [
+        311,
+        20,
+        1217,
+        765
+      ],
+      "kpis": [
+        311,
+        80,
+        1217,
+        217
+      ],
+      "charts": [
+        311,
+        228,
+        1217,
+        505
+      ],
+      "lowerPanels": [
+        311,
+        514,
+        1217,
+        765
+      ]
+    },
+    "referenceContainsDifferentBrandAndIllustrativeData": true,
+    "originalKeptPrivate": true
+  },
+  "checks": 296,
+  "failures": 0,
+  "results": [
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference sidebar proportion",
+      "passed": true,
+      "measurement": 0.20625,
+      "target": 0.20951585976627712
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference KPI top position",
+      "passed": true,
+      "measurement": 0.14625,
+      "target": 0.10430247718383312
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference KPI card height",
+      "passed": true,
+      "measurement": 0.17,
+      "target": 0.17861799217731422
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference overview height",
+      "passed": true,
+      "measurement": 0.345,
+      "target": 0.36114732724902215
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference lower row position",
+      "passed": true,
+      "measurement": 0.69125,
+      "target": 0.6701434159061278
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "two equal overview columns",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "identity control placed in sidebar footer",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "footer near the reference position",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "midnight canvas matches sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "gold accents match sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.8712138671875
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference sidebar proportion",
+      "passed": true,
+      "measurement": 0.20625,
+      "target": 0.20951585976627712
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference KPI top position",
+      "passed": true,
+      "measurement": 0.14625,
+      "target": 0.10430247718383312
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference KPI card height",
+      "passed": true,
+      "measurement": 0.17,
+      "target": 0.17861799217731422
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference overview height",
+      "passed": true,
+      "measurement": 0.345,
+      "target": 0.36114732724902215
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference lower row position",
+      "passed": true,
+      "measurement": 0.69125,
+      "target": 0.6701434159061278
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "two equal overview columns",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "identity control placed in sidebar footer",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "footer near the reference position",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.5206875
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "midnight canvas matches sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "gold accents match sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.8791527777777778
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.45172708333333333
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "midnight canvas matches sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "gold accents match sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.8810213877749423
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.42227488151658765
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference sidebar proportion",
+      "passed": true,
+      "measurement": 0.20625,
+      "target": 0.20951585976627712
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference KPI top position",
+      "passed": true,
+      "measurement": 0.14625,
+      "target": 0.10430247718383312
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference KPI card height",
+      "passed": true,
+      "measurement": 0.17,
+      "target": 0.17861799217731422
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference overview height",
+      "passed": true,
+      "measurement": 0.345,
+      "target": 0.36114732724902215
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "reference lower row position",
+      "passed": true,
+      "measurement": 0.69125,
+      "target": 0.6701434159061278
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "two equal overview columns",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "identity control placed in sidebar footer",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "footer near the reference position",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "midnight canvas matches sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "gold accents match sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.8814248046875
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference sidebar proportion",
+      "passed": true,
+      "measurement": 0.20625,
+      "target": 0.20951585976627712
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference KPI top position",
+      "passed": true,
+      "measurement": 0.14625,
+      "target": 0.10430247718383312
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference KPI card height",
+      "passed": true,
+      "measurement": 0.17,
+      "target": 0.17861799217731422
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference overview height",
+      "passed": true,
+      "measurement": 0.345,
+      "target": 0.36114732724902215
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "reference lower row position",
+      "passed": true,
+      "measurement": 0.69125,
+      "target": 0.6701434159061278
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "two equal overview columns",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "identity control placed in sidebar footer",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "footer near the reference position",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.4914833984375
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "midnight canvas matches sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "gold accents match sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.8785618055555555
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.4445145833333333
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "midnight canvas matches sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "gold accents match sampled reference",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.8862042775549884
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "canonical indicators preserved from 9e7aa489",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "exactly four primary indicators",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "four source-derived mini charts",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "source-based horizontal bars",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "request distribution exists without invented patients",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "all original indicators accessible",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no document-wide overflow",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no illustrative identity or revenue copied",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "period control opens the actual filters",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "clinic scope still filters all clinic rows",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "agenda uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "hr uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "operation uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "finance uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "stock uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "marketing uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "complaints uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "tables uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "chat uses a responsive shared shell",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no JavaScript exceptions",
+      "passed": true
+    },
+    {
+      "actor": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "visible composition differs materially from 9e7aa489",
+      "passed": true,
+      "fraction": 0.385052861830113
+    }
+  ],
+  "comparisons": [
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "geometry": {
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "w": 264,
+          "h": 800
+        },
+        "kpis": {
+          "x": 284,
+          "y": 117,
+          "w": 976,
+          "h": 136
+        },
+        "overview": {
+          "x": 284,
+          "y": 265,
+          "w": 976,
+          "h": 276
+        },
+        "lower": {
+          "x": 284,
+          "y": 553,
+          "w": 976,
+          "h": 252
+        },
+        "card": {
+          "x": 284,
+          "y": 117,
+          "w": 235,
+          "h": 136
+        },
+        "profile": {
+          "x": 0,
+          "y": 614,
+          "w": 263,
+          "h": 186
+        },
+        "header": {
+          "x": 264,
+          "y": 21,
+          "w": 1016,
+          "h": 80
+        }
+      },
+      "reference": {
+        "sidebar": [
+          40,
+          0,
+          291,
+          767
+        ],
+        "main": [
+          311,
+          20,
+          1217,
+          765
+        ],
+        "kpis": [
+          311,
+          80,
+          1217,
+          217
+        ],
+        "charts": [
+          311,
+          228,
+          1217,
+          505
+        ],
+        "lowerPanels": [
+          311,
+          514,
+          1217,
+          765
+        ]
+      },
+      "before": "u1-tablet-horizontal-dark-9e7aa489.png",
+      "after": "u1-tablet-horizontal-dark-reference-aligned.png"
+    },
+    {
+      "actor": "u1",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "geometry": {
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "w": 264,
+          "h": 800
+        },
+        "kpis": {
+          "x": 284,
+          "y": 117,
+          "w": 976,
+          "h": 136
+        },
+        "overview": {
+          "x": 284,
+          "y": 265,
+          "w": 976,
+          "h": 276
+        },
+        "lower": {
+          "x": 284,
+          "y": 553,
+          "w": 976,
+          "h": 252
+        },
+        "card": {
+          "x": 284,
+          "y": 117,
+          "w": 235,
+          "h": 136
+        },
+        "profile": {
+          "x": 0,
+          "y": 614,
+          "w": 263,
+          "h": 186
+        },
+        "header": {
+          "x": 264,
+          "y": 21,
+          "w": 1016,
+          "h": 80
+        }
+      },
+      "reference": {
+        "sidebar": [
+          40,
+          0,
+          291,
+          767
+        ],
+        "main": [
+          311,
+          20,
+          1217,
+          765
+        ],
+        "kpis": [
+          311,
+          80,
+          1217,
+          217
+        ],
+        "charts": [
+          311,
+          228,
+          1217,
+          505
+        ],
+        "lowerPanels": [
+          311,
+          514,
+          1217,
+          765
+        ]
+      },
+      "before": "u1-tablet-horizontal-light-9e7aa489.png",
+      "after": "u1-tablet-horizontal-light-reference-aligned.png"
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "dark",
+      "geometry": {
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "w": 264,
+          "h": 800
+        },
+        "kpis": {
+          "x": 284,
+          "y": 117,
+          "w": 976,
+          "h": 136
+        },
+        "overview": {
+          "x": 284,
+          "y": 265,
+          "w": 976,
+          "h": 276
+        },
+        "lower": {
+          "x": 284,
+          "y": 553,
+          "w": 976,
+          "h": 252
+        },
+        "card": {
+          "x": 284,
+          "y": 117,
+          "w": 235,
+          "h": 136
+        },
+        "profile": {
+          "x": 0,
+          "y": 565,
+          "w": 263,
+          "h": 235
+        },
+        "header": {
+          "x": 264,
+          "y": 21,
+          "w": 1016,
+          "h": 80
+        }
+      },
+      "reference": {
+        "sidebar": [
+          40,
+          0,
+          291,
+          767
+        ],
+        "main": [
+          311,
+          20,
+          1217,
+          765
+        ],
+        "kpis": [
+          311,
+          80,
+          1217,
+          217
+        ],
+        "charts": [
+          311,
+          228,
+          1217,
+          505
+        ],
+        "lowerPanels": [
+          311,
+          514,
+          1217,
+          765
+        ]
+      },
+      "before": "test_admin-tablet-horizontal-dark-9e7aa489.png",
+      "after": "test_admin-tablet-horizontal-dark-reference-aligned.png"
+    },
+    {
+      "actor": "test_admin",
+      "device": "tablet-horizontal",
+      "theme": "light",
+      "geometry": {
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "w": 264,
+          "h": 800
+        },
+        "kpis": {
+          "x": 284,
+          "y": 117,
+          "w": 976,
+          "h": 136
+        },
+        "overview": {
+          "x": 284,
+          "y": 265,
+          "w": 976,
+          "h": 276
+        },
+        "lower": {
+          "x": 284,
+          "y": 553,
+          "w": 976,
+          "h": 252
+        },
+        "card": {
+          "x": 284,
+          "y": 117,
+          "w": 235,
+          "h": 136
+        },
+        "profile": {
+          "x": 0,
+          "y": 565,
+          "w": 263,
+          "h": 235
+        },
+        "header": {
+          "x": 264,
+          "y": 21,
+          "w": 1016,
+          "h": 80
+        }
+      },
+      "reference": {
+        "sidebar": [
+          40,
+          0,
+          291,
+          767
+        ],
+        "main": [
+          311,
+          20,
+          1217,
+          765
+        ],
+        "kpis": [
+          311,
+          80,
+          1217,
+          217
+        ],
+        "charts": [
+          311,
+          228,
+          1217,
+          505
+        ],
+        "lowerPanels": [
+          311,
+          514,
+          1217,
+          765
+        ]
+      },
+      "before": "test_admin-tablet-horizontal-light-9e7aa489.png",
+      "after": "test_admin-tablet-horizontal-light-reference-aligned.png"
+    }
+  ],
+  "notice": "Geometry/palette compared with the approved image. Original brand, sample values, photo and Android system UI are not reproduced. Physical Android confirmation remains pending."
+}

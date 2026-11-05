@@ -6,6 +6,7 @@ permissions:
   checks: read
 jobs:
   regression:
+    if: github.head_ref != 'dev/v4-stabilization-20261017'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,6 +18,7 @@ jobs:
       - run: npm test
       - run: npm run build
   browser:
+    if: github.head_ref != 'dev/v4-stabilization-20261017'
     name: browser (${{ matrix.suite }})
     strategy:
       fail-fast: false
@@ -49,6 +51,7 @@ jobs:
           GS_PREVIEW_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}
           GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
   p0-postgresql:
+    if: github.head_ref != 'dev/v4-stabilization-20261017'
     name: P0 isolated PostgreSQL migrations
     runs-on: ubuntu-latest
     steps:

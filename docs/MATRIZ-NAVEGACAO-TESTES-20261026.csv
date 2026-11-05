@@ -1,0 +1,1023 @@
+actor,device,theme,case,passed
+test_call,tablet,light,Dashboard respects effective role,True
+test_call,tablet,light,management HR remains prohibited,True
+test_call,tablet,light,operation stepper uses original authorised phases,True
+test_call,tablet,light,operation no horizontal overflow,True
+test_call,tablet,light,stock metric opens existing movements without changing clinic,True
+test_call,tablet,light,stock contextual back restores inventory,True
+test_call,tablet,light,stock navigation grouped without duplicated controllers,True
+test_call,tablet,light,stock no horizontal overflow,True
+test_call,tablet,light,chat no horizontal overflow,True
+test_call,tablet,light,finance no horizontal overflow,True
+test_call,tablet,light,no JavaScript exceptions,True
+test_call,tablet,dark,Dashboard respects effective role,True
+test_call,tablet,dark,management HR remains prohibited,True
+test_call,tablet,dark,operation stepper uses original authorised phases,True
+test_call,tablet,dark,operation no horizontal overflow,True
+test_call,tablet,dark,stock metric opens existing movements without changing clinic,True
+test_call,tablet,dark,stock contextual back restores inventory,True
+test_call,tablet,dark,stock navigation grouped without duplicated controllers,True
+test_call,tablet,dark,stock no horizontal overflow,True
+test_call,tablet,dark,chat no horizontal overflow,True
+test_call,tablet,dark,finance no horizontal overflow,True
+test_call,tablet,dark,no JavaScript exceptions,True
+test_call,desktop,light,Dashboard respects effective role,True
+test_call,desktop,light,management HR remains prohibited,True
+test_call,desktop,light,operation stepper uses original authorised phases,True
+test_call,desktop,light,operation no horizontal overflow,True
+test_call,desktop,light,stock metric opens existing movements without changing clinic,True
+test_call,desktop,light,stock contextual back restores inventory,True
+test_call,desktop,light,stock navigation grouped without duplicated controllers,True
+test_call,desktop,light,stock no horizontal overflow,True
+test_call,desktop,light,chat no horizontal overflow,True
+test_call,desktop,light,finance no horizontal overflow,True
+test_call,desktop,light,no JavaScript exceptions,True
+test_call,desktop,dark,Dashboard respects effective role,True
+test_call,desktop,dark,management HR remains prohibited,True
+test_call,desktop,dark,operation stepper uses original authorised phases,True
+test_call,desktop,dark,operation no horizontal overflow,True
+test_call,desktop,dark,stock metric opens existing movements without changing clinic,True
+test_call,desktop,dark,stock contextual back restores inventory,True
+test_call,desktop,dark,stock navigation grouped without duplicated controllers,True
+test_call,desktop,dark,stock no horizontal overflow,True
+test_call,desktop,dark,chat no horizontal overflow,True
+test_call,desktop,dark,finance no horizontal overflow,True
+test_call,desktop,dark,no JavaScript exceptions,True
+test_call,mobile,light,Dashboard respects effective role,True
+test_call,mobile,light,management HR remains prohibited,True
+test_call,mobile,light,operation stepper uses original authorised phases,True
+test_call,mobile,light,operation no horizontal overflow,True
+test_call,mobile,light,stock metric opens existing movements without changing clinic,True
+test_call,mobile,light,stock contextual back restores inventory,True
+test_call,mobile,light,stock navigation grouped without duplicated controllers,True
+test_call,mobile,light,stock no horizontal overflow,True
+test_call,mobile,light,chat no horizontal overflow,True
+test_call,mobile,light,finance no horizontal overflow,True
+test_call,mobile,light,no JavaScript exceptions,True
+test_call,mobile,dark,Dashboard respects effective role,True
+test_call,mobile,dark,management HR remains prohibited,True
+test_call,mobile,dark,operation stepper uses original authorised phases,True
+test_call,mobile,dark,operation no horizontal overflow,True
+test_call,mobile,dark,stock metric opens existing movements without changing clinic,True
+test_call,mobile,dark,stock contextual back restores inventory,True
+test_call,mobile,dark,stock navigation grouped without duplicated controllers,True
+test_call,mobile,dark,stock no horizontal overflow,True
+test_call,mobile,dark,chat no horizontal overflow,True
+test_call,mobile,dark,finance no horizontal overflow,True
+test_call,mobile,dark,no JavaScript exceptions,True
+test_med,tablet,light,Dashboard respects effective role,True
+test_med,tablet,light,management HR remains prohibited,True
+test_med,tablet,light,stock metric opens existing movements without changing clinic,True
+test_med,tablet,light,stock contextual back restores inventory,True
+test_med,tablet,light,stock navigation grouped without duplicated controllers,True
+test_med,tablet,light,stock no horizontal overflow,True
+test_med,tablet,light,chat no horizontal overflow,True
+test_med,tablet,light,finance no horizontal overflow,True
+test_med,tablet,light,no JavaScript exceptions,True
+test_med,tablet,dark,Dashboard respects effective role,True
+test_med,tablet,dark,management HR remains prohibited,True
+test_med,tablet,dark,stock metric opens existing movements without changing clinic,True
+test_med,tablet,dark,stock contextual back restores inventory,True
+test_med,tablet,dark,stock navigation grouped without duplicated controllers,True
+test_med,tablet,dark,stock no horizontal overflow,True
+test_med,tablet,dark,chat no horizontal overflow,True
+test_med,tablet,dark,finance no horizontal overflow,True
+test_med,tablet,dark,no JavaScript exceptions,True
+test_med,desktop,light,Dashboard respects effective role,True
+test_med,desktop,light,management HR remains prohibited,True
+test_med,desktop,light,stock metric opens existing movements without changing clinic,True
+test_med,desktop,light,stock contextual back restores inventory,True
+test_med,desktop,light,stock navigation grouped without duplicated controllers,True
+test_med,desktop,light,stock no horizontal overflow,True
+test_med,desktop,light,chat no horizontal overflow,True
+test_med,desktop,light,finance no horizontal overflow,True
+test_med,desktop,light,no JavaScript exceptions,True
+test_med,desktop,dark,Dashboard respects effective role,True
+test_med,desktop,dark,management HR remains prohibited,True
+test_med,desktop,dark,stock metric opens existing movements without changing clinic,True
+test_med,desktop,dark,stock contextual back restores inventory,True
+test_med,desktop,dark,stock navigation grouped without duplicated controllers,True
+test_med,desktop,dark,stock no horizontal overflow,True
+test_med,desktop,dark,chat no horizontal overflow,True
+test_med,desktop,dark,finance no horizontal overflow,True
+test_med,desktop,dark,no JavaScript exceptions,True
+test_med,mobile,light,Dashboard respects effective role,True
+test_med,mobile,light,management HR remains prohibited,True
+test_med,mobile,light,stock metric opens existing movements without changing clinic,True
+test_med,mobile,light,stock contextual back restores inventory,True
+test_med,mobile,light,stock navigation grouped without duplicated controllers,True
+test_med,mobile,light,stock no horizontal overflow,True
+test_med,mobile,light,chat no horizontal overflow,True
+test_med,mobile,light,finance no horizontal overflow,True
+test_med,mobile,light,no JavaScript exceptions,True
+test_med,mobile,dark,Dashboard respects effective role,True
+test_med,mobile,dark,management HR remains prohibited,True
+test_med,mobile,dark,stock metric opens existing movements without changing clinic,True
+test_med,mobile,dark,stock contextual back restores inventory,True
+test_med,mobile,dark,stock navigation grouped without duplicated controllers,True
+test_med,mobile,dark,stock no horizontal overflow,True
+test_med,mobile,dark,chat no horizontal overflow,True
+test_med,mobile,dark,finance no horizontal overflow,True
+test_med,mobile,dark,no JavaScript exceptions,True
+test_tec,tablet,light,Dashboard respects effective role,True
+test_tec,tablet,light,management HR remains prohibited,True
+test_tec,tablet,light,stock metric opens existing movements without changing clinic,True
+test_tec,tablet,light,stock contextual back restores inventory,True
+test_tec,tablet,light,stock navigation grouped without duplicated controllers,True
+test_tec,tablet,light,stock no horizontal overflow,True
+test_tec,tablet,light,chat no horizontal overflow,True
+test_tec,tablet,light,finance no horizontal overflow,True
+test_tec,tablet,light,no JavaScript exceptions,True
+test_tec,tablet,dark,Dashboard respects effective role,True
+test_tec,tablet,dark,management HR remains prohibited,True
+test_tec,tablet,dark,stock metric opens existing movements without changing clinic,True
+test_tec,tablet,dark,stock contextual back restores inventory,True
+test_tec,tablet,dark,stock navigation grouped without duplicated controllers,True
+test_tec,tablet,dark,stock no horizontal overflow,True
+test_tec,tablet,dark,chat no horizontal overflow,True
+test_tec,tablet,dark,finance no horizontal overflow,True
+test_tec,tablet,dark,no JavaScript exceptions,True
+test_tec,desktop,light,Dashboard respects effective role,True
+test_tec,desktop,light,management HR remains prohibited,True
+test_tec,desktop,light,stock metric opens existing movements without changing clinic,True
+test_tec,desktop,light,stock contextual back restores inventory,True
+test_tec,desktop,light,stock navigation grouped without duplicated controllers,True
+test_tec,desktop,light,stock no horizontal overflow,True
+test_tec,desktop,light,chat no horizontal overflow,True
+test_tec,desktop,light,finance no horizontal overflow,True
+test_tec,desktop,light,no JavaScript exceptions,True
+test_tec,desktop,dark,Dashboard respects effective role,True
+test_tec,desktop,dark,management HR remains prohibited,True
+test_tec,desktop,dark,stock metric opens existing movements without changing clinic,True
+test_tec,desktop,dark,stock contextual back restores inventory,True
+test_tec,desktop,dark,stock navigation grouped without duplicated controllers,True
+test_tec,desktop,dark,stock no horizontal overflow,True
+test_tec,desktop,dark,chat no horizontal overflow,True
+test_tec,desktop,dark,finance no horizontal overflow,True
+test_tec,desktop,dark,no JavaScript exceptions,True
+test_tec,mobile,light,Dashboard respects effective role,True
+test_tec,mobile,light,management HR remains prohibited,True
+test_tec,mobile,light,stock metric opens existing movements without changing clinic,True
+test_tec,mobile,light,stock contextual back restores inventory,True
+test_tec,mobile,light,stock navigation grouped without duplicated controllers,True
+test_tec,mobile,light,stock no horizontal overflow,True
+test_tec,mobile,light,chat no horizontal overflow,True
+test_tec,mobile,light,finance no horizontal overflow,True
+test_tec,mobile,light,no JavaScript exceptions,True
+test_tec,mobile,dark,Dashboard respects effective role,True
+test_tec,mobile,dark,management HR remains prohibited,True
+test_tec,mobile,dark,stock metric opens existing movements without changing clinic,True
+test_tec,mobile,dark,stock contextual back restores inventory,True
+test_tec,mobile,dark,stock navigation grouped without duplicated controllers,True
+test_tec,mobile,dark,stock no horizontal overflow,True
+test_tec,mobile,dark,chat no horizontal overflow,True
+test_tec,mobile,dark,finance no horizontal overflow,True
+test_tec,mobile,dark,no JavaScript exceptions,True
+test_adm,tablet,light,Dashboard respects effective role,True
+test_adm,tablet,light,management HR remains prohibited,True
+test_adm,tablet,light,operation stepper uses original authorised phases,True
+test_adm,tablet,light,touch team selection exists,True
+test_adm,tablet,light,team control reflects touch selection,True
+test_adm,tablet,light,touch preview creates no permanent opening,True
+test_adm,tablet,light,operation no horizontal overflow,True
+test_adm,tablet,light,clinic and colleague filters immediately visible,True
+test_adm,tablet,light,specialty options come from selected clinic,True
+test_adm,tablet,light,specialty filter excludes the second differently classified event,True
+test_adm,tablet,light,clearing specialty restores both authorised events,True
+test_adm,tablet,light,agenda no horizontal overflow,True
+test_adm,tablet,light,stock metric opens existing movements without changing clinic,True
+test_adm,tablet,light,stock contextual back restores inventory,True
+test_adm,tablet,light,stock navigation grouped without duplicated controllers,True
+test_adm,tablet,light,stock no horizontal overflow,True
+test_adm,tablet,light,chat no horizontal overflow,True
+test_adm,tablet,light,complaints no horizontal overflow,True
+test_adm,tablet,light,finance no horizontal overflow,True
+test_adm,tablet,light,no JavaScript exceptions,True
+test_adm,tablet,dark,Dashboard respects effective role,True
+test_adm,tablet,dark,management HR remains prohibited,True
+test_adm,tablet,dark,operation stepper uses original authorised phases,True
+test_adm,tablet,dark,touch team selection exists,True
+test_adm,tablet,dark,team control reflects touch selection,True
+test_adm,tablet,dark,touch preview creates no permanent opening,True
+test_adm,tablet,dark,operation no horizontal overflow,True
+test_adm,tablet,dark,clinic and colleague filters immediately visible,True
+test_adm,tablet,dark,specialty options come from selected clinic,True
+test_adm,tablet,dark,specialty filter excludes the second differently classified event,True
+test_adm,tablet,dark,clearing specialty restores both authorised events,True
+test_adm,tablet,dark,agenda no horizontal overflow,True
+test_adm,tablet,dark,stock metric opens existing movements without changing clinic,True
+test_adm,tablet,dark,stock contextual back restores inventory,True
+test_adm,tablet,dark,stock navigation grouped without duplicated controllers,True
+test_adm,tablet,dark,stock no horizontal overflow,True
+test_adm,tablet,dark,chat no horizontal overflow,True
+test_adm,tablet,dark,complaints no horizontal overflow,True
+test_adm,tablet,dark,finance no horizontal overflow,True
+test_adm,tablet,dark,no JavaScript exceptions,True
+test_adm,desktop,light,Dashboard respects effective role,True
+test_adm,desktop,light,management HR remains prohibited,True
+test_adm,desktop,light,operation stepper uses original authorised phases,True
+test_adm,desktop,light,touch team selection exists,True
+test_adm,desktop,light,team control reflects touch selection,True
+test_adm,desktop,light,touch preview creates no permanent opening,True
+test_adm,desktop,light,operation no horizontal overflow,True
+test_adm,desktop,light,clinic and colleague filters immediately visible,True
+test_adm,desktop,light,specialty options come from selected clinic,True
+test_adm,desktop,light,specialty filter excludes the second differently classified event,True
+test_adm,desktop,light,clearing specialty restores both authorised events,True
+test_adm,desktop,light,agenda no horizontal overflow,True
+test_adm,desktop,light,stock metric opens existing movements without changing clinic,True
+test_adm,desktop,light,stock contextual back restores inventory,True
+test_adm,desktop,light,stock navigation grouped without duplicated controllers,True
+test_adm,desktop,light,stock no horizontal overflow,True
+test_adm,desktop,light,chat no horizontal overflow,True
+test_adm,desktop,light,complaints no horizontal overflow,True
+test_adm,desktop,light,finance no horizontal overflow,True
+test_adm,desktop,light,no JavaScript exceptions,True
+test_adm,desktop,dark,Dashboard respects effective role,True
+test_adm,desktop,dark,management HR remains prohibited,True
+test_adm,desktop,dark,operation stepper uses original authorised phases,True
+test_adm,desktop,dark,touch team selection exists,True
+test_adm,desktop,dark,team control reflects touch selection,True
+test_adm,desktop,dark,touch preview creates no permanent opening,True
+test_adm,desktop,dark,operation no horizontal overflow,True
+test_adm,desktop,dark,clinic and colleague filters immediately visible,True
+test_adm,desktop,dark,specialty options come from selected clinic,True
+test_adm,desktop,dark,specialty filter excludes the second differently classified event,True
+test_adm,desktop,dark,clearing specialty restores both authorised events,True
+test_adm,desktop,dark,agenda no horizontal overflow,True
+test_adm,desktop,dark,stock metric opens existing movements without changing clinic,True
+test_adm,desktop,dark,stock contextual back restores inventory,True
+test_adm,desktop,dark,stock navigation grouped without duplicated controllers,True
+test_adm,desktop,dark,stock no horizontal overflow,True
+test_adm,desktop,dark,chat no horizontal overflow,True
+test_adm,desktop,dark,complaints no horizontal overflow,True
+test_adm,desktop,dark,finance no horizontal overflow,True
+test_adm,desktop,dark,no JavaScript exceptions,True
+test_adm,mobile,light,Dashboard respects effective role,True
+test_adm,mobile,light,management HR remains prohibited,True
+test_adm,mobile,light,operation stepper uses original authorised phases,True
+test_adm,mobile,light,touch team selection exists,True
+test_adm,mobile,light,team control reflects touch selection,True
+test_adm,mobile,light,touch preview creates no permanent opening,True
+test_adm,mobile,light,operation no horizontal overflow,True
+test_adm,mobile,light,clinic and colleague filters immediately visible,True
+test_adm,mobile,light,specialty options come from selected clinic,True
+test_adm,mobile,light,specialty filter excludes the second differently classified event,True
+test_adm,mobile,light,clearing specialty restores both authorised events,True
+test_adm,mobile,light,agenda no horizontal overflow,True
+test_adm,mobile,light,stock metric opens existing movements without changing clinic,True
+test_adm,mobile,light,stock contextual back restores inventory,True
+test_adm,mobile,light,stock navigation grouped without duplicated controllers,True
+test_adm,mobile,light,stock no horizontal overflow,True
+test_adm,mobile,light,chat no horizontal overflow,True
+test_adm,mobile,light,complaints no horizontal overflow,True
+test_adm,mobile,light,finance no horizontal overflow,True
+test_adm,mobile,light,no JavaScript exceptions,True
+test_adm,mobile,dark,Dashboard respects effective role,True
+test_adm,mobile,dark,management HR remains prohibited,True
+test_adm,mobile,dark,operation stepper uses original authorised phases,True
+test_adm,mobile,dark,touch team selection exists,True
+test_adm,mobile,dark,team control reflects touch selection,True
+test_adm,mobile,dark,touch preview creates no permanent opening,True
+test_adm,mobile,dark,operation no horizontal overflow,True
+test_adm,mobile,dark,clinic and colleague filters immediately visible,True
+test_adm,mobile,dark,specialty options come from selected clinic,True
+test_adm,mobile,dark,specialty filter excludes the second differently classified event,True
+test_adm,mobile,dark,clearing specialty restores both authorised events,True
+test_adm,mobile,dark,agenda no horizontal overflow,True
+test_adm,mobile,dark,stock metric opens existing movements without changing clinic,True
+test_adm,mobile,dark,stock contextual back restores inventory,True
+test_adm,mobile,dark,stock navigation grouped without duplicated controllers,True
+test_adm,mobile,dark,stock no horizontal overflow,True
+test_adm,mobile,dark,chat no horizontal overflow,True
+test_adm,mobile,dark,complaints no horizontal overflow,True
+test_adm,mobile,dark,finance no horizontal overflow,True
+test_adm,mobile,dark,no JavaScript exceptions,True
+test_admin,tablet,light,Dashboard respects effective role,True
+test_admin,tablet,light,dashboard action hint does not overlap the metric note,True
+test_admin,tablet,light,dashboard consultations opens detail in applied period,True
+test_admin,tablet,light,dashboard treatments opens detail in applied period,True
+test_admin,tablet,light,dashboard newRequests opens detail in applied period,True
+test_admin,tablet,light,dashboard opens the existing request rather than its creation form,True
+test_admin,tablet,light,dashboard pending opens detail in applied period,True
+test_admin,tablet,light,dashboard drilldown never changes business records or opens task settings,True
+test_admin,tablet,light,single employee search,True
+test_admin,tablet,light,payroll remains inside the HR financial topic,True
+test_admin,tablet,light,grouped payroll action opens the existing editor,True
+test_admin,tablet,light,employee list immediately available,True
+test_admin,tablet,light,useful no-result state,True
+test_admin,tablet,light,typing and clearing search restores rows,True
+test_admin,tablet,light,active filter matches records,True
+test_admin,tablet,light,header clinic filter composes with employee status,True
+test_admin,tablet,light,real employee action opens full workspace,True
+test_admin,tablet,light,employee workspace has no horizontal overflow,True
+test_admin,tablet,light,workspace starts without hiding its first content,True
+test_admin,tablet,light,employee header cannot reassign clinics via list filter,True
+test_admin,tablet,light,no duplicate employee tabs,True
+test_admin,tablet,light,canonical form retained on page,True
+test_admin,tablet,light,visible employee label names the canonical input,True
+test_admin,tablet,light,cancelled navigation preserves unsaved values,True
+test_admin,tablet,light,summary remains source-based,True
+test_admin,tablet,light,whole contract card focuses original contract section for same employee,True
+test_admin,tablet,light,consulting a summary card creates no business record,True
+test_admin,tablet,light,return to summary preserves employee,True
+test_admin,tablet,light,whole document card reuses existing protected editor,True
+test_admin,tablet,light,existing protected document editor reused,True
+test_admin,tablet,light,back restores original list,True
+test_admin,tablet,light,full-page save persists canonical fields and editor audit,True
+test_admin,tablet,light,saved values survive reload in the actual workspace,True
+test_admin,tablet,light,operation stepper uses original authorised phases,True
+test_admin,tablet,light,touch team selection exists,True
+test_admin,tablet,light,team control reflects touch selection,True
+test_admin,tablet,light,touch preview creates no permanent opening,True
+test_admin,tablet,light,operation no horizontal overflow,True
+test_admin,tablet,light,clinic and colleague filters immediately visible,True
+test_admin,tablet,light,specialty options come from selected clinic,True
+test_admin,tablet,light,specialty filter excludes the second differently classified event,True
+test_admin,tablet,light,clearing specialty restores both authorised events,True
+test_admin,tablet,light,agenda no horizontal overflow,True
+test_admin,tablet,light,stock metric opens existing movements without changing clinic,True
+test_admin,tablet,light,stock contextual back restores inventory,True
+test_admin,tablet,light,stock navigation grouped without duplicated controllers,True
+test_admin,tablet,light,stock no horizontal overflow,True
+test_admin,tablet,light,marketing metric opens source with same filters,True
+test_admin,tablet,light,marketing contextual back restores dashboard,True
+test_admin,tablet,light,marketing topics grouped,True
+test_admin,tablet,light,marketing no horizontal overflow,True
+test_admin,tablet,light,chat no horizontal overflow,True
+test_admin,tablet,light,complaints no horizontal overflow,True
+test_admin,tablet,light,finance no horizontal overflow,True
+test_admin,tablet,light,whole configuration card opens canonical document catalogue,True
+test_admin,tablet,light,tables no horizontal overflow,True
+test_admin,tablet,light,scenario uses the clinic containing synthetic operational records,True
+test_admin,tablet,light,dashboard pending opens the corresponding original phase and clinic,True
+test_admin,tablet,light,dashboard return preserves applied period and clinic,True
+test_admin,tablet,light,dashboard opened opens the corresponding original phase and clinic,True
+test_admin,tablet,light,dashboard return preserves applied period and clinic,True
+test_admin,tablet,light,dashboard closed opens the corresponding original phase and clinic,True
+test_admin,tablet,light,dashboard return preserves applied period and clinic,True
+test_admin,tablet,light,legacy employee summary card reuses its existing protected modal form,True
+test_admin,tablet,light,legacy summary keeps its original return action,True
+test_admin,tablet,light,request reader cannot edit fields or see save action,True
+test_admin,tablet,light,direct request write is denied without edit permission,True
+test_admin,tablet,light,no JavaScript exceptions,True
+test_admin,tablet,dark,Dashboard respects effective role,True
+test_admin,tablet,dark,dashboard action hint does not overlap the metric note,True
+test_admin,tablet,dark,dashboard consultations opens detail in applied period,True
+test_admin,tablet,dark,dashboard treatments opens detail in applied period,True
+test_admin,tablet,dark,dashboard newRequests opens detail in applied period,True
+test_admin,tablet,dark,dashboard opens the existing request rather than its creation form,True
+test_admin,tablet,dark,dashboard pending opens detail in applied period,True
+test_admin,tablet,dark,dashboard drilldown never changes business records or opens task settings,True
+test_admin,tablet,dark,single employee search,True
+test_admin,tablet,dark,payroll remains inside the HR financial topic,True
+test_admin,tablet,dark,grouped payroll action opens the existing editor,True
+test_admin,tablet,dark,employee list immediately available,True
+test_admin,tablet,dark,useful no-result state,True
+test_admin,tablet,dark,typing and clearing search restores rows,True
+test_admin,tablet,dark,active filter matches records,True
+test_admin,tablet,dark,header clinic filter composes with employee status,True
+test_admin,tablet,dark,real employee action opens full workspace,True
+test_admin,tablet,dark,employee workspace has no horizontal overflow,True
+test_admin,tablet,dark,workspace starts without hiding its first content,True
+test_admin,tablet,dark,employee header cannot reassign clinics via list filter,True
+test_admin,tablet,dark,no duplicate employee tabs,True
+test_admin,tablet,dark,canonical form retained on page,True
+test_admin,tablet,dark,visible employee label names the canonical input,True
+test_admin,tablet,dark,cancelled navigation preserves unsaved values,True
+test_admin,tablet,dark,summary remains source-based,True
+test_admin,tablet,dark,whole contract card focuses original contract section for same employee,True
+test_admin,tablet,dark,consulting a summary card creates no business record,True
+test_admin,tablet,dark,return to summary preserves employee,True
+test_admin,tablet,dark,whole document card reuses existing protected editor,True
+test_admin,tablet,dark,existing protected document editor reused,True
+test_admin,tablet,dark,back restores original list,True
+test_admin,tablet,dark,full-page save persists canonical fields and editor audit,True
+test_admin,tablet,dark,saved values survive reload in the actual workspace,True
+test_admin,tablet,dark,operation stepper uses original authorised phases,True
+test_admin,tablet,dark,touch team selection exists,True
+test_admin,tablet,dark,team control reflects touch selection,True
+test_admin,tablet,dark,touch preview creates no permanent opening,True
+test_admin,tablet,dark,operation no horizontal overflow,True
+test_admin,tablet,dark,clinic and colleague filters immediately visible,True
+test_admin,tablet,dark,specialty options come from selected clinic,True
+test_admin,tablet,dark,specialty filter excludes the second differently classified event,True
+test_admin,tablet,dark,clearing specialty restores both authorised events,True
+test_admin,tablet,dark,agenda no horizontal overflow,True
+test_admin,tablet,dark,stock metric opens existing movements without changing clinic,True
+test_admin,tablet,dark,stock contextual back restores inventory,True
+test_admin,tablet,dark,stock navigation grouped without duplicated controllers,True
+test_admin,tablet,dark,stock no horizontal overflow,True
+test_admin,tablet,dark,marketing metric opens source with same filters,True
+test_admin,tablet,dark,marketing contextual back restores dashboard,True
+test_admin,tablet,dark,marketing topics grouped,True
+test_admin,tablet,dark,marketing no horizontal overflow,True
+test_admin,tablet,dark,chat no horizontal overflow,True
+test_admin,tablet,dark,complaints no horizontal overflow,True
+test_admin,tablet,dark,finance no horizontal overflow,True
+test_admin,tablet,dark,whole configuration card opens canonical document catalogue,True
+test_admin,tablet,dark,tables no horizontal overflow,True
+test_admin,tablet,dark,scenario uses the clinic containing synthetic operational records,True
+test_admin,tablet,dark,dashboard pending opens the corresponding original phase and clinic,True
+test_admin,tablet,dark,dashboard return preserves applied period and clinic,True
+test_admin,tablet,dark,dashboard opened opens the corresponding original phase and clinic,True
+test_admin,tablet,dark,dashboard return preserves applied period and clinic,True
+test_admin,tablet,dark,dashboard closed opens the corresponding original phase and clinic,True
+test_admin,tablet,dark,dashboard return preserves applied period and clinic,True
+test_admin,tablet,dark,legacy employee summary card reuses its existing protected modal form,True
+test_admin,tablet,dark,legacy summary keeps its original return action,True
+test_admin,tablet,dark,request reader cannot edit fields or see save action,True
+test_admin,tablet,dark,direct request write is denied without edit permission,True
+test_admin,tablet,dark,no JavaScript exceptions,True
+test_admin,desktop,light,Dashboard respects effective role,True
+test_admin,desktop,light,dashboard action hint does not overlap the metric note,True
+test_admin,desktop,light,dashboard consultations opens detail in applied period,True
+test_admin,desktop,light,dashboard treatments opens detail in applied period,True
+test_admin,desktop,light,dashboard newRequests opens detail in applied period,True
+test_admin,desktop,light,dashboard opens the existing request rather than its creation form,True
+test_admin,desktop,light,dashboard pending opens detail in applied period,True
+test_admin,desktop,light,dashboard drilldown never changes business records or opens task settings,True
+test_admin,desktop,light,single employee search,True
+test_admin,desktop,light,payroll remains inside the HR financial topic,True
+test_admin,desktop,light,grouped payroll action opens the existing editor,True
+test_admin,desktop,light,employee list immediately available,True
+test_admin,desktop,light,useful no-result state,True
+test_admin,desktop,light,typing and clearing search restores rows,True
+test_admin,desktop,light,active filter matches records,True
+test_admin,desktop,light,header clinic filter composes with employee status,True
+test_admin,desktop,light,real employee action opens full workspace,True
+test_admin,desktop,light,employee workspace has no horizontal overflow,True
+test_admin,desktop,light,workspace starts without hiding its first content,True
+test_admin,desktop,light,employee header cannot reassign clinics via list filter,True
+test_admin,desktop,light,no duplicate employee tabs,True
+test_admin,desktop,light,canonical form retained on page,True
+test_admin,desktop,light,visible employee label names the canonical input,True
+test_admin,desktop,light,cancelled navigation preserves unsaved values,True
+test_admin,desktop,light,summary remains source-based,True
+test_admin,desktop,light,whole contract card focuses original contract section for same employee,True
+test_admin,desktop,light,consulting a summary card creates no business record,True
+test_admin,desktop,light,return to summary preserves employee,True
+test_admin,desktop,light,whole document card reuses existing protected editor,True
+test_admin,desktop,light,existing protected document editor reused,True
+test_admin,desktop,light,back restores original list,True
+test_admin,desktop,light,full-page save persists canonical fields and editor audit,True
+test_admin,desktop,light,saved values survive reload in the actual workspace,True
+test_admin,desktop,light,operation stepper uses original authorised phases,True
+test_admin,desktop,light,touch team selection exists,True
+test_admin,desktop,light,team control reflects touch selection,True
+test_admin,desktop,light,touch preview creates no permanent opening,True
+test_admin,desktop,light,operation no horizontal overflow,True
+test_admin,desktop,light,clinic and colleague filters immediately visible,True
+test_admin,desktop,light,specialty options come from selected clinic,True
+test_admin,desktop,light,specialty filter excludes the second differently classified event,True
+test_admin,desktop,light,clearing specialty restores both authorised events,True
+test_admin,desktop,light,agenda no horizontal overflow,True
+test_admin,desktop,light,stock metric opens existing movements without changing clinic,True
+test_admin,desktop,light,stock contextual back restores inventory,True
+test_admin,desktop,light,stock navigation grouped without duplicated controllers,True
+test_admin,desktop,light,stock no horizontal overflow,True
+test_admin,desktop,light,marketing metric opens source with same filters,True
+test_admin,desktop,light,marketing contextual back restores dashboard,True
+test_admin,desktop,light,marketing topics grouped,True
+test_admin,desktop,light,marketing no horizontal overflow,True
+test_admin,desktop,light,chat no horizontal overflow,True
+test_admin,desktop,light,complaints no horizontal overflow,True
+test_admin,desktop,light,finance no horizontal overflow,True
+test_admin,desktop,light,whole configuration card opens canonical document catalogue,True
+test_admin,desktop,light,tables no horizontal overflow,True
+test_admin,desktop,light,no JavaScript exceptions,True
+test_admin,desktop,dark,Dashboard respects effective role,True
+test_admin,desktop,dark,dashboard action hint does not overlap the metric note,True
+test_admin,desktop,dark,dashboard consultations opens detail in applied period,True
+test_admin,desktop,dark,dashboard treatments opens detail in applied period,True
+test_admin,desktop,dark,dashboard newRequests opens detail in applied period,True
+test_admin,desktop,dark,dashboard opens the existing request rather than its creation form,True
+test_admin,desktop,dark,dashboard pending opens detail in applied period,True
+test_admin,desktop,dark,dashboard drilldown never changes business records or opens task settings,True
+test_admin,desktop,dark,single employee search,True
+test_admin,desktop,dark,payroll remains inside the HR financial topic,True
+test_admin,desktop,dark,grouped payroll action opens the existing editor,True
+test_admin,desktop,dark,employee list immediately available,True
+test_admin,desktop,dark,useful no-result state,True
+test_admin,desktop,dark,typing and clearing search restores rows,True
+test_admin,desktop,dark,active filter matches records,True
+test_admin,desktop,dark,header clinic filter composes with employee status,True
+test_admin,desktop,dark,real employee action opens full workspace,True
+test_admin,desktop,dark,employee workspace has no horizontal overflow,True
+test_admin,desktop,dark,workspace starts without hiding its first content,True
+test_admin,desktop,dark,employee header cannot reassign clinics via list filter,True
+test_admin,desktop,dark,no duplicate employee tabs,True
+test_admin,desktop,dark,canonical form retained on page,True
+test_admin,desktop,dark,visible employee label names the canonical input,True
+test_admin,desktop,dark,cancelled navigation preserves unsaved values,True
+test_admin,desktop,dark,summary remains source-based,True
+test_admin,desktop,dark,whole contract card focuses original contract section for same employee,True
+test_admin,desktop,dark,consulting a summary card creates no business record,True
+test_admin,desktop,dark,return to summary preserves employee,True
+test_admin,desktop,dark,whole document card reuses existing protected editor,True
+test_admin,desktop,dark,existing protected document editor reused,True
+test_admin,desktop,dark,back restores original list,True
+test_admin,desktop,dark,full-page save persists canonical fields and editor audit,True
+test_admin,desktop,dark,saved values survive reload in the actual workspace,True
+test_admin,desktop,dark,operation stepper uses original authorised phases,True
+test_admin,desktop,dark,touch team selection exists,True
+test_admin,desktop,dark,team control reflects touch selection,True
+test_admin,desktop,dark,touch preview creates no permanent opening,True
+test_admin,desktop,dark,operation no horizontal overflow,True
+test_admin,desktop,dark,clinic and colleague filters immediately visible,True
+test_admin,desktop,dark,specialty options come from selected clinic,True
+test_admin,desktop,dark,specialty filter excludes the second differently classified event,True
+test_admin,desktop,dark,clearing specialty restores both authorised events,True
+test_admin,desktop,dark,agenda no horizontal overflow,True
+test_admin,desktop,dark,stock metric opens existing movements without changing clinic,True
+test_admin,desktop,dark,stock contextual back restores inventory,True
+test_admin,desktop,dark,stock navigation grouped without duplicated controllers,True
+test_admin,desktop,dark,stock no horizontal overflow,True
+test_admin,desktop,dark,marketing metric opens source with same filters,True
+test_admin,desktop,dark,marketing contextual back restores dashboard,True
+test_admin,desktop,dark,marketing topics grouped,True
+test_admin,desktop,dark,marketing no horizontal overflow,True
+test_admin,desktop,dark,chat no horizontal overflow,True
+test_admin,desktop,dark,complaints no horizontal overflow,True
+test_admin,desktop,dark,finance no horizontal overflow,True
+test_admin,desktop,dark,whole configuration card opens canonical document catalogue,True
+test_admin,desktop,dark,tables no horizontal overflow,True
+test_admin,desktop,dark,no JavaScript exceptions,True
+test_admin,mobile,light,Dashboard respects effective role,True
+test_admin,mobile,light,dashboard action hint does not overlap the metric note,True
+test_admin,mobile,light,dashboard consultations opens detail in applied period,True
+test_admin,mobile,light,dashboard treatments opens detail in applied period,True
+test_admin,mobile,light,dashboard newRequests opens detail in applied period,True
+test_admin,mobile,light,dashboard opens the existing request rather than its creation form,True
+test_admin,mobile,light,dashboard pending opens detail in applied period,True
+test_admin,mobile,light,dashboard drilldown never changes business records or opens task settings,True
+test_admin,mobile,light,single employee search,True
+test_admin,mobile,light,payroll remains inside the HR financial topic,True
+test_admin,mobile,light,grouped payroll action opens the existing editor,True
+test_admin,mobile,light,employee list immediately available,True
+test_admin,mobile,light,useful no-result state,True
+test_admin,mobile,light,typing and clearing search restores rows,True
+test_admin,mobile,light,active filter matches records,True
+test_admin,mobile,light,header clinic filter composes with employee status,True
+test_admin,mobile,light,real employee action opens full workspace,True
+test_admin,mobile,light,employee workspace has no horizontal overflow,True
+test_admin,mobile,light,workspace starts without hiding its first content,True
+test_admin,mobile,light,employee header cannot reassign clinics via list filter,True
+test_admin,mobile,light,no duplicate employee tabs,True
+test_admin,mobile,light,canonical form retained on page,True
+test_admin,mobile,light,visible employee label names the canonical input,True
+test_admin,mobile,light,cancelled navigation preserves unsaved values,True
+test_admin,mobile,light,summary remains source-based,True
+test_admin,mobile,light,whole contract card focuses original contract section for same employee,True
+test_admin,mobile,light,consulting a summary card creates no business record,True
+test_admin,mobile,light,return to summary preserves employee,True
+test_admin,mobile,light,whole document card reuses existing protected editor,True
+test_admin,mobile,light,existing protected document editor reused,True
+test_admin,mobile,light,back restores original list,True
+test_admin,mobile,light,full-page save persists canonical fields and editor audit,True
+test_admin,mobile,light,saved values survive reload in the actual workspace,True
+test_admin,mobile,light,operation stepper uses original authorised phases,True
+test_admin,mobile,light,touch team selection exists,True
+test_admin,mobile,light,team control reflects touch selection,True
+test_admin,mobile,light,touch preview creates no permanent opening,True
+test_admin,mobile,light,operation no horizontal overflow,True
+test_admin,mobile,light,clinic and colleague filters immediately visible,True
+test_admin,mobile,light,specialty options come from selected clinic,True
+test_admin,mobile,light,specialty filter excludes the second differently classified event,True
+test_admin,mobile,light,clearing specialty restores both authorised events,True
+test_admin,mobile,light,agenda no horizontal overflow,True
+test_admin,mobile,light,stock metric opens existing movements without changing clinic,True
+test_admin,mobile,light,stock contextual back restores inventory,True
+test_admin,mobile,light,stock navigation grouped without duplicated controllers,True
+test_admin,mobile,light,stock no horizontal overflow,True
+test_admin,mobile,light,marketing metric opens source with same filters,True
+test_admin,mobile,light,marketing contextual back restores dashboard,True
+test_admin,mobile,light,marketing topics grouped,True
+test_admin,mobile,light,marketing no horizontal overflow,True
+test_admin,mobile,light,chat no horizontal overflow,True
+test_admin,mobile,light,complaints no horizontal overflow,True
+test_admin,mobile,light,finance no horizontal overflow,True
+test_admin,mobile,light,whole configuration card opens canonical document catalogue,True
+test_admin,mobile,light,tables no horizontal overflow,True
+test_admin,mobile,light,no JavaScript exceptions,True
+test_admin,mobile,dark,Dashboard respects effective role,True
+test_admin,mobile,dark,dashboard action hint does not overlap the metric note,True
+test_admin,mobile,dark,dashboard consultations opens detail in applied period,True
+test_admin,mobile,dark,dashboard treatments opens detail in applied period,True
+test_admin,mobile,dark,dashboard newRequests opens detail in applied period,True
+test_admin,mobile,dark,dashboard opens the existing request rather than its creation form,True
+test_admin,mobile,dark,dashboard pending opens detail in applied period,True
+test_admin,mobile,dark,dashboard drilldown never changes business records or opens task settings,True
+test_admin,mobile,dark,single employee search,True
+test_admin,mobile,dark,payroll remains inside the HR financial topic,True
+test_admin,mobile,dark,grouped payroll action opens the existing editor,True
+test_admin,mobile,dark,employee list immediately available,True
+test_admin,mobile,dark,useful no-result state,True
+test_admin,mobile,dark,typing and clearing search restores rows,True
+test_admin,mobile,dark,active filter matches records,True
+test_admin,mobile,dark,header clinic filter composes with employee status,True
+test_admin,mobile,dark,real employee action opens full workspace,True
+test_admin,mobile,dark,employee workspace has no horizontal overflow,True
+test_admin,mobile,dark,workspace starts without hiding its first content,True
+test_admin,mobile,dark,employee header cannot reassign clinics via list filter,True
+test_admin,mobile,dark,no duplicate employee tabs,True
+test_admin,mobile,dark,canonical form retained on page,True
+test_admin,mobile,dark,visible employee label names the canonical input,True
+test_admin,mobile,dark,cancelled navigation preserves unsaved values,True
+test_admin,mobile,dark,summary remains source-based,True
+test_admin,mobile,dark,whole contract card focuses original contract section for same employee,True
+test_admin,mobile,dark,consulting a summary card creates no business record,True
+test_admin,mobile,dark,return to summary preserves employee,True
+test_admin,mobile,dark,whole document card reuses existing protected editor,True
+test_admin,mobile,dark,existing protected document editor reused,True
+test_admin,mobile,dark,back restores original list,True
+test_admin,mobile,dark,full-page save persists canonical fields and editor audit,True
+test_admin,mobile,dark,saved values survive reload in the actual workspace,True
+test_admin,mobile,dark,operation stepper uses original authorised phases,True
+test_admin,mobile,dark,touch team selection exists,True
+test_admin,mobile,dark,team control reflects touch selection,True
+test_admin,mobile,dark,touch preview creates no permanent opening,True
+test_admin,mobile,dark,operation no horizontal overflow,True
+test_admin,mobile,dark,clinic and colleague filters immediately visible,True
+test_admin,mobile,dark,specialty options come from selected clinic,True
+test_admin,mobile,dark,specialty filter excludes the second differently classified event,True
+test_admin,mobile,dark,clearing specialty restores both authorised events,True
+test_admin,mobile,dark,agenda no horizontal overflow,True
+test_admin,mobile,dark,stock metric opens existing movements without changing clinic,True
+test_admin,mobile,dark,stock contextual back restores inventory,True
+test_admin,mobile,dark,stock navigation grouped without duplicated controllers,True
+test_admin,mobile,dark,stock no horizontal overflow,True
+test_admin,mobile,dark,marketing metric opens source with same filters,True
+test_admin,mobile,dark,marketing contextual back restores dashboard,True
+test_admin,mobile,dark,marketing topics grouped,True
+test_admin,mobile,dark,marketing no horizontal overflow,True
+test_admin,mobile,dark,chat no horizontal overflow,True
+test_admin,mobile,dark,complaints no horizontal overflow,True
+test_admin,mobile,dark,finance no horizontal overflow,True
+test_admin,mobile,dark,whole configuration card opens canonical document catalogue,True
+test_admin,mobile,dark,tables no horizontal overflow,True
+test_admin,mobile,dark,no JavaScript exceptions,True
+u1,tablet,light,Dashboard respects effective role,True
+u1,tablet,light,dashboard action hint does not overlap the metric note,True
+u1,tablet,light,dashboard consultations opens detail in applied period,True
+u1,tablet,light,dashboard treatments opens detail in applied period,True
+u1,tablet,light,dashboard newRequests opens detail in applied period,True
+u1,tablet,light,dashboard opens the existing request rather than its creation form,True
+u1,tablet,light,dashboard pending opens detail in applied period,True
+u1,tablet,light,dashboard drilldown never changes business records or opens task settings,True
+u1,tablet,light,single employee search,True
+u1,tablet,light,payroll remains inside the HR financial topic,True
+u1,tablet,light,grouped payroll action opens the existing editor,True
+u1,tablet,light,employee list immediately available,True
+u1,tablet,light,useful no-result state,True
+u1,tablet,light,typing and clearing search restores rows,True
+u1,tablet,light,active filter matches records,True
+u1,tablet,light,header clinic filter composes with employee status,True
+u1,tablet,light,real employee action opens full workspace,True
+u1,tablet,light,employee workspace has no horizontal overflow,True
+u1,tablet,light,workspace starts without hiding its first content,True
+u1,tablet,light,employee header cannot reassign clinics via list filter,True
+u1,tablet,light,no duplicate employee tabs,True
+u1,tablet,light,canonical form retained on page,True
+u1,tablet,light,visible employee label names the canonical input,True
+u1,tablet,light,cancelled navigation preserves unsaved values,True
+u1,tablet,light,summary remains source-based,True
+u1,tablet,light,whole contract card focuses original contract section for same employee,True
+u1,tablet,light,consulting a summary card creates no business record,True
+u1,tablet,light,return to summary preserves employee,True
+u1,tablet,light,whole document card reuses existing protected editor,True
+u1,tablet,light,existing protected document editor reused,True
+u1,tablet,light,back restores original list,True
+u1,tablet,light,full-page save persists canonical fields and editor audit,True
+u1,tablet,light,saved values survive reload in the actual workspace,True
+u1,tablet,light,operation stepper uses original authorised phases,True
+u1,tablet,light,touch team selection exists,True
+u1,tablet,light,team control reflects touch selection,True
+u1,tablet,light,touch preview creates no permanent opening,True
+u1,tablet,light,operation no horizontal overflow,True
+u1,tablet,light,clinic and colleague filters immediately visible,True
+u1,tablet,light,specialty options come from selected clinic,True
+u1,tablet,light,specialty filter excludes the second differently classified event,True
+u1,tablet,light,clearing specialty restores both authorised events,True
+u1,tablet,light,agenda no horizontal overflow,True
+u1,tablet,light,stock metric opens existing movements without changing clinic,True
+u1,tablet,light,stock contextual back restores inventory,True
+u1,tablet,light,stock navigation grouped without duplicated controllers,True
+u1,tablet,light,stock no horizontal overflow,True
+u1,tablet,light,marketing metric opens source with same filters,True
+u1,tablet,light,marketing contextual back restores dashboard,True
+u1,tablet,light,marketing topics grouped,True
+u1,tablet,light,marketing no horizontal overflow,True
+u1,tablet,light,chat no horizontal overflow,True
+u1,tablet,light,complaints no horizontal overflow,True
+u1,tablet,light,finance no horizontal overflow,True
+u1,tablet,light,whole configuration card opens canonical document catalogue,True
+u1,tablet,light,tables no horizontal overflow,True
+u1,tablet,light,scenario uses the clinic containing synthetic operational records,True
+u1,tablet,light,dashboard pending opens the corresponding original phase and clinic,True
+u1,tablet,light,dashboard return preserves applied period and clinic,True
+u1,tablet,light,dashboard opened opens the corresponding original phase and clinic,True
+u1,tablet,light,dashboard return preserves applied period and clinic,True
+u1,tablet,light,dashboard closed opens the corresponding original phase and clinic,True
+u1,tablet,light,dashboard return preserves applied period and clinic,True
+u1,tablet,light,legacy employee summary card reuses its existing protected modal form,True
+u1,tablet,light,legacy summary keeps its original return action,True
+u1,tablet,light,request reader cannot edit fields or see save action,True
+u1,tablet,light,direct request write is denied without edit permission,True
+u1,tablet,light,no JavaScript exceptions,True
+u1,tablet,dark,Dashboard respects effective role,True
+u1,tablet,dark,dashboard action hint does not overlap the metric note,True
+u1,tablet,dark,dashboard consultations opens detail in applied period,True
+u1,tablet,dark,dashboard treatments opens detail in applied period,True
+u1,tablet,dark,dashboard newRequests opens detail in applied period,True
+u1,tablet,dark,dashboard opens the existing request rather than its creation form,True
+u1,tablet,dark,dashboard pending opens detail in applied period,True
+u1,tablet,dark,dashboard drilldown never changes business records or opens task settings,True
+u1,tablet,dark,single employee search,True
+u1,tablet,dark,payroll remains inside the HR financial topic,True
+u1,tablet,dark,grouped payroll action opens the existing editor,True
+u1,tablet,dark,employee list immediately available,True
+u1,tablet,dark,useful no-result state,True
+u1,tablet,dark,typing and clearing search restores rows,True
+u1,tablet,dark,active filter matches records,True
+u1,tablet,dark,header clinic filter composes with employee status,True
+u1,tablet,dark,real employee action opens full workspace,True
+u1,tablet,dark,employee workspace has no horizontal overflow,True
+u1,tablet,dark,workspace starts without hiding its first content,True
+u1,tablet,dark,employee header cannot reassign clinics via list filter,True
+u1,tablet,dark,no duplicate employee tabs,True
+u1,tablet,dark,canonical form retained on page,True
+u1,tablet,dark,visible employee label names the canonical input,True
+u1,tablet,dark,cancelled navigation preserves unsaved values,True
+u1,tablet,dark,summary remains source-based,True
+u1,tablet,dark,whole contract card focuses original contract section for same employee,True
+u1,tablet,dark,consulting a summary card creates no business record,True
+u1,tablet,dark,return to summary preserves employee,True
+u1,tablet,dark,whole document card reuses existing protected editor,True
+u1,tablet,dark,existing protected document editor reused,True
+u1,tablet,dark,back restores original list,True
+u1,tablet,dark,full-page save persists canonical fields and editor audit,True
+u1,tablet,dark,saved values survive reload in the actual workspace,True
+u1,tablet,dark,operation stepper uses original authorised phases,True
+u1,tablet,dark,touch team selection exists,True
+u1,tablet,dark,team control reflects touch selection,True
+u1,tablet,dark,touch preview creates no permanent opening,True
+u1,tablet,dark,operation no horizontal overflow,True
+u1,tablet,dark,clinic and colleague filters immediately visible,True
+u1,tablet,dark,specialty options come from selected clinic,True
+u1,tablet,dark,specialty filter excludes the second differently classified event,True
+u1,tablet,dark,clearing specialty restores both authorised events,True
+u1,tablet,dark,agenda no horizontal overflow,True
+u1,tablet,dark,stock metric opens existing movements without changing clinic,True
+u1,tablet,dark,stock contextual back restores inventory,True
+u1,tablet,dark,stock navigation grouped without duplicated controllers,True
+u1,tablet,dark,stock no horizontal overflow,True
+u1,tablet,dark,marketing metric opens source with same filters,True
+u1,tablet,dark,marketing contextual back restores dashboard,True
+u1,tablet,dark,marketing topics grouped,True
+u1,tablet,dark,marketing no horizontal overflow,True
+u1,tablet,dark,chat no horizontal overflow,True
+u1,tablet,dark,complaints no horizontal overflow,True
+u1,tablet,dark,finance no horizontal overflow,True
+u1,tablet,dark,whole configuration card opens canonical document catalogue,True
+u1,tablet,dark,tables no horizontal overflow,True
+u1,tablet,dark,scenario uses the clinic containing synthetic operational records,True
+u1,tablet,dark,dashboard pending opens the corresponding original phase and clinic,True
+u1,tablet,dark,dashboard return preserves applied period and clinic,True
+u1,tablet,dark,dashboard opened opens the corresponding original phase and clinic,True
+u1,tablet,dark,dashboard return preserves applied period and clinic,True
+u1,tablet,dark,dashboard closed opens the corresponding original phase and clinic,True
+u1,tablet,dark,dashboard return preserves applied period and clinic,True
+u1,tablet,dark,legacy employee summary card reuses its existing protected modal form,True
+u1,tablet,dark,legacy summary keeps its original return action,True
+u1,tablet,dark,request reader cannot edit fields or see save action,True
+u1,tablet,dark,direct request write is denied without edit permission,True
+u1,tablet,dark,no JavaScript exceptions,True
+u1,desktop,light,Dashboard respects effective role,True
+u1,desktop,light,dashboard action hint does not overlap the metric note,True
+u1,desktop,light,dashboard consultations opens detail in applied period,True
+u1,desktop,light,dashboard treatments opens detail in applied period,True
+u1,desktop,light,dashboard newRequests opens detail in applied period,True
+u1,desktop,light,dashboard opens the existing request rather than its creation form,True
+u1,desktop,light,dashboard pending opens detail in applied period,True
+u1,desktop,light,dashboard drilldown never changes business records or opens task settings,True
+u1,desktop,light,single employee search,True
+u1,desktop,light,payroll remains inside the HR financial topic,True
+u1,desktop,light,grouped payroll action opens the existing editor,True
+u1,desktop,light,employee list immediately available,True
+u1,desktop,light,useful no-result state,True
+u1,desktop,light,typing and clearing search restores rows,True
+u1,desktop,light,active filter matches records,True
+u1,desktop,light,header clinic filter composes with employee status,True
+u1,desktop,light,real employee action opens full workspace,True
+u1,desktop,light,employee workspace has no horizontal overflow,True
+u1,desktop,light,workspace starts without hiding its first content,True
+u1,desktop,light,employee header cannot reassign clinics via list filter,True
+u1,desktop,light,no duplicate employee tabs,True
+u1,desktop,light,canonical form retained on page,True
+u1,desktop,light,visible employee label names the canonical input,True
+u1,desktop,light,cancelled navigation preserves unsaved values,True
+u1,desktop,light,summary remains source-based,True
+u1,desktop,light,whole contract card focuses original contract section for same employee,True
+u1,desktop,light,consulting a summary card creates no business record,True
+u1,desktop,light,return to summary preserves employee,True
+u1,desktop,light,whole document card reuses existing protected editor,True
+u1,desktop,light,existing protected document editor reused,True
+u1,desktop,light,back restores original list,True
+u1,desktop,light,full-page save persists canonical fields and editor audit,True
+u1,desktop,light,saved values survive reload in the actual workspace,True
+u1,desktop,light,operation stepper uses original authorised phases,True
+u1,desktop,light,touch team selection exists,True
+u1,desktop,light,team control reflects touch selection,True
+u1,desktop,light,touch preview creates no permanent opening,True
+u1,desktop,light,operation no horizontal overflow,True
+u1,desktop,light,clinic and colleague filters immediately visible,True
+u1,desktop,light,specialty options come from selected clinic,True
+u1,desktop,light,specialty filter excludes the second differently classified event,True
+u1,desktop,light,clearing specialty restores both authorised events,True
+u1,desktop,light,agenda no horizontal overflow,True
+u1,desktop,light,stock metric opens existing movements without changing clinic,True
+u1,desktop,light,stock contextual back restores inventory,True
+u1,desktop,light,stock navigation grouped without duplicated controllers,True
+u1,desktop,light,stock no horizontal overflow,True
+u1,desktop,light,marketing metric opens source with same filters,True
+u1,desktop,light,marketing contextual back restores dashboard,True
+u1,desktop,light,marketing topics grouped,True
+u1,desktop,light,marketing no horizontal overflow,True
+u1,desktop,light,chat no horizontal overflow,True
+u1,desktop,light,complaints no horizontal overflow,True
+u1,desktop,light,finance no horizontal overflow,True
+u1,desktop,light,whole configuration card opens canonical document catalogue,True
+u1,desktop,light,tables no horizontal overflow,True
+u1,desktop,light,no JavaScript exceptions,True
+u1,desktop,dark,Dashboard respects effective role,True
+u1,desktop,dark,dashboard action hint does not overlap the metric note,True
+u1,desktop,dark,dashboard consultations opens detail in applied period,True
+u1,desktop,dark,dashboard treatments opens detail in applied period,True
+u1,desktop,dark,dashboard newRequests opens detail in applied period,True
+u1,desktop,dark,dashboard opens the existing request rather than its creation form,True
+u1,desktop,dark,dashboard pending opens detail in applied period,True
+u1,desktop,dark,dashboard drilldown never changes business records or opens task settings,True
+u1,desktop,dark,single employee search,True
+u1,desktop,dark,payroll remains inside the HR financial topic,True
+u1,desktop,dark,grouped payroll action opens the existing editor,True
+u1,desktop,dark,employee list immediately available,True
+u1,desktop,dark,useful no-result state,True
+u1,desktop,dark,typing and clearing search restores rows,True
+u1,desktop,dark,active filter matches records,True
+u1,desktop,dark,header clinic filter composes with employee status,True
+u1,desktop,dark,real employee action opens full workspace,True
+u1,desktop,dark,employee workspace has no horizontal overflow,True
+u1,desktop,dark,workspace starts without hiding its first content,True
+u1,desktop,dark,employee header cannot reassign clinics via list filter,True
+u1,desktop,dark,no duplicate employee tabs,True
+u1,desktop,dark,canonical form retained on page,True
+u1,desktop,dark,visible employee label names the canonical input,True
+u1,desktop,dark,cancelled navigation preserves unsaved values,True
+u1,desktop,dark,summary remains source-based,True
+u1,desktop,dark,whole contract card focuses original contract section for same employee,True
+u1,desktop,dark,consulting a summary card creates no business record,True
+u1,desktop,dark,return to summary preserves employee,True
+u1,desktop,dark,whole document card reuses existing protected editor,True
+u1,desktop,dark,existing protected document editor reused,True
+u1,desktop,dark,back restores original list,True
+u1,desktop,dark,full-page save persists canonical fields and editor audit,True
+u1,desktop,dark,saved values survive reload in the actual workspace,True
+u1,desktop,dark,operation stepper uses original authorised phases,True
+u1,desktop,dark,touch team selection exists,True
+u1,desktop,dark,team control reflects touch selection,True
+u1,desktop,dark,touch preview creates no permanent opening,True
+u1,desktop,dark,operation no horizontal overflow,True
+u1,desktop,dark,clinic and colleague filters immediately visible,True
+u1,desktop,dark,specialty options come from selected clinic,True
+u1,desktop,dark,specialty filter excludes the second differently classified event,True
+u1,desktop,dark,clearing specialty restores both authorised events,True
+u1,desktop,dark,agenda no horizontal overflow,True
+u1,desktop,dark,stock metric opens existing movements without changing clinic,True
+u1,desktop,dark,stock contextual back restores inventory,True
+u1,desktop,dark,stock navigation grouped without duplicated controllers,True
+u1,desktop,dark,stock no horizontal overflow,True
+u1,desktop,dark,marketing metric opens source with same filters,True
+u1,desktop,dark,marketing contextual back restores dashboard,True
+u1,desktop,dark,marketing topics grouped,True
+u1,desktop,dark,marketing no horizontal overflow,True
+u1,desktop,dark,chat no horizontal overflow,True
+u1,desktop,dark,complaints no horizontal overflow,True
+u1,desktop,dark,finance no horizontal overflow,True
+u1,desktop,dark,whole configuration card opens canonical document catalogue,True
+u1,desktop,dark,tables no horizontal overflow,True
+u1,desktop,dark,no JavaScript exceptions,True
+u1,mobile,light,Dashboard respects effective role,True
+u1,mobile,light,dashboard action hint does not overlap the metric note,True
+u1,mobile,light,dashboard consultations opens detail in applied period,True
+u1,mobile,light,dashboard treatments opens detail in applied period,True
+u1,mobile,light,dashboard newRequests opens detail in applied period,True
+u1,mobile,light,dashboard opens the existing request rather than its creation form,True
+u1,mobile,light,dashboard pending opens detail in applied period,True
+u1,mobile,light,dashboard drilldown never changes business records or opens task settings,True
+u1,mobile,light,single employee search,True
+u1,mobile,light,payroll remains inside the HR financial topic,True
+u1,mobile,light,grouped payroll action opens the existing editor,True
+u1,mobile,light,employee list immediately available,True
+u1,mobile,light,useful no-result state,True
+u1,mobile,light,typing and clearing search restores rows,True
+u1,mobile,light,active filter matches records,True
+u1,mobile,light,header clinic filter composes with employee status,True
+u1,mobile,light,real employee action opens full workspace,True
+u1,mobile,light,employee workspace has no horizontal overflow,True
+u1,mobile,light,workspace starts without hiding its first content,True
+u1,mobile,light,employee header cannot reassign clinics via list filter,True
+u1,mobile,light,no duplicate employee tabs,True
+u1,mobile,light,canonical form retained on page,True
+u1,mobile,light,visible employee label names the canonical input,True
+u1,mobile,light,cancelled navigation preserves unsaved values,True
+u1,mobile,light,summary remains source-based,True
+u1,mobile,light,whole contract card focuses original contract section for same employee,True
+u1,mobile,light,consulting a summary card creates no business record,True
+u1,mobile,light,return to summary preserves employee,True
+u1,mobile,light,whole document card reuses existing protected editor,True
+u1,mobile,light,existing protected document editor reused,True
+u1,mobile,light,back restores original list,True
+u1,mobile,light,full-page save persists canonical fields and editor audit,True
+u1,mobile,light,saved values survive reload in the actual workspace,True
+u1,mobile,light,operation stepper uses original authorised phases,True
+u1,mobile,light,touch team selection exists,True
+u1,mobile,light,team control reflects touch selection,True
+u1,mobile,light,touch preview creates no permanent opening,True
+u1,mobile,light,operation no horizontal overflow,True
+u1,mobile,light,clinic and colleague filters immediately visible,True
+u1,mobile,light,specialty options come from selected clinic,True
+u1,mobile,light,specialty filter excludes the second differently classified event,True
+u1,mobile,light,clearing specialty restores both authorised events,True
+u1,mobile,light,agenda no horizontal overflow,True
+u1,mobile,light,stock metric opens existing movements without changing clinic,True
+u1,mobile,light,stock contextual back restores inventory,True
+u1,mobile,light,stock navigation grouped without duplicated controllers,True
+u1,mobile,light,stock no horizontal overflow,True
+u1,mobile,light,marketing metric opens source with same filters,True
+u1,mobile,light,marketing contextual back restores dashboard,True
+u1,mobile,light,marketing topics grouped,True
+u1,mobile,light,marketing no horizontal overflow,True
+u1,mobile,light,chat no horizontal overflow,True
+u1,mobile,light,complaints no horizontal overflow,True
+u1,mobile,light,finance no horizontal overflow,True
+u1,mobile,light,whole configuration card opens canonical document catalogue,True
+u1,mobile,light,tables no horizontal overflow,True
+u1,mobile,light,no JavaScript exceptions,True
+u1,mobile,dark,Dashboard respects effective role,True
+u1,mobile,dark,dashboard action hint does not overlap the metric note,True
+u1,mobile,dark,dashboard consultations opens detail in applied period,True
+u1,mobile,dark,dashboard treatments opens detail in applied period,True
+u1,mobile,dark,dashboard newRequests opens detail in applied period,True
+u1,mobile,dark,dashboard opens the existing request rather than its creation form,True
+u1,mobile,dark,dashboard pending opens detail in applied period,True
+u1,mobile,dark,dashboard drilldown never changes business records or opens task settings,True
+u1,mobile,dark,single employee search,True
+u1,mobile,dark,payroll remains inside the HR financial topic,True
+u1,mobile,dark,grouped payroll action opens the existing editor,True
+u1,mobile,dark,employee list immediately available,True
+u1,mobile,dark,useful no-result state,True
+u1,mobile,dark,typing and clearing search restores rows,True
+u1,mobile,dark,active filter matches records,True
+u1,mobile,dark,header clinic filter composes with employee status,True
+u1,mobile,dark,real employee action opens full workspace,True
+u1,mobile,dark,employee workspace has no horizontal overflow,True
+u1,mobile,dark,workspace starts without hiding its first content,True
+u1,mobile,dark,employee header cannot reassign clinics via list filter,True
+u1,mobile,dark,no duplicate employee tabs,True
+u1,mobile,dark,canonical form retained on page,True
+u1,mobile,dark,visible employee label names the canonical input,True
+u1,mobile,dark,cancelled navigation preserves unsaved values,True
+u1,mobile,dark,summary remains source-based,True
+u1,mobile,dark,whole contract card focuses original contract section for same employee,True
+u1,mobile,dark,consulting a summary card creates no business record,True
+u1,mobile,dark,return to summary preserves employee,True
+u1,mobile,dark,whole document card reuses existing protected editor,True
+u1,mobile,dark,existing protected document editor reused,True
+u1,mobile,dark,back restores original list,True
+u1,mobile,dark,full-page save persists canonical fields and editor audit,True
+u1,mobile,dark,saved values survive reload in the actual workspace,True
+u1,mobile,dark,operation stepper uses original authorised phases,True
+u1,mobile,dark,touch team selection exists,True
+u1,mobile,dark,team control reflects touch selection,True
+u1,mobile,dark,touch preview creates no permanent opening,True
+u1,mobile,dark,operation no horizontal overflow,True
+u1,mobile,dark,clinic and colleague filters immediately visible,True
+u1,mobile,dark,specialty options come from selected clinic,True
+u1,mobile,dark,specialty filter excludes the second differently classified event,True
+u1,mobile,dark,clearing specialty restores both authorised events,True
+u1,mobile,dark,agenda no horizontal overflow,True
+u1,mobile,dark,stock metric opens existing movements without changing clinic,True
+u1,mobile,dark,stock contextual back restores inventory,True
+u1,mobile,dark,stock navigation grouped without duplicated controllers,True
+u1,mobile,dark,stock no horizontal overflow,True
+u1,mobile,dark,marketing metric opens source with same filters,True
+u1,mobile,dark,marketing contextual back restores dashboard,True
+u1,mobile,dark,marketing topics grouped,True
+u1,mobile,dark,marketing no horizontal overflow,True
+u1,mobile,dark,chat no horizontal overflow,True
+u1,mobile,dark,complaints no horizontal overflow,True
+u1,mobile,dark,finance no horizontal overflow,True
+u1,mobile,dark,whole configuration card opens canonical document catalogue,True
+u1,mobile,dark,tables no horizontal overflow,True
+u1,mobile,dark,no JavaScript exceptions,True

@@ -32,6 +32,7 @@ with sync_playwright() as p:
         for view in views:
             allowed = page.evaluate('(id)=>RoleAccessAdminV4.guard(id)', view)
             if allowed:
+                page.locator(f'#nav [data-view="{view}"]').evaluate('(b)=>{const g=b.closest("details");if(g&&!g.open)g.querySelector("summary").click()}')
                 page.locator(f'#nav [data-view="{view}"]').click()
                 page.wait_for_timeout(150)
                 assert page.locator('section.view.active').count() == 1, (role, view)
@@ -41,11 +42,13 @@ with sync_playwright() as p:
             else:
                 assert not page.evaluate('(id)=>App.showView(id)', view), (role, view, 'permission bypass')
         if role in ['CEO', 'Administração']:
+            page.locator('#nav [data-view="hr"]').evaluate('(b)=>{const g=b.closest("details");if(g&&!g.open)g.querySelector("summary").click()}')
             page.locator('#nav [data-view="hr"]').click()
             page.locator('#shortcut_employees').click()
             assert page.locator('#hrContent').inner_text().strip()
             page.locator('#shortcut_candidates').click()
             assert 'Candidatos' in page.locator('#hrContent').inner_text()
+            page.locator('#nav [data-view="dashboard"]').evaluate('(b)=>{const g=b.closest("details");if(g&&!g.open)g.querySelector("summary").click()}')
             page.locator('#nav [data-view="dashboard"]').click()
             page.wait_for_timeout(250)
             assert page.locator('#dashboard').evaluate("e=>e.classList.contains('active')")

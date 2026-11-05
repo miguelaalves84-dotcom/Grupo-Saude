@@ -1,0 +1,91 @@
+{
+  "sourceCommit": "f5c312d32193c71f2bc0c20fa5d5d9adfddf611f",
+  "url": "https://grupo-saude-v4-validacao-sintetica-80lm5v7nx-grupo-saude.vercel.app",
+  "deploymentId": "dpl_AmLo742n2v2KnhWaBX4KTHP7jRsT",
+  "state": "READY",
+  "target": "staging",
+  "project": "prj_X02eCkklCYULDAFkyKXbRHWETyT1",
+  "ssoProtection": {
+    "enabled": true,
+    "deploymentType": "all"
+  },
+  "manifest": {
+    "sourceCommit": "f5c312d32193c71f2bc0c20fa5d5d9adfddf611f",
+    "branch": "dev/v4-stabilization-20261017",
+    "synthetic": true,
+    "backend": false,
+    "writers": false,
+    "persistence": "browser-only",
+    "testedRun": 40250159556,
+    "browserSuites": 39,
+    "jobs": 41,
+    "referenceFile": "1000089444.jpg",
+    "referenceSha256": "af237e8f9eab8112ebd2db2ca458668d956110d975669640011a0a91f2de67e9",
+    "physicalAndroidValidation": "pending",
+    "design": "approved-midnight-gold-reference-20261026"
+  },
+  "httpChecks": [
+    {
+      "path": "/",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/preview-manifest.json",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/design-system-v4.css",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/workspace-shell-v4.js",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/visual-runtime-v4.js",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/chat-v4.css",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/official-logo-v4.svg",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/account.html",
+      "status": 200,
+      "verified": true
+    },
+    {
+      "path": "/api/auth/session",
+      "status": 404,
+      "verified": true
+    },
+    {
+      "path": "/api/chat",
+      "status": 404,
+      "verified": true
+    },
+    {
+      "path": "/api/stock",
+      "status": 404,
+      "verified": true
+    }
+  ],
+  "main": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+  "production": {
+    "id": "prj_uqWsAbl1oiiJrx9BaNHAJwOtuAtH",
+    "updatedAt": 1791725971672
+  },
+  "pr13Draft": true,
+  "verificationScope": "Authenticated HTTP content equality against committed static bundle; Chromium execution in isolated GitHub Actions; physical Android validation pending."
+}

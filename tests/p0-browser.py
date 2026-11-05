@@ -11,18 +11,18 @@ with sync_playwright() as p:
  page.goto(URL);page.wait_for_timeout(900)
  payload="c1');window.__p0XSS=1;//"
  name='Synthetic <img src=x onerror="window.__p0XSS=2"> & \'quoted\''
- page.evaluate('''([key,id,name])=>{window.__p0XSS=0;const s=JSON.parse(localStorage.getItem(key));s.clinics.push({id,name,active:true,phones:[],gps:{radius:50},ers:{}});localStorage.setItem(key,JSON.stringify(s));App.showView('clinics');ClinicMasterV4.render();}''',[KEY,payload,name])
+ page.evaluate('''([key,id,name])=>{window.__p0XSS=0;const s=JSON.parse(localStorage.getItem(key));s.clinics.push({id,name,active:true,phones:[],gps:{radius:50},ers:{}});localStorage.setItem(key,JSON.stringify(s));App.showView('tables');ClinicMasterV4.master();}''',[KEY,payload,name])
  row=page.locator('.clinic-master-row').filter(has_text=name)
- expect(row).to_have_count(1);row.locator('button').click()
+ expect(row).to_have_count(1);row.locator('[data-cm-action="edit"]').click()
  expect(page.locator('#cmName')).to_have_value(name)
  assert page.evaluate('window.__p0XSS')==0
  page.locator('[data-cm-action="save"]').click()
- page.evaluate('ClinicMasterV4.render()')
+ page.evaluate('ClinicMasterV4.master()')
  row=page.locator('.clinic-master-row').filter(has_text=name);row.focus();page.keyboard.press('Enter')
  expect(page.locator('#cmName')).to_have_value(name)
  page.locator('#modal .modal-head button').click()
  # Shared dispatcher receives strings as JSON data, including imports and document-like fields.
- page.evaluate('''()=>{window.__p0Seen=[];const original=HRMasterV4.open;HRMasterV4.open=(...args)=>window.__p0Seen.push(args);const box=document.createElement('div');box.id='p0-actions';document.body.append(box);for(const value of ["x');window.__p0XSS=3;//",'\"><img src=x onerror=window.__p0XSS=4>',"document&'\\\"<>"]){const b=document.createElement('button');b.textContent=value;box.insertAdjacentHTML('beforeend','<button '+GSSafeActionsV4.attrs('HRMasterV4.open',[value,'docs'])+'>Sintético</button>');}window.__p0Original=original;}''')
+ page.evaluate('''()=>{window.__p0Seen=[];const original=HRMasterV4.open;HRMasterV4.open=(...args)=>window.__p0Seen.push(args);const box=document.createElement('div');box.id='p0-actions';document.querySelector('main').append(box);for(const value of ["x');window.__p0XSS=3;//",'\"><img src=x onerror=window.__p0XSS=4>',"document&'\\\"<>"]){const b=document.createElement('button');b.textContent=value;box.insertAdjacentHTML('beforeend','<button '+GSSafeActionsV4.attrs('HRMasterV4.open',[value,'docs'])+'>Sintético</button>');}window.__p0Original=original;}''')
  for b in page.locator('#p0-actions button').all():b.click()
  assert page.evaluate('window.__p0XSS')==0
  assert len(page.evaluate('window.__p0Seen'))==3

@@ -1,0 +1,262 @@
+{
+  "sourceCommit": "399a84c7f711daa825c15f8344111ea849fdb795",
+  "run": 40331311013,
+  "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 121601135831,
+      "name": "postgres",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601135831"
+    },
+    {
+      "id": 121601136121,
+      "name": "regression",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601136121"
+    },
+    {
+      "id": 121601366839,
+      "name": "browser (p0-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366839"
+    },
+    {
+      "id": 121601366851,
+      "name": "browser (finance-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366851"
+    },
+    {
+      "id": 121601366854,
+      "name": "browser (interview-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366854"
+    },
+    {
+      "id": 121601366880,
+      "name": "browser (browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366880"
+    },
+    {
+      "id": 121601366909,
+      "name": "browser (stabilization-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366909"
+    },
+    {
+      "id": 121601366914,
+      "name": "browser (profile-audit-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366914"
+    },
+    {
+      "id": 121601366944,
+      "name": "browser (stock-closing-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366944"
+    },
+    {
+      "id": 121601366960,
+      "name": "browser (stock-tables-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366960"
+    },
+    {
+      "id": 121601366966,
+      "name": "browser (candidate-pointer-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366966"
+    },
+    {
+      "id": 121601366968,
+      "name": "browser (operation-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366968"
+    },
+    {
+      "id": 121601366995,
+      "name": "browser (complaints-enhancements-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601366995"
+    },
+    {
+      "id": 121601367025,
+      "name": "browser (employee-documents-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367025"
+    },
+    {
+      "id": 121601367033,
+      "name": "browser (complaints-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367033"
+    },
+    {
+      "id": 121601367039,
+      "name": "browser (improvements-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367039"
+    },
+    {
+      "id": 121601367044,
+      "name": "browser (recruitment-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367044"
+    },
+    {
+      "id": 121601367056,
+      "name": "browser (global-layout-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367056"
+    },
+    {
+      "id": 121601367069,
+      "name": "browser (supplier-companies-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367069"
+    },
+    {
+      "id": 121601367116,
+      "name": "browser (chat-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367116"
+    },
+    {
+      "id": 121601367150,
+      "name": "browser (search-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367150"
+    },
+    {
+      "id": 121601367171,
+      "name": "browser (rh-20261022-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367171"
+    },
+    {
+      "id": 121601367180,
+      "name": "browser (text-editing-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367180"
+    },
+    {
+      "id": 121601367182,
+      "name": "browser (documents-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367182"
+    },
+    {
+      "id": 121601367187,
+      "name": "browser (opening-composition-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367187"
+    },
+    {
+      "id": 121601367197,
+      "name": "browser (rh-development-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367197"
+    },
+    {
+      "id": 121601367219,
+      "name": "browser (audit-expanded-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367219"
+    },
+    {
+      "id": 121601367247,
+      "name": "browser (finance-cash-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367247"
+    },
+    {
+      "id": 121601367277,
+      "name": "browser (reference-layout-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367277"
+    },
+    {
+      "id": 121601367295,
+      "name": "browser (audit-complete-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367295"
+    },
+    {
+      "id": 121601367306,
+      "name": "browser (rh-followup-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367306"
+    },
+    {
+      "id": 121601367307,
+      "name": "browser (attendance-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367307"
+    },
+    {
+      "id": 121601367317,
+      "name": "browser (text-fields-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367317"
+    },
+    {
+      "id": 121601367322,
+      "name": "browser (branding-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367322"
+    },
+    {
+      "id": 121601367362,
+      "name": "browser (visual-renewal-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367362"
+    },
+    {
+      "id": 121601367415,
+      "name": "browser (marketing-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367415"
+    },
+    {
+      "id": 121601367424,
+      "name": "browser (design-system-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367424"
+    },
+    {
+      "id": 121601367448,
+      "name": "browser (executive-design-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367448"
+    },
+    {
+      "id": 121601367455,
+      "name": "browser (agenda-rh-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367455"
+    },
+    {
+      "id": 121601367472,
+      "name": "browser (audit-corrections-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367472"
+    },
+    {
+      "id": 121601367506,
+      "name": "browser (ux-workspaces-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367506"
+    },
+    {
+      "id": 121601367668,
+      "name": "browser (payroll-export-browser)",
+      "conclusion": "success",
+      "html_url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/40331311013/job/121601367668"
+    }
+  ],
+  "synthetic": true,
+  "physicalAndroid": false
+}

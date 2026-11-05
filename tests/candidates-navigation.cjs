@@ -29,10 +29,10 @@ module.exports=({core,test,assert})=>{
   }
  });
  test('candidates: stage filter and clearing change only card visibility and reuse shared search',()=>{
-  const e=core(),root=e.elements.get('hrContent'),query=root.querySelector.bind(root),queryAll=root.querySelectorAll.bind(root),cards=['Candidatos','Entrevista marcada','Em análise'].map(stage=>{const card=e.document.createElement('article');card.dataset.candidateStage=stage;return card});
+  const e=core(),root=e.elements.get('hrContent'),query=root.querySelector.bind(root),queryAll=root.querySelectorAll.bind(root),cards=['Candidatos','Entrevista marcada','Em análise'].map(stage=>{const card=e.document.createElement('article');card.dataset.candidateStage=stage;card.dataset.candidateId='synthetic-'+stage;return card});
   root.querySelector=q=>q==='#candidateStageFilter'?e.elements.get('candidateStageFilter')||null:query(q);
   root.querySelectorAll=q=>q==='.candidate-card'?cards:queryAll(q);
-  let refreshed=0;e.context.GSSearchV4={refresh:()=>refreshed++};e.context.CommunicationsV4={candidates:()=>[]};
+  let refreshed=0;e.context.GSSearchV4={refresh:()=>refreshed++};e.context.CommunicationsV4={candidates:()=>cards.map(x=>({id:x.dataset.candidateId,name:'SYN '+x.dataset.candidateStage,stage:x.dataset.candidateStage}))};
   assert(e.context.V4ClinicHR.showCandidates());const input=e.elements.get('candidateStageFilter'),change=input.handlers.change[0];
   input.value='Entrevista marcada';change();assert.deepEqual(cards.map(x=>x.hidden),[true,false,true]);
   input.value='';change();assert.deepEqual(cards.map(x=>x.hidden),[false,false,false]);assert.equal(refreshed,3);

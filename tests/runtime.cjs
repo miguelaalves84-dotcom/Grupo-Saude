@@ -138,4 +138,5 @@ test('issue6: individual picker handlers compile and existing vacation click ope
 test('issue6: empty vacation/medical records cannot be approved',()=>{const e=leaveFixture(),D=e.context.HRLeaveV4,s=e.read();s.leave.push({id:'empty',employeeId:'p',type:'Férias',days:[],status:'Pendente'},{id:'empty-sick',employeeId:'p',type:'Baixa',status:'Pendente'});e.write(s);const before=e.read();assert.throws(()=>D.decide('empty','Aprovado'));assert.throws(()=>D.decide('empty-sick','Aprovado'));assert.deepEqual(e.read(),before)});
 require('./performance.cjs')({core,test,assert,vm,flat,actor,leaveFixture});
 require('./consolidation.cjs')({core,test,assert,vm});
+require('./candidates-navigation.cjs')({core,test,assert});
 console.log(JSON.stringify({passed,scope:'JavaScript real + DOM simulado; navegador e backend não executados'}));

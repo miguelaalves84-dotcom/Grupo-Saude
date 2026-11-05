@@ -140,4 +140,5 @@ require('./performance.cjs')({core,test,assert,vm,flat,actor,leaveFixture});
 require('./consolidation.cjs')({core,test,assert,vm});
 require('./candidates-navigation.cjs')({core,test,assert});
 require('./recruitment-workflow-runtime.cjs')({core,test,assert});
+test('candidates: only one stage selector at each breakpoint (static CSS cascade)',()=>require('./candidate-selector-visibility.cjs'));
 console.log(JSON.stringify({passed,scope:'JavaScript real + DOM simulado; navegador e backend não executados'}));

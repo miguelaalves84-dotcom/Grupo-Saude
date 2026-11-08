@@ -285,3 +285,61 @@ body>aside.notice{font-size:10px;line-height:1.5;padding:3px 20px;min-height:20p
 .hr-portal{min-width:0;overflow-wrap:anywhere}.hr-portal .portal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}.hr-portal .portal-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;margin:12px 0}.hr-portal .portal-content{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--surface-subtle);border:1px solid var(--line);padding:16px;border-radius:10px;margin:12px 0}.hr-portal input:not([type=checkbox]),.hr-portal textarea,.hr-portal select{width:100%;max-width:100%;box-sizing:border-box;min-height:44px}.hr-portal label{display:block;margin:10px 0}.hr-portal input[type=checkbox]{width:22px;height:22px;vertical-align:middle}.hr-portal .actions{display:flex;gap:8px;flex-wrap:wrap}.hr-portal .card{min-width:0}#portalBackofficeEntry{margin-bottom:12px}
 
 .portal-area-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin:16px 0}.portal-area{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;text-align:left;min-height:112px;width:100%;cursor:pointer;border:1px solid var(--line)}.portal-area strong{font-size:16px;color:var(--ink)}.portal-area span{font-size:12px;color:var(--muted);font-weight:400}.portal-area:hover,.portal-area:focus-visible{border-color:var(--accent);background:var(--surface-subtle)}[data-myhr-summary]{margin-top:18px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}.portal-page progress{display:block;width:100%;height:16px;accent-color:var(--accent);margin:14px 0}.portal-learning-summary .metric{color:var(--accent)}.portal-page dd{margin:4px 0 14px}.portal-page dt{color:var(--muted);font-size:12px}@media(max-width:1050px){.portal-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.portal-area-grid{grid-template-columns:1fr}.portal-area{min-height:96px}}
+/* Sem dados no período: mensagem em vez de gráfico vazio (altura próxima da do gráfico). */
+.dashboard-chart-empty{display:flex;align-items:center;justify-content:center;min-height:180px;margin:0;color:var(--muted);text-align:center}
+/* Operação e Stock: com o seletor «Clínica nesta área» visível no cabeçalho, o cartão mostra a clínica como texto
+   (o seletor da página continua a ser a fonte espelhada pelo cabeçalho). Sem cabeçalho, nada muda. */
+.mirrored-clinic-name{display:none}
+body:has(label.workspace-clinic:not([hidden]) #workspaceClinic) .mirrored-clinic-source{display:none}
+body:has(label.workspace-clinic:not([hidden]) #workspaceClinic) .mirrored-clinic-name{display:block;margin:6px 0 0;font-weight:700;color:var(--ink)}
+/* Tablet (761–1180 px) com o menu recolhido: faixa de ícones em vez de esconder a navegação.
+   Tocar num grupo abre o submenu ao lado; escolher uma opção ou tocar fora fecha-o. Computador e telemóvel não mudam. */
+@media(min-width:761px) and (max-width:1180px){
+body.menu-collapsed{--nav:64px}
+body.menu-collapsed .layout{grid-template-columns:var(--nav) minmax(0,1fr)}
+body.menu-collapsed #nav{width:var(--nav);padding:12px 8px;border-right:1px solid var(--sidebar-active);overflow:visible}
+body.menu-collapsed>.topbar,body.menu-collapsed>aside.notice,body.menu-collapsed:has(.layout)>.topbar,body.menu-collapsed:has(.layout)>aside.notice{margin-left:var(--nav)}
+body.menu-collapsed .topbar>.gs-official-logo{display:none}
+body.menu-collapsed #nav .nav-brand-caption,body.menu-collapsed #nav .nav-close,body.menu-collapsed #nav .nav-profile{display:none}
+body.menu-collapsed #nav .nav-brand{justify-content:center;padding:0 0 10px;margin:0}
+body.menu-collapsed #nav .nav-brand img{width:44px;height:auto}
+body.menu-collapsed #nav .nav-menu{overflow:visible}body.menu-collapsed #nav .nav-menu>details{position:relative}
+body.menu-collapsed #nav .nav-menu>details>summary{font-size:0;justify-content:center;min-height:48px;padding:0;gap:0}
+body.menu-collapsed #nav .nav-menu>details>summary::after,body.menu-collapsed #nav .nav-menu>details>summary::marker{display:none;content:''}
+body.menu-collapsed #nav .nav-menu>details>summary .gs-icon{width:24px;height:24px;margin:0}
+body.menu-collapsed #nav .nav-menu>details>summary:has(>button)>svg{display:none}
+body.menu-collapsed #nav .nav-menu>details>summary>button{font-size:0;padding:0;min-height:48px;width:100%;justify-content:center;background:transparent}
+body.menu-collapsed #nav .nav-menu>details>summary .attention-counter{position:absolute;top:4px;right:4px;font-size:10px}
+body.menu-collapsed #nav .nav-menu>details:has([data-view].active)>summary{background:var(--sidebar-active);border-radius:10px}
+body.menu-collapsed #nav .nav-menu>details>:not(summary){display:none}
+body.menu-collapsed #nav .nav-menu>details[data-rail-open]{z-index:40}
+body.menu-collapsed #nav .nav-menu>details[data-rail-open]>summary{background:var(--sidebar-active);border-radius:10px}
+body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary){display:flex;position:absolute;left:calc(100% + 10px);width:250px;min-height:44px;margin:0;padding:10px 14px;background:var(--sidebar);border:1px solid var(--sidebar-active);box-shadow:0 10px 28px rgba(0,0,0,.35);font-size:14px;z-index:41}
+body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(2){top:0px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(3){top:46px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(4){top:92px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(5){top:138px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(6){top:184px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(7){top:230px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(8){top:276px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(9){top:322px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(10){top:368px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(11){top:414px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(12){top:460px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(13){top:506px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(14){top:552px}body.menu-collapsed #nav .nav-menu>details[data-rail-open]>:not(summary):nth-child(15){top:598px}
+}
+/* Telemóvel (≤760 px): cabeçalho numa só linha. Menu · título · notificações · chat · botão com a clínica atual.
+   Tema, clínica, pesquisa e perfil ficam no painel aberto por esse botão; o aviso de demonstração ocupa uma linha
+   e expande-se ao tocar. Tablet e computador não mudam. */
+@media(max-width:760px){
+body>aside.notice{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-top:4px;padding-bottom:4px;cursor:pointer}
+body>aside.notice.notice-expanded{white-space:normal}
+.topbar{flex-wrap:wrap;align-items:center;row-gap:8px}
+.topbar>.gs-official-logo{width:32px}
+.topbar>.workspace-location{flex:1 1 0!important;min-width:88px!important;max-width:none!important}
+.topbar>.workspace-location>strong{white-space:nowrap!important}
+.topbar>.workspace-location *{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar>.workspace-location p{display:none}
+.topbar .top-actions>.sr-only{position:absolute}
+.topbar .top-actions>#attentionToggle{order:2!important}
+.topbar .top-actions>.icon-btn:not(#themeToggle):not(#attentionToggle){order:2!important}
+.topbar .top-actions>#rosterApprovalOpen{order:2!important}
+.topbar .top-actions>#dashPeriodToggle{order:5!important}
+.topbar .top-actions{display:contents}
+.topbar .top-actions>*{order:2}
+.topbar .top-actions>#themeToggle,.topbar .top-actions>.workspace-clinic,.topbar .top-actions>.workspace-search,.topbar .top-actions>#ceoAreaBox{order:4!important;display:none!important}
+.topbar #topbarMore{order:3!important;display:inline-flex;align-items:center;gap:4px;max-width:120px;min-height:40px;padding:0 10px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.topbar-more-open .topbar .top-actions>#themeToggle{display:inline-flex!important}
+body.topbar-more-open .topbar .top-actions>.workspace-clinic:not([hidden]),body.topbar-more-open .topbar .top-actions>.workspace-search{display:block!important;flex:1 1 calc(50% - 30px);min-width:0}
+body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;flex:1 1 100%}
+}
+#topbarMore{display:none}

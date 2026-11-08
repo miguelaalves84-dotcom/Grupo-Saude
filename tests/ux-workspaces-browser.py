@@ -2,6 +2,11 @@
 import os,json,hashlib
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+def section_tab(page,name):
+    """On phones the employee sections sit in the collapsed «Secção · …» menu; open it like a user first."""
+    closed=page.locator('#employeeWorkspace .employee-section-menu:not([open]) > summary')
+    if closed.count() and closed.first.is_visible():closed.first.click()
+    return page.get_by_role('button',name=name,exact=True)
 ROOT=Path(__file__).resolve().parent.parent
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2'
 OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/gs-ux'));OUT.mkdir(parents=True,exist_ok=True)
@@ -52,22 +57,22 @@ with sync_playwright() as pw:
       
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-summary-{theme}.png'))
       check('employee workspace has no horizontal overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'));check('workspace starts without hiding its first content',p.evaluate('()=>{const page=document.getElementById("employeeWorkspace"),chrome=page.querySelector(".employee-chrome").getBoundingClientRect(),body=page.querySelector(".employee-body").getBoundingClientRect();return body.top>=chrome.bottom-1}'));check('employee header cannot reassign clinics via list filter',p.locator('#workspaceClinic').is_disabled());check('no duplicate employee tabs',p.locator('.employee-tabs button').count()==len(set(p.locator('.employee-tabs button').all_text_contents())))
-      p.get_by_role('button',name='Dados pessoais e contrato',exact=True).click();p.wait_for_selector('#employeeWorkspace #hrName');check('canonical form retained on page',p.locator('#hrName').input_value()==name and p.locator('#employeeWorkspace').evaluate('(e)=>e.getBoundingClientRect().width>innerWidth*.65' if device=='mobile' else '(e)=>e.getBoundingClientRect().width>(innerWidth-264)*.8'))
+      section_tab(p,'Dados pessoais e contrato').click();p.wait_for_selector('#employeeWorkspace #hrName');check('canonical form retained on page',p.locator('#hrName').input_value()==name and p.locator('#employeeWorkspace').evaluate('(e)=>e.getBoundingClientRect().width>innerWidth*.65' if device=='mobile' else '(e)=>e.getBoundingClientRect().width>(innerWidth-264)*.8'))
       
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-contract-{theme}.png'))
-      check('visible employee label names the canonical input',p.get_by_label('Nome *',exact=True).input_value()==name);old=p.locator('#hrName').input_value();p.locator('#hrName').fill(old+' Edição');p.get_by_role('button',name='Resumo',exact=True).click();check('cancelled navigation preserves unsaved values',p.locator('#hrName').input_value()==old+' Edição')
+      check('visible employee label names the canonical input',p.get_by_label('Nome *',exact=True).input_value()==name);old=p.locator('#hrName').input_value();p.locator('#hrName').fill(old+' Edição');section_tab(p,'Resumo').click();check('cancelled navigation preserves unsaved values',p.locator('#hrName').input_value()==old+' Edição')
       # Accept discarding only after the negative case has demonstrated recovery.
-      p.evaluate('window.confirm=()=>true');p.get_by_role('button',name='Resumo',exact=True).click();check('summary remains source-based',p.locator('#employeeWorkspace').inner_text().find('Ficha central do colaborador')>=0)
+      p.evaluate('window.confirm=()=>true');section_tab(p,'Resumo').click();check('summary remains source-based',p.locator('#employeeWorkspace').inner_text().find('Ficha central do colaborador')>=0)
       before=p.evaluate('(k)=>localStorage.getItem(k)',K);person_id=p.locator('#employeeWorkspace').get_attribute('data-employee-id');p.locator('[data-hr-summary=contrato]').tap() if device!='desktop' else p.locator('[data-hr-summary=contrato]').click();p.wait_for_function('document.activeElement?.id==="hrContract"');check('whole contract card focuses original contract section for same employee',p.locator('#employeeWorkspace').get_attribute('data-employee-id')==person_id and p.locator('#hrContract').evaluate('(e)=>e.closest("details").open'));check('consulting a summary card creates no business record',p.evaluate('(k)=>localStorage.getItem(k)',K)==before);p.locator('.smart-summary-return').click();check('return to summary preserves employee',p.locator('[data-hr-summary=contrato]').is_visible() and p.locator('#employeeWorkspace').get_attribute('data-employee-id')==person_id)
       p.locator('[data-hr-summary=documentos]').click();check('whole document card reuses existing protected editor',p.locator('#modal').evaluate('(e)=>e.open'));p.locator('#modal .modal-head button').click()
-      p.get_by_role('button',name='Documentos',exact=True).click();check('existing protected document editor reused',p.locator('#modal').evaluate('(e)=>e.open'))
+      section_tab(p,'Documentos').click();check('existing protected document editor reused',p.locator('#modal').evaluate('(e)=>e.open'))
       p.locator('#modal .modal-head button').click();p.get_by_role('button',name='← Voltar à lista',exact=True).click();check('back restores original list',p.locator('#hrEmployeeSearch').is_visible() and p.locator('#employeeWorkspace').count()==0)
-      target=p.locator('[data-search-item=employee]').filter(has=p.get_by_text('SYN test_adm',exact=True));target.tap() if device!='desktop' else target.click();p.get_by_role('button',name='Dados pessoais e contrato',exact=True).click()
+      target=p.locator('[data-search-item=employee]').filter(has=p.get_by_text('SYN test_adm',exact=True));target.tap() if device!='desktop' else target.click();section_tab(p,'Dados pessoais e contrato').click()
       for key,value in {'hrPhone':'+351210000001','hrGross':'1000','hrMeal':'6','hrPayrollFrom':'2026-01-01','hrPayrollEmployerName':'SYN Entidade','hrPayrollEmployerNif':'987654321','hrPayrollLegalReference':'SYN contrato confirmado'}.items():
        p.locator('#'+key).evaluate('(e)=>{for(let d=e.closest("details");d;d=d.parentElement.closest("details"))d.open=true}');p.locator('#'+key).fill(value)
       p.locator('#hrPayrollRegime').evaluate('(e)=>e.closest("details").open=true');p.locator('#hrPayrollRegime').select_option('employment');p.locator('#employeeWorkspace [data-gs-action="HRMasterV4.save"]').click();p.wait_for_function('(k)=>JSON.parse(localStorage.getItem(k)).employees.test_adm.hr.phone==="+351210000001"',arg=K)
       check('full-page save persists canonical fields and editor audit',p.evaluate('([k,a])=>{const s=JSON.parse(localStorage.getItem(k));return s.audit.some(x=>x.action==="Ficha do colaborador guardada"&&x.employeeId==="test_adm"&&x.by===a)}',[K,actor]))
-      p.reload();p.wait_for_function('window.V4ClinicHR&&window.HRMasterV4');p.evaluate('App.showView("hr");V4ClinicHR.showEmployees()');p.locator('[data-search-item=employee]').filter(has=p.get_by_text('SYN test_adm',exact=True)).click();p.get_by_role('button',name='Dados pessoais e contrato',exact=True).click();check('saved values survive reload in the actual workspace',p.locator('#hrPhone').input_value()=='+351210000001');p.get_by_role('button',name='← Voltar à lista',exact=True).click()
+      p.reload();p.wait_for_function('window.V4ClinicHR&&window.HRMasterV4');p.evaluate('App.showView("hr");V4ClinicHR.showEmployees()');p.locator('[data-search-item=employee]').filter(has=p.get_by_text('SYN test_adm',exact=True)).click();section_tab(p,'Dados pessoais e contrato').click();check('saved values survive reload in the actual workspace',p.locator('#hrPhone').input_value()=='+351210000001');p.get_by_role('button',name='← Voltar à lista',exact=True).click()
      else:check('management HR remains prohibited',not p.evaluate('App.showView("hr")') and p.locator('#employeeWorkspace').count()==0)
      for view in ['operation','agenda','stock','marketing','chat','complaints','finance','tables']:
       if not p.evaluate('(v)=>RoleAccessAdminV4.guard(v)',view):continue

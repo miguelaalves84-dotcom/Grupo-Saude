@@ -2,6 +2,15 @@
 import json,os,time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+def stage_select(page):
+    """Show the card's stage on phones and open «Mudar etapa» like a user before using the stage selector."""
+    picker=page.locator('#candidateMobileStage')
+    if picker.count() and picker.is_visible():
+        current=page.evaluate("()=>document.querySelector('.candidate-card')?.closest('.candidate-column')?.dataset.stage||''")
+        if current and picker.input_value()!=current:picker.select_option(current)
+    closed=page.locator('.candidate-card-actions:not([open]) > summary')
+    if closed.count():closed.first.click()
+    return page.locator('[data-candidate-target]')
 ROOT=Path(__file__).resolve().parents[1]
 URL=os.environ.get('GS_TEST_URL',(ROOT/'index.html').as_uri());ORIGIN=URL.split('/index.html')[0]
 KEY='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/gs-pointer-artifacts'));OUT.mkdir(parents=True,exist_ok=True)
@@ -16,7 +25,7 @@ def prepare(page,actor):
     page.goto(URL);page.wait_for_function('window.CommunicationsV4 && window.CandidateDragV4')
     page.evaluate('''([key,actor])=>{const s=JSON.parse(localStorage.getItem(key));s.currentUser=actor;s.ceoRealUser='u1';s.ceoViewingAs=actor==='u1'?null:actor;s.candidates=[];for(const u of s.users){u.name='SYNTHETIC '+u.id;u.email=u.id+'@example.invalid';if(s.employees[u.id])s.employees[u.id].name=u.name}localStorage.setItem(key,JSON.stringify(s))}''',[KEY,actor]);page.reload();page.wait_for_function('window.RecruitmentV4');page.wait_for_function('window.GSTestAgentV4?.ready === true')
     if actor in ['u1','test_admin']:
-        page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));CommunicationsV4.importCV({sourceId:'pointer-synthetic',name:'SYNTHETIC POINTER CANDIDATE',email:'pointer@example.invalid',phone:'912000000',role:s.jobRoles[0].id,clinic:s.clinics[0].id,document:{name:'synthetic.pdf',dataUrl:'data:application/pdf;base64,JVBERi0xLjQK'}});V4ClinicHR.showCandidates();window.__pointerPageToken='same-document';window.__inputs=[];window.__dragTrace=[];for(const name of ['pointerdown','pointermove','pointercancel','pointerup','click','dragstart','dragover','drop','lostpointercapture'])document.addEventListener(name,e=>{window.__dragTrace.push({event:name,x:e.clientX,y:e.clientY,type:e.pointerType,target:e.target.className});window.__dragTrace=window.__dragTrace.slice(-35)},true);document.addEventListener('pointerdown',e=>window.__inputs.push({type:e.pointerType,trusted:e.isTrusted}),true)}''');page.wait_for_selector('.candidate-drag-handle')
+        page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));CommunicationsV4.importCV({sourceId:'pointer-synthetic',name:'SYNTHETIC POINTER CANDIDATE',email:'pointer@example.invalid',phone:'912000000',role:s.jobRoles[0].id,clinic:s.clinics.find(c=>c.active!==false&&!c.virtual&&c.operational!==false).id,document:{name:'synthetic.pdf',dataUrl:'data:application/pdf;base64,JVBERi0xLjQK'}});V4ClinicHR.showCandidates();window.__pointerPageToken='same-document';window.__inputs=[];window.__dragTrace=[];for(const name of ['pointerdown','pointermove','pointercancel','pointerup','click','dragstart','dragover','drop','lostpointercapture'])document.addEventListener(name,e=>{window.__dragTrace.push({event:name,x:e.clientX,y:e.clientY,type:e.pointerType,target:e.target.className});window.__dragTrace=window.__dragTrace.slice(-35)},true);document.addEventListener('pointerdown',e=>window.__inputs.push({type:e.pointerType,trusted:e.isTrusted}),true)}''');page.wait_for_selector('.candidate-drag-handle')
 
 def point(locator):
     b=locator.bounding_box();return {'x':b['x']+min(b['width']/2,80),'y':b['y']+b['height']/2}
@@ -40,7 +49,7 @@ def drag(page,cdp,stage,kind='touch',cancel=False,small=False):
         board=page.locator('.candidate-board');col=page.locator('.candidate-column[data-stage="'+stage+'"]')
         if cancel:
             before_top=board.bounding_box()['y'];page.wait_for_timeout(850)
-            verify('existing approvals refresh keeps the board stable during drag',page.locator('#hrApprovalsCard').count()==1 and abs(board.bounding_box()['y']-before_top)<2 and page.locator('.candidate-drag-ghost').count()==1)
+            verify('periodic approvals refresh keeps the isolated board stable during drag',page.locator('#hrApprovalsCard').count()==0 and abs(board.bounding_box()['y']-before_top)<2 and page.locator('.candidate-drag-ghost').count()==1)
         deadline=time.monotonic()+5
         while True:
             r=board.bounding_box();b=col.bounding_box();left=max(r['x'],b['x']);right=min(r['x']+r['width'],b['x']+b['width'])
@@ -84,14 +93,14 @@ try:
             touch(cdp,'touchStart',x,y)
             for i in range(1,9):touch(cdp,'touchMove',x-i*25,y);page.wait_for_timeout(20)
             touch(cdp,'touchEnd',x-200,y);page.wait_for_timeout(350)
-            verify('horizontal finger pan scrolls without moving candidates',board.evaluate('(b)=>b.scrollLeft')>20 and candidate(page)==initial)
+            verify('horizontal finger pan scrolls an overflowing board without moving candidates',(board.evaluate('(b)=>b.scrollLeft')>20 if board.evaluate('(b)=>b.scrollWidth>b.clientWidth+20') else board.evaluate('(b)=>b.scrollLeft')==0) and candidate(page)==initial)
         drag(page,cdp,'Em análise',kind,cancel=True);verify('pointer cancellation preserves complete record',candidate(page)==initial)
         drag(page,cdp,'Em análise',kind);verify('drop updates card, counts and audit without reload',candidate(page)['stage']=='Em análise' and len(candidate(page)['history'])==len(initial['history'])+1 and page.locator('[data-stage="Em análise"] .candidate-card').count()==1 and page.evaluate('window.__pointerPageToken')=='same-document')
-        drag(page,cdp,'Entrevista marcada',kind);verify('interview drop opens required form before saving',page.locator('#candidateInterview').is_visible() and candidate(page)['stage']=='Em análise');page.locator('#candidateConfirmMove').click();verify('missing interview cannot be saved',candidate(page)['stage']=='Em análise');page.locator('#candidateInterview').fill('2026-10-22T14:30');page.locator('#candidateMode').select_option('tele');page.locator('#candidateInterviewerPhone').fill('210000000');page.locator('#candidateContactPhone').fill('910000000');page.locator('#candidateConfirmMove').click();verify('confirmed interview and pending notification persisted',candidate(page)['stage']=='Entrevista marcada' and candidate(page)['notifications'][-1]['status']=='PendingConfig')
+        drag(page,cdp,'Entrevista marcada',kind);verify('interview drop opens required form before saving',page.locator('#candidateInterview').is_visible() and candidate(page)['stage']=='Em análise');page.locator('#candidateConfirmMove').click();verify('missing interview cannot be saved',candidate(page)['stage']=='Em análise');page.locator('#candidateInterview').fill('2026-10-22T14:30');page.locator('#candidateMode').select_option('tele');page.locator('#candidateInterviewer').select_option('test_admin');page.locator('#candidateInterviewerPhone').fill('210000000');page.locator('#candidateContactPhone').fill('910000000');page.locator('#candidateConfirmMove').click();verify('confirmed interview and pending notification persisted',candidate(page)['stage']=='Entrevista marcada' and candidate(page)['notifications'][-1]['status']=='PendingConfig')
         drag(page,cdp,'Recusado',kind);page.locator('#candidateConfirmMove').click();verify('rejection drop cannot bypass confirmation',candidate(page)['stage']=='Entrevista marcada');page.locator('#candidateConfirm').check();page.locator('#candidateConfirmMove').click();verify('confirmed rejection is saved once',candidate(page)['stage']=='Recusado' and candidate(page)['notifications'][-1]['kind']=='rejection')
         drag(page,cdp,'Contratado',kind);page.locator('#candidateConfirmMove').click();verify('hiring drop requires explicit employee choice',candidate(page)['stage']=='Recusado');page.locator('[name="candidateCreate"][value="no"]').check();page.locator('#candidateConfirmMove').click();verify('hired without creating employee preserves CV',candidate(page)['stage']=='Contratado' and not candidate(page).get('employeeId') and candidate(page)['documents']==initial['documents'])
         drag(page,cdp,'Candidatos','pen' if not mobile else kind);verify('can drag back across all columns, retaining audit',candidate(page)['stage']=='Candidatos' and candidate(page)['history'][-1]['action']=='Contratado → Candidatos')
-        page.locator('[data-candidate-target]').select_option('Em análise');page.locator('[data-candidate-move]').click();verify('accessible selector remains available',candidate(page)['stage']=='Em análise')
+        stage_select(page).select_option('Em análise');page.locator('[data-candidate-move]').click();verify('accessible selector remains available',candidate(page)['stage']=='Em análise')
         inputs=page.evaluate('window.__inputs');verify('trusted '+kind+' Pointer Events were exercised',any(i['type']==kind and i['trusted'] for i in inputs))
         if not mobile:verify('trusted pen input was exercised',any(i['type']=='pen' and i['trusted'] for i in inputs))
         verify('no JavaScript exceptions',not errors);page.screenshot(path=str(OUT/(device+'-'+actor+'-complete.png')),full_page=True);context.close()

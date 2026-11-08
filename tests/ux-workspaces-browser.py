@@ -2,6 +2,10 @@
 import os,json,hashlib
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+def header_panel(page):
+    """On phones theme, clinic, search and profile sit in the header panel opened by #topbarMore."""
+    more=page.locator('#topbarMore')
+    if more.count() and more.is_visible() and more.get_attribute('aria-expanded')!='true':more.click()
 def section_tab(page,name):
     """On phones the employee sections sit in the collapsed «Secção · …» menu; open it like a user first."""
     closed=page.locator('#employeeWorkspace .employee-section-menu:not([open]) > summary')
@@ -52,7 +56,7 @@ with sync_playwright() as pw:
       p.locator('#hrEmployeeSearch').fill('zz-inexistente');check('useful no-result state',p.locator('#hrEmployeeEmpty').is_visible() and p.locator('[data-search-item=employee]:visible').count()==0)
       p.locator('#hrEmployeeSearch').fill('SYN');check('typing and clearing search restores rows',p.locator('[data-search-item=employee]:visible').count()==total)
       p.locator('#hrEmployeeSearch').fill('');p.locator('#hrEmployeeStatus').select_option('active');check('active filter matches records',p.locator('[data-search-item=employee]:visible').evaluate_all('(rs)=>rs.every(r=>r.dataset.employeeStatus==="active")'))
-      clinic=p.locator('#hrEmployeeClinic option').nth(1).get_attribute('value');p.locator('#workspaceClinic').select_option(clinic);check('header clinic filter composes with employee status',p.locator('[data-search-item=employee]:visible').evaluate_all('(rs)=>rs.every(r=>JSON.parse(r.dataset.employeeClinics).includes(document.getElementById("hrEmployeeClinic").value))'))
+      clinic=p.locator('#hrEmployeeClinic option').nth(1).get_attribute('value');header_panel(p);p.locator('#workspaceClinic').select_option(clinic);check('header clinic filter composes with employee status',p.locator('[data-search-item=employee]:visible').evaluate_all('(rs)=>rs.every(r=>JSON.parse(r.dataset.employeeClinics).includes(document.getElementById("hrEmployeeClinic").value))'))
       p.locator('#hrEmployeeClinic').select_option('');p.locator('#hrEmployeeStatus').select_option('');person=p.locator('[data-search-item=employee]:visible').first;name=person.locator('strong').inner_text();person.tap() if device!='desktop' else person.click();p.wait_for_selector('#employeeWorkspace');check('real employee action opens full workspace',p.locator('#employeeWorkspace h1').inner_text()==name and not p.locator('#modal').evaluate('(e)=>e.open'))
       
       if actor=='u1' and device=='tablet':p.screenshot(path=str(OUT/f'ux-employee-summary-{theme}.png'))

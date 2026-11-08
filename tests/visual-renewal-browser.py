@@ -2,6 +2,10 @@
 import os,json
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+def header_panel(page):
+    """On phones theme, clinic, search and profile sit in the header panel opened by #topbarMore."""
+    more=page.locator('#topbarMore')
+    if more.count() and more.is_visible() and more.get_attribute('aria-expanded')!='true':more.click()
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0]
 OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/gs-renewal'));OUT.mkdir(parents=True,exist_ok=True)
 K='grupo_saude_v4_demo_2';results=[]
@@ -16,7 +20,7 @@ with sync_playwright() as pw:
      scope=dict(actor=actor,device=device,theme=theme);c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',locale='pt-PT',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(10000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.on('dialog',lambda d:d.dismiss());p.goto(URL);p.wait_for_function('window.GSVisualRuntimeV4&&window.WorkspaceShellV4&&window.GSDemoClinicAssociations');p.wait_for_timeout(400)
      p.evaluate('''([k,a,t])=>{const s=JSON.parse(localStorage.getItem(k));GSDemoClinicAssociations.repair(s);for(const x of [...s.users,...Object.values(s.employees||{})]){x.name='SYN '+x.id;x.email=x.id+'@example.invalid'}for(const x of s.clinics){x.name='SYN Clínica '+x.id;x.address='Rua Sintética'}s.currentUser=a;s.ceoViewingAs=a==='u1'?null:a;localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+a,t)}''',[K,actor,theme]);p.reload();p.wait_for_function('window.GSVisualRuntimeV4&&window.WorkspaceShellV4');p.wait_for_timeout(400)
      check('navy shared sidebar',p.evaluate('getComputedStyle(document.querySelector("#nav")).backgroundColor') in ['rgb(0, 16, 32)'],**scope)
-     search=p.locator('#workspaceSearch');search.fill('zz-no-module');check('global module search empty result',p.locator('#workspaceSearchResults').inner_text().startswith('Sem módulos'),**scope);search.fill('');check('global module search clears',p.locator('#workspaceSearchResults').is_hidden(),**scope)
+     search=(header_panel(p),p.locator('#workspaceSearch'))[1];search.fill('zz-no-module');check('global module search empty result',p.locator('#workspaceSearchResults').inner_text().startswith('Sem módulos'),**scope);search.fill('');check('global module search clears',p.locator('#workspaceSearchResults').is_hidden(),**scope)
      if p.evaluate('RoleAccessAdminV4.guard("agenda")'):
       search.fill('Agenda');p.locator('#workspaceSearchResults button').first.click();check('global search opens the existing authorised Agenda',p.locator('#agenda').evaluate('(e)=>e.classList.contains("active")'),**scope)
      for view in ['dashboard','clinics','operation','agenda','chat','hr','myhr','clock','finance','stock','marketing','complaints','wait','tasks','alerts','tables','reports','security','audit']:

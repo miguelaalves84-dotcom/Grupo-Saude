@@ -325,7 +325,7 @@ body>aside.notice{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padd
 body>aside.notice.notice-expanded{white-space:normal}
 .topbar{flex-wrap:wrap;align-items:center;row-gap:8px}
 .topbar>.gs-official-logo{width:32px}
-.topbar>.workspace-location{flex:1 1 0!important;min-width:88px!important;max-width:none!important}
+.topbar>.workspace-location{flex:1 1 0!important;min-width:180px!important;max-width:none!important}
 .topbar>.workspace-location>strong{white-space:nowrap!important}
 .topbar>.workspace-location *{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .topbar>.workspace-location p{display:none}

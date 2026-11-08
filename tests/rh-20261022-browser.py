@@ -2,6 +2,10 @@
 import os,json
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+def header_panel(page):
+    """On phones theme, clinic, search and profile sit in the header panel opened by #topbarMore."""
+    more=page.locator('#topbarMore')
+    if more.count() and more.is_visible() and more.get_attribute('aria-expanded')!='true':more.click()
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/rh-20261022'));OUT.mkdir(parents=True,exist_ok=True);results=[];scope={}
 def check(label,value):
  results.append({**scope,'case':label,'passed':bool(value)});print(json.dumps(results[-1]),flush=True);assert value,label
@@ -18,7 +22,7 @@ with sync_playwright() as pw:
      authorized=actor in ['test_adm','test_admin','u1'];check('roster button follows effective six-role permissions',p.locator('#rosterOpen-myhr').is_visible()==authorized)
      if authorized:
       if actor!='test_adm':
-       p.select_option('#ceoAreaSelect','test_adm');p.wait_for_timeout(700)
+       header_panel(p);p.select_option('#ceoAreaSelect','test_adm');p.wait_for_timeout(700)
       p.locator('#rosterOpen-myhr').click();p.locator('#rosterWeek').fill('2026-10-26');p.locator('#rosterWeek').dispatch_event('change')
       if actor!='test_adm':p.locator('#rosterEmployee').select_option('test_adm');p.locator('#rosterEmployee').dispatch_event('change')
       p.locator('[data-roster-day="2026-10-26"] [data-roster-field="startTime"]').fill('10:00');p.locator('#rosterReason').fill('SYN rotação semanal');p.locator('[data-gs-action="HRRostersV4.request"]').click()

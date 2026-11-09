@@ -108,3 +108,6 @@ html[data-theme=dark] .agenda-kind{color:#001322}
 .agenda-daylist h3{text-transform:none}
 .agenda-filters label.agenda-check,.agenda-filters .agenda-weekdays label,.agenda-filters .agenda-scope label,.agenda-filters .agenda-kinds label{flex-direction:row;align-items:center}
 .agenda-scroll:has(.agenda-month){touch-action:pan-y}
+/* Renovações (só gestão): vermelho, para chamar a atenção. */
+:root{--ag-renewal:var(--danger,#b42318)}html[data-theme=dark]{--ag-renewal:var(--danger,#f8b4bc)}
+.dot-renewal{background:var(--ag-renewal)}.agenda-event.agenda-kind-renewal{border-left-color:var(--ag-renewal);background:var(--danger-bg,#fdecea)}.agenda-kind-renewal.agenda-kind{background:var(--ag-renewal)}

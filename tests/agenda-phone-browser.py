@@ -18,7 +18,7 @@ def check(name, value):
 SEED = """([k,me,theme])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser=me;s.ceoRealUser=me;s.ceoViewingAs=null;s.agendaEvents=[];s.leave=[];
  const set=(id,clinics,hr)=>{for(const u of [s.users.find(x=>x.id===id),s.employees?.[id]].filter(Boolean)){u.clinics=clinics;u.clinicIds=clinics;u.clinic=clinics[0];u.clinicId=clinics[0];u.active=true;u.hr={...u.hr,...hr}}};
  set('test_adm',['abranfir'],{birthDate:'1990-11-22',birthdayVisible:false});set('test_call',['abranfir'],{birthDate:'1988-11-12',birthdayVisible:true});
- set('test_med',['loures'],{birthDate:'1985-11-13',birthdayVisible:true});set('test_tec',['abranfir'],{birthDate:'1992-11-14'});
+ set('test_med',['loures'],{birthDate:'1985-11-13',birthdayVisible:true,contractEnd:'2026-11-25'});s.employeeDocuments={test_tec:[{id:'syn-doc',masterDocumentId:'cc',name:'Cartão de cidadão',validUntil:'2026-12-10'}]};set('test_tec',['abranfir'],{birthDate:'1992-11-14'});
  localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+me,theme)}"""
 
 
@@ -103,10 +103,11 @@ with sync_playwright() as pw:
                 rs = p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-10',end:'2026-12-31'}).rows.filter(x=>x.title==='SYN Reunião semanal').map(x=>x.occurrenceDate)}", K)
                 check('this and following removed, earlier kept', rs == ['2026-11-10', '2026-11-17'])
                 # aniversários: só quem aceitou e da mesma clínica; o próprio decide
-                names = lambda: p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-01',end:'2026-11-30'}).rows.filter(x=>x.virtual).map(x=>x.title).sort()}", K)
-                check('administrativa sees consenting colleagues of her clinic only', names() == ['Aniversário de Call Center Teste'])
+                names = lambda: p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-01',end:'2026-11-30'}).rows.filter(x=>x.kind==='birthday'&&x.virtual).map(x=>x.title).sort()}", K)
+                check('administrativa sees colleagues of her clinic by default, except who opted out', names() == ['Aniversário de Call Center Teste', 'Aniversário de Técnico Teste'])
+                check('administrativa never sees renewals', p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-09-01',end:'2027-01-31'}).rows.filter(x=>x.kind==='renewal').length}", K) == 0)
                 p.locator('.agenda-more-filters summary').click(); p.locator('[data-agenda-consent]').check(); p.wait_for_timeout(150)
-                check('own consent shares only day and month', names() == ['Aniversário de Administrativa Teste', 'Aniversário de Call Center Teste'] and '1990' not in json.dumps(p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-22',end:'2026-11-22'}).rows}", K)))
+                check('turning her own birthday on shares only day and month', names() == ['Aniversário de Administrativa Teste', 'Aniversário de Call Center Teste', 'Aniversário de Técnico Teste'] and '1990' not in json.dumps(p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-22',end:'2026-11-22'}).rows}", K)))
                 # aviso no sino 15 min antes
                 p.clock.set_system_time(datetime.datetime.fromisoformat('2026-11-10T08:50:00+00:00'))
                 check('reminder appears in the bell 15 min before', p.evaluate("AttentionUIV4.items().some(x=>x.kind==='agenda-reminder'&&/SYN Reunião semanal/.test(x.title))"))
@@ -115,7 +116,12 @@ with sync_playwright() as pw:
                 # gestão vê aniversários de todas as clínicas; call center atribui tarefas só nas suas clínicas
                 if theme == 'light':
                     c, p, errors = open_agenda(browser, device, theme, 'test_admin')
-                    check('management sees consenting birthdays of all clinics', p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-01',end:'2026-11-30'}).rows.filter(x=>x.virtual).map(x=>x.title).sort().join('|')}", K) == 'Aniversário de Call Center Teste|Aniversário de Médico Teste'); c.close()
+                    check('management sees birthdays of all clinics (except who opted out)', p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-01',end:'2026-11-30'}).rows.filter(x=>x.kind==='birthday').map(x=>x.title).sort().join('|')}", K) == 'Aniversário de Call Center Teste|Aniversário de Médico Teste|Aniversário de Técnico Teste')
+                    rn = p.evaluate("(k)=>{const s=JSON.parse(localStorage.getItem(k)),a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-10',end:'2026-11-10'}).rows.filter(x=>x.kind==='renewal').map(x=>x.title).sort()}", K)
+                    check('management sees renewals: contract daily within 15 days, document 30 days before', rn == ['Renovar contrato de Médico Teste — faltam 15 dias', 'Renovar «Cartão de cidadão» de Técnico Teste — faltam 30 dias'])
+                    tap(p, device, p.locator('[data-agenda-mode="month"]').first); p.wait_for_timeout(200); p.locator('[data-agenda-day="2026-11-10"] [data-agenda-date]').click(); p.wait_for_timeout(150)
+                    p.locator('[data-agenda-daylist] .agenda-kind-renewal').filter(has_text='contrato').click()
+                    check('renewal detail offers the HR record', p.locator('#agendaDialog [data-agenda-action="open-target"]').inner_text() == 'Abrir ficha no RH'); c.close()
                     c, p, errors = open_agenda(browser, device, theme, 'test_call')
                     check('call center has the agenda', p.locator('#agendaContent .agenda-grid').count() == 1)
                     tap(p, device, p.locator('[data-agenda-fab]') if device == 'mobile' else p.locator('[data-agenda-action="new"]').first)

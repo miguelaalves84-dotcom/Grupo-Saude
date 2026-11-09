@@ -16,6 +16,7 @@ const crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:pat
 const MAIN_DB='gs_v4_test',CLONE_DB='gs_v4_test_restore';
 const ROLES={mainMigrator:'gs_test_migrator',mainRuntime:'gs_test_runtime',cloneMigrator:'gs_restore_migrator',cloneRuntime:'gs_restore_runtime'};
 const fail=code=>Object.assign(Error(code),{code});
+let stage='start';const mark=x=>{stage=x};
 const mask=v=>{if(v)process.stdout.write('::add-mask::'+v+'\n')};
 const say=(step,data={})=>console.log(JSON.stringify({step,...data}));
 
@@ -39,12 +40,12 @@ const lit=s=>"'"+String(s).replace(/'/g,"''")+"'";
 
 async function provision(o){
  const {Client}=require('pg'),db=new Client({host:o.host,port:o.localTest?55440:5432,user:o.user,password:o.password,database:o.database,ssl:o.localTest?false:{rejectUnauthorized:true},connectionTimeoutMillis:10000,query_timeout:60000,application_name:'gs-v4-p0-provision'});
- await db.connect();const passwords={};
+ mark('connect');await db.connect();mark('version');const passwords={};
  try{
   const v=(await db.query("select current_setting('server_version_num')::int v")).rows[0].v;if(v<160000)throw fail('P0_POSTGRES_16_REQUIRED');
   for(const [key,role] of Object.entries(ROLES)){
    const pw=crypto.randomBytes(24).toString('base64url');mask(pw);passwords[key]=pw;
-   const exists=(await db.query('select 1 from pg_roles where rolname=$1',[role])).rowCount===1;
+   mark('role:'+key);const exists=(await db.query('select 1 from pg_roles where rolname=$1',[role])).rowCount===1;
    // Sem superutilizador, ALTER não pode repetir SUPERUSER/REPLICATION/BYPASSRLS: confirmam-se a seguir.
    const attrs=(exists?'LOGIN NOCREATEDB NOCREATEROLE':'LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS')+(key.endsWith('Runtime')?' NOINHERIT':'');
    await db.query(`${exists?'ALTER':'CREATE'} ROLE ${ident(role)} WITH ${attrs} PASSWORD ${lit(scram(pw))}`);
@@ -52,9 +53,9 @@ async function provision(o){
    if(r.rolsuper||r.rolcreatedb||r.rolcreaterole||r.rolreplication||r.rolbypassrls||!r.rolcanlogin||(key.endsWith('Runtime')&&r.rolinherit))throw fail('P0_ROLE_ATTRIBUTES_UNSAFE');
    if((await db.query('select count(*)::int n from pg_auth_members m join pg_roles r on r.oid=m.member where r.rolname=$1',[role])).rows[0].n)throw fail('P0_ROLE_MEMBERSHIP_NOT_ALLOWED');
    // O administrador precisa de SET para criar a base com este dono; o próprio acesso não fica membro de nada.
-   await db.query(`GRANT ${ident(role)} TO ${ident(o.user)} WITH SET TRUE, INHERIT FALSE`);
+   mark('grant-set:'+key);await db.query(`GRANT ${ident(role)} TO ${ident(o.user)} WITH SET TRUE, INHERIT FALSE`);
   }
-  if(!(await db.query('select 1 from pg_database where datname=$1',[MAIN_DB])).rowCount)await db.query(`CREATE DATABASE ${ident(MAIN_DB)} OWNER ${ident(ROLES.mainMigrator)}`);
+  mark('main-database');if(!(await db.query('select 1 from pg_database where datname=$1',[MAIN_DB])).rowCount)await db.query(`CREATE DATABASE ${ident(MAIN_DB)} OWNER ${ident(ROLES.mainMigrator)}`);
   const mainOwner=(await db.query('select pg_get_userbyid(datdba) o from pg_database where datname=$1',[MAIN_DB])).rows[0].o;
   if(mainOwner!==ROLES.mainMigrator)throw fail('P0_MAIN_DATABASE_OWNER_UNEXPECTED');
   // Só o dono pode apagar a base e retirar as permissões por omissão (PUBLIC): esses comandos correm como o dono.
@@ -64,9 +65,9 @@ async function provision(o){
    if(cloneOwner!==ROLES.cloneMigrator)throw fail('P0_CLONE_DATABASE_OWNER_UNEXPECTED');
    await asOwner(ROLES.cloneMigrator,`DROP DATABASE ${ident(CLONE_DB)} WITH (FORCE)`);
   }
-  await db.query(`CREATE DATABASE ${ident(CLONE_DB)} OWNER ${ident(ROLES.cloneMigrator)}`);
+  mark('clone-database');await db.query(`CREATE DATABASE ${ident(CLONE_DB)} OWNER ${ident(ROLES.cloneMigrator)}`);
   for(const [dbname,runtime,migrator] of [[MAIN_DB,ROLES.mainRuntime,ROLES.mainMigrator],[CLONE_DB,ROLES.cloneRuntime,ROLES.cloneMigrator]]){
-   await asOwner(migrator,`REVOKE ALL ON DATABASE ${ident(dbname)} FROM PUBLIC`);
+   mark('revoke-public:'+dbname);await asOwner(migrator,`REVOKE ALL ON DATABASE ${ident(dbname)} FROM PUBLIC`);
    await asOwner(migrator,`GRANT CONNECT ON DATABASE ${ident(dbname)} TO ${ident(runtime)}`);
    const open=(await db.query("select count(*)::int n from pg_database d, aclexplode(coalesce(d.datacl,acldefault('d',d.datdba))) a where d.datname=$1 and a.grantee=0 and a.privilege_type='CONNECT'",[dbname])).rows[0].n;
    if(open)throw fail('P0_DATABASE_STILL_PUBLIC');
@@ -85,7 +86,7 @@ function run(action,env){
 }
 
 async function main(){
- const o=owner(),pw=await provision(o),tmp=process.env.RUNNER_TEMP||require('node:os').tmpdir();
+ mark('owner-url');const o=owner();mark('provision');const pw=await provision(o);mark('procedure'),tmp=process.env.RUNNER_TEMP||require('node:os').tmpdir();
  const dir=fs.mkdtempSync(path.join(tmp,'gs-p0-'));fs.chmodSync(dir,0o700);
  const keyFile=path.join(dir,'backup.key');fs.writeFileSync(keyFile,crypto.randomBytes(32),{mode:0o600,flag:'wx'});
  const ca=['/etc/ssl/certs/ca-certificates.crt','/etc/pki/tls/certs/ca-bundle.crt'].find(f=>fs.existsSync(f));
@@ -103,5 +104,5 @@ async function main(){
  fs.rmSync(dir,{recursive:true,force:true});
  say('done',{result:'P0.1 remote rehearsal passed',scope:'synthetic-only',backupsKeptOutsideRunner:false});
 }
-if(require.main===module)main().catch(e=>{say('failed',{code:/^P0_[A-Z0-9_]+$/.test(e.code||'')?e.code:'P0_REHEARSAL_FAILED_NO_DETAILS_LOGGED'});process.exitCode=1});
+if(require.main===module)main().catch(e=>{const c=String(e.code||'');say('failed',{stage,code:/^P0_[A-Z0-9_]+$/.test(c)?c:'P0_REHEARSAL_FAILED',sqlstate:/^[0-9A-Z]{5}$/.test(c)?c:undefined,errno:/^E[A-Z_]+$|^[A-Z_]*CERT[A-Z_]*$/.test(c)?c:undefined});process.exitCode=1});
 module.exports={scram,provision,ROLES,MAIN_DB,CLONE_DB};

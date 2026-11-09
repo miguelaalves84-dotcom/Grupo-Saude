@@ -8,7 +8,10 @@ function tool(action,t,input){
  const env={PATH:process.env.PATH,HOME:process.env.HOME,PGHOST:t.host,PGPORT:String(t.port),PGDATABASE:t.database,PGUSER:t.user,PGPASSWORD:t.password,PGCONNECT_TIMEOUT:'5',PGSSLMODE:t.host==='127.0.0.1'?'disable':'verify-full'};
  if(process.env.GS_P0_CA_FILE)env.PGSSLROOTCERT=process.env.GS_P0_CA_FILE;
  const args=action==='dump'?['--format=custom','--no-owner','--no-privileges']:['--single-transaction','--no-owner','--no-privileges','--exit-on-error'];
- try{return execFileSync(action==='dump'?'pg_dump':'pg_restore',args,{env,input,timeout:60000,maxBuffer:64*1024*1024,stdio:['pipe','pipe','pipe']})}catch{throw Error('P0_DATABASE_TOOL_FAILED')}
+ try{return execFileSync(action==='dump'?'pg_dump':'pg_restore',args,{env,input,timeout:60000,maxBuffer:64*1024*1024,stdio:['pipe','pipe','pipe']})}catch(e){
+  // Ensaio sintético apenas: até 6 linhas de erro da ferramenta, sem host, utilizador nem palavra-passe.
+  if(process.env.GS_P0_TOOL_DIAGNOSTICS==='synthetic-only'){const scrub=x=>[t.host,t.password,t.user].filter(Boolean).reduce((a,v)=>a.split(v).join('***'),x);console.log(JSON.stringify({toolError:action,status:e.status??null,signal:e.signal??null,lines:scrub(String(e.stderr||'')).split('\n').filter(l=>/error|ERROR|FATAL|DETAIL|HINT|Command was/.test(l)).slice(0,6).map(l=>l.slice(0,300))}))}
+  throw Error('P0_DATABASE_TOOL_FAILED')}
 }
 async function main(){
  const action=process.argv[2];if(action==='plan'){console.log(JSON.stringify({migrations:P.loadPlan().map(({id,file,sha256})=>({id,file,sha256})),auth:false,email:false,archive:false},null,2));return}

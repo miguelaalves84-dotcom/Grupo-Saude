@@ -91,7 +91,7 @@ async function main(){
  const dir=fs.mkdtempSync(path.join(tmp,'gs-p0-'));fs.chmodSync(dir,0o700);
  const keyFile=path.join(dir,'backup.key');fs.writeFileSync(keyFile,crypto.randomBytes(32),{mode:0o600,flag:'wx'});
  const ca=['/etc/ssl/certs/ca-certificates.crt','/etc/pki/tls/certs/ca-bundle.crt'].find(f=>fs.existsSync(f));
- const base={PATH:process.env.PATH,HOME:process.env.HOME,CI:'true',GS_P0_ENVIRONMENT:'isolated-test',GS_P0_REMOTE_APPROVED:'true',GS_P0_ALLOWED_HOST:o.host,GS_P0_BACKUP_KEY_FILE:keyFile,...(ca?{GS_P0_CA_FILE:ca}:{})};
+ const base={PATH:process.env.PATH,HOME:process.env.HOME,CI:'true',GS_P0_ENVIRONMENT:'isolated-test',GS_P0_REMOTE_APPROVED:'true',GS_P0_ALLOWED_HOST:o.host,GS_P0_TOOL_DIAGNOSTICS:'synthetic-only',GS_P0_BACKUP_KEY_FILE:keyFile,...(ca?{GS_P0_CA_FILE:ca}:{})};
  const main={...base,GS_P0_TARGET_ID:process.env.GS_P0_MAIN_TARGET_ID,GS_P0_MIGRATION_DATABASE_URL:url(o,ROLES.mainMigrator,pw.mainMigrator,MAIN_DB),GS_P0_RUNTIME_DATABASE_URL:url(o,ROLES.mainRuntime,pw.mainRuntime,MAIN_DB)};
  const clone={...base,GS_P0_TARGET_ID:process.env.GS_P0_CLONE_TARGET_ID,GS_P0_MIGRATION_DATABASE_URL:url(o,ROLES.cloneMigrator,pw.cloneMigrator,CLONE_DB),GS_P0_RUNTIME_DATABASE_URL:url(o,ROLES.cloneRuntime,pw.cloneRuntime,CLONE_DB)};
  for(const e of [main,clone]){mask(e.GS_P0_MIGRATION_DATABASE_URL);mask(e.GS_P0_RUNTIME_DATABASE_URL)}

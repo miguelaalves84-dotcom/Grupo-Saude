@@ -122,6 +122,15 @@ with sync_playwright() as pw:
                     tap(p, device, p.locator('[data-agenda-mode="month"]').first); p.wait_for_timeout(200); p.locator('[data-agenda-day="2026-11-10"] [data-agenda-date]').click(); p.wait_for_timeout(150)
                     p.locator('[data-agenda-daylist] .agenda-kind-renewal').filter(has_text='contrato').click()
                     check('renewal detail offers the HR record', p.locator('#agendaDialog [data-agenda-action="open-target"]').inner_text() == 'Abrir ficha no RH'); c.close()
+                    # Meu RH: o médico (sem agenda) desliga e volta a ligar o seu aniversário
+                    c, p, errors = open_agenda(browser, device, theme, 'test_med'); p.evaluate("App.showView('myhr')"); p.wait_for_timeout(300); cb = p.locator('[data-portal-birthday]')
+                    check('Meu RH shows the birthday option, on by default', cb.is_visible() and cb.is_checked())
+                    vis = "(k)=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser='test_admin';const a=AttendanceBookV4.actor(s);return GSAgenda.list(s,a,{start:'2026-11-01',end:'2026-11-30'}).rows.some(x=>x.kind==='birthday'&&/Médico/.test(x.title))}"
+                    tap(p, device, p.locator('[data-portal-birthday-row]')); p.wait_for_timeout(200)
+                    check('turning it off in Meu RH hides it from the agenda', p.evaluate(vis, K) is False and state(p)['audit'][0]['action'] == 'birthday-unshared')
+                    tap(p, device, p.locator('[data-portal-birthday-row]')); p.wait_for_timeout(200)
+                    check('turning it back on shows it again', p.evaluate(vis, K) is True and p.locator('[data-portal-birthday]').is_checked())
+                    check('birthday row fits the screen', p.evaluate('document.documentElement.scrollWidth<=innerWidth+2') and not errors); c.close()
                     c, p, errors = open_agenda(browser, device, theme, 'test_call')
                     check('call center has the agenda', p.locator('#agendaContent .agenda-grid').count() == 1)
                     tap(p, device, p.locator('[data-agenda-fab]') if device == 'mobile' else p.locator('[data-agenda-action="new"]').first)

@@ -12,7 +12,20 @@ function roleLabel(role){const r=norm(role);return r==='CALL CENTER'?'Call Cente
 function person(s,id){const k=String(id||'');return(s.users||[]).find(u=>String(u.id)===k)||s.employees?.[k]||null}
 function author(s,id){const p=person(s,id);return{id:String(id||''),name:p?.name||String(id||'—'),role:roleLabel(p?.role||p?.kind)}}
 const digits=p=>String(p||'').replace(/\D/g,'').slice(-9);
-function duplicates(requests,phone,exceptId){const d=digits(phone);if(d.length<9)return[];return(requests||[]).filter(r=>String(r.id)!==String(exceptId||'')&&digits(r.phone)===d)}
+const mail=e=>String(e||'').trim().toLowerCase();
+const validEmail=e=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail(e));
+function duplicates(requests,phone,exceptId,email){const d=digits(phone),m=mail(email);if(d.length<9&&!validEmail(m))return[];return(requests||[]).filter(r=>String(r.id)!==String(exceptId||'')&&!r.deleted&&((d.length>=9&&digits(r.phone)===d)||(validEmail(m)&&mail(r.email)===m)))}
+/* Para voltar a contactar é preciso telemóvel (9 dígitos) ou email válido. */
+function contact(phone,email){const p=String(phone||'').trim(),e=mail(email);if(!p&&!e)throw fail('Indique o telemóvel ou o email do utente para o voltar a contactar.');if(p&&digits(p).length<9)throw fail('Telemóvel inválido: indique pelo menos 9 dígitos.');if(e&&!validEmail(e))throw fail('Email inválido.');return{phone:p,email:e}}
+/* Lista «Por marcar»: tudo o que ainda não foi marcado e não foi eliminado pela direção. */
+const pending=r=>!!r&&!r.deleted&&r.stage!=='Marcado';
+const canDelete=role=>['CEO','ADMINISTRACAO'].includes(norm(role));
+function remove(r,ctx,reason){if(!canDelete(ctx.role))throw fail('Só o CEO ou a Administração podem eliminar pedidos por marcar.');if(!pending(r))throw fail('Este pedido já não está na lista por marcar.');const why=String(reason||'').trim();if(why.length<3)throw fail('Indique o motivo da eliminação.');return{...r,deleted:{at:ctx.at,by:String(ctx.actor),role:roleLabel(ctx.role),reason:why.slice(0,300)},revision:(r.revision||0)+1}}
+/* Trabalho por clínica de um perfil (ex.: Administrativas): pedidos, marcações, conversão, 1.º contacto e por marcar. */
+function clinicWork(s,requests,bookings,f={},role){const rows=new Map(),get=c=>{const k=String(c);if(!rows.has(k))rows.set(k,{clinic:k,people:new Set(),requests:0,marked:0,booked:0,times:[],pending:0});return rows.get(k)};
+ for(const r of requests||[]){if(r.deleted||!inRange(r.created||r.createdAt,f))continue;if(role&&r.createdByRole!==role)continue;const x=get(r.clinic);x.requests++;if(r.stage==='Marcado')x.marked++;if(pending(r))x.pending++;const t=firstContactMinutes(r);if(t!==null)x.times.push(t);if(r.createdBy)x.people.add(author(s,r.createdBy).name)}
+ for(const b of bookings||[]){if(!inRange(b.at,f))continue;if(role&&b.role!==role)continue;const x=get(b.clinic);x.booked++;x.people.add(author(s,b.by).name)}
+ return[...rows.values()].map(x=>({clinic:x.clinic,people:[...x.people].sort(),requests:x.requests,booked:x.booked,conversion:x.requests?Math.round(x.marked/x.requests*100):null,firstContactMinutes:x.times.length?Math.round(x.times.reduce((a,b)=>a+b,0)/x.times.length):null,pending:x.pending})).sort((a,b)=>b.booked-a.booked||b.requests-a.requests)}
 const day=v=>String(v||'').slice(0,10);
 const inRange=(v,f)=>{const d=day(v);return(!f.start||d>=f.start)&&(!f.end||d<=f.end)};
 const hourOf=v=>{const t=new Date(v);return Number.isNaN(t.getTime())?null:t.getHours()};
@@ -39,16 +52,16 @@ function hourly(bookings,requests,date,f={}){
 function emptyHours(bookings,date,nowIso,by){const now=new Date(nowIso),h=now.getHours(),done=day(nowIso)===date?h:21;return hourly(bookings,[],date,{by}).filter(r=>r.hour>=9&&r.hour<Math.min(done,20)&&!r.booked).map(r=>r.label)}
 function unmet(requests,f={}){
  const map=new Map();
- for(const r of requests||[]){if(!UNMET.includes(r.unmetReason)||!inRange(r.created||r.createdAt,f))continue;
+ for(const r of requests||[]){if(r.deleted||!UNMET.includes(r.unmetReason)||!inRange(r.created||r.createdAt,f))continue;
   const key=String(r.clinic)+'|'+(r.specialty||'—');const row=map.get(key)||{clinic:String(r.clinic),specialty:r.specialty||'—',total:0,recovered:0,waiting:0};
   row[r.unmetReason]=(row[r.unmetReason]||0)+1;row.total++;if(r.stage==='Marcado')row.recovered++;else if(!['Recusou','Cancelado','Sem resposta'].includes(r.stage))row.waiting++;map.set(key,row)}
  return[...map.values()].sort((a,b)=>b.total-a.total||a.specialty.localeCompare(b.specialty));
 }
-const due=(r,todayIso)=>!!r.recontactAt&&r.stage!=='Marcado'&&day(r.recontactAt)<=day(todayIso);
+const due=(r,todayIso)=>!r.deleted&&!!r.recontactAt&&r.stage!=='Marcado'&&day(r.recontactAt)<=day(todayIso);
 function firstContactMinutes(r){const created=Date.parse(r.created||r.createdAt),first=(r.history||[]).map(h=>Date.parse(h.at)).filter(Number.isFinite).sort((a,b)=>a-b)[0];return Number.isFinite(created)&&Number.isFinite(first)&&first>=created?Math.round((first-created)/60000):null}
 function topOf(list){const c=new Map();for(const x of list)if(x)c.set(x,(c.get(x)||0)+1);return[...c].sort((a,b)=>b[1]-a[1])[0]?.[0]||'—'}
 function kpis(s,requests,bookings,f={}){
- const okR=r=>inRange(r.created||r.createdAt,f)&&(!f.clinic||String(r.clinic)===String(f.clinic))&&(!f.specialty||r.specialty===f.specialty)&&(!f.source||r.source===f.source)&&(!f.role||r.createdByRole===f.role);
+ const okR=r=>!r.deleted&&inRange(r.created||r.createdAt,f)&&(!f.clinic||String(r.clinic)===String(f.clinic))&&(!f.specialty||r.specialty===f.specialty)&&(!f.source||r.source===f.source)&&(!f.role||r.createdByRole===f.role);
  const okB=b=>inRange(b.at,f)&&(!f.clinic||String(b.clinic)===String(f.clinic))&&(!f.specialty||b.specialty===f.specialty)&&(!f.source||b.source===f.source)&&(!f.role||b.role===f.role);
  const rs=(requests||[]).filter(okR),bs=(bookings||[]).filter(okB),marked=rs.filter(r=>r.stage==='Marcado').length;
  const times=rs.map(firstContactMinutes).filter(x=>x!==null);
@@ -60,5 +73,5 @@ function kpis(s,requests,bookings,f={}){
  return{requests:rs.length,booked:bs.length,conversion:rs.length?Math.round(marked/rs.length*100):null,firstContactMinutes:times.length?Math.round(times.reduce((a,b)=>a+b,0)/times.length):null,unmet:rs.filter(r=>UNMET.includes(r.unmetReason)&&r.stage!=='Marcado').length,operators,bySource:group(bs,'source'),bySpecialty:group(bs,'specialty'),byClinic:group(bs,'clinic'),byRole:group(bs,'role')};
 }
 function whatsappLink(phone){let d=String(phone||'').replace(/\D/g,'');if(d.length===9)d='351'+d;return d.length>=11?'https://wa.me/'+d:''}
-return{CHANNELS,REASONS,UNMET,MAX_ATTEMPTS,roleLabel,author,digits,duplicates,validChannel,validReason,booking,canUndo,hourly,emptyHours,unmet,due,firstContactMinutes,kpis,whatsappLink};
+return{CHANNELS,REASONS,UNMET,MAX_ATTEMPTS,roleLabel,author,digits,duplicates,contact,validEmail,pending,canDelete,remove,clinicWork,validChannel,validReason,booking,canUndo,hourly,emptyHours,unmet,due,firstContactMinutes,kpis,whatsappLink};
 });

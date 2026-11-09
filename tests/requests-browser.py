@@ -8,7 +8,7 @@ OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/requests-artifacts'));OUT.mkdi
 def check(name,ok):
  row={**scope,'case':name,'passed':bool(ok)};cases.append(row);print(json.dumps(row,ensure_ascii=False),flush=True);assert ok,row
 def st(p):return p.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',K)
-SETUP='''([k,a,t])=>{const s=JSON.parse(localStorage.getItem(k));s.masterSpecialties=[{id:'syn-o',name:'SYN Ortopedia',active:true},{id:'syn-d',name:'SYN Dermatologia',active:true}];s.clinicSpecialties={...(s.clinicSpecialties||{}),abranfir:['syn-o','syn-d'],loures:['syn-d'],lagoa:['syn-d']};s.requests=[];s.callBookings=[];s.currentUser=a;s.ceoRealUser='u1';s.ceoViewingAs=a==='u1'?null:a;localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+a,t)}'''
+SETUP='''([k,a,t])=>{const s=JSON.parse(localStorage.getItem(k));s.masterSpecialties=[{id:'syn-o',name:'SYN Ortopedia',active:true},{id:'syn-d',name:'SYN Dermatologia',active:true}];s.clinicSpecialties={...(s.clinicSpecialties||{}),abranfir:['syn-o','syn-d'],loures:['syn-d'],lagoa:['syn-d']};s.requests=[{id:'syn-foreign',created:'2026-11-01T10:00:00',clinic:'loures',specialty:'SYN Dermatologia',name:'SYN Loures externo',phone:'',email:'loures@example.invalid',stage:'Recusou',unmetReason:'Sem médico da especialidade',source:'Instagram',createdBy:'test_call',createdByRole:'Call Center',owner:'test_call',history:[]}];s.callBookings=[];s.currentUser=a;s.ceoRealUser='u1';s.ceoViewingAs=a==='u1'?null:a;localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:'+a,t)}'''
 def view(p):p.evaluate("App.showView('wait')");p.wait_for_selector('#waitContent');p.wait_for_timeout(250)
 def tap(p,loc,device):
  loc.tap() if device!='desktop' else loc.click()
@@ -27,30 +27,45 @@ with sync_playwright() as pw:
       check('clinical profile cannot register requests or bookings',not can and p.evaluate("(()=>{App.openRequestForm();return !document.getElementById('rSource')})()"));ctx.close();continue
      check('operational profile can register requests and bookings',can)
      view(p);tabs=p.locator('[data-req-tab]').all_inner_texts()
-     check('tabs match the profile',tabs[:3]==['Funil','Marcações hora a hora','Procura não satisfeita'] and (('Indicadores do call center' in tabs)==manager))
+     check('tabs match the profile',tabs[0]=='Funil' and tabs[1].startswith('Por marcar (') and tabs[2:4]==['Marcações hora a hora','Procura não satisfeita'] and (('Indicadores do call center' in tabs)==manager))
      # Novo pedido: origem obrigatória, sem vaga -> a aguardar vaga com data de recontacto, autor e perfil
      tap(p,p.locator('#wait .page-head button.primary',has_text='Novo pedido'),device);p.wait_for_selector('#rSource')
      if p.locator('#rClinic').is_enabled():p.select_option('#rClinic','abranfir');p.locator('#rClinic').dispatch_event('change')
      check('form opens on an authorised clinic with its specialties',p.input_value('#rClinic')=='abranfir' and p.locator('#rSpecialty option').all_inner_texts()==['SYN Ortopedia','SYN Dermatologia'])
      p.fill('#rName','SYN Maria');p.fill('#rPhone','912 345 678');p.locator('#rPhone').dispatch_event('input')
      check('phone without history is confirmed',"Sem pedidos anteriores" in p.inner_text('#rDup'))
-     tap(p,p.locator('#modal button.primary',has_text='Criar pedido'),device);p.wait_for_timeout(150)
-     check('origin is mandatory',len(st(p)['requests'])==0)
+     p.fill('#rPhone','');p.select_option('#rSource','WhatsApp');tap(p,p.locator('#modal button.primary',has_text='Criar pedido'),device);p.wait_for_timeout(150)
+     check('mobile or email is mandatory',len(st(p)['requests'])==1 and 'telemóvel ou o email' in p.inner_text('#toast'))
+     p.select_option('#rSource','');p.fill('#rPhone','912 345 678');tap(p,p.locator('#modal button.primary',has_text='Criar pedido'),device);p.wait_for_timeout(150)
+     check('origin is mandatory',len(st(p)['requests'])==1)
      p.select_option('#rSource','WhatsApp');p.select_option('#rReason','Sem vaga na especialidade');p.locator('#rReason').dispatch_event('change')
      check('no-slot reason proposes a recontact date',len(p.input_value('#rRecontact'))==10)
      tap(p,p.locator('#modal button.primary',has_text='Criar pedido'),device);p.wait_for_timeout(250)
-     r=st(p)['requests'][0]
+     r=[x for x in st(p)['requests'] if x['name']=='SYN Maria'][0]
      check('request keeps origin, reason, author and profile',r['source']=='WhatsApp' and r['unmetReason']=='Sem vaga na especialidade' and r['createdBy']==actor and r['createdByRole']==expected and r['stage']=='A aguardar vaga' and r['specialty']=='SYN Ortopedia')
      p.evaluate('App.openRequestForm()');p.fill('#rPhone','+351912345678');p.locator('#rPhone').dispatch_event('input')
      check('duplicate phone is flagged in another format','SYN Maria' in p.inner_text('#rDup'));p.evaluate("document.getElementById('modal').close()")
+     view(p);tap(p,p.locator('[data-req-tab=pending]'),device);p.wait_for_timeout(200)
+     seen=p.locator('[data-req-pending] .req-pending-main b').all_inner_texts();own_only=not p.evaluate("AccessScopeV4.canClinic('loures','waiting',JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2')))")
+     check('pending list shows new request and respects clinic access','SYN Maria' in seen and (('SYN Loures externo' in seen)!=own_only))
+     deleter=expected in ['CEO','Administração']
+     check('only CEO or Administração can delete from the pending list',(p.locator('[data-req-delete]').count()>0)==deleter)
+     if deleter and not own_only:
+      tap(p,p.locator('[data-req-pending="syn-foreign"] [data-req-delete]'),device);tap(p,p.locator('[data-req-delete-confirm]'),device);p.wait_for_timeout(150)
+      check('deleting requires a reason','motivo' in p.inner_text('#reqDeleteError'))
+      p.fill('#reqDeleteReason','SYN duplicado');tap(p,p.locator('[data-req-delete-confirm]'),device);p.wait_for_timeout(250)
+      d=[x for x in st(p)['requests'] if x['id']=='syn-foreign'][0]
+      check('deleted request leaves the list but keeps who, profile and why',d['deleted']['by']==actor and d['deleted']['role']==expected and d['deleted']['reason']=='SYN duplicado' and p.locator('[data-req-pending="syn-foreign"]').count()==0)
      # Detalhe: WhatsApp, tentativas e marcação automática ligada ao pedido (sem duplicar)
      p.evaluate('(id)=>App.openRequest(id)',r['id'])
      check('request detail shows author profile and WhatsApp link',expected in p.inner_text('.request-facts') and p.get_attribute('#modal a.req-wa','href')=='https://wa.me/351912345678')
      tap(p,p.locator('#modal button',has_text='Registar tentativa'),device);p.wait_for_timeout(200)
-     check('contact attempt recorded with history',st(p)['requests'][0]['contactAttempts']==1 and 'Tentativa de contacto 1' in st(p)['requests'][0]['history'][-1]['note'])
+     rr=[x for x in st(p)['requests'] if x['id']==r['id']][0];check('contact attempt recorded with history',rr['contactAttempts']==1 and 'Tentativa de contacto 1' in rr['history'][-1]['note'])
      for _ in range(2):
       p.evaluate('(id)=>App.openRequest(id)',r['id']);p.select_option('#editStage','Marcado');tap(p,p.locator('#modal button.primary',has_text='Guardar ação'),device);p.wait_for_timeout(200)
      bs=st(p)['callBookings']
+     view(p);tap(p,p.locator('[data-req-tab=pending]'),device);p.wait_for_timeout(200)
+     check('booked request disappears from the pending list','SYN Maria' not in p.locator('[data-req-pending] .req-pending-main b').all_inner_texts())
      check('booking the request counts once for its operator',len(bs)==1 and bs[0]['requestId']==r['id'] and bs[0]['by']==actor and bs[0]['role']==expected and bs[0]['source']=='WhatsApp')
      # +1 hora a hora e anulação pelo próprio
      view(p);tap(p,p.locator('[data-req-tab=bookings]'),device);p.wait_for_timeout(200)
@@ -71,6 +86,8 @@ with sync_playwright() as pw:
       tap(p,p.locator('[data-req-tab=kpis]'),device);p.wait_for_timeout(250)
       body=p.inner_text('[data-req-panel]')
       check('direction indicators show operator name and profile',expected in body and 'Pedido → marcação' in body)
+      tap(p,p.locator('[data-req-role="Administrativa"]'),device);p.wait_for_timeout(250)
+      check('administrativas indicators per clinic are available','Administrativas por clínica' in p.inner_text('[data-req-panel]'))
       p.select_option('#reqRole','Call Center' if expected!='Call Center' else 'Administrativa');p.wait_for_timeout(250)
       check('profile filter excludes other profiles','Sem atividade' in p.inner_text('[data-req-panel] table tbody'))
      check('no horizontal page overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'))

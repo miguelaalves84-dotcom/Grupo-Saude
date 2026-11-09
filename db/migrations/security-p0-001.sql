@@ -1,7 +1,7 @@
 -- DEVELOPMENT / DISPOSABLE TESTS ONLY. No automatic migration in a request handler.
 BEGIN;
 DO $$ BEGIN
- IF current_database() NOT IN ('gs_v4_security_synthetic','gs_v4_security_restore_synthetic') THEN
+ IF current_database() NOT IN ('gs_v4_security_synthetic','gs_v4_security_restore_synthetic','gs_v4_identity_test') THEN
   RAISE EXCEPTION 'SECURITY_MIGRATION_REQUIRES_DISPOSABLE_SYNTHETIC_DATABASE';
  END IF;
 END $$;

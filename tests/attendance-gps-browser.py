@@ -122,6 +122,7 @@ with sync_playwright() as pw:
                   s.gpsAttempts=[{id:'g1',user:'test_call',clinic:'syn-gps',at:C.instant('2026-11-09','08:58'),reason:'inaccurate',distanceApproxM:40,accuracyApproxM:70,coordinatesRetained:false}];localStorage.setItem(k,JSON.stringify(s))}''', K)
                 p.evaluate('AttendanceV4.render()'); board = p.locator('[data-attendance-now]')
                 check('now board lists open exit 30+ min after shift', 'saída por picar' in board.inner_text() and 'Call Center Teste' in board.inner_text())
+                check('no entry after shift end is not shown as minutes late', 'turno 09:00–18:00 terminou' in board.inner_text() and 'Atrasado 5' not in board.inner_text())
                 check('now board shown before the daily cards', p.evaluate("(()=>{const b=document.querySelector('[data-attendance-now]'),c=document.querySelector('#clockContent .cards');return !!b&&!!c&&!!(b.compareDocumentPosition(c)&Node.DOCUMENT_POSITION_FOLLOWING)})()"))
                 check('now board counts GPS failures', board.locator('.now-kpis').inner_text().split('Falhas de GPS hoje')[1].strip().startswith('1'))
                 p.evaluate('AttendanceBookV4.pending()'); p.locator('[data-gs-action="AttendanceBookV4.decision"]').first.click()

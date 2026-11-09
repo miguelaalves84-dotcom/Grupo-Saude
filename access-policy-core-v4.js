@@ -7,7 +7,7 @@ function defaults(r){
  const personal=['personal','clock','account','leaveRequest','performanceRead','peerReview'];
  if(r==='CEO'||r==='ADMINISTRAÇÃO')return actions.map(([k])=>k);
  if(r==='ADMINISTRATIVA')return [...personal,'agenda','stockRead','stockMove','stockConsume','stockRequest','stockReceive','stockTransfer','operation','openClinic','closeClinic','clinicTasks','waiting','bookings','complaints'];
- if(r==='CALL CENTER')return [...personal,'stockRead','stockRequest','waiting','bookings'];
+ if(r==='CALL CENTER')return [...personal,'agenda','stockRead','stockRequest','waiting','bookings'];
  return [...personal,'stockRead','stockConsume','stockRequest'];
 }
 

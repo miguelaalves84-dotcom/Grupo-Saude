@@ -80,7 +80,9 @@ with sync_playwright() as pw:
                     check('mobile month compact: day numbers only, no event cards', p.locator('.agenda-month .agenda-event:visible').count() == 0 and p.locator('[data-agenda-day="2026-11-10"] .agenda-dnum').is_visible())
                     check('mobile month fits the screen', p.evaluate("(()=>{const e=document.querySelector('.agenda-scroll');return e.scrollWidth<=e.clientWidth+2})()"))
                     p.locator('[data-agenda-day="2026-11-10"] [data-agenda-date]').tap(); p.wait_for_timeout(200)
-                    check('tapping a day opens the day view', p.locator('[data-agenda-day]').count() == 1 and p.locator('[data-agenda-mode="day"]').first.get_attribute('aria-pressed') == 'true')
+                    check('tapping a day keeps the month and lists that day below', p.locator('[data-agenda-day]').count() == 42 and p.locator('[data-agenda-daylist="2026-11-10"]').is_visible() and 'SYN Manhã' in p.locator('[data-agenda-daylist]').inner_text())
+                    p.locator('[data-agenda-daylist] [data-agenda-action="open-day"]').tap(); p.wait_for_timeout(200)
+                    check('«Ver o dia completo» opens the day view', p.locator('[data-agenda-day]').count() == 1 and p.locator('[data-agenda-mode="day"]').first.get_attribute('aria-pressed') == 'true')
                 check('no horizontal page overflow', p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
                 p.screenshot(path=str(OUT / f'agenda-{device}-{theme}.png'), full_page=True); c.close()
     finally:

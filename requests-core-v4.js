@@ -72,6 +72,13 @@ function kpis(s,requests,bookings,f={}){
  const group=(list,key)=>{const m=new Map();for(const x of list){const k=x[key]||'—';m.set(k,(m.get(k)||0)+1)}return[...m].sort((a,b)=>b[1]-a[1]).map(([name,count])=>({name,count}))};
  return{requests:rs.length,booked:bs.length,conversion:rs.length?Math.round(marked/rs.length*100):null,firstContactMinutes:times.length?Math.round(times.reduce((a,b)=>a+b,0)/times.length):null,unmet:rs.filter(r=>UNMET.includes(r.unmetReason)&&r.stage!=='Marcado').length,operators,bySource:group(bs,'source'),bySpecialty:group(bs,'specialty'),byClinic:group(bs,'clinic'),byRole:group(bs,'role')};
 }
+/* RGPD — minimização: depois de marcada, a consulta deixa de precisar dos dados do utente.
+   Mantém clínica, especialidade, médico, origem, motivo, autoria e datas; apaga identificação, contactos,
+   observações, patologia e as notas/contactos antigos guardados no histórico. */
+const PERSONAL=['phone','email','patientRef','patient_ref','notes','pathology'];
+function anonymize(r,at){const x={...r,name:'Utente (dados apagados após marcação)',anonymizedAt:at};for(const k of PERSONAL)if(k in x)x[k]='';
+ x.history=(r.history||[]).map(h=>{const{note,before,after,...rest}=h;return rest});return x}
+const ref=r=>'pedido '+String(r?.id||'').slice(-6);
 function whatsappLink(phone){let d=String(phone||'').replace(/\D/g,'');if(d.length===9)d='351'+d;return d.length>=11?'https://wa.me/'+d:''}
-return{CHANNELS,REASONS,UNMET,MAX_ATTEMPTS,roleLabel,author,digits,duplicates,contact,validEmail,pending,canDelete,remove,clinicWork,validChannel,validReason,booking,canUndo,hourly,emptyHours,unmet,due,firstContactMinutes,kpis,whatsappLink};
+return{anonymize,ref,CHANNELS,REASONS,UNMET,MAX_ATTEMPTS,roleLabel,author,digits,duplicates,contact,validEmail,pending,canDelete,remove,clinicWork,validChannel,validReason,booking,canUndo,hourly,emptyHours,unmet,due,firstContactMinutes,kpis,whatsappLink};
 });

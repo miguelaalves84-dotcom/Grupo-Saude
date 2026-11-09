@@ -68,6 +68,9 @@ with sync_playwright() as pw:
      bs=st(p)['callBookings']
      view(p);tap(p,p.locator('[data-req-tab=pending]'),device);p.wait_for_timeout(200)
      check('booked request disappears from the pending list','SYN Maria' not in p.locator('[data-req-pending] .req-pending-main b').all_inner_texts())
+     m=[x for x in st(p)['requests'] if x['id']==r['id']][0]
+     check('booking deletes patient data and keeps what indicators need',m['name'].startswith('Utente (dados apagados') and m['phone']=='' and m.get('email','')=='' and m['source']=='WhatsApp' and m['createdByRole']==expected and m['clinic']=='abranfir' and all('note' not in h for h in m['history']))
+     check('audit of the booking does not repeat the patient name',not any('SYN Maria' in (a.get('detail') or '') and a.get('action')=='Pedido trabalhado' for a in st(p)['audit']))
      check('booking the request counts once for its operator',len(bs)==1 and bs[0]['requestId']==r['id'] and bs[0]['by']==actor and bs[0]['role']==expected and bs[0]['source']=='WhatsApp')
      # +1 hora a hora e anulação pelo próprio
      view(p);tap(p,p.locator('[data-req-tab=bookings]'),device);p.wait_for_timeout(200)

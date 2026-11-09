@@ -7,7 +7,7 @@ let serial=0;const run=(s,action,b,time='09:00',who=actor)=>A.command(s,who,acti
 function full(){let s=base();for(const [type,time] of [['Entrada','09:00'],['Saída para almoço','13:00'],['Regresso do almoço','14:00'],['Saída','18:00']])s=run(s,'clock',{type,gps:point},time).state;return s}
 check('quatro marcações, oito horas e pausa de uma hora',()=>{const s=full(),r=A.summary(s,employee,'c1','2026-10-20',A.instant('2026-10-20','18:01'));assert.equal(r.minutes,480);assert.equal(r.pauseMinutes,60);assert.equal(r.balanceMinutes,0);assert.equal(A.phase(r.entries),'off');assert.equal(s.timeOccurrences.length,0)});
 check('GPS obrigatório nas quatro marcações rápidas',()=>{let s=base();for(const [type,time] of [['Entrada','09:00'],['Saída para almoço','13:00'],['Regresso do almoço','14:00'],['Saída','18:00']]){assert.throws(()=>run(s,'clock',{type},time),/GPS obrigatório/);s=run(s,'clock',{type,gps:point},time).state}assert.equal(s.timeEntries.length,4)});
-check('tolerância exata de cinco minutos',()=>{assert.throws(()=>run(base(),'clock',{type:'Entrada',gps:point},'08:54'),/5 minutos/);assert.doesNotThrow(()=>run(base(),'clock',{type:'Entrada',gps:point},'08:55'))});
+check('entrada só a partir de 2 minutos antes do horário',()=>{assert.throws(()=>run(base(),'clock',{type:'Entrada',gps:point},'08:57'),/2 minutos antes do horário \(09:00\)/);assert.doesNotThrow(()=>run(base(),'clock',{type:'Entrada',gps:point},'08:58'))});
 check('GPS fora da clínica, impreciso e coordenadas não conservadas',()=>{assert.throws(()=>A.gps(base().clinics[0],{...point,latitude:40}),/fora/);assert.throws(()=>A.gps(base().clinics[0],{...point,accuracy:101}),/impreciso/);const r=run(base(),'clock',{type:'Entrada',gps:point});assert(!JSON.stringify(r.state).includes('"latitude":38,"longitude":-9,"accuracy":5'));assert.equal(r.result.gps.coordinatesRetained,false);assert(!r.result.requestFingerprint.includes('latitude'))});
 check('confirmação, ordem e baixa aprovada bloqueiam ponto',()=>{assert.throws(()=>run(base(),'clock',{type:'Entrada',gps:point,confirmed:false}),/Confirme/);assert.throws(()=>run(base(),'clock',{type:'Saída'}),/próxima/);let s=base();s.leave=[{user:'e1',type:'Baixa',status:'Aprovado',start:'2026-10-20',end:'2026-10-22'}];assert.throws(()=>run(s,'clock',{type:'Entrada',gps:point}),/baixa/)});
 check('repetição idempotente e reutilização conflitante',()=>{const body={type:'Entrada',gps:point,requestId:'repeat-001'},r=run(base(),'clock',body);const twice=run(r.state,'clock',body);assert.equal(twice.result.replayed,true);assert.equal(twice.state.timeEntries.length,1);assert.throws(()=>run(r.state,'clock',{...body,reason:'diferente'}),/reutilizado/)});
@@ -40,4 +40,26 @@ check('pedido manual sem clínica é recusado sem criar registos órfãos',()=>{
 
 
 check('GPS reutiliza a ficha mestre aninhada e as colunas centrais sem duplicar configuração',()=>{assert(A.gps({gps:{lat:'38',lng:'-9',radius:100}},point).validated);assert(A.gps({latitude:38,longitude:-9,radius:100,gps:{lat:'',lng:'',radius:50}},point).validated);assert.throws(()=>A.gps({gps:{lat:'',lng:'',radius:50}},point),/por configurar/)});
+
+const point2={...point};
+function upTo(last){let s=base();for(const [type,time] of [['Entrada','09:00'],['Saída para almoço','13:00'],['Regresso do almoço','14:00']])s=run(s,'clock',{type,gps:point2},time).state;return run(s,'clock',{type:'Saída',gps:point2},last).state}
+check('saída até 2 minutos depois do horário é aceite sem pendência',()=>{const s=upTo('18:02');assert.equal(s.timeOccurrences.length,0)});
+check('saída mais de 2 minutos depois fica pendente e a gestão corrige a hora sem apagar o original',()=>{let s=upTo('18:25');const o=s.timeOccurrences[0],entry=s.timeEntries.at(-1);assert.equal(o.status,'Pendente');assert.equal(o.extraMinutes,25);assert.equal(o.entryId,entry.id);
+ assert.throws(()=>run(s,'decide',{id:o.id,revision:0,status:'Recusada',reason:'x',correctedTime:'18:00'},'18:40',admin),/apenas ao aprovar/);
+ assert.throws(()=>run(s,'decide',{id:o.id,revision:0,status:'Aprovada',reason:'x',correctedTime:'13:30'},'18:40',admin),/ordem/);
+ s=run(s,'decide',{id:o.id,revision:0,status:'Aprovada',reason:'Saiu à hora; esqueceu-se de picar',correctedTime:'18:00'},'18:40',admin).state;
+ assert.equal(s.timeEntries.at(-1).at,entry.at);assert.equal(A.localTime(A.events(s,'e1','2026-10-20').at(-1).at),'18:00');assert.equal(A.summary(s,employee,'c1','2026-10-20',A.instant('2026-10-20','19:00')).minutes,480);
+ const c=s.timeOccurrences.find(x=>x.sourceOccurrenceId===o.id);assert.equal(c.status,'Aprovada');assert.equal(c.reviewedBy,'a1');assert.equal(s.timeOccurrences[0].correctedAt,A.instant('2026-10-20','18:00'))});
+check('colaborador sem escala pica com GPS e cria ocorrência para aprovação',()=>{let s=base();s.users[0]={...employee,hr:{}};const free={...employee,hr:{}};
+ let r=run(s,'clock',{type:'Entrada',gps:point},'07:30');s=r.state;assert.equal(r.result.noSchedule,true);const o=s.timeOccurrences.find(x=>x.type==='Marcação sem escala');assert.equal(o.status,'Pendente');assert.equal(o.entryId,r.result.id);
+ assert.deepEqual(A.next(s,free,'c1','2026-10-20').options,['Saída','Saída para almoço']);
+ assert.throws(()=>run(s,'clock',{type:'Regresso do almoço',gps:point},'12:00'),/próxima/);
+ s=run(s,'clock',{type:'Saída',gps:point},'12:00').state;assert.equal(A.phase(A.events(s,'e1','2026-10-20')),'off');assert.equal(s.timeOccurrences.filter(x=>x.type==='Marcação sem escala').length,1);
+ assert.throws(()=>run(s,'clock',{type:'Entrada',newShift:true},'13:00'),/GPS obrigatório/);
+ s=run(s,'decide',{id:o.id,revision:0,status:'Aprovada',reason:'Horário combinado com RH'},'13:00',admin).state;assert.equal(s.timeOccurrences.find(x=>x.id===o.id).status,'Aprovada')});
+check('folga marcada na escala continua a bloquear o ponto',()=>{const s=base();s.monthlyRosters={'2026-10|c1':{e1:{days:{'2026-10-20':{off:true}}}}};assert.throws(()=>run(s,'clock',{type:'Entrada',gps:point},'09:00'),/folga/)});
+check('medição GPS e tentativas falhadas sem coordenadas',()=>{const c=base().clinics[0],m=A.measure(c,{latitude:38.002,longitude:-9,accuracy:12});assert.equal(m.inside,false);assert.equal(m.reason,'outside');assert.equal(m.distanceApproxM,220);assert.equal(A.measure(c,{...point,accuracy:150}).reason,'inaccurate');assert.equal(A.approx(2437),2400);
+ const r=A.logAttempt(base(),actor,'c1',{reason:'outside',distanceApproxM:m.distance,accuracyApproxM:12.4},A.instant('2026-10-20','08:59'));assert.equal(r.result.distanceApproxM,220);assert.equal(r.result.accuracyApproxM,13);assert.equal(r.result.coordinatesRetained,false);assert(!JSON.stringify(r.state.gpsAttempts).includes('38.002'));
+ assert.throws(()=>A.logAttempt(base(),actor,'c1',{reason:'qualquer'}),/inválido/);assert.throws(()=>A.logAttempt(base(),actor,'c9',{reason:'denied'}),/Clínica/);
+ const v=run(base(),'clock',{type:'Entrada',gps:{...point,samples:3}});assert.equal(v.result.gps.method,'best-of-3');assert.equal(v.result.gps.distanceApproxM,0)});
 console.log('PASS attendance domain and rosters: '+checks+' scenarios (synthetic; not browser or real authentication).');

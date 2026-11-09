@@ -343,3 +343,30 @@ body.topbar-more-open .topbar .top-actions>.workspace-clinic:not([hidden]),body.
 body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;flex:1 1 100%}
 }
 #topbarMore{display:none}
+/* Livro de ponto — ecrã de marcação (telemóvel primeiro) */
+.attendance-punch .punch-head{text-align:center;margin:4px 0 10px}.attendance-punch .punch-clock{font-size:46px;font-weight:800;letter-spacing:.02em;line-height:1.05;font-variant-numeric:tabular-nums}.attendance-punch .punch-date{color:var(--muted);font-size:13px}.attendance-punch .punch-why{margin:8px 0 0;text-align:center;font-weight:600;color:var(--warning)}.attendance-punch .punch-plan{margin-top:14px}.attendance-punch .punch-plan .attendance-daily-plan{margin:0 0 8px}
+.attendance-punch .punch-clinic{max-width:420px}
+.gps-card{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0;background:var(--surface-subtle,var(--soft))}.gps-card b{display:block;font-size:14px}.gps-card small{display:block;color:inherit;opacity:.9;margin-top:2px}
+.gps-card .gps-dot{flex:none;width:34px;height:34px;border-radius:50%;border:3px solid currentColor;position:relative;margin-top:2px}.gps-card .gps-dot:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:currentColor;left:50%;top:50%;transform:translate(-50%,-50%)}
+.gps-card[data-state=checking]{color:var(--primary)}.gps-card[data-state=checking] .gps-dot{animation:gpsPulse 1.2s ease-in-out infinite}
+.gps-card[data-state=ok]{background:var(--success-bg);border-color:var(--success);color:var(--success)}.gps-card[data-state=bad]{background:var(--danger-bg);border-color:var(--danger);color:var(--danger)}
+.gps-card .gps-tip{color:var(--ink);background:var(--surface);border-radius:8px;padding:6px 8px;margin-top:6px}
+.gps-progress{height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px}.gps-progress i{display:block;height:100%;width:0;background:currentColor;transition:width .4s}
+@keyframes gpsPulse{50%{opacity:.35}}@media (prefers-reduced-motion:reduce){.gps-card[data-state=checking] .gps-dot{animation:none}}
+.attendance-punch .punch-button{display:block;width:100%;min-height:84px;font-size:21px;font-weight:800;border-radius:18px;padding:14px 12px;margin:4px 0 0;background:var(--success);border-color:var(--success);color:#fff}.attendance-punch .punch-button small{display:block;font-size:13px;font-weight:600;opacity:.92;margin-top:2px}
+.attendance-punch .punch-button[data-punch-type="Saída para almoço"],.attendance-punch .punch-button[data-punch-type="Regresso do almoço"]{background:var(--warning);border-color:var(--warning)}
+.attendance-punch .punch-button:disabled{background:var(--line);border-color:var(--line);color:var(--muted);opacity:1}
+:root[data-theme=dark] .attendance-punch .punch-button:not(:disabled){color:#001322}
+.attendance-punch .punch-alt{display:block;width:100%;margin-top:8px}
+.attendance-punch .punch-today{display:flex;justify-content:space-between;margin:14px 0 6px;color:var(--muted)}.attendance-punch .punch-today b{color:var(--ink)}
+.punch-timeline{display:flex;flex-wrap:wrap;gap:6px}.punch-timeline span{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:12px}.punch-timeline span.ok{background:var(--success-bg);color:var(--success)}
+.attendance-punch .punch-more{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}.attendance-punch .punch-more button{font-size:13px;padding:7px 10px}
+.attendance-punch .punch-privacy{margin-top:8px}
+.attendance-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:var(--success);color:#fff;font-weight:700;padding:12px 18px;border-radius:12px;box-shadow:0 8px 24px #0004;opacity:0;pointer-events:none;transition:.25s;z-index:10000;max-width:calc(100vw - 32px)}.attendance-toast.show{opacity:1;transform:translate(-50%,0)}:root[data-theme=dark] .attendance-toast{color:#001322}
+@media (max-width:640px){.punch-metrics{grid-template-columns:1fr 1fr!important;gap:8px}.punch-metrics .card{padding:10px 12px;font-size:12px}.punch-metrics .metric{font-size:20px}}
+/* Livro de ponto — painel «Agora nas clínicas» */
+.attendance-now .now-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:8px 0 12px}.attendance-now .now-kpis>div{border:1px solid var(--line);border-radius:12px;padding:10px 12px}.attendance-now .now-kpis small{color:var(--muted)}.attendance-now .now-kpis b{display:block;font-size:24px}
+.attendance-now .now-kpis .warn b{color:var(--warning)}.attendance-now .now-kpis .bad b{color:var(--danger)}
+.attendance-now table{width:100%;border-collapse:collapse}.attendance-now th,.attendance-now td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);font-size:13px}.attendance-now th{color:var(--muted);font-size:12px}
+@media (max-width:640px){.attendance-now .now-kpis{grid-template-columns:1fr 1fr}.attendance-now table,.attendance-now tbody,.attendance-now tr,.attendance-now td{display:block}.attendance-now tr:first-child{display:none}.attendance-now tr{border-bottom:1px solid var(--line);padding:6px 0}.attendance-now td{border:0;padding:2px 0}}
+.gps-test-result{border-radius:10px;padding:8px 10px;margin:8px 0;font-size:13px}.gps-test-result.ok{background:var(--success-bg);color:var(--success)}.gps-test-result.bad{background:var(--danger-bg);color:var(--danger)}

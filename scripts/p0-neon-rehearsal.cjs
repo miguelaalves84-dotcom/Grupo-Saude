@@ -87,7 +87,7 @@ function run(action,env){
 }
 
 async function main(){
- mark('owner-url');const o=owner();mark('provision');const pw=await provision(o);mark('procedure'),tmp=process.env.RUNNER_TEMP||require('node:os').tmpdir();
+ mark('owner-url');const o=owner();mark('provision');const pw=await provision(o);mark('procedure');const tmp=process.env.RUNNER_TEMP||require('node:os').tmpdir();
  const dir=fs.mkdtempSync(path.join(tmp,'gs-p0-'));fs.chmodSync(dir,0o700);
  const keyFile=path.join(dir,'backup.key');fs.writeFileSync(keyFile,crypto.randomBytes(32),{mode:0o600,flag:'wx'});
  const ca=['/etc/ssl/certs/ca-certificates.crt','/etc/pki/tls/certs/ca-bundle.crt'].find(f=>fs.existsSync(f));

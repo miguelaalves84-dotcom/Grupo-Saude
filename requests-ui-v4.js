@@ -46,7 +46,7 @@ function bookingsPanel(s){
  const cs=clinics(s);if(!last.clinic||!cs.some(c=>String(c.id)===String(last.clinic)))last.clinic=String(cs[0]?.id||'');
  const me=actor(s),mine=(s.callBookings||[]).filter(b=>String(b.by)===me),rows=C().hourly(s.callBookings||[],s.requests||[],today(),{by:me}),hour=new Date().getHours(),empty=C().emptyHours(s.callBookings||[],today(),nowIso(),me);
  const recent=mine.filter(b=>b.at.slice(0,10)===today()).slice(-5).reverse();
- return`<section class="card req-book"><h3>Registo rápido — um toque por consulta marcada</h3>
+ return`<section class="card req-book"><h3>Consulta marcada — um toque, sem dados do utente</h3>
  ${flash?`<p class="notice ok" role="status">${E(flash)}</p>`:''}
  ${empty.length?`<p class="notice req-warn" role="alert">Horas sem nenhuma marcação registada hoje: <b>${E(empty.join(', '))}</b>. Se marcou consultas nessas horas, registe-as agora.</p>`:''}
  <div class="form-grid req-book-form">${select('bkClinic','Clínica',cs.map(c=>[c.id,c.name]),last.clinic)}<label>Especialidade${specialtyField(s,last.clinic,'bkSpecialty',last.specialty)}</label>${select('bkSource','Como chegou até nós?',C().CHANNELS,last.source,'Escolher…')}</div>

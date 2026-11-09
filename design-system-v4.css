@@ -370,3 +370,4 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 .attendance-now table{width:100%;border-collapse:collapse}.attendance-now th,.attendance-now td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);font-size:13px}.attendance-now th{color:var(--muted);font-size:12px}
 @media (max-width:640px){.attendance-now .now-kpis{grid-template-columns:1fr 1fr}.attendance-now table,.attendance-now tbody,.attendance-now tr,.attendance-now td{display:block}.attendance-now tr:first-child{display:none}.attendance-now tr{border-bottom:1px solid var(--line);padding:6px 0}.attendance-now td{border:0;padding:2px 0}}
 .gps-test-result{border-radius:10px;padding:8px 10px;margin:8px 0;font-size:13px}.gps-test-result.ok{background:var(--success-bg);color:var(--success)}.gps-test-result.bad{background:var(--danger-bg);color:var(--danger)}
+.gps-card[data-state=idle]{color:var(--muted)}

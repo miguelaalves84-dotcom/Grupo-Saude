@@ -79,6 +79,8 @@ with sync_playwright() as pw:
                 check('entry blocked 3 minutes early with visible reason', nudge_until(p, INSIDE, "document.querySelector('.punch-button').disabled&&document.getElementById('attendancePunchWhy').textContent.includes('08:58')"))
                 p.clock.set_system_time(at('08:58')); relocate(p, INSIDE)
                 check('entry allowed 2 minutes early', nudge_until(p, INSIDE, "!document.querySelector('.punch-button').disabled"))
+                p.clock.run_for(31000)
+                check('expired validation keeps the big button usable', p.evaluate("!document.querySelector('.punch-button').disabled&&document.getElementById('attendanceGpsStatus').textContent.includes('por confirmar')"))
                 punch(p); s = state(p)
                 check('entry recorded without coordinates', len(s['timeEntries']) == 1 and s['timeEntries'][0]['gps']['coordinatesRetained'] is False and '39.46695' not in json.dumps(s))
                 check('confirmation toast shown', 'Entrada registada' in p.locator('#attendanceToast').inner_text())

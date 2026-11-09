@@ -44,3 +44,29 @@ html[data-theme=dark] .agenda-toolbar [data-agenda-action=new]{color:#001322}
  .agenda-controls>.agenda-filters{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
  .agenda-controls>.agenda-filters>button{white-space:nowrap}
 }
+/* Botão Dia/Semana/Mês escolhido: sempre legível (rato, foco e toque), nos dois temas. */
+.agenda-toolbar [data-agenda-mode][aria-pressed=true],.agenda-toolbar [data-agenda-mode][aria-pressed=true]:hover,.agenda-toolbar [data-agenda-mode][aria-pressed=true]:focus-visible{background:var(--primary);border-color:var(--primary);color:#fff}
+html[data-theme=dark] .agenda-toolbar [data-agenda-mode][aria-pressed=true],:root[data-theme=dark] .agenda-toolbar [data-agenda-mode][aria-pressed=true]:hover{color:#001322}
+/* Linha do tempo: continuação depois da meia-noite, notas de folga/férias e contagem no mês. */
+.agenda-event.agenda-continued{border-left-style:dashed;opacity:.92}
+.agenda-note{margin:0 0 8px;padding:6px 8px;border-radius:6px;background:var(--warning-bg,#fff4e5);color:var(--warning,#a15c00);font-size:12px;font-weight:700}
+.agenda-dnum{display:none}
+.agenda-count{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:6px;padding:0 6px;border-radius:999px;background:var(--primary);color:#fff;font-size:12px;font-weight:800;vertical-align:middle}
+html[data-theme=dark] .agenda-count{color:#001322}
+@media(max-width:600px){
+ /* Semana: lista vertical por dia, sem deslizar para o lado. */
+ .agenda-week{grid-template-columns:1fr;min-width:0}
+ .agenda-week section.agenda-day{border-right:0;min-height:0}
+ .agenda-week .agenda-slot:not(.agenda-add-day){display:none}
+ .agenda-week .agenda-add-day{display:flex}
+ /* Mês: grelha compacta só com o número de marcações; tocar no dia abre-o. */
+ .agenda-month{grid-template-columns:repeat(7,minmax(0,1fr));min-width:0}
+ .agenda-month section.agenda-day{min-height:58px;padding:4px 2px;text-align:center}
+ .agenda-month section.agenda-day h2{margin:0}
+ .agenda-month section.agenda-day h2 button{width:100%;min-height:44px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+ .agenda-month .agenda-dlong{display:none}.agenda-month .agenda-dnum{display:inline;font-size:15px}
+ .agenda-month .agenda-count{margin:2px 0 0;min-width:20px;height:20px;font-size:11px}
+ .agenda-month .agenda-event,.agenda-month .agenda-slot,.agenda-month .agenda-empty,.agenda-month .agenda-note{display:none}
+}
+
+.agenda-add-day{display:none}

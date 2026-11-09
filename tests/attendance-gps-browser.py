@@ -132,6 +132,10 @@ with sync_playwright() as pw:
                 check('approved with corrected time; original kept', s['timeOccurrences'][0]['status'] == 'Aprovada' and s['timeEntries'][3]['at'].endswith('18:15:00.000Z') and p.evaluate("GSAttendanceCore.localTime(GSAttendanceCore.events(JSON.parse(localStorage.getItem('%s')),'test_med').at(-1).at)" % K) == '18:00')
                 p.evaluate("document.querySelectorAll('dialog[open]').forEach(d=>d.close())")
                 p.clock.set_system_time(at('09:20')); p.evaluate('AttendanceV4.render()')
+                first = p.locator('[data-attendance-now]').inner_text()
+                if 'Atrasado 20 min' not in first:  # diagnóstico: guarda o que estava no ecrã antes de redesenhar
+                    print(json.dumps({'diagnostic': 'late board first read', 'now': p.evaluate('new Date().toISOString()'), 'board': first[:800], 'view': p.evaluate("[...document.querySelectorAll('#clockContent > *')].map(e=>e.className+'#'+(e.id||'')).join(' | ')")}, ensure_ascii=False), flush=True)
+                    p.evaluate('AttendanceV4.render()')
                 check('now board flags late arrival without entry', 'Atrasado 20 min' in p.locator('[data-attendance-now]').inner_text())
                 check('no horizontal overflow (manager)', p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
                 p.screenshot(path=str(OUT / f'manager-{device}-{theme}.png'), full_page=True)

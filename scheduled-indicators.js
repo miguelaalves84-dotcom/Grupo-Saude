@@ -2,7 +2,6 @@
 (()=>{'use strict';
 const KEY='grupo_saude_v4_demo_2',SLOTS=['10:00','12:00','14:00','16:00','18:00'];
 const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}},write=s=>localStorage.setItem(KEY,JSON.stringify(s));
-const names={u1:'Marta Ferreira',u2:'Joana Lopes',u3:'Paulo Rocha',u4:'Sofia Martins'};
 function nowMinutes(){const n=new Date();return n.getHours()*60+n.getMinutes()}
 function slotMinutes(x){const [h,m]=x.split(':').map(Number);return h*60+m}
 function day(s){return s?.days?.[`${s.opDate}_${s.opClinic}`]}

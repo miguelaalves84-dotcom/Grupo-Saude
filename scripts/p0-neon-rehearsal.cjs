@@ -6,8 +6,8 @@
    variáveis de ambiente dos processos-filho.
 
    1. Provisão (administrador): acessos gs_test_migrator/gs_test_runtime e gs_restore_migrator/
-      gs_restore_runtime sem privilégios elevados, com palavras-passe aleatórias enviadas já como
-      verificadores SCRAM-SHA-256; base gs_v4_test (mantida) e clone gs_v4_test_restore (recriado vazio).
+      gs_restore_runtime sem privilégios elevados, com palavras-passe aleatórias de 192 bits (a Neon guarda-as
+      como SCRAM-SHA-256); base gs_v4_test (mantida) e clone gs_v4_test_restore (recriado vazio).
    2. Procedimento P0.1 existente (scripts/p0-test-environment.cjs), sem alterações:
       plan → bootstrap → backup → migrate → permissions → verify → backup;
       clone: bootstrap → restore (origem = gs_v4_test) → verify. */
@@ -46,9 +46,10 @@ async function provision(o){
   for(const [key,role] of Object.entries(ROLES)){
    const pw=crypto.randomBytes(24).toString('base64url');mask(pw);passwords[key]=pw;
    mark('role:'+key);const exists=(await db.query('select 1 from pg_roles where rolname=$1',[role])).rowCount===1;
+   // A Neon só aceita a palavra-passe em claro (verifica a entropia) e guarda-a como SCRAM; vai por TLS verificado e está mascarada.
    // Sem superutilizador, ALTER não pode repetir SUPERUSER/REPLICATION/BYPASSRLS: confirmam-se a seguir.
    const attrs=(exists?'LOGIN NOCREATEDB NOCREATEROLE':'LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS')+(key.endsWith('Runtime')?' NOINHERIT':'');
-   await db.query(`${exists?'ALTER':'CREATE'} ROLE ${ident(role)} WITH ${attrs} PASSWORD ${lit(scram(pw))}`);
+   await db.query(`${exists?'ALTER':'CREATE'} ROLE ${ident(role)} WITH ${attrs} PASSWORD ${lit(o.localTest?scram(pw):pw)}`);
    const r=(await db.query('select rolsuper,rolcreatedb,rolcreaterole,rolreplication,rolbypassrls,rolcanlogin,rolinherit from pg_roles where rolname=$1',[role])).rows[0];
    if(r.rolsuper||r.rolcreatedb||r.rolcreaterole||r.rolreplication||r.rolbypassrls||!r.rolcanlogin||(key.endsWith('Runtime')&&r.rolinherit))throw fail('P0_ROLE_ATTRIBUTES_UNSAFE');
    if((await db.query('select count(*)::int n from pg_auth_members m join pg_roles r on r.oid=m.member where r.rolname=$1',[role])).rows[0].n)throw fail('P0_ROLE_MEMBERSHIP_NOT_ALLOWED');

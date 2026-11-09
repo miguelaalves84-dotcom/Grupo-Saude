@@ -24,7 +24,7 @@ function owner(){
  if(!['postgres:','postgresql:'].includes(u.protocol)||!u.username||!u.password)throw fail('P0_OWNER_SECRET_INVALID');
  const host=u.hostname.replace('-pooler.','.');// sempre o endpoint direto
  mask(u.password);mask(u.hostname);mask(host);mask(decodeURIComponent(u.password));
- if(!/^ep-[a-z0-9-]+\.eu-[a-z]+-\d\.aws\.neon\.tech$/.test(host))throw fail('P0_OWNER_NOT_EU_NEON_DIRECT');
+ if(!/^ep-[a-z0-9-]+(?:\.c-\d+)?\.eu-[a-z]+-\d\.aws\.neon\.tech$/.test(host))throw fail('P0_OWNER_NOT_EU_NEON_DIRECT');
  if(process.env.VERCEL_ENV==='production'||process.env.NODE_ENV==='production')throw fail('P0_PRODUCTION_REFUSED');
  return{host,user:decodeURIComponent(u.username),password:decodeURIComponent(u.password),database:decodeURIComponent(u.pathname.slice(1)||'neondb')};
 }

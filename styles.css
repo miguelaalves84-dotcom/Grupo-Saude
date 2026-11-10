@@ -145,3 +145,4 @@ th{background:var(--soft);color:var(--muted)}
 #stockForm .form-grid>fieldset[data-stock-receipt]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 #stockForm .form-grid>fieldset[data-stock-receipt] legend{font-weight:700;padding:0 4px}
 @media(max-width:760px){#stockForm .form-grid>fieldset[data-stock-receipt]{grid-template-columns:1fr 1fr}}
+.stock-price-table{display:block;max-width:100%;overflow-x:auto;white-space:nowrap}

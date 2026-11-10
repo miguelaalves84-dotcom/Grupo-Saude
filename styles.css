@@ -146,3 +146,5 @@ th{background:var(--soft);color:var(--muted)}
 #stockForm .form-grid>fieldset[data-stock-receipt] legend{font-weight:700;padding:0 4px}
 @media(max-width:760px){#stockForm .form-grid>fieldset[data-stock-receipt]{grid-template-columns:1fr 1fr}}
 .stock-price-table{display:block;max-width:100%;overflow-x:auto;white-space:nowrap}
+[data-stock-level] b{display:block}[data-stock-level] small{display:block;color:var(--muted);font-size:12px}
+.stock-level{display:block;width:120px;max-width:100%;height:6px;border-radius:6px;background:var(--line);margin:4px 0;overflow:hidden}.stock-level i{display:block;height:100%;background:#16a34a;border-radius:6px}.stock-level.low i{background:#f59e0b}.stock-level.empty i{background:#e11d48}

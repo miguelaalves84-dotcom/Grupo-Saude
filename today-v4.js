@@ -1,0 +1,60 @@
+/* Ecrã «Hoje» e navegação (barra inferior no telemóvel, «Hoje» no menu).
+   Só apresenta dados já autorizados pelos módulos existentes (pendências, pedidos, agenda, indicadores). */
+(()=>{'use strict';
+const K='grupo_saude_v4_demo_2',R=()=>JSON.parse(localStorage.getItem(K)||'{}'),$=id=>document.getElementById(id),
+E=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icon=n=>window.WorkspaceShellV4?.icon?WorkspaceShellV4.icon(n):'';
+const can=v=>{try{return !!window.RoleAccessAdminV4?.guard(v)}catch{return false}};
+const day=()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const actor=s=>{try{return window.AttendanceBookV4.actor(s)}catch{return null}};
+// Tom por tipo de pendência: cor e ícone coerentes em todo o ecrã.
+const tone=k=>/^(leave|document|roster|occurrence|regularization|entry|hr-portal|development|peer|candidate|occupational)/.test(k)?['g','check']:/^(cash|invoice|payment|payslip)/.test(k)?['p','wallet']:/^agenda/.test(k)?['b','calendar']:/^(alert|backup|email-alert|complaint)/.test(k)?['r','alert']:/^chat|communication/.test(k)?['b','chat']:['y','file'];
+const MOD={hr:'Recursos Humanos',finance:'Financeiro',agenda:'Agenda',operation:'Operação',stock:'Stock',chat:'Chat',complaints:'Reclamações',marketing:'Marketing',clinics:'Clínicas',security:'Segurança',recruitment:'Recrutamento',myhr:'Meu RH',clock:'Livro de ponto'};
+const label=b=>{const c=b.cloneNode(true);c.querySelectorAll('svg,[data-attention-count],i,.counter,.attention-counter').forEach(x=>x.remove());return c.textContent.trim().replace(/^[^\p{L}\p{N}]*/u,'')};
+const VIEW={today:['Hoje','dashboard'],agenda:['Agenda','calendar'],wait:['Pedidos','target'],clock:['Ponto','clock'],myhr:['Meu RH','people'],chat:['Chat','chat'],operation:['Operação','clinic']};
+function first(s){const a=actor(s);return String(a?.name||'').trim().split(/\s+/)[0]||''}
+function greeting(){const h=new Date().getHours();return h<6?'Boa noite':h<13?'Bom dia':h<20?'Boa tarde':'Boa noite'}
+function waiting(s){if(!can('wait'))return 0;try{return (window.AccessScopeV4?.activeClinics?.(s)||s.clinics||[]).filter(c=>AccessScopeV4.canClinic(c.id,'waiting',s)).reduce((n,c)=>n+(window.GSOperationCore?.waitingCount(s,c.id)||0),0)}catch{return 0}}
+function agendaToday(s){if(!can('agenda'))return[];try{return GSAgenda.list(s,actor(s),{start:day(),end:day()}).rows.filter(x=>x.status!=='Cancelada')}catch{return[]}}
+function pending(){try{return (window.AttentionUIV4?.items()||[]).filter(x=>!x.resolvedAt)}catch{return[]}}
+function count(){const s=R();return pending().filter(x=>x.mode!=='info').length+(waiting(s)?1:0)+(agendaToday(s).some(x=>x.kind==='renewal')?1:0)}
+function row(t,ic,title,sub,attr,go='Ver'){return `<button type="button" class="today-item" ${attr}><span class="today-ic tone-${t}">${icon(ic)}</span><span class="today-text"><strong>${E(title)}</strong>${sub?`<small>${E(sub)}</small>`:''}</span><span class="today-go">${E(go)}</span></button>`}
+function render(){const root=$('todayContent');if(!root)return;const s=R();if(!s.currentUser){root.innerHTML='';return}
+ const a=actor(s),today=day(),items=pending(),act=items.filter(x=>x.mode!=='info'),info=items.filter(x=>x.mode==='info').slice(0,3),w=waiting(s),ag=agendaToday(s),ren=ag.filter(x=>x.kind==='renewal'),next=ag.filter(x=>x.kind!=='renewal'&&x.kind!=='birthday').sort((p,q)=>(p.allDay?'':p.startsAt).localeCompare(q.allDay?'':q.startsAt)),bdays=ag.filter(x=>x.kind==='birthday');
+ const need=[...(w?[row('b','target',w===1?'1 pedido por marcar':w+' pedidos por marcar','Lista de pedidos das suas clínicas','data-today-view="wait"','Abrir')]:[]),...(ren.length?[row('r','file',ren.length===1?'1 renovação de contrato ou documento':ren.length+' renovações de contratos ou documentos',ren.slice(0,2).map(x=>x.title.replace(/^Renovar /,'')).join(' · '),'data-today-view="agenda"','Abrir')]:[]),...act.slice(0,8).map(x=>{const[t,ic]=tone(x.kind);return row(t,ic,x.title,MOD[x.module]||'',`data-today-attention="${E(x.id)}"`)})];
+ const more=act.length>8?`<button type="button" class="today-more" data-today-all>Ver todas as ${act.length} pendências</button>`:'';
+ let kpis='';if(window.AccessScopeV4?.canDashboard?.(s)){try{const d=AccessScopeV4.dashboard(s,{start:today,end:today}),t=d.totals||{};kpis=`<section class="today-kpis" aria-label="Indicadores de hoje">${[['Consultas hoje',t.consultations,'Previstas: '+(t.plannedConsultations??0)],['Tratamentos hoje',t.treatments,'Previstos: '+(t.plannedTreatments??0)],['Pedidos por marcar',w,'Todas as clínicas autorizadas'],['Pendências',act.length,'Aprovações e assuntos']].map(([l,v,n])=>`<div class="today-kpi"><small>${E(l)}</small><b>${E(v??0)}</b><em>${E(n)}</em></div>`).join('')}</section>`}catch{}}
+ const hubs=Object.keys(window.GSModuleDashboards?.definitions||{}).filter(k=>can('hub-'+k));
+ const quick=[['agenda','Agenda','calendar'],['wait','Pedidos','target'],['clock','Livro de ponto','clock'],['myhr','Meu RH','people'],['operation','Operação diária','clinic'],['chat','Chat','chat'],['hr','Colaboradores','people'],['dashboard','Dashboard','dashboard']].filter(([v])=>can(v));
+ root.innerHTML=`<header class="today-head"><h1 class="today-sr">Hoje</h1><p>${E(new Intl.DateTimeFormat('pt-PT',{weekday:'long',day:'numeric',month:'long'}).format(new Date()).replace(/^./,c=>c.toUpperCase()))}</p><p class="today-hello">${E(greeting())}${first(s)?', '+E(first(s)):''}</p></header>
+ <div class="today-grid"><section class="today-card today-need" aria-labelledby="todayNeedTitle"><h2 id="todayNeedTitle">Precisa de si${need.length?` <span class="today-badge">${act.length+(w?1:0)+(ren.length?1:0)}</span>`:''}</h2>${need.join('')||`<div class="today-empty" data-today-empty><span class="today-ic tone-g">${icon('check')}</span><div><strong>Está tudo em dia</strong><small>Não há aprovações nem pedidos à sua espera.</small></div></div>`}${more}</section>
+ <div class="today-side">${kpis}${can('agenda')?`<section class="today-card"><h2>Agenda de hoje</h2>${next.slice(0,4).map(x=>row('b','calendar',x.title,x.allDay?'Todo o dia':new Intl.DateTimeFormat('pt-PT',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Lisbon'}).format(new Date(x.startsAt)),'data-today-view="agenda"','')).join('')||'<p class="today-muted">Nada marcado para hoje.</p>'}${bdays.length?`<p class="today-bday">🎂 ${bdays.map(x=>E(x.title.replace(/^Aniversário d[aeo]s? /,''))).join(', ')}</p>`:''}</section>`:''}
+ ${info.length?`<section class="today-card"><h2>Para saber</h2>${info.map(x=>{const[t,ic]=tone(x.kind);return row(t,ic,x.title,'',`data-today-attention="${E(x.id)}"`,'Ver')}).join('')}</section>`:''}</div></div>
+ <section class="today-card"><h2>Atalhos</h2><div class="today-quick">${quick.map(([v,l,ic])=>`<button type="button" data-today-view="${v}"><span class="today-ic tone-b">${icon(ic)}</span>${E(l)}</button>`).join('')}</div>${hubs.length?`<h3 class="today-sub">Indicadores por área</h3><div class="today-chips">${hubs.map(k=>`<button type="button" data-today-view="hub-${E(k)}">${E(GSModuleDashboards.definitions[k]?.title||k)}</button>`).join('')}</div>`:''}</section>`;
+ root.querySelectorAll('[data-today-view]').forEach(b=>b.onclick=()=>window.App?.showView(b.dataset.todayView));
+ root.querySelectorAll('[data-today-attention]').forEach(b=>b.onclick=()=>window.AttentionUIV4?.open(b.dataset.todayAttention));
+ root.querySelector('[data-today-all]')?.addEventListener('click',()=>$('attentionToggle')?.click());
+ tabbar()}
+// Barra inferior (telemóvel): 4 entradas escolhidas pelas permissões do perfil + «Mais».
+function tabs(){return ['today','agenda','wait','clock','myhr','chat','operation'].filter(can).slice(0,4)}
+function badge(v,s){if(v==='today')return count();if(v==='wait')return waiting(s);if(v==='chat')return Number($('navUnread')?.textContent||0)||0;return 0}
+function tabbar(){const s=R();let bar=$('gsTabbar');if(!s.currentUser){bar?.remove();return}if(!bar){bar=document.createElement('nav');bar.id='gsTabbar';bar.className='gs-tabbar';bar.setAttribute('aria-label','Navegação rápida');document.body.appendChild(bar);document.body.classList.add('has-tabbar')}
+ const active=document.querySelector('main .view.active')?.id;
+ bar.innerHTML=tabs().map(v=>{const n=badge(v,s);return `<button type="button" data-tab="${v}" ${active===v?'aria-current="page"':''}>${icon(VIEW[v][1])}<span>${VIEW[v][0]}</span>${n?`<i aria-label="${n} pendentes">${n>99?'99+':n}</i>`:''}</button>`}).join('')+`<button type="button" data-tab="more" aria-haspopup="dialog">${icon('menu')}<span>Mais</span></button>`;
+ bar.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>b.dataset.tab==='more'?sheet():window.App?.showView(b.dataset.tab))}
+// «Mais»: todos os módulos visíveis do menu, por grupo, em ícones. Cada botão encaminha para o original.
+function sheet(){let d=$('gsMoreSheet');if(!d){d=document.createElement('dialog');d.id='gsMoreSheet';d.className='gs-sheet';document.body.appendChild(d);d.addEventListener('click',e=>{if(e.target===d)d.close()})}
+ const nav=$('nav'),groups=[...(nav?.querySelectorAll('details[data-nav-group]')||[])].filter(g=>!g.hidden).map(g=>[g.dataset.navGroup,[...g.querySelectorAll('button')].filter(b=>!b.hidden&&b.offsetParent!==null||(!b.hidden&&getComputedStyle(b).display!=='none'&&!b.closest('[hidden]'))).filter(b=>!String(b.dataset.view||'').startsWith('hub-')&&b.dataset.view!=='today')]).filter(([,bs])=>bs.length);
+ d.innerHTML=`<div class="gs-sheet-handle"></div><header><h2>Todos os módulos</h2><button type="button" class="gs-sheet-close" aria-label="Fechar">×</button></header>${groups.map(([t,bs],gi)=>`<h3>${E(t==='Dashboard Geral'?'Painel':t)}</h3><div class="gs-sheet-grid">${bs.map((b,i)=>`<button type="button" data-sheet="${gi}:${i}">${b.querySelector('svg')?.outerHTML||icon('file')}<span>${E(label(b))}</span></button>`).join('')}</div>`).join('')}`;
+ d.querySelector('.gs-sheet-close').onclick=()=>d.close();
+ d.querySelectorAll('[data-sheet]').forEach(x=>x.onclick=()=>{const[gi,i]=x.dataset.sheet.split(':').map(Number);d.close();groups[gi][1][i].click()});
+ d.showModal()}
+// «Hoje» no topo do menu lateral.
+function navEntry(){const menu=document.querySelector('#nav .nav-menu')||$('nav');if(!menu)return;let b=$('navToday');if(!b){b=document.createElement('button');b.id='navToday';b.type='button';b.dataset.view='today';b.className='nav-today';b.innerHTML=icon('dashboard')+'<span>Hoje</span>'}
+ if(menu.firstElementChild!==b)menu.prepend(b);b.hidden=!R().currentUser;b.classList.toggle('active',document.querySelector('main .view.active')?.id==='today')}
+function refresh(){navEntry();if($('today')?.classList.contains('active'))render();else tabbar()}
+document.addEventListener('gs:view-changed',e=>{if(e.detail?.id==='today')render();else tabbar();navEntry()});
+for(const ev of ['gs:state-changed','gs:user-changed','gs:permissions-applied'])document.addEventListener(ev,()=>setTimeout(refresh,0));
+document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{navEntry();const hash=String(location.hash||'').slice(1);if(!hash&&R().currentUser&&can('today'))window.App?.showView('today');else refresh()},0));
+window.TodayV4={render,count,tabs,sheet};
+})();

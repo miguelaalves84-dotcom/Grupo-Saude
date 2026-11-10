@@ -1,0 +1,40 @@
+/* Ecrã «Hoje» e barra inferior. Usa os tokens do design-system (claro e escuro). */
+#today{--t-b:#dbeafe;--t-b-i:#1d4ed8;--t-g:#dcfce7;--t-g-i:#15803d;--t-y:#fef3c7;--t-y-i:#b45309;--t-r:#ffe4e6;--t-r-i:#be123c;--t-p:#f3e8ff;--t-p-i:#7e22ce}
+:root[data-theme=dark] #today{--t-b:#1e3a8a55;--t-b-i:#93c5fd;--t-g:#14532d66;--t-g-i:#86efac;--t-y:#78350f66;--t-y-i:#fcd34d;--t-r:#88133766;--t-r-i:#fda4af;--t-p:#581c8766;--t-p-i:#d8b4fe}
+.today-head{margin:4px 0 18px}.today-head p{margin:0;color:var(--muted);font-size:14px}.today-head .today-hello{margin:2px 0 0;font-size:28px;line-height:1.2;color:var(--ink);font-weight:800}.today-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.today-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start;margin-bottom:16px}
+.today-side{display:flex;flex-direction:column;gap:16px;min-width:0}
+.today-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}
+.today-card h2{font-size:15px;margin:0 0 8px;color:var(--ink);display:flex;align-items:center;gap:8px}.today-sub{font-size:13px;color:var(--muted);margin:14px 0 8px;font-weight:600}
+.today-badge{background:var(--danger,#e11d48);color:#fff;border-radius:999px;font-size:12px;padding:1px 8px;font-weight:700}
+.today-item{display:flex;align-items:center;gap:12px;width:100%;min-height:52px;padding:8px 4px;border:0;border-top:1px solid var(--line);background:none;color:var(--ink);text-align:left;cursor:pointer;font:inherit;border-radius:0}
+.today-card h2+.today-item{border-top:0}.today-item:hover,.today-item:focus-visible{background:var(--surface-subtle)}
+.today-text{flex:1;min-width:0;display:flex;flex-direction:column}.today-text strong{font-size:14px;font-weight:600;overflow-wrap:anywhere}.today-text small{color:var(--muted);font-size:12px}
+.today-go{color:var(--accent);font-weight:700;font-size:13px}
+.today-ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none}.today-ic .gs-icon{width:18px;height:18px}
+.tone-b{background:var(--t-b);color:var(--t-b-i)}.tone-g{background:var(--t-g);color:var(--t-g-i)}.tone-y{background:var(--t-y);color:var(--t-y-i)}.tone-r{background:var(--t-r);color:var(--t-r-i)}.tone-p{background:var(--t-p);color:var(--t-p-i)}
+.today-empty{display:flex;gap:12px;align-items:center;padding:10px 4px}.today-empty strong{display:block;color:var(--ink)}.today-empty small{color:var(--muted)}
+.today-more{margin-top:8px;background:none;border:0;color:var(--accent);font-weight:700;cursor:pointer;padding:8px 4px}
+.today-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}.today-kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}.today-kpi small{color:var(--muted);font-size:12px;display:block}.today-kpi b{font-size:26px;color:var(--ink);display:block;line-height:1.2}.today-kpi em{font-style:normal;color:var(--muted);font-size:11px}
+.today-muted{color:var(--muted);margin:4px;font-size:14px}.today-bday{margin:10px 4px 0;font-size:13px;color:var(--ink)}
+.today-quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.today-quick button{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;font-size:13px;min-height:88px}.today-quick button:hover{border-color:var(--accent)}
+.today-chips{display:flex;flex-wrap:wrap;gap:8px}.today-chips button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;font:inherit;font-size:13px;min-height:40px}
+/* Menu lateral: «Hoje» no topo. */
+#nav .nav-today{display:flex;align-items:center;gap:10px;width:100%}
+/* Barra inferior */
+.gs-tabbar{display:none}
+@media(max-width:760px){
+ .today-grid{grid-template-columns:1fr}.today-head .today-hello{font-size:24px}.today-quick{grid-template-columns:repeat(3,1fr)}
+ body.has-tabbar{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+ body.has-tabbar .gs-tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;height:calc(64px + env(safe-area-inset-bottom));padding:0 4px env(safe-area-inset-bottom);background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -4px 16px #0f172a14}
+ .gs-tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:none;color:var(--muted);font:inherit;font-size:11px;position:relative;min-width:0;cursor:pointer}
+ .gs-tabbar .gs-icon{width:22px;height:22px}.gs-tabbar button[aria-current=page]{color:var(--accent);font-weight:700}
+ .gs-tabbar i{position:absolute;top:6px;left:calc(50% + 6px);background:var(--danger,#e11d48);color:#fff;font-style:normal;font-size:10px;font-weight:700;border-radius:9px;padding:0 5px;line-height:16px;min-width:16px;text-align:center}
+ body.has-tabbar .agenda-fab{bottom:calc(84px + env(safe-area-inset-bottom))}
+}
+.gs-sheet{border:0;padding:8px 16px 20px;margin:auto 0 0;width:100%;max-width:100%;max-height:85vh;border-radius:22px 22px 0 0;background:var(--surface);color:var(--ink)}
+.gs-sheet::backdrop{background:#0f172a66}.gs-sheet-handle{width:40px;height:4px;border-radius:4px;background:var(--line);margin:4px auto 8px}
+.gs-sheet header{display:flex;align-items:center;justify-content:space-between}.gs-sheet h2{font-size:17px;margin:0}.gs-sheet h3{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:16px 0 8px}
+.gs-sheet-close{border:0;background:var(--surface-subtle);border-radius:50%;width:36px;height:36px;font-size:20px;color:var(--ink);cursor:pointer}
+.gs-sheet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.gs-sheet-grid button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border:0;border-radius:14px;background:var(--surface-subtle);color:var(--ink);font:inherit;font-size:12px;text-align:center;min-height:76px;cursor:pointer}.gs-sheet-grid .gs-icon{width:22px;height:22px;color:var(--accent)}
+@media(min-width:761px){.gs-sheet{max-width:520px;margin:auto;border-radius:22px}}

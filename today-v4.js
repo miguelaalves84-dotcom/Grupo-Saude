@@ -55,6 +55,7 @@ function navEntry(){const menu=document.querySelector('#nav .nav-menu')||$('nav'
 function refresh(){navEntry();if($('today')?.classList.contains('active'))render();else tabbar()}
 document.addEventListener('gs:view-changed',e=>{if(e.detail?.id==='today')render();else tabbar();navEntry()});
 for(const ev of ['gs:state-changed','gs:user-changed','gs:permissions-applied'])document.addEventListener(ev,()=>setTimeout(refresh,0));
-document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{navEntry();const hash=String(location.hash||'').slice(1);if(!hash&&R().currentUser&&can('today'))window.App?.showView('today');else refresh()},0));
+// Início: decidido logo no arranque (sem atraso), para nunca se sobrepor a uma navegação já feita.
+document.addEventListener('DOMContentLoaded',()=>{navEntry();const hash=String(location.hash||'').slice(1);if(!hash&&R().currentUser&&can('today'))window.App?.showView('today');else refresh()});
 window.TodayV4={render,count,tabs,sheet};
 })();

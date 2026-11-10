@@ -21,7 +21,7 @@ SEED = """([k,theme])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUse
  s.days={...(s.days||{}),'syn-b1':{date:'2026-10-20',clinic:'abranfir',closed:true,stockClosing:{at:'2026-10-20T19:00:00Z',by:'test_adm',sales:[{employeeId:'test_tec',productId:'laser',quantity:40},{employeeId:'test_med',productId:'laser',quantity:20}]}},'syn-b2':{date:'2026-12-10',clinic:'abranfir',closed:true,stockClosing:{at:'2026-12-10T19:00:00Z',by:'test_adm',sales:[{employeeId:'test_tec',productId:'laser',quantity:10}]}}};
  s.marketplaceSales=[];
  s.timeOccurrences=[...(s.timeOccurrences||[]).filter(x=>!String(x.id).startsWith('syn-ot')),{id:'syn-ot1',user:'test_tec',clinic:'abranfir',type:'Horas extraordinárias',status:'Aprovada',at:'2026-12-03T18:30:00Z',extraMinutes:120,approvedExtraMinutes:120},{id:'syn-ot2',user:'test_tec',clinic:'abranfir',type:'Horas extraordinárias',status:'Pendente',at:'2026-12-04T18:30:00Z',extraMinutes:60}];
- s.hourBank={uses:[]};s.bonusDecisions={};delete s.bonusRules;
+ s.leave=[...(s.leave||[]).filter(x=>x.id!=='syn-adm-sick'),{id:'syn-adm-sick',user:'test_adm',type:'Baixa médica',status:'Aprovada',start:'2026-10-01',end:'2026-10-15'}];s.hourBank={uses:[]};s.bonusDecisions={};delete s.bonusRules;
  localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:u1',theme)}"""
 
 
@@ -59,6 +59,11 @@ with sync_playwright() as pw:
                 check('cannot approve before confirming the internal regulation', state(p).get('bonusDecisions', {}).get('2026-Q4', {}).get('__approvedAt') is None)
                 for pid in ['test_tec', 'test_med', 'test_admin']:
                     p.select_option(f'[data-fb-reg="{pid}"]', '1'); p.wait_for_timeout(350)
+                check('administrativa with 15 sick days waits for the CEO', 'aguarda decisão do CEO' in txt(p.locator('[data-fb-person="test_adm"]')) and p.locator('[data-fb-ceo="test_adm"]').count() == 1)
+                p.locator('[data-fb-approve]').click(); p.wait_for_timeout(400)
+                check('approval blocked until the CEO decides', state(p).get('bonusDecisions', {}).get('2026-Q4', {}).get('__approvedAt') is None)
+                p.select_option('[data-fb-ceo="test_adm"]', '1'); p.wait_for_timeout(400)
+                check('CEO «Mantém» restores the share', '18,75 €' in txt(p.locator('[data-fb-person="test_adm"]')) and 'CEO' in txt(p.locator('[data-fb-person="test_adm"]')))
                 p.select_option('[data-fb-reg="test_adm"]', '0'); p.wait_for_timeout(350)
                 check('«Não cumpre» the regulation loses the share', '0,00 €' in txt(p.locator('[data-fb-person="test_adm"]')))
                 p.locator('[data-fb-approve]').click(); p.wait_for_timeout(600)

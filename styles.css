@@ -156,3 +156,4 @@ th{background:var(--soft);color:var(--muted)}
 .hb-card .page-head{align-items:flex-start}.hb-balance{text-align:right}.hb-balance strong{display:block;font-size:28px}.hb-balance small{display:block;color:var(--muted);font-size:12px}
 .hb-form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin:8px 0}.hb-form label{display:flex;flex-direction:column;gap:4px;flex:1 1 120px}
 .hb-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line);margin:0;flex-wrap:wrap}.hb-row small{display:block;color:var(--muted);font-size:12px}
+.fb-ceo{display:flex;flex-direction:column;gap:2px;margin-top:6px;font-size:12px}

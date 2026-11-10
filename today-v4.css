@@ -70,3 +70,8 @@ table.hrl-vac{font-size:12px}table.hrl-vac td,table.hrl-vac th{text-align:center
 @media (max-width:640px){.hrg-obj{grid-template-columns:1fr}.hrg-filter label{min-width:0;flex:1 1 140px}}
 [data-theme=dark] .hrg-level.l1{background:#451a03;color:#fde68a}[data-theme=dark] .hrg-level.l2{background:#1e3a8a;color:#bfdbfe}[data-theme=dark] .hrg-level.l3{background:#14532d;color:#bbf7d0}
 [data-hrg-sim-out] .hrg-table{min-width:0}
+/* Marketing — plano de ações do mês */
+.mkp .page-head{align-items:flex-start;gap:12px;flex-wrap:wrap}.mkp-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);font-size:13px}
+.mkp-action{border:1px solid var(--line);border-left:4px solid #f59e0b;border-radius:12px;padding:12px 14px;margin:10px 0;background:var(--surface)}.mkp-action.ok{border-left-color:#16a34a}.mkp-action.no{border-left-color:#94a3b8;opacity:.8}
+.mkp-action p{margin:4px 0}.mkp-action ol{margin:6px 0 8px;padding-left:20px}.mkp-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.mkp-tags{display:flex;flex-wrap:wrap;gap:6px}.mkp-tags span{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line)}

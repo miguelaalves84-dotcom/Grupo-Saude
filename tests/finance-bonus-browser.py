@@ -74,7 +74,7 @@ with sync_playwright() as pw:
                 # técnico vê o seu bónus em Faturas
                 as_(p, 'test_tec'); p.evaluate("FinanceUIV4.open('invoices')"); p.wait_for_timeout(700)
                 me = p.locator('[data-fb-mine]')
-                check('technician sees own bonus in «Faturas» (quarter in progress + approved previous one)', me.count() == 1 and '2026-Q4: aprovado · 71,50 €' in txt(me) and p.locator('[data-fb-admin]').count() == 0)
+                check('technician sees own bonus in «Faturas» (quarter in progress + approved previous one)', me.count() == 1 and '4.º trimestre de 2026: aprovado · 71,50 €' in txt(me) and p.locator('[data-fb-admin]').count() == 0)
                 # bolsa de horas
                 p.evaluate("App.showView('clock')"); p.wait_for_timeout(700); hb = p.locator('[data-hb]')
                 check('hour bank counts only authorised overtime (2h00, pending 1h not counted)', hb.locator('[data-hb-balance]').inner_text() == '2h00')

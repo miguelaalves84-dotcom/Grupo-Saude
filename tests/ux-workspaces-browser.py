@@ -39,7 +39,8 @@ with sync_playwright() as pw:
      p.wait_for_function('(k)=>{const s=JSON.parse(localStorage.getItem(k));return window.GSTestAgentV4?.ready===true&&Array.isArray(s.chatMessages)&&!!s.notificationPrefs}',arg=K)
      manager=actor in ['u1','test_admin'];check('Dashboard respects effective role',p.evaluate('RoleAccessAdminV4.guard("dashboard")')==manager)
      if manager:
-      p.locator('#dashPeriodToggle').click();p.locator('#dashStart').fill('2026-10-19');p.locator('#dashEnd').fill('2026-10-25');p.locator('#dashApply').click()
+      # O início passou a ser «Hoje» (aprovado); o Dashboard abre-se explicitamente.
+      p.evaluate('App.showView("dashboard")');p.locator('#dashPeriodToggle').click();p.locator('#dashStart').fill('2026-10-19');p.locator('#dashEnd').fill('2026-10-25');p.locator('#dashApply').click()
       check('dashboard action hint does not overlap the metric note',p.locator('.executive-kpi').evaluate_all('(cards)=>cards.every(c=>{const a=c.querySelector(".smart-card-action").getBoundingClientRect(),n=c.querySelector("span:not(.smart-card-action)").getBoundingClientRect();return a.right<=n.left+1||a.top>=n.bottom-1||a.bottom<=n.top+1})'));before=business_snapshot(p);start=p.locator('#dashStart').input_value();end=p.locator('#dashEnd').input_value()
       for key in ['consultations','treatments','newRequests','pending']:
        card=p.locator('[data-dash-kpi="'+key+'"]');card.tap() if device!='desktop' else card.click();check('dashboard '+key+' opens detail in applied period',p.locator('#modal').evaluate('(e)=>e.open') and start in p.locator('#modalBody').inner_text() and end in p.locator('#modalBody').inner_text())

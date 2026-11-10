@@ -126,3 +126,22 @@ th{background:var(--soft);color:var(--muted)}
 #waitContent .req-pending-main{display:grid;gap:2px;min-width:0;flex:1 1 320px}#waitContent .req-pending-main>*{overflow-wrap:anywhere}
 #waitContent .req-pending-actions{display:flex;gap:6px;flex-wrap:wrap}#waitContent .req-pending-actions>*{min-height:40px}
 #waitContent .req-roles{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}#waitContent .req-roles button{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line,#d5e0eb);background:var(--surface,#fff);font-weight:600}#waitContent .req-roles button.on{background:var(--primary,#155dcc);border-color:var(--primary,#155dcc);color:#fff}
+/* Stock: pedidos com vários produtos, aprovação em lote, fases das encomendas e histórico de preços */
+.stock-phase{display:flex;align-items:center;gap:8px;margin:18px 0 8px;font-size:15px}
+.stock-done{margin-top:16px}.stock-done>summary{cursor:pointer;font-weight:600;padding:8px 0}
+.stock-suggest{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface-subtle)}.stock-suggest>b{display:block;margin-bottom:6px}
+.stock-suggest .compliance-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border:0}
+.stock-request-line,.stock-approve-line{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) auto;gap:10px;align-items:end;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 8px}
+.stock-request-line legend,.stock-approve-line legend{font-weight:700;padding:0 4px}
+.stock-approve-line{display:block}.stock-approve-line.refused{opacity:.6}.stock-approve-line.refused [name=quantity],.stock-approve-line.refused [name=price]{text-decoration:line-through}
+.stock-approve-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stock-price-hint{margin:6px 0 0;font-size:12px}
+.stock-check{display:flex;align-items:center;gap:8px;flex-direction:row}
+.stock-price-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0}.stock-price-summary>div{border:1px solid var(--line);border-radius:12px;padding:10px}.stock-price-summary small{display:block;color:var(--muted)}.stock-price-summary b{display:block;font-size:20px}.stock-price-summary span{font-size:12px;color:var(--muted)}
+.stock-price-table{width:100%;font-size:13px}
+[data-stock-all-ok]{min-height:48px;font-size:16px}
+@media(max-width:760px){.stock-request-line{grid-template-columns:1fr 1fr}.stock-request-line>label:first-of-type{grid-column:1/-1}.stock-approve-grid{grid-template-columns:1fr 1fr}.stock-price-summary{grid-template-columns:1fr}}
+#stockForm .form-grid>.span-2,#stockForm .form-grid>fieldset.stock-approve-line,#stockForm .form-grid>fieldset[data-stock-receipt],#stockForm .form-grid>#stockRequestLines{grid-column:1/-1}
+#stockForm .form-grid>fieldset[data-stock-receipt]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+#stockForm .form-grid>fieldset[data-stock-receipt] legend{font-weight:700;padding:0 4px}
+@media(max-width:760px){#stockForm .form-grid>fieldset[data-stock-receipt]{grid-template-columns:1fr 1fr}}

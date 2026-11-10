@@ -148,3 +148,11 @@ th{background:var(--soft);color:var(--muted)}
 .stock-price-table{display:block;max-width:100%;overflow-x:auto;white-space:nowrap}
 [data-stock-level] b{display:block}[data-stock-level] small{display:block;color:var(--muted);font-size:12px}
 .stock-level{display:block;width:120px;max-width:100%;height:6px;border-radius:6px;background:var(--line);margin:4px 0;overflow:hidden}.stock-level i{display:block;height:100%;background:#16a34a;border-radius:6px}.stock-level.low i{background:#f59e0b}.stock-level.empty i{background:#e11d48}
+/* Bónus trimestral (Faturas) */
+.fb-wrap{display:grid;gap:12px;margin:0 0 16px}.fb-mine .metric{font-size:28px}.fb-cond{display:block;color:var(--muted);font-size:12px}.fb-warn{color:#be123c;font-size:13px;display:block}
+.fb-admin>summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:8px;align-items:center}.fb-table small{display:block;color:var(--muted);font-size:12px}
+.fb-inline{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin:8px 0}.fb-inline label{display:flex;flex-direction:column;gap:4px;flex:1 1 140px}
+.fb-prod small{display:block;color:var(--muted);font-size:12px}.fb-prod tr.fb-alert td{background:#fff1f2}
+.hb-card .page-head{align-items:flex-start}.hb-balance{text-align:right}.hb-balance strong{display:block;font-size:28px}.hb-balance small{display:block;color:var(--muted);font-size:12px}
+.hb-form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin:8px 0}.hb-form label{display:flex;flex-direction:column;gap:4px;flex:1 1 120px}
+.hb-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line);margin:0;flex-wrap:wrap}.hb-row small{display:block;color:var(--muted);font-size:12px}

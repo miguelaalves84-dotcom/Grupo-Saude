@@ -15,8 +15,8 @@ def check(name, value):
 
 
 SEED = """([k,theme])=>{const s=JSON.parse(localStorage.getItem(k));s.masterSpecialties=[...(s.masterSpecialties||[]).filter(x=>!String(x.id).startsWith('syn-sp')),{id:'syn-sp-cardio',name:'Cardiologia',active:true},{id:'syn-sp-fisio',name:'Fisioterapia',active:true}];
- s.clinicSpecialties={...(s.clinicSpecialties||{}),abranfir:['syn-sp-cardio','syn-sp-fisio']};for(const c of s.clinics)if(c.id==='abranfir')c.phone='241 000 111';
- const cap=Object.fromEntries(Array.from({length:7},(_,d)=>[d,{treatments:32}]));const patch=(u)=>{if(u.id==='test_med'){u.specialtyIds=['syn-sp-cardio'];u.hr={...(u.hr||{}),storyConsent:false}}if(u.id==='test_tec'){u.specialtyIds=['syn-sp-fisio'];u.hr={...(u.hr||{}),weeklyCapacity:cap}}};
+ s.clinicSpecialties={...(s.clinicSpecialties||{}),abranfir:['syn-sp-cardio','syn-sp-fisio']};for(const c of s.clinics)if(c.id==='abranfir'){c.phone='241 000 111';c.nif='500000000';c.ers={...(c.ers||{}),license:'E123456'}}
+ const cap=Object.fromEntries(Array.from({length:7},(_,d)=>[d,{treatments:32}]));const patch=(u)=>{if(u.id==='test_med'){u.specialtyIds=['syn-sp-cardio'];u.hr={...(u.hr||{}),storyConsent:false,professionalLicense:'OM 12345'}}if(u.id==='test_tec'){u.specialtyIds=['syn-sp-fisio'];u.hr={...(u.hr||{}),weeklyCapacity:cap}}};
  s.users.forEach(patch);for(const [id,e] of Object.entries(s.employees||{})){e.id=e.id||id;patch(e)}delete s.socialStories;s.opClinic='abranfir';
  localStorage.setItem(k,JSON.stringify(s));for(const u of ['test_adm','test_med'])localStorage.setItem('gs-v4-theme:'+u,theme)}"""
 AS = "([k,u])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser=u;s.ceoViewingAs=u==='u1'?null:u;localStorage.setItem(k,JSON.stringify(s))}"
@@ -60,6 +60,9 @@ with sync_playwright() as pw:
                 check('saving the opening shows one story per specialty and technical area', card.count() == 1 and card.locator('[data-sst-item]').count() == 2 and 'Cardiologia' in card.inner_text() and 'Fisioterapia' in card.inner_text())
                 src = card.locator('[data-sst-item="spec:CARDIOLOGIA"] img').get_attribute('src')
                 check('story mentions today, the clinic phone and the consenting doctor', 'quarta-feira%2C%2011%20de%20novembro' in src and '241%20000%20111' in src and 'M%C3%A9dico%20Teste' in src)
+                chk = card.locator('[data-sst-item="spec:CARDIOLOGIA"] [data-sst-check]')
+                check('story checked against health advertising rules (DL 238/2015, ERS 1058/2016)', chk.get_attribute('data-sst-check') == 'ok' and 'Cumpre as regras' in chk.inner_text())
+                check('story includes a cardiology health tip with source, identification (NIF, ERS) and disclaimer', 'SABIA%20QUE' in src and 'Fonte%3A' in src and 'Registo%20ERS%20n.%C2%BA%20E123456' in src and 'NIF%20500000000' in src and 'substitui%20a%20avalia' in src and 'c%C3%A9dula%20n.%C2%BA%20OM%2012345' in src)
                 with p.expect_download() as dl: card.locator('[data-sst-png]').first.click()
                 f = OUT / f'story-{device}-{theme}.png'; dl.value.save_as(str(f)); head = f.read_bytes()[:24]
                 check('download is a 1080×1920 PNG', head[:8] == b'\x89PNG\r\n\x1a\n' and int.from_bytes(head[16:20], 'big') == 1080 and int.from_bytes(head[20:24], 'big') == 1920)
@@ -72,6 +75,9 @@ with sync_playwright() as pw:
                 check('both stories marked as published (logged with who and when)', len(st) == 2 and all(x['status'] == 'Publicada' and x['history'][-1]['by'] == 'test_adm' for x in st) and '2/2 publicadas' in p.locator('[data-sst]').inner_text())
                 p.evaluate("App.showView('today')"); p.wait_for_timeout(400)
                 check('reminder disappears once published', 'histórias de hoje' not in p.locator('.today-need').inner_text())
+                p.evaluate("k=>{const s=JSON.parse(localStorage.getItem(k));for(const c of s.clinics)if(c.id==='abranfir')c.ers={...c.ers,license:''};localStorage.setItem(k,JSON.stringify(s))}", K); p.reload(); p.wait_for_function('window.SocialStoriesV4'); p.evaluate("App.showView('operation')"); p.wait_for_timeout(700)
+                blk = p.locator('[data-sst-item="spec:CARDIOLOGIA"]')
+                check('without the ERS registration the story is blocked (no share/download)', blk.locator('[data-sst-check]').get_attribute('data-sst-check') == 'block' and blk.locator('[data-sst-png]').is_disabled() and blk.locator('[data-sst-share]').is_disabled() and 'registo/licença ERS' in blk.inner_text())
                 check('no external requests', not external); check('no page errors', not errors); check('no horizontal overflow', p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
                 p.evaluate("App.showView('operation')"); p.wait_for_timeout(500); p.screenshot(path=str(OUT / f'social-stories-{device}-{theme}.png')); c.close()
     finally:

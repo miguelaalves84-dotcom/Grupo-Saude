@@ -80,3 +80,6 @@ table.hrl-vac{font-size:12px}table.hrl-vac td,table.hrl-vac th{text-align:center
 .sst-item{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:14px;padding:10px;background:var(--surface)}
 .sst-item img{width:110px;aspect-ratio:9/16;border-radius:10px;object-fit:cover;box-shadow:0 4px 14px #0f172a33}
 .sst-item small{display:block;color:var(--muted);font-size:12px;margin:2px 0 6px}.sst-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.sst-actions button{padding:6px 10px;font-size:13px}
+.sst-check{font-size:12px;font-weight:700;margin:6px 0;padding:6px 8px;border-radius:8px}.sst-check ul{margin:4px 0 0;padding-left:16px;font-weight:400}.sst-check li small{display:block;color:var(--muted)}
+.sst-check.ok{background:#dcfce7;color:#166534}.sst-check.warn{background:#fef3c7;color:#92400e}.sst-check.bad{background:#ffe4e6;color:#9f1239}
+[data-theme=dark] .sst-check.ok{background:#14532d;color:#bbf7d0}[data-theme=dark] .sst-check.warn{background:#451a03;color:#fde68a}[data-theme=dark] .sst-check.bad{background:#4c0519;color:#fecdd3}

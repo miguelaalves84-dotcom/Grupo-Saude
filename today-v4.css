@@ -83,3 +83,8 @@ table.hrl-vac{font-size:12px}table.hrl-vac td,table.hrl-vac th{text-align:center
 .sst-check{font-size:12px;font-weight:700;margin:6px 0;padding:6px 8px;border-radius:8px}.sst-check ul{margin:4px 0 0;padding-left:16px;font-weight:400}.sst-check li small{display:block;color:var(--muted)}
 .sst-check.ok{background:#dcfce7;color:#166534}.sst-check.warn{background:#fef3c7;color:#92400e}.sst-check.bad{background:#ffe4e6;color:#9f1239}
 [data-theme=dark] .sst-check.ok{background:#14532d;color:#bbf7d0}[data-theme=dark] .sst-check.warn{background:#451a03;color:#fde68a}[data-theme=dark] .sst-check.bad{background:#4c0519;color:#fecdd3}
+/* Marketing — imagens para publicações */
+.mki-form{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 12px}.mki-form label{display:flex;flex-direction:column;gap:4px;flex:1 1 170px;font-size:13px}
+.mki-body{display:grid;grid-template-columns:minmax(200px,320px) 1fr;gap:16px;align-items:start}.mki-preview{width:100%;border-radius:14px;box-shadow:0 6px 20px #0f172a33}
+.mki-preview.mki-story{max-width:240px}.mki-caption{display:flex;flex-direction:column;gap:4px;font-size:13px}.mki-caption textarea{width:100%;font-size:13px}
+@media (max-width:640px){.mki-body{grid-template-columns:1fr}.mki-preview{max-width:300px;margin:0 auto}}

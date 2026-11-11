@@ -166,3 +166,11 @@ th{background:var(--soft);color:var(--muted)}
 .fb-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:12px;border:1px solid var(--line);border-radius:12px;margin:0 0 8px;background:var(--surface)}
 .fb-table td{display:block;padding:0;border:0;min-width:0!important;max-width:100%}.fb-table .fb-chip{white-space:normal}.fb-table td.fb-name{grid-column:1}.fb-table td.fb-value{grid-column:2;grid-row:1;text-align:right}.fb-table td[data-label="Vendas"]{grid-column:1/-1;text-align:left;color:var(--muted);font-size:13px}.fb-table td[data-label="Vendas"]::before{content:"Vendas: "}
 .fb-table td.fb-conds,.fb-table td.fb-regcell,.fb-table td[data-label="Conta corrente"]{grid-column:1/-1}.fb-table td.fb-regcell::before{content:"Regulamento";display:block;font-size:12px;color:var(--muted);margin-bottom:2px}}
+/* Ligações em todo o programa (data-goto) */
+.gs-link{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 45%,transparent);text-underline-offset:3px;cursor:pointer;min-height:0}
+.gs-link:hover,.gs-link:focus-visible{color:var(--primary,#1d4ed8);text-decoration-color:currentColor}
+.gs-fix{display:inline-flex;align-items:center;gap:4px;margin:4px 0 0;padding:3px 10px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font:600 12px/1.4 inherit;cursor:pointer;min-height:0}
+.gs-fix:hover,.gs-fix:focus-visible{background:color-mix(in srgb,currentColor 12%,transparent)}
+.gs-goto-focus{outline:3px solid #f59e0b!important;outline-offset:2px;box-shadow:0 0 0 6px #f59e0b33!important;transition:outline-color .3s}
+.gs-goto-area{animation:gsGotoPulse 1s ease-in-out 3}
+@keyframes gsGotoPulse{0%,100%{background-color:transparent}50%{background-color:#fef3c7}}

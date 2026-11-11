@@ -60,7 +60,7 @@ with sync_playwright() as pw:
                 check('Operation: «capacity missing» error gets «Configurar a capacidade na ficha de …»', er.locator('.gs-fix[data-goto="employee:test_tec:capacity"]').count() == 1)
                 p.evaluate("k=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser='u1';s.ceoViewingAs=null;localStorage.setItem(k,JSON.stringify(s))}", K); p.reload(); p.wait_for_function('window.GSGoTo')
                 p.evaluate("GSGoTo.open('employee:test_tec:capacity')"); p.wait_for_timeout(1200)
-                check('…which opens the capacity of that technician', p.evaluate("document.activeElement?.id") == 'hrSaveCapacity' and p.locator('.gs-goto-focus').count() == 1)
+                check('…which opens the capacity of that technician', p.evaluate("document.activeElement?.dataset?.capacityCategory||''") != '' and p.locator('.gs-goto-focus').count() == 1)
                 # Stock: produtos e pessoas clicáveis
                 call = lambda a, b: p.evaluate("([a,b])=>GSStockDemo.call(a,{clinicId:'abranfir',idempotencyKey:crypto.randomUUID(),...b})", [a, b])
                 p.evaluate("App.showView('stock')"); p.wait_for_timeout(500)

@@ -13,6 +13,7 @@ function open(target){const [kind,id,field]=String(target||'').split(':');try{
  if(kind==='hr'){window.App?.showView?.('hr');setTimeout(()=>{try{HRManagementV4.select(id)}catch{}},150);return true}
  if(kind==='finance'){window.FinanceUIV4?.open?.(id);return true}
  if(kind==='view'){window.App?.showView?.(id);return true}
+ if(kind==='candidate'){if(window.RecruitmentV4?.candidate)RecruitmentV4.candidate(id);else window.CommunicationsV4?.candidate?.(id);return true}
  if(kind==='product'){if(!document.getElementById('stock')?.classList.contains('active'))window.App?.showView?.('stock');setTimeout(()=>window.StockUIV4?.detail?.(id),document.getElementById('stock')?.classList.contains('active')?0:200);return true}
  if(kind==='order'){window.StockUIV4?.detail?.(id,true);return true}
  if(kind==='stocktab'){window.App?.showView?.('stock');setTimeout(()=>window.StockUIV4?.selectTab?.(id),150);return true}
@@ -36,7 +37,18 @@ document.addEventListener('click',e=>{const t=e.target.closest?.('[data-goto]');
 /* Operação e Stock: avisos de dados em falta ganham «Corrigir →» automaticamente. */
 const WATCH=['operationContent','stockContent','operation','stock'],SEL='[role=alert],.notice,.compliance-row,.op-pending,.pending-item,li,small,p';
 function scan(root){for(const el of root.querySelectorAll(SEL)){if(el.closest('[data-goto],.gs-fix,button,select,option,textarea'))continue;const clone=el.cloneNode(true);clone.querySelectorAll('.gs-fix').forEach(x=>x.remove());const txt=clone.textContent||'';if(txt.length>600||!/(em falta|por definir|por configurar|ficha rh|na ficha|sem salario|sem salário|cédula|cedula|capacidade)/i.test(txt))continue;const sig=txt.length+':'+txt.slice(0,40);if(el.dataset.gsEnhanced===sig)continue;if(el.querySelector(SEL))continue;el.dataset.gsEnhanced=sig;enhance(el)}}
-let pending=0;const mo=new MutationObserver(()=>{if(pending)return;pending=setTimeout(()=>{pending=0;for(const id of WATCH){const r=document.getElementById(id);if(r)scan(r)}},120)});
-document.addEventListener('DOMContentLoaded',()=>{for(const id of ['operation','stock']){const r=document.getElementById(id);if(r)mo.observe(r,{childList:true,subtree:true,characterData:true})}});
-window.GSGoTo={open,link,fixLink,focus,suggest,enhance,scan};
+/* Em todo o programa: nomes de colaboradores, clínicas e candidatos que aparecem sozinhos (célula, negrito, cartão)
+   passam a ser ligações para a ficha; avisos de dados em falta ganham «Corrigir →». */
+const ROLES=/^(ceo|administra[cç][aã]o|administrativa|call center|tecnico|técnico|medico|médico|todas|todos)$/i;
+let IDX={sig:'',map:new Map()};
+function index(){let s;try{s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2')||'{}')}catch{s={}}const ppl=[...(s.users||[]),...Object.values(s.employees||{})],cs=s.clinics||[],cands=s.candidates||[],sig=ppl.length+':'+cs.length+':'+cands.length+':'+ppl.map(p=>p.name).join('|').length+':'+cs.map(c=>c.name).join('|').length+':'+cands.map(c=>c.name).join('|').length;if(sig===IDX.sig)return IDX.map;const m=new Map();
+ for(const c of cands)if(c?.name&&String(c.name).trim().length>=5&&!ROLES.test(c.name.trim()))m.set(c.name.trim(),'candidate:'+c.id);
+ for(const c of cs)if(c?.name&&String(c.id)!=='administracao'&&String(c.name).trim().length>=4&&!ROLES.test(c.name.trim()))m.set(c.name.trim(),'clinic:'+c.id);
+ for(const p of ppl)if(p?.name&&p.id!=null&&String(p.name).trim().length>=5&&/\s/.test(String(p.name).trim())&&!ROLES.test(p.name.trim()))m.set(p.name.trim(),'employee:'+p.id);
+ IDX={sig,map:m};return m}
+const SKIP='a,button,select,option,label,input,textarea,[data-goto],[contenteditable],#nav,nav,.modal-head,#modalTitle,svg,[role=tab],[role=button],.gs-no-link,.toast,#toast,.mirrored-clinic-name,.sidebar,.bottom-nav,.today-item,.agenda-event,.portal-area,[data-search-item="myhr-area"]';
+function autolink(root){const m=index();if(!m.size)return;for(const el of root.querySelectorAll('td,b,strong,span,small,p,li,h3,h4,dd,dt')){if(el.childElementCount||el.dataset.gsLinked)continue;const t=(el.textContent||'').trim();if(!t||t.length>120)continue;let name=t,g=m.get(t);if(!g){const pre=t.split(/\s[·—–]\s|:\s/)[0].trim();if(pre!==t){g=m.get(pre);name=pre}}if(!g||el.closest(SKIP))continue;el.dataset.gsLinked='1';const raw=el.textContent,i=raw.indexOf(name);el.innerHTML=E(raw.slice(0,i))+link(name,g)+E(raw.slice(i+name.length))}}
+let pending=0;const mo=new MutationObserver(()=>{if(pending)return;pending=setTimeout(()=>{pending=0;const r=document.querySelector('main')||document.body;try{scan(r)}catch{}try{autolink(r)}catch{}},150)});
+document.addEventListener('DOMContentLoaded',()=>{const r=document.querySelector('main')||document.body;mo.observe(r,{childList:true,subtree:true,characterData:true})});
+window.GSGoTo={open,link,fixLink,focus,suggest,enhance,scan,autolink,index};
 })();

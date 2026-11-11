@@ -6,7 +6,7 @@ today=()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*
 fmt=d=>d?String(d).slice(8,10)+'/'+String(d).slice(5,7)+'/'+String(d).slice(0,4):'—',stamp=t=>t?fmt(String(t).slice(0,10))+' '+String(t).slice(11,16):'',
 eur=c=>(Number(c||0)/100).toLocaleString('pt-PT',{style:'currency',currency:'EUR'}),pct=v=>(Math.round(v*1000)/10).toLocaleString('pt-PT')+' %',plural=(n,a,b)=>n+' '+(n===1?a:b);
 const GL=(t,g)=>window.GSGoTo?GSGoTo.link(t,g):E(t);let last=null;const ui={year:null,quarter:null,person:'',incPerson:'',incQuarter:'',sim:null};
-function save(fn){const s=R(),a=actor(s);const out=fn(s,a);localStorage.setItem(K,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:state-changed'));return out}
+function save(fn){if(window.GSExt?.server){GSExt.send(fn).then(()=>{refresh()});return}const s=R(),a=actor(s);const out=fn(s,a);localStorage.setItem(K,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:state-changed'));return out}
 function run(fn){try{const out=save(fn);refresh();return out}catch(e){alert(e.message)}}
 function refresh(){if(last&&document.body.contains(last.panel))render(last.panel,last.key,{...last.ctx,s:R()});mountMine(true)}
 const name=(s,id)=>G().people(s).find(p=>String(p.id)===String(id))?.name||id;

@@ -9,7 +9,7 @@ const GROUP={technician:'Técnicos',administrative:'Administrativas',management:
 let quarter=null;
 const actor=()=>AttendanceBookV4.actor(R());
 function prevQuarter(q){const [y,k]=q.split('-Q').map(Number);return k===1?(y-1)+'-Q4':y+'-Q'+(k-1)}
-function save(fn){const s=R(),a=actor();const out=fn(s,a);localStorage.setItem(K,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:state-changed'));return out}
+function save(fn){if(window.GSExt?.server){GSExt.send(fn).then(()=>{rerender()});return}const s=R(),a=actor();const out=fn(s,a);localStorage.setItem(K,JSON.stringify(s));document.dispatchEvent(new CustomEvent('gs:state-changed'));return out}
 function rerender(){window.FinanceUIV4?.open('invoices')}
 const GL=(t,g)=>window.GSGoTo?GSGoTo.link(t,g):E(t),GF=(g,t)=>window.GSGoTo?GSGoTo.fixLink(g,t):'';
 const qLabel=q=>{const [y,k]=String(q||'').split('-Q');return y&&k?k+'.º trimestre de '+y:String(q||'')},plural=(n,one,many)=>n+' '+(n===1?one:many);

@@ -30,7 +30,7 @@ function suggest(msg){const t=norm(msg),{s,list}=people(),out=[],who=list.filter
  const clinic=(s.clinics||[]).find(c=>c.name&&t.includes(norm(c.name)));if(clinic&&/ers|licenca|nif|telefone|morada|especialidade/.test(t))out.push(['clinic:'+clinic.id+(/ers|licenca/.test(t)?':ers':/nif/.test(t)?':nif':''),'Abrir a ficha de '+clinic.name]);
  return out}
 function enhance(el){if(!el)return;el.querySelectorAll?.('.gs-fix').forEach(x=>x.remove());const list=suggest(el.textContent);for(const [g,l] of list){el.insertAdjacentHTML('beforeend',' '+fixLink(g,l))}return list.length}
-const link=(text,target,cls='')=>`<button type="button" class="gs-link ${cls}" data-goto="${E(target)}" title="Abrir">${E(text)}</button>`;
+const link=(text,target,cls='')=>`<a href="#" class="gs-link ${cls}" data-goto="${E(target)}" title="Abrir">${E(text)}</a>`;
 const fixLink=(target,text='Corrigir')=>`<button type="button" class="gs-fix" data-goto="${E(target)}">${E(text)} →</button>`;
 document.addEventListener('click',e=>{const t=e.target.closest?.('[data-goto]');if(!t)return;e.preventDefault();e.stopPropagation();const dlg=t.closest('dialog');if(dlg?.open)dlg.close();open(t.dataset.goto)},true);
 /* Operação e Stock: avisos de dados em falta ganham «Corrigir →» automaticamente. */

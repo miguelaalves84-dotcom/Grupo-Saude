@@ -111,6 +111,8 @@ jobs:
           PGDATABASE: gs_v4_synthetic
           PGPASSWORD: synthetic-ci-only
           GS_POSTGRES_SERVICE_ID: ${{ job.services.postgres.id }}
+      - name: Google sign-in rules (Better Auth installed)
+        run: node tests/google-login.cjs
       - name: Real isolated identity, MFA and recovery tests
         run: node tests/security-auth-postgres.cjs
         env:

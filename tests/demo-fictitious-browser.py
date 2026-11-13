@@ -25,5 +25,8 @@ with sync_playwright() as pw:
         else: f = row.locator('[data-op-field=freeToday]'); f.fill('0'); f.dispatch_event('change')
     p.locator('#opSaveOpening').click(); p.wait_for_timeout(1000)
     check('opening saves (no missing capacity) and daily stories are compliant', p.locator('[data-sst]').count() == 1 and p.locator('[data-sst-check="ok"]').count() == 2)
+    p.evaluate("App.openRequestForm()"); p.wait_for_timeout(300); p.locator('#rSpecialty').select_option('Cardiologia'); p.wait_for_timeout(150)
+    check('new consultation: choosing a specialty lists the doctors who have it in their file', 'Médico Teste' in p.eval_on_selector_all('#rDoctor option', 'e=>e.map(o=>o.textContent)'))
+    p.keyboard.press('Escape')
     check('no page errors', not errs); b.close()
 print(json.dumps({'passed': sum(r['passed'] for r in results), 'total': len(results)}))

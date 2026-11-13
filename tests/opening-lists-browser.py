@@ -20,7 +20,7 @@ def add(p,t,n):
  q=queue(p,t);i=q.locator('[data-ending-count]' if t=='ending' else '#new_'+t);i.fill(str(n));tap(p,q.locator('[data-work-add]' if t=='ending' else '[data-queue-add]'))
 def fill_rows(p,t):
  for i,r in enumerate(rows(p,t).all()):
-  f=r.locator('[data-work-field=name]' if t=='ending' else '[data-patient-ref]')
+  f=r.locator('[data-work-field=patientRef]' if t=='ending' else '[data-patient-ref]')
   if not f.input_value():f.fill('SYN-'+t+'-'+str(i))
 def save(p):
  p.locator('#opAdministrativeReason').fill('SYN administrative opening');tap(p,p.locator('#opSaveOpening'))

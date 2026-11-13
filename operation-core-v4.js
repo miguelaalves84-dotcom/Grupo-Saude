@@ -53,11 +53,10 @@ function workflow(input,ctx,b){if(!ctx.can('clinicTasks')||!ctx.clinics.includes
  const changes=b.rows||[];if(!Array.isArray(changes)||changes.length>500||new Set(changes.map(r=>r.id)).size!==changes.length)throw failure('Linhas inválidas ou repetidas.');
  for(const change of changes){const id=text(change.id,150);if(!id)throw failure('Identificador da linha obrigatório.');let r,source=d;for(const day of Object.values(s.days).filter(x=>x.clinic===d.clinic&&x.date<=d.date)){const found=(day.workflowRows||[]).find(x=>x.id===id);if(found){r=found;source=day;break;}}
  if(r&&r.type!==b.kind)throw failure('Tipo de processo incompatível.');if(r&&Number(change.rowRevision)!==r.revision)throw failure('Linha alterada: atualize antes de guardar.');if(!r){r={id,type:b.kind,clinic:d.clinic,createdAt:ctx.at,createdBy:ctx.actor,createdDate:d.date,source:'manual',revision:0,history:[]};d.workflowRows.push(r);}const old=copy(r);
- r.name=text(change.name??r.name??'',200);r.notes=text(change.notes??r.notes??'');if(!r.name)throw failure('Indique o nome do utente.');
+ /* Proteção de dados: as tarefas só pedem o n.º de utente, nunca o nome. Nomes antigos são apagados ao gravar. */r.patientRef=text(change.patientRef??r.patientRef??'',30).replace(/\s+/g,' ').trim();const legacy=!r.patientRef&&old.revision>0&&!!old.name;if(r.patientRef)delete r.name;r.notes=text(change.notes??r.notes??'');if(!r.patientRef&&!legacy)throw failure('Indique o n.º de utente.');if(r.patientRef&&!/^[A-Za-z0-9][A-Za-z0-9 ./-]{1,29}$/.test(r.patientRef))throw failure('N.º de utente inválido (só números e letras).');
  if(b.kind==='manual'){r.phone=text(change.phone??r.phone??'',60);r.email=text(change.email??r.email??'',254);if(r.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email))throw failure('Email inválido.');r.specialty=text(change.specialty??r.specialty??'',200);r.done=change.done??r.done??false;if(typeof r.done!=='boolean')throw failure('Visto inválido.');if(r.done&&!old.done){r.completedAt=ctx.at;r.completedBy=ctx.actor;}if(!r.done&&old.done){delete r.completedAt;delete r.completedBy;}}
  if(b.kind==='ending'){
- r.patientRef=text(change.patientRef??r.patientRef??'',100);
- // Existing forecasts are evidence: never overwrite them during an upgrade/carryover.
+  // Existing forecasts are evidence: never overwrite them during an upgrade/carryover.
  r.insertedDate=old.insertedDate||(old.revision>0?(old.createdAt?today(old.createdAt):old.createdDate):today(ctx.at));
  r.expectedDate=old.expectedDate||nextDate(r.insertedDate);r.originalExpectedDate=old.originalExpectedDate||r.expectedDate;
  if(old.revision>0&&change.expectedDate&&change.expectedDate!==r.expectedDate)throw failure('A data prevista é automática e não pode ser alterada.');

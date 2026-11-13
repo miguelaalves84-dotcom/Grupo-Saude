@@ -6,7 +6,7 @@ const local=()=>/^(127\.0\.0\.1|localhost)$/.test(location.hostname)&&!/[?&]fict
 const demo=()=>document.documentElement.dataset.mode!=='authenticated'&&document.documentElement.dataset.v4ext!=='server'&&!local();
 const SPECS=[['fic-cardio','Cardiologia'],['fic-fisio','Fisioterapia'],['fic-osteo','Osteopatia'],['fic-nutri','Nutrição'],['fic-psico','Psicologia']];
 function patch(){if(!demo())return false;let s;try{s=JSON.parse(localStorage.getItem(K)||'null')}catch{return false}if(!s||s[FLAG])return false;
- const cs=(s.clinics||[]).filter(c=>c&&!/^administra/i.test(String(c.id)));cs.forEach((c,i)=>{const n=String(i+1).padStart(2,'0');if(!c.phone&&!(c.phones||[]).length){c.phone='210 000 0'+n;c.phones=[c.phone]}c.ers={...(c.ers||{}),license:c.ers?.license||('E9000'+n)};if(!c.legalEntity?.nif)c.legalEntity={name:c.legalEntity?.name||'Grupo Saúde — entidade FICTÍCIA para testes, Lda.',nif:'500000000'};c.fictitiousData=true});
+ const cs=(s.clinics||[]).filter(c=>c&&!/^administra/i.test(String(c.id)));if(!cs.length||!(s.users||[]).length)return false;cs.forEach((c,i)=>{const n=String(i+1).padStart(2,'0');if(!c.phone&&!(c.phones||[]).length){c.phone='210 000 0'+n;c.phones=[c.phone]}c.ers={...(c.ers||{}),license:c.ers?.license||('E9000'+n)};if(!c.legalEntity?.nif)c.legalEntity={name:c.legalEntity?.name||'Grupo Saúde — entidade FICTÍCIA para testes, Lda.',nif:'500000000'};c.fictitiousData=true});
  s.masterSpecialties=s.masterSpecialties||[];for(const [id,name] of SPECS)if(!s.masterSpecialties.some(x=>x.name===name))s.masterSpecialties.push({id,name,active:true,fictitious:true});
  const idOf=n=>s.masterSpecialties.find(x=>x.name===n)?.id;s.clinicSpecialties=s.clinicSpecialties||{};for(const c of cs){const cur=s.clinicSpecialties[c.id]||[];if(!cur.length)s.clinicSpecialties[c.id]=SPECS.map(([,n])=>idOf(n))}
  const cap=Object.fromEntries(Array.from({length:7},(_,d)=>[d,{treatments:d===0?0:32}]));
@@ -16,6 +16,8 @@ function patch(){if(!demo())return false;let s;try{s=JSON.parse(localStorage.get
   hr.fictitiousData=true;p.hr=hr};
  for(const u of s.users||[])if(/^test_/.test(String(u.id)))fill(u);for(const [id,e] of Object.entries(s.employees||{}))if(/^test_/.test(String(e.id||id)))fill(e);
  s[FLAG]=new Date().toISOString();localStorage.setItem(K,JSON.stringify(s));return true}
-patch();document.addEventListener('DOMContentLoaded',()=>{if(patch()){try{window.App?.renderAll?.()}catch{}document.dispatchEvent(new CustomEvent('gs:state-changed'))}});
+const apply=()=>{if(patch()){try{window.App?.renderAll?.()}catch{}document.dispatchEvent(new CustomEvent('gs:state-changed'));return true}return false};
+/* Numa demonstração acabada de limpar, os dados iniciais só são gravados depois de o programa arrancar: tentar de novo. */
+patch();document.addEventListener('DOMContentLoaded',()=>{if(apply())return;let n=0;const t=setInterval(()=>{if(patch()){clearInterval(t);location.reload();return}if(++n>=20)clearInterval(t)},250)});
 window.GSDemoFictitious={patch,FLAG};
 })();

@@ -85,7 +85,8 @@
   "outputDirectory": "dist",
   "git": {
     "deploymentEnabled": {
-      "dev/v4-stabilization-20261017": false
+      "dev/v4-stabilization-20261017": false,
+      "claude/*": false
     }
   }
 }

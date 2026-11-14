@@ -1,16 +1,29 @@
-/* V4 — drag & drop do funil de pedidos, incluindo suporte touch */
+/* V4 — arrastar cartões entre as fases do funil dos pedidos de consulta.
+   Rato/caneta: carregar e arrastar. Dedo (telemóvel/tablet): segurar o cartão ~0,4 s e arrastar; um gesto rápido
+   continua a deslizar a página. Um toque sem arrastar abre o pedido.
+   As fases vêm do ecrã (data-stage) e a mudança é feita por App.moveRequest (permissões, histórico e auditoria). */
 (()=>{'use strict';
-const KEY='grupo_saude_v4_demo_2';
-const stages=['Pedido de Consulta','A aguardar Vaga','Sem especialidade na clínica','Marcado'];
-const legacyStageMap={'Novo pedido':'Pedido de Consulta','Por contactar':'Pedido de Consulta','Contactado':'Pedido de Consulta','A aguardar vaga':'A aguardar Vaga','Proposta de consulta':'A aguardar Vaga'};
-let dragging=null,touchCard=null;
-const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}};
-const write=s=>localStorage.setItem(KEY,JSON.stringify(s));
-function normalizeStages(){const s=read();if(!Array.isArray(s?.requests))return;let changed=false;s.requests.forEach(r=>{if(legacyStageMap[r.stage]){r.stage=legacyStageMap[r.stage];changed=true}});if(changed)write(s)}
-function stayOnRequests(){sessionStorage.setItem('gs_v4_view','wait')}
-function restoreView(){if(sessionStorage.getItem('gs_v4_view')!=='wait')return;sessionStorage.removeItem('gs_v4_view');setTimeout(()=>document.querySelector('[data-view="wait"]')?.click(),40)}
-function move(id,stage){const s=read(),r=s?.requests?.find(x=>x.id===id);if(!r||r.stage===stage||!stages.includes(stage))return;r.history=r.history||[];r.history.push({at:new Date().toISOString(),by:s.currentUser,from:r.stage,to:stage,action:'Movido no funil'});const old=r.stage;r.stage=stage;if(stage==='Marcado')r.completed=r.completed||new Date().toISOString();s.audit=s.audit||[];s.audit.unshift({id:`log_${Date.now()}`,at:new Date().toISOString(),by:s.currentUser,module:'Pedidos',action:'Pedido movido no funil',detail:`${r.name}: ${old} → ${stage}`});write(s);stayOnRequests();location.reload()}
-function install(){const funnel=document.querySelector('#waitContent .funnel');if(!funnel)return;const cols=[...funnel.querySelectorAll('.funnel-col')];cols.forEach((col,i)=>{if(i>=stages.length)return;const stage=stages[i];col.dataset.stage=stage;const title=col.querySelector('h3');if(title&&title.textContent!==stage)title.textContent=stage;col.ondragover=e=>{e.preventDefault();col.classList.add('drag-over')};col.ondragleave=()=>col.classList.remove('drag-over');col.ondrop=e=>{e.preventDefault();col.classList.remove('drag-over');const id=e.dataTransfer.getData('text/plain')||dragging;if(id)move(id,stage)}});[...funnel.querySelectorAll('.funnel-card')].forEach(card=>{const m=(card.getAttribute('onclick')||'').match(/openRequest\('([^']+)'\)/);const requestId=card.dataset.requestId||m?.[1];if(!requestId)return;card.dataset.requestId=requestId;card.draggable=true;card.title='Arraste para mudar de etapa';card.ondragstart=e=>{dragging=requestId;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',requestId);card.classList.add('dragging')};card.ondragend=()=>{dragging=null;card.classList.remove('dragging')};card.ontouchstart=()=>{touchCard=card;card.classList.add('dragging')};card.ontouchmove=e=>{const t=e.touches[0],el=document.elementFromPoint(t.clientX,t.clientY),col=el?.closest('.funnel-col');cols.forEach(c=>c.classList.toggle('drag-over',c===col))};card.ontouchend=e=>{const t=e.changedTouches[0],el=document.elementFromPoint(t.clientX,t.clientY),col=el?.closest('.funnel-col');cols.forEach(c=>c.classList.remove('drag-over'));card.classList.remove('dragging');if(col&&touchCard)move(touchCard.dataset.requestId,col.dataset.stage);touchCard=null}})}
-const css=document.createElement('style');css.textContent='.funnel-card[draggable="true"]{cursor:grab;touch-action:none}.funnel-card.dragging{opacity:.5}.funnel-col.drag-over{outline:2px dashed #176b5b;outline-offset:-4px;background:#edf8f4}.funnel-col{transition:background .15s,outline .15s}';document.head.appendChild(css);
-document.addEventListener('DOMContentLoaded',()=>{normalizeStages();restoreView();setTimeout(install,250)});let installPending=false;new MutationObserver(()=>{if(installPending)return;installPending=true;setTimeout(()=>{installPending=false;install()},0)}).observe(document.documentElement,{childList:true,subtree:true});
+const THRESHOLD=8,HOLD_MS=400;
+let drag=null,hold=null;
+const columns=()=>[...document.querySelectorAll('#waitContent .funnel-col[data-stage]')];
+const colAt=(x,y)=>document.elementFromPoint(x,y)?.closest?.('#waitContent .funnel-col[data-stage]')||null;
+const highlight=col=>{for(const c of columns())c.classList.toggle('drag-over',c===col)};
+function start(card,x,y){const r=card.getBoundingClientRect(),g=card.cloneNode(true);g.removeAttribute('data-request-id');g.classList.add('funnel-ghost');g.style.cssText=`position:fixed;left:${r.left}px;top:${r.top}px;width:${r.width}px;pointer-events:none;z-index:9999;opacity:.92;box-shadow:0 10px 24px #0004`;document.body.append(g);card.classList.add('dragging');drag={card,x,y,ghost:g};navigator.vibrate?.(15)}
+function move(x,y){if(!drag)return;drag.ghost.style.transform=`translate(${x-drag.x}px,${y-drag.y}px)`;highlight(colAt(x,y))}
+function end(x,y,cancel){if(!drag)return;const {card,ghost}=drag;card.classList.remove('dragging');ghost.remove();highlight(null);card.dataset.justDragged='1';setTimeout(()=>delete card.dataset.justDragged,400);drag=null;if(cancel)return;const stage=colAt(x,y)?.dataset.stage;if(stage&&stage!==card.closest('.funnel-col')?.dataset.stage)window.App?.moveRequest(card.dataset.requestId,stage)}
+const cardOf=t=>t?.closest?.('#waitContent .funnel-card[data-request-id]');
+/* Rato e caneta */
+let press=null;
+document.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'||e.button>0)return;const card=cardOf(e.target);if(card)press={card,x:e.clientX,y:e.clientY}});
+document.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||!press)return;if(!drag&&Math.hypot(e.clientX-press.x,e.clientY-press.y)>=THRESHOLD)start(press.card,press.x,press.y);if(drag){e.preventDefault();move(e.clientX,e.clientY)}});
+document.addEventListener('pointerup',e=>{if(e.pointerType==='touch')return;press=null;end(e.clientX,e.clientY)});
+/* Dedo: segurar para arrastar */
+document.addEventListener('touchstart',e=>{const card=cardOf(e.target);if(!card||e.touches.length!==1)return;const t=e.touches[0];hold={card,x:t.clientX,y:t.clientY,timer:setTimeout(()=>{if(hold){start(hold.card,hold.x,hold.y);hold=null}},HOLD_MS)}},{passive:true});
+document.addEventListener('touchmove',e=>{const t=e.touches[0];if(hold&&Math.hypot(t.clientX-hold.x,t.clientY-hold.y)>=THRESHOLD){clearTimeout(hold.timer);hold=null}if(drag){e.preventDefault();move(t.clientX,t.clientY)}},{passive:false});
+document.addEventListener('touchend',e=>{if(hold){clearTimeout(hold.timer);hold=null}const t=e.changedTouches[0];if(drag)end(t.clientX,t.clientY)});
+document.addEventListener('touchcancel',()=>{if(hold){clearTimeout(hold.timer);hold=null}if(drag)end(0,0,true)});
+document.addEventListener('contextmenu',e=>{if(cardOf(e.target))e.preventDefault()});
+/* Depois de arrastar, o clique que o navegador gera não abre o pedido. */
+document.addEventListener('click',e=>{if(e.target.closest?.('.funnel-card[data-just-dragged]')){e.stopPropagation();e.preventDefault()}},true);
+const css=document.createElement('style');css.textContent='#waitContent .funnel-card[data-request-id]{cursor:grab;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}#waitContent .funnel-card.dragging{opacity:.35}#waitContent .funnel-col.drag-over{outline:2px dashed #176b5b;outline-offset:-4px;background:color-mix(in srgb,#176b5b 10%,transparent)}#waitContent .funnel-col{transition:background .15s,outline .15s}#waitContent .funnel-note{margin-top:8px;font-size:.78rem}';document.head.appendChild(css);
 })();

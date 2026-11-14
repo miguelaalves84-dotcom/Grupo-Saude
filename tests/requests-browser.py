@@ -44,7 +44,7 @@ with sync_playwright() as pw:
      check('no-slot reason proposes a recontact date',len(p.input_value('#rRecontact'))==10)
      tap(p,p.locator('#modal button.primary',has_text='Registar consulta por marcar'),device);p.wait_for_timeout(250)
      r=[x for x in st(p)['requests'] if x['name']=='SYN Maria'][0]
-     check('request keeps origin, reason, author and profile',r['source']=='WhatsApp' and r['unmetReason']=='Sem vaga na especialidade' and r['createdBy']==actor and r['createdByRole']==expected and r['stage']=='A aguardar vaga' and r['specialty']=='SYN Ortopedia')
+     check('request keeps origin, reason, author and profile',r['source']=='WhatsApp' and r['unmetReason']=='Sem vaga na especialidade' and r['createdBy']==actor and r['createdByRole']==expected and r['stage']=='Sem vaga' and r['specialty']=='SYN Ortopedia')
      p.evaluate('App.openRequestForm()');p.fill('#rPhone','+351912345678');p.locator('#rPhone').dispatch_event('input')
      check('duplicate phone is flagged in another format','SYN Maria' in p.inner_text('#rDup'));p.evaluate("document.getElementById('modal').close()")
      view(p);tap(p,p.locator('[data-req-tab=pending]'),device);p.wait_for_timeout(200)
@@ -69,7 +69,8 @@ with sync_playwright() as pw:
      view(p);tap(p,p.locator('[data-req-tab=pending]'),device);p.wait_for_timeout(200)
      check('booked request disappears from the pending list','SYN Maria' not in p.locator('[data-req-pending] .req-pending-main b').all_inner_texts())
      m=[x for x in st(p)['requests'] if x['id']==r['id']][0]
-     check('booking deletes patient data and keeps what indicators need',m['name'].startswith('Utente (dados apagados') and m['phone']=='' and m.get('email','')=='' and m['source']=='WhatsApp' and m['createdByRole']==expected and m['clinic']=='abranfir' and all('note' not in h for h in m['history']))
+     check('booked request keeps the patient data for 72 h (visible in «Marcado»)',m['name']=='SYN Maria' and m.get('completed'));p.evaluate("([k,id])=>{const s=JSON.parse(localStorage.getItem(k));const x=s.requests.find(r=>r.id===id);x.completed=new Date(Date.now()-73*3600e3).toISOString();localStorage.setItem(k,JSON.stringify(s))}",[K,r['id']]);p.reload();p.wait_for_function('window.App');p.evaluate("App.showView('wait')");p.wait_for_timeout(300);m=[x for x in st(p)['requests'] if x['id']==r['id']][0]
+     check('72 h after booking, patient data is deleted and what indicators need is kept',m['name'].startswith('Utente (dados apagados') and m.get('purgedAt') and m['phone']=='' and m.get('email','')=='' and m['source']=='WhatsApp' and m['createdByRole']==expected and m['clinic']=='abranfir' and all('note' not in h for h in m['history']))
      check('audit of the booking does not repeat the patient name',not any('SYN Maria' in (a.get('detail') or '') and a.get('action')=='Pedido trabalhado' for a in st(p)['audit']))
      check('booking the request counts once for its operator',len(bs)==1 and bs[0]['requestId']==r['id'] and bs[0]['by']==actor and bs[0]['role']==expected and bs[0]['source']=='WhatsApp')
      # +1 hora a hora e anulação pelo próprio

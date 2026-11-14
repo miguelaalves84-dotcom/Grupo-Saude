@@ -79,6 +79,18 @@ const PERSONAL=['phone','email','patientRef','patient_ref','notes','pathology'];
 function anonymize(r,at){const x={...r,name:'Utente (dados apagados após marcação)',anonymizedAt:at};for(const k of PERSONAL)if(k in x)x[k]='';
  x.history=(r.history||[]).map(h=>{const{note,before,after,...rest}=h;return rest});return x}
 const ref=r=>'pedido '+String(r?.id||'').slice(-6);
+/* Funil dos pedidos de consulta: 4 fases. Pedidos vindos de redes sociais, WhatsApp, site ou API entram em «Novo pedido».
+   Os marcados ficam visíveis 72 horas e depois os dados do utente são apagados (os números para os indicadores ficam). */
+const STAGES=['Novo pedido','Sem profissional','Sem vaga','Marcado'];
+const OUTCOMES=['Sem resposta','Recusou','Suspenso','Cancelado'];
+const LEGACY_STAGES={'NOVO PEDIDO':'Novo pedido','PEDIDO DE CONSULTA':'Novo pedido','POR CONTACTAR':'Novo pedido','CONTACTADO':'Novo pedido','PROPOSTA DE CONSULTA':'Novo pedido','LISTA INTERNA':'Novo pedido','A AGUARDAR VAGA':'Sem vaga','SEM VAGA':'Sem vaga','SEM ESPECIALIDADE NA CLINICA':'Sem profissional','SEM PROFISSIONAL':'Sem profissional','MARCADO':'Marcado'};
+const up=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().trim();
+function stageForReason(reason){return reason==='Sem vaga na especialidade'?'Sem vaga':['Sem médico da especialidade','Especialidade não existe na clínica'].includes(reason)?'Sem profissional':'Novo pedido'}
+function normalizeStage(stage){return LEGACY_STAGES[up(stage)]||stage||'Novo pedido'}
+const BOOKED_TTL_HOURS=72;
+function bookedExpired(r,nowMs){return normalizeStage(r?.stage)==='Marcado'&&!r.purgedAt&&!!r.completed&&nowMs-Date.parse(r.completed)>=BOOKED_TTL_HOURS*3600e3}
+function purgeBooked(s,at){let n=0;s.requests=(s.requests||[]).map(r=>{if(!bookedExpired(r,Date.parse(at)))return r;n++;return{...anonymize(r,at),purgedAt:at}});return n}
+function migrateStages(s){let n=0;for(const r of s.requests||[]){const next=normalizeStage(r.stage);if(next!==r.stage){(r.history||(r.history=[])).push({at:new Date().toISOString(),by:'sistema',from:r.stage,to:next,note:'Fase atualizada para o funil de 4 fases'});r.stage=next;n++}}return n}
 function whatsappLink(phone){let d=String(phone||'').replace(/\D/g,'');if(d.length===9)d='351'+d;return d.length>=11?'https://wa.me/'+d:''}
-return{anonymize,ref,CHANNELS,REASONS,UNMET,MAX_ATTEMPTS,roleLabel,author,digits,duplicates,contact,validEmail,pending,canDelete,remove,clinicWork,validChannel,validReason,booking,canUndo,hourly,emptyHours,unmet,due,firstContactMinutes,kpis,whatsappLink};
+return{STAGES,OUTCOMES,stageForReason,normalizeStage,BOOKED_TTL_HOURS,bookedExpired,purgeBooked,migrateStages,anonymize,ref,CHANNELS,REASONS,UNMET,MAX_ATTEMPTS,roleLabel,author,digits,duplicates,contact,validEmail,pending,canDelete,remove,clinicWork,validChannel,validReason,booking,canUndo,hourly,emptyHours,unmet,due,firstContactMinutes,kpis,whatsappLink};
 });

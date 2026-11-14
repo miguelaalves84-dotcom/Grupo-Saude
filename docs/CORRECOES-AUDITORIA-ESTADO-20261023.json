@@ -1,0 +1,1439 @@
+{
+  "testedCommit": "125eee8cd3a4e45e67e358f971971eb8d6250b55",
+  "run": 39974365229,
+  "preview": "https://grupo-saude-v4-validacao-sintetica-q3rev2u3o-grupo-saude.vercel.app",
+  "correctedAuditFindings": [
+    "CLINIC-NAV-01",
+    "PERM-CEO-01",
+    "RH-TIME-01",
+    "VIS-EXPANDED"
+  ],
+  "remainingBaselineFindings": [
+    {
+      "id": "BILL-01",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G04-08",
+        "G04-09",
+        "G04-10",
+        "G10-06"
+      ],
+      "observed": [
+        "Domínio e snapshot exercitados; cadastro/associação documental e central ainda incompletos.",
+        "Existe edição sintética e auditoria; não declarar gestão central completa.",
+        "Arquivo da ficha existe; gestão contextual da empresa incompleta.",
+        "Snapshot de domínio testado; integração central da edição e anexos incompleta."
+      ],
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js",
+        "finance-core-v4.js",
+        "lib/finance-service.js",
+        "lib/finance-document-workflow.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs",
+        "tests/documents-browser.py",
+        "tests/document-workflows.cjs",
+        "tests/employee-documents-browser.py"
+      ],
+      "plan": "Concluir fluxo contextual documental/central de empresa com os cadastros existentes, após aprovação desta auditoria.",
+      "acceptance": "Associação e anexos seguros por vigência, dois utilizadores autorizados, faturas antigas imutáveis.",
+      "implementationStarted": false
+    },
+    {
+      "id": "CHAT-CENTRAL",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G12-03"
+      ],
+      "observed": [
+        "Sem serviço operacional de conversas autenticadas entre dispositivos."
+      ],
+      "files": [
+        "app.js",
+        "complaints-core-v4.js",
+        "operation-history-v4.js",
+        "attention-core-v4.js"
+      ],
+      "tests": [
+        "tests/complaints-enhancements-browser.py",
+        "tests/operation-history.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/improvements.cjs"
+      ],
+      "plan": "Definir ligação autenticada do Chat existente e regras de conservação.",
+      "acceptance": "Duas sessões autorizadas recebem/consultam a conversa; não membros e acessos diretos recusados.",
+      "implementationStarted": false
+    },
+    {
+      "id": "CLOCK-BANK",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G07-14"
+      ],
+      "observed": [
+        "Saldos/extra são apresentados; não há ciclo completo de crédito/débito validado."
+      ],
+      "files": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js",
+        "administrative-rosters-core-v4.js"
+      ],
+      "tests": [
+        "tests/attendance-browser.py",
+        "tests/administrative-rosters.cjs",
+        "tests/attendance-postgres.cjs"
+      ],
+      "plan": "Especificar e consolidar ledger/regras de banco de horas aprovados.",
+      "acceptance": "Créditos/débitos/compensações auditados, sem confundir horas detetadas com aprovadas.",
+      "implementationStarted": false
+    },
+    {
+      "id": "CLOCK-NIGHT",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G07-13"
+      ],
+      "observed": [
+        "schedule rejeita end<=start e exige configuração própria não concluída."
+      ],
+      "files": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js",
+        "administrative-rosters-core-v4.js"
+      ],
+      "tests": [
+        "tests/attendance-browser.py",
+        "tests/administrative-rosters.cjs",
+        "tests/attendance-postgres.cjs"
+      ],
+      "plan": "Validar modelo de turno noturno/meia-noite e adaptar o fluxo existente numa fase posterior.",
+      "acceptance": "Mudança de dia e hora legal sem horas negativas, dupla contagem ou marcações sobrepostas.",
+      "implementationStarted": false
+    },
+    {
+      "id": "COVERAGE-RESIDUAL",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G14-13"
+      ],
+      "observed": [
+        "Inventário separa ações exercitadas e apenas observadas; não declarar cada combinação aprovada."
+      ],
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Converter controlos só inventariados em casos de operação completos por prioridade.",
+      "acceptance": "Cada operação aprovada tem entrada, validação, resultado persistido e caso negativo; botão aberto não basta.",
+      "implementationStarted": false
+    },
+    {
+      "id": "DEVICE-REAL",
+      "priority": "P2",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G07-04",
+        "G14-16"
+      ],
+      "observed": [
+        "Emulação não prova sensor real, precisão, permissões e teclado físicos.",
+        "Toque Chromium emulado não valida sensor/GPS/microfone físico."
+      ],
+      "files": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js",
+        "administrative-rosters-core-v4.js",
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/attendance-browser.py",
+        "tests/administrative-rosters.cjs",
+        "tests/attendance-postgres.cjs",
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Realizar validação em tablet/telemóvel Android físicos com dados sintéticos.",
+      "acceptance": "Toque, teclado, rotação, GPS e permissões físicas documentados.",
+      "implementationStarted": false
+    },
+    {
+      "id": "EXTERNAL-MKT",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G13-06",
+        "G13-15"
+      ],
+      "observed": [
+        "Adapters/flags preparados; ligações não configuradas no preview.",
+        "Não ligada; nunca autorizada publicação/gasto automático."
+      ],
+      "files": [
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js"
+      ],
+      "tests": [
+        "tests/document-catalog.cjs",
+        "tests/stock-tables-browser.py",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs"
+      ],
+      "plan": "Validar OAuth/APIs oficiais/custos e apenas depois propor ativação isolada.",
+      "acceptance": "Métricas reais rastreáveis à API, sem conversões/receitas fabricadas ou investimento automático.",
+      "implementationStarted": false
+    },
+    {
+      "id": "HIST-BASELINE",
+      "priority": "P2",
+      "state": "ABERTO",
+      "kind": "CAPACIDADE_HISTORICA_AUSENTE",
+      "requirements": [
+        "G14-15"
+      ],
+      "observed": [
+        "121 PNG e 30 ZIP de evidência existem nas árvores históricas e faltam na branch atual; não foram apagados no Git remoto histórico."
+      ],
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Preservar referências/hashes históricos e preparar recuperação seletiva das evidências sintéticas.",
+      "acceptance": "121 PNG e 30 ZIP identificados por SHA; baseline nova comparada com revisão humana; sem importar ficheiros sensíveis.",
+      "implementationStarted": false
+    },
+    {
+      "id": "HIST-IDENTITY",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "CAPACIDADE_HISTORICA_AUSENTE",
+      "requirements": [
+        "G14-14"
+      ],
+      "observed": [
+        "Ficheiros identity-service/runtime-config e authenticated-modules do checkpoint a6edf53 não constam da árvore atual; equivalências precisam de reconciliação."
+      ],
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Comparar ficheiros identity/authenticated-modules antigos com os proxies atuais e preparar recuperação seletiva.",
+      "acceptance": "Mapa equivalente ou recuperação de cada capacidade, sem reintroduzir outra identidade ou enfraquecer destino isolado.",
+      "implementationStarted": false
+    },
+    {
+      "id": "HISTORY-DEPTH",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G14-12"
+      ],
+      "observed": [
+        "Checkout shallow; 30 branches remotas inventariadas, não histórico integral local de todas as branches."
+      ],
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Usar as árvores remotas preservadas para completar o mapa de equivalências e lacunas.",
+      "acceptance": "Cada capacidade antiga tem destino atual ou recuperação proposta com dependências e risco.",
+      "implementationStarted": false
+    },
+    {
+      "id": "INF-AUTH",
+      "priority": "P0",
+      "state": "ABERTO",
+      "kind": "BLOQUEIO_OPERACIONAL",
+      "requirements": [
+        "G01-05",
+        "G01-06",
+        "G01-07",
+        "G01-10"
+      ],
+      "observed": [
+        "Proxy preparado; ambiente integrado operacional não demonstrado.",
+        "Rotas/testes simulados; entrega real e fornecedor não ativos.",
+        "Política existe; validação integrada com sessões reais ausente.",
+        "Sem fornecedor ativo não há confirmação operacional desta configuração."
+      ],
+      "files": [
+        "api/v4-auth.js",
+        "lib/authorization-service.js",
+        "access-policy-core-v4.js"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-browser.py",
+        "tests/profile-audit-browser.py"
+      ],
+      "plan": "Validar fornecedor isolado, contas sintéticas, login/reset/expiração/revogação reais.",
+      "acceptance": "Duas sessões independentes; token/sessão revogados recusados; não usar storage como identidade.",
+      "implementationStarted": false
+    },
+    {
+      "id": "INF-CENTRAL",
+      "priority": "P0",
+      "state": "ABERTO",
+      "kind": "BLOQUEIO_OPERACIONAL",
+      "requirements": [
+        "G01-08",
+        "G02-10",
+        "G03-11",
+        "G04-19",
+        "G06-11",
+        "G08-06",
+        "G09-16",
+        "G11-21"
+      ],
+      "observed": [
+        "SQL descartável não substitui UI/API central operacional.",
+        "Dados do navegador não comprovam atividade operacional do grupo.",
+        "Contadores locais não são realtime autenticado.",
+        "Fichas demo persistem só no navegador.",
+        "SQL isolado e CAS não demonstram dois dispositivos no preview.",
+        "Sessão central e dispositivos não ligados.",
+        "Exportador de incidências não é motor fiscal nem sistema de pagamentos.",
+        "Writers não ativados na demonstração, apesar dos testes SQL."
+      ],
+      "files": [
+        "api/v4-auth.js",
+        "lib/authorization-service.js",
+        "access-policy-core-v4.js",
+        "clinic-master-v4.js",
+        "clinic-single-source-v4.js",
+        "access-scope-v4.js",
+        "workspace-shell-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js",
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js",
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js",
+        "clinic-calendars-v4.js",
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js",
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js",
+        "operation-core-v4.js",
+        "stock-core-v4.js",
+        "supplier-company-core-v4.js",
+        "stock-closing-v4.js"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-browser.py",
+        "tests/profile-audit-browser.py",
+        "tests/stock-tables-browser.py",
+        "tests/consolidation.cjs",
+        "tests/global-layout-browser.py",
+        "tests/improvements.cjs",
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs",
+        "tests/runtime.cjs",
+        "tests/rh-20261022-browser.py",
+        "tests/performance.cjs",
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs",
+        "tests/operation-browser.py",
+        "tests/opening-composition-browser.py",
+        "tests/stock-closing-browser.py",
+        "tests/supplier-companies-browser.py"
+      ],
+      "plan": "Planear ligação UI/API existente por módulo, sem criar outro cadastro e sem ativar nesta fase.",
+      "acceptance": "Criação por A consultada por B noutro dispositivo, autorização efetiva e CAS concorrente.",
+      "implementationStarted": false
+    },
+    {
+      "id": "INF-RECOVERY",
+      "priority": "P0",
+      "state": "ABERTO",
+      "kind": "BLOQUEIO_OPERACIONAL",
+      "requirements": [
+        "G14-05"
+      ],
+      "observed": [
+        "Cópia local/checksum não é restauro operacional da instalação central."
+      ],
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Definir RPO/RTO e testar restauro isolado a partir de backups verificados.",
+      "acceptance": "Recuperar dados e anexos com hashes e auditoria, sem escrever no ambiente original.",
+      "implementationStarted": false
+    },
+    {
+      "id": "INF-STORAGE",
+      "priority": "P0",
+      "state": "ABERTO",
+      "kind": "BLOQUEIO_OPERACIONAL",
+      "requirements": [
+        "G02-07",
+        "G05-14",
+        "G06-10",
+        "G10-07",
+        "G13-14",
+        "G14-04"
+      ],
+      "observed": [
+        "Arquivo privado não configurado no preview estático.",
+        "Desativada até existir infraestrutura validada; recusa não prejudica candidatura.",
+        "Política/serviços preparados; infraestrutura e validação legal não ativadas.",
+        "Serviços e aprovação de segurança pendentes.",
+        "Preparação não equivale a arquivo privado operacional.",
+        "Fail closed até revisão/configuração adequadas."
+      ],
+      "files": [
+        "clinic-master-v4.js",
+        "clinic-single-source-v4.js",
+        "access-scope-v4.js",
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js",
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js",
+        "clinic-calendars-v4.js",
+        "finance-core-v4.js",
+        "lib/finance-service.js",
+        "lib/finance-document-workflow.js",
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js",
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/stock-tables-browser.py",
+        "tests/consolidation.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py",
+        "tests/runtime.cjs",
+        "tests/rh-followup-browser.py",
+        "tests/rh-20261022-browser.py",
+        "tests/documents-browser.py",
+        "tests/document-workflows.cjs",
+        "tests/employee-documents-browser.py",
+        "tests/document-catalog.cjs",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs",
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Configurar arquivo privado de testes, scanner, retenção e revisão de segurança.",
+      "acceptance": "Upload/consulta/substituição por sessão; terceiros e outra clínica negados; scanner falha fechado.",
+      "implementationStarted": false
+    },
+    {
+      "id": "LEGACY-REVIEW",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G14-11"
+      ],
+      "observed": [
+        "Referências estáticas e writers antigos exercitados; nenhuma remoção segura comprovada nesta fase."
+      ],
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Separar fallback, delegação e escritor ativo; verificar dependências antes de qualquer remoção.",
+      "acceptance": "Remoção só com prova de não uso, regressões e retenção integral dos registos.",
+      "implementationStarted": false
+    },
+    {
+      "id": "MKT-AI",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G13-12",
+        "G13-13"
+      ],
+      "observed": [
+        "Interface/templates/limites preparados; geração externa efetiva depende de fornecedor.",
+        "Não há fornecedor de imagens configurado; materiais locais não são geração externa comprovada."
+      ],
+      "files": [
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js"
+      ],
+      "tests": [
+        "tests/document-catalog.cjs",
+        "tests/stock-tables-browser.py",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs"
+      ],
+      "plan": "Validar fornecedor seguro e testar geração real com dados não identificáveis.",
+      "acceptance": "Textos/imagens efetivos, identificação da origem e revisão humana, sem publicação ou despesa automática.",
+      "implementationStarted": false
+    },
+    {
+      "id": "MKT-COMPLIANCE",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G13-17"
+      ],
+      "observed": [
+        "Regras/limites existem; revisão jurídica e integração efetiva de todos os canais pendentes."
+      ],
+      "files": [
+        "document-catalog-core-v4.js",
+        "tables-canonical-controller-v4.js",
+        "marketing-core-v4.js",
+        "lib/gmail-sync-service.js"
+      ],
+      "tests": [
+        "tests/document-catalog.cjs",
+        "tests/stock-tables-browser.py",
+        "tests/marketing-browser.py",
+        "tests/gmail-activation.cjs"
+      ],
+      "plan": "Rever consentimentos/oposição/retenção e publicidade em saúde por canal.",
+      "acceptance": "Retirada de consentimento impede contacto e regista decisão; sem segmentação por dados sensíveis.",
+      "implementationStarted": false
+    },
+    {
+      "id": "PAY-ADAPTER",
+      "priority": "P2",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G09-14"
+      ],
+      "observed": [
+        "Há preparação arquitetural, nenhum formato proprietário certificado."
+      ],
+      "files": [
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js"
+      ],
+      "tests": [
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs"
+      ],
+      "plan": "Obter esquemas/versões oficiais e criar adaptadores só após a auditoria.",
+      "acceptance": "Importação validada nos programas alvo; não declarar compatibilidade apenas por gerar CSV.",
+      "implementationStarted": false
+    },
+    {
+      "id": "PAY-LEGAL",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G09-08"
+      ],
+      "observed": [
+        "Sem matriz legal completa validada; não há descontos automáticos."
+      ],
+      "files": [
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js"
+      ],
+      "tests": [
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs"
+      ],
+      "plan": "Obter validação jurídica/contabilística de ausências/subsídios e configurar regras com vigência.",
+      "acceptance": "Casos pagos/não pagos e regras complexas testados; nenhum desconto sem regra e confirmação.",
+      "implementationStarted": false
+    },
+    {
+      "id": "PAY-SOURCE",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G09-09",
+        "G09-10"
+      ],
+      "observed": [
+        "Identificadores e abertura da ficha existem; faltam atalhos específicos de cada marcação/escala.",
+        "Seleção clínica existe; resumo agregado de conferência por clínica incompleto."
+      ],
+      "files": [
+        "finance-core-v4.js",
+        "payroll-export-core-v4.js",
+        "payroll-export-ui-v4.js",
+        "lib/payroll-export-service.js"
+      ],
+      "tests": [
+        "tests/finance.cjs",
+        "tests/payroll-export-browser.py",
+        "tests/payroll-reconciliation.cjs",
+        "tests/payroll-export-postgres.cjs"
+      ],
+      "plan": "Ligar cada incidência à origem exata e concluir o resumo por clínica.",
+      "acceptance": "Clique abre marcação/escala/pedido certo; totais por clínica reconciliados com os totais únicos.",
+      "implementationStarted": false
+    },
+    {
+      "id": "PERF-YEAR",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G08-04",
+        "G08-05"
+      ],
+      "observed": [
+        "Regras presentes/testadas em domínio; ciclo anual real completo não demonstrado.",
+        "Dados/fluxos parciais; não há validação operacional anual de todos os casos."
+      ],
+      "files": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ],
+      "tests": [
+        "tests/performance.cjs",
+        "tests/rh-development-browser.py",
+        "tests/runtime.cjs"
+      ],
+      "plan": "Executar ciclo anual completo de dezembro com pesos, colegas e revisão autorizada.",
+      "acceptance": "Questionários sem autoavaliação; resultados reservados e histórico imutável das regras.",
+      "implementationStarted": false
+    },
+    {
+      "id": "REC-AI",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G05-15"
+      ],
+      "observed": [
+        "Serviços externos não configurados; não há transcrições reais aprovadas."
+      ],
+      "files": [
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js"
+      ],
+      "tests": [
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py"
+      ],
+      "plan": "Documentar fornecedor/consentimento/conservação e manter desligado até aprovação de segurança.",
+      "acceptance": "Áudio/transcrição reais autorizados, incertezas e edição, sem inferências pessoais/decisões automáticas.",
+      "implementationStarted": false
+    },
+    {
+      "id": "REC-EMAIL",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G05-06",
+        "G05-10",
+        "G10-08",
+        "G12-08"
+      ],
+      "observed": [
+        "Fila/adapters e testes com Gmail simulado; caixa real não ligada.",
+        "Templates/outbox/deduplicação testados com fornecedor simulado.",
+        "Adapters e filas exercitados com respostas simuladas.",
+        "Datas/comprovativos/estados existem; envio real não configurado."
+      ],
+      "files": [
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js",
+        "finance-core-v4.js",
+        "lib/finance-service.js",
+        "lib/finance-document-workflow.js",
+        "app.js",
+        "complaints-core-v4.js",
+        "operation-history-v4.js",
+        "attention-core-v4.js"
+      ],
+      "tests": [
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py",
+        "tests/documents-browser.py",
+        "tests/document-workflows.cjs",
+        "tests/employee-documents-browser.py",
+        "tests/complaints-enhancements-browser.py",
+        "tests/operation-history.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/improvements.cjs"
+      ],
+      "plan": "Validar serviço/email de testes no servidor e reconciliar outbox existente.",
+      "acceptance": "Entrega comprovada em caixa de testes, falhas/reenvios/idempotência e ausência de envios acidentais.",
+      "implementationStarted": false
+    },
+    {
+      "id": "REC-EXTRACT",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G05-07"
+      ],
+      "observed": [
+        "Campos editáveis/validação humana; extração geral de CV não demonstrada ponta a ponta."
+      ],
+      "files": [
+        "recruitment-core-v4.js",
+        "recruitment-ui-v4.js",
+        "lib/recruitment-service.js"
+      ],
+      "tests": [
+        "tests/recruitment.cjs",
+        "tests/candidate-pointer-browser.py",
+        "tests/interview-browser.py"
+      ],
+      "plan": "Definir extração real suportada e revisão humana; reutilizar a fila de CV.",
+      "acceptance": "Conjunto sintético de CV variados, campos ambíguos sinalizados, documento original preservado.",
+      "implementationStarted": false
+    },
+    {
+      "id": "REPORT-SCOPE",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G12-13"
+      ],
+      "observed": [
+        "Relatórios demo existem; nem todos os indicadores/combinações foram reconciliados centralmente."
+      ],
+      "files": [
+        "app.js",
+        "complaints-core-v4.js",
+        "operation-history-v4.js",
+        "attention-core-v4.js"
+      ],
+      "tests": [
+        "tests/complaints-enhancements-browser.py",
+        "tests/operation-history.cjs",
+        "tests/profile-audit-browser.py",
+        "tests/improvements.cjs"
+      ],
+      "plan": "Reconciliar os indicadores de cada relatório com fontes e filtros efetivos.",
+      "acceptance": "Totais por período/clinica/perfil reproduzíveis e sem estimativas apresentadas como confirmadas.",
+      "implementationStarted": false
+    },
+    {
+      "id": "RH-EXIT",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G04-18"
+      ],
+      "observed": [
+        "Inativação/retenção existem; não há processo completo de devoluções e saída integrado."
+      ],
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "plan": "Consolidar saída com inativação, documentos, equipamentos e retenção existentes.",
+      "acceptance": "Checklist auditada de saída/devolução sem apagar conta, documentos ou movimentos.",
+      "implementationStarted": false
+    },
+    {
+      "id": "RH-LEGAL",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G04-12"
+      ],
+      "observed": [
+        "Política configurável/testada não substitui revisão jurídica do caso concreto."
+      ],
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "plan": "Validar formação de acordo com contrato, vigências e regime português aplicável.",
+      "acceptance": "Cálculo com casos contratuais aprovados e evidência da revisão; alteração contratual exige revalidação.",
+      "implementationStarted": false
+    },
+    {
+      "id": "RH-OCC",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G04-16"
+      ],
+      "observed": [
+        "Não localizado fluxo dedicado nem proteção específica de aptidão no código executável."
+      ],
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "plan": "Definir processo mínimo de aptidão ocupacional e proteção de dados antes de implementar.",
+      "acceptance": "Gestores só veem aptidão/restrições legalmente permitidas; dados clínicos ocupacionais segregados.",
+      "implementationStarted": false
+    },
+    {
+      "id": "RH-ORG",
+      "priority": "P2",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G04-17"
+      ],
+      "observed": [
+        "Não localizado módulo/fluxo no código executável atual."
+      ],
+      "files": [
+        "hr-master-v4.js",
+        "hr-development-core-v4.js",
+        "employee-documents-core-v4.js"
+      ],
+      "tests": [
+        "tests/rh-development-browser.py",
+        "tests/rh-followup-browser.py",
+        "tests/hr-development.cjs"
+      ],
+      "plan": "Planear organigrama aproveitando associações clínicas e funções existentes.",
+      "acceptance": "Hierarquia por clínica, permissões e histórico sem criar outros colaboradores.",
+      "implementationStarted": false
+    },
+    {
+      "id": "SIGNATURE",
+      "priority": "P1",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G14-07"
+      ],
+      "observed": [
+        "Sem fornecedor ou validação; não há assinatura eletrónica operacional."
+      ],
+      "files": [
+        "lib/document-security-service.js",
+        "lib/document-archive-service.js",
+        "lib/authorization-service.js",
+        ".github/workflows/v4-stabilization.yml"
+      ],
+      "tests": [
+        "tests/p0-security.cjs",
+        "tests/p0-retention.cjs",
+        "tests/global-audit.cjs",
+        "tests/release-readiness.cjs"
+      ],
+      "plan": "Selecionar solução adequada e validar base legal/processo; manter não operacional.",
+      "acceptance": "Assinatura verificável, identidade, integridade, evidência e conservação testadas.",
+      "implementationStarted": false
+    },
+    {
+      "id": "VIS-BASELINE",
+      "priority": "P2",
+      "state": "ABERTO",
+      "kind": "LACUNA_OU_LIMITACAO",
+      "requirements": [
+        "G03-09"
+      ],
+      "observed": [
+        "Há capturas e diagnósticos; não existe comparação universal versionada por pixels."
+      ],
+      "files": [
+        "workspace-shell-v4.js",
+        "attention-core-v4.js",
+        "attention-ui-v4.js"
+      ],
+      "tests": [
+        "tests/global-layout-browser.py",
+        "tests/improvements.cjs",
+        "tests/profile-audit-browser.py"
+      ],
+      "plan": "Recuperar baseline preservada, fixar engine/fontes/dados e definir tolerâncias por região.",
+      "acceptance": "Comparação por pixels reproduzível e revisão humana das diferenças, não só screenshot disponível.",
+      "implementationStarted": false
+    }
+  ],
+  "remainingCounts": {
+    "P1": 22,
+    "P2": 5,
+    "P0": 4
+  },
+  "newCashRecovery": {
+    "status": "IMPLEMENTADO/TESTADO EM AMBIENTE SINTETICO",
+    "historicalCommit": "fadee5eff1059eafc2c5520656ebb4d050c56e31",
+    "sourceBlob": "e32abcdc42cf04b50003c0e2a7bbf8451fbb8bc4",
+    "files": [
+      "finance-cash-core-v4.js",
+      "lib/finance-cash-service.js",
+      "finance-ui-v4.js",
+      "operation-core-v4.js",
+      "attention-core-v4.js",
+      "workspace-shell-v4.js"
+    ],
+    "tests": [
+      "tests/finance-cash.cjs",
+      "tests/finance-cash-browser.py",
+      "tests/finance-cash-postgres.cjs"
+    ],
+    "tablesAdded": [],
+    "productionWriters": false,
+    "centralOperational": false,
+    "legacyOriginImport": "Não automático; exige origem e correspondência inequívoca de clínicas. Originais preservados."
+  },
+  "p0": {
+    "state": "PREPARADO / BLOQUEADO POR INFRA",
+    "remoteResourcesCreated": [],
+    "credentialsConfigured": false,
+    "productionChanges": false,
+    "readinessDocument": "P0-PREPARACAO-ISOLADA-20261023.md"
+  },
+  "evidence": {
+    "testedCommit": "125eee8cd3a4e45e67e358f971971eb8d6250b55",
+    "run": 39974365229,
+    "conclusion": "success",
+    "previewUrl": "https://grupo-saude-v4-validacao-sintetica-q3rev2u3o-grupo-saude.vercel.app",
+    "previewState": "READY",
+    "deploymentId": "dpl_Aor1XhbgdPZRgtJWcreTMkN2kkV8",
+    "live": {
+      "url": "https://grupo-saude-v4-validacao-sintetica-q3rev2u3o-grupo-saude.vercel.app",
+      "commit": "125eee8cd3a4e45e67e358f971971eb8d6250b55",
+      "synthetic": true,
+      "backend": false,
+      "testedRun": 39974365229,
+      "checks": [
+        {
+          "file": "finance-cash-core-v4.js",
+          "status": 200,
+          "exactMatch": true,
+          "sha256": "43e92087ca27a42abdf1db5b26ba096db9bc8b8ecc21f25411ed84c66c6c506d"
+        },
+        {
+          "file": "hr-master-v4.js",
+          "status": 200,
+          "exactMatch": true,
+          "sha256": "fb66285ce202ae0d3c9b2fc76411a378f14fde21812eb37763ec2969266fce5e"
+        },
+        {
+          "file": "styles.css",
+          "status": 200,
+          "exactMatch": true,
+          "sha256": "930b4ea797df9e9802f0b429ae3df303eccad5f02637b16a1716878fe4b6bd8e"
+        },
+        {
+          "file": "index.html",
+          "status": 200,
+          "exactMatch": true,
+          "sha256": "cea65aadae5185322a16d68206668a95d4c4527192e1aed5a5ec96519daf4890"
+        }
+      ],
+      "financeApiStatus": 404,
+      "deploymentId": "dpl_Aor1XhbgdPZRgtJWcreTMkN2kkV8",
+      "state": "READY"
+    },
+    "jobs": [
+      {
+        "id": 120485013852,
+        "name": "regression",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485014090,
+        "name": "postgres",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186178,
+        "name": "browser (documents-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186210,
+        "name": "browser (p0-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186267,
+        "name": "browser (stock-closing-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186271,
+        "name": "browser (complaints-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186276,
+        "name": "browser (complaints-enhancements-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186288,
+        "name": "browser (browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186295,
+        "name": "browser (improvements-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186296,
+        "name": "browser (stabilization-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186314,
+        "name": "browser (stock-tables-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186343,
+        "name": "browser (candidate-pointer-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186368,
+        "name": "browser (operation-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186373,
+        "name": "browser (interview-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186384,
+        "name": "browser (supplier-companies-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186395,
+        "name": "browser (recruitment-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186467,
+        "name": "browser (attendance-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186513,
+        "name": "browser (global-layout-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186563,
+        "name": "browser (marketing-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186564,
+        "name": "browser (audit-corrections-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186569,
+        "name": "browser (rh-20261022-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186634,
+        "name": "browser (payroll-export-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186664,
+        "name": "browser (rh-followup-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186677,
+        "name": "browser (rh-development-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186726,
+        "name": "browser (employee-documents-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186831,
+        "name": "browser (audit-complete-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186838,
+        "name": "browser (finance-cash-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186861,
+        "name": "browser (audit-expanded-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485186868,
+        "name": "browser (opening-composition-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485187058,
+        "name": "browser (branding-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485187080,
+        "name": "browser (profile-audit-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "id": 120485187137,
+        "name": "browser (finance-browser)",
+        "conclusion": "success",
+        "status": "completed"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 12511251195,
+        "name": "operation-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:3eb76a65ff828ccd22fbca76b4f9b25382332c6c36b73a54e576848b3a4bf975",
+        "expiresAt": "2026-11-06T15:05:49Z"
+      },
+      {
+        "id": 12511245392,
+        "name": "candidate-pointer-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:8137579d1d1f0e1bacca36f8a722f00a5c6447777b21c956befbdae99e986711",
+        "expiresAt": "2026-11-06T15:01:20Z"
+      },
+      {
+        "id": 12511225477,
+        "name": "stabilization-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:8f355a01f600be63cfec5bc998b1991f37bbdad02a56e12d6623b926290e97b7",
+        "expiresAt": "2026-11-06T15:01:27Z"
+      },
+      {
+        "id": 12511116268,
+        "name": "finance-cash-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:18bc48f2b1c12e342677f26d7a99c4ae0849392c41ee3c454e21379a942a5b23",
+        "expiresAt": "2026-11-06T15:03:15Z"
+      },
+      {
+        "id": 12511050985,
+        "name": "global-layout-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:c68f0570f6436a6c8ad18c29098c3ddf006cfbe87a90d479599365acc7574130",
+        "expiresAt": "2026-11-06T15:00:53Z"
+      },
+      {
+        "id": 12510996426,
+        "name": "employee-documents-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:9a7c93f8414dd46de46a3f06f47abe76a7fcf8f0d299663162ec99788252d4c1",
+        "expiresAt": "2026-11-06T15:02:40Z"
+      },
+      {
+        "id": 12510895980,
+        "name": "interview-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:a689ca8cb519f45792ae284a2711132ba041d7f06a2d04c7bc704763ee93c0e1",
+        "expiresAt": "2026-11-06T15:01:09Z"
+      },
+      {
+        "id": 12510781780,
+        "name": "audit-corrections-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:4ce27fee2bcb87bffa502d6918b5851abfd4f552f41128366fd8f9087c43d1b2",
+        "expiresAt": "2026-11-06T15:02:01Z"
+      },
+      {
+        "id": 12510776673,
+        "name": "complaints-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:8ef0544dc3342c600a54b1d7f987daab243d6a59682d2e06765b10be5e6a79bd",
+        "expiresAt": "2026-11-06T15:00:52Z"
+      },
+      {
+        "id": 12510776593,
+        "name": "recruitment-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:dfe01bcd35b70ef6b6f0f6a17c53785d2a193720b46a928b3695b2e098709401",
+        "expiresAt": "2026-11-06T15:00:33Z"
+      },
+      {
+        "id": 12510761141,
+        "name": "complaints-enhancements-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:d5d6d92a39e3ad6bf8c40aa047c6363223b728512272c3db07a681a35fadaf4f",
+        "expiresAt": "2026-11-06T15:00:57Z"
+      },
+      {
+        "id": 12510751799,
+        "name": "opening-composition-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:1895ef6a1d206a882a5714ffe3f66283feafabffec982f195174a70c21103988",
+        "expiresAt": "2026-11-06T15:04:36Z"
+      },
+      {
+        "id": 12510687254,
+        "name": "marketing-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:79ebba66e06cfb969c9d0ead5334a41c4d5994aeebda9d9577ee87392b214a24",
+        "expiresAt": "2026-11-06T15:02:51Z"
+      },
+      {
+        "id": 12510608034,
+        "name": "audit-complete-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:dd7c5f26035bb94a2d51e10bf04c3e46504593a195aac4997b1242fbc3460c87",
+        "expiresAt": "2026-11-06T15:04:44Z"
+      },
+      {
+        "id": 12510543869,
+        "name": "branding-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:c1ebe7112a2d9c105a370f92c194cc005804f2fa0d26a501c7379e4767327c43",
+        "expiresAt": "2026-11-06T15:02:36Z"
+      },
+      {
+        "id": 12510478263,
+        "name": "rh-development-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:76f20916629a2c327035f818be1bac06cedf60359b057e334bc5f2431748475a",
+        "expiresAt": "2026-11-06T15:03:33Z"
+      },
+      {
+        "id": 12510434395,
+        "name": "rh-20261022-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:de8c1f6cdccea30e5f5110c40ac874af8927dadf5fdc98cdf3acb557f674f0af",
+        "expiresAt": "2026-11-06T15:02:47Z"
+      },
+      {
+        "id": 12510353903,
+        "name": "supplier-companies-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:05611c1be22a1a87eb63cd75a07bc28b9f6f8a5e76371f87536af572732ce2b7",
+        "expiresAt": "2026-11-06T15:03:41Z"
+      },
+      {
+        "id": 12510347734,
+        "name": "rh-followup-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:6d86c30d1fe788ba855c3cefabbf5d9a96f8e2ce53f9738eb45723916f4d5c3e",
+        "expiresAt": "2026-11-06T15:02:57Z"
+      },
+      {
+        "id": 12510328909,
+        "name": "attendance-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:f4b254dd2bff4472444a97228c52fb5e2f8cb66a18516a229e559cf394a2a900",
+        "expiresAt": "2026-11-06T15:04:02Z"
+      },
+      {
+        "id": 12510282909,
+        "name": "stock-closing-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:b6849d0cb41a043e41b3b22ddaa2442ad12bcee8ce37e92c8c92043adf727737",
+        "expiresAt": "2026-11-06T15:02:58Z"
+      },
+      {
+        "id": 12510263125,
+        "name": "payroll-export-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:485bd73466110fa8872c5c4042c46e4e8f90b933face271d8e1d15a7c81c185d",
+        "expiresAt": "2026-11-06T15:03:37Z"
+      },
+      {
+        "id": 12509933988,
+        "name": "audit-expanded-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:adb8998a71dbdb7f38b38906046c205dea7032aeddc303fe4b074b2b0e691e32",
+        "expiresAt": "2026-11-06T15:01:44Z"
+      },
+      {
+        "id": 12509719609,
+        "name": "stock-tables-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:d8d6c464513734271fb55bd45f9bded39d415275c1339a00a46752a3725173fb",
+        "expiresAt": "2026-11-06T15:02:49Z"
+      },
+      {
+        "id": 12509704692,
+        "name": "profile-audit-browser-synthetic-125eee8cd3a4e45e67e358f971971eb8d6250b55",
+        "digest": "sha256:b4fd871c4b7f9f1e0b25228e38e41bda4f4566b3215609887c765f4f861b86ed",
+        "expiresAt": "2026-11-06T15:04:15Z"
+      }
+    ],
+    "summaries": {
+      "auditCorrections": {
+        "checks": 366,
+        "failed": 0
+      },
+      "cashBrowser": {
+        "checks": 270,
+        "failed": 0
+      },
+      "visualReplay": {
+        "contexts": 12,
+        "sections": 60,
+        "realIntersections": 0
+      },
+      "original102": {
+        "falsePositives": 102,
+        "real": 0,
+        "unclassified": 0
+      },
+      "profiles": {
+        "CallCenter": 600,
+        "Medico": 576,
+        "Tecnico": 576,
+        "Administrativo": 612,
+        "Administracao": 960,
+        "CEO": 1026
+      },
+      "profileChecks": 4350,
+      "profileNotTestable": 180,
+      "postgresCash": {
+        "scenarioGroups": 6
+      },
+      "p0BoundaryRefusals": 28
+    },
+    "limits": [
+      "Chromium executed on isolated loopback build, not live SSO browser automation.",
+      "Live deployment READY, manifest and four critical files verified byte-for-byte.",
+      "Physical tablet, real identity, central UI/API persistence and private archive not operational."
+    ],
+    "protectedState": {
+      "main": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+      "prDraft": true,
+      "productionProjectUpdatedAt": 1791725971672,
+      "productionLatestDeployment": "dpl_2C1mPq5vYRne8djkVjuux8nehwp7"
+    }
+  }
+}

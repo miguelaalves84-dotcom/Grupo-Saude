@@ -1,0 +1,34 @@
+{
+  "commit": "d2e962c8215374d545dfc5bbb22f3b0968dcf7be",
+  "purpose": "Immutable synthetic HR UX baseline; not a second production implementation",
+  "files": {
+    "app.js": {
+      "sha256": "1c10e4306e712c8a7c819ef0d5c0a6e8f66a86b86b3b1e50771beb90d625de00",
+      "bytes": 100127
+    },
+    "clinic-hr-architecture.js": {
+      "sha256": "b492cf412a211da70ef4beaee31b15a5f981a870251eda7c3bfc7a08ced81495",
+      "bytes": 20317
+    },
+    "hr-master-v4.js": {
+      "sha256": "e6f64733646d68675509f3d10d4a6e829e81644c2daf3d45a2819eca89c58ba9",
+      "bytes": 53693
+    },
+    "workspace-shell-v4.js": {
+      "sha256": "38191e587ac66e94c71b50538ffaa2a263ac775d4490b9556b44321718cf2c3a",
+      "bytes": 37036
+    },
+    "design-system-v4.css": {
+      "sha256": "f1c9942402e94f267088d428f2a1d5b48ee2a130cdcc03665a1df6de666f1dcf",
+      "bytes": 53503
+    },
+    "safe-actions-v4.js": {
+      "sha256": "bd175a08aef124481488559589a1956ffa25a3ded2825b191c4ee67daebc69cb",
+      "bytes": 8564
+    },
+    "visual-runtime-v4.js": {
+      "sha256": "7596b2d4178aada21c2448c7bebb524ef055a0c6b5fd93521b1bc36ad8a2ba24",
+      "bytes": 3570
+    }
+  }
+}

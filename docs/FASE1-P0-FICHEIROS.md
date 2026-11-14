@@ -1,0 +1,57 @@
+# Inventário da Fase 1
+
+Ficheiros alterados/adicionados; nenhum ficheiro funcional eliminado:
+
+- `.github/workflows/v4-preview-regression.yml`
+- `.gitignore`
+- `_headers`
+- `account.html`
+- `account.js`
+- `api/v4-auth.js`
+- `api/v4-clinic-gps.js`
+- `api/v4-cron-alerts.js`
+- `api/v4-document.js`
+- `api/v4-finance.js`
+- `api/v4-retention.js`
+- `api/v4-upload.js`
+- `api/v4.js`
+- `app.js`
+- `approvals-center-v4.js`
+- `attendance-dashboard-v4.js`
+- `authenticated-v4.js`
+- `authenticated.html`
+- `clinic-calendars-v4.js`
+- `clinic-hr-architecture.js`
+- `clinic-master-v4.js`
+- `clinic-relations-v4.js`
+- `contract-types-v4.js`
+- `db/migrations/v4-p0-gps-001.sql`
+- `docs/FASE1-P0-FICHEIROS.md`
+- `docs/FASE1-P0-SEGURANCA.md`
+- `finance-core-v4.js`
+- `functions/_middleware.js`
+- `functions/api/finance.js`
+- `gs-enterprise.js`
+- `gs-test-agent-v4.js`
+- `hr-master-v4.js`
+- `hr-separation-v4.js`
+- `index.html`
+- `lib/authorization-service.js`
+- `lib/development-mode.js`
+- `lib/finance-authorization-service.js`
+- `lib/finance-service.js`
+- `lib/schema-version-service.js`
+- `package.json`
+- `safe-actions-v4.js`
+- `scheduled-indicators.js`
+- `scripts/migrate-development.cjs`
+- `session-v4.js`
+- `tests/p0-browser.py`
+- `tests/p0-migrations.py`
+- `tests/p0-retention.cjs`
+- `tests/p0-security.cjs`
+- `tests/release-readiness.cjs`
+- `tests/runtime.cjs`
+- `v4-master-integrations.js`
+- `vacation-calendar-v4.js`
+- `validation-fixes.js`

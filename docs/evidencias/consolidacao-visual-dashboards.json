@@ -1,0 +1,685 @@
+{
+  "codeCommit": "7e13333b8fd77d33fb633c0c90ff8411916ea092",
+  "baseCommit": "77e8e861",
+  "basePhysicalTabletValidation": "Reported by user; not a validation of this new code",
+  "branch": "dev/v4-stabilization-20261017",
+  "workflow": {
+    "id": 41684994674,
+    "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "regression",
+        "id": 126088617111,
+        "conclusion": "success"
+      },
+      {
+        "name": "postgres",
+        "id": 126088617559,
+        "conclusion": "success"
+      },
+      {
+        "name": "security-browser",
+        "id": 126088901772,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (improvements-browser)",
+        "id": 126088902922,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (operation-browser)",
+        "id": 126088902927,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (finance-browser)",
+        "id": 126088902960,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (hr-portal-browser)",
+        "id": 126088903032,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (candidate-pointer-browser)",
+        "id": 126088903034,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (hr-occupational-browser)",
+        "id": 126088903045,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (rh-followup-browser)",
+        "id": 126088903069,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (opening-lists-browser)",
+        "id": 126088903071,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (profile-audit-browser)",
+        "id": 126088903074,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (branding-browser)",
+        "id": 126088903113,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (complaints-documents-browser)",
+        "id": 126088903117,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (hr-management-browser)",
+        "id": 126088903120,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (marketing-browser)",
+        "id": 126088903124,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (supplier-companies-browser)",
+        "id": 126088903140,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (finance-reorganization-browser)",
+        "id": 126088903146,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (browser)",
+        "id": 126088903158,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (employee-documents-browser)",
+        "id": 126088903166,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (attendance-browser)",
+        "id": 126088903179,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (complaints-browser)",
+        "id": 126088903180,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (opening-composition-browser)",
+        "id": 126088903183,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (p0-browser)",
+        "id": 126088903196,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (stock-closing-browser)",
+        "id": 126088903207,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (operation-ending-browser)",
+        "id": 126088903210,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (hr-declarations-browser)",
+        "id": 126088903234,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (complaints-enhancements-browser)",
+        "id": 126088903267,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (operation-workflows-browser)",
+        "id": 126088903308,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (global-layout-browser)",
+        "id": 126088903310,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (interview-browser)",
+        "id": 126088903373,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (documents-browser)",
+        "id": 126088903396,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (recruitment-browser)",
+        "id": 126088903399,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (stabilization-browser)",
+        "id": 126088903425,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (module-dashboards-browser)",
+        "id": 126088903503,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (stock-tables-browser)",
+        "id": 126088903505,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (rh-20261022-browser)",
+        "id": 126088903609,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (ending-layout-browser)",
+        "id": 126088903620,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (payroll-export-browser)",
+        "id": 126088903624,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (visual-renewal-browser)",
+        "id": 126088903640,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (agenda-rh-browser)",
+        "id": 126088903686,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (text-editing-browser)",
+        "id": 126088903694,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (search-browser)",
+        "id": 126088903728,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (audit-corrections-browser)",
+        "id": 126088903738,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (audit-complete-browser)",
+        "id": 126088903756,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (reference-layout-browser)",
+        "id": 126088903768,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (executive-design-browser)",
+        "id": 126088903785,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (rh-development-browser)",
+        "id": 126088903818,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (chat-browser)",
+        "id": 126088903838,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (ux-workspaces-browser)",
+        "id": 126088903839,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (audit-expanded-browser)",
+        "id": 126088903864,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (finance-cash-browser)",
+        "id": 126088903886,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (design-system-browser)",
+        "id": 126088903900,
+        "conclusion": "success"
+      },
+      {
+        "name": "browser (text-fields-browser)",
+        "id": 126088903960,
+        "conclusion": "success"
+      }
+    ]
+  },
+  "dashboardBrowser": {
+    "checks": 2262,
+    "profiles": {
+      "u1": {
+        "passed": 532,
+        "failed": 0
+      },
+      "test_admin": {
+        "passed": 530,
+        "failed": 0
+      },
+      "test_call": {
+        "passed": 282,
+        "failed": 0
+      },
+      "test_med": {
+        "passed": 282,
+        "failed": 0
+      },
+      "test_tec": {
+        "passed": 282,
+        "failed": 0
+      },
+      "test_adm": {
+        "passed": 354,
+        "failed": 0
+      }
+    },
+    "viewports": [
+      "1440x1000",
+      "1280x800 touch",
+      "390x844 touch"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "physicalAndroid": false,
+    "tabletCaptureFiles": [
+      {
+        "dashboard": "general",
+        "light": "u1-tablet-light-general.png",
+        "dark": "u1-tablet-dark-general.png"
+      },
+      {
+        "dashboard": "personal",
+        "light": "u1-tablet-light-personal.png",
+        "dark": "u1-tablet-dark-personal.png"
+      },
+      {
+        "dashboard": "management",
+        "light": "u1-tablet-light-management.png",
+        "dark": "u1-tablet-dark-management.png"
+      },
+      {
+        "dashboard": "operation",
+        "light": "u1-tablet-light-operation.png",
+        "dark": "u1-tablet-dark-operation.png"
+      },
+      {
+        "dashboard": "hr",
+        "light": "u1-tablet-light-hr.png",
+        "dark": "u1-tablet-dark-hr.png"
+      },
+      {
+        "dashboard": "finance",
+        "light": "u1-tablet-light-finance.png",
+        "dark": "u1-tablet-dark-finance.png"
+      },
+      {
+        "dashboard": "system",
+        "light": "u1-tablet-light-system.png",
+        "dark": "u1-tablet-dark-system.png"
+      }
+    ]
+  },
+  "deployment": {
+    "id": "dpl_AMfdFMioQv8dj4zfphnMVUpWfed2",
+    "url": "https://grupo-saude-v4-validacao-sintetica-ke8jvcol8-grupo-saude.vercel.app",
+    "state": "READY",
+    "commit": "7e13333b8fd77d33fb633c0c90ff8411916ea092",
+    "target": "staging",
+    "protected": true,
+    "files": 143,
+    "httpChecks": [
+      {
+        "path": "/",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/preview-manifest.json",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/module-dashboards-core-v4.js",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/module-dashboards-ui-v4.js",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/module-dashboards-v4.css",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/workspace-shell-v4.js",
+        "status": 200,
+        "exactMatch": true
+      }
+    ],
+    "verification": "Authorized connector HTTP and exact byte comparison; browser flows ran in isolated GitHub Actions"
+  },
+  "artifacts": [
+    {
+      "id": 13256370076,
+      "name": "audit-complete-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13256370076"
+    },
+    {
+      "id": 13255431794,
+      "name": "payroll-export-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255431794"
+    },
+    {
+      "id": 13255377120,
+      "name": "audit-corrections-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255377120"
+    },
+    {
+      "id": 13255341728,
+      "name": "hr-portal-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255341728"
+    },
+    {
+      "id": 13255326895,
+      "name": "operation-workflows-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255326895"
+    },
+    {
+      "id": 13255317226,
+      "name": "attendance-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255317226"
+    },
+    {
+      "id": 13255291567,
+      "name": "security-identity-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255291567"
+    },
+    {
+      "id": 13255207707,
+      "name": "operation-ending-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255207707"
+    },
+    {
+      "id": 13255207511,
+      "name": "rh-development-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255207511"
+    },
+    {
+      "id": 13255167242,
+      "name": "employee-documents-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255167242"
+    },
+    {
+      "id": 13255143281,
+      "name": "finance-cash-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255143281"
+    },
+    {
+      "id": 13255102071,
+      "name": "security-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255102071"
+    },
+    {
+      "id": 13255047866,
+      "name": "recruitment-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255047866"
+    },
+    {
+      "id": 13255017647,
+      "name": "ux-workspaces-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13255017647"
+    },
+    {
+      "id": 13254977769,
+      "name": "reference-layout-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254977769"
+    },
+    {
+      "id": 13254858250,
+      "name": "stabilization-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254858250"
+    },
+    {
+      "id": 13254853302,
+      "name": "stock-closing-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254853302"
+    },
+    {
+      "id": 13254763068,
+      "name": "hr-management-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254763068"
+    },
+    {
+      "id": 13254733463,
+      "name": "stock-tables-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254733463"
+    },
+    {
+      "id": 13254713968,
+      "name": "agenda-rh-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254713968"
+    },
+    {
+      "id": 13254703552,
+      "name": "supplier-companies-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254703552"
+    },
+    {
+      "id": 13254694743,
+      "name": "opening-composition-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254694743"
+    },
+    {
+      "id": 13254669580,
+      "name": "visual-renewal-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254669580"
+    },
+    {
+      "id": 13254669027,
+      "name": "profile-audit-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254669027"
+    },
+    {
+      "id": 13254663306,
+      "name": "text-fields-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254663306"
+    },
+    {
+      "id": 13254659414,
+      "name": "operation-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254659414"
+    },
+    {
+      "id": 13254558733,
+      "name": "complaints-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254558733"
+    },
+    {
+      "id": 13254534406,
+      "name": "branding-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254534406"
+    },
+    {
+      "id": 13254474473,
+      "name": "rh-20261022-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254474473"
+    },
+    {
+      "id": 13254298434,
+      "name": "global-layout-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254298434"
+    },
+    {
+      "id": 13254043733,
+      "name": "complaints-enhancements-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254043733"
+    },
+    {
+      "id": 13254013455,
+      "name": "complaints-documents-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13254013455"
+    },
+    {
+      "id": 13253974489,
+      "name": "chat-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253974489"
+    },
+    {
+      "id": 13253949482,
+      "name": "design-system-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253949482"
+    },
+    {
+      "id": 13253893626,
+      "name": "finance-reorganization-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253893626"
+    },
+    {
+      "id": 13253848614,
+      "name": "module-dashboards-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253848614"
+    },
+    {
+      "id": 13253799274,
+      "name": "hr-declarations-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253799274"
+    },
+    {
+      "id": 13253693885,
+      "name": "rh-followup-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253693885"
+    },
+    {
+      "id": 13253649888,
+      "name": "search-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253649888"
+    },
+    {
+      "id": 13253639293,
+      "name": "ending-layout-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253639293"
+    },
+    {
+      "id": 13253609813,
+      "name": "text-editing-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253609813"
+    },
+    {
+      "id": 13253594324,
+      "name": "interview-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253594324"
+    },
+    {
+      "id": 13253539010,
+      "name": "candidate-pointer-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253539010"
+    },
+    {
+      "id": 13253394717,
+      "name": "opening-lists-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253394717"
+    },
+    {
+      "id": 13253353796,
+      "name": "executive-design-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253353796"
+    },
+    {
+      "id": 13253253967,
+      "name": "marketing-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253253967"
+    },
+    {
+      "id": 13253194141,
+      "name": "hr-occupational-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253194141"
+    },
+    {
+      "id": 13253094270,
+      "name": "audit-expanded-browser-synthetic-7e13333b8fd77d33fb633c0c90ff8411916ea092",
+      "url": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41684994674/artifacts/13253094270"
+    }
+  ],
+  "safety": {
+    "mainUnchanged": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+    "productionProjectUpdatedAtUnchanged": 1791725971672,
+    "pr13Draft": true,
+    "changedFilesScanned": 7,
+    "secretPatternFindings": 0,
+    "realData": false,
+    "productionWrites": false,
+    "remoteMigrations": false
+  },
+  "operational": {
+    "syntheticOnly": true,
+    "centralPersistence": false,
+    "privateStorage": false,
+    "realEmails": false,
+    "realTimeClinicalAvailability": false
+  },
+  "preserved": [
+    "HR and leave rules",
+    "contracts and seniority",
+    "rosters and histories",
+    "finance ledger and payment approvals",
+    "original complaint deadline",
+    "effective role simulation and clinic scopes"
+  ],
+  "regressionsCorrected": [
+    {
+      "commit": "b7561459",
+      "finding": "Draft day initialization must not replace recorded capacity snapshot"
+    },
+    {
+      "commit": "7e13333b",
+      "finding": "Clickable clinic names remain indexed through existing record search text metadata; original search assertion retained"
+    }
+  ],
+  "limits": [
+    "Physical Android validation pending for this code",
+    "Holiday balance requires explicit source configuration and is rendered locally using existing domain",
+    "Next roster requires a published effective row for current employee",
+    "Capacity and availability are dated recorded snapshots, not real-time integrations",
+    "Central services remain inactive; isolated tests do not activate them"
+  ]
+}

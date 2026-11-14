@@ -1,0 +1,2325 @@
+{
+  "codeCommit": "6a5a8b63f94f4eccda6bf526ad8a42015609daf9",
+  "workflowRun": 41484560741,
+  "workflowUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41484560741",
+  "artifactId": 13161941747,
+  "passed": 324,
+  "failed": 0,
+  "profiles": 6,
+  "devices": [
+    "desktop1440x1000",
+    "tablet1280x800",
+    "mobile390x844"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "physicalAndroidValidated": false,
+  "realTabletRecordsAccessed": false,
+  "centralPersistence": false,
+  "cases": [
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "unauthorized profile cannot access layout records",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "profile switch leaves six stored records intact",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "mobile uses one labeled card per patient",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "card labels above fields without overlap",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "mobile uses one labeled card per patient",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "card labels above fields without overlap",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "mobile uses one labeled card per patient",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "card labels above fields without overlap",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "mobile uses one labeled card per patient",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "card labels above fields without overlap",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "desktop/tablet retain real table columns",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "every header exactly aligns with every row cell",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "mobile uses one labeled card per patient",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "card labels above fields without overlap",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme applied",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "six existing patient rows, not duplicated by responsive layout",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "exact seven-column order",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "each field references its exact header",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no component horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "page remains within viewport",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "all controls fit their corresponding cells",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "date remains read-only",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "mobile uses one labeled card per patient",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "card labels above fields without overlap",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "individual history opens in readable full-width panel",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "history can close without changing data",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "optional follow-up fits decision area",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "saving unchanged six records preserves every original value and history",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "reload keeps all six records and IDs",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    }
+  ],
+  "githubActionsJobs": {
+    "passed": 49,
+    "failed": 0
+  },
+  "preview": {
+    "url": "https://grupo-saude-v4-validacao-sintetica-50w84b0q4-grupo-saude.vercel.app",
+    "deploymentId": "dpl_9tQALCPfc8FsJGPM2anhttbhQoQm",
+    "state": "READY",
+    "target": "staging",
+    "http": [
+      {
+        "path": "/",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/app.js",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/design-system-v4.css",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/api/version",
+        "status": 200,
+        "exactCommit": "6a5a8b63f94f4eccda6bf526ad8a42015609daf9",
+        "syntheticOnly": true,
+        "centralPersistence": false
+      }
+    ]
+  }
+}

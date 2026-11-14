@@ -1,5 +1,5 @@
 const { neon }=require('@neondatabase/serverless');
-module.exports=async function(req,res){
+module.exports=async function(req,res){if(require('../lib/development-mode').locked(process.env))return res.status(503).json({ok:false,code:'P0_PREVIEW_BACKEND_LOCKED'});
  if(req.method!=='GET')return res.status(405).json({ok:false});
  if(!process.env.CRON_SECRET||req.headers.authorization!=='Bearer '+process.env.CRON_SECRET)return res.status(401).json({ok:false});
  if(!process.env.DATABASE_URL)return res.status(503).json({ok:false,code:'DATABASE_NOT_CONFIGURED'});

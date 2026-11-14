@@ -1,0 +1,81 @@
+{
+  "issue": 18,
+  "branch": "dev/v4-stabilization-20261017",
+  "codeCommit": "66eaec92371de710dbd3ff7d99776dfee148b8f5",
+  "workflowRun": 41560367995,
+  "jobs": {
+    "passed": 53,
+    "failed": 0
+  },
+  "newRHBrowser": {
+    "checks": 558,
+    "profiles": 6,
+    "themes": 2,
+    "viewports": 3,
+    "physicalAndroid": false,
+    "byProfile": {
+      "test_call": {
+        "passed": 36,
+        "failed": 0
+      },
+      "test_med": {
+        "passed": 36,
+        "failed": 0
+      },
+      "test_tec": {
+        "passed": 36,
+        "failed": 0
+      },
+      "test_adm": {
+        "passed": 36,
+        "failed": 0
+      },
+      "test_admin": {
+        "passed": 210,
+        "failed": 0
+      },
+      "u1": {
+        "passed": 204,
+        "failed": 0
+      }
+    }
+  },
+  "preview": {
+    "url": "https://grupo-saude-v4-validacao-sintetica-43btc9dwa-grupo-saude.vercel.app",
+    "id": "dpl_62wNer9DnECKbTrDfaeenVoRAR15",
+    "state": "READY",
+    "protected": true,
+    "syntheticOnly": true,
+    "httpChecks": [
+      {
+        "path": "/",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/hr-management-core-v4.js",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/hr-management-ui-v4.js",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/hr-management-v4.css",
+        "status": 200,
+        "exactMatch": true
+      },
+      {
+        "path": "/payroll-export-ui-v4.js",
+        "status": 200,
+        "exactMatch": true
+      }
+    ]
+  },
+  "productionModified": false,
+  "centralPersistenceOperational": false,
+  "privateStorageOperational": false,
+  "legalHoursBankOperational": false
+}

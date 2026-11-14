@@ -1,0 +1,539 @@
+{
+  "auditedCode": "ddb6023618d73ec678af742a1cfc3353b27dc903",
+  "runId": 39945892326,
+  "jobId": 120388466332,
+  "contexts": 12,
+  "sectionsReviewed": 60,
+  "occurrences": 6,
+  "interpretation": "Seis interseções entre controlos renderizados dentro da área recortada do modal. Conflito com cabeçalho fixo a tratar em P2; não foi executada certificação visual humana nem análise completa de oclusão opaca/pixels.",
+  "records": [
+    {
+      "id": "E001",
+      "actor": "test_admin",
+      "width": 1366,
+      "height": 1000,
+      "theme": "light",
+      "section": 8,
+      "capture": "paint-test_admin-1366-light-section-8.png",
+      "a": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "×"
+      },
+      "b": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Desenvolvimento"
+      },
+      "rawRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39
+        }
+      },
+      "clippedRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        }
+      },
+      "classification": "FALHA_REAL",
+      "paintIntersection": true,
+      "reason": "Interseção mantém-se na área efetivamente visível"
+    },
+    {
+      "id": "E002",
+      "actor": "test_admin",
+      "width": 1366,
+      "height": 1000,
+      "theme": "dark",
+      "section": 8,
+      "capture": "paint-test_admin-1366-dark-section-8.png",
+      "a": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "×"
+      },
+      "b": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Desenvolvimento"
+      },
+      "rawRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39
+        }
+      },
+      "clippedRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        }
+      },
+      "classification": "FALHA_REAL",
+      "paintIntersection": true,
+      "reason": "Interseção mantém-se na área efetivamente visível"
+    },
+    {
+      "id": "E003",
+      "actor": "u1",
+      "width": 1366,
+      "height": 1000,
+      "theme": "light",
+      "section": 8,
+      "capture": "paint-u1-1366-light-section-8.png",
+      "a": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "×"
+      },
+      "b": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Desenvolvimento"
+      },
+      "rawRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39
+        }
+      },
+      "clippedRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        }
+      },
+      "classification": "FALHA_REAL",
+      "paintIntersection": true,
+      "reason": "Interseção mantém-se na área efetivamente visível"
+    },
+    {
+      "id": "E004",
+      "actor": "u1",
+      "width": 1366,
+      "height": 1000,
+      "theme": "dark",
+      "section": 8,
+      "capture": "paint-u1-1366-dark-section-8.png",
+      "a": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "×"
+      },
+      "b": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Desenvolvimento"
+      },
+      "rawRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39
+        }
+      },
+      "clippedRects": {
+        "a": {
+          "left": 999,
+          "right": 1043,
+          "top": 67,
+          "bottom": 111,
+          "width": 44,
+          "height": 44,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        },
+        "b": {
+          "left": 900.109375,
+          "right": 1028.390625,
+          "top": 65,
+          "bottom": 104,
+          "width": 128.28125,
+          "height": 39,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        }
+      },
+      "classification": "FALHA_REAL",
+      "paintIntersection": true,
+      "reason": "Interseção mantém-se na área efetivamente visível"
+    },
+    {
+      "id": "E005",
+      "actor": "u1",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "section": 5,
+      "capture": "paint-u1-390-light-section-5.png",
+      "a": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "×"
+      },
+      "b": {
+        "tag": "INPUT",
+        "id": "hrPayrollUntil",
+        "text": ""
+      },
+      "rawRects": {
+        "a": {
+          "left": 316.25,
+          "right": 360.25,
+          "top": 59.203125,
+          "bottom": 103.203125,
+          "width": 44,
+          "height": 44
+        },
+        "b": {
+          "left": 59.25,
+          "right": 330.75,
+          "top": 58.21875,
+          "bottom": 100.21875,
+          "width": 271.5,
+          "height": 42
+        }
+      },
+      "clippedRects": {
+        "a": {
+          "left": 316.25,
+          "right": 360.25,
+          "top": 59.203125,
+          "bottom": 103.203125,
+          "width": 44,
+          "height": 44,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        },
+        "b": {
+          "left": 59.25,
+          "right": 330.75,
+          "top": 58.21875,
+          "bottom": 100.21875,
+          "width": 271.5,
+          "height": 42,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        }
+      },
+      "classification": "FALHA_REAL",
+      "paintIntersection": true,
+      "reason": "Interseção mantém-se na área efetivamente visível"
+    },
+    {
+      "id": "E006",
+      "actor": "u1",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "section": 5,
+      "capture": "paint-u1-390-dark-section-5.png",
+      "a": {
+        "tag": "BUTTON",
+        "id": "",
+        "text": "×"
+      },
+      "b": {
+        "tag": "INPUT",
+        "id": "hrPayrollUntil",
+        "text": ""
+      },
+      "rawRects": {
+        "a": {
+          "left": 316.25,
+          "right": 360.25,
+          "top": 59.203125,
+          "bottom": 103.203125,
+          "width": 44,
+          "height": 44
+        },
+        "b": {
+          "left": 59.25,
+          "right": 330.75,
+          "top": 58.21875,
+          "bottom": 100.21875,
+          "width": 271.5,
+          "height": 42
+        }
+      },
+      "clippedRects": {
+        "a": {
+          "left": 316.25,
+          "right": 360.25,
+          "top": 59.203125,
+          "bottom": 103.203125,
+          "width": 44,
+          "height": 44,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        },
+        "b": {
+          "left": 59.25,
+          "right": 330.75,
+          "top": 58.21875,
+          "bottom": 100.21875,
+          "width": 271.5,
+          "height": 42,
+          "visible": true,
+          "ancestors": [
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "x",
+              "overflow": "auto"
+            },
+            {
+              "tag": "DIALOG",
+              "id": "modal",
+              "axis": "y",
+              "overflow": "auto"
+            }
+          ]
+        }
+      },
+      "classification": "FALHA_REAL",
+      "paintIntersection": true,
+      "reason": "Interseção mantém-se na área efetivamente visível"
+    }
+  ]
+}

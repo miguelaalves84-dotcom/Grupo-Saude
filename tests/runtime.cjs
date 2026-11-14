@@ -35,7 +35,7 @@ function environment(initial){
  const context={document,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v))},console,Intl,Date,Math,JSON,Set,Map,URL,alert(){},confirm:()=>false,prompt:()=>null,location:{reload(){}},navigator:{},MutationObserver:class{observe(){}},CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail}},setTimeout:(f,delay)=>{timers.push({f,delay});return timers.length},clearTimeout(){},setInterval(){},queueMicrotask:f=>timers.push({f,delay:0}),addEventListener(){},dispatchEvent(){}};
  context.matchMedia=()=>({matches:false});context.window=context;vm.createContext(context);
  const run=(f,source)=>vm.runInContext(source??fs.readFileSync(path.join(root,f),'utf8'),context,{filename:f,timeout:2000});
- run('safe-actions-v4.js');
+ run('safe-actions-v4.js');run('chat-core-v4.js');run('operation-core-v4.js');run('operation-history-v4.js');run('document-catalog-core-v4.js');
  const flush=()=>{const batch=timers.splice(0).sort((a,b)=>a.delay-b.delay);for(const t of batch)t.f()};
  return {context,document,elements,run,flush,nav,read:()=>JSON.parse(storage.get(KEY)),write:s=>storage.set(KEY,JSON.stringify(s))};
 }
@@ -56,7 +56,7 @@ test('baseline: undefined clinics interrupts a seeded startup',()=>{
  assert.throws(()=>e.document.dispatchEvent({type:'DOMContentLoaded'}),/clinics is not defined/);
 });
 }else console.log('SKIP historical reproduction: set GS_BASELINE_DIR to files from upstream 84fba5a');
-function core(){const e=environment();for(const f of ['app.js','hr-leave-domain-v4.js','hr-leave-ui-v4.js','hr-performance-domain-v4.js','hr-performance-ui-v4.js','access-scope-v4.js','clinic-hr-architecture.js','ceo-reserved-area-switcher-v4.js','access-policy-core-v4.js','role-access-admin-v4.js','communications-core-v4.js'])e.run(f);e.document.dispatchEvent({type:'DOMContentLoaded'});e.flush();return e}
+function core(){const e=environment();for(const f of ['access-policy-core-v4.js','attendance-core-v4.js','stock-core-v4.js','finance-core-v4.js','payroll-export-core-v4.js','attendance-ui-v4.js','clinic-specialties-core-v4.js','agenda-core-v4.js','recruitment-core-v4.js','recruitment-workflow-v4.js','app.js','hr-leave-domain-v4.js','hr-leave-ui-v4.js','hr-performance-domain-v4.js','hr-performance-ui-v4.js','access-scope-v4.js','clinic-hr-architecture.js','ceo-reserved-area-switcher-v4.js','access-policy-core-v4.js','role-access-admin-v4.js','communications-core-v4.js','employee-documents-core-v4.js','hr-occupational-core-v4.js','hr-portal-core-v4.js','hr-management-core-v4.js'])e.run(f);e.document.dispatchEvent({type:'DOMContentLoaded'});e.flush();return e}
 test('fresh startup, synchronous initialization and direct CEO RH',()=>{
  const e=core();assert(e.read().candidates);assert(e.read().users.some(x=>x.id==='u1'));
  assert(e.context.App.showView('hr'));assert(e.elements.get('hr').classList.contains('active'));assert.match(e.elements.get('hrContent').innerHTML,/Colaboradores/);assert.match(e.elements.get('hrContent').innerHTML,/Candidatos/);
@@ -138,4 +138,7 @@ test('issue6: individual picker handlers compile and existing vacation click ope
 test('issue6: empty vacation/medical records cannot be approved',()=>{const e=leaveFixture(),D=e.context.HRLeaveV4,s=e.read();s.leave.push({id:'empty',employeeId:'p',type:'Férias',days:[],status:'Pendente'},{id:'empty-sick',employeeId:'p',type:'Baixa',status:'Pendente'});e.write(s);const before=e.read();assert.throws(()=>D.decide('empty','Aprovado'));assert.throws(()=>D.decide('empty-sick','Aprovado'));assert.deepEqual(e.read(),before)});
 require('./performance.cjs')({core,test,assert,vm,flat,actor,leaveFixture});
 require('./consolidation.cjs')({core,test,assert,vm});
+require('./candidates-navigation.cjs')({core,test,assert});
+require('./recruitment-workflow-runtime.cjs')({core,test,assert});
+test('candidates: only one stage selector at each breakpoint (static CSS cascade)',()=>require('./candidate-selector-visibility.cjs'));
 console.log(JSON.stringify({passed,scope:'JavaScript real + DOM simulado; navegador e backend não executados'}));

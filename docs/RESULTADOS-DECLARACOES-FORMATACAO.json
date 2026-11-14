@@ -1,0 +1,151 @@
+{
+  "codeCommit": "d921012c07633c5ae75295a38bb2564f3557d68e",
+  "branch": "dev/v4-stabilization-20261017",
+  "workflowRun": 41542505606,
+  "workflowUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41542505606",
+  "jobsPassed": 52,
+  "jobsFailed": 0,
+  "chromiumChecks": 2256,
+  "domainChecks": 398,
+  "independentlyReadPdfs": 73,
+  "additionalRasterizedLayoutExamples": 15,
+  "profiles": 6,
+  "themes": 2,
+  "viewports": 3,
+  "artifactId": 13187114363,
+  "artifactExpires": "2026-11-16T23:11:51Z",
+  "preview": {
+    "id": "dpl_CKSR727Gr8gMKXFzG6PUKpXh8Tah",
+    "url": "https://grupo-saude-v4-validacao-sintetica-2qhnv62ds-grupo-saude.vercel.app",
+    "gallery": "https://grupo-saude-v4-validacao-sintetica-2qhnv62ds-grupo-saude.vercel.app/exemplos-declaracoes.html",
+    "state": "READY",
+    "protected": true,
+    "http": [
+      {
+        "path": "/",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/api/version",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/exemplos-declaracoes.html",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/finance-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-declarations-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-declarations-ui-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-declarations-v4.css",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-portal-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/attendance.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/duties.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/employment-salary.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/employment.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/experience.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/holidays.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/incomplete.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/long-document.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/nursery.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/salary.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/schedule.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/school-schedule.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/second-employer.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/seniority.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/declaracoes-exemplos/termination.pdf",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      }
+    ]
+  },
+  "singleBlankSigningDate": true,
+  "preserveHistoricalTextRevision": true,
+  "syntheticOnly": true,
+  "physicalAndroidValidated": false,
+  "digitalSignatureOperational": false,
+  "privateArchiveOperational": false,
+  "centralAuthenticatedRuntimeOperational": false,
+  "realEmails": false,
+  "pr13Draft": true,
+  "mainUnchanged": "84fba5a2d6d7afcb0723ca312f4e617acc22823d"
+}

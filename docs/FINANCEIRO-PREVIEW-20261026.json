@@ -1,0 +1,77 @@
+{
+  "sourceCommit": "49f6f67e6fbb5b28e048b94f79a4f9d8244bfc17",
+  "branch": "dev/v4-stabilization-20261017",
+  "synthetic": true,
+  "backend": false,
+  "writers": false,
+  "persistence": "browser-only",
+  "testedRun": 40418251803,
+  "browserSuites": 41,
+  "jobs": 43,
+  "validation": "success",
+  "feature": "finance-five-workspaces",
+  "physicalAndroid": "pending",
+  "url": "https://grupo-saude-v4-validacao-sintetica-14mdrjwel-grupo-saude.vercel.app",
+  "deploymentId": "dpl_7GyRgRZkBhhn2JNa59nHfsCK1BQC",
+  "state": "READY",
+  "target": "staging",
+  "ssoProtection": {
+    "enabled": true,
+    "deploymentType": "all"
+  },
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "characters": 12952,
+      "exact": true
+    },
+    {
+      "path": "/api/version",
+      "status": 200,
+      "characters": 318,
+      "exact": true
+    },
+    {
+      "path": "/finance-ui-v4.js",
+      "status": 200,
+      "characters": 72426,
+      "exact": true
+    },
+    {
+      "path": "/finance-core-v4.js",
+      "status": 200,
+      "characters": 25690,
+      "exact": true
+    },
+    {
+      "path": "/finance-demo-v4.js",
+      "status": 200,
+      "characters": 27103,
+      "exact": true
+    },
+    {
+      "path": "/workspace-shell-v4.js",
+      "status": 200,
+      "characters": 53422,
+      "exact": true
+    },
+    {
+      "path": "/finance-v4.css",
+      "status": 200,
+      "characters": 1620,
+      "exact": true
+    },
+    {
+      "path": "/design-system-v4.css",
+      "status": 200,
+      "characters": 60654,
+      "exact": true
+    }
+  ],
+  "mainPreserved": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+  "productionProject": "prj_uqWsAbl1oiiJrx9BaNHAJwOtuAtH",
+  "productionUpdatedAt": 1791725971672,
+  "pr": 13,
+  "draft": true
+}

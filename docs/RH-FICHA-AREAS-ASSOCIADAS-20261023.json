@@ -1,0 +1,1918 @@
+{
+  "baseline": "4314b2e6670de88c06e36906273b20343fd04b43",
+  "scope": "Inventário de campos/projeções de áreas associadas; não são novos inputs. Fonte por domínio e ficheiro; coleções históricas podem ter aliases.",
+  "count": 147,
+  "fields": [
+    {
+      "field": "Capacidades técnicas: treatments",
+      "canonicalSource": "hr.weeklyCapacity[dia].treatments",
+      "area": "Capacidades técnicas",
+      "permissions": "CEO/Administração; apenas técnicos; números inteiros não negativos",
+      "consumers": "GSOperationCore; abertura lê capacidade habitual, ajuste diário separado",
+      "historyAndValidation": "histórico em alterações de capacidade; sete dias",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-master-v4.js",
+        "operation-core-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: masterDocumentId",
+      "canonicalSource": "employeeDocuments[employeeId][].masterDocumentId",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: name",
+      "canonicalSource": "employeeDocuments[employeeId][].name",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: description",
+      "canonicalSource": "employeeDocuments[employeeId][].description",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: clinic",
+      "canonicalSource": "employeeDocuments[employeeId][].clinic",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: startsAt",
+      "canonicalSource": "employeeDocuments[employeeId][].startsAt",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: validUntil",
+      "canonicalSource": "employeeDocuments[employeeId][].validUntil",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: fileName",
+      "canonicalSource": "employeeDocuments[employeeId][].fileName",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: mimeType",
+      "canonicalSource": "employeeDocuments[employeeId][].mimeType",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: size",
+      "canonicalSource": "employeeDocuments[employeeId][].size",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: storageDocumentId",
+      "canonicalSource": "employeeDocuments[employeeId][].storageDocumentId",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: dataUrl",
+      "canonicalSource": "employeeDocuments[employeeId][].dataUrl",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: status",
+      "canonicalSource": "employeeDocuments[employeeId][].status",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: revision",
+      "canonicalSource": "employeeDocuments[employeeId][].revision",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: uploadedAt",
+      "canonicalSource": "employeeDocuments[employeeId][].uploadedAt",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: uploadedBy",
+      "canonicalSource": "employeeDocuments[employeeId][].uploadedBy",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: reviewedAt",
+      "canonicalSource": "employeeDocuments[employeeId][].reviewedAt",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: reviewedBy",
+      "canonicalSource": "employeeDocuments[employeeId][].reviewedBy",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: versions",
+      "canonicalSource": "employeeDocuments[employeeId][].versions",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Documentos: history",
+      "canonicalSource": "employeeDocuments[employeeId][].history",
+      "area": "Documentos",
+      "permissions": "próprio upload/consulta autorizados; revisão e documentos de gestão reservados",
+      "consumers": "GSEmployeeDocuments; catálogo e checklist do contrato existentes",
+      "historyAndValidation": "versões/substituições; datas conforme regras do catálogo; arquivo central pendente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "employee-documents-core-v4.js",
+        "employee-documents-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: employeeId",
+      "canonicalSource": "leave[].employeeId",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: clinicId",
+      "canonicalSource": "leave[].clinicId",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: type",
+      "canonicalSource": "leave[].type",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: start",
+      "canonicalSource": "leave[].start",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: end",
+      "canonicalSource": "leave[].end",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: days",
+      "canonicalSource": "leave[].days",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: reason",
+      "canonicalSource": "leave[].reason",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: status",
+      "canonicalSource": "leave[].status",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: createdAt",
+      "canonicalSource": "leave[].createdAt",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: createdBy",
+      "canonicalSource": "leave[].createdBy",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: reviewedAt",
+      "canonicalSource": "leave[].reviewedAt",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: reviewedBy",
+      "canonicalSource": "leave[].reviewedBy",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: decisionNote",
+      "canonicalSource": "leave[].decisionNote",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: document",
+      "canonicalSource": "leave[].document",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: proofReviewStatus",
+      "canonicalSource": "leave[].proofReviewStatus",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Férias e ausências: history",
+      "canonicalSource": "leave[].history",
+      "area": "Férias e ausências",
+      "permissions": "próprio pedido; gestão/aprovação segundo HRLeave e âmbito",
+      "consumers": "HRLeaveV4/HRLeaveUIV4, saldos e calendário existentes",
+      "historyAndValidation": "registos anteriores preservados; correção/reversão com motivo; dados médicos restritos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-leave-domain-v4.js",
+        "hr-leave-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: user",
+      "canonicalSource": "timeEntries[].user",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: clinic",
+      "canonicalSource": "timeEntries[].clinic",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: type",
+      "canonicalSource": "timeEntries[].type",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: at",
+      "canonicalSource": "timeEntries[].at",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: recordedAt",
+      "canonicalSource": "timeEntries[].recordedAt",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: originalAt",
+      "canonicalSource": "GSAttendanceCore.events/summary + timeOccurrences (projeção das correções; eventos originais imutáveis)",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: gps.validated",
+      "canonicalSource": "timeEntries[].gps.validated",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Ponto: history",
+      "canonicalSource": "GSAttendanceCore.events/summary + timeOccurrences (projeção das correções; eventos originais imutáveis)",
+      "area": "Ponto",
+      "permissions": "próprio registo; gestão/correção autorizadas; GPS mínimo sem vigilância contínua",
+      "consumers": "GSAttendanceCore.events/summary; ficha só projeta",
+      "historyAndValidation": "eventos imutáveis; regularizações em timeOccurrences, não reescrever ponto original",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "attendance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: user",
+      "canonicalSource": "timeOccurrences[].user",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: clinic",
+      "canonicalSource": "timeOccurrences[].clinic",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: type",
+      "canonicalSource": "timeOccurrences[].type",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: status",
+      "canonicalSource": "timeOccurrences[].status",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: reason",
+      "canonicalSource": "timeOccurrences[].reason",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: proposedAt",
+      "canonicalSource": "timeOccurrences[].proposedAt",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: entryId",
+      "canonicalSource": "timeOccurrences[].entryId",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: requestedAt",
+      "canonicalSource": "timeOccurrences[].requestedAt",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: reviewedAt",
+      "canonicalSource": "timeOccurrences[].reviewedAt",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: reviewedBy",
+      "canonicalSource": "timeOccurrences[].reviewedBy",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: decisionReason",
+      "canonicalSource": "timeOccurrences[].decisionReason",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Correções/escalas: history",
+      "canonicalSource": "timeOccurrences[].history",
+      "area": "Correções/escalas",
+      "permissions": "colaborador propõe; CEO/Administração decide; recusas justificadas",
+      "consumers": "GSAdministrativeRosters, GSAttendanceCore, monthlyRosters",
+      "historyAndValidation": "proposta separada da escala efetiva; decisão auditada",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-core-v4.js"
+      ]
+    },
+    {
+      "field": "Escala efetiva: startTime",
+      "canonicalSource": "monthlyRosters[mes|clinica][employeeId].days[data].startTime",
+      "area": "Escala efetiva",
+      "permissions": "CEO/Administração gere diretamente; pedidos dos colaboradores exigem aprovação",
+      "consumers": "GSAttendanceCore.schedule/dailyPlan; sobrepõe horário habitual",
+      "historyAndValidation": "histórico e origem da aprovação; sem segundo horário diário na ficha",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Escala efetiva: endTime",
+      "canonicalSource": "monthlyRosters[mes|clinica][employeeId].days[data].endTime",
+      "area": "Escala efetiva",
+      "permissions": "CEO/Administração gere diretamente; pedidos dos colaboradores exigem aprovação",
+      "consumers": "GSAttendanceCore.schedule/dailyPlan; sobrepõe horário habitual",
+      "historyAndValidation": "histórico e origem da aprovação; sem segundo horário diário na ficha",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Escala efetiva: lunchStart",
+      "canonicalSource": "monthlyRosters[mes|clinica][employeeId].days[data].lunchStart",
+      "area": "Escala efetiva",
+      "permissions": "CEO/Administração gere diretamente; pedidos dos colaboradores exigem aprovação",
+      "consumers": "GSAttendanceCore.schedule/dailyPlan; sobrepõe horário habitual",
+      "historyAndValidation": "histórico e origem da aprovação; sem segundo horário diário na ficha",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Escala efetiva: lunchEnd",
+      "canonicalSource": "monthlyRosters[mes|clinica][employeeId].days[data].lunchEnd",
+      "area": "Escala efetiva",
+      "permissions": "CEO/Administração gere diretamente; pedidos dos colaboradores exigem aprovação",
+      "consumers": "GSAttendanceCore.schedule/dailyPlan; sobrepõe horário habitual",
+      "historyAndValidation": "histórico e origem da aprovação; sem segundo horário diário na ficha",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Escala efetiva: off",
+      "canonicalSource": "monthlyRosters[mes|clinica][employeeId].days[data].off",
+      "area": "Escala efetiva",
+      "permissions": "CEO/Administração gere diretamente; pedidos dos colaboradores exigem aprovação",
+      "consumers": "GSAttendanceCore.schedule/dailyPlan; sobrepõe horário habitual",
+      "historyAndValidation": "histórico e origem da aprovação; sem segundo horário diário na ficha",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "attendance-core-v4.js",
+        "administrative-rosters-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: employeeId",
+      "canonicalSource": "hrTraining[training-policy].employeeId",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: clinicId",
+      "canonicalSource": "hrTraining[training-policy].clinicId",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: year",
+      "canonicalSource": "hrTraining[training-policy].year",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: mode",
+      "canonicalSource": "hrTraining[training-policy].mode",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: genuine",
+      "canonicalSource": "hrTraining[training-policy].genuine",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: annualHours",
+      "canonicalSource": "hrTraining[training-policy].annualHours",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: start",
+      "canonicalSource": "hrTraining[training-policy].start",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: end",
+      "canonicalSource": "hrTraining[training-policy].end",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: irct",
+      "canonicalSource": "hrTraining[training-policy].irct",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: deferPlan",
+      "canonicalSource": "hrTraining[training-policy].deferPlan",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: reason",
+      "canonicalSource": "hrTraining[training-policy].reason",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: contractSnapshot",
+      "canonicalSource": "hrTraining[training-policy].contractSnapshot",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: revision",
+      "canonicalSource": "hrTraining[training-policy].revision",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação anual: history",
+      "canonicalSource": "hrTraining[training-policy].history",
+      "area": "Formação anual",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment.policy/obligation; validação anual e IRCT",
+      "historyAndValidation": "modo/ano é confirmação jurídica anual; datas/vínculo repetidos exigem conferência quando contrato muda",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: employeeId",
+      "canonicalSource": "hrTraining[].employeeId",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: clinicId",
+      "canonicalSource": "hrTraining[].clinicId",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: title",
+      "canonicalSource": "hrTraining[].title",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: category",
+      "canonicalSource": "hrTraining[].category",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: entity",
+      "canonicalSource": "hrTraining[].entity",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: start",
+      "canonicalSource": "hrTraining[].start",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: end",
+      "canonicalSource": "hrTraining[].end",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: duration",
+      "canonicalSource": "hrTraining[].duration",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: validHours",
+      "canonicalSource": "hrTraining[].validHours",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: allocationYear",
+      "canonicalSource": "hrTraining[].allocationYear",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: status",
+      "canonicalSource": "hrTraining[].status",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: participants",
+      "canonicalSource": "hrTraining[].participants",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: documents",
+      "canonicalSource": "hrTraining[].documents",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: notes",
+      "canonicalSource": "hrTraining[].notes",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: revision",
+      "canonicalSource": "hrTraining[].revision",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Formação: history",
+      "canonicalSource": "hrTraining[].history",
+      "area": "Formação",
+      "permissions": "exclusivo CEO/Administração; anexos sujeitos ao mesmo âmbito",
+      "consumers": "GSHRDevelopment; documentos são IDs do arquivo existente",
+      "historyAndValidation": "formação planeada/pendente/validada/cancelada; horas só contam após validação",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: employeeId",
+      "canonicalSource": "hrEquipment[].employeeId",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: clinicId",
+      "canonicalSource": "hrEquipment[].clinicId",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: title",
+      "canonicalSource": "hrEquipment[].title",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: category",
+      "canonicalSource": "hrEquipment[].category",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: serial",
+      "canonicalSource": "hrEquipment[].serial",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: delivered",
+      "canonicalSource": "hrEquipment[].delivered",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: expectedReturn",
+      "canonicalSource": "hrEquipment[].expectedReturn",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: returned",
+      "canonicalSource": "hrEquipment[].returned",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: condition",
+      "canonicalSource": "hrEquipment[].condition",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: status",
+      "canonicalSource": "hrEquipment[].status",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: documents",
+      "canonicalSource": "hrEquipment[].documents",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: notes",
+      "canonicalSource": "hrEquipment[].notes",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: revision",
+      "canonicalSource": "hrEquipment[].revision",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Equipamentos: history",
+      "canonicalSource": "hrEquipment[].history",
+      "area": "Equipamentos",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; sem segundo cadastro de colaboradores/anexos",
+      "historyAndValidation": "referência única enquanto entregue; devolução com data; histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: employeeId",
+      "canonicalSource": "hrExpenses[].employeeId",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: clinicId",
+      "canonicalSource": "hrExpenses[].clinicId",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: title",
+      "canonicalSource": "hrExpenses[].title",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: type",
+      "canonicalSource": "hrExpenses[].type",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: date",
+      "canonicalSource": "hrExpenses[].date",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: amount",
+      "canonicalSource": "hrExpenses[].amount",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: kilometers",
+      "canonicalSource": "hrExpenses[].kilometers",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: status",
+      "canonicalSource": "hrExpenses[].status",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: decisionReason",
+      "canonicalSource": "hrExpenses[].decisionReason",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: documents",
+      "canonicalSource": "hrExpenses[].documents",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: notes",
+      "canonicalSource": "hrExpenses[].notes",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: reviewedAt",
+      "canonicalSource": "hrExpenses[].reviewedAt",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: reviewedBy",
+      "canonicalSource": "hrExpenses[].reviewedBy",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: revision",
+      "canonicalSource": "hrExpenses[].revision",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Despesas/deslocações: history",
+      "canonicalSource": "hrExpenses[].history",
+      "area": "Despesas/deslocações",
+      "permissions": "exclusivo CEO/Administração",
+      "consumers": "GSHRDevelopment; documentos da ficha",
+      "historyAndValidation": "aprovação não cria pagamento; recusa com motivo; sem custos inferidos",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-development-core-v4.js",
+        "hr-development-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: employeeId",
+      "canonicalSource": "hrPerformance[].employeeId",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: period",
+      "canonicalSource": "hrPerformance[].period",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: period.kind",
+      "canonicalSource": "hrPerformance[].period.kind",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: criteria",
+      "canonicalSource": "hrPerformance[].criteria",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: scores",
+      "canonicalSource": "hrPerformance[].scores",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: objectives",
+      "canonicalSource": "hrPerformance[].objectives",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: feedback",
+      "canonicalSource": "hrPerformance[].feedback",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: status",
+      "canonicalSource": "HRPerformanceV4.evaluations(): hrPerformanceEvents → status",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação: rules.version",
+      "canonicalSource": "hrPerformance[].rules.version",
+      "area": "Avaliação",
+      "permissions": "gestão/decisão CEO/Administração; próprio vê apenas o autorizado",
+      "consumers": "HRPerformanceV4, hrPerformanceEvents e regras versionadas",
+      "historyAndValidation": "pontuações e ponderações por versão; eventos de decisão sem reescrever histórico",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação entre colegas: period",
+      "canonicalSource": "hrPeerCycles[].period",
+      "area": "Avaliação entre colegas",
+      "permissions": "questionário sem autoavaliação; gestão de resultados restrita",
+      "consumers": "HRPerformanceV4, hrPeerAnswers, hrPeerResults",
+      "historyAndValidation": "respostas individuais não divulgadas; agregação com limiar",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação entre colegas: clinicId",
+      "canonicalSource": "hrPeerCycles[].clinicId",
+      "area": "Avaliação entre colegas",
+      "permissions": "questionário sem autoavaliação; gestão de resultados restrita",
+      "consumers": "HRPerformanceV4, hrPeerAnswers, hrPeerResults",
+      "historyAndValidation": "respostas individuais não divulgadas; agregação com limiar",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação entre colegas: members",
+      "canonicalSource": "hrPeerCycles[].members",
+      "area": "Avaliação entre colegas",
+      "permissions": "questionário sem autoavaliação; gestão de resultados restrita",
+      "consumers": "HRPerformanceV4, hrPeerAnswers, hrPeerResults",
+      "historyAndValidation": "respostas individuais não divulgadas; agregação com limiar",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação entre colegas: criteria",
+      "canonicalSource": "hrPeerCycles[].criteria",
+      "area": "Avaliação entre colegas",
+      "permissions": "questionário sem autoavaliação; gestão de resultados restrita",
+      "consumers": "HRPerformanceV4, hrPeerAnswers, hrPeerResults",
+      "historyAndValidation": "respostas individuais não divulgadas; agregação com limiar",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação entre colegas: threshold",
+      "canonicalSource": "hrPeerCycles[].threshold",
+      "area": "Avaliação entre colegas",
+      "permissions": "questionário sem autoavaliação; gestão de resultados restrita",
+      "consumers": "HRPerformanceV4, hrPeerAnswers, hrPeerResults",
+      "historyAndValidation": "respostas individuais não divulgadas; agregação com limiar",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Avaliação entre colegas: status",
+      "canonicalSource": "HRPerformanceV4.cycles(): hrPeerCycleEvents → status",
+      "area": "Avaliação entre colegas",
+      "permissions": "questionário sem autoavaliação; gestão de resultados restrita",
+      "consumers": "HRPerformanceV4, hrPeerAnswers, hrPeerResults",
+      "historyAndValidation": "respostas individuais não divulgadas; agregação com limiar",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "hr-performance-domain-v4.js",
+        "hr-performance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Permissões: personal",
+      "canonicalSource": "userActionPermissions[employeeId].personal",
+      "area": "Permissões",
+      "permissions": "apenas configuração autorizada; edição de CEO reservada ao CEO efetivo",
+      "consumers": "GSAccessPolicy/RoleAccessAdminV4; não cargo/profissão",
+      "historyAndValidation": "negações explícitas e simulação sem herança; histórico específico existente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "access-policy-core-v4.js",
+        "role-access-admin-v4.js"
+      ]
+    },
+    {
+      "field": "Permissões: clock",
+      "canonicalSource": "userActionPermissions[employeeId].clock",
+      "area": "Permissões",
+      "permissions": "apenas configuração autorizada; edição de CEO reservada ao CEO efetivo",
+      "consumers": "GSAccessPolicy/RoleAccessAdminV4; não cargo/profissão",
+      "historyAndValidation": "negações explícitas e simulação sem herança; histórico específico existente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "access-policy-core-v4.js",
+        "role-access-admin-v4.js"
+      ]
+    },
+    {
+      "field": "Permissões: account",
+      "canonicalSource": "userActionPermissions[employeeId].account",
+      "area": "Permissões",
+      "permissions": "apenas configuração autorizada; edição de CEO reservada ao CEO efetivo",
+      "consumers": "GSAccessPolicy/RoleAccessAdminV4; não cargo/profissão",
+      "historyAndValidation": "negações explícitas e simulação sem herança; histórico específico existente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "access-policy-core-v4.js",
+        "role-access-admin-v4.js"
+      ]
+    },
+    {
+      "field": "Permissões: leaveRequest",
+      "canonicalSource": "userActionPermissions[employeeId].leaveRequest",
+      "area": "Permissões",
+      "permissions": "apenas configuração autorizada; edição de CEO reservada ao CEO efetivo",
+      "consumers": "GSAccessPolicy/RoleAccessAdminV4; não cargo/profissão",
+      "historyAndValidation": "negações explícitas e simulação sem herança; histórico específico existente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "access-policy-core-v4.js",
+        "role-access-admin-v4.js"
+      ]
+    },
+    {
+      "field": "Permissões: hrManage",
+      "canonicalSource": "userActionPermissions[employeeId].hrManage",
+      "area": "Permissões",
+      "permissions": "apenas configuração autorizada; edição de CEO reservada ao CEO efetivo",
+      "consumers": "GSAccessPolicy/RoleAccessAdminV4; não cargo/profissão",
+      "historyAndValidation": "negações explícitas e simulação sem herança; histórico específico existente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "access-policy-core-v4.js",
+        "role-access-admin-v4.js"
+      ]
+    },
+    {
+      "field": "Permissões: financeManage",
+      "canonicalSource": "userActionPermissions[employeeId].financeManage",
+      "area": "Permissões",
+      "permissions": "apenas configuração autorizada; edição de CEO reservada ao CEO efetivo",
+      "consumers": "GSAccessPolicy/RoleAccessAdminV4; não cargo/profissão",
+      "historyAndValidation": "negações explícitas e simulação sem herança; histórico específico existente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "access-policy-core-v4.js",
+        "role-access-admin-v4.js"
+      ]
+    },
+    {
+      "field": "Permissões: agenda",
+      "canonicalSource": "userActionPermissions[employeeId].agenda",
+      "area": "Permissões",
+      "permissions": "apenas configuração autorizada; edição de CEO reservada ao CEO efetivo",
+      "consumers": "GSAccessPolicy/RoleAccessAdminV4; não cargo/profissão",
+      "historyAndValidation": "negações explícitas e simulação sem herança; histórico específico existente",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "access-policy-core-v4.js",
+        "role-access-admin-v4.js"
+      ]
+    },
+    {
+      "field": "Conta corrente — consulta: previousCents",
+      "canonicalSource": "GSFinanceCore.statement(...).previousCents",
+      "area": "Conta corrente — consulta",
+      "permissions": "próprio e gestão autorizada por âmbito",
+      "consumers": "fontes Financeiro/current_account_entries/financeV2; ficha não grava movimentos",
+      "historyAndValidation": "valores derivados; não são outro editor de remuneração",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "finance-core-v4.js",
+        "finance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Conta corrente — consulta: creditsCents",
+      "canonicalSource": "GSFinanceCore.statement(...).creditsCents",
+      "area": "Conta corrente — consulta",
+      "permissions": "próprio e gestão autorizada por âmbito",
+      "consumers": "fontes Financeiro/current_account_entries/financeV2; ficha não grava movimentos",
+      "historyAndValidation": "valores derivados; não são outro editor de remuneração",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "finance-core-v4.js",
+        "finance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Conta corrente — consulta: paymentsCents",
+      "canonicalSource": "GSFinanceCore.statement(...).paymentsCents",
+      "area": "Conta corrente — consulta",
+      "permissions": "próprio e gestão autorizada por âmbito",
+      "consumers": "fontes Financeiro/current_account_entries/financeV2; ficha não grava movimentos",
+      "historyAndValidation": "valores derivados; não são outro editor de remuneração",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "finance-core-v4.js",
+        "finance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Conta corrente — consulta: finalCents",
+      "canonicalSource": "GSFinanceCore.statement(...).finalCents",
+      "area": "Conta corrente — consulta",
+      "permissions": "próprio e gestão autorizada por âmbito",
+      "consumers": "fontes Financeiro/current_account_entries/financeV2; ficha não grava movimentos",
+      "historyAndValidation": "valores derivados; não são outro editor de remuneração",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "finance-core-v4.js",
+        "finance-ui-v4.js"
+      ]
+    },
+    {
+      "field": "Conta corrente — consulta: items",
+      "canonicalSource": "GSFinanceCore.statement(...).items",
+      "area": "Conta corrente — consulta",
+      "permissions": "próprio e gestão autorizada por âmbito",
+      "consumers": "fontes Financeiro/current_account_entries/financeV2; ficha não grava movimentos",
+      "historyAndValidation": "valores derivados; não são outro editor de remuneração",
+      "persistence": "fontes existentes; preview sintético/local; backend isolado não equivale a UI central operacional",
+      "sourceFiles": [
+        "finance-core-v4.js",
+        "finance-ui-v4.js"
+      ]
+    }
+  ]
+}

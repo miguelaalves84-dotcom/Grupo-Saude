@@ -1,0 +1,113 @@
+/* Administrative calendar. Same events, owners, scopes and commands. */
+.agenda-controls{padding:16px 20px}
+.agenda-toolbar{gap:6px;margin:0 0 16px;padding-bottom:16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.agenda-toolbar [data-agenda-mode]{min-width:64px}
+.agenda-toolbar [data-agenda-mode][aria-pressed=true]{background:var(--soft);color:var(--accent);border-color:var(--line)}
+.agenda-toolbar [data-agenda-action=new]{margin-inline-start:auto;background:var(--primary);border-color:var(--primary);color:#fff}
+.agenda-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;align-items:end;margin:0}
+.agenda-controls>.agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr)) auto auto}.agenda-more-filters>summary{display:flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:12px;font-weight:650;cursor:pointer;color:var(--ink)}.agenda-more-filters[open]{grid-column:1/-1}.agenda-more-filters[open]>summary{margin-bottom:12px}.agenda-more-filters>div{margin-top:12px}#agendaContent>.notice{font-size:12px;padding:10px 12px}
+.agenda-filters label{display:flex;flex-direction:column;gap:6px;min-width:0;margin:0}
+.agenda-filters input,.agenda-filters select,.agenda-filters textarea{width:100%;box-sizing:border-box}
+.agenda-scroll{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface);overscroll-behavior-x:contain}
+.agenda-grid{display:grid;gap:0}
+.agenda-month{grid-template-columns:repeat(7,minmax(100px,1fr));min-width:700px}
+.agenda-week{grid-template-columns:repeat(7,minmax(120px,1fr));min-width:840px}
+.agenda-grid.agenda-day{grid-template-columns:1fr}
+section.agenda-day{min-width:0;min-height:180px;padding:12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);color:var(--ink)}
+section.agenda-day:last-child{border-right:0}.agenda-month section.agenda-day{min-height:156px}
+section.agenda-day h2{font-size:13px;margin:0 0 12px}
+section.agenda-day h2 button{background:transparent;border:0;padding:0;min-height:44px;color:inherit;font:inherit;text-align:left;font-weight:750}
+section.agenda-today{background:var(--soft);box-shadow:inset 0 3px var(--accent)}
+.agenda-event{--person-line:#006c76;--person-tint:#edf6f7;display:flex;flex-direction:column;gap:5px;width:100%;min-height:76px;padding:10px;margin:8px 0;border:1px solid var(--line);border-inline-start:4px solid var(--person-line);border-radius:8px;background:var(--person-tint);color:var(--ink);text-align:left;white-space:normal;overflow-wrap:anywhere}
+.agenda-event:hover{background:var(--soft);border-color:var(--person-line)}
+.agenda-event strong{font-size:13px;line-height:1.45}.agenda-event span,.agenda-event small{font-size:12px;line-height:1.5}.agenda-event .agenda-event-time{font-size:11px;font-weight:750;color:var(--muted)}
+.agenda-person-1{--person-line:#6847b8;--person-tint:#f3f0fb}.agenda-person-2{--person-line:#af4c1b;--person-tint:#fff3eb}.agenda-person-3{--person-line:#16704a;--person-tint:#edf7f1}.agenda-person-4{--person-line:#b13766;--person-tint:#fff0f5}.agenda-person-5{--person-line:#356bb0;--person-tint:#eef4fc}
+:root[data-theme=dark] .agenda-event{--person-tint:var(--surface-subtle)}
+.agenda-cancelled{border-style:dashed;text-decoration-line:line-through;text-decoration-color:var(--muted)}
+.agenda-slot{display:flex;justify-content:space-between;width:100%;min-height:44px;padding:8px;margin:4px 0;border:1px dashed var(--line);border-radius:6px;background:transparent;color:var(--muted);font-size:12px;text-align:left}
+.agenda-slot:hover,.agenda-slot:focus-visible{background:var(--soft);color:var(--accent)}
+.agenda-description{white-space:pre-wrap;overflow-wrap:anywhere}
+#agendaDialog{width:min(680px,calc(100vw - 24px))}
+#agendaDialog .agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+#agendaDialog dd{margin:4px 0 16px;overflow-wrap:anywhere}#agendaDialog dt{font-size:12px;color:var(--muted);font-weight:700}
+@media(max-width:600px){
+ .agenda-controls{padding:14px}.agenda-controls>.agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.agenda-controls>.agenda-filters>button{grid-column:auto}.agenda-more-filters{grid-column:auto}.agenda-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.agenda-filters button{grid-column:1/-1}.agenda-toolbar{gap:6px}.agenda-toolbar button{flex:1 1 auto;padding:8px}.agenda-toolbar [data-agenda-action=new]{margin-inline-start:0;flex-basis:100%}
+ .agenda-month{grid-template-columns:repeat(7,100px)}.agenda-week{grid-template-columns:repeat(7,140px);min-width:980px}section.agenda-day{padding:10px}
+ #agendaDialog{max-height:calc(100dvh - 20px)}#agendaDialog .agenda-filters{grid-template-columns:1fr}
+}
+
+html[data-theme=dark] .agenda-toolbar [data-agenda-action=new]{color:#001322}
+
+/* Tablet (601–1180 px): os filtros da Agenda passam a colunas de pelo menos 170 px que quebram de linha,
+   em vez de duas colunas flexíveis esmagadas por duas automáticas (Data e Pesquisar ficavam com 26 px). */
+@media(min-width:601px) and (max-width:1180px){
+ .agenda-controls>.agenda-filters{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+ .agenda-controls>.agenda-filters>button{white-space:nowrap}
+}
+/* Botão Dia/Semana/Mês escolhido: sempre legível (rato, foco e toque), nos dois temas. */
+.agenda-toolbar [data-agenda-mode][aria-pressed=true],.agenda-toolbar [data-agenda-mode][aria-pressed=true]:hover,.agenda-toolbar [data-agenda-mode][aria-pressed=true]:focus-visible{background:var(--primary);border-color:var(--primary);color:#fff}
+html[data-theme=dark] .agenda-toolbar [data-agenda-mode][aria-pressed=true],:root[data-theme=dark] .agenda-toolbar [data-agenda-mode][aria-pressed=true]:hover{color:#001322}
+/* Linha do tempo: continuação depois da meia-noite, notas de folga/férias e contagem no mês. */
+.agenda-event.agenda-continued{border-left-style:dashed;opacity:.92}
+.agenda-note{margin:0 0 8px;padding:6px 8px;border-radius:6px;background:var(--warning-bg,#fff4e5);color:var(--warning,#a15c00);font-size:12px;font-weight:700}
+.agenda-dnum{display:none}
+.agenda-count{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:6px;padding:0 6px;border-radius:999px;background:var(--primary);color:#fff;font-size:12px;font-weight:800;vertical-align:middle}
+html[data-theme=dark] .agenda-count{color:#001322}
+@media(max-width:600px){
+ /* Semana: lista vertical por dia, sem deslizar para o lado. */
+ .agenda-week{grid-template-columns:1fr;min-width:0}
+ .agenda-week section.agenda-day{border-right:0;min-height:0}
+ .agenda-week .agenda-slot:not(.agenda-add-day){display:none}
+ .agenda-week .agenda-add-day{display:flex}
+ /* Mês: grelha compacta só com o número de marcações; tocar no dia abre-o. */
+ .agenda-month{grid-template-columns:repeat(7,minmax(0,1fr));min-width:0}
+ .agenda-month section.agenda-day{min-height:58px;padding:4px 2px;text-align:center}
+ .agenda-month section.agenda-day h2{margin:0}
+ .agenda-month section.agenda-day h2 button{width:100%;min-height:44px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+ .agenda-month .agenda-dlong{display:none}.agenda-month .agenda-dnum{display:inline;font-size:15px}
+ .agenda-month .agenda-count{margin:2px 0 0;min-width:20px;height:20px;font-size:11px}
+ .agenda-month .agenda-event,.agenda-month .agenda-slot,.agenda-month .agenda-empty,.agenda-month .agenda-note{display:none}
+}
+
+.agenda-add-day{display:none}
+/* Agenda estilo telemóvel: cores por tipo, pontos, tarefas com visto, lista do dia, botão redondo. */
+:root{--ag-appointment:var(--primary,#155dcc);--ag-task:#0f7a4d;--ag-birthday:#c2185b;--ag-reminder:#a15c00}
+html[data-theme=dark]{--ag-task:#6fd3a5;--ag-birthday:#f48fb1;--ag-reminder:#efc261}
+.agenda-legend{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 0;font-size:12px;color:var(--muted)}.agenda-legend span{display:inline-flex;align-items:center;gap:5px}
+.agenda-legend i,.agenda-dots i{display:inline-block;width:8px;height:8px;border-radius:50%}
+.dot-appointment{background:var(--ag-appointment)}.dot-task{background:var(--ag-task)}.dot-birthday{background:var(--ag-birthday)}.dot-reminder{background:var(--ag-reminder)}
+.agenda-dots{display:none;gap:3px;justify-content:center;margin-top:2px}
+.agenda-event.agenda-kind-task{border-left-color:var(--ag-task)}.agenda-event.agenda-kind-birthday{border-left-color:var(--ag-birthday)}.agenda-event.agenda-kind-reminder{border-left-color:var(--ag-reminder)}
+.agenda-item{display:flex;gap:6px;align-items:stretch}.agenda-item .agenda-event{flex:1;min-width:0}
+.agenda-tick{flex:none;width:44px;min-height:44px;border:2px solid var(--ag-task);border-radius:10px;background:transparent;color:#fff;font-weight:900;font-size:18px;padding:0}.agenda-tick.on{background:var(--ag-task)}
+html[data-theme=dark] .agenda-tick.on{color:#001322}
+.agenda-event.agenda-done strong{text-decoration:line-through;opacity:.7}
+.agenda-event.agenda-overdue{border-left-color:var(--danger,#b42318);background:var(--danger-bg,#fdecea)}.agenda-event.agenda-overdue .agenda-event-time{color:var(--danger,#b42318);font-weight:800}
+.agenda-daylist{margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:var(--radius-md,12px);background:var(--surface)}.agenda-daylist h3{margin:0 0 10px;font-size:15px;text-transform:capitalize}
+.agenda-fab{display:none}
+.agenda-kinds,.agenda-repeat,.agenda-scope{border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:0 0 10px}.agenda-kinds legend,.agenda-repeat legend,.agenda-scope legend{font-size:12px;font-weight:700;color:var(--muted);padding:0 4px}
+.agenda-kinds{display:flex;flex-wrap:wrap;gap:6px}.agenda-kinds label,.agenda-scope label{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:999px;font-weight:600}
+.agenda-kinds label:has(input:checked){background:var(--primary);border-color:var(--primary);color:#fff}html[data-theme=dark] .agenda-kinds label:has(input:checked){color:#001322}
+.agenda-scope{display:flex;flex-wrap:wrap;gap:6px}
+.agenda-weekdays{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.agenda-weekdays label{display:inline-flex;align-items:center;gap:4px;min-height:40px;padding:0 8px;border:1px solid var(--line);border-radius:8px}
+.agenda-inline{display:flex;align-items:center;gap:8px}.agenda-inline input{max-width:90px}
+.agenda-check{display:flex;align-items:center;gap:8px;min-height:44px}
+.agenda-kind{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:800;color:#fff;background:var(--ag-appointment)}.agenda-kind-task.agenda-kind{background:var(--ag-task)}.agenda-kind-birthday.agenda-kind{background:var(--ag-birthday)}.agenda-kind-reminder.agenda-kind{background:var(--ag-reminder)}
+html[data-theme=dark] .agenda-kind{color:#001322}
+@media(max-width:600px){
+ .agenda-month .agenda-count{display:none}.agenda-month .agenda-dots{display:flex}
+ .agenda-month .agenda-item{display:none}
+ .agenda-fab{display:grid;place-items:center;position:fixed;right:18px;bottom:22px;width:58px;height:58px;border-radius:50%;border:0;background:var(--primary);color:#fff;font-size:30px;font-weight:400;box-shadow:0 6px 18px #0004;z-index:50}
+ html[data-theme=dark] .agenda-fab{color:#001322}
+ .agenda-daylist{margin-bottom:84px}
+}
+.agenda-check,.agenda-kinds label,.agenda-weekdays label,.agenda-scope label{flex-direction:row;text-align:left}
+.agenda-check input,.agenda-kinds input,.agenda-weekdays input,.agenda-scope input{width:20px;height:20px;min-height:0;margin:0;flex:none;padding:0}
+.agenda-check{display:flex!important;justify-content:flex-start}
+.agenda-tick{align-self:center;height:44px}
+.agenda-daylist h3{text-transform:none}
+.agenda-filters label.agenda-check,.agenda-filters .agenda-weekdays label,.agenda-filters .agenda-scope label,.agenda-filters .agenda-kinds label{flex-direction:row;align-items:center}
+.agenda-scroll:has(.agenda-month){touch-action:pan-y}
+/* Renovações (só gestão): vermelho, para chamar a atenção. */
+:root{--ag-renewal:var(--danger,#b42318)}html[data-theme=dark]{--ag-renewal:var(--danger,#f8b4bc)}
+.dot-renewal{background:var(--ag-renewal)}.agenda-event.agenda-kind-renewal{border-left-color:var(--ag-renewal);background:var(--danger-bg,#fdecea)}.agenda-kind-renewal.agenda-kind{background:var(--ag-renewal)}

@@ -1,0 +1,297 @@
+actor,device,theme,case,passed
+u1,tablet-horizontal,dark,canonical indicators preserved from 9e7aa489,True
+u1,tablet-horizontal,dark,exactly four primary indicators,True
+u1,tablet-horizontal,dark,four source-derived mini charts,True
+u1,tablet-horizontal,dark,source-based horizontal bars,True
+u1,tablet-horizontal,dark,request distribution exists without invented patients,True
+u1,tablet-horizontal,dark,all original indicators accessible,True
+u1,tablet-horizontal,dark,no document-wide overflow,True
+u1,tablet-horizontal,dark,no illustrative identity or revenue copied,True
+u1,tablet-horizontal,dark,reference sidebar proportion,True
+u1,tablet-horizontal,dark,reference KPI top position,True
+u1,tablet-horizontal,dark,reference KPI card height,True
+u1,tablet-horizontal,dark,reference overview height,True
+u1,tablet-horizontal,dark,reference lower row position,True
+u1,tablet-horizontal,dark,two equal overview columns,True
+u1,tablet-horizontal,dark,identity control placed in sidebar footer,True
+u1,tablet-horizontal,dark,footer near the reference position,True
+u1,tablet-horizontal,dark,midnight canvas matches sampled reference,True
+u1,tablet-horizontal,dark,gold accents match sampled reference,True
+u1,tablet-horizontal,dark,period control opens the actual filters,True
+u1,tablet-horizontal,dark,clinic scope still filters all clinic rows,True
+u1,tablet-horizontal,dark,agenda uses a responsive shared shell,True
+u1,tablet-horizontal,dark,hr uses a responsive shared shell,True
+u1,tablet-horizontal,dark,operation uses a responsive shared shell,True
+u1,tablet-horizontal,dark,finance uses a responsive shared shell,True
+u1,tablet-horizontal,dark,stock uses a responsive shared shell,True
+u1,tablet-horizontal,dark,marketing uses a responsive shared shell,True
+u1,tablet-horizontal,dark,complaints uses a responsive shared shell,True
+u1,tablet-horizontal,dark,tables uses a responsive shared shell,True
+u1,tablet-horizontal,dark,chat uses a responsive shared shell,True
+u1,tablet-horizontal,dark,no JavaScript exceptions,True
+u1,tablet-horizontal,dark,visible composition differs materially from 9e7aa489,True
+u1,tablet-horizontal,light,canonical indicators preserved from 9e7aa489,True
+u1,tablet-horizontal,light,exactly four primary indicators,True
+u1,tablet-horizontal,light,four source-derived mini charts,True
+u1,tablet-horizontal,light,source-based horizontal bars,True
+u1,tablet-horizontal,light,request distribution exists without invented patients,True
+u1,tablet-horizontal,light,all original indicators accessible,True
+u1,tablet-horizontal,light,no document-wide overflow,True
+u1,tablet-horizontal,light,no illustrative identity or revenue copied,True
+u1,tablet-horizontal,light,reference sidebar proportion,True
+u1,tablet-horizontal,light,reference KPI top position,True
+u1,tablet-horizontal,light,reference KPI card height,True
+u1,tablet-horizontal,light,reference overview height,True
+u1,tablet-horizontal,light,reference lower row position,True
+u1,tablet-horizontal,light,two equal overview columns,True
+u1,tablet-horizontal,light,identity control placed in sidebar footer,True
+u1,tablet-horizontal,light,footer near the reference position,True
+u1,tablet-horizontal,light,period control opens the actual filters,True
+u1,tablet-horizontal,light,clinic scope still filters all clinic rows,True
+u1,tablet-horizontal,light,agenda uses a responsive shared shell,True
+u1,tablet-horizontal,light,hr uses a responsive shared shell,True
+u1,tablet-horizontal,light,operation uses a responsive shared shell,True
+u1,tablet-horizontal,light,finance uses a responsive shared shell,True
+u1,tablet-horizontal,light,stock uses a responsive shared shell,True
+u1,tablet-horizontal,light,marketing uses a responsive shared shell,True
+u1,tablet-horizontal,light,complaints uses a responsive shared shell,True
+u1,tablet-horizontal,light,tables uses a responsive shared shell,True
+u1,tablet-horizontal,light,chat uses a responsive shared shell,True
+u1,tablet-horizontal,light,no JavaScript exceptions,True
+u1,tablet-horizontal,light,visible composition differs materially from 9e7aa489,True
+u1,desktop,dark,canonical indicators preserved from 9e7aa489,True
+u1,desktop,dark,exactly four primary indicators,True
+u1,desktop,dark,four source-derived mini charts,True
+u1,desktop,dark,source-based horizontal bars,True
+u1,desktop,dark,request distribution exists without invented patients,True
+u1,desktop,dark,all original indicators accessible,True
+u1,desktop,dark,no document-wide overflow,True
+u1,desktop,dark,no illustrative identity or revenue copied,True
+u1,desktop,dark,midnight canvas matches sampled reference,True
+u1,desktop,dark,gold accents match sampled reference,True
+u1,desktop,dark,period control opens the actual filters,True
+u1,desktop,dark,clinic scope still filters all clinic rows,True
+u1,desktop,dark,agenda uses a responsive shared shell,True
+u1,desktop,dark,hr uses a responsive shared shell,True
+u1,desktop,dark,operation uses a responsive shared shell,True
+u1,desktop,dark,finance uses a responsive shared shell,True
+u1,desktop,dark,stock uses a responsive shared shell,True
+u1,desktop,dark,marketing uses a responsive shared shell,True
+u1,desktop,dark,complaints uses a responsive shared shell,True
+u1,desktop,dark,tables uses a responsive shared shell,True
+u1,desktop,dark,chat uses a responsive shared shell,True
+u1,desktop,dark,no JavaScript exceptions,True
+u1,desktop,dark,visible composition differs materially from 9e7aa489,True
+u1,desktop,light,canonical indicators preserved from 9e7aa489,True
+u1,desktop,light,exactly four primary indicators,True
+u1,desktop,light,four source-derived mini charts,True
+u1,desktop,light,source-based horizontal bars,True
+u1,desktop,light,request distribution exists without invented patients,True
+u1,desktop,light,all original indicators accessible,True
+u1,desktop,light,no document-wide overflow,True
+u1,desktop,light,no illustrative identity or revenue copied,True
+u1,desktop,light,period control opens the actual filters,True
+u1,desktop,light,clinic scope still filters all clinic rows,True
+u1,desktop,light,agenda uses a responsive shared shell,True
+u1,desktop,light,hr uses a responsive shared shell,True
+u1,desktop,light,operation uses a responsive shared shell,True
+u1,desktop,light,finance uses a responsive shared shell,True
+u1,desktop,light,stock uses a responsive shared shell,True
+u1,desktop,light,marketing uses a responsive shared shell,True
+u1,desktop,light,complaints uses a responsive shared shell,True
+u1,desktop,light,tables uses a responsive shared shell,True
+u1,desktop,light,chat uses a responsive shared shell,True
+u1,desktop,light,no JavaScript exceptions,True
+u1,desktop,light,visible composition differs materially from 9e7aa489,True
+u1,mobile,dark,canonical indicators preserved from 9e7aa489,True
+u1,mobile,dark,exactly four primary indicators,True
+u1,mobile,dark,four source-derived mini charts,True
+u1,mobile,dark,source-based horizontal bars,True
+u1,mobile,dark,request distribution exists without invented patients,True
+u1,mobile,dark,all original indicators accessible,True
+u1,mobile,dark,no document-wide overflow,True
+u1,mobile,dark,no illustrative identity or revenue copied,True
+u1,mobile,dark,midnight canvas matches sampled reference,True
+u1,mobile,dark,gold accents match sampled reference,True
+u1,mobile,dark,period control opens the actual filters,True
+u1,mobile,dark,clinic scope still filters all clinic rows,True
+u1,mobile,dark,agenda uses a responsive shared shell,True
+u1,mobile,dark,hr uses a responsive shared shell,True
+u1,mobile,dark,operation uses a responsive shared shell,True
+u1,mobile,dark,finance uses a responsive shared shell,True
+u1,mobile,dark,stock uses a responsive shared shell,True
+u1,mobile,dark,marketing uses a responsive shared shell,True
+u1,mobile,dark,complaints uses a responsive shared shell,True
+u1,mobile,dark,tables uses a responsive shared shell,True
+u1,mobile,dark,chat uses a responsive shared shell,True
+u1,mobile,dark,no JavaScript exceptions,True
+u1,mobile,dark,visible composition differs materially from 9e7aa489,True
+u1,mobile,light,canonical indicators preserved from 9e7aa489,True
+u1,mobile,light,exactly four primary indicators,True
+u1,mobile,light,four source-derived mini charts,True
+u1,mobile,light,source-based horizontal bars,True
+u1,mobile,light,request distribution exists without invented patients,True
+u1,mobile,light,all original indicators accessible,True
+u1,mobile,light,no document-wide overflow,True
+u1,mobile,light,no illustrative identity or revenue copied,True
+u1,mobile,light,period control opens the actual filters,True
+u1,mobile,light,clinic scope still filters all clinic rows,True
+u1,mobile,light,agenda uses a responsive shared shell,True
+u1,mobile,light,hr uses a responsive shared shell,True
+u1,mobile,light,operation uses a responsive shared shell,True
+u1,mobile,light,finance uses a responsive shared shell,True
+u1,mobile,light,stock uses a responsive shared shell,True
+u1,mobile,light,marketing uses a responsive shared shell,True
+u1,mobile,light,complaints uses a responsive shared shell,True
+u1,mobile,light,tables uses a responsive shared shell,True
+u1,mobile,light,chat uses a responsive shared shell,True
+u1,mobile,light,no JavaScript exceptions,True
+u1,mobile,light,visible composition differs materially from 9e7aa489,True
+test_admin,tablet-horizontal,dark,canonical indicators preserved from 9e7aa489,True
+test_admin,tablet-horizontal,dark,exactly four primary indicators,True
+test_admin,tablet-horizontal,dark,four source-derived mini charts,True
+test_admin,tablet-horizontal,dark,source-based horizontal bars,True
+test_admin,tablet-horizontal,dark,request distribution exists without invented patients,True
+test_admin,tablet-horizontal,dark,all original indicators accessible,True
+test_admin,tablet-horizontal,dark,no document-wide overflow,True
+test_admin,tablet-horizontal,dark,no illustrative identity or revenue copied,True
+test_admin,tablet-horizontal,dark,reference sidebar proportion,True
+test_admin,tablet-horizontal,dark,reference KPI top position,True
+test_admin,tablet-horizontal,dark,reference KPI card height,True
+test_admin,tablet-horizontal,dark,reference overview height,True
+test_admin,tablet-horizontal,dark,reference lower row position,True
+test_admin,tablet-horizontal,dark,two equal overview columns,True
+test_admin,tablet-horizontal,dark,identity control placed in sidebar footer,True
+test_admin,tablet-horizontal,dark,footer near the reference position,True
+test_admin,tablet-horizontal,dark,midnight canvas matches sampled reference,True
+test_admin,tablet-horizontal,dark,gold accents match sampled reference,True
+test_admin,tablet-horizontal,dark,period control opens the actual filters,True
+test_admin,tablet-horizontal,dark,clinic scope still filters all clinic rows,True
+test_admin,tablet-horizontal,dark,agenda uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,hr uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,operation uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,finance uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,stock uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,marketing uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,complaints uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,tables uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,chat uses a responsive shared shell,True
+test_admin,tablet-horizontal,dark,no JavaScript exceptions,True
+test_admin,tablet-horizontal,dark,visible composition differs materially from 9e7aa489,True
+test_admin,tablet-horizontal,light,canonical indicators preserved from 9e7aa489,True
+test_admin,tablet-horizontal,light,exactly four primary indicators,True
+test_admin,tablet-horizontal,light,four source-derived mini charts,True
+test_admin,tablet-horizontal,light,source-based horizontal bars,True
+test_admin,tablet-horizontal,light,request distribution exists without invented patients,True
+test_admin,tablet-horizontal,light,all original indicators accessible,True
+test_admin,tablet-horizontal,light,no document-wide overflow,True
+test_admin,tablet-horizontal,light,no illustrative identity or revenue copied,True
+test_admin,tablet-horizontal,light,reference sidebar proportion,True
+test_admin,tablet-horizontal,light,reference KPI top position,True
+test_admin,tablet-horizontal,light,reference KPI card height,True
+test_admin,tablet-horizontal,light,reference overview height,True
+test_admin,tablet-horizontal,light,reference lower row position,True
+test_admin,tablet-horizontal,light,two equal overview columns,True
+test_admin,tablet-horizontal,light,identity control placed in sidebar footer,True
+test_admin,tablet-horizontal,light,footer near the reference position,True
+test_admin,tablet-horizontal,light,period control opens the actual filters,True
+test_admin,tablet-horizontal,light,clinic scope still filters all clinic rows,True
+test_admin,tablet-horizontal,light,agenda uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,hr uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,operation uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,finance uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,stock uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,marketing uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,complaints uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,tables uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,chat uses a responsive shared shell,True
+test_admin,tablet-horizontal,light,no JavaScript exceptions,True
+test_admin,tablet-horizontal,light,visible composition differs materially from 9e7aa489,True
+test_admin,desktop,dark,canonical indicators preserved from 9e7aa489,True
+test_admin,desktop,dark,exactly four primary indicators,True
+test_admin,desktop,dark,four source-derived mini charts,True
+test_admin,desktop,dark,source-based horizontal bars,True
+test_admin,desktop,dark,request distribution exists without invented patients,True
+test_admin,desktop,dark,all original indicators accessible,True
+test_admin,desktop,dark,no document-wide overflow,True
+test_admin,desktop,dark,no illustrative identity or revenue copied,True
+test_admin,desktop,dark,midnight canvas matches sampled reference,True
+test_admin,desktop,dark,gold accents match sampled reference,True
+test_admin,desktop,dark,period control opens the actual filters,True
+test_admin,desktop,dark,clinic scope still filters all clinic rows,True
+test_admin,desktop,dark,agenda uses a responsive shared shell,True
+test_admin,desktop,dark,hr uses a responsive shared shell,True
+test_admin,desktop,dark,operation uses a responsive shared shell,True
+test_admin,desktop,dark,finance uses a responsive shared shell,True
+test_admin,desktop,dark,stock uses a responsive shared shell,True
+test_admin,desktop,dark,marketing uses a responsive shared shell,True
+test_admin,desktop,dark,complaints uses a responsive shared shell,True
+test_admin,desktop,dark,tables uses a responsive shared shell,True
+test_admin,desktop,dark,chat uses a responsive shared shell,True
+test_admin,desktop,dark,no JavaScript exceptions,True
+test_admin,desktop,dark,visible composition differs materially from 9e7aa489,True
+test_admin,desktop,light,canonical indicators preserved from 9e7aa489,True
+test_admin,desktop,light,exactly four primary indicators,True
+test_admin,desktop,light,four source-derived mini charts,True
+test_admin,desktop,light,source-based horizontal bars,True
+test_admin,desktop,light,request distribution exists without invented patients,True
+test_admin,desktop,light,all original indicators accessible,True
+test_admin,desktop,light,no document-wide overflow,True
+test_admin,desktop,light,no illustrative identity or revenue copied,True
+test_admin,desktop,light,period control opens the actual filters,True
+test_admin,desktop,light,clinic scope still filters all clinic rows,True
+test_admin,desktop,light,agenda uses a responsive shared shell,True
+test_admin,desktop,light,hr uses a responsive shared shell,True
+test_admin,desktop,light,operation uses a responsive shared shell,True
+test_admin,desktop,light,finance uses a responsive shared shell,True
+test_admin,desktop,light,stock uses a responsive shared shell,True
+test_admin,desktop,light,marketing uses a responsive shared shell,True
+test_admin,desktop,light,complaints uses a responsive shared shell,True
+test_admin,desktop,light,tables uses a responsive shared shell,True
+test_admin,desktop,light,chat uses a responsive shared shell,True
+test_admin,desktop,light,no JavaScript exceptions,True
+test_admin,desktop,light,visible composition differs materially from 9e7aa489,True
+test_admin,mobile,dark,canonical indicators preserved from 9e7aa489,True
+test_admin,mobile,dark,exactly four primary indicators,True
+test_admin,mobile,dark,four source-derived mini charts,True
+test_admin,mobile,dark,source-based horizontal bars,True
+test_admin,mobile,dark,request distribution exists without invented patients,True
+test_admin,mobile,dark,all original indicators accessible,True
+test_admin,mobile,dark,no document-wide overflow,True
+test_admin,mobile,dark,no illustrative identity or revenue copied,True
+test_admin,mobile,dark,midnight canvas matches sampled reference,True
+test_admin,mobile,dark,gold accents match sampled reference,True
+test_admin,mobile,dark,period control opens the actual filters,True
+test_admin,mobile,dark,clinic scope still filters all clinic rows,True
+test_admin,mobile,dark,agenda uses a responsive shared shell,True
+test_admin,mobile,dark,hr uses a responsive shared shell,True
+test_admin,mobile,dark,operation uses a responsive shared shell,True
+test_admin,mobile,dark,finance uses a responsive shared shell,True
+test_admin,mobile,dark,stock uses a responsive shared shell,True
+test_admin,mobile,dark,marketing uses a responsive shared shell,True
+test_admin,mobile,dark,complaints uses a responsive shared shell,True
+test_admin,mobile,dark,tables uses a responsive shared shell,True
+test_admin,mobile,dark,chat uses a responsive shared shell,True
+test_admin,mobile,dark,no JavaScript exceptions,True
+test_admin,mobile,dark,visible composition differs materially from 9e7aa489,True
+test_admin,mobile,light,canonical indicators preserved from 9e7aa489,True
+test_admin,mobile,light,exactly four primary indicators,True
+test_admin,mobile,light,four source-derived mini charts,True
+test_admin,mobile,light,source-based horizontal bars,True
+test_admin,mobile,light,request distribution exists without invented patients,True
+test_admin,mobile,light,all original indicators accessible,True
+test_admin,mobile,light,no document-wide overflow,True
+test_admin,mobile,light,no illustrative identity or revenue copied,True
+test_admin,mobile,light,period control opens the actual filters,True
+test_admin,mobile,light,clinic scope still filters all clinic rows,True
+test_admin,mobile,light,agenda uses a responsive shared shell,True
+test_admin,mobile,light,hr uses a responsive shared shell,True
+test_admin,mobile,light,operation uses a responsive shared shell,True
+test_admin,mobile,light,finance uses a responsive shared shell,True
+test_admin,mobile,light,stock uses a responsive shared shell,True
+test_admin,mobile,light,marketing uses a responsive shared shell,True
+test_admin,mobile,light,complaints uses a responsive shared shell,True
+test_admin,mobile,light,tables uses a responsive shared shell,True
+test_admin,mobile,light,chat uses a responsive shared shell,True
+test_admin,mobile,light,no JavaScript exceptions,True
+test_admin,mobile,light,visible composition differs materially from 9e7aa489,True

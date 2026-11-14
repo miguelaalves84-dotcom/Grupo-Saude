@@ -1,0 +1,81 @@
+{
+  "issue": 16,
+  "codeCommit": "979c5674995bf52fc41ef9e8d4b46c0cf68365fb",
+  "branch": "dev/v4-stabilization-20261017",
+  "basePreserved": "7bc53762a4b9d6213269f31a1c70cc93c5e46b05",
+  "workflowRun": 41536536363,
+  "workflowUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41536536363",
+  "jobsPassed": 52,
+  "jobsFailed": 0,
+  "domainChecks": 398,
+  "chromiumChecks": 2220,
+  "profiles": 6,
+  "themes": 2,
+  "viewports": 3,
+  "independentlyParsedPdfs": 73,
+  "signatureDateFieldsPerPdf": 1,
+  "signatureDateBlank": true,
+  "declarationArtifactId": 13184002502,
+  "declarationArtifactExpires": "2026-11-16T22:23:46Z",
+  "preview": {
+    "id": "dpl_J3wK4R17p6N1QMfwKsddKR5Cfwmx",
+    "url": "https://grupo-saude-v4-validacao-sintetica-ja9t4ggfw-grupo-saude.vercel.app",
+    "state": "READY",
+    "http": [
+      {
+        "path": "/",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/api/version",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-declarations-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-declarations-ui-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/finance-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-portal-core-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-portal-ui-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/hr-master-v4.js",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      },
+      {
+        "path": "/styles.css",
+        "status": 200,
+        "fullContentMatchesTestedBuild": true
+      }
+    ],
+    "protected": true
+  },
+  "mainUnchanged": "84fba5a2d6d7afcb0723ca312f4e617acc22823d",
+  "pr13Draft": true,
+  "syntheticOnly": true,
+  "physicalAndroidValidated": false,
+  "centralAuthenticatedRuntimeOperational": false,
+  "digitalSignatureOperational": false,
+  "privateArchiveOperational": false,
+  "realEmailEnabled": false
+}

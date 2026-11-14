@@ -17,6 +17,7 @@ def switch(page, actor):
     page.wait_for_timeout(700)
 
 def invoices(page):
+    page.locator('#shortcut_invoices').evaluate('(b)=>{const g=b.closest("details");if(g&&!g.open)g.querySelector("summary").click()}')
     page.locator('#shortcut_invoices').click()
     expect(page.locator('#financeContent h2').get_by_text('Faturas', exact=True)).to_be_visible()
 
@@ -54,7 +55,7 @@ with sync_playwright() as p:
     page.locator('#financeDialog [type=submit]').click()
     page.wait_for_timeout(250)
     # Record a payment through the real account UI, before replacing the invoice.
-    page.locator('[data-fin-action="account"]').click()
+    page.locator('#shortcut_account').click()
     form = page.locator('#financeQuery')
     form.locator('[name=employeeId]').select_option('test_med')
     form.locator('[name=start]').fill('2000-01-01')
@@ -84,7 +85,7 @@ with sync_playwright() as p:
     page.locator('#financeDialog [type=submit]').click()
     page.wait_for_timeout(250)
     expect(page.locator('#financeContent')).to_contain_text('Substituído')
-    page.locator('[data-fin-action="manage"]').click()
+    page.locator('#financeContent [data-fin-action=manage]').click()
     page.locator('[data-fin-action="regularization-list"]').click()
     expect(page.locator('#financeDialog')).to_contain_text('Pendente')
     page.locator('[data-fin-action="regularization-approve"]').click()
@@ -221,13 +222,14 @@ with sync_playwright() as p:
         assert set(submitted)=={'email','password'}
         route.fulfill(status=200,content_type='application/json',body=json.dumps({'status':'Autenticado','user':{'id':'p0'}}))
     login_page.route('**/api/auth?action=signIn',login_fixture)
+    login_page.route('**/api/auth?action=session',lambda route:route.fulfill(status=200,content_type='application/json',body=json.dumps({'user':{'id':'p0'},'mfaRequired':False,'mfaEnabled':False})))
     login_page.goto(urljoin(URL,'account.html'))
     login_page.locator('#accountEmail').fill('p0@example.pt')
     login_page.locator('#accountPassword').fill('isolated-password-123')
-    login_page.locator('[type=submit]').click()
-    expect(login_page.locator('#accountStatus')).to_contain_text('Sessão validada pelo serviço')
+    login_page.locator('#accountForm [type=submit]').click()
+    expect(login_page.locator('#accountStatus')).to_contain_text('Sessão autenticada')
     expect(login_page.locator('#accountPassword')).to_have_value('')
     assert login_page.evaluate('()=>localStorage.length')==0
-    print('PASS browser real-auth UI: sign-in uses server identity endpoint, clears password and stores no session locally; isolated provider fixture')
+    print('PASS browser mocked-provider compatibility UI: sign-in uses server identity endpoint, clears password and stores no session locally; isolated provider fixture')
     login.close()
     browser.close()

@@ -1,0 +1,29 @@
+{
+  "run": 40129386415,
+  "sha": "b9e10f03f3f13a32f41a74c90af05b08e7945760",
+  "checks": 2490,
+  "failed": 0,
+  "populatedChecks": 1290,
+  "byProfile": {
+    "Call Center": 306,
+    "Médico": 240,
+    "Técnico": 240,
+    "Administrativo": 324,
+    "Administração": 690,
+    "CEO": 690
+  },
+  "matrixRows": 114,
+  "matrixStates": {
+    "Sem cenário autorizado nesta suite": 44,
+    "Acesso negado no cenário populado; pesquisa não aplicável": 6,
+    "Aprovada nos cenários populados executados": 32,
+    "Aprovada nos cenários executados; limites anteriores mantidos": 16,
+    "Aprovada nos cenários específicos": 12,
+    "Não aplicável: sem pesquisa textual própria": 4
+  },
+  "limits": [
+    "Quantities are assertions, not distinct functionalities.",
+    "Negative route checks are not positive searches.",
+    "No real central persistence or binary content indexing."
+  ]
+}

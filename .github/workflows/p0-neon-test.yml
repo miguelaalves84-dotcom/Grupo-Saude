@@ -1,0 +1,43 @@
+name: P0.1 remote test database rehearsal (Neon EU, synthetic only)
+# Runs only on pushes to the operations branch below, never on main or production.
+# Needs the repository secret GS_P0_NEON_OWNER_URL: the admin connection of the separate
+# Neon TEST project (EU). Logs are public: the script masks every credential and host and
+# prints only counts, hashes and error codes. Backups and the key stay inside the runner.
+on:
+  push:
+    branches: [ops/p0-neon-test]
+permissions:
+  contents: read
+concurrency:
+  group: p0-neon-test
+  cancel-in-progress: false
+jobs:
+  rehearsal:
+    if: github.ref == 'refs/heads/ops/p0-neon-test'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - run: npm ci --ignore-scripts
+      - name: PostgreSQL 18 client tools (pg_dump/pg_restore) from the PostgreSQL apt repository
+        run: |
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl -fsSL -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt noble-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list >/dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq postgresql-client-18 >/dev/null
+          echo "/usr/lib/postgresql/18/bin" >> "$GITHUB_PATH"
+      - run: pg_dump --version
+      - name: Unit checks of the existing P0 guard
+        run: node tests/p0-test-environment.cjs
+      - name: Provision test roles/databases and run the P0.1 procedure with restore rehearsal
+        run: node scripts/p0-neon-rehearsal.cjs
+        env:
+          GS_P0_NEON_OWNER_URL: ${{ secrets.GS_P0_NEON_OWNER_URL }}
+          GS_P0_MAIN_TARGET_ID: 62da1979-e79c-48b9-ba7d-4e973a9f3112
+          GS_P0_CLONE_TARGET_ID: d5d0d980-1c56-4326-bfa4-f087cbd1b0b1

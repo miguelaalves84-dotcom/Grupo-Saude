@@ -375,6 +375,6 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 /* Linhas novas da abertura: botão para apagar ao lado do n.º de utente; n.º já guardado fica bloqueado */
 #operationContent td:has(> .row-delete),#operationContent .ending-cell-content:has(> .row-delete){white-space:nowrap}
 #operationContent td:has(> .row-delete) input,#operationContent .ending-cell-content:has(> .row-delete) input{width:calc(100% - 44px);display:inline-block}
-#operationContent .row-delete{min-width:36px;min-height:36px;margin-inline-start:6px;padding:0;border-radius:8px;border:1px solid var(--danger,#b42318);background:transparent;color:var(--danger,#b42318);font-weight:700;cursor:pointer;vertical-align:middle}
+#operationContent .row-delete{display:inline-flex;align-items:center;justify-content:center;min-width:36px;min-height:36px;margin-inline-start:6px;padding:0;border-radius:8px;border:1px solid var(--danger,#b42318);background:transparent;color:var(--danger,#b42318);font-weight:700;cursor:pointer;vertical-align:middle}
 #operationContent .row-delete:hover{background:color-mix(in srgb,var(--danger,#b42318) 12%,transparent)}
 #operationContent input[data-locked]{background:var(--surface-muted,#f2f4f5);color:inherit;cursor:not-allowed;border-style:dashed}

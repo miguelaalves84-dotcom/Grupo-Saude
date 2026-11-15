@@ -44,3 +44,6 @@ wf('2026-11-16T15:00:00Z',{target:'previous',missed:3,contacted:2,called:1});ass
 wf('2026-11-16T16:00:00Z',{target:'today',missed:2,contacted:0,called:2});assert.equal(day().taskStatus.previous_absences.status,'done');
 assert.ok(day().absenceShifts['2026-11-16_morning']);
 console.log('PASS absences: previous afternoon shift until 14h, same-day morning shift from 14h, complete when contacted+called equals missed');}
+{const D=require('../operation-core-v4.js'),assert=require('node:assert/strict');
+const fs=require('fs');const src=fs.readFileSync(__dirname+'/../operation-core-v4.js','utf8');assert.ok(src.includes("throw failure('Técnico fora da equipa do dia.')"),'closing rejects technicians outside the day team');
+console.log('PASS closing tech sales validation present');}

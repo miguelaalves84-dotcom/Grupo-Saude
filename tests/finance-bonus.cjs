@@ -25,3 +25,9 @@ test('administrativas/Administração with 15+ sick days or an incomplete quarte
  assert.throws(()=>B.approve(s,ceo,'2026-Q4','2027-01-05'),/decisão do CEO/);assert.throws(()=>B.setCeoDecision(s,mg,'2026-Q4','rita',true),/reservada ao CEO/);
  B.setCeoDecision(s,ceo,'2026-Q4','rita',true);B.setCeoDecision(s,ceo,'2026-Q4','mg2',false);c=B.approve(s,ceo,'2026-Q4','2027-01-05');assert.equal(by(c,'rita').amountCents,750);assert.equal(by(c,'rita').ceo,'Mantém');assert.equal(by(c,'mg2').amountCents,0);assert.equal(by(c,'mg2').ceo,'Perde');assert.equal(by(c,'mg1').amountCents,2750)});
 console.log(JSON.stringify({passed:count,scope:'Synthetic quarterly bonus by function, seniority, marketplace and shares'}));
+{const B=require('../finance-bonus-core-v4.js'),assert=require('node:assert/strict');
+const s={users:[{id:'t1',name:'Téc',kind:'therapist'}],employees:{},days:{'2026-10-05_c':{date:'2026-10-05',clinic:'c',closed:true,close:{techSales:{t1:{lasers:4,materials:3}}},stockClosing:{sales:[{employeeId:'t1',productId:'p',quantity:9}]}},'2026-10-06_c':{date:'2026-10-06',clinic:'c',closed:true,close:{},stockClosing:{sales:[{employeeId:'t1',productId:'p',quantity:2}]}}}};
+const rows=B.sales(s,'2026-Q4').rows.filter(r=>r.employeeId==='t1');
+assert.equal(rows.reduce((n,r)=>n+r.quantity,0),4+3+2,'lasers + material from closing replace stock sales that day; other days keep stock sales');
+assert.ok(rows.some(r=>r.source==='Fecho · lasers'&&r.quantity===4));assert.ok(!rows.some(r=>r.date==='2026-10-05'&&r.source==='Fecho'),'no double counting on the same day');
+console.log('PASS lasers and material per technician from the daily closing count for the quarterly bonus');}

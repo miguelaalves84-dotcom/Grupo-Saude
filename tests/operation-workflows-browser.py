@@ -1,5 +1,5 @@
 """Daily processes through actual controls: six roles, themes, touch/tablet and multi-day data."""
-import os,json
+import os,json,datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from operation_ui_helpers import complete_daily
@@ -21,7 +21,7 @@ with sync_playwright() as pw:
   for a in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
    for device,w,h in [('desktop',1440,1000),('tablet',1280,800),('mobile',390,844)]:
     for t in ['light','dark']:
-     scope={'profile':a,'device':device,'theme':t};ctx=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=ctx.new_page();p.set_default_timeout(10000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));setup(p,a,t)
+     scope={'profile':a,'device':device,'theme':t};ctx=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=ctx.new_page();p.clock.install(time=datetime.datetime.combine(datetime.date.today(),datetime.time(10,0),tzinfo=datetime.timezone.utc));p.set_default_timeout(10000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));setup(p,a,t)
      if a not in ['test_adm','test_admin','u1']:
       check('new operational personal data forms inaccessible under effective simulated profile',p.locator('[data-workflow]').count()==0)
       check('direct domain action cannot bypass actor permission',p.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'));try{GSOperationCore.command(s,{actor:s.currentUser,clinic:s.opClinic,clinics:[s.opClinic],date:s.opDate,at:new Date().toISOString(),can:k=>RoleAccessAdminV4.permission(s,k)},'workflow',{kind:'manual',rows:[],requestId:'forbidden',revision:0});return false}catch{return true}}'''));ctx.close();continue

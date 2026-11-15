@@ -1,5 +1,5 @@
 """Team composition on real Chromium controls, synthetic state only, six roles/devices/themes."""
-import os,json
+import os,json,datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from operation_ui_helpers import complete_daily
@@ -27,7 +27,7 @@ with sync_playwright() as p:
   for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
    for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
     for theme in ['light','dark']:
-     scope={'profile':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=ctx.new_page();page.set_default_timeout(10000);page.on('dialog',lambda d:d.dismiss());errors=[];page.on('pageerror',lambda e:errors.append(str(e)));setup(page,actor,theme)
+     scope={'profile':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=ctx.new_page();page.clock.install(time=datetime.datetime.combine(datetime.date.today(),datetime.time(10,0),tzinfo=datetime.timezone.utc));page.set_default_timeout(10000);page.on('dialog',lambda d:d.dismiss());errors=[];page.on('pageerror',lambda e:errors.append(str(e)));setup(page,actor,theme)
      if actor in ['test_call','test_med','test_tec']:
       page.evaluate('App.saveOpening()');check('default unauthorized role cannot open even administratively',not day(page).get('open',{}).get('saved'));ctx.close();continue
      scenarios=[('doctors',['test_med'],[],3),('technicians',[],['test_tec'],1),('mixed',['test_med'],['test_tec'],4),('administrative',[],[],0),('multiple',['test_med','syn-med2'],['test_tec','syn-tech2'],8)]

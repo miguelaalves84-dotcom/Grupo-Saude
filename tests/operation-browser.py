@@ -1,5 +1,5 @@
 """Full existing operation flow, actual controls, synthetic data, three devices and six profiles."""
-import os,json
+import os,json,datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/operation-artifacts'));OUT.mkdir(parents=True,exist_ok=True);rows=[];scope={};CL='synthetic-operation-a'
@@ -27,7 +27,7 @@ try:
   for actor in ['u1','test_admin','test_adm','test_med','test_tec','test_call']:
    for device,w,h in [('desktop',1440,1000),('tablet',1280,800),('mobile',390,844)]:
     for theme in ['light','dark']:
-     scope={'profile':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=ctx.new_page();page.set_default_timeout(12000);page.on('dialog',lambda d:d.accept());errors=[];page.on('pageerror',lambda e:errors.append(str(e)));setup(page,actor,theme)
+     scope={'profile':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());page=ctx.new_page();page.clock.install(time=datetime.datetime.combine(datetime.date.today(),datetime.time(10,0),tzinfo=datetime.timezone.utc));page.set_default_timeout(12000);page.on('dialog',lambda d:d.accept());errors=[];page.on('pageerror',lambda e:errors.append(str(e)));setup(page,actor,theme)
      if actor in ['test_med','test_tec']:
       check('default clinical profile cannot navigate to operation',page.evaluate('App.showView("operation")')==False);before=state(page);page.evaluate('App.saveOpening()');check('direct method cannot bypass opening permission',not state(page).get('days',{}).get('2026-10-19_'+CL,{}).get('open',{}).get('saved'));ctx.close();continue
      page.evaluate('App.showView("operation")');page.wait_for_selector('#opClinic',state='attached');check('direct operation URL preserves navigation target',page.url.endswith('#operation'));options=page.locator('#opClinic option').evaluate_all('(os)=>os.map(o=>o.value)');check('clinic selector respects actor scope',options==([CL,'synthetic-operation-b'] if actor=='u1' else [CL]))

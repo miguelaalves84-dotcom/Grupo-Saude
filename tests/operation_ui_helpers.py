@@ -9,4 +9,5 @@ def complete_daily(page):
    if 'Por rever hoje' in r.inner_text():r.locator('[data-work-field=skipToday]').check()
  else:sel.select_option('false')
  page.locator('#opWorkflow_sgtd [data-work-option=answer]').select_option('true')
+ for blk in page.locator('#opWorkflow_absence [data-absence-target]').all():blk.locator('[data-absence-field=missed]').fill('0')
  page.locator('#opSaveAll').click()

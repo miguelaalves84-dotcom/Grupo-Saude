@@ -19,3 +19,15 @@ test('booking-only views redact nested process history without modifying stored 
 test('legacy active day must meet new daily checks before any new close; sealed history unchanged',()=>{const s=seed(),d=D.prepare(s,'a','2026-11-02');d.open={saved:true,professionals:[],administrativeReason:'SYN'};d.close={saved:true,professionals:[]};s.cash=[{clinic:'a',date:'2026-11-02'}];assert.throws(()=>D.command(s,ctx(),'close',{revision:d.revision}),/SGTD/);assert(!d.workflowVersion);d.closed=true;assert(!D.configuredTasks(s,'a',undefined,d).some(t=>t.id==='sgtd_daily'));});
 console.log(JSON.stringify({passed,scope:'Synthetic operational processes; shared domain and no remote writers'}));
 {const D=require('../operation-core-v4.js');const s0={clinics:[{id:'z',name:'Z',active:true}],users:[],employees:{},masterSpecialties:[]};const cat=D.consultationCatalogue(s0,'z');const g=cat.find(x=>x.name==='Fisioterapia');require('node:assert/strict').ok(g&&g.doctors[0].name==='Sessão de Fisioterapia Particular','private physiotherapy line always present');console.log('PASS private physiotherapy session line available in every clinic');}
+{const D=require('../operation-core-v4.js'),assert=require('node:assert/strict');
+const st={clinics:[{id:'z',name:'Z',active:true,operational:true}],users:[{id:'doc',name:'Dr. Z',kind:'doctor',role:'Médico/a',clinics:['z'],active:true,specialty:'Cardiologia'}],employees:{},masterSpecialties:[{id:'card',name:'Cardiologia',active:true},{id:'nutri',name:'Nutrição',active:true}],clinicSpecialties:{z:['card','nutri']},days:{}};
+const cat=D.bookingCatalogue(st,'z');assert.ok(cat.every(x=>x.doctors.length>0),'only specialties with doctors are listed');assert.ok(!cat.some(x=>x.name==='Nutrição'),'specialty without doctor hidden');assert.ok(cat.some(x=>x.name==='Fisioterapia'),'private physiotherapy always listed');
+const ctx=(can=()=>true)=>({clinic:'z',date:'2026-11-15',actor:'cc',role:'Call Center',at:'2026-11-15T09:30:00Z',clinics:['z'],can});
+let s=D.command(st,ctx(k=>k==='bookings'),'callcenter',{slot:'08-10',rows:[{specialty:'Fisioterapia',doctorId:D.PRIVATE_PHYSIO.id,count:4}]});
+assert.throws(()=>D.command(st,ctx(()=>false),'callcenter',{slot:'08-10',rows:[]}),/autorização/);assert.throws(()=>D.command(s,ctx(),'callcenter',{slot:'07-09',rows:[]}),/Intervalo/);
+const t=D.bookedTotals(s.days['2026-11-15_z']);assert.equal(t.callcenter,4);assert.equal(t.total,4);assert.equal(t.slots[0].callcenter,4);
+s=D.command(s,ctx(),'callcenter',{slot:'08-10',rows:[{specialty:'Fisioterapia',doctorId:D.PRIVATE_PHYSIO.id,count:5}]});assert.equal(D.bookedTotals(s.days['2026-11-15_z']).callcenter,5,'saving a slot again replaces it (no double counting)');
+assert.deepEqual(D.bookedByClinic(s,['z'],'2026-11-01','2026-11-30')[0],{clinicId:'z',admin:0,callcenter:5,total:5});
+assert.equal(D.slotOf('2026-11-15T11:10:00'),'10-12');
+console.log('PASS bookings per 2-hour slot: call center and administrative counts, totals per clinic');}
+

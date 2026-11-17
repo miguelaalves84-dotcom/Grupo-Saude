@@ -25,8 +25,8 @@
   root.document.body.append(d);d.showModal();(input||ok).focus();if(input)input.select()}
  const api={
   alert(message){if(useNative())return native.alert?.(message);open('alert',message)},
-  confirm(message,opts={}){if(useNative())return Promise.resolve(!!native.confirm?.(message));return open('confirm',message,opts)},
-  prompt(message,value='',opts={}){if(useNative())return Promise.resolve(native.prompt?native.prompt(message,value):null);return open('prompt',message,{...opts,value})},
+  confirm(message,opts={}){if(useNative())return Promise.resolve(!!root.confirm?.(message));return open('confirm',message,opts)},
+  prompt(message,value='',opts={}){if(useNative())return Promise.resolve(root.prompt?root.prompt(message,value):null);return open('prompt',message,{...opts,value})},
   native};
  root.GSDialog=api;
  /* Todos os avisos simples da aplicação passam a usar a janela própria. */

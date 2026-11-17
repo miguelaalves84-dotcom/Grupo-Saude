@@ -17,7 +17,8 @@ function decide(kind,id,uid,status,note=''){if(!permitted(kind,id,uid,true))retu
   (s.audit||=[]).unshift({id:'log_'+Date.now(),at:x.reviewedAt,by:s.currentUser,module:'Aprovações',action:status,detail:note||'Decisão do pedido',recordId:x.id,userId:x.employeeId||x.userId||x.user||uid,before:{status:before},after:{status}});W(s);detail(kind,id,uid);sync();return true;
  }catch(e){alert(e.message);return false}
 }
-async function reverse(kind,id,uid){if(!permitted(kind,id,uid,true))return false;if(['declaration','training'].includes(kind))return detail(kind,id,uid);if(kind==='doc'&&window.EmployeeDocumentsV4)return EmployeeDocumentsV4.review(uid,id);
+function reverse(kind,id,uid){if(!permitted(kind,id,uid,true))return false;return reverseAsk(kind,id,uid)}
+async function reverseAsk(kind,id,uid){if(!permitted(kind,id,uid,true))return false;if(['declaration','training'].includes(kind))return detail(kind,id,uid);if(kind==='doc'&&window.EmployeeDocumentsV4)return EmployeeDocumentsV4.review(uid,id);
  if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
  if(kind==='time')return R().timeOccurrences?.find(x=>x.id===id)?.recordType==='roster-change'?window.HRRostersV4.decision(id):window.AttendanceBookV4?.decision(id);
  if(kind==='leave')return window.HRLeaveUIV4.reversalForm(id);

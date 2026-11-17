@@ -31,3 +31,7 @@ const rows=B.sales(s,'2026-Q4').rows.filter(r=>r.employeeId==='t1');
 assert.equal(rows.reduce((n,r)=>n+r.quantity,0),4+3+2,'lasers + material from closing replace stock sales that day; other days keep stock sales');
 assert.ok(rows.some(r=>r.source==='Fecho · lasers'&&r.quantity===4));assert.ok(!rows.some(r=>r.date==='2026-10-05'&&r.source==='Fecho'),'no double counting on the same day');
 console.log('PASS lasers and material per technician from the daily closing count for the quarterly bonus');}
+// Valor por laser / material definido colaborador a colaborador na ficha
+{const B=require('../finance-bonus-core-v4.js');const s={users:[{id:'t1',name:'Téc. A',role:'Técnico',active:true,clinics:['c'],hr:{bonusLaserCents:250,bonusMaterialCents:100,admissionDate:'2020-01-01'}},{id:'t2',name:'Téc. B',role:'Técnico',active:true,clinics:['c'],profession:'Fisioterapeuta',hr:{admissionDate:'2020-01-01'}}],days:{'2026-11-03_c':{date:'2026-11-03',clinic:'c',closed:true,close:{techSales:{t1:{lasers:2,materials:3},t2:{lasers:1,materials:0}}}}}};
+const r=B.compute(s,'2026-Q4','2026-11-20'),a=r.find?r.find(x=>x.id==='t1'):(r.people||r.rows||[]).find(x=>x.id==='t1'),b=r.find?r.find(x=>x.id==='t2'):(r.people||r.rows||[]).find(x=>x.id==='t2');
+require('assert').equal(a.grossCents,2*250+3*100,'own per-employee values');require('assert').ok(b.grossCents>0&&b.lines[0].rateKey!=='own_laser','function value when the file has no own value');console.log('PASS per-employee laser/material values from the employee file')}

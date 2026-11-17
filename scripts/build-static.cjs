@@ -12,4 +12,14 @@ for(const name of assets){
 }
 fs.rmSync(output,{recursive:true,force:true});fs.mkdirSync(output);
 for(const name of [...assets,'_headers'].filter(name=>fs.existsSync(path.join(root,name))))fs.copyFileSync(path.join(root,name),path.join(output,name));
-console.log(`PASS static build: ${assets.length} assets retained in dist; backend, secrets and documents excluded`);
+// Velocidade: cada ficheiro JS/CSS fica com uma impressão digital do conteúdo (?v=…). O navegador pode guardá-lo
+// em cache sem voltar a perguntar; quando o ficheiro muda, a impressão muda e o novo é descarregado.
+const crypto=require('node:crypto'),hashes={};
+const fingerprint=name=>hashes[name]||(hashes[name]=crypto.createHash('sha256').update(fs.readFileSync(path.join(output,name))).digest('hex').slice(0,10));
+let tagged=0;
+for(const name of fs.readdirSync(output).filter(n=>n.endsWith('.html'))){
+ const file=path.join(output,name),html=fs.readFileSync(file,'utf8');
+ const next=html.replace(/((?:src|href)=")([^"#?:]+\.(?:js|css))(?:\?[^"]*)?"/g,(m,pre,asset)=>{if(!fs.existsSync(path.join(output,asset)))return m;tagged++;return pre+asset+'?v='+fingerprint(asset)+'"'});
+ if(next!==html)fs.writeFileSync(file,next);
+}
+console.log(`PASS static build: ${assets.length} assets retained in dist; ${tagged} script/style references fingerprinted; backend, secrets and documents excluded`);

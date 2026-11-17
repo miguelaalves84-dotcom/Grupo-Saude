@@ -52,8 +52,8 @@ with sync_playwright() as pw:
                 p.locator('[data-mkp-action]').first.locator('[data-mki-from]').click(); p.wait_for_timeout(500)
                 img = p.locator('[data-mki]')
                 check('«Criar imagem» on a plan action opens the generator with that clinic, specialty and template', img.locator('[name=template]').input_value() == 'specialty' and img.locator('[name=specialty]').input_value() == plan['actions'][0]['specialty'])
-                img.locator('[name=specialty]').select_option('Cardiologia'); p.wait_for_timeout(300); img = p.locator('[data-mki]'); img.locator('[name=template]').select_option('tip'); p.wait_for_timeout(300); img = p.locator('[data-mki]'); img.locator('[name=format]').select_option('square'); p.wait_for_timeout(300); img = p.locator('[data-mki]')
-                check('cardiology tips offered (hypertension, chest pain, activity)', any('Hipertens' in t for t in img.locator('[name=tip] option').all_inner_texts()) and len(img.locator('[name=tip] option').all_inner_texts()) == 3)
+                check('only active specialties offered (no Cardiologia/Psicologia)', not any(x in img.locator('[name=specialty] option').all_inner_texts() for x in ['Cardiologia','Psicologia'])); img.locator('[name=specialty]').select_option('Fisioterapia'); p.wait_for_timeout(300); img = p.locator('[data-mki]'); img.locator('[name=template]').select_option('tip'); p.wait_for_timeout(300); img = p.locator('[data-mki]'); img.locator('[name=format]').select_option('square'); p.wait_for_timeout(300); img = p.locator('[data-mki]')
+                check('physiotherapy tips offered', any('Dor lombar' in t for t in img.locator('[name=tip] option').all_inner_texts()))
                 with p.expect_download() as dl: img.locator('[data-mki-png]').click()
                 f = OUT / f'post-{device}-{theme}.png'; dl.value.save_as(str(f)); hd = f.read_bytes()[:24]
                 check('square post downloads as 1080×1080 PNG and is logged', hd[:8] == b'\x89PNG\r\n\x1a\n' and int.from_bytes(hd[16:20], 'big') == 1080 and int.from_bytes(hd[20:24], 'big') == 1080 and state(p)['marketingImages'][-1]['format'] == 'square')

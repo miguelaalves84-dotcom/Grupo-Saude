@@ -382,3 +382,24 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 .spec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px 16px;margin:8px 0 16px}
 .spec-row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px}
 .spec-row:has(input:checked){background:color-mix(in srgb,var(--accent,#176b5b) 12%,transparent);font-weight:600}
+/* Janelas próprias (GSDialog) */
+.gs-dialog{border:1px solid var(--line,#d6dde3);border-radius:14px;padding:0;width:min(440px,calc(100vw - 32px));background:var(--surface,#fff);color:inherit;box-shadow:0 18px 48px rgba(0,0,0,.25)}
+.gs-dialog::backdrop{background:rgba(15,23,30,.45)}
+.gs-dialog-body{padding:20px 20px 8px;display:grid;gap:12px}
+.gs-dialog-text{margin:0;font-size:15px;line-height:1.5;white-space:pre-line;overflow-wrap:anywhere}
+.gs-dialog-input{width:100%;min-height:44px;font:inherit;padding:8px 12px;border:1px solid var(--line,#c5ced6);border-radius:10px;background:var(--surface-subtle,transparent);color:inherit;box-sizing:border-box}
+.gs-dialog-error{margin:0;color:var(--danger,#b3261e);font-size:13px}
+.gs-dialog-actions{display:flex;gap:10px;justify-content:flex-end;padding:12px 20px 18px;flex-wrap:wrap}
+.gs-dialog-actions button{min-height:44px;min-width:96px;border-radius:10px;font:inherit;font-weight:600;cursor:pointer}
+.gs-dialog.danger .gs-dialog-ok{background:var(--danger,#b3261e);border-color:var(--danger,#b3261e);color:#fff}
+@media (max-width:480px){.gs-dialog-actions{flex-direction:column-reverse}.gs-dialog-actions button{width:100%}}
+/* Ecrãs táteis: alvos com pelo menos 44 px para tocar com o dedo (sem mudar o desenho no computador) */
+@media (pointer:coarse){
+ button:not(.row-delete):not(.chip-x),.button,.btn,select:not(.team-native-select),input[type=text],input[type=number],input[type=date],input[type=time],input[type=email],input[type=tel],input[type=search],input[type=password]{min-height:44px}
+ .dashboard-link{min-height:44px;padding-block:10px}
+ a.gs-link,.gs-link{display:inline-block!important;padding-block:14px!important;margin-block:-14px!important}
+ input[type=checkbox],input[type=radio]{width:22px;height:22px}
+ label:has(> input[type=checkbox]),label:has(> input[type=radio]){min-height:44px;display:inline-flex;align-items:center;gap:8px}
+ .row-delete{min-width:44px;min-height:44px}
+ .notice a{display:inline-block;padding-block:14px;margin-block:-14px}
+}

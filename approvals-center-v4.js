@@ -17,16 +17,16 @@ function decide(kind,id,uid,status,note=''){if(!permitted(kind,id,uid,true))retu
   (s.audit||=[]).unshift({id:'log_'+Date.now(),at:x.reviewedAt,by:s.currentUser,module:'Aprovações',action:status,detail:note||'Decisão do pedido',recordId:x.id,userId:x.employeeId||x.userId||x.user||uid,before:{status:before},after:{status}});W(s);detail(kind,id,uid);sync();return true;
  }catch(e){alert(e.message);return false}
 }
-function reverse(kind,id,uid){if(!permitted(kind,id,uid,true))return false;if(['declaration','training'].includes(kind))return detail(kind,id,uid);if(kind==='doc'&&window.EmployeeDocumentsV4)return EmployeeDocumentsV4.review(uid,id);
+async function reverse(kind,id,uid){if(!permitted(kind,id,uid,true))return false;if(['declaration','training'].includes(kind))return detail(kind,id,uid);if(kind==='doc'&&window.EmployeeDocumentsV4)return EmployeeDocumentsV4.review(uid,id);
  if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);
  if(kind==='time')return R().timeOccurrences?.find(x=>x.id===id)?.recordType==='roster-change'?window.HRRostersV4.decision(id):window.AttendanceBookV4?.decision(id);
  if(kind==='leave')return window.HRLeaveUIV4.reversalForm(id);
  const s=R(),x=raw(s,kind,id,uid);if(!admin(s)||!x)return alert('Sem autorização.');if(!['Aprovado','Recusado'].includes(x.status))return alert('Não existe uma decisão a reverter.');
- const reason=prompt('Motivo obrigatório para reverter a decisão:');if(!reason?.trim())return;const before=x.status;x.status='Pendente';x.reversedAt=new Date().toISOString();x.reversedBy=s.currentUser;
+ const reason=await GSDialog.prompt('Motivo obrigatório para reverter a decisão:','',{required:true});if(!reason?.trim())return;const before=x.status;x.status='Pendente';x.reversedAt=new Date().toISOString();x.reversedBy=s.currentUser;
  (s.audit||=[]).unshift({id:'log_'+Date.now(),at:x.reversedAt,by:s.currentUser,module:'Aprovações',action:'Decisão revertida',detail:reason,recordId:x.id,userId:x.employeeId||x.userId||x.user||uid,before:{status:before},after:{status:x.status}});W(s);detail(kind,id,uid);sync();
 }
 
-function editSickEnd(id){try{const d=window.HRLeaveV4,s=d.read(),x=(s.leave||[]).find(v=>String(v.id)===String(id));if(!d.canReview(s)||!x||!d.sick(x))throw Error('Sem autorização para alterar esta baixa.');const start=prompt('Data de início da baixa (AAAA-MM-DD)',x.start||'');if(!start)return;const end=prompt('Data de fim da baixa (AAAA-MM-DD)',x.end||x.start||'');if(!end)return;const reason=prompt('Motivo obrigatório para alterar a baixa:');if(!reason?.trim())return;d.editSick(id,start,end,reason);window.HRLeaveUIV4.open(id);sync()}catch(e){alert(e.message)}}
+async function editSickEnd(id){try{const d=window.HRLeaveV4,s=d.read(),x=(s.leave||[]).find(v=>String(v.id)===String(id));if(!d.canReview(s)||!x||!d.sick(x))throw Error('Sem autorização para alterar esta baixa.');const start=await GSDialog.prompt('Data de início da baixa (AAAA-MM-DD)',x.start||'');if(!start)return;const end=await GSDialog.prompt('Data de fim da baixa (AAAA-MM-DD)',x.end||x.start||'');if(!end)return;const reason=await GSDialog.prompt('Motivo obrigatório para alterar a baixa:','',{required:true});if(!reason?.trim())return;d.editSick(id,start,end,reason);window.HRLeaveUIV4.open(id);sync()}catch(e){alert(e.message)}}
 
 function detail(kind,id,uid){if(!permitted(kind,id,uid))return false;if(kind==='declaration')return HRPortalV4.openRequest(id);if(kind==='training')return HRDevelopmentV4.openRecord(uid,'training',id);if(kind==='doc'&&window.EmployeeDocumentsV4)return EmployeeDocumentsV4.review(uid,id);if(kind==='time'&&R().timeOccurrences?.find(x=>x.id===id)?.recordType==='roster-change')return window.HRRostersV4.decision(id);
  if(kind==='doc'&&R().employeeDocuments?.[uid]?.find(d=>d.id===id)?.employeeDocumentV4)return window.EmployeeDocumentsV4?.review(uid,id);

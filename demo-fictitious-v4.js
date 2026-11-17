@@ -15,6 +15,7 @@ function patch(){if(!demo())return false;let s;try{s=JSON.parse(localStorage.get
   if(/TECNIC/.test(r)){if(!(p.specialtyIds||[]).length)p.specialtyIds=[idOf('Fisioterapia')];if(!hr.professionalLicense)hr.professionalLicense='C-099001 (fictícia)';if(!hr.weeklyCapacity||!Object.keys(hr.weeklyCapacity).length)hr.weeklyCapacity=cap;if(!hr.bonusFunction)hr.bonusFunction='fisio'}
   hr.fictitiousData=true;p.hr=hr};
  for(const u of s.users||[])if(/^test_/.test(String(u.id)))fill(u);for(const [id,e] of Object.entries(s.employees||{}))if(/^test_/.test(String(e.id||id)))fill(e);
+ if(window.GSDemoCatalogFix&&!s.demoCatalogFixV1){try{GSDemoCatalogFix.fix(s)}catch{}s.demoCatalogFixV1=new Date().toISOString()}
  s[FLAG]=new Date().toISOString();localStorage.setItem(K,JSON.stringify(s));return true}
 const apply=()=>{if(patch()){try{window.App?.renderAll?.()}catch{}document.dispatchEvent(new CustomEvent('gs:state-changed'));return true}return false};
 /* Numa demonstração acabada de limpar, os dados iniciais só são gravados depois de o programa arrancar: tentar de novo. */

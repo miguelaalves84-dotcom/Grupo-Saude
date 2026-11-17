@@ -131,9 +131,17 @@ const defaultTasks = [
     {id:'close_counts',name:'Confirmar Lista de espera fisioterapia final',phase:'close',required:true,clinics:['all'],role:'Administrativa',frequency:'Diária',deadline:'19:00',response:'número',action:'wait',active:true},
     {id:'close_suspended',name:'Confirmar lista de suspensos fisioterapia final',phase:'close',required:true,clinics:['all'],role:'Administrativa',frequency:'Diária',deadline:'19:00',response:'número',action:'suspended',active:true}
   ];
+/* Avisos por email: uma hora antes de cada prazo (14h e 20h, hora de Lisboa) lista o que ainda falta numa clínica. */
+function deadlineAlerts(s,clinic,date,at){const h=lisbonHour(at),d=s.days?.[date+'_'+clinic],out=[],add=(key,title,due)=>out.push({key,title,due,clinic,date});
+ if(h<13||h>=20)return out;
+ if(!d||!d.open?.saved){add('open','Abertura da clínica ainda não guardada',h<14?'14:00':'20:00');return out}
+ let t=null;try{t=absenceTargets(s,d)}catch{}
+ if(h<14){if(t&&!absenceComplete(absenceEntry(d,t.previous)))add('absence_previous','Faltas do turno anterior (14h–20h) por registar','14:00');return out}
+ if(h>=19){if(t&&!absenceComplete(absenceEntry(d,t.today)))add('absence_today','Faltas do turno da manhã (8h–14h) por registar','20:00');if(!insuranceDone(s,d))add('insurance','Seguros por rever hoje','20:00');if(!d.closed)add('close','Fecho do dia ainda não feito','20:00')}
+ return out}
 const PATIENT_REF_MAX=9,RETENTION_DAYS=90,PERSONAL=['name','phone','email','contact','patientName','notes','note'];
 /* RGPD: processos fechados com mais de 90 dias ficam só com números; nome, telefone e email são apagados. Processos por resolver mantêm-se. */
 function rowClosed(r){return !!(r.done||r.archived||r.decision||r.movedToRequestsAt||(Number(r.total)>0&&Number(r.billed)>=Number(r.total)))}
 function anonymizeOld(s,at){const limit=new Date(new Date(at||Date.now()).getTime()-RETENTION_DAYS*86400000).toISOString().slice(0,10);let n=0;for(const d of Object.values(s.days||{})){if(!d||!d.date||d.date>=limit)continue;for(const r of d.workflowRows||[]){if(r.anonymizedAt||!rowClosed(r))continue;for(const k of PERSONAL)if(k in r)delete r[k];if(r.patientRef)r.patientRef='ANON';for(const h of r.history||[])for(const k of PERSONAL)if(h&&typeof h==='object'&&k in h)delete h[k];r.anonymizedAt=at||new Date().toISOString();n++}}return n}
-const api={PATIENT_REF_MAX,RETENTION_DAYS,anonymizeOld,rowClosed,absenceTargets,absenceComplete,lisbonHour,BOOKING_SLOTS,slotOf,bookingCatalogue,bookedTotals,bookedByClinic,insuranceDone,listCounts,workflowView,workflowRows,manualCount,specialtyDoctors,consultationCatalogue,PRIVATE_PHYSIO,previousShift,workflowStatus,workflowTasks,present,taskApplies,requestRecords,requestPending,waiting,waitingCount,defaultTasks,today,integer,date,nextDate,kind,people,capacity,categories,prepare,rows,remaining,configuredTasks,pendingTasks,blockers,metrics,statistics,command};root.GSOperationCore=api;if(typeof module!=='undefined')module.exports=api;
+const api={deadlineAlerts,PATIENT_REF_MAX,RETENTION_DAYS,anonymizeOld,rowClosed,absenceTargets,absenceComplete,lisbonHour,BOOKING_SLOTS,slotOf,bookingCatalogue,bookedTotals,bookedByClinic,insuranceDone,listCounts,workflowView,workflowRows,manualCount,specialtyDoctors,consultationCatalogue,PRIVATE_PHYSIO,previousShift,workflowStatus,workflowTasks,present,taskApplies,requestRecords,requestPending,waiting,waitingCount,defaultTasks,today,integer,date,nextDate,kind,people,capacity,categories,prepare,rows,remaining,configuredTasks,pendingTasks,blockers,metrics,statistics,command};root.GSOperationCore=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window==='undefined'?globalThis:window);

@@ -378,3 +378,7 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 #operationContent .row-delete{display:inline-flex;align-items:center;justify-content:center;min-width:36px;min-height:36px;margin-inline-start:6px;padding:0;border-radius:8px;border:1px solid var(--danger,#b42318);background:transparent;color:var(--danger,#b42318);font-weight:700;cursor:pointer;vertical-align:middle}
 #operationContent .row-delete:hover{background:color-mix(in srgb,var(--danger,#b42318) 12%,transparent)}
 #operationContent input[data-locked]{background:var(--surface-muted,#f2f4f5);color:inherit;cursor:not-allowed;border-style:dashed}
+/* Catálogo de especialidades (Tabelas) */
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px 16px;margin:8px 0 16px}
+.spec-row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px}
+.spec-row:has(input:checked){background:color-mix(in srgb,var(--accent,#176b5b) 12%,transparent);font-weight:600}

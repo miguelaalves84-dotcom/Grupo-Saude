@@ -12,7 +12,7 @@ const App = (() => {
   const fmt = iso => new Intl.DateTimeFormat('pt-PT', {dateStyle:'short', timeStyle:'short'}).format(new Date(iso));
   const demoClinics = [
     {id:'c1', name:'Clínica Central', lat:38.7223, lng:-9.1393, radius:250, specialties:{Fisioterapia:['Dra. Ana Silva','Dr. Luís Costa'], Fisiatria:['Dr. Rui Matos'], Osteopatia:['Dra. Sara Reis']}},
-    {id:'c2', name:'Clínica Norte', lat:41.1579, lng:-8.6291, radius:250, specialties:{Fisioterapia:['Dr. Tiago Luz'], Psicologia:['Dra. Inês Melo'], Nutrição:['Dra. Marta Dias']}},
+    {id:'c2', name:'Clínica Norte', lat:41.1579, lng:-8.6291, radius:250, specialties:{Fisioterapia:['Dr. Tiago Luz'], Fisiatria:['Dra. Inês Melo'], Nutrição:['Dra. Marta Dias']}},
     {id:'c3', name:'Clínica Sul', lat:38.5244, lng:-8.8882, radius:250, specialties:{Fisioterapia:['Dra. Ana Silva','Dr. Pedro Sá'], Fisiatria:['Dra. Eva Lima']}}
   ];
   // Perfis-base persistentes para testes reais. São criados uma única vez e depois podem ser editados no RH.
@@ -39,11 +39,11 @@ const App = (() => {
       requests:[
         {id:'r1',created:`${yesterday}T09:15:00Z`,clinic:'c1',specialty:'Fisioterapia',doctor:'Dra. Ana Silva',name:'Carla Sousa',phone:'910 000 101',notes:'Prefere manhã',stage:'Sem vaga',owner:'u1',history:[]},
         {id:'r2',created:`${t}T08:40:00Z`,clinic:'c1',specialty:'Fisiatria',doctor:'Dr. Rui Matos',name:'José Ramos',phone:'910 000 202',notes:'Reavaliação após 9.º tratamento',stage:'Novo pedido',owner:'u1',history:[]},
-        {id:'r3',created:`${t}T10:10:00Z`,clinic:'c2',specialty:'Psicologia',doctor:'Dra. Inês Melo',name:'Leonor Vaz',phone:'910 000 303',notes:'Primeira consulta',stage:'Novo pedido',owner:'u2',history:[]},
+        {id:'r3',created:`${t}T10:10:00Z`,clinic:'c2',specialty:'Fisiatria',doctor:'Dra. Inês Melo',name:'Leonor Vaz',phone:'910 000 303',notes:'Primeira consulta',stage:'Novo pedido',owner:'u2',history:[]},
         {id:'r4',created:`${yesterday}T11:00:00Z`,clinic:'c1',specialty:'Osteopatia',doctor:'Dra. Sara Reis',name:'Nuno Alves',phone:'910 000 404',notes:'',stage:'Marcado',owner:'u1',completed:`${t}T11:20:00Z`,history:[]}
       ],
       conversations:[{id:'cv1',title:'Vaga urgente — Carla Sousa',members:['u1','u2','u3'],requestId:'r1',messages:[{id:'m1',from:'u2',at:`${t}T09:12:00Z`,text:'Existe possibilidade de transferência para a Clínica Norte?',readBy:['u2']},{id:'m2',from:'u3',at:`${t}T09:25:00Z`,text:'Vou confirmar com a equipa clínica.',readBy:['u3','u1']}]}],
-      jobRoles:[{id:'jr1',name:'Fisioterapeuta',active:true},{id:'jr2',name:'Administrativa',active:true},{id:'jr3',name:'Psicólogo/a',active:true}],
+      jobRoles:[{id:'jr1',name:'Fisioterapeuta',active:true},{id:'jr2',name:'Administrativa',active:true},{id:'jr3',name:'Auxiliar de fisioterapia',active:true},{id:'jr4',name:'Médico/a fisiatra',active:true},{id:'jr5',name:'Osteopata',active:true},{id:'jr6',name:'Nutricionista',active:true}],
       contractTypes:[{id:'ct1',name:'Contrato sem termo',active:true,items:[{id:'i1',name:'Contrato assinado',required:true},{id:'i2',name:'Documento de identificação',required:true},{id:'i3',name:'IBAN',required:true}]},{id:'ct2',name:'Prestação de serviços',active:true,items:[{id:'i4',name:'Contrato de prestação',required:true},{id:'i5',name:'Cédula profissional',required:true},{id:'i6',name:'Seguro profissional',required:true}]}],
       candidates:[{id:'p1',name:'Beatriz Freitas',email:'beatriz@example.pt',phone:'930 000 111',role:'jr1',clinic:'c1',contract:'ct2',stage:'Documentação',notes:'Entrada prevista este mês',nif:'245000111',niss:'11000000001',iban:'PT50000000000000000000000',address:'Rua da Saúde, 1',birthDate:'1994-05-12',active:true,documents:[{itemId:'i4',name:'Contrato de prestação',required:true,status:'Validado',sentBy:'u4',sentAt:now(),reviewedBy:'u4',reviewedAt:now()},{itemId:'i5',name:'Cédula profissional',required:true,status:'Pendente de validação',sentBy:'u4',sentAt:now()},{itemId:'i6',name:'Seguro profissional',required:true,status:'Em falta'}],history:[]}],
       timeEntries:[],timeOccurrences:[],internalQueue:[],

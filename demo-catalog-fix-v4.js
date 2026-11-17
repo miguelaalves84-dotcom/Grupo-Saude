@@ -4,7 +4,7 @@
    - registos antigos ligados às clínicas fictícias c1/c2/c3 passam para as clínicas reais (Abranfir, Loures, Lagoa).
    Tudo continua editável em Tabelas / Configuração. */
 (()=>{'use strict';
-const K='grupo_saude_v4_demo_2',FLAG='demoCatalogFixV1';
+const K='grupo_saude_v4_demo_2',FLAG='demoCatalogFixV1',PILOT='demoPilotPortimaoV1';
 const local=()=>(location.protocol==='file:'||/^(127\.0\.0\.1|localhost)$/.test(location.hostname))&&!/[?&]fictitious=1\b/.test(location.search);
 const demo=()=>document.documentElement.dataset.mode!=='authenticated'&&document.documentElement.dataset.v4ext!=='server'&&!local();
 const N=v=>String(v||'').normalize('NFD').replace(/[̀-ͯ]/g,'').trim().toLowerCase();
@@ -26,8 +26,9 @@ function fix(s){
   for(const [key,d] of Object.entries(s.days||{})){const c=String(d?.clinic||'');if(map[c]){const nk=key.replace(new RegExp('_'+c+'$'),'_'+map[c]);d.clinic=map[c];if(!s.days[nk]){s.days[nk]=d;delete s.days[key]}}}
   if(map[String(s.opClinic)])s.opClinic=map[String(s.opClinic)];changes.push('Registos das clínicas fictícias antigas passaram para Abranfir, Loures e Lagoa')}
  return changes}
-function run(){if(!demo())return false;let s;try{s=JSON.parse(localStorage.getItem(K)||'null')}catch{return false}if(!s||s[FLAG]||!s.fictitiousSeedV1||s.authMode==='real'||s.authenticatedSubject)return false;if(!(s.clinics||[]).length)return false;const changes=fix(s);s[FLAG]=new Date().toISOString();if(changes.length){s.audit||=[];s.audit.unshift({id:'demo-catalog-fix-v1',at:s[FLAG],by:'system:demo-fixture',module:'Tabelas / Configuração',action:'Listas de demonstração corrigidas',detail:changes.join(' · ')})}localStorage.setItem(K,JSON.stringify(s));return changes.length>0}
-window.GSDemoCatalogFix={fix};
+function pilot(s){const hit=(s.clinics||[]).find(c=>String(c.id)==='portimao'||[c.name,c.city,c.locality,c.address].some(v=>N(v).includes('portimao')));if(hit){if(hit.pilot)return[];hit.pilot=true;return['Clínica «'+(hit.name||hit.id)+'» (Portimão) marcada como clínica piloto']}s.clinics.push({id:'portimao',name:'Portimão',city:'Portimão',active:true,operational:true,pilot:true,address:'',phone:'',workingDays:[1,2,3,4,5]});s.clinicSpecialties=s.clinicSpecialties||{};s.clinicSpecialties.portimao=s.clinicSpecialties.portimao||[];return['Clínica piloto «Portimão» acrescentada (morada, telefone, especialidades e equipa por preencher em Clínicas)']}
+function run(){if(!demo())return false;let s;try{s=JSON.parse(localStorage.getItem(K)||'null')}catch{return false}if(!s||!s.fictitiousSeedV1||s.authMode==='real'||s.authenticatedSubject)return false;if(!(s.clinics||[]).length)return false;if(s[FLAG]&&s[PILOT])return false;const at=new Date().toISOString(),changes=[];if(!s[FLAG]){changes.push(...fix(s));s[FLAG]=at}if(!s[PILOT]){changes.push(...pilot(s));s[PILOT]=at}if(changes.length){s.audit||=[];s.audit.unshift({id:'demo-catalog-fix-'+at,at,by:'system:demo-fixture',module:'Tabelas / Configuração',action:'Listas de demonstração corrigidas',detail:changes.join(' · ')})}localStorage.setItem(K,JSON.stringify(s));return changes.length>0}
+window.GSDemoCatalogFix={fix,pilot};
 const apply=()=>{if(run()){try{location.reload()}catch{}}};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(apply,400));else setTimeout(apply,400);
 })();

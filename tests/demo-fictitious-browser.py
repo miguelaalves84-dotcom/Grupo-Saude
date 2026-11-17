@@ -11,7 +11,14 @@ with sync_playwright() as pw:
     p.clock.install(time=datetime.datetime.fromisoformat('2026-11-12T09:00:00+00:00'))
     p.goto(URL); p.wait_for_function('window.GSDemoFictitious'); s = p.evaluate('k=>JSON.parse(localStorage.getItem(k))', K)
     check('local test runs keep the original demo (no fictitious data unless asked)', not s.get('fictitiousSeedV1'))
-    p.goto(URL + '?fictitious=1'); p.wait_for_function('window.GSDemoFictitious'); p.wait_for_timeout(500); s = p.evaluate('k=>JSON.parse(localStorage.getItem(k))', K)
+    p.goto(URL + '?fictitious=1')
+    # A página recarrega uma vez sozinha depois de gravar os dados fictícios: espera até estabilizar.
+    for _ in range(40):
+        try:
+            p.wait_for_function('window.GSDemoFictitious && window.GSClinicProfile', timeout=5000); p.wait_for_timeout(600)
+            if p.evaluate("k=>{const s=JSON.parse(localStorage.getItem(k)||'{}');return !!(s.fictitiousSeedV1&&s.demoCatalogFixV1)&&document.readyState==='complete'&&!!window.GSClinicProfile}", K): break
+        except Exception: p.wait_for_timeout(300)
+    s = p.evaluate('k=>JSON.parse(localStorage.getItem(k))', K)
     ab = next(c for c in s['clinics'] if c['id'] == 'abranfir'); tec = next(u for u in s['users'] if u['id'] == 'test_tec'); med = next(u for u in s['users'] if u['id'] == 'test_med')
     check('clinics get fictitious ERS, valid fictitious NIF and phone', ab['ers']['license'].startswith('E9000') and ab['legalEntity']['nif'] == '500000000' and ab.get('phone') and p.evaluate("GSClinicProfile.nifOk('500000000')"))
     check('test professionals get fictitious specialty, cédula, capacity and salary, marked as fictitious', tec['hr']['professionalLicense'].endswith('(fictícia)') and tec['hr']['weeklyCapacity'] and tec['hr']['grossSalary'] == 1200 and med['specialtyIds'] and tec['hr']['fictitiousData'])

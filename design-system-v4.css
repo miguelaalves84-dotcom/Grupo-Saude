@@ -403,3 +403,21 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
  .row-delete{min-width:44px;min-height:44px}
  .notice a{display:inline-block;padding-block:14px;margin-block:-14px}
 }
+/* Tarefas da Operação: n.º de utente tem no máximo 9 caracteres → campo estreito e linhas compactas */
+.patient-ref{width:calc(9ch + 34px)!important;min-width:calc(9ch + 34px);max-width:100%;font-variant-numeric:tabular-nums;letter-spacing:.03em;text-align:left}
+.work-row-grid{display:flex!important;flex-wrap:wrap;gap:10px 14px;align-items:flex-end}
+.work-row-grid>label{margin:0;min-width:0;display:flex!important;flex-direction:column;gap:6px}
+.work-row-grid .wf-patientRef{flex:0 0 auto}
+.work-row-grid .wf-insurer,.work-row-grid .wf-specialty{flex:1 1 170px}
+.work-row-grid .wf-phone{flex:0 1 150px}.work-row-grid .wf-email{flex:1 1 200px}
+.work-row-grid .wf-total,.work-row-grid .wf-quantity{flex:0 0 132px}
+.work-row-grid .wf-total input,.work-row-grid .wf-quantity input{width:100%}
+.work-row-grid .wf-notes{flex:2 1 220px}
+.work-row-grid .wf-notes textarea{min-height:44px;height:44px;resize:vertical}
+.work-row-grid .wf-status,.work-row-grid .wf-pill{flex:0 0 auto;margin:0;align-self:center;white-space:nowrap}
+.work-row-grid .work-checkbox{flex:0 0 auto;align-self:center;margin:0;flex-direction:row!important;align-items:center;gap:8px;min-height:44px}
+.work-row-grid .row-delete{flex:0 0 44px;width:44px;height:44px;align-self:flex-end;padding:0;display:inline-grid;place-items:center}
+.ending-table .ending-col-origin{width:150px}.ending-table .ending-col-patient{width:185px}.ending-table .ending-col-date{width:150px}.ending-table .ending-col-decision{width:150px}.ending-table .ending-col-notes{width:auto}.ending-table .ending-col-history{width:100px}
+[data-ending-column=patient] .ending-cell-content{display:flex;gap:6px;align-items:center;flex-wrap:nowrap}
+[data-ending-column=notes] textarea,[data-ending-column=notes] input{width:100%}
+@media (max-width:640px){.work-row-grid .wf-insurer,.work-row-grid .wf-specialty{flex:1 1 140px}.work-row-grid .wf-notes,.work-row-grid .wf-email{flex:1 1 100%}.work-row-grid .wf-total,.work-row-grid .wf-quantity{flex:1 1 calc(50% - 7px)}.work-row-grid .wf-status,.work-row-grid .wf-pill{order:6;flex:1 1 100%}.work-row-grid .work-checkbox{order:7}.work-row-grid .wf-notes{order:8}.work-row-grid .row-delete{order:9;margin-left:auto}}

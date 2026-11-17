@@ -14,7 +14,7 @@ def check(name, value):
 
 
 SEED = """([k,theme])=>{const s=JSON.parse(localStorage.getItem(k));s.currentUser='u1';s.ceoRealUser='u1';s.ceoViewingAs=null;delete s.marketingPlans;for(const c of s.clinics)if(c.id==='abranfir'){c.phone='241 000 111';c.nif='500000000';c.ers={...(c.ers||{}),license:'E123456'}}
- const cid=String((s.clinics||[])[0]?.id||'abranfir');s.requests=[...(s.requests||[]).filter(r=>!String(r.id).startsWith('syn-mkp')),...[...Array(12)].map((_,i)=>({id:'syn-mkp'+i,clinic:cid,specialty:i<8?'Fisioterapia':'Osteopatia',created:'2026-10-'+String(i+1).padStart(2,'0')+'T10:00:00Z',stage:i<3?'Marcado':'Por marcar',unmetReason:i>=8?'Sem horário compatível':'',channel:'Instagram',name:'SYN Utente '+i,phone:'91000000'+i}))];
+ const cid=String((s.clinics||[])[0]?.id||'abranfir');s.requests=[...(s.requests||[]).filter(r=>!String(r.id).startsWith('syn-mkp')),...[...Array(12)].map((_,i)=>({id:'syn-mkp'+i,clinic:cid,specialty:i<8?'Fisioterapia':'Osteopatia',created:'2026-10-'+String(i+1).padStart(2,'0')+'T10:00:00Z',stage:i<3?'Marcado':'Por marcar',unmetReason:i>=8?'Sem horário compatível':'',channel:'Instagram',name:'SYN-UTE '+i,phone:'91000000'+i}))];
  localStorage.setItem(k,JSON.stringify(s));localStorage.setItem('gs-v4-theme:u1',theme)}"""
 
 
@@ -40,7 +40,7 @@ with sync_playwright() as pw:
                 card.locator('[data-mkp-generate]').click(); p.wait_for_timeout(600)
                 plan = (state(p).get('marketingPlans') or [None])[0]
                 check('plan generated from aggregated numbers (example without AI)', plan and plan['source'] == 'example' and len(plan['actions']) >= 2 and plan['month'] == 'novembro de 2026')
-                check('no personal data in the plan', 'SYN Utente' not in json.dumps(plan, ensure_ascii=False) and '91000000' not in json.dumps(plan))
+                check('no personal data in the plan', 'SYN-UTE' not in json.dumps(plan, ensure_ascii=False) and '91000000' not in json.dumps(plan))
                 acts = p.locator('[data-mkp-action]')
                 check('actions show clinic, channel, budget, why, KPI and steps', acts.count() == len(plan['actions']) and 'Porquê:' in acts.first.inner_text() and 'Medir:' in acts.first.inner_text())
                 acts.nth(0).locator('[data-mkp-ok]').click(); p.wait_for_timeout(300)

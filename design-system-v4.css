@@ -421,3 +421,5 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 [data-ending-column=patient] .ending-cell-content{display:flex;gap:6px;align-items:center;flex-wrap:nowrap}
 [data-ending-column=notes] textarea,[data-ending-column=notes] input{width:100%}
 @media (max-width:640px){.work-row-grid .wf-insurer,.work-row-grid .wf-specialty{flex:1 1 140px}.work-row-grid .wf-notes,.work-row-grid .wf-email{flex:1 1 100%}.work-row-grid .wf-total,.work-row-grid .wf-quantity{flex:1 1 calc(50% - 7px)}.work-row-grid .wf-status,.work-row-grid .wf-pill{order:6;flex:1 1 100%}.work-row-grid .work-checkbox{order:7}.work-row-grid .wf-notes{order:8}.work-row-grid .row-delete{order:9;margin-left:auto}}
+/* Acessibilidade: contraste mínimo 4,5:1 nos botões ativos */
+[data-theme=dark] #waitContent .req-tabs button.on{color:#001322}

@@ -19,7 +19,7 @@ SEED = """([k,me,leave])=>{const s=JSON.parse(localStorage.getItem(k));s.current
  s.leave=(s.leave||[]).filter(x=>!String(x.id).startsWith('syn-today'));if(leave)s.leave.push({id:'syn-today-l',user:'test_med',type:'Férias',status:'Pendente',createdAt:'2026-11-05',start:'2026-12-14',end:'2026-12-18'});
  localStorage.setItem(k,JSON.stringify(s))}"""
 TABS = {'u1': 'today,agenda,wait,clock,more', 'test_admin': 'today,agenda,wait,clock,more', 'test_adm': 'today,agenda,wait,clock,more',
-        'test_call': 'today,agenda,wait,clock,more', 'test_med': 'today,clock,myhr,chat,more', 'test_tec': 'today,clock,myhr,chat,more'}
+        'test_call': 'today,agenda,wait,clock,more', 'test_med': 'today,myhr,chat,more', 'test_tec': 'today,clock,myhr,chat,more'}
 
 with sync_playwright() as pw:
     browser = pw.chromium.launch(args=['--no-sandbox'])

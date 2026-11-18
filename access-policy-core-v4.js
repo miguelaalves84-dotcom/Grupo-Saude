@@ -8,6 +8,8 @@ function defaults(r){
  if(r==='CEO'||r==='ADMINISTRAÇÃO')return actions.map(([k])=>k);
  if(r==='ADMINISTRATIVA')return [...personal,'agenda','stockRead','stockMove','stockConsume','stockRequest','stockReceive','stockTransfer','operation','openClinic','closeClinic','clinicTasks','waiting','bookings','complaints'];
  if(r==='CALL CENTER')return [...personal,'agenda','stockRead','stockRequest','waiting','bookings'];
+ /* Médico: só Meu RH, Documentos, Chat e a própria atividade clínica (sem ponto, férias, conta corrente/recibos, Operação nem Stock). */
+ if(r==='MEDICO/A')return ['personal','performanceRead','peerReview'];
  return [...personal,'stockRead','stockConsume','stockRequest'];
 }
 

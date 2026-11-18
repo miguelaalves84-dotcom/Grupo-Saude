@@ -26,3 +26,8 @@ body:not(.reference-dashboard) .workspace-location{display:block;flex:1 0 220px;
 @media(min-width:761px) and (max-width:1099px){.module-dashboard-kpis,.module-context-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @container(max-width:800px){.module-dashboard-kpis,.module-context-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.module-dashboard-kpis,.module-context-grid{grid-template-columns:minmax(0,1fr)}.module-dashboard-kpis>.module-metric{min-height:112px}.module-dashboard-filters label{flex:1 1 120px;min-width:0}.module-dashboard-filters select,.module-dashboard-filters input{width:100%;min-width:0}}
+
+/* Telemóvel: os campos de data nunca saem do cartão */
+.module-dashboard-filters label{min-width:0}
+.module-dashboard-filters input,.module-dashboard-filters select{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+@media (max-width:520px){.module-dashboard-filters label{flex:1 1 calc(50% - 5px);max-width:none}.module-dashboard-filters label:first-child{max-width:none}.module-dashboard-filters button{flex:1 1 100%}}

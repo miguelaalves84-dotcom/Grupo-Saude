@@ -25,3 +25,8 @@ const ceo={id:'u-ceo',name:'CEO',role:'CEO',active:true,permissions:{}},adm={id:
  assert.ok(db.audit.length>0,'writes audited');
  console.log(JSON.stringify({passed:15,scope:'Shared app state on the server: per-block permissions, concurrent list merge, split maps, conflicts, personal data redaction, real-data seed, audit'}));
 })().catch(e=>{console.error(e);process.exit(1)});
+// Médico: dos dias só recebe as próprias linhas
+(async()=>{const db=fake({clinics:[{id:'c',name:'C',active:true}],people:[{id:'u-ceo',name:'CEO',role:'CEO',clinics:['c'],active:true},{id:'u-med',name:'Med',role:'Médico/a',clinics:['c'],active:true}]});const ceo={id:'u-ceo',role:'CEO',active:true,permissions:{}},med={id:'u-med',role:'Médico/a',active:true,permissions:{}};
+ await St.read(db.s,ceo);await St.write(db.s,ceo,{changes:[{key:'days',sub:'2026-11-18_c',value:{date:'2026-11-18',clinic:'c',open:{saved:true,professionals:[{rowId:'r1',employeeId:'u-med',kind:'doctor',category:'Consulta'},{rowId:'r2',employeeId:'other',kind:'tech'}]},close:{saved:true,professionals:[{rowId:'r1',done:5,missed:1},{rowId:'r2',done:9}]},notes:'interno'}}]});
+ const r=await St.read(db.s,med),d=r.state.days['2026-11-18_c'];require('assert').deepEqual(d.open.professionals.map(p=>p.rowId),['r1']);require('assert').deepEqual(d.close.professionals.map(p=>p.rowId),['r1']);require('assert').equal(d.notes,undefined);
+ const w=await St.write(db.s,med,{changes:[{key:'days',sub:'2026-11-18_c',value:{}}]});require('assert').deepEqual(w.denied,['days']);console.log('PASS doctor sees only own day rows and cannot write days')})().catch(e=>{console.error(e);process.exit(1)});

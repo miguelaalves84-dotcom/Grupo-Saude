@@ -424,10 +424,10 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 /* Acessibilidade: contraste mínimo 4,5:1 nos botões ativos */
 [data-theme=dark] #waitContent .req-tabs button.on{color:#001322}
 /* A minha atividade (Meu RH) */
-.my-activity{display:grid;gap:10px;margin:12px 0}
+.my-activity{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:12px 0;box-sizing:border-box}
 .my-activity-total{margin:0;font-size:15px}
 .my-activity table{width:100%;border-collapse:collapse}
 .my-activity th,.my-activity td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line,#dce4ee)}
 .my-activity .table-wrap{overflow:visible}
 .my-activity table{min-width:0!important;table-layout:auto}
-@media (max-width:520px){.my-activity th,.my-activity td{padding:7px 6px;font-size:13px}.my-activity th{white-space:nowrap}.my-activity td:first-child{overflow-wrap:anywhere}}
+@media (max-width:520px){.my-activity th,.my-activity td{padding:7px 6px;font-size:13px}.my-activity th{white-space:nowrap}.my-activity td:first-child{white-space:normal;overflow-wrap:anywhere;min-width:0}.my-activity table{font-size:13px}}

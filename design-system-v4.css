@@ -428,3 +428,6 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 .my-activity-total{margin:0;font-size:15px}
 .my-activity table{width:100%;border-collapse:collapse}
 .my-activity th,.my-activity td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line,#dce4ee)}
+.my-activity .table-wrap{overflow:visible}
+.my-activity table{min-width:0!important;table-layout:auto}
+@media (max-width:520px){.my-activity th,.my-activity td{padding:7px 6px;font-size:13px}.my-activity th{white-space:nowrap}.my-activity td:first-child{overflow-wrap:anywhere}}

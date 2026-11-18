@@ -7,7 +7,7 @@ const ceo={id:'u-ceo',name:'CEO',role:'CEO',active:true,permissions:{}},adm={id:
  let r=await St.read(db.s,ceo);
  assert.deepEqual(r.state.clinics.map(c=>c.id),['algarfisio'],'starts from real clinics');assert.equal(r.state.users.length,3);assert.deepEqual(r.state.requests,[],'operational lists start empty (no demo data)');
  assert.equal(r.state.employees['u-tec'].hr.iban,'PT50 SYN','HR manager sees full file');
- const ra=await St.read(db.s,adm);assert.equal(ra.state.employees['u-tec'].hr.iban,undefined,'colleagues do not see personal data');assert.equal(ra.state.employees['u-tec'].hr.bonusLaserCents,undefined,'nor bonus values');assert.equal(ra.state.employees['u-tec'].name,'Téc');
+ const ra=await St.read(db.s,adm);assert.equal(ra.state.employees['u-tec'].hr.iban,undefined,'colleagues do not see personal data');assert.equal(ra.state.employees['u-tec'].hr.bonusLaserCents,0,'nor bonus values (only that one is defined)');assert.equal(ra.state.employees['u-tec'].name,'Téc');
  let w=await St.write(db.s,adm,{changes:[{key:'clinics',value:[{id:'x'}],rev:1}]});assert.deepEqual(w.denied,['clinics'],'administrativa cannot change clinics');
  w=await St.write(db.s,adm,{changes:[{key:'currentUser',value:'u-ceo'}]});assert.deepEqual(w.denied,['currentUser'],'browser-only keys never stored');
  // duas pessoas acrescentam pedidos ao mesmo tempo: nenhum se perde

@@ -62,9 +62,9 @@ with sync_playwright() as pw:
                         labels = p.evaluate("[...document.querySelectorAll('#gsMoreSheet [data-sheet] span')].map(s=>s.textContent.trim())")
                         check('«Mais» lists modules by name (never a bare counter)', len(labels) >= 2 and all(not l.isdigit() and l for l in labels))
                         check('«Mais» only lists allowed views', p.evaluate("[...document.querySelectorAll('#nav details[data-nav-group]:not([hidden]) [data-view]')].length>0"))
-                        target = 'Livro de ponto'
+                        target, view = ('Chat', 'chat') if me == 'test_med' else ('Livro de ponto', 'clock')
                         sheet.locator('[data-sheet]', has_text=target).first.tap(); p.wait_for_timeout(250)
-                        check('choosing a module in «Mais» opens it and closes the sheet', not sheet.is_visible() and p.evaluate("document.querySelector('main .view.active')?.id") == 'clock')
+                        check('choosing a module in «Mais» opens it and closes the sheet', not sheet.is_visible() and p.evaluate("document.querySelector('main .view.active')?.id") == view)
                     else:
                         check('no bottom bar on tablet/desktop', not bar.is_visible())
                     if device == 'desktop':

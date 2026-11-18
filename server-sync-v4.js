@@ -55,7 +55,7 @@
   const local=readLocal(),next={};for(const k of LOCAL)if(k in local)next[k]=local[k];
   for(const [k,v] of Object.entries(d.state||{}))if(k!=='__deleted')next[k]=v;
   const u=d.user||{},users=Array.isArray(next.users)?next.users:[];if(!users.some(x=>String(x.id)===String(u.id)))users.push({id:u.id,name:u.name,role:u.role,kind:u.role,clinics:u.clinics||[],active:true});next.users=users;
-  next.currentUser=String(u.id);next.ceoRealUser=String(u.id);next.authenticatedSubject=String(u.id);next.authMode='real';if(!next.opClinic||!(next.clinics||[]).some(c=>String(c.id)===String(next.opClinic)))next.opClinic=(u.clinics||[])[0]||(next.clinics||[])[0]?.id||'';
+  next.currentUser=String(u.id);next.ceoRealUser=String(u.id);next.authenticatedSubject=String(u.id);next.authMode='real';const mine=(u.clinics||[]).map(String);if(!next.opClinic||!(next.clinics||[]).some(c=>String(c.id)===String(next.opClinic))||(mine.length&&!mine.includes(String(next.opClinic))))next.opClinic=mine[0]||(next.clinics||[])[0]?.id||'';
   base=clone(next);for(const k of LOCAL)delete base[k];revs=d.revisions||{};seq=d.seq||0;writable=new Set(d.writable||[]);if(writable.has('settings')||writable.has('clinics'))writable.add('__settings');bootAt=Date.now();saveMeta();
   const changed=localStorage.getItem(K)!==JSON.stringify(next);writeLocal(next);active=true;
   const banner=document.querySelector('aside.notice');if(banner)banner.textContent='Ligado ao servidor de testes como '+(u.name||'utilizador')+' · '+(u.role||'')+'. As alterações são gravadas no servidor.';

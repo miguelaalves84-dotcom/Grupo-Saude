@@ -2,7 +2,7 @@
 /* Servidor de teste: serve a aplicação construída (dist) e simula sessão + estado partilhado com o serviço real. */
 const http=require('http'),fs=require('fs'),path=require('path'),St=require('../lib/app-state-service'),fake=require('./appstate-fake-db.cjs');
 const ROOT=path.join(__dirname,'..','dist'),PORT=Number(process.env.PORT||8790);
-const people=[{id:'u-ceo',name:'SYN CEO',role:'CEO',clinics:['algarfisio'],active:true},{id:'u-adm',name:'SYN Administrativa',role:'ADMINISTRATIVA',clinics:['algarfisio'],active:true},{id:'u-tec',name:'SYN Técnico',role:'TECNICO/A',clinics:['algarfisio'],active:true}];
+const people=[{id:'u-ceo',name:'SYN CEO',role:'CEO',clinics:['algarfisio'],active:true},{id:'u-adm',name:'SYN Administrativa',role:'ADMINISTRATIVA',clinics:['algarfisio'],active:true},{id:'u-tec',name:'SYN Técnico',role:'TECNICO/A',clinics:['algarfisio'],active:true},{id:'u-med',name:'SYN Médico',role:'Médico/a',clinics:['algarfisio'],active:true}];
 const db=fake({clinics:[{id:'algarfisio',name:'AlgarFisio',active:true}],people,employees:[]});
 const actor=req=>{const m=/gs_test_user=([a-z-]+)/.exec(req.headers.cookie||'');const p=m&&people.find(x=>x.id===m[1]);return p?{...p,permissions:{}}:null};
 const type={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.json':'application/json'};

@@ -31,10 +31,12 @@ try:
   pb.evaluate("""()=>{const k='grupo_saude_v4_demo_2',s=JSON.parse(localStorage.getItem(k));s.requests.push({id:'req-syn-2',name:'SYN Pedido 2',clinic:'algarfisio',stage:'Novo pedido'});localStorage.setItem(k,JSON.stringify(s))}""")
   pb.wait_for_function("()=>window.GSServerSync.diff().length===0",timeout=10000);pa.evaluate("GSServerSync.pull()");pa.wait_for_timeout(600)
   check('updates from others arrive without losing local data',pa.evaluate("()=>{const r=JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2')).requests.map(x=>x.id);return r.includes('req-syn-1')&&r.includes('req-syn-2')}"))
-  # permissão: administrativa tenta mudar o nome da clínica → recusado e anulado
+  # permissão: a administrativa não pode alterar clínicas — o navegador não envia e o servidor recusa um pedido direto
   pa.evaluate("""()=>{const k='grupo_saude_v4_demo_2',s=JSON.parse(localStorage.getItem(k));s.clinics[0].name='HACK';localStorage.setItem(k,JSON.stringify(s))}""")
   pa.wait_for_timeout(2500)
-  check('unauthorized change refused by the server and undone locally',server()['appstate:clinics']['v'][0]['name']=='AlgarFisio' and pa.evaluate("JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2')).clinics[0].name")=='AlgarFisio')
+  direct=pa.evaluate("""async()=>{const r=await fetch('/api/v4-extensions?resource=appstate',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({changes:[{key:'clinics',value:[{id:'algarfisio',name:'HACK'}],rev:1}]})});return r.json()}""")
+  check('unauthorized change never reaches the server and a direct request is refused',server()['appstate:clinics']['v'][0]['name']=='AlgarFisio' and direct['denied']==['clinics'])
+  check('no permission loop: nothing left to send after automatic module updates',pa.evaluate("GSServerSync.diff().length")==0)
   # a interface funciona em modo servidor (Operação e Pedidos)
   for v in ['operation','wait','dashboard','clinics','hr','clock']:pb.evaluate('v=>App.showView(v)',v);pb.wait_for_timeout(250)
   check('pages open in server mode without errors',not ea and not eb)

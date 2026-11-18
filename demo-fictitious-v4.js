@@ -3,7 +3,7 @@
    fictício. Não corre no modo servidor nem em sessão autenticada. Os dados verdadeiros substituem-nos na ficha. */
 (()=>{'use strict';const K='grupo_saude_v4_demo_2',FLAG='fictitiousSeedV1';
 const local=()=>/^(127\.0\.0\.1|localhost)$/.test(location.hostname)&&!/[?&]fictitious=1\b/.test(location.search);
-const demo=()=>document.documentElement.dataset.mode!=='authenticated'&&document.documentElement.dataset.v4ext!=='server'&&!local();
+const demo=()=>document.documentElement.dataset.mode!=='authenticated'&&document.documentElement.dataset.v4ext!=='server'&&document.documentElement.dataset.sync!=='server'&&!local();
 const SPECS=[['fic-fisio','Fisioterapia'],['fic-fisiatria','Fisiatria'],['fic-osteo','Osteopatia'],['fic-nutri','Nutrição']];
 function patch(){if(!demo())return false;let s;try{s=JSON.parse(localStorage.getItem(K)||'null')}catch{return false}if(!s||s[FLAG])return false;
  const cs=(s.clinics||[]).filter(c=>c&&!/^administra/i.test(String(c.id)));if(!cs.length||!(s.users||[]).length)return false;cs.forEach((c,i)=>{const n=String(i+1).padStart(2,'0');if(!c.phone&&!(c.phones||[]).length){c.phone='210 000 0'+n;c.phones=[c.phone]}c.ers={...(c.ers||{}),license:c.ers?.license||('E9000'+n)};if(!c.legalEntity?.nif)c.legalEntity={name:c.legalEntity?.name||'Grupo Saúde — entidade FICTÍCIA para testes, Lda.',nif:'500000000'};c.fictitiousData=true});

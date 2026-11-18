@@ -6,7 +6,7 @@
 (()=>{'use strict';
 const K='grupo_saude_v4_demo_2',FLAG='demoCatalogFixV1',PILOT='demoPilotPortimaoV1';
 const local=()=>(location.protocol==='file:'||/^(127\.0\.0\.1|localhost)$/.test(location.hostname))&&!/[?&]fictitious=1\b/.test(location.search);
-const demo=()=>document.documentElement.dataset.mode!=='authenticated'&&document.documentElement.dataset.v4ext!=='server'&&!local();
+const demo=()=>document.documentElement.dataset.mode!=='authenticated'&&document.documentElement.dataset.v4ext!=='server'&&document.documentElement.dataset.sync!=='server'&&!local();
 const N=v=>String(v||'').normalize('NFD').replace(/[̀-ͯ]/g,'').trim().toLowerCase();
 const ROLES=['Fisioterapeuta','Auxiliar de fisioterapia','Administrativa','Médico/a fisiatra','Osteopata','Nutricionista'];
 const WRONG_ROLES=['psicologo/a','psicologo','psicologa'],WRONG_SPECS=['psicologia','cardiologia'];

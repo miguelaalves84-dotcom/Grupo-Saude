@@ -49,7 +49,7 @@
  function rerender(){const typing=document.activeElement&&/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);if(typing||document.querySelector('dialog[open]'))return notice('Há dados novos de outros utilizadores; a página atualiza quando terminar o que está a escrever.');try{const v=document.querySelector('.view.active')?.id;if(window.App?.showView&&v)window.App.showView(v)}catch{}document.dispatchEvent(new CustomEvent('gs:state-changed'))}
  function saveMeta(){try{origSet.call(localStorage,META,JSON.stringify({seq,revs}))}catch{}}
  function stop(msg){active=false;root.dataset.sync='';ss?.removeItem(FLAG);notice(msg,'warn')}
- async function boot(){let session;try{const r=await fetch('/api/auth?action=session',{credentials:'same-origin',cache:'no-store'});if(!r.ok)throw 0;session=await r.json();if(session.mfaRequired){location.assign('/account.html?next=/');return}if(!session.user?.id)throw 0}catch{if(ss?.getItem(FLAG)==='1'){ss.removeItem(FLAG);root.dataset.sync='';location.reload()}return}
+ async function boot(){root.dataset.syncBoot='pending';let session;try{const r=await fetch('/api/auth?action=session',{credentials:'same-origin',cache:'no-store'});if(!r.ok)throw 0;session=await r.json();if(session.mfaRequired){location.assign('/account.html?next=/');return}if(!session.user?.id)throw 0}catch{if(ss?.getItem(FLAG)==='1'){ss.removeItem(FLAG);root.dataset.sync='';location.reload();return}root.dataset.syncBoot='done';return}
   root.dataset.sync='server';const first=ss?.getItem(FLAG)!=='1';ss?.setItem(FLAG,'1');
   const r=await fetch(API+'&since=0',{credentials:'same-origin',cache:'no-store'});const d=await r.json().catch(()=>({}));if(!r.ok){notice('O servidor recusou os dados: '+(d.error||r.status)+'. A aplicação continua em demonstração.','warn');ss?.removeItem(FLAG);root.dataset.sync='';return}
   const local=readLocal(),next={};for(const k of LOCAL)if(k in local)next[k]=local[k];
@@ -59,7 +59,7 @@
   base=clone(next);for(const k of LOCAL)delete base[k];revs=d.revisions||{};seq=d.seq||0;writable=new Set(d.writable||[]);if(writable.has('settings')||writable.has('clinics'))writable.add('__settings');bootAt=Date.now();saveMeta();
   const changed=localStorage.getItem(K)!==JSON.stringify(next);writeLocal(next);active=true;
   const banner=document.querySelector('aside.notice');if(banner)banner.textContent='Ligado ao servidor de testes como '+(u.name||'utilizador')+' · '+(u.role||'')+'. As alterações são gravadas no servidor.';
-  if(first&&changed){location.reload();return}
+  if(first&&changed){location.reload();return}root.dataset.syncBoot='done';
   setInterval(pull,20000);addEventListener('focus',pull);addEventListener('online',schedule);schedule()}
  /* Qualquer gravação do estado (por qualquer módulo) é enviada ao servidor. */
  Storage.prototype.setItem=function(k,v){origSet.call(this,k,v);if(active&&this===localStorage&&k===K)schedule()};

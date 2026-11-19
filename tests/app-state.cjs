@@ -34,5 +34,5 @@ const ceo={id:'u-ceo',name:'CEO',role:'CEO',active:true,permissions:{}},adm={id:
 (async()=>{const assert=require('assert'),people=[{id:'u-ceo',name:'SYN CEO',role:'CEO',clinics:['c'],active:true,email:'ceo@example.invalid'},{id:'u-old',name:'SYN Antigo',role:'Técnico/a',clinics:['c'],active:true}],db=fake({people}),ceo={id:'u-ceo',name:'SYN CEO',role:'CEO',active:true,permissions:{settings:true,hrManage:true,operation:true,security:true},clinics:['c']};
  let r=await St.read(db.s,ceo,0);assert.equal(r.state.users.find(u=>u.id==='u-old').active,true);
  people[1].active=false;people.push({id:'u-new',name:'SYN Nova',role:'Administrativa',clinics:['c'],active:true});
- r=await St.read(db.s,ceo,0);assert.equal(r.state.users.find(u=>u.id==='u-old').active,false);assert.ok(r.state.users.find(u=>u.id==='u-new'));
+ r=await St.read(db.s,ceo,0);assert.equal(r.state.users.find(u=>u.id==='u-old').active,false);if(r.state.employees?.['u-old'])assert.equal(r.state.employees['u-old'].active,false);assert.ok(r.state.users.find(u=>u.id==='u-new'));
  console.log('PASS real accounts drive the collaborator list (deactivated and new accounts)')})().catch(e=>{console.error(e);process.exit(1)});

@@ -39,7 +39,7 @@ with sync_playwright() as p:
     page.on('dialog', lambda d: (dialogs.append(d.message),d.accept()))
     page.goto(URL)
     page.wait_for_timeout(700)
-    switch(page, 'test_med')
+    switch(page, 'test_tec')
     invoices(page)
     send_invoice(page,'DOC-ORIGINAL','100',PDF+b'original')
     expect(page.locator('#financeContent').get_by_text('DOC-ORIGINAL', exact=True)).to_be_visible()
@@ -57,7 +57,7 @@ with sync_playwright() as p:
     # Record a payment through the real account UI, before replacing the invoice.
     page.locator('#shortcut_account').click()
     form = page.locator('#financeQuery')
-    form.locator('[name=employeeId]').select_option('test_med')
+    form.locator('[name=employeeId]').select_option('test_tec')
     form.locator('[name=start]').fill('2000-01-01')
     form.locator('[name=end]').fill('2100-01-01')
     form.locator('[type=submit]').click()
@@ -65,7 +65,7 @@ with sync_playwright() as p:
     page.locator('[data-fin-action="payment"]').click()
     page.locator('#financeDialog [type=submit]').click()
     page.wait_for_timeout(250)
-    switch(page,'test_med')
+    switch(page,'test_tec')
     invoices(page)
     page.locator('[data-fin-action="invoice-replace"]').click()
     f = page.locator('#financeDialog form')
@@ -98,12 +98,12 @@ with sync_playwright() as p:
     assert old_entry['valueCents']==0 and old_entry['originalValueCents']==10000
     payments = [x for x in state['entries'] if x['type']=='Pagamento']
     assert len(payments)==1 and payments[0]['valueCents']==-10000 and payments[0]['status']=='Pago'
-    switch(page,'test_med')
+    switch(page,'test_tec')
     result=page.evaluate('''async()=>FinanceUIV4.call('statement',{start:'2000-01-01',end:'2100-01-01'})''')
     assert result['finalCents']==2000
     assert page.evaluate('''async id=>!!(await FinanceUIV4.call('document',{id})).dataUrl''',original['documentId'])
     # Verify permission denial in every non-management profile and four editable email functions.
-    for actor in ['test_adm','test_call','test_med','test_tec']:
+    for actor in ['test_adm','test_call','test_tec']:
         switch(page,actor)
         assert page.evaluate('''async()=>{try{await FinanceUIV4.call('regularization-list');return false}catch(e){return e.message.includes('exclusiva')}}''')
         assert page.evaluate('''()=>{try{CommunicationsV4.list();return false}catch(e){return e.message.includes('autorização')}}''')

@@ -54,12 +54,12 @@ with sync_playwright() as p:
             assert page.locator('#dashboard').evaluate("e=>e.classList.contains('active')")
         # All fixtures live only in this isolated browser context/localStorage.
         page.evaluate("""key=>{const s=JSON.parse(localStorage.getItem(key));
-          const p=s.users.find(u=>u.id==='test_med');p.clinics=['issue6_clinic'];p.hr={...(p.hr||{}),vacationDays:22};
-          s.employees.test_med={...p,id:'test_med'};
+          const p=s.users.find(u=>u.id==='test_tec');{const d=s.users.find(u=>u.id==='test_med');d.clinics=['issue6_clinic'];s.employees.test_med={...d,id:'test_med'}}p.clinics=['issue6_clinic'];p.hr={...(p.hr||{}),vacationDays:22};
+          s.employees.test_tec={...p,id:'test_tec'};
           s.clinics.push({id:'issue6_clinic',name:'Clínica de teste',active:true});
           s.employees.test_admin.clinics=[...(s.employees.test_admin.clinics||[]),'issue6_clinic'];
-          s.users.push({id:'issue6_peer',name:'Colega de teste',role:'MEDICO/A',clinics:['issue6_clinic']});
-          s.leave=[{id:'issue6_original',employeeId:'test_med',type:'Férias',clinicId:'issue6_clinic',
+          s.users.push({id:'issue6_peer',name:'Colega de teste',role:'TECNICO/A',clinics:['issue6_clinic']});
+          s.leave=[{id:'issue6_original',employeeId:'test_tec',type:'Férias',clinicId:'issue6_clinic',
               days:['2026-07-06','2026-07-07','2026-07-08'],start:'2026-07-06',end:'2026-07-08',status:'Aprovado'},
             {id:'issue6_conflict',employeeId:'issue6_peer',type:'Férias',days:['2026-07-07'],status:'Pendente'}];
           localStorage.setItem(key,JSON.stringify(s))}""", KEY)
@@ -76,12 +76,12 @@ with sync_playwright() as p:
             page.locator('[data-leave-action="save"]').click()
             actual = page.evaluate("HRLeaveV4.days(HRLeaveV4.read().leave.find(x=>x.id==='issue6_original'))")
             assert actual == ['2026-07-06', '2026-07-08', '2026-08-03'], actual
-            page.evaluate("HRLeaveUIV4.calendar('test_med')")
+            page.evaluate("HRLeaveUIV4.calendar('test_tec')")
             page.locator('#vacMonth').fill('2026-07')
             page.locator('[data-leave-id="issue6_original"]').first.click()
             assert 'Período original preservado' in page.locator('#modalBody').inner_text()
             checked.append('RH: conflito, detalhe, edição parcial e clique no período')
-        elif uid == 'test_med':
+        elif uid == 'test_tec':
             page.evaluate("HRLeaveUIV4.open('issue6_original')")
             assert page.locator('#leaveContext').count() == 1
             assert 'Colega de teste' not in page.locator('#leaveContext').inner_text()

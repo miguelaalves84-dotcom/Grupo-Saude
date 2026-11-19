@@ -22,7 +22,9 @@ input[type="date"]::-webkit-calendar-picker-indicator,input[type="time"]::-webki
 /* Quando o campo de data está numa grelha de filtros (De/Até), ocupa a coluna inteira — as duas datas ficam alinhadas. */
 .module-dashboard-filters input[type="date"],.module-dashboard-filters input[type="month"]{inline-size:100%!important;max-inline-size:var(--field-date)!important}
 /* Etiqueta por cima do campo de data, quando a etiqueta envolve o campo. */
-label:has(> input[type="date"]),label:has(> input[type="time"]),label:has(> input[type="month"]),label:has(> input[type="datetime-local"]){display:grid;gap:4px;justify-items:start;align-content:start}
+label:has(> input[type="date"]),label:has(> input[type="time"]),label:has(> input[type="month"]),label:has(> input[type="datetime-local"]){display:grid;grid-template-columns:minmax(0,1fr);gap:4px;justify-items:start;align-content:start;max-inline-size:100%}
+/* O campo encolhe para caber na coluna (telemóvel), sem esticar a coluna. */
+input[type="date"],input[type="time"],input[type="month"],input[type="datetime-local"]{max-inline-size:min(100%,var(--field-datetime))!important}
 /* Etiquetas sempre por cima do campo (texto, números, listas), para leitura consistente em todos os ecrãs.
    Caixas de seleção e botões de opção mantêm a etiqueta ao lado. */
 label:has(> input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])),label:has(> select),label:has(> textarea){display:grid;gap:4px;align-content:start}

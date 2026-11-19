@@ -11,9 +11,10 @@ function endpoint(actor){
  await test('build leaves a deployable directory and excludes confidential/backend files',()=>{
   require('../scripts/build-static.cjs');const files=fs.readdirSync(path.join(root,'dist'));
   assert(files.includes('index.html'));assert(files.includes('finance.html'));assert(files.includes('account.html'));assert(files.includes('_headers'));
-  assert(files.every(name=>/\.(html|css|js)$/.test(name)||name==='_headers'));assert(!files.includes('api'));assert(!files.includes('docs'));assert(!files.includes('.env'));
+  assert(files.every(name=>/\.(html|css|js)$/.test(name)||name==='_headers'||name==='official-logo-v4.svg'));assert(!files.includes('api'));assert(!files.includes('docs'));assert(!files.includes('.env'));
   assert.equal(JSON.parse(fs.readFileSync(path.join(root,'vercel.json'))).outputDirectory,'dist');
-  for(const name of files)assert.deepEqual(fs.readFileSync(path.join(root,'dist',name)),fs.readFileSync(path.join(root,name)));
+  const unprint=t=>t.replace(/((?:src|href)="[^"#?:]+\.(?:js|css))(?:\?[^"]*)?"/g,'$1"');
+  for(const name of files){if(name.endsWith('.html')){const built=fs.readFileSync(path.join(root,'dist',name),'utf8');assert.equal(unprint(built),unprint(fs.readFileSync(path.join(root,name),'utf8')));for(const m of built.matchAll(/(?:src|href)="([^"#?:]+\.(?:js|css))\?v=([0-9a-f]{10})"/g))assert.equal(m[2],require('crypto').createHash('sha256').update(fs.readFileSync(path.join(root,'dist',m[1]))).digest('hex').slice(0,10),'fingerprint of '+m[1])}else assert.deepEqual(fs.readFileSync(path.join(root,'dist',name)),fs.readFileSync(path.join(root,name)))}
  });
  await test('Cloudflare identity is read-only and contains no secrets',async()=>{const source=fs.readFileSync(path.join(root,'functions/api/version.js'),'utf8').replace('export function','function');const context={Response};vm.runInNewContext(source+';globalThis.handler=onRequest;',context);const env={CF_PAGES_COMMIT_SHA:'a'.repeat(40),CF_PAGES_BRANCH:'test-branch',SECRET:'must-not-leak'};const r=context.handler({env,request:{method:'GET'}});assert.equal(r.headers.get('cache-control'),'no-store');assert.deepEqual(await r.json(),{application:'Grupo Saúde V4',commit:'a'.repeat(40),branch:'test-branch',source:'Cloudflare Pages'});assert.equal(context.handler({env,request:{method:'POST'}}).status,405);});
  await test('anonymous legacy health cannot read or initialize data',async()=>{const e=endpoint(null),r=await e.call({health:'1'},'');assert.equal(r.code,401);assert.equal(e.queries.length,0)});

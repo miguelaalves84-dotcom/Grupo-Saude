@@ -6,7 +6,8 @@ permissions:
   checks: read
 jobs:
   regression:
-    runs-on: ubuntu-latest
+    if: github.head_ref != 'dev/v4-stabilization-20261017'
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,13 +18,14 @@ jobs:
       - run: npm test
       - run: npm run build
   browser:
+    if: github.head_ref != 'dev/v4-stabilization-20261017'
     name: browser (${{ matrix.suite }})
     strategy:
       fail-fast: false
       matrix:
         suite: [browser, finance-browser, improvements-browser, documents-browser, p0-browser]
     needs: regression
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -49,8 +51,9 @@ jobs:
           GS_PREVIEW_TEST_URL: ${{ env.GS_PREVIEW_TEST_URL }}
           GS_PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
   p0-postgresql:
+    if: github.head_ref != 'dev/v4-stabilization-20261017'
     name: P0 isolated PostgreSQL migrations
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

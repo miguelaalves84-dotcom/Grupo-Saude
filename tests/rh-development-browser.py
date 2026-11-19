@@ -16,7 +16,7 @@ def close(p):p.evaluate('document.querySelectorAll("dialog[open]").forEach(d=>d.
 with sync_playwright() as pw:
  b=pw.chromium.launch(args=['--no-sandbox'])
  try:
-  for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
+  for actor in ['test_call','test_tec','test_adm','test_admin','u1']:  # o Médico/a já não tem ponto
    for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
     for theme in ['light','dark']:
      scope={'actor':actor,'device':device,'theme':theme};c=b.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');c.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=c.new_page();p.set_default_timeout(8000);dialogs=[];p.on('dialog',lambda d:(dialogs.append(d.message),d.dismiss()));p.goto(URL);p.wait_for_function('window.HRDevelopmentV4&&window.GSHRDevelopment');p.wait_for_timeout(500)

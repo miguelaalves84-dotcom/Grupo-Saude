@@ -472,3 +472,4 @@ input[type=number][id^="hr"],input[type=number][data-capacity-category]{max-widt
 .cc-task-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:8px;align-items:end}.cc-task-form label{display:grid;gap:4px}
 .cc-task-form .cc-inline{display:flex;gap:6px;align-items:center;min-height:44px}.cc-form-actions{display:flex;gap:8px;grid-column:1/-1}
 .cc-actions{display:flex;gap:6px;flex-wrap:wrap}.cc-config td,.cc-config th{vertical-align:top}
+@media (max-width:640px){.cc-config thead{display:none}.cc-config,.cc-config tbody{display:block}.cc-config tr{display:grid;gap:4px;padding:10px 0;border-bottom:1px solid var(--line,#dce4ee)}.cc-config td{display:block;border:0;padding:0}.cc-config td:first-child{font-weight:600}}

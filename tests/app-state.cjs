@@ -36,3 +36,9 @@ const ceo={id:'u-ceo',name:'CEO',role:'CEO',active:true,permissions:{}},adm={id:
  people[1].active=false;people.push({id:'u-new',name:'SYN Nova',role:'Administrativa',clinics:['c'],active:true});
  r=await St.read(db.s,ceo,0);assert.equal(r.state.users.find(u=>u.id==='u-old').active,false);if(r.state.employees?.['u-old'])assert.equal(r.state.employees['u-old'].active,false);assert.ok(r.state.users.find(u=>u.id==='u-new'));
  console.log('PASS real accounts drive the collaborator list (deactivated and new accounts)')})().catch(e=>{console.error(e);process.exit(1)});
+
+/* Aparelhos que só pedem «o que mudou»: a desativação de uma conta chega como alteração. */
+(async()=>{const assert=require('assert'),people=[{id:'u-ceo',name:'SYN CEO',role:'CEO',clinics:['c'],active:true},{id:'u-x',name:'SYN X',role:'Técnico/a',clinics:['c'],active:true}],db=fake({people}),ceo={id:'u-ceo',name:'SYN CEO',role:'CEO',active:true,permissions:{settings:true,hrManage:true,operation:true,security:true},clinics:['c']};
+ St._resetIdentityThrottle();let r=await St.read(db.s,ceo,0);const seq=r.seq;people[1].active=false;St._resetIdentityThrottle();
+ r=await St.read(db.s,ceo,seq);assert.ok(r.state.users&&r.state.users.find(u=>u.id==='u-x').active===false,'users delta carries deactivation');assert.equal(r.state.employees?.['u-x']?.active,false);
+ console.log('PASS deactivation reaches devices that only pull changes')})().catch(e=>{console.error(e);process.exit(1)});

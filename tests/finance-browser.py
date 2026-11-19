@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright, expect
 ROOT = Path(__file__).resolve().parent.parent
 URL = os.environ.get('GS_TEST_URL', (ROOT / 'index.html').as_uri())
 KEY = 'grupo_saude_v4_demo_2'
-ACTORS = ['u1', 'test_admin', 'test_adm', 'test_call', 'test_med', 'test_tec']
+ACTORS = ['u1', 'test_admin', 'test_adm', 'test_call', 'test_tec']  # o Médico/a já não tem financeiro
 PDF = b'%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\n%%EOF'
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path=os.environ.get('GS_CHROMIUM') or ('/usr/bin/chromium' if Path('/usr/bin/chromium').exists() else p.chromium.executable_path), headless=True, args=['--no-sandbox'])

@@ -11,7 +11,7 @@ def state(p):return p.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',K)
 with sync_playwright() as pw:
  browser=pw.chromium.launch(args=['--no-sandbox'])
  try:
-  for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
+  for actor in ['test_call','test_tec','test_adm','test_admin','u1']:  # o Médico/a já não tem este módulo
    for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
     for theme in ['light','dark']:
      scope={'actor':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',permissions=['geolocation'],geolocation={'latitude':38,'longitude':-9,'accuracy':5},service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=ctx.new_page();p.set_default_timeout(7000);dialogs=[];p.on('dialog',lambda d:(dialogs.append(d.message),d.dismiss()));p.clock.install(time=__import__('datetime').datetime.fromisoformat('2026-10-20T08:00:00+00:00'));p.goto(URL);p.wait_for_function('window.AttendanceBookV4&&window.CEOReservedAreaV4');p.wait_for_timeout(900)

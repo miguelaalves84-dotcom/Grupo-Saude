@@ -21,7 +21,7 @@ def receive(p,oid,quantity,rejected=0):
 with sync_playwright() as pw:
  browser=pw.chromium.launch(args=['--no-sandbox'])
  try:
-  for actor in ['test_call','test_med','test_tec','test_adm','test_admin','u1']:
+  for actor in ['test_call','test_tec','test_adm','test_admin','u1']:  # o Médico/a já não tem este módulo
    for device,w,h in [('desktop',1366,1000),('tablet',820,1180),('mobile',390,844)]:
     for theme in ['light','dark']:
      scope={'actor':actor,'device':device,'theme':theme};ctx=browser.new_context(viewport={'width':w,'height':h},has_touch=device!='desktop',is_mobile=device!='desktop',service_workers='block');ctx.route('**/*',lambda r:r.continue_() if r.request.url.startswith(ORIGIN+'/') else r.abort());p=ctx.new_page();p.set_default_timeout(7000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.on('dialog',lambda d:d.dismiss());p.goto(URL);p.wait_for_function('window.SupplierCompaniesUIV4&&window.StockUIV4&&window.CEOReservedAreaV4');p.wait_for_timeout(1100)

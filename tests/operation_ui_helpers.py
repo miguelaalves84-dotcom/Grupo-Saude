@@ -15,3 +15,7 @@ def answer_private(page,value='false'):
  """Fecho: pergunta obrigatória da sessão particular de fisioterapia extra horário (Não por omissão)."""
  sel=page.locator('#privateSessionsPanel [data-private-answer]')
  if sel.count() and not sel.input_value():sel.select_option(value)
+def answer_emails(page,value='true'):
+ """Fecho: pergunta obrigatória «Todos os emails lidos e resolvidos?» (Sim por omissão)."""
+ sel=page.locator('#emailsPanel [data-emails-answer]')
+ if sel.count() and not sel.input_value():sel.select_option(value)

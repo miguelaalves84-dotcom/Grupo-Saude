@@ -453,3 +453,22 @@ input[type=number][id^="hr"],input[type=number][data-capacity-category]{max-widt
 .hr-bonus-title{margin:12px 0 4px;font-size:15px}.hr-bonus-note{margin:4px 0 8px}
 #hrBonusBlock label,.hr-daily-capacity{display:grid;gap:4px;margin:6px 0}
 #hrBonusBlock #hrPromoCode{max-width:24ch}
+/* Emails no fecho do dia */
+.emails-card{display:grid;gap:10px}.emails-card h4{margin:6px 0 0;font-size:14px}
+.emails-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin-bottom:6px}.emails-row input{width:100%;min-width:0;box-sizing:border-box}
+.emails-pending{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.emails-check{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line,#dce4ee);border-radius:10px;min-height:44px}
+.emails-check input{width:22px;height:22px;flex:none;margin-top:2px}.emails-check span{display:grid;gap:2px}.emails-check small{color:var(--muted,#5a6b6d)}
+/* Módulo Call Center */
+.cc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:14px}
+.cc-card{display:grid;gap:10px;align-content:start}.cc-card h2{margin:0;font-size:18px}.cc-card h3{margin:4px 0 0;font-size:14px}
+.cc-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.cc-progress{font-size:14px}
+.cc-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.cc-check{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line,#dce4ee);border-radius:10px;min-height:44px;cursor:pointer}
+.cc-check input{width:22px;height:22px;flex:none;margin-top:2px}.cc-check span{display:grid;gap:2px}.cc-check small{color:var(--muted,#5a6b6d)}
+.cc-list li.is-done .cc-check b{text-decoration:line-through;opacity:.7}.cc-list li.is-late .cc-check{border-color:var(--danger,#b3261e)}.cc-list li.is-late strong{color:var(--danger,#b3261e)}
+.cc-emails{display:grid;gap:8px}.cc-emails label{display:grid;gap:4px}
+.cc-link-row{display:flex;gap:8px;flex-wrap:wrap}.cc-link-row button{min-height:44px}
+.cc-task-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:8px;align-items:end}.cc-task-form label{display:grid;gap:4px}
+.cc-task-form .cc-inline{display:flex;gap:6px;align-items:center;min-height:44px}.cc-form-actions{display:flex;gap:8px;grid-column:1/-1}
+.cc-actions{display:flex;gap:6px;flex-wrap:wrap}.cc-config td,.cc-config th{vertical-align:top}

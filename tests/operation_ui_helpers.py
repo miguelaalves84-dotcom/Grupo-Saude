@@ -11,3 +11,7 @@ def complete_daily(page):
  page.locator('#opWorkflow_sgtd [data-work-option=answer]').select_option('true')
  for blk in page.locator('#opWorkflow_absence [data-absence-target]').all():blk.locator('[data-absence-field=missed]').fill('0')
  page.locator('#opSaveAll').click()
+def answer_private(page,value='false'):
+ """Fecho: pergunta obrigatória da sessão particular de fisioterapia extra horário (Não por omissão)."""
+ sel=page.locator('#privateSessionsPanel [data-private-answer]')
+ if sel.count() and not sel.input_value():sel.select_option(value)

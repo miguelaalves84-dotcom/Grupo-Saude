@@ -437,3 +437,14 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 .my-activity-prize.warn{border-left-color:var(--warning,#b26a00)}
 .my-activity-prize strong{font-size:22px}
 .my-activity-prize p{margin:0}
+/* Sessão particular extra horário (fecho do dia) */
+.private-sessions{display:grid;gap:10px}
+.private-sessions [data-private-rows]{display:grid;gap:10px}
+.private-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) auto;gap:8px;align-items:end;padding:10px;border:1px solid var(--line,#dce4ee);border-radius:10px}
+.private-row label{display:grid;gap:4px;min-width:0}.private-row select,.private-row input{width:100%;min-width:0;box-sizing:border-box}
+.private-share{grid-column:1/-1;margin:0;font-weight:600}
+@media (max-width:640px){.private-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.private-row label:first-child{grid-column:1/-1}.private-row [data-private-remove]{grid-column:1/-1}}
+.my-activity-calc{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:4px}
+.my-activity-calc li{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px dashed var(--line,#dce4ee);padding-top:4px}
+.my-activity-private{display:grid;gap:6px}.my-activity-private h3{margin:6px 0 0;font-size:16px}
+.my-activity-private{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--line,#dce4ee)}

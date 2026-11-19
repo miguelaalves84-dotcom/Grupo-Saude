@@ -30,3 +30,9 @@ const ceo={id:'u-ceo',name:'CEO',role:'CEO',active:true,permissions:{}},adm={id:
  await St.read(db.s,ceo);await St.write(db.s,ceo,{changes:[{key:'days',sub:'2026-11-18_c',value:{date:'2026-11-18',clinic:'c',open:{saved:true,professionals:[{rowId:'r1',employeeId:'u-med',kind:'doctor',category:'Consulta'},{rowId:'r2',employeeId:'other',kind:'tech'}]},close:{saved:true,professionals:[{rowId:'r1',done:5,missed:1},{rowId:'r2',done:9}]},notes:'interno'}}]});
  const r=await St.read(db.s,med),d=r.state.days['2026-11-18_c'];require('assert').deepEqual(d.open.professionals.map(p=>p.rowId),['r1']);require('assert').deepEqual(d.close.professionals.map(p=>p.rowId),['r1']);require('assert').equal(d.notes,undefined);
  const w=await St.write(db.s,med,{changes:[{key:'days',sub:'2026-11-18_c',value:{}}]});require('assert').deepEqual(w.denied,['days']);console.log('PASS doctor sees only own day rows and cannot write days')})().catch(e=>{console.error(e);process.exit(1)});
+/* As contas reais mandam: desativar ou criar uma conta reflete-se logo na lista de colaboradores. */
+(async()=>{const assert=require('assert'),people=[{id:'u-ceo',name:'SYN CEO',role:'CEO',clinics:['c'],active:true,email:'ceo@example.invalid'},{id:'u-old',name:'SYN Antigo',role:'Técnico/a',clinics:['c'],active:true}],db=fake({people}),ceo={id:'u-ceo',name:'SYN CEO',role:'CEO',active:true,permissions:{settings:true,hrManage:true,operation:true,security:true},clinics:['c']};
+ let r=await St.read(db.s,ceo,0);assert.equal(r.state.users.find(u=>u.id==='u-old').active,true);
+ people[1].active=false;people.push({id:'u-new',name:'SYN Nova',role:'Administrativa',clinics:['c'],active:true});
+ r=await St.read(db.s,ceo,0);assert.equal(r.state.users.find(u=>u.id==='u-old').active,false);assert.ok(r.state.users.find(u=>u.id==='u-new'));
+ console.log('PASS real accounts drive the collaborator list (deactivated and new accounts)')})().catch(e=>{console.error(e);process.exit(1)});

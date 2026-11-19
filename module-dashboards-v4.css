@@ -31,3 +31,7 @@ body:not(.reference-dashboard) .workspace-location{display:block;flex:1 0 220px;
 .module-dashboard-filters label{min-width:0}
 .module-dashboard-filters input,.module-dashboard-filters select{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
 @media (max-width:520px){.module-dashboard-filters label{flex:1 1 calc(50% - 5px);max-width:none}.module-dashboard-filters label:first-child{max-width:none}.module-dashboard-filters button{flex:1 1 100%}}
+/* iPhone/Safari: o campo de data tem largura mínima própria e sai do cartão. Grelha de 2 colunas e data sem aparência nativa. */
+@media (max-width:640px){.module-dashboard-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.module-dashboard-filters label,.module-dashboard-filters label:first-child{max-width:none;min-width:0;display:grid;gap:4px}.module-dashboard-filters button{grid-column:1/-1}}
+.module-dashboard-filters input[type=date]{-webkit-appearance:none;appearance:none;display:block;min-width:0;width:100%;max-width:100%;box-sizing:border-box;text-align:left;font-size:16px}
+.module-dashboard-filters input[type=date]::-webkit-date-and-time-value{text-align:left;min-width:0}

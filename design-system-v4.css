@@ -448,3 +448,8 @@ body.topbar-more-open .topbar .top-actions>#ceoAreaBox{display:grid!important;fl
 .my-activity-calc li{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px dashed var(--line,#dce4ee);padding-top:4px}
 .my-activity-private{display:grid;gap:6px}.my-activity-private h3{margin:6px 0 0;font-size:16px}
 .my-activity-private{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--line,#dce4ee)}
+/* Ficha do colaborador: campos numéricos com a largura de 9 algarismos */
+input[type=number][id^="hr"],input[type=number][data-capacity-category]{max-width:15ch}
+.hr-bonus-title{margin:12px 0 4px;font-size:15px}.hr-bonus-note{margin:4px 0 8px}
+#hrBonusBlock label,.hr-daily-capacity{display:grid;gap:4px;margin:6px 0}
+#hrBonusBlock #hrPromoCode{max-width:24ch}

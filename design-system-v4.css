@@ -565,3 +565,13 @@ button.ag-cell:focus{outline:2px solid var(--primary,#176b5b);outline-offset:-2p
 .ag-sheet-box{margin:12px 0 4px;border:1px solid var(--line,#d6dde3);border-radius:12px;padding:0 12px;background:var(--surface,#fff)}
 .ag-sheet-box>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}
 .ag-sheet-box .ag-sheet-tools{margin:4px 0 12px}
+/* Telemóvel: 1.ª linha = ☰ · título (≥180px) · 🔔 · 🔍 · ⋯. Chat e aprovações passam para o painel «⋯ Mais»;
+   o «⋯» mostra um ponto quando há mensagens ou aprovações por ver. */
+@media(max-width:760px){
+ .topbar{column-gap:4px}
+ .topbar .icon-btn,.topbar .top-actions>button,.topbar #menuBtn{width:36px;height:36px}
+ body:not(.topbar-more-open) .topbar .top-actions>#rosterApprovalOpen,body:not(.topbar-more-open) .topbar .top-actions>[data-view="chat"]{display:none!important}
+ .topbar #topbarMore{width:36px;min-width:36px;max-width:36px!important;padding:0!important;font-size:0!important;justify-content:center;position:relative}
+ .topbar #topbarMore::before{content:"⋯";font-size:22px;line-height:1}
+ .topbar #topbarMore.has-alert::after{content:"";position:absolute;top:5px;right:5px;width:9px;height:9px;border-radius:50%;background:#d93025;box-shadow:0 0 0 2px var(--surface,#fff)}
+}

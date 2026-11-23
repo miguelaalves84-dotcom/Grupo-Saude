@@ -88,3 +88,9 @@ table.hrl-vac{font-size:12px}table.hrl-vac td,table.hrl-vac th{text-align:center
 .mki-body{display:grid;grid-template-columns:minmax(200px,320px) 1fr;gap:16px;align-items:start}.mki-preview{width:100%;border-radius:14px;box-shadow:0 6px 20px #0f172a33}
 .mki-preview.mki-story{max-width:240px}.mki-caption{display:flex;flex-direction:column;gap:4px;font-size:13px}.mki-caption textarea{width:100%;font-size:13px}
 @media (max-width:640px){.mki-body{grid-template-columns:1fr}.mki-preview{max-width:300px;margin:0 auto}}
+/* «O seu dia» — lista do dia por perfil com progresso. */
+.today-myday{margin-bottom:16px}
+.today-myday h2{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.today-progress{font-size:.8rem;font-weight:600;color:var(--muted,#5a6b6d)}
+.today-progressbar{height:6px;border-radius:99px;background:color-mix(in srgb,var(--primary,#176b5b) 12%,transparent);margin:4px 0 10px;overflow:hidden}
+.today-progressbar span{display:block;height:100%;background:var(--primary,#176b5b);border-radius:inherit;transition:width .3s}

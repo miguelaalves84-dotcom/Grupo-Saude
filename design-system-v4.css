@@ -575,3 +575,5 @@ button.ag-cell:focus{outline:2px solid var(--primary,#176b5b);outline-offset:-2p
  .topbar #topbarMore::before{content:"⋯";font-size:22px;line-height:1}
  .topbar #topbarMore.has-alert::after{content:"";position:absolute;top:5px;right:5px;width:9px;height:9px;border-radius:50%;background:#d93025;box-shadow:0 0 0 2px var(--surface,#fff)}
 }
+/* Marca sempre visível: em telemóveis estreitos o logótipo volta e a pesquisa fica no painel «⋯» (onde já está). */
+@media(max-width:430px){.topbar .gs-official-logo{display:block!important;width:32px!important;flex:none}.topbar #gsGoMobile{display:none!important}}

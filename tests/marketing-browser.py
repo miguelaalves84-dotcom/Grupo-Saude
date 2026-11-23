@@ -3,6 +3,12 @@ import os,json
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.split('/index.html')[0];K='grupo_saude_v4_demo_2';OUT=Path(os.environ.get('GS_TEST_ARTIFACTS','/tmp/marketing-artifacts'));OUT.mkdir(parents=True,exist_ok=True);results=[];scope={}
+def choose_clinic(page,source,value):
+    """A clínica escolhe-se no cabeçalho quando o cabeçalho a mostra (o filtro igual na página fica escondido)."""
+    if page.locator(source).is_visible():return page.locator(source).select_option(value)
+    if not page.locator('#workspaceClinic').is_visible():page.locator('#topbarMore').click()
+    page.locator('#workspaceClinic').select_option(value)
+    if page.evaluate("document.body.classList.contains('topbar-more-open')"):page.locator('#topbarMore').click()
 def check(n,v):
  results.append({**scope,'case':n,'passed':bool(v)});print(json.dumps(results[-1]),flush=True);assert v,n
 def state(p):return p.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',K)
@@ -32,7 +38,7 @@ with sync_playwright() as p:
       page.evaluate('''a=>{CEOReservedAreaV4.select('u1');RoleAccessAdminV4.setIndividual(a,{marketing:true,marketingCampaigns:true,marketingBudgets:true,marketingEditorial:true,marketingAI:true,waiting:true,bookings:true,marketingApprove:false});CEOReservedAreaV4.select(a)}''',actor)
      page.evaluate('App.showView("marketing");MarketingUIV4.selectTab("dashboard")');page.wait_for_selector('#mkFilters');opts=page.locator('#mkFilterClinic option').evaluate_all('(xs)=>xs.map(x=>x.value)');check('global managers and assigned staff have correct clinic scope',opts==(['','mk-a','mk-b'] if actor in ['u1','test_admin'] else ['','mk-a']));check('unconfirmed revenue and provider metrics are never invented','Indisponível' in page.locator('#mkPanel').inner_text());check('specialty filter is a canonical select with no inactive or unrelated entries',page.locator('#mkFilterSpecialty').evaluate('(e)=>e.tagName')=='SELECT' and page.locator('#mkFilterSpecialty option').count()==2)
      if actor in ['u1','test_admin']:
-      page.locator('#mkFilterSpecialty').select_option('SYN specialty');page.locator('#mkFilterClinic').select_option('mk-b');check('clinic change immediately clears invalid specialty and removes unrelated options',page.locator('#mkFilterSpecialty').input_value()=='' and page.locator('#mkFilterSpecialty option').count()==1);page.locator('#mkFilterClinic').select_option('')
+      page.locator('#mkFilterSpecialty').select_option('SYN specialty');choose_clinic(page,'#mkFilterClinic','mk-b');check('clinic change immediately clears invalid specialty and removes unrelated options',page.locator('#mkFilterSpecialty').input_value()=='' and page.locator('#mkFilterSpecialty option').count()==1);choose_clinic(page,'#mkFilterClinic','')
      check('legacy campaign and chat preserved without migration copies',len(state(page)['marketing']['campaigns'])==2 and len(state(page)['marketing']['agentChat'])==1)
      for t in ['campaigns','goals','budgets','leads','calendar','tasks','assistant','integrations','dashboard']:tab(page,t);check('tab opens '+t,page.locator('#mkPanel').inner_text().strip()!='')
      tab(page,'leads');check('seven empty-or-populated columns always visible',page.locator('.marketing-board .candidate-column').count()==7);check('contact source is canonical requests and respects clinic boundaries',page.locator('[data-id="mk-r1"]').count()==1 and page.locator('[data-id="mk-r2"]').count()==(1 if actor in ['u1','test_admin'] else 0))

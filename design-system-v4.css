@@ -581,3 +581,15 @@ button.ag-cell:focus{outline:2px solid var(--primary,#176b5b);outline-offset:-2p
 .ag-mode button[aria-pressed="true"]{background:#0f5a4b!important;color:#fff!important}
 .ag-mode button[aria-pressed="false"]{background:transparent!important;color:var(--text,#16302b)!important}
 :root[data-theme="dark"] .ag-mode button[aria-pressed="false"]{color:#e6efed!important}
+/* Grelha por clínica: linha = acordo, colunas = especialidades. ✓ = cobre sem preço · vazio = não cobre. */
+.ag-sheet .ag-kind-head th{background:color-mix(in srgb,var(--primary,#176b5b) 10%,var(--surface,#fff));text-transform:uppercase;font-size:.72rem;letter-spacing:.06em;text-align:center}
+.ag-sheet .ag-kind-head .ag-corner{text-transform:none;font-size:.85rem;letter-spacing:0;text-align:left;vertical-align:bottom}
+.ag-sheet thead tr:nth-child(2) th{top:34px;text-align:center;white-space:normal;min-width:110px;max-width:150px}
+.ag-sheet td.is-none{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--muted,#8a979b) 7%,transparent) 6px 7px)}
+.ag-cell.is-covered .ag-v{color:#0f7a4f;font-weight:700;font-size:1.05rem}
+.ag-cell.is-none .ag-v{color:transparent}
+.ag-cell{align-items:center;text-align:center}
+.ag-sheet tr.is-inactive .ag-row-head span{opacity:.6;text-decoration:line-through}
+.ag-sheet .ag-row-head{display:table-cell}
+.ag-sheet-count{margin-top:6px}
+:root[data-theme="dark"] .ag-cell.is-covered .ag-v{color:#5fd39b}

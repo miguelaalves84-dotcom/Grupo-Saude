@@ -35,15 +35,23 @@ with sync_playwright() as pw:
   for device,w,h,mob in [('desktop',1366,900,False),('mobile',390,844,True)]:
    scope={'part':'grelha','device':device};c,p,errs=ctx(b,w,h,mob);login(p,'u1','reset');p.evaluate('App.showView("agreements")');p.wait_for_timeout(300);H='#agreementsContent '
    if p.locator(H+'.ag-sheet-box').get_attribute('open') is None:p.locator(H+'.ag-sheet-box>summary').click()
-   for n in ['Médis','ADSE']:p.fill(H+'[data-ag-addcol] input[name=name]',n);p.click(H+'[data-ag-addcol] button')
-   for k,l in [('consulta','Consulta de Fisiatria'),('tratamento','Sessão de fisioterapia')]:p.select_option(H+'[data-ag-addrow] select[name=kind]',k);p.fill(H+'[data-ag-addrow] input[name=label]',l);p.click(H+'[data-ag-addrow] button')
-   check('grid is the default view',p.locator(H+'table.ag-sheet').count()==1 and p.locator(H+'[data-ag-cell]').count()==4)
+   for n in ['Médis','ADSE']:p.fill(H+'[data-ag-addag] input[name=name]',n);p.click(H+'[data-ag-addag] button')
+   for k,l in [('consulta','Consulta de Fisiatria'),('tratamento','Sessão de fisioterapia')]:p.select_option(H+'[data-ag-addact] select[name=kind]',k);p.fill(H+'[data-ag-addact] input[name=label]',l);p.click(H+'[data-ag-addact] button')
+   check('grid is the default view: one row per agreement, one column per act',p.locator(H+'table.ag-sheet').count()==1 and p.locator(H+'.ag-row-head').count()==2 and p.locator(H+'[data-ag-cell]').count()==4)
    p.locator(H+'[data-ag-cell][data-r="0"][data-c="0"]').click();p.keyboard.type('35');p.keyboard.press('Tab');p.keyboard.type('28,5');p.keyboard.press('Enter');p.wait_for_timeout(200)
    check('keyboard keeps working after each save',p.evaluate('[document.activeElement.dataset.r,document.activeElement.dataset.c]')==['1','1'])
-   st=p.evaluate('k=>JSON.parse(localStorage.getItem(k)).agreements',K);flat={a['name']:{l['label']:l['prices'][-1]['cents'] for l in a['lines']} for v in st.values() for a in v}
-   check('prices saved in the right agreement and row',flat.get('ADSE',{}).get('Consulta de Fisiatria')==3500 and flat.get('Médis',{}).get('Consulta de Fisiatria')==2850)
+   p.keyboard.press('ArrowLeft');p.keyboard.press(' ');p.wait_for_timeout(200)
+   st=p.evaluate('k=>JSON.parse(localStorage.getItem(k)).agreements',K);flat={a['name']:{l['label']:(l['prices'][-1]['cents'] if l['prices'] else 'covered') for l in a['lines']} for v in st.values() for a in v}
+   check('prices saved in the right agreement and act',flat.get('ADSE',{}).get('Consulta de Fisiatria')==3500 and flat.get('ADSE',{}).get('Sessão de fisioterapia')==2850)
+   check('space marks «covers, price to fill» (✓)',flat.get('Médis',{}).get('Consulta de Fisiatria')=='covered' and p.locator(H+'[data-ag-cell][data-r="1"][data-c="0"]').inner_text().strip()=='✓')
+   p.keyboard.press('Delete');p.wait_for_timeout(200);st=p.evaluate('k=>JSON.parse(localStorage.getItem(k)).agreements',K);flat={a['name']:{l['label'] for l in a['lines']} for v in st.values() for a in v}
+   check('delete = does not cover',('Consulta de Fisiatria' not in flat.get('Médis',set())))
    p.locator(H+'[data-ag-cell][data-r="1"][data-c="1"]').click();p.keyboard.type('abc');p.keyboard.press('Enter');p.wait_for_timeout(200);p.keyboard.press('Escape')
-   check('invalid value refused (nothing saved)','Sessão de fisioterapia' not in flat.get('Médis',{}))
+   check('invalid value refused (nothing saved)','Sessão de fisioterapia' not in flat.get('Médis',set()))
+   p.locator(H+'[data-ag-cell][data-r="0"][data-c="1"]').focus();p.keyboard.press(' ');p.keyboard.press(' ');p.wait_for_timeout(200)
+   p.locator(H+'[data-ag-edit]').first.click();p.fill('#agEditor [name=notes]','SYN nota');p.click('#agEditor button[type=submit]');p.wait_for_timeout(200)
+   st=p.evaluate('k=>JSON.parse(localStorage.getItem(k)).agreements',K);ads=[a for v in st.values() for a in v if a['name']=='ADSE'][0]
+   check('notes editor keeps prices and coverage',ads.get('notes')=='SYN nota' and len(ads['lines'])==2 and all(l['prices'] for l in ads['lines']))
    check('only one search in the screen',p.locator('#agreements .gs-search-wrap').count()==0)
    check('no page overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
    if device=='desktop':p.screenshot(path=str(OUT/'grelha.png'))
@@ -51,7 +59,7 @@ with sync_playwright() as pw:
   scope={'part':'grelha','device':'call-center'};c,p,errs=ctx(b,1366,900,False);login(p,'u1')
   p.evaluate('''([k,a])=>{const s=JSON.parse(localStorage.getItem(k));s.agreements=a;s.currentUser='test_call';s.ceoViewingAs=null;localStorage.setItem(k,JSON.stringify(s))}''',[K,st]);p.reload();p.wait_for_function('window.AgreementsV4');p.wait_for_timeout(400);p.evaluate('App.showView("agreements")');p.wait_for_timeout(300)
   check('read-only grid: no editable cells nor tools',p.locator('#agreementsContent [data-ag-cell]').count()==0 and p.locator('#agreementsContent .ag-sheet-box').count()==0)
-  check('read-only grid shows only rows with a price',p.locator('#agreementsContent .ag-row-head').all_inner_texts()==['Consulta de Fisiatria'])
+  rows=[x.strip().split(chr(10))[0] for x in p.locator('#agreementsContent .ag-row-head').all_inner_texts()];check('read-only grid shows only agreements that cover something',rows==['ADSE'])
   c.close()
  finally:
   (OUT/'navigation-sheet-results.json').write_text(json.dumps(results,indent=2));b.close()

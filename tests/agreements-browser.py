@@ -27,7 +27,12 @@ with sync_playwright() as pw:
   if not manager:
    check('direct save refused for read-only profile',p.evaluate("()=>{try{AgreementsV4.saveAgreement('abranfir',{name:'Hack',lines:[]});return false}catch(e){return /CEO/.test(e.message)}}"),**sc)
   else:
-   p.locator('[data-ag-new]').click();f=p.locator('#agEditor');f.locator('[name=name]').fill('SYN Novo');f.locator('[data-ag-add=tratamento]').click();r=f.locator('.ag-edit-line').last;r.locator('[data-f=label]').fill('SYN Sessão');r.locator('[data-f=value]').fill('19,90');f.locator('button[type=submit]').click();p.wait_for_timeout(300)
+   p.locator('[data-ag-new]').click();f=p.locator('#agEditor');f.locator('[name=name]').fill('SYN Novo');f.locator('button[type=submit]').click();p.wait_for_timeout(300)
+   p.locator('[data-ag-mode=grid]').first.click();p.wait_for_timeout(200)
+   if p.locator('.ag-sheet-box').get_attribute('open') is None:p.locator('.ag-sheet-box>summary').click()
+   p.select_option('[data-ag-addact] select[name=kind]','tratamento');p.fill('[data-ag-addact] input[name=label]','SYN Sessão');p.click('[data-ag-addact] button');p.wait_for_timeout(200)
+   p.locator('tr',has_text='SYN Novo').locator('[data-ag-cell][data-label="SYN Sessão"]').click();p.keyboard.type('19,90');p.keyboard.press('Enter');p.wait_for_timeout(300)
+   p.locator('[data-ag-mode=cards]').first.click();p.wait_for_timeout(200)
    check('manager creates agreement with value',p.locator('.ag-card',has_text='SYN Novo').locator('text=19,90').count()==1,**sc)
    p.locator('[data-ag-new]').click();f=p.locator('#agEditor');f.locator('[name=name]').fill('syn seguradora');f.locator('button[type=submit]').click();p.wait_for_timeout(300)
    p.keyboard.press('Escape');p.wait_for_timeout(200);check('duplicate agreement name refused',len([t for t in p.locator('.ag-card h3').all_inner_texts() if t.strip().lower()=='syn seguradora'])==1,**sc);p.evaluate("()=>document.querySelector('[data-ag-cancel]')?.click()");p.wait_for_timeout(200)

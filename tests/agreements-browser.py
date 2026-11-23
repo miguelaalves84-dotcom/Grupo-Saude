@@ -15,6 +15,7 @@ with sync_playwright() as pw:
   check('module available in Call Center and Operação only to booking profiles',p.evaluate(f"RoleAccessAdminV4.guard('{view}')")==allowed,**sc)
   if not allowed:ctx.close();continue
   p.evaluate(f"App.showView('{view}')");p.wait_for_timeout(600);p.locator('[data-ag-clinic]').select_option('abranfir');p.wait_for_timeout(300)
+  check('grid is the default view',p.locator('table.ag-sheet').count()==1,**sc);p.locator('[data-ag-mode=cards]').first.click();p.wait_for_timeout(200)
   card=p.locator('.ag-card[data-ag="syn-a"]')
   check('current price and scheduled change shown',card.locator('text=35,00').count()==1 and 'A partir de 01/01/2099' in card.inner_text(),**sc)
   check('after the date only the new price is shown',card.locator('text=12,00').count()==1 and card.locator('text=10,00').count()==0,**sc)

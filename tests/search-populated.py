@@ -1,6 +1,12 @@
 """Additional positive searches on canonical disposable fixtures, invoked by search-browser.py."""
 from playwright.sync_api import expect
 
+def choose_clinic(page,source,value):
+    """A clínica escolhe-se no cabeçalho quando o cabeçalho a mostra (o filtro igual na página fica escondido)."""
+    if page.locator(source).is_visible():return page.locator(source).select_option(value)
+    if not page.locator('#workspaceClinic').is_visible():page.locator('#topbarMore').click()
+    page.locator('#workspaceClinic').select_option(value)
+    if page.evaluate("document.body.classList.contains('topbar-more-open')"):page.locator('#topbarMore').click()
 def verify_populated(p,actor,key,check,scope):
  p.evaluate('''([k,a])=>{const s=JSON.parse(localStorage.getItem(k)),cid=AccessScopeV4.clinics(s)[0]||'abranfir',at=new Date().toISOString();
  const other='syn-search-other';s.clinics.push({id:other,name:'SYN Outra clínica',active:true,operational:true,specialties:{}});
@@ -36,7 +42,7 @@ def verify_populated(p,actor,key,check,scope):
  if p.evaluate('RoleAccessAdminV4.guard("marketing")'):
   p.evaluate('MarketingUIV4.selectTab("campaigns")');search('marketing','[data-campaign="syn-positive-campaign"]','EVORA')
   p.evaluate('MarketingUIV4.selectTab("leads")');search('marketing','[data-id="syn-positive-request"]','CORACAO')
-  cid=p.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).requests.find(x=>x.id==="syn-positive-request").clinic',key);p.locator('#mkFilterClinic').select_option(cid);p.locator('#mkApply').click();search('marketing','[data-id="syn-positive-request"]','CORACAO');check('clinic filter excludes other-clinic marketing request',p.locator('[data-id="syn-other-request"]').count()==0)
+  cid=p.evaluate('(k)=>JSON.parse(localStorage.getItem(k)).requests.find(x=>x.id==="syn-positive-request").clinic',key);choose_clinic(p,'#mkFilterClinic',cid);p.locator('#mkApply').click();search('marketing','[data-id="syn-positive-request"]','CORACAO');check('clinic filter excludes other-clinic marketing request',p.locator('[data-id="syn-other-request"]').count()==0)
  if p.evaluate('RoleAccessAdminV4.can("account")'):
   p.evaluate('async()=>await FinanceUIV4.open("invoices")');search('finance','[data-fin-row]:has-text("SYN-FÁTURA")','fatura-agueda','#financeSearch')
   p.evaluate('async()=>await FinanceUIV4.open("payslips")');search('finance','[data-fin-row]','2026','#financeSearch')

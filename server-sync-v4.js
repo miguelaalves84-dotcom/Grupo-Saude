@@ -59,7 +59,7 @@
   base=clone(next);for(const k of LOCAL)delete base[k];revs=d.revisions||{};seq=d.seq||0;writable=new Set(d.writable||[]);if(writable.has('settings')||writable.has('clinics'))writable.add('__settings');bootAt=Date.now();saveMeta();
   const changed=localStorage.getItem(K)!==JSON.stringify(next);writeLocal(next);active=true;
   const banner=document.querySelector('aside.notice');if(banner)banner.textContent='Ligado ao servidor de testes como '+(u.name||'utilizador')+' · '+(u.role||'')+'. As alterações são gravadas no servidor.';
-  if(first&&changed){location.reload();return}root.dataset.syncBoot='done';
+  if(first&&changed){/* Recarrega já com os dados novos, sem mostrar o programa antigo a desaparecer: o ecrã de carregamento fica visível. */try{ss?.setItem('gs-boot-reloading','1')}catch{}const t=document.getElementById('gsBootText');if(t)t.textContent='A atualizar com os dados mais recentes…';root.classList.add('gs-booting');location.reload();return}root.dataset.syncBoot='done';
   setInterval(pull,20000);addEventListener('focus',pull);addEventListener('online',schedule);schedule()}
  /* Qualquer gravação do estado (por qualquer módulo) é enviada ao servidor. */
  Storage.prototype.setItem=function(k,v){origSet.call(this,k,v);if(active&&this===localStorage&&k===K)schedule()};

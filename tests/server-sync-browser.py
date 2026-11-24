@@ -13,7 +13,9 @@ try:
  with sync_playwright() as pw:
   b=pw.chromium.launch(args=['--no-sandbox'])
   def open_as(uid):
-   c=b.new_context(viewport={'width':1366,'height':860});c.add_cookies([{'name':'gs_test_user','value':uid,'url':U}]);p=c.new_page();errs=[];p.on('pageerror',lambda e:errs.append(str(e)));p.goto(U+'/index.html');p.wait_for_function('window.GSServerSync&&window.GSServerSync.active',timeout=20000);p.wait_for_function('window.App',timeout=20000);p.wait_for_timeout(800);return c,p,errs
+   c=b.new_context(viewport={'width':1366,'height':860});c.add_cookies([{'name':'gs_test_user','value':uid,'url':U}]);p=c.new_page();errs=[];p.on('pageerror',lambda e:errs.append(str(e)));p.goto(U+'/index.html');p.wait_for_function('window.GSServerSync&&window.GSServerSync.active',timeout=20000);p.wait_for_function('window.App',timeout=20000)
+   # espera o fim do arranque (a 1.ª sincronização pode recarregar a página com os dados do servidor)
+   p.wait_for_function("document.documentElement.dataset.syncBoot==='done'&&window.App&&window.GSServerSync?.active",timeout=30000);p.wait_for_load_state('load');p.wait_for_timeout(800);return c,p,errs
   ca,pa,ea=open_as('u-adm')
   st=pa.evaluate("()=>JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2'))")
   check('signed-in user is the session user, not a demo profile',st['currentUser']=='u-adm')

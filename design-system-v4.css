@@ -593,3 +593,4 @@ button.ag-cell:focus{outline:2px solid var(--primary,#176b5b);outline-offset:-2p
 .ag-sheet .ag-row-head{display:table-cell}
 .ag-sheet-count{margin-top:6px}
 :root[data-theme="dark"] .ag-cell.is-covered .ag-v{color:#5fd39b}
+.ag-cell .ag-per{font-size:.72rem;font-weight:600;margin-left:2px;color:var(--muted,#5a6b6d)}

@@ -49,6 +49,8 @@ with sync_playwright() as pw:
    p.locator(H+'[data-ag-cell][data-r="1"][data-c="1"]').click();p.keyboard.type('abc');p.keyboard.press('Enter');p.wait_for_timeout(200);p.keyboard.press('Escape')
    check('invalid value refused (nothing saved)','Sessão de fisioterapia' not in flat.get('Médis',set()))
    p.locator(H+'[data-ag-cell][data-r="0"][data-c="1"]').focus();p.keyboard.press(' ');p.keyboard.press(' ');p.wait_for_timeout(200)
+   p.locator(H+'[data-ag-cell][data-r="0"][data-c="0"]').focus();p.keyboard.press('/');p.wait_for_timeout(200)
+   check('«/» marks value per medical act in the cell',p.locator(H+'[data-ag-cell][data-r="0"][data-c="0"]').inner_text().replace(chr(10),'').strip().endswith('/ato'))
    p.locator(H+'[data-ag-edit]').first.click();p.fill('#agEditor [name=notes]','SYN nota');p.click('#agEditor button[type=submit]');p.wait_for_timeout(200)
    st=p.evaluate('k=>JSON.parse(localStorage.getItem(k)).agreements',K);ads=[a for v in st.values() for a in v if a['name']=='ADSE'][0]
    check('notes editor keeps prices and coverage',ads.get('notes')=='SYN nota' and len(ads['lines'])==2 and all(l['prices'] for l in ads['lines']))

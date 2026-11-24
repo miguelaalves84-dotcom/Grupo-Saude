@@ -12,7 +12,7 @@ const msg=(uid,from,name,file='CV.pdf',data=pdf)=>({uid,messageId:'<m'+uid+'@x>'
  assert.equal((await M.run(db.s,{...env,VERCEL_ENV:'production'})).status,'Desligado');pass('off unless enabled and configured; never in production');
  assert.deepEqual(M.status(env),{address:'rh.syn@example.invalid',configured:true,enabled:true});assert.ok(!JSON.stringify(M.status(env)).includes('abcd'));pass('status never exposes the password');
  let inbox=[msg(11,'ana.silva@example.invalid','Ana Silva'),{...msg(12,'publicidade@example.invalid','Loja'),attachments:[]}],sent=[];
- const deps={fetch:async last=>({messages:inbox.filter(m=>m.uid>last),maxUid:Math.max(last,...inbox.map(m=>m.uid))}),send:async m=>{sent.push(m);return{id:'smtp-'+sent.length}},now:()=>'2026-11-24T10:05:00.000Z'};
+ const seen=[];const deps={fetch:async last=>(seen.push(last),{messages:inbox.filter(m=>m.uid>last),maxUid:Math.max(last,...inbox.map(m=>m.uid))}),send:async m=>{sent.push(m);return{id:'smtp-'+sent.length}},now:()=>'2026-11-24T10:05:00.000Z'};
  let r=await M.run(db.s,env,deps);assert.equal(r.created,1);assert.equal(r.skipped.length,1,'email without CV ignored');
  let st=(await St.read(db.s,ceo,0)).state,c=st.candidates[0];
  assert.equal(c.stage,'Candidatos');assert.equal(c.needsReview,true);assert.equal(c.email,'ana.silva@example.invalid');assert.equal(c.name,'Ana Silva');assert.equal(c.phone,'912 345 678');
@@ -20,7 +20,7 @@ const msg=(uid,from,name,file='CV.pdf',data=pdf)=>({uid,messageId:'<m'+uid+'@x>'
  const file=await M.readFile(db.s,ceo,c.documents[0].fileRef);assert.equal(file.data.toString(),pdf.toString());assert.equal(file.mime,'application/pdf');
  await assert.rejects(()=>M.readFile(db.s,{id:'t',role:'TECNICO/A',active:true,permissions:{}},c.documents[0].fileRef));pass('CV file stored apart; only HR managers can open it');
  assert.equal(sent.length,1);assert.equal(sent[0].to,'ana.silva@example.invalid');assert.match(sent[0].subject,/recebemos a sua candidatura/);assert.match(sent[0].text,/Olá Ana/);assert.ok(c.thanksSentAt);pass('thank-you email sent to the candidate');
- r=await M.run(db.s,env,deps);assert.equal(sent.length,1,'no second thank-you');assert.equal(r.received,0,'mailbox read from the last message onwards');pass('nothing repeated on the next run');
+ assert.equal(seen[0],null,'first connection is flagged so old emails are not read');r=await M.run(db.s,env,deps);assert.equal(sent.length,1,'no second thank-you');assert.equal(typeof seen[1],'number');assert.equal(r.received,0,'mailbox read from the last message onwards');pass('nothing repeated on the next run');
  inbox.push(msg(13,'ana.silva@example.invalid','Ana Silva','CV.pdf',pdf),msg(14,'ana.silva@example.invalid','Ana Silva','Certificado.pdf',Buffer.from('%PDF-1.4 cert')));r=await M.run(db.s,env,deps);
  st=(await St.read(db.s,ceo,0)).state;assert.equal(st.candidates.length,1,'same person, same file');assert.equal(st.candidates[0].documents.length,2,'new document joined to the existing candidate');assert.equal(sent.length,1,'still one thank-you');pass('same candidate again: no duplicate, new document joined, no new thank-you');
  /* entrevista marcada e recusa confirmada (como o funil as deixa em fila) */

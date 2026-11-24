@@ -1,0 +1,26 @@
+name: Caixa de recrutamento (gruposaude.rh)
+# De 10 em 10 minutos pede ao servidor para ler a caixa de candidaturas e enviar os emails em fila.
+# Nota: o GitHub só corre agendamentos a partir do ramo principal; até lá, use «Verificar agora» no programa.
+# Precisa de: secret GS_RH_MAIL_CRON_SECRET (igual ao do Vercel) e variável GS_RH_MAIL_URL (endereço do programa).
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: rh-mailbox
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Verificar caixa e enviar emails
+        env:
+          SECRET: ${{ secrets.GS_RH_MAIL_CRON_SECRET }}
+          BASE: ${{ vars.GS_RH_MAIL_URL }}
+        run: |
+          if [ -z "$SECRET" ] || [ -z "$BASE" ]; then echo "Por configurar (secret ou variável em falta) — nada a fazer."; exit 0; fi
+          code=$(curl -sS -o out.json -w '%{http_code}' --max-time 90 -X POST -H 'content-type: application/json' -H "x-gs-cron: $SECRET" --data '{}' "${BASE%/}/api/v4-extensions?resource=rh-mail-run")
+          node -e 'const r=JSON.parse(require("fs").readFileSync("out.json","utf8")||"{}");console.log(JSON.stringify({status:r.status,recebidos:r.received,novos:r.created,enviados:(r.sent||[]).length,falhas:(r.failed||[]).length}))' || true
+          test "$code" = "200"

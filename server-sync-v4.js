@@ -13,7 +13,7 @@
  const clone=x=>x===undefined?undefined:JSON.parse(JSON.stringify(x)),eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
  const readLocal=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')||{}}catch{return{}}};
  const writeLocal=s=>origSet.call(localStorage,K,JSON.stringify(s));
- let base={},revs={},seq=0,active=false,timer=0,busy=false,again=false,writable=null,bootAt=0;const KNOWN=new Set(['clinics','clinicSpecialties','clinicStructure','clinicCalendars','masterSpecialties','jobRoles','contractTypes','documentCatalog','masterDocuments','roleActionPermissions','tasks','days','internalQueue','requests','reports','alerts','users','professionals','employees','candidates','employeeDocuments','leave','timeEntries','timeOccurrences','chatMessages','conversations','audit','finance','marketing']);
+ let base={},revs={},seq=0,active=false,timer=0,busy=false,again=false,writable=null,bootAt=0;const KNOWN=new Set(['clinics','clinicSpecialties','clinicStructure','clinicCalendars','masterSpecialties','jobRoles','contractTypes','documentCatalog','masterDocuments','roleActionPermissions','tasks','days','internalQueue','requests','reports','alerts','users','professionals','employees','candidates','rhMail','employeeDocuments','leave','timeEntries','timeOccurrences','chatMessages','conversations','audit','finance','marketing']);
  const mayWrite=k=>!writable||writable.has(k)||(!KNOWN.has(k)&&writable.has('__settings'));
  /* Marca cedo (antes dos outros scripts) para que a demonstração não semeie dados fictícios. */
  if(ss?.getItem(FLAG)==='1'){root.dataset.sync='server'}

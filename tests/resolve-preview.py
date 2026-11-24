@@ -10,7 +10,8 @@ sha = os.environ['GS_PREVIEW_COMMIT']
 if not re.fullmatch(r'[0-9a-f]{40}', sha):
     raise RuntimeError('Invalid commit')
 request = urllib.request.Request(
-    f'https://api.github.com/repos/{REPO}/commits/{sha}/check-runs',
+    # Filtra pelo nome: com dezenas de trabalhos de CI no mesmo commit, a primeira página (30) já não chegava ao «Cloudflare Pages».
+    f'https://api.github.com/repos/{REPO}/commits/{sha}/check-runs?check_name=Cloudflare%20Pages&per_page=100',
     headers={'Authorization': 'Bearer ' + os.environ['GH_READ_TOKEN'],
              'Accept': 'application/vnd.github+json', 'User-Agent': 'GS-V4-preview-regression'})
 for attempt in range(12):

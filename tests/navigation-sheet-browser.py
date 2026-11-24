@@ -54,6 +54,9 @@ with sync_playwright() as pw:
    p.locator(H+'[data-ag-edit]').first.click();p.fill('#agEditor [name=notes]','SYN nota');p.click('#agEditor button[type=submit]');p.wait_for_timeout(200)
    st=p.evaluate('k=>JSON.parse(localStorage.getItem(k)).agreements',K);ads=[a for v in st.values() for a in v if a['name']=='ADSE'][0]
    check('notes editor keeps prices and coverage',ads.get('notes')=='SYN nota' and len(ads['lines'])==2 and all(l['prices'] for l in ads['lines']))
+   p.evaluate('App.showView("agreements-op")');p.wait_for_timeout(300)
+   check('same table in Operação after visiting Call Center',p.locator('#agreementsOpContent table.ag-sheet').count()==1 and p.locator('#agreementsOpContent .ag-row-head').count()==p.locator('#agreementsContent .ag-row-head').count())
+   p.evaluate('App.showView("agreements")');p.wait_for_timeout(300)
    check('only one search in the screen',p.locator('#agreements .gs-search-wrap').count()==0)
    check('no page overflow',p.evaluate('document.documentElement.scrollWidth<=innerWidth+2'))
    if device=='desktop':p.screenshot(path=str(OUT/'grelha.png'))

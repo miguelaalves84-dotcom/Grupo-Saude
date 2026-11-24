@@ -11,6 +11,10 @@ const msg=(uid,from,name,file='CV.pdf',data=pdf)=>({uid,messageId:'<m'+uid+'@x>'
  assert.equal((await M.run(db.s,{})).status,'Desligado');assert.equal((await M.run(db.s,{GS_RH_MAIL_ENABLED:'true'})).status,'Não configurado');
  assert.equal((await M.run(db.s,{...env,VERCEL_ENV:'production'})).status,'Desligado');pass('off unless enabled and configured; never in production');
  assert.deepEqual(M.status(env),{address:'rh.syn@example.invalid',configured:true,enabled:true});assert.ok(!JSON.stringify(M.status(env)).includes('abcd'));pass('status never exposes the password');
+ {const d0=fake({clinics:[],people:[{id:'u-ceo',name:'CEO',role:'CEO',clinics:[],active:true}]}),seen0=[];
+  await M.run(d0.s,env,{fetch:async()=>{throw Object.assign(Error('Command failed'),{authenticationFailed:true})},send:async()=>({})});
+  const st0=(await St.read(d0.s,{id:'u-ceo',role:'CEO',active:true,permissions:{}},0)).state.rhMail;assert.equal(st0.lastUid,undefined,'failed read does not count as first connection');assert.match(st0.lastError.message,/Gmail recusou/);
+  await M.run(d0.s,env,{fetch:async l=>(seen0.push(l),{messages:[],maxUid:0}),send:async()=>({})});assert.equal(seen0[0],null);pass('a failed login keeps the «first connection» rule (old emails are not read)')}
  let inbox=[msg(11,'ana.silva@example.invalid','Ana Silva'),{...msg(12,'publicidade@example.invalid','Loja'),attachments:[]}],sent=[];
  const seen=[];const deps={fetch:async last=>(seen.push(last),{messages:inbox.filter(m=>m.uid>last),maxUid:Math.max(last,...inbox.map(m=>m.uid))}),send:async m=>{sent.push(m);return{id:'smtp-'+sent.length}},now:()=>'2026-11-24T10:05:00.000Z'};
  let r=await M.run(db.s,env,deps);assert.equal(r.created,1);assert.equal(r.skipped.length,1,'email without CV ignored');

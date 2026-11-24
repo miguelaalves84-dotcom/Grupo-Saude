@@ -1,5 +1,6 @@
 """Módulo Call Center: tarefas configuráveis, emails do call center com pendências, permissões e telemóvel (dados sintéticos)."""
-import os,json
+import os,json,datetime
+from zoneinfo import ZoneInfo
 from playwright.sync_api import sync_playwright
 URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');K='grupo_saude_v4_demo_2';passed=0
 def check(name,v,**scope):
@@ -9,6 +10,8 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(args=['--no-sandbox'])
  for who,(w,h) in [('test_call',(390,844)),('test_adm',(820,1180)),('u1',(1366,1000)),('test_med',(390,844)),('test_tec',(390,844))]:
   sc={'profile':who,'width':w};ctx=b.new_context(viewport={'width':w,'height':h},is_mobile=w<500,has_touch=w<900,service_workers='block');p=ctx.new_page();errs=[];p.on('pageerror',lambda e:errs.append(str(e)))
+  # Relógio fixo às 15:00 (Lisboa) do dia de hoje: a tarefa com prazo 00:01 está sempre atrasada, seja a que horas for que o CI corra.
+  p.clock.set_fixed_time(datetime.datetime.now(ZoneInfo('Europe/Lisbon')).replace(hour=15,minute=0,second=0,microsecond=0))
   p.goto(URL);p.wait_for_function('window.App&&window.CallCenterTasksV4&&window.CEOReservedAreaV4');p.wait_for_timeout(600)
   p.evaluate("""k=>{const s=JSON.parse(localStorage.getItem(k));delete s.callCenter;const y=new Date(Date.now()-864e5).toLocaleDateString('sv-SE',{timeZone:'Europe/Lisbon'});s.callCenter={tasks:[{id:'syn-daily',name:'SYN Ligar à lista de espera',deadline:'00:01',frequency:'daily',required:true,active:true},{id:'syn-off',name:'SYN Inativa',deadline:'',frequency:'daily',active:false}],days:{[y]:{tasks:{},emails:{answer:false,items:[{id:'syn-old',text:'SYN email de ontem por tratar',createdDate:y,done:false}]}}}};localStorage.setItem(k,JSON.stringify(s))}""",K)
   p.reload();p.wait_for_function('window.App&&window.CallCenterTasksV4');p.wait_for_timeout(500);p.evaluate(f"CEOReservedAreaV4.select('{who}')");p.wait_for_timeout(700)

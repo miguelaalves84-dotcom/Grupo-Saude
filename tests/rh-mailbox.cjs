@@ -42,6 +42,20 @@ const msg=(uid,from,name,file='CV.pdf',data=pdf)=>({uid,messageId:'<m'+uid+'@x>'
  /* falha do servidor de email: fica «Falhou», sem duplicar quando volta */
  inbox.push(msg(20,'rui@example.invalid','Rui Costa'));let fail=true;const deps2={...deps,send:async m=>{if(fail)throw Error('SMTP indisponível');return deps.send(m)}};
  r=await M.run(db.s,env,deps2);assert.equal(r.failed.length,1);st=(await St.read(db.s,ceo,0)).state;assert.equal(st.candidates.find(x=>x.email==='rui@example.invalid').notifications.find(x=>x.kind==='received').status,'Failed');assert.equal(st.rhMail.log[0].status,'Falhou');assert.match(st.rhMail.log[0].error,/SMTP indisponível/);pass('send failure recorded in history, not hidden');
+ /* reencaminhados: Gmail em português, Outlook em inglês, e sem email original */
+ {const d=fake({clinics:[],people:[{id:'u-ceo',name:'CEO',role:'CEO',clinics:[],active:true}]}),out=[];const ce={id:'u-ceo',role:'CEO',active:true,permissions:{}};
+  const fw=(uid,subject,text,file)=>({uid,messageId:'<f'+uid+'@x>',from:'"Clinica Fisioterapia Lagoa" <clinica.syn@example.invalid>',fromAddress:'clinica.syn@example.invalid',fromName:'Clinica Fisioterapia Lagoa',subject,text,date:'2026-11-24T21:00:00Z',attachments:[{filename:file,mime:'application/pdf',size:9,data:Buffer.from('%PDF '+file)}]});
+  const box=[fw(1,'Fwd: Administrativo / Rececionista','---------- Mensagem encaminhada ---------\nDe: Ana Raquel Sousa <ana.raquel@example.invalid>\nData: segunda, 23/11/2026\nAssunto: Candidatura\nPara: <clinica.syn@example.invalid>\n\nBoa tarde, envio o CV. 913 222 111','CV Ana.pdf'),
+   fw(2,'FW: candidatura','From: "Bruno Lopes" <bruno@example.invalid>\nSent: Monday, November 23, 2026\nTo: clinica\n\nCV em anexo','CV Bruno.pdf'),
+   fw(3,'Enc: CV','---------- Mensagem encaminhada ---------\nDe: Carla\n\nsegue','CV Carla.pdf')];
+  await M.run(d.s,env,{fetch:async l=>({messages:l==null?[]:box.filter(m=>m.uid>l),maxUid:l==null?0:3}),send:async m=>{out.push(m);return{id:'x'}}});
+  await M.run(d.s,env,{fetch:async l=>({messages:box.filter(m=>m.uid>l),maxUid:3}),send:async m=>{out.push(m);return{id:'x'}}});
+  const cs=(await St.read(d.s,ce,0)).state.candidates,a=cs.find(c=>c.email==='ana.raquel@example.invalid'),bb=cs.find(c=>c.email==='bruno@example.invalid'),cc=cs.find(c=>c.noEmail);
+  assert.ok(a&&a.name==='Ana Raquel Sousa'&&a.forwardedBy==='clinica.syn@example.invalid'&&a.phone==='913 222 111','Gmail PT forward: original sender');
+  assert.ok(bb&&bb.name==='Bruno Lopes','Outlook forward: original sender');
+  assert.ok(cc&&cc.name==='Carla'&&cc.email===''&&cc.needsReview,'forward without original email: por validar, no email');
+  assert.deepEqual(out.map(m=>m.to).sort(),['ana.raquel@example.invalid','bruno@example.invalid'],'thanks go to the candidates, never to the clinic; none without email');
+  pass('forwarded CVs: candidate is the original sender; thanks go to them; none without email')}
  /* modelos editáveis */
  const tpl=JSON.parse(JSON.stringify(st.rhMail));tpl.templates={received:{subject:'Obrigado, {nome}!',text:'Recebido, {nome}.'}};await St.write(db.s,ceo,{changes:[{key:'rhMail',value:tpl,rev:(await St.read(db.s,ceo,0)).revisions.rhMail}]});
  inbox.push(msg(21,'eva@example.invalid','Eva Dias'));await M.run(db.s,env,deps);assert.equal(sent.at(-1).subject,'Obrigado, Eva!');pass('editable templates used');

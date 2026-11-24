@@ -37,7 +37,7 @@ const msg=(uid,from,name,file='CV.pdf',data=pdf)=>({uid,messageId:'<m'+uid+'@x>'
  assert.equal(sent.length,4);assert.match(sent[3].text,/Data: 29\/11\/2026/);assert.match(sent[3].text,/Hora: 15:00/);pass('rescheduled interview sends a new email once');
  /* falha do servidor de email: fica «Falhou», sem duplicar quando volta */
  inbox.push(msg(20,'rui@example.invalid','Rui Costa'));let fail=true;const deps2={...deps,send:async m=>{if(fail)throw Error('SMTP indisponível');return deps.send(m)}};
- r=await M.run(db.s,env,deps2);assert.equal(r.failed.length,1);st=(await St.read(db.s,ceo,0)).state;assert.equal(st.candidates.find(x=>x.email==='rui@example.invalid').notifications.find(x=>x.kind==='received').status,'Failed');assert.equal(st.rhMail.log[0].status,'Falhou');pass('send failure recorded in history, not hidden');
+ r=await M.run(db.s,env,deps2);assert.equal(r.failed.length,1);st=(await St.read(db.s,ceo,0)).state;assert.equal(st.candidates.find(x=>x.email==='rui@example.invalid').notifications.find(x=>x.kind==='received').status,'Failed');assert.equal(st.rhMail.log[0].status,'Falhou');assert.match(st.rhMail.log[0].error,/SMTP indisponível/);pass('send failure recorded in history, not hidden');
  /* modelos editáveis */
  const tpl=JSON.parse(JSON.stringify(st.rhMail));tpl.templates={received:{subject:'Obrigado, {nome}!',text:'Recebido, {nome}.'}};await St.write(db.s,ceo,{changes:[{key:'rhMail',value:tpl,rev:(await St.read(db.s,ceo,0)).revisions.rhMail}]});
  inbox.push(msg(21,'eva@example.invalid','Eva Dias'));await M.run(db.s,env,deps);assert.equal(sent.at(-1).subject,'Obrigado, Eva!');pass('editable templates used');

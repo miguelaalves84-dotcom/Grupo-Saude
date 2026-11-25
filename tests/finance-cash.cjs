@@ -13,4 +13,29 @@ test('recovered closing requires a sheet, not a validated bank transaction',()=>
 test('operation preparation preserves cash, revision, history and pending rows',()=>{const out=D.command(base(),actor(),'save',body()),before=JSON.stringify(out.result);const day=O.prepare(out.state,'a','2026-10-23');assert.equal(JSON.stringify(day.cash),before);assert.equal(day.open.saved,false);assert.equal(day.cash.history.length,1)});
 test('synthetic receipt versions, audit, idempotency and central fail closed',()=>{const attachment={id:'synthetic-file-1',name:'synthetic.pdf',mime:'application/pdf',size:12,hash:'a'.repeat(64)},b=body({deposited:'75',depositDate:'2026-10-23',attachment});assert.throws(()=>D.command(base(),actor(),'save',b),/Arquivo privado/);let out=D.command(base(),actor(),'save',b,{synthetic:true});assert.equal(out.result.attachments.length,1);assert.equal(out.result.attachments[0].by,actor().id);assert.equal(out.result.attachments[0].depositedCents,7500);assert.equal(D.command(out.state,actor(),'save',b,{synthetic:true}).replayed,true);out=D.command(out.state,actor(),'save',body({revision:1,deposited:'75',depositDate:'2026-10-23',attachment:{...attachment,id:'synthetic-file-2',hash:'b'.repeat(64)}}),{synthetic:true});assert.equal(out.result.attachments.length,2);assert.equal(out.result.attachments[1].replaces,attachment.id);assert.equal(out.result.history[0].after.attachments.length,1);for(const bad of [{name:'../x.pdf'},{mime:'text/html'},{size:4*1024*1024},{id:'https://evil.invalid'},{hash:'invalid'}])assert.throws(()=>D.command(base(),actor(),'save',{...b,attachment:{...attachment,...bad}},{synthetic:true}));});
 test('local document bytes decode without fetch and reject arbitrary URLs or disguised content',()=>{const F=require('../finance-core-v4'),bytes=Buffer.from('%PDF-1.4 SYN'),d={name:'syn.pdf',dataUrl:'data:application/pdf;base64,'+bytes.toString('base64')};assert.deepEqual([...F.documentBytes(d).bytes],[...bytes]);for(const dataUrl of ['https://example.invalid/x.pdf','data:text/html;base64,PHNjcmlwdD4=','data:image/png;base64,'+bytes.toString('base64')])assert.throws(()=>F.documentBytes({name:'x',dataUrl}));});
+/* Caixa obrigatória por dia com abertura feita + Caixa Rubrica Ponderada quando os técnicos vendem material. */
+test('missing cash: every opened day needs a cash sheet (0 € counts) from the next day; Rubrica Ponderada only when material was sold',()=>{
+ const a=actor('ADMINISTRATIVA'),ceo=actor('CEO'),s=base();s.cash=[];
+ s.days={'2026-11-20_a':{date:'2026-11-20',clinic:'a',open:{saved:true},close:{saved:true,techSales:{t1:{lasers:2,materials:0}}}},
+  '2026-11-21_a':{date:'2026-11-21',clinic:'a',open:{saved:true},close:{saved:true,techSales:{t1:{lasers:0,materials:1}}}},
+  '2026-11-22_a':{date:'2026-11-22',clinic:'a',open:{saved:false}},
+  '2026-11-24_a':{date:'2026-11-24',clinic:'a',open:{saved:true}},
+  '2026-11-21_b':{date:'2026-11-21',clinic:'b',open:{saved:true}}};
+ let m=D.missing(s,a,{today:'2026-11-24'});
+ assert.deepEqual(m.map(x=>x.date+':'+x.kind),['2026-11-20:normal','2026-11-21:normal','2026-11-21:rp'],'lasers only do not need RP; day not opened and today are not missing; other clinic out of scope');
+ assert.equal(D.missing(s,ceo,{today:'2026-11-24'}).length,4,'CEO sees all clinics');
+ assert.equal(D.missing(s,actor('TECNICO/A'),{today:'2026-11-24'}).length,0);
+ let out=D.command(s,a,'save',body({date:'2026-11-20',total:'0',card:'0'}));assert.equal(out.result.totalCents,0);assert.equal(out.result.kind,'normal');
+ m=D.missing(out.state,a,{today:'2026-11-24'});assert.deepEqual(m.map(x=>x.date+':'+x.kind),['2026-11-21:normal','2026-11-21:rp'],'0 € closes the gap');
+ assert.throws(()=>D.command(out.state,a,'save',body({date:'2026-11-20',kind:'rp'})),/só existe nos dias em que os técnicos venderam material/);
+ out=D.command(out.state,a,'save',body({date:'2026-11-21',kind:'rp',total:'40',card:'10'}));assert.equal(out.result.kind,'rp');
+ out=D.command(out.state,a,'save',body({date:'2026-11-21',total:'250',card:'100'}));
+ const day=out.state.days['2026-11-21_a'];assert.equal(day.cash.totalCents,25000);assert.equal(day.cashRP.totalCents,4000,'two separate sheets on the same day');
+ assert.equal(D.missing(out.state,a,{today:'2026-11-24'}).length,0);
+ const l=D.list(out.state,a,{start:'2026-11-21',end:'2026-11-21',today:'2026-11-24'});assert.deepEqual(l.rows.map(r=>r.kind).sort(),['normal','rp']);assert.equal(l.missing.length,0);
+ /* validação e reabertura separadas por tipo */
+ out=D.command(out.state,ceo,'save',body({date:'2026-11-21',kind:'rp',deposited:'30',depositDate:'2026-11-22',total:'40',card:'10',revision:1}));
+ out=D.command(out.state,ceo,'validate',body({date:'2026-11-21',kind:'rp',revision:2,confirmed:true}));
+ assert.equal(out.state.days['2026-11-21_a'].cashRP.status,'Validada');assert.equal(out.state.days['2026-11-21_a'].cash.status,'A aguardar depósito','normal cash untouched');
+});
 (async()=>{for(const role of roles){const a=actor(role);for(const action of ['cash-list','cash-save','cash-validate','cash-reopen']){const ok=['CEO','ADMINISTRAÇÃO'].includes(role)||role==='ADMINISTRATIVA'&&['cash-list','cash-save'].includes(action);if(ok)await A.authorize({},a,action,{clinicId:'a'});else await assert.rejects(()=>A.authorize({},a,action,{clinicId:'a'}));}if(role!=='CEO')await assert.rejects(()=>A.authorize({},a,'cash-save',{clinicId:'b'}));else await A.authorize({},a,'cash-save',{clinicId:'b'});}console.log('PASS cash: server authorizer protects every action and all six profiles');console.log('PASS cash domain '+passed+' scenario groups; no real storage or production')})().catch(e=>{console.error(e);process.exitCode=1});

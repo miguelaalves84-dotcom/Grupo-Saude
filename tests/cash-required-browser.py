@@ -31,14 +31,14 @@ with sync_playwright() as pw:
    if label=='ceo':
     p.screenshot(path=str(OUT/'cash-missing.png'))
     # inserir a caixa de 0 € do primeiro dia a partir do aviso
-    btn(p,'cash-new','syn-cash|'+D1+'|normal').click();d=p.locator('#financeDialog')
+    btn(p,'cash-insert','syn-cash|'+D1+'|normal').click();d=p.locator('#financeDialog')
     check('form preset with date and type',d.locator('[name=date]').input_value()==D1 and d.locator('[name=kind]').input_value()=='normal')
     d.locator('[name=total]').fill('0');d.locator('[name=card]').fill('0');d.locator('button[type=submit]').click();p.wait_for_timeout(700)
     check('0 € accepted and removed from missing','(2)' in p.locator('.cash-missing').inner_text())
-    btn(p,'cash-new','syn-cash|'+D2+'|rp').click();d=p.locator('#financeDialog')
+    btn(p,'cash-insert','syn-cash|'+D2+'|rp').click();d=p.locator('#financeDialog')
     check('Rubrica Ponderada form preset',d.locator('[name=kind]').input_value()=='rp')
     d.locator('[name=total]').fill('45');d.locator('[name=card]').fill('20');d.locator('button[type=submit]').click();p.wait_for_timeout(700)
-    btn(p,'cash-new','syn-cash|'+D2+'|normal').click();d=p.locator('#financeDialog');d.locator('[name=total]').fill('300');d.locator('[name=card]').fill('120');d.locator('button[type=submit]').click();p.wait_for_timeout(700)
+    btn(p,'cash-insert','syn-cash|'+D2+'|normal').click();d=p.locator('#financeDialog');d.locator('[name=total]').fill('300');d.locator('[name=card]').fill('120');d.locator('button[type=submit]').click();p.wait_for_timeout(700)
     check('no more missing sheets',p.locator('.cash-missing').count()==0)
     rows=p.locator('[data-cash-row]');check('two sheets on the day with material sold',p.locator('[data-cash-row][data-cash-kind=rp]').count()==1 and rows.count()==3)
     check('Rubrica Ponderada labelled in the table','Caixa Rubrica Ponderada' in p.locator('[data-cash-row][data-cash-kind=rp]').inner_text())

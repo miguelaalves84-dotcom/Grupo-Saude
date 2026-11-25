@@ -14,7 +14,7 @@ const ceo={id:'u-ceo',name:'CEO',role:'CEO',active:true,permissions:{}},adm={id:
  await Promise.all([St.write(db.s,adm,{changes:[{key:'requests',list:{upsert:[{id:'r1',name:'A'}],remove:[]}}]}),St.write(db.s,ceo,{changes:[{key:'requests',list:{upsert:[{id:'r2',name:'B'}],remove:[]}}]})]);
  r=await St.read(db.s,tec);assert.deepEqual([],[]);const rq=(await St.read(db.s,ceo)).state.requests.map(x=>x.id).sort();assert.deepEqual(rq,['r1','r2'],'concurrent list additions both kept');
  // técnico não lê pedidos/dias (sem permissões de Operação) mas regista ponto
- assert.equal(r.state.requests,undefined,'technician cannot read requests');w=await St.write(db.s,tec,{changes:[{key:'timeEntries',list:{upsert:[{id:'t1',kind:'Entrada'}]}}]});assert.equal(w.done.length,1);
+ assert.equal(r.state.requests,undefined,'technician cannot read requests');w=await St.write(db.s,tec,{changes:[{key:'timeEntries',list:{upsert:[{id:'t1',user:'u-tec',kind:'Entrada'}]}}]});assert.equal(w.done.length,1);
  // dias guardados entrada a entrada
  w=await St.write(db.s,adm,{changes:[{key:'days',sub:'2026-11-18_algarfisio',value:{date:'2026-11-18',clinic:'algarfisio',open:{saved:true}}},{key:'days',value:{}}]});assert.equal(w.done.length,1);assert.deepEqual(w.denied,['days'],'whole map writes refused for split blocks');
  // conflito: revisão antiga → fica a versão do servidor

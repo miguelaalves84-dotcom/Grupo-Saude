@@ -11,7 +11,7 @@ function endpoint(actor){
  await test('build leaves a deployable directory and excludes confidential/backend files',()=>{
   require('../scripts/build-static.cjs');const files=fs.readdirSync(path.join(root,'dist'));
   assert(files.includes('index.html'));assert(files.includes('finance.html'));assert(files.includes('account.html'));assert(files.includes('_headers'));
-  assert(files.every(name=>/\.(html|css|js)$/.test(name)||name==='_headers'||name==='official-logo-v4.svg'));assert(!files.includes('api'));assert(!files.includes('docs'));assert(!files.includes('.env'));
+  assert(files.every(name=>/\.(html|css|js)$/.test(name)||['_headers','official-logo-v4.svg','manifest.webmanifest','app-icon-192.png','app-icon-512.png'].includes(name)));assert(!files.includes('api'));assert(!files.includes('docs'));assert(!files.includes('.env'));
   assert.equal(JSON.parse(fs.readFileSync(path.join(root,'vercel.json'))).outputDirectory,'dist');
   const unprint=t=>t.replace(/((?:src|href)="[^"#?:]+\.(?:js|css))(?:\?[^"]*)?"/g,'$1"');
   for(const name of files){if(name.endsWith('.html')){const built=fs.readFileSync(path.join(root,'dist',name),'utf8');assert.equal(unprint(built),unprint(fs.readFileSync(path.join(root,name),'utf8')));for(const m of built.matchAll(/(?:src|href)="([^"#?:]+\.(?:js|css))\?v=([0-9a-f]{10})"/g))assert.equal(m[2],require('crypto').createHash('sha256').update(fs.readFileSync(path.join(root,'dist',m[1]))).digest('hex').slice(0,10),'fingerprint of '+m[1])}else assert.deepEqual(fs.readFileSync(path.join(root,'dist',name)),fs.readFileSync(path.join(root,name)))}

@@ -15,9 +15,12 @@ def team(p,doctors,techs):
 def numbers(p):
  for row in p.locator('[data-op-row]').all():
   booked=row.locator('[data-op-field=booked]')
-  if booked.count():booked.fill('7');booked.dispatch_event('change')
+  # números de uma abertura já guardada ficam fixos: só se preenchem os profissionais acrescentados depois
+  if booked.count():
+   if booked.is_enabled():booked.fill('7');booked.dispatch_event('change')
   else:
-   row.locator('[data-op-field=freeToday]').fill('0');row.locator('[data-op-field=freeToday]').dispatch_event('change')
+   free=row.locator('[data-op-field=freeToday]')
+   if free.is_enabled():free.fill('0');free.dispatch_event('change')
 def save(p):p.locator('#opSaveOpening').click()
 def setup(p,actor,theme):
  p.goto(URL+'#operation');p.wait_for_function('window.GSOperationCore&&window.CEOReservedAreaV4&&window.MarketingUIV4');p.evaluate('''([k,a,t])=>{const s=JSON.parse(localStorage.getItem(k)),cl='syn-composition';s.clinics=[{id:cl,name:'SYN Composition',active:true,operational:true}];s.masterSpecialties=[{id:'sp-d',name:'SYN Medical',active:true},{id:'sp-t',name:'SYN Technical',active:true}];s.clinicSpecialties={[cl]:['sp-d','sp-t']};s.days={};s.requests=[];s.tasks=JSON.parse(JSON.stringify(GSOperationCore.defaultTasks));for(const u of [...s.users,...Object.values(s.employees||{})]){u.active=true;u.clinics=[cl];u.clinic=cl;u.clinicIds=[cl];u.hr||={};if(GSOperationCore.kind(u)==='doctor'){delete u.hr.weeklyCapacity;u.specialtyIds=['sp-d']}if(GSOperationCore.kind(u)==='therapist'){u.specialtyIds=['sp-t'];u.hr.weeklyCapacity=Object.fromEntries(Array.from({length:7},(_,d)=>[d,{treatments:32}]))}}for(const [id,role,sp]of [['syn-med2','MEDICO/A','sp-d'],['syn-tech2','TECNICO/A','sp-t']]){const u={id,name:'SYN '+id,email:id+'@example.invalid',role,clinics:[cl],active:true,specialtyIds:[sp],hr:role==='TECNICO/A'?{weeklyCapacity:Object.fromEntries(Array.from({length:7},(_,d)=>[d,{treatments:32}]))}:{}};s.users.push(u);s.employees[id]=u}s.currentUser=a;s.ceoViewingAs=a==='u1'?null:a;s.opClinic=cl;s.opDate='2026-10-21';s.opPhase='open';localStorage.setItem(k,JSON.stringify(s));RoleAccessAdminV4.apply();App.renderAll();App.showView('operation');document.documentElement.dataset.theme=t}''',[K,actor,theme])

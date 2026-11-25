@@ -6,8 +6,12 @@ URL=os.environ.get('GS_TEST_URL','http://127.0.0.1:8765/index.html');ORIGIN=URL.
 def check(n,v):
  cases.append({**scope,'case':n,'passed':bool(v)});print(json.dumps(cases[-1]),flush=True);assert v,n
 def action(p,a,id=None):
- if a=='backoffice':p.evaluate("HRManagementV4.select('documents')")
- if a=='health-backoffice':p.evaluate("HRManagementV4.select('health')")
+ # Abre a secção e confirma que ficou aberta: a mudança de perfil pode voltar a desenhar o ecrã logo a seguir (corrida no CI).
+ sec={'backoffice':('documents','backoffice-form,document-form,[data-portal-action]'),'health-backoffice':('health','health-form')}.get(a)
+ if sec:
+  for _ in range(20):
+   p.evaluate("k=>HRManagementV4.select(k)",sec[0]);p.wait_for_timeout(250)
+   if a=='backoffice' or p.locator('[data-portal-action="health-form"]').filter(visible=True).count():break
  q=p.locator('[data-portal-action="'+a+'"]'+('[data-id="'+id+'"]' if id else '')).filter(visible=True).first
  if scope['device']=='desktop':q.click()
  else:q.tap()

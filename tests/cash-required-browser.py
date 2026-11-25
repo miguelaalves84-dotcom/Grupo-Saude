@@ -28,6 +28,7 @@ with sync_playwright() as pw:
    check('Rubrica Ponderada only for the day with material sold',box.locator('li',has_text='Caixa Rubrica Ponderada').count()==1)
    items=p.evaluate("AttentionUIV4.items().filter(x=>x.kind==='cash-missing').map(x=>x.title)")
    check('bell alert for each missing sheet',len(items)==3 and any('Rubrica Ponderada em falta' in t for t in items))
+   check('missing-cash alerts are at the top of the bell list',p.evaluate("AttentionUIV4.items().slice(0,3).every(x=>x.kind==='cash-missing')"))
    if label=='ceo':
     p.screenshot(path=str(OUT/'cash-missing.png'))
     # inserir a caixa de 0 € do primeiro dia a partir do aviso

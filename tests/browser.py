@@ -76,6 +76,8 @@ with sync_playwright() as p:
             page.locator('[data-leave-action="save"]').click()
             actual = page.evaluate("HRLeaveV4.days(HRLeaveV4.read().leave.find(x=>x.id==='issue6_original'))")
             assert actual == ['2026-07-06', '2026-07-08', '2026-08-03'], actual
+            # o calendário RH só mostra contratos de trabalho (a termo / sem termo)
+            page.evaluate("(()=>{const s=HRLeaveV4.read();for(const u of [...(s.users||[]),...Object.values(s.employees||{})])if(u.id==='test_tec')u.hr={...(u.hr||{}),contractType:'Contrato sem termo'};localStorage.setItem('grupo_saude_v4_demo_2',JSON.stringify(s))})()")
             page.evaluate("HRLeaveUIV4.calendar('test_tec')")
             page.locator('#vacMonth').fill('2026-07')
             page.locator('[data-leave-id="issue6_original"]').first.click()

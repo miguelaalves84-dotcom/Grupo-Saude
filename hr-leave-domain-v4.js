@@ -62,8 +62,9 @@
     const approved=new Set(), pending=new Set();
     for(const x of s.leave || []) if(owner(x)===String(id) && vacation(x) && active(x)) for(const d of workDays(s,x).filter(d=>d.startsWith(String(year)))) (norm(x.status)==='APROVADO'?approved:pending).add(d);
     for(const d of approved) pending.delete(d);
-    const entitled=entitlement(s,id,year);
-    return {year:String(year),entitled,approved:approved.size,used:approved.size,pending:pending.size,available:Math.max(0,entitled-approved.size),unreserved:Math.max(0,entitled-approved.size-pending.size)};
+    const entitled=entitlement(s,id,year),today=new Date().toISOString().slice(0,10),enjoyed=[...approved].filter(d=>d<today).length;
+    /* saldo como no VitalSoft: gozadas, marcadas (aprovadas por gozar), por gozar, por marcar; pendentes à parte */
+    return {year:String(year),entitled,approved:approved.size,used:approved.size,pending:pending.size,available:Math.max(0,entitled-approved.size),unreserved:Math.max(0,entitled-approved.size-pending.size),enjoyed,booked:approved.size-enjoyed,toEnjoy:Math.max(0,entitled-enjoyed),toBook:Math.max(0,entitled-approved.size)};
   }
   function context(s, x, requested=days(x), cid=clinic(s,x), requestDays=requested) {
     if(!canTeam(s)||!canRead(s,x)||!teamPerson(s,owner(x),cid)) return {clinicId:cid,team:[],absences:[],coverage:[],conflicts:[]};

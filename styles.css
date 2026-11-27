@@ -213,3 +213,13 @@ th{background:var(--soft);color:var(--muted)}
 .exit-motive{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:var(--surface,#fff)}
 .exit-motive input{width:auto;margin:0}.exit-motive:has(input:checked){border-color:var(--accent);box-shadow:0 0 0 2px var(--soft);font-weight:600}
 .exit-proof-later{display:inline-flex;align-items:center;min-height:40px;padding:6px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+/* Ponto: cartões de totais (sessão, hoje, semana) */
+.punch-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0}
+.punch-card{border:1px solid var(--line);border-radius:12px;padding:8px 10px;background:var(--surface,#fff);display:flex;flex-direction:column;gap:2px;min-width:0}
+.punch-card small{color:var(--muted);font-size:.72rem}.punch-card b{font-size:1.15rem;white-space:nowrap}
+/* Saldo de férias (4 números) */
+.leave-balance{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 12px;max-width:520px;background:var(--surface,#fff)}
+.leave-balance-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.leave-balance-head small{color:var(--muted)}
+.leave-balance-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:8px}.leave-balance-grid small{display:block;color:var(--muted);font-size:.75rem}.leave-balance-grid b{font-size:1.4rem}
+.lb-used{color:var(--accent)}.lb-booked{color:var(--warning)}.lb-left{color:var(--success)}
+@media(max-width:650px){.leave-balance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

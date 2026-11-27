@@ -34,6 +34,8 @@ with sync_playwright() as pw:
    check('saída registada com motivo «Pessoal»',len(e)==1 and e[0].get('motive')=='Pessoal')
    at(p,'10:45');punch(p,'temporary',lambda:p.locator('#attendanceReason').fill('SYN regresso'));check('regresso registado',any(x['type']=='Regresso de saída temporária' for x in state(p)['timeEntries']))
    p.evaluate("App.showView('clock');AttendanceBookV4.render&&AttendanceBookV4.render()");p.wait_for_timeout(500)
+   check('cartões sessão/hoje/semana no ponto',p.locator('[data-punch-totals] .punch-card').count()==3 and p.locator('[data-punch-day]').inner_text().startswith('1h') and p.locator('[data-punch-week]').inner_text().startswith('1h'))
+   check('lista de justificações pendentes do próprio','Justificações pendentes' in p.locator('body').inner_text())
    txt=p.locator('body').inner_text()
    check('«As minhas saídas extraordinárias» mostra 45 min e que desconta',' 45 min' in txt and 'desconta no banco de horas' in txt)
    check('banco de horas desconta 45 min',p.evaluate("GSHourBank.balance(JSON.parse(localStorage.getItem('grupo_saude_v4_demo_2')),'test_tec').balanceMinutes")==-45)

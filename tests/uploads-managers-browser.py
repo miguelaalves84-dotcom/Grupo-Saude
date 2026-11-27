@@ -33,6 +33,7 @@ def run(name,setup):
    action=setup(p)
    for label,uid in MANAGERS:
     scope={'module':name,'manager':label};become(p,uid);p.wait_for_timeout(300);got=fetched(p,action);check(f'{name}: {label} descarrega o ficheiro',got)
+    if 'médico' in name:check(f'{name}: abertura por {label} fica na auditoria',any(x.get('action')=='Documento médico aberto' and x.get('userId')==uid for x in state(p).get('audit',[])))
   finally:b.close()
 
 def employee_docs(p):

@@ -34,3 +34,11 @@ Regra geral: fazer tudo o que melhore o nosso programa.
 10. Baixas/Licenças em lista (dias, estado, anexos).
 11. Comunicados por categoria.
 12. Documentos por categoria do contrato/função.
+
+## Estado (28/11/2026)
+Concluídas as 12 partes, publicadas no endereço de testes, com testes automáticos e vídeo:
+1 saída extraordinária · 2 inquéritos anónimos · 3 totais no ponto · 4 saldo de férias · 5 «O meu horário» ·
+6–7 «O meu perfil» com dados sensíveis · 8 Suporte · 9 Notificações · 10 Baixas em lista · 11 Comunicados por categoria ·
+12 Documentos por contrato e função.
+Notas: nome e email da conta não se alteram pelo perfil (vêm da conta central); comprovativo da saída extraordinária
+só no modo de dados partilhados (o serviço central de ponto ainda não guarda ficheiros).

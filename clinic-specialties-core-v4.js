@@ -1,0 +1,4 @@
+/* Canonical clinic-specialty catalogue reader. No grants, writers or duplicate tables. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.GSClinicSpecialties=api})(typeof globalThis!=='undefined'?globalThis:this,()=>{'use strict';
+function list(s,ids){const names=[];for(const id of ids.map(String)){if(Array.isArray(s.clinicSpecialties?.[id])){for(const sid of s.clinicSpecialties[id]){const sp=(s.masterSpecialties||[]).find(x=>String(x.id)===String(sid));if(sp&&sp.active!==false)names.push(sp.name)}}else{const raw=(s.clinics||[]).find(c=>String(c.id)===id)?.specialties||{};names.push(...(Array.isArray(raw)?raw.map(x=>typeof x==='string'?x:x.name):Object.keys(raw)))}}return[...new Set(names.filter(Boolean).map(String))]}
+return{list};});

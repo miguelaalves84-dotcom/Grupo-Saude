@@ -1,0 +1,22 @@
+/* Página «Notificações»: tudo o que está no sino, com «Todas» / «Por ler», filtro por tipo e «Marcar todas como lidas».
+   As notificações não se apagam (ficam no histórico); só se marcam como lidas. */
+(()=>{'use strict';if(window.NotificationsPageV4)return;
+const E=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TYPES={finance:'Financeiro',agenda:'Agenda',chat:'Chat',myhr:'RH',hr:'RH',operation:'Operação',stock:'Stock',complaints:'Reclamações',requests:'Pedidos',clock:'Ponto',marketing:'Marketing',settings:'Configuração'};
+const type=x=>TYPES[x.module]||'Outros';
+const ago=at=>{const t=Date.parse(at);if(!Number.isFinite(t))return'';const m=Math.round((Date.now()-t)/60000);if(m<1)return'agora';if(m<60)return'há '+m+' min';const h=Math.round(m/60);if(h<24)return'há '+h+' h';const d=Math.round(h/24);return d===1?'ontem':'há '+d+' dias'};
+let tab='all',kind='';
+function items(){try{return window.AttentionUIV4?.items()||[]}catch{return[]}}
+function render(){const body=document.getElementById('modalBody');if(!body)return;const all=items(),types=[...new Set(all.map(type))].sort(),rows=all.filter(x=>(tab==='all'||!x.readAt)&&(!kind||type(x)===kind)),unread=all.filter(x=>!x.readAt).length;
+ body.innerHTML=`<div class="np-bar"><div class="np-tabs" role="tablist"><button type="button" role="tab" aria-selected="${tab==='all'}" class="${tab==='all'?'active':''}" data-np-tab="all">Todas</button><button type="button" role="tab" aria-selected="${tab==='unread'}" class="${tab==='unread'?'active':''}" data-np-tab="unread">Por ler${unread?` <span class="counter">${unread}</span>`:''}</button></div><label class="np-type">Tipo<select data-np-kind><option value="">Todos os tipos</option>${types.map(t=>`<option${t===kind?' selected':''}>${E(t)}</option>`).join('')}</select></label><button type="button" class="secondary" data-np-all ${unread?'':'disabled'}>✓✓ Marcar todas como lidas</button></div>
+ <div class="np-list">${rows.length?rows.map(x=>`<article class="np-item${x.readAt?'':' np-new'}"><div><b>${E(x.title)}</b>${x.readAt?'':' <span class="np-dot" aria-label="por ler"></span>'}<p><span class="pill">${E(type(x))}</span> <small>${E(ago(x.at))}</small></p></div><div class="np-actions"><button type="button" class="secondary" data-np-open="${E(x.id)}">Abrir</button>${x.readAt?'':`<button type="button" class="secondary" data-np-read="${E(x.id)}" aria-label="Marcar como lida" title="Marcar como lida">✓</button>`}</div></article>`).join(''):'<p class="meta">Sem notificações.</p>'}</div>`}
+function open(){document.getElementById('modalTitle').textContent='Notificações';const m=document.getElementById('modal');if(!m.open)m.showModal();render()}
+document.addEventListener('click',async e=>{const b=e.target.closest?.('[data-np-tab],[data-np-all],[data-np-open],[data-np-read]');if(!b||!b.closest('#modal'))return;e.preventDefault();const d=b.dataset;try{
+ if(d.npTab){tab=d.npTab;return render()}
+ if('npAll' in d){for(const x of items().filter(x=>!x.readAt))await window.AttentionUIV4.read(x.id);return render()}
+ if(d.npRead){await window.AttentionUIV4.read(d.npRead);return render()}
+ if(d.npOpen){document.getElementById('modal').close();return window.AttentionUIV4.open(d.npOpen)}}catch(err){alert(err.message||String(err))}});
+document.addEventListener('change',e=>{if(e.target.matches?.('[data-np-kind]')&&e.target.closest('#modal')){kind=e.target.value;render()}});
+const css=document.createElement('style');css.textContent='.np-bar{display:flex;flex-wrap:wrap;align-items:end;gap:10px;justify-content:space-between;margin-bottom:10px}.np-tabs{display:flex;gap:4px;background:var(--surface-subtle);padding:4px;border-radius:10px}.np-tabs button{border:0;background:none;padding:6px 12px;border-radius:8px;min-height:36px}.np-tabs button.active{background:var(--surface,#fff);font-weight:700;box-shadow:0 1px 2px rgba(0,0,0,.08)}.np-type select{min-width:170px}.np-list{display:grid;gap:6px}.np-item{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface,#fff)}.np-item p{margin:4px 0 0}.np-item small{color:var(--muted)}.np-new{border-color:var(--accent)}.np-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);vertical-align:middle}.np-actions{display:flex;gap:6px;flex:none}';document.head?.appendChild?.(css);
+window.NotificationsPageV4={open,render};
+})();

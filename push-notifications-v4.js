@@ -1,0 +1,31 @@
+/* V4 — Notificações no telemóvel/computador (Web Push) para as tarefas do Assistente Grupo Saúde.
+   Cada pessoa ativa uma vez por aparelho, no Assistente do Chat: «Ativar notificações neste aparelho».
+   No iPhone é preciso primeiro «Partilhar → Adicionar ao ecrã principal» e abrir o programa a partir desse ícone. */
+(()=>{'use strict';if(window.GSPushV4)return;
+const supported=()=>'serviceWorker' in navigator&&'PushManager' in window&&'Notification' in window&&window.isSecureContext;
+const ios=()=>/iPad|iPhone|iPod/.test(navigator.userAgent)||navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1;
+const standalone=()=>window.matchMedia?.('(display-mode: standalone)').matches||navigator.standalone===true;
+const api=async(resource,body)=>{const r=await fetch('/api/v4-extensions?resource='+resource,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:body?{'content-type':'application/json'}:{},body:body?JSON.stringify(body):undefined});const v=await r.json().catch(()=>({}));if(!r.ok)throw Error(v.error||'Serviço de notificações indisponível.');return v};
+const b64=s=>{const p='='.repeat((4-s.length%4)%4),raw=atob((s+p).replace(/-/g,'+').replace(/_/g,'/'));return Uint8Array.from([...raw].map(c=>c.charCodeAt(0)))};
+let reg=null,info=null;
+async function register(){if(!('serviceWorker' in navigator)||!window.isSecureContext)return null;try{reg=await navigator.serviceWorker.register('/sw.js',{scope:'/'});return reg}catch{return null}}
+async function state(){if(!supported())return{state:ios()&&!standalone()?'ios-install':'unsupported'};try{info=await api('push-key')}catch{return{state:'offline'}}if(!info.enabled)return{state:'disabled'};if(Notification.permission==='denied')return{state:'denied'};const r=reg||await register();const sub=await r?.pushManager.getSubscription();return{state:sub&&Notification.permission==='granted'?'on':'off',devices:info.devices||0}}
+async function enable(){if(!supported())throw Error(ios()&&!standalone()?'No iPhone: toque em Partilhar → «Adicionar ao ecrã principal» e abra o Grupo Saúde a partir desse ícone.':'Este navegador não permite notificações.');info=info||await api('push-key');if(!info.enabled)throw Error('As notificações ainda não estão ligadas no servidor.');const perm=await Notification.requestPermission();if(perm!=='granted')throw Error('Sem autorização do aparelho. Pode ativá-la nas definições do navegador.');const r=reg||await register();if(!r)throw Error('Não foi possível preparar o aparelho.');let sub=await r.pushManager.getSubscription();if(!sub)sub=await r.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64(info.publicKey)});await api('push-subscribe',{subscription:sub.toJSON(),device:(navigator.userAgentData?.platform||navigator.platform||'').slice(0,40)});return true}
+async function disable(){const r=reg||await register(),sub=await r?.pushManager.getSubscription();if(sub){await api('push-unsubscribe',{endpoint:sub.endpoint}).catch(()=>{});await sub.unsubscribe()}}
+async function test(){return api('push-test',{})}
+/* Painel dentro do Assistente do Chat */
+const E=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function paint(box){box.innerHTML='<p class="push-status">A verificar notificações…</p>';const st=await state();const msg={on:'🔔 Notificações ativas neste aparelho.',off:'Receba as tarefas no telemóvel, mesmo com o programa fechado.','ios-install':'No iPhone: toque em Partilhar → «Adicionar ao ecrã principal» e abra o Grupo Saúde a partir desse ícone para ativar as notificações.',unsupported:'Este navegador não permite notificações.',denied:'As notificações estão bloqueadas neste navegador. Desbloqueie nas definições do site.',disabled:'As notificações ainda não estão ligadas no servidor.',offline:'Sem ligação ao servidor (modo de demonstração).'}[st.state];
+ box.innerHTML=`<p class="push-status">${E(msg)}</p><div class="push-actions">${st.state==='off'?'<button type="button" class="primary" data-push="on">Ativar notificações neste aparelho</button>':''}${st.state==='on'?'<button type="button" class="secondary" data-push="test">Enviar teste</button><button type="button" class="secondary" data-push="off">Desativar</button>':''}</div>`;
+ box.querySelector('[data-push=on]')?.addEventListener('click',async()=>{try{await enable();toast('Notificações ativadas neste aparelho.')}catch(e){alert(e.message)}paint(box)});
+ box.querySelector('[data-push=off]')?.addEventListener('click',async()=>{await disable();toast('Notificações desativadas neste aparelho.');paint(box)});
+ box.querySelector('[data-push=test]')?.addEventListener('click',async()=>{try{const r=await test();toast(r.sent?'Teste enviado.':'Não foi possível enviar o teste.')}catch(e){alert(e.message)}})}
+function toast(m){const t=document.createElement('div');t.className='rhm-toast';t.setAttribute('role','status');t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3500)}
+new MutationObserver(()=>{const d=document.getElementById('assistantDialog');if(!d?.open||d.querySelector('.push-box'))return;const box=document.createElement('div');box.className='push-box';d.querySelector('.assistant-note')?.before(box)||d.appendChild(box);paint(box)}).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['open']});
+/* Toque na notificação com o programa aberto: vai para o assunto. */
+navigator.serviceWorker?.addEventListener?.('message',e=>{if(e.data?.type==='gs-open'&&/^\/#?[a-z]*$/.test(String(e.data.url||''))){const v=String(e.data.url).replace(/^\/#?/,'');if(v)window.App?.showView?.(v);if(v==='chat')setTimeout(()=>window.GSChatAssistant?.open?.(),400)}});
+if(location.hash==='#chat')window.addEventListener('load',()=>setTimeout(()=>{window.App?.showView?.('chat');window.GSChatAssistant?.open?.()},800));
+register();
+const css=document.createElement('style');css.textContent='.push-box{margin:0 16px 10px;padding:10px 12px;border:1px dashed var(--line,#dce5e7);border-radius:12px}.push-status{margin:0 0 6px;font-size:13px}.push-actions{display:flex;flex-wrap:wrap;gap:8px}';document.head.appendChild(css);
+window.GSPushV4={supported,state,enable,disable,test,register};
+})();

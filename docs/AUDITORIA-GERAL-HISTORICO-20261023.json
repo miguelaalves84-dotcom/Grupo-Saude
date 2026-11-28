@@ -1,0 +1,1781 @@
+{
+  "branches": [
+    {
+      "name": "codex/desenvolver-projeto-grupo-saude-v4-4sagir",
+      "sha": "a2df7b54195854d74708b1ce099105e3847618b0"
+    },
+    {
+      "name": "codex/desenvolver-projeto-grupo-saude-v4",
+      "sha": "616730187c0d06585a052e43da951c96a3af957d"
+    },
+    {
+      "name": "dev/v4-group1-operational-tests",
+      "sha": "a6edf538b22a2e282b5b93f275a08eb1ac05edf2"
+    },
+    {
+      "name": "dev/v4-stabilization-20261017",
+      "sha": "7ade78ff3c3937c2440afe14f69af216b6cd8882"
+    },
+    {
+      "name": "feat/v4-consolidation-dashboard-access",
+      "sha": "f999aea5d8edbc2477f53a4f689367d41f6a0427"
+    },
+    {
+      "name": "feat/v4-rh-leave-context-issue-6",
+      "sha": "1b8f244886fa6a114badad3a78251b207195c158"
+    },
+    {
+      "name": "feat/v4-rh-performance-issue-8",
+      "sha": "b9a50bd14bc0a2706bec63031e31f4615db41f1a"
+    },
+    {
+      "name": "fix/rh-ceo-empty-view-20261008",
+      "sha": "3fdd34f4144b944a3381f38f042a81c650f96c34"
+    },
+    {
+      "name": "fix/rh-navigation-isolation-20261008",
+      "sha": "d21c5c2134ea783dbe49b62517e4032e11419198"
+    },
+    {
+      "name": "fix/v4-p0-security-hardening",
+      "sha": "81439172a17576970957ebe0af13faec62b19e9f"
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-clinics-stock",
+      "sha": "854bfe41d10dd29ee541c1e4159188bc30e91603"
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-consolidation",
+      "sha": "ebc2df5c38903fd8faf62e17b8b0a0c92faad49b"
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-profile-audit",
+      "sha": "0e2f7996b6c658e3dff2f878202bcce3bca299a9"
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-session",
+      "sha": "4a58d5eb06090900ca12be4a9856c6e4a69a972a"
+    },
+    {
+      "name": "fix/v4-p0-security-hardening-tables-catalog",
+      "sha": "112b4e930d666f371be08e87277d95024e2a806e"
+    },
+    {
+      "name": "fix/v4-rh-session-initialization",
+      "sha": "53b40dab6c9f49e6890a000b20ab65ebc90aeb82"
+    },
+    {
+      "name": "fix-clinic-source",
+      "sha": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61"
+    },
+    {
+      "name": "main",
+      "sha": "84fba5a2d6d7afcb0723ca312f4e617acc22823d"
+    },
+    {
+      "name": "preview",
+      "sha": "94a129cfede5c8c6ba91fd988b65fd628574085c"
+    },
+    {
+      "name": "preview-clinic-source-fix",
+      "sha": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61"
+    },
+    {
+      "name": "teste-escrita-chatgpt",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1"
+    },
+    {
+      "name": "tmp-ignore",
+      "sha": "ad0eb3461d2d8b673fe2fa2665a79cba8d797e61"
+    },
+    {
+      "name": "v4-fecho-20261004-b",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1"
+    },
+    {
+      "name": "v4-fecho-20261004-c",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1"
+    },
+    {
+      "name": "v4-fecho-20261004-d",
+      "sha": "944f9025f548e6ad70163d4441d310d2616de6be"
+    },
+    {
+      "name": "v4-fecho-20261004",
+      "sha": "41c6d08613bf91f9127fc758b877099ee6ba95d1"
+    },
+    {
+      "name": "v4-fecho-work",
+      "sha": "ac2d317cc2a1bde3daf8311385646797d46d9b05"
+    },
+    {
+      "name": "v4-preview-944f9025",
+      "sha": "944f9025f548e6ad70163d4441d310d2616de6be"
+    },
+    {
+      "name": "v4-preview-705138b",
+      "sha": "705138b4c7dfa8c0be077831a435d03e5ab9520d"
+    },
+    {
+      "name": "v4-preview-clinic-master",
+      "sha": "3123c9ead480edd7804bf2079e21fac96865ee60"
+    }
+  ],
+  "comparisons": [
+    {
+      "origin": "a6edf538b22a2e282b5b93f275a08eb1ac05edf2",
+      "target": "ddb6023618d73ec678af742a1cfc3353b27dc903",
+      "label": "candidaturas",
+      "status": "diverged",
+      "ahead": 143,
+      "behind": 33,
+      "filesReported": 214,
+      "removed": [],
+      "renamed": [],
+      "limit": "GET compare pode limitar a lista de ficheiros; não é prova de ausência de todas as regressões."
+    },
+    {
+      "origin": "ebc2df5c38903fd8faf62e17b8b0a0c92faad49b",
+      "target": "ddb6023618d73ec678af742a1cfc3353b27dc903",
+      "label": "consolidacao",
+      "status": "diverged",
+      "ahead": 143,
+      "behind": 30,
+      "filesReported": 214,
+      "removed": [],
+      "renamed": [],
+      "limit": "GET compare pode limitar a lista de ficheiros; não é prova de ausência de todas as regressões."
+    }
+  ],
+  "missing": {
+    "candidaturas": [
+      {
+        "path": "api/v4-clinic-stock.js",
+        "sha": "36e58be470cdf889c4ddd7c4a1ed5dd3472df968"
+      },
+      {
+        "path": "authenticated-modules-v4.js",
+        "sha": "6963a3cbd60a3dc85f4c68560a75d289aa05e2c2"
+      },
+      {
+        "path": "clinic-documents-core-v4.js",
+        "sha": "56f85d161fc42a5f14385f597194a77118ae041d"
+      },
+      {
+        "path": "clinic-documents-ui-v4.js",
+        "sha": "4c3f6351e9bd94a5df56557a8dce9092845e88ed"
+      },
+      {
+        "path": "db/migrations/v4-clinics-stock-001.sql",
+        "sha": "e058a186bfc59d9ec903027c0a3dfdd91c7fc2d6"
+      },
+      {
+        "path": "db/migrations/v4-identity-001.sql",
+        "sha": "3b4143a7287513edf5ee05ce02a72a329a972fd5"
+      },
+      {
+        "path": "docs/AUDITORIA-SEIS-PERFIS.md",
+        "sha": "c9119209daf74070ab1ed6da5799d46eeaba8aff"
+      },
+      {
+        "path": "docs/BLOCO-01-SESSAO.md",
+        "sha": "0cfae0d727255968984cd58a0c016f1d7966651c"
+      },
+      {
+        "path": "docs/BLOCO-02-CI-VISUAL-ISOLADA.md",
+        "sha": "d58dabb16ce8646a2da0d0d5bc3e75438979edeb"
+      },
+      {
+        "path": "docs/BLOCO-03-AUDITORIA-CONSOLIDACAO.md",
+        "sha": "39e76e97f2c8397c68643e7a3a442cbc7fa0ba5a"
+      },
+      {
+        "path": "docs/BLOCO-04-CLINICAS-STOCK.md",
+        "sha": "2b6cea41068a60ddc6121dd50fadfabc438de06a"
+      },
+      {
+        "path": "docs/CHECKPOINT-FUNIL-2026-10-15.md",
+        "sha": "b5ef680a045db7f4f48dbbc36ca4ee8073ee78e3"
+      },
+      {
+        "path": "docs/CORRECAO-TABELAS-CATALOGO.md",
+        "sha": "be79b8f88fc73bdf29021a29405924c091dcd2eb"
+      },
+      {
+        "path": "docs/FASE-1-CORRECOES-V4.md",
+        "sha": "93fee676f5db3d7bfe31ca0005d3eeb894cebddb"
+      },
+      {
+        "path": "docs/FASE-1-REVALIDACAO-2026-10-14.md",
+        "sha": "154b8dfee447f30aa9ec8db9d1f38a7a53dcc182"
+      },
+      {
+        "path": "docs/FASE-1-REVISAO-ATUAL-2026-10-14.md",
+        "sha": "5ad5b606287e83512f4096bb090942eede17b905"
+      },
+      {
+        "path": "docs/GRUPO-1-BLOCO-A-IDENTIDADE.md",
+        "sha": "56da353cbbc0056779f11cddf1cc5e06a2ad8d3b"
+      },
+      {
+        "path": "docs/GRUPO-1-INTEGRACAO-SINTETICA.md",
+        "sha": "cbafaa0a0980afd6d7c1332e987261c7251d58eb"
+      },
+      {
+        "path": "docs/INVENTARIO-CONSOLIDACAO.json",
+        "sha": "49db24fb3fb6c2e35df8a1310026441e847bf782"
+      },
+      {
+        "path": "docs/INVENTARIO-CONSOLIDACAO.md",
+        "sha": "e4950639c631a043bdf9cf7d1044c759e47a4458"
+      },
+      {
+        "path": "docs/PLANO-GRUPO-1-OPERACIONAL-TESTES.md",
+        "sha": "e50bdb2ad11147b878adf7750f9389b99e2ffab4"
+      },
+      {
+        "path": "docs/PLANO-PREVIEW-ISOLADO.md",
+        "sha": "71ced276b8fe195cf3afcd7ac65470ef0507fd63"
+      },
+      {
+        "path": "docs/RECUPERACAO-AMBIENTE-GRUPO-1.md",
+        "sha": "fa5ce11ade9ec3bad29795a83b2392d95a21fb57"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-1-0.png",
+        "sha": "bfc6d35e0e65a288594d087c4dec6ffcff29c8d2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-1.zip",
+        "sha": "d9912d4808b0a6a1a342384f51bf01e6815a3263"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-2-0.png",
+        "sha": "1829dbcb18dfb64f8d8edca416ae9d639d17bf0c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-2.zip",
+        "sha": "4126d56be201f4b19c2f446859cd62e6d6f3919c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-3-0.png",
+        "sha": "c49a3c8953467ee7ddcc69b13c888b2e3bec1282"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-3.zip",
+        "sha": "9f92240387eacd8957aa93229b130cbecaf113db"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-4-0.png",
+        "sha": "fe6039284f0be852553a4f14f6bf189044c2ff18"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-4.zip",
+        "sha": "a46c0b2fab787a28190e3b0e49241dec882f9540"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-5-0.png",
+        "sha": "cf509a9409b3eb27e8394404008b51f815451ac1"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-5.zip",
+        "sha": "5a7f49f240f88d64497c1ee998ab6e5831e030cb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-6-0.png",
+        "sha": "2b364a5be80a781ec727c61f630cb7c20b283849"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-6.zip",
+        "sha": "6ffe176851d471842ffa7f7b4f942592f81fecfb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-7-0.png",
+        "sha": "eaee208cc38401d6c3e9708488137d29509392b9"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-7.zip",
+        "sha": "871f1b3b2b37270a1672c2485b3e0062798a6438"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-chat.png",
+        "sha": "fd0fa68209f6482ad648fcb2ddd8090b9cb65729"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-clock.png",
+        "sha": "378bb3f79ff4dec72d566571787074128fc376ef"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-operation.png",
+        "sha": "99b4b314ade60c5876b27f1e1841d01f5267d612"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-tasks.png",
+        "sha": "833feb505b89b266a9d95f9ae88ba0ad68566c51"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-wait.png",
+        "sha": "6b0a4a0c72e8c02a5ba879121e2a2819398fd144"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-alerts.png",
+        "sha": "12993502c87de277ec1e05bfac49e91167e00016"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-audit.png",
+        "sha": "e52ade0e3d187b6d3a92aa31db9853518574e416"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-chat.png",
+        "sha": "a7b1b28bda2f301f3471c37a03b966742987b410"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-clinics.png",
+        "sha": "5e1a3b38e3300d2b230dac67bcbcdbec899157f3"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-clock.png",
+        "sha": "bae453b09cd0c9bd0a49d15b40a06c566919d85d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-dashboard.png",
+        "sha": "3f481446430e815c569bf42433efacc9633f0be1"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-hr.png",
+        "sha": "df83197741f676bb26edae3d78c793aa14358728"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-marketing.png",
+        "sha": "8e863117703e18e19e7cd6de507ace0780681223"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-operation.png",
+        "sha": "0c269332a45741e045630c8df0e8eedd6948b528"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-reports.png",
+        "sha": "0190c988dbf9f100a0847306c507797cce63ea24"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-security.png",
+        "sha": "1ff66252aaffe9e17bb04ad0f9d4e3b276b6fa3b"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-tables.png",
+        "sha": "fc10150eefa02a549720018a86de4e349a9990a2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-tasks.png",
+        "sha": "2b8717e0bb4599dfd2eb3cca844df906df732a96"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-wait.png",
+        "sha": "a4561e655d447f601cb4bc41b4fbd3a3e3df2f41"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_bas-chat.png",
+        "sha": "31b858ccfecdcea43a9fb3ca5f953e8e33f7b39c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_bas-clock.png",
+        "sha": "e179ca63d9d7a5f3ab215737eb5e5fc443c48b87"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-chat.png",
+        "sha": "3ebca6286d7a10b4590fd54f7abf554fac19f00e"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-clock.png",
+        "sha": "3fea4c71d8720a0469e0308c221ae3d2d99a854f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-operation.png",
+        "sha": "03ce51d07847b258dd66611dc8187a080df78ac8"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-wait.png",
+        "sha": "c9343a0b65c9b86fe0faa7e1890321c319e79f31"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_med-chat.png",
+        "sha": "25527795fe5ef4ebc0a528615dd34e4d8f79f29a"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_med-clock.png",
+        "sha": "73376744b8a807cb4f0a5fad51e2f16953b14974"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_tec-chat.png",
+        "sha": "d5b98cd933f6063ad94a8dd174344c7285c27e8a"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_tec-clock.png",
+        "sha": "e20d97476bf6b5e237b9c2598d586d232b8ae5cb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-alerts.png",
+        "sha": "2d4fe83dbc6aede9794541af5c0a52cd1e4aaaa0"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-audit.png",
+        "sha": "fbe320b7bc064ef58a85b6e0c323ca9954e3fec5"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-chat.png",
+        "sha": "37c0cefed7ff987bcc9af28ef285a685fd4a577c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-clinics.png",
+        "sha": "0abb5e1dc295cbfacdcb89bfb4170a3835b617bb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-clock.png",
+        "sha": "fba59f89a890c13f0aaf8348622c92640afcbcd4"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-dashboard.png",
+        "sha": "0a66b3b432f48a9f5d15e064d07113fadb6a5053"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-hr.png",
+        "sha": "f58931250178d66f94e6e2f10d683dd08108f4cb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-marketing.png",
+        "sha": "e8be908c2c32f273b1f8a7bfcd69cb9cb293d03c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-operation.png",
+        "sha": "928c8f05d8898bd984d7d23b8bcae486a40350fe"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-reports.png",
+        "sha": "4e078c0f34afb990a1909539484a7d380a0f5544"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-security.png",
+        "sha": "605d9a1ea320d3f49d0fcfa0b2214fc2fb94c9dd"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-tables.png",
+        "sha": "cfda69da6a3436109a0413411ccb660a89f35521"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-tasks.png",
+        "sha": "82e950cce6cc765d1136c1d9d1f7273ca20e920d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-wait.png",
+        "sha": "59922eee8f4e1203a409408522568c29f59101ca"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "89729e5251a8a8532de917cbd823c61bbdac4ba2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-daily-leave-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/daily-leave-browser-1-0.png",
+        "sha": "b770d54059fc9b07cb5e4eeebbdc322d95c9c91e"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-daily-leave-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/daily-leave-browser-1.zip",
+        "sha": "5f06905e3611ab9e7985ec5a5fab7d4e73e60fac"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-daily-leave-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "1623d274a4bf15a4d8e064649e233f4cae65d1de"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-1-0.png",
+        "sha": "4872b95d5e1d4298cff358ffb6c4f2f1980ee1cc"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-1.zip",
+        "sha": "1dea8613298e25c3f6c6a3b12557d3041484ec79"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-2-0.png",
+        "sha": "6be0965d1edfce2a09fc21126622923b2b6cb381"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-2.zip",
+        "sha": "29450d6a835bf78fde72ef32af41901939cda71b"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-3-0.png",
+        "sha": "911f3f7bdcd4b0bbd48c2aca00292a6403cf4f35"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-3.zip",
+        "sha": "a3966e9fa52869aeaf0b793709f39f207dc7a75d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "62d8f675d81ba7ffcf885b12e6694e1a3da73c5a"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-1-0.png",
+        "sha": "44a3c14f87b3b2f9d9d25e481ca265129a07de1d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-1.zip",
+        "sha": "144d396f930f9d545f9cc244d2025c8876a736e7"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-2-0.png",
+        "sha": "68a7faebbfe8839bc36cc52e4be7cee360be75ac"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-2.zip",
+        "sha": "568c12f34a9696de60897c2f55842d6cef12a605"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-3-0.png",
+        "sha": "2124d851110a37a00367b0eb6042235a33220297"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-3.zip",
+        "sha": "1732635ff5ac97d00efa7fbdc303eddb127fead8"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-4-0.png",
+        "sha": "3bad916e014631fc1121548065f70de970227167"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-4.zip",
+        "sha": "3b93788375b9e4f269d3f5e2654d6b9275f48559"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-5-0.png",
+        "sha": "ca7827793466e1e38e9abd3f60ac53d8bd0a470c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-5.zip",
+        "sha": "5b667c04ce58bc93c5d751d0fe4d107f0d9fec55"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-6-0.png",
+        "sha": "bbd09c3804080139ab66009166c62a52739037bd"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-6.zip",
+        "sha": "cb2d30b2c2fcb79b9b4a774bd1f93162b26829e1"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "a071462fb5c18d3c4221cc004423e6d3a2c28589"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-1-0.png",
+        "sha": "00cd046f51cfc829142a75ea3ee77d65ae06305f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-1.zip",
+        "sha": "a4dfe711d4cd7cad260a0e158a750a6dddd87adf"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-2-0.png",
+        "sha": "9a093af1a04301bf863e287e350ddcd80df0bea8"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-2.zip",
+        "sha": "a149b0c57dcac1ec2248a5f751f90490ff311874"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-3-0.png",
+        "sha": "d280e2aa90b6c4ddfbe4d09a082d04316334edf5"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-3.zip",
+        "sha": "21e08d7d84fbfa9bab84336489e79c6f704a3f29"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-4-0.png",
+        "sha": "2d0f9a92fadb40028b9f61542930304db0652a42"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-4.zip",
+        "sha": "dc88f82102bb49223652931df26d836244358ea6"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-5-0.png",
+        "sha": "8964bfb521225f3575b7ebd97d0edc8c219b2dd3"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-5.zip",
+        "sha": "f0dbb0e560d2d5283063d10005f03b8f57e25800"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-6-0.png",
+        "sha": "caf304de52e2847585b036278bc88434fa794b9f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-6.zip",
+        "sha": "dc1395b37e69225f9b01192a8eb2e8085363284f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "56434a5ae4dc13a06928fc98028610bf24008e29"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-1-0.png",
+        "sha": "10e811e4b1811e0c99fbf36b383b27a7d783d814"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-1.zip",
+        "sha": "abd89d657f1bd60b9b3c084e4eeef420ad048841"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-2-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-2.zip",
+        "sha": "c156e0e08c4d0d83548c5776d3cfdea91ecbab6b"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-3-0.png",
+        "sha": "31c34efc1ef7a3febf59f9802cb99d7756e0ace5"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-3.zip",
+        "sha": "9c5ec99c2fa034870e0df7e2a64e14b828649128"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-4-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-4.zip",
+        "sha": "ca4e2c04c64ff255776f8919fcd59f52550b8cf2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-5-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-5.zip",
+        "sha": "9b6659517bef98a548ab68a2e6fccc1e3a98fbc9"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-6-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-6.zip",
+        "sha": "13fd3a570442512ba230012f48023079bcda4242"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-7-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-7.zip",
+        "sha": "c10f2548d3eec48bf46f11a07544612e8966a18c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "9feb859297e2b498c7e8a1a9f0809228a3e3bc63"
+      },
+      {
+        "path": "docs/evidence/recovered-3123c9e/v4-hr-employee-profile.js",
+        "sha": "0de1ba3b4b8c121ad83611045095994435d4445d"
+      },
+      {
+        "path": "lib/clinic-stock-service.js",
+        "sha": "747a62d712f7c1ee9d9a70e96fe2fd5dbfad91a5"
+      },
+      {
+        "path": "lib/identity-records-service.js",
+        "sha": "0c8e1f6e87624d83d783a2374380e62880edf26c"
+      },
+      {
+        "path": "lib/identity-runtime-config.js",
+        "sha": "74df5310c954326b9d9cc9da5067c96fe8c5d4cb"
+      },
+      {
+        "path": "lib/identity-service.js",
+        "sha": "734c308b73ba3d3853d6813598e5f7aef6030e84"
+      },
+      {
+        "path": "module-demo-fixtures-v4.js",
+        "sha": "eee7465b9f15e23ec1bf280a91a6cbd0286e51f0"
+      },
+      {
+        "path": "module-demo-v4.js",
+        "sha": "5711b7f1ebf0f124ffcc5bb79f16f5649790f0b3"
+      },
+      {
+        "path": "profile-validation-fixtures-v4.js",
+        "sha": "ceecb3cb727d1ef9b096abb439826cb0e3aac430"
+      },
+      {
+        "path": "tests/central-browser.py",
+        "sha": "a2c9c6f5423970311c04c8f50eef10ca8b0a8ec0"
+      },
+      {
+        "path": "tests/central-server.cjs",
+        "sha": "50109054f6ff698482df4870d1c96b71622ee966"
+      },
+      {
+        "path": "tests/ci/Dockerfile",
+        "sha": "9b769c97a10cd2bf43fb7e6897ca05050a7a9bba"
+      },
+      {
+        "path": "tests/ci/Dockerfile.central",
+        "sha": "0049a94f2750f0582b1c15cef4cd67fda22bc521"
+      },
+      {
+        "path": "tests/ci/Dockerfile.postgres",
+        "sha": "678cc239e309fcd7b78ada2f4ecd4a60ff6f1625"
+      },
+      {
+        "path": "tests/ci/package-preview.cjs",
+        "sha": "cc69aefe86b48403529ccae5031a5af1e394c9e9"
+      },
+      {
+        "path": "tests/ci/run-browser.py",
+        "sha": "0dba733412b2e95a9650926871b1b96a3320b09d"
+      },
+      {
+        "path": "tests/clinics-browser.py",
+        "sha": "7feafc3885a70a44570c6e91fd24a3d75453d32d"
+      },
+      {
+        "path": "tests/clock-regression-browser.py",
+        "sha": "e00d5a1aa521bd463a693d2a317f2898faaf4311"
+      },
+      {
+        "path": "tests/consolidation-browser.py",
+        "sha": "6e66169ead68e021d5c128f91651579c0b8c1aca"
+      },
+      {
+        "path": "tests/daily-leave-browser.py",
+        "sha": "c01181dff6336190b2d36d27fd05135660023a34"
+      },
+      {
+        "path": "tests/identity-preparation.cjs",
+        "sha": "90b901685cba5366cfe1f04af7c174bc0a3f1de1"
+      },
+      {
+        "path": "tests/modules-postgres.cjs",
+        "sha": "ec5749ec76aea91eee2ed02bfb0b1fbe974555b3"
+      },
+      {
+        "path": "tests/phase1-browser.py",
+        "sha": "75d29dbfa9277f7f8d5dc17d2f4321f402404010"
+      },
+      {
+        "path": "tests/phase1-regression.py",
+        "sha": "827e9244306b92a7d20d656b1577212f8a275264"
+      },
+      {
+        "path": "tests/phase1.cjs",
+        "sha": "af2c26cedea9f9468026272654b1e879749370d7"
+      },
+      {
+        "path": "tests/session-lifecycle.cjs",
+        "sha": "30c5be072937ce763c628ed5828403eec709949f"
+      },
+      {
+        "path": "tests/stock-browser.py",
+        "sha": "e58724a9885d85f3aacd4e13a47e1730377a8126"
+      },
+      {
+        "path": "tests/tables-browser.py",
+        "sha": "7529762c038495bcfd0561dece6cd8c0db5bc0a8"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/manifest.json",
+        "sha": "ea992999ff6a47f51a5921e4d821bac3fd61a1bf"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-desktop-dark-operation.png",
+        "sha": "701842f35079e3a8fdb9f9f531e3e78c924c7fc2"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-desktop-light-operation.png",
+        "sha": "1f961f95bac2898b73ac41652cd24770faadcf40"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-mobile-dark-operation.png",
+        "sha": "21b55e6e76ed852b2ff3a3c422431142bcf20746"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-mobile-light-operation.png",
+        "sha": "ffa5c480df745d4d8df1e3fd8f113d1b9fa4348c"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-tablet-dark-operation.png",
+        "sha": "1a8d186bccf7f92246db236ed8e0613fe1d8c172"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-tablet-light-operation.png",
+        "sha": "4faccf46054aeffa2faaa5699f944befaebd3fdb"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-dark-clinics.png",
+        "sha": "0b7f422df5047407c1edd09baca35862719bd149"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-dark-hr.png",
+        "sha": "14e0fa617ad28cb66379d81c7da7321b914f4780"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-dark-operation.png",
+        "sha": "69bdf36bb0796ec9cd9b555d65c9769fe27422a0"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-light-clinics.png",
+        "sha": "d00da3dd4a1bd9ac0b5391c59269fd1de33ea07c"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-light-hr.png",
+        "sha": "4138998242a79ab638b6b180142197364cc3506e"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-light-operation.png",
+        "sha": "ab6b53fb25a2c746e142c48ebfb38ad9844af574"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-dark-clinics.png",
+        "sha": "efcd94ab8fd29ad73028a62f7908c7e0927c72cc"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-dark-hr.png",
+        "sha": "91ed2187acd1c0ea4053ef1d7c5bb65fede24461"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-dark-operation.png",
+        "sha": "1435c68dc97d74d9da21b87d42b6a29febaea648"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-light-clinics.png",
+        "sha": "47d9da1d418e99118a949e276ece7bdafc11e9b7"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-light-hr.png",
+        "sha": "d541e3f8100fec1869b463a3db97516be81f5523"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-light-operation.png",
+        "sha": "c10f3094b9746de49fda999d9e51a2c2557f0f44"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-dark-clinics.png",
+        "sha": "ef11cf55cd51a6b35f2161abc0f6256a749bf6da"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-dark-hr.png",
+        "sha": "f5727294ef38bac50a5301c13990c5bb07c8e041"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-dark-operation.png",
+        "sha": "1a8d186bccf7f92246db236ed8e0613fe1d8c172"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-light-clinics.png",
+        "sha": "15d1fe491f7a6d7fba37fac1fac9716b9c356ba7"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-light-hr.png",
+        "sha": "a046b5dec157ee5649166475abf7aad63ac3381d"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-light-operation.png",
+        "sha": "4faccf46054aeffa2faaa5699f944befaebd3fdb"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-desktop-dark-operation.png",
+        "sha": "9a2e02e4b1bf233a68f63e982499c3c901b1fe26"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-desktop-light-operation.png",
+        "sha": "33c1e7f11a86f229f170ee0855aaed3447c9da71"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-mobile-dark-operation.png",
+        "sha": "a0ca17138d2ca824971c0fee6179b3d8cfbce86b"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-mobile-light-operation.png",
+        "sha": "5de1211b3f1eb36473c0a9c1e400e8d42bd90ca2"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-tablet-dark-operation.png",
+        "sha": "2db70471f8797ec44498a3fc1719f14054a3a4f4"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-tablet-light-operation.png",
+        "sha": "5150951323d6b1f8bb1d5c540139f71061a69934"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-dark-clinics.png",
+        "sha": "0b7f422df5047407c1edd09baca35862719bd149"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-dark-hr.png",
+        "sha": "14e0fa617ad28cb66379d81c7da7321b914f4780"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-dark-operation.png",
+        "sha": "021d5676256b9f94857937e77c7e42297b9805a8"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-light-clinics.png",
+        "sha": "d00da3dd4a1bd9ac0b5391c59269fd1de33ea07c"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-light-hr.png",
+        "sha": "4138998242a79ab638b6b180142197364cc3506e"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-light-operation.png",
+        "sha": "8d5d37219c84a754c4ae0fea73eeb46933d2494e"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-dark-clinics.png",
+        "sha": "4b67628f17616730463d582263e2567dcfa17ad0"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-dark-hr.png",
+        "sha": "476d48f2e3537de6022be7d37640f1c9fe2e1c52"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-dark-operation.png",
+        "sha": "aeb59831e6b1f03595994cb418ab80942999cd73"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-light-clinics.png",
+        "sha": "6620812eb18e12b6937e27319c59fa5640b54d16"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-light-hr.png",
+        "sha": "6b38a47fc69f2fa8bca01517549af768a74f4e49"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-light-operation.png",
+        "sha": "6349a84dd7b3810b5f7586c9e6268b41256f8e86"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-dark-clinics.png",
+        "sha": "ef11cf55cd51a6b35f2161abc0f6256a749bf6da"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-dark-hr.png",
+        "sha": "f5727294ef38bac50a5301c13990c5bb07c8e041"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-dark-operation.png",
+        "sha": "f5b1fd59544b074dca1854cf9146b9dbff62e292"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-light-clinics.png",
+        "sha": "15d1fe491f7a6d7fba37fac1fac9716b9c356ba7"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-light-hr.png",
+        "sha": "a046b5dec157ee5649166475abf7aad63ac3381d"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-light-operation.png",
+        "sha": "6fe372ca206a4daf017b984a04300c04875f2a8a"
+      },
+      {
+        "path": "tests/visual/capture.py",
+        "sha": "b4cc9c4e4b4a5271884e99ab07260f60355d4850"
+      },
+      {
+        "path": "tests/visual/compare.py",
+        "sha": "ba74f5b0ab46a2df2a4551e1b5917e1fa966c5a3"
+      },
+      {
+        "path": "tests/visual/publish-evidence.py",
+        "sha": "89c29157d79dd82baba1a9b5511f90c161a473ab"
+      }
+    ],
+    "consolidacao": [
+      {
+        "path": "api/v4-clinic-stock.js",
+        "sha": "36e58be470cdf889c4ddd7c4a1ed5dd3472df968"
+      },
+      {
+        "path": "authenticated-modules-v4.js",
+        "sha": "6963a3cbd60a3dc85f4c68560a75d289aa05e2c2"
+      },
+      {
+        "path": "clinic-documents-core-v4.js",
+        "sha": "56f85d161fc42a5f14385f597194a77118ae041d"
+      },
+      {
+        "path": "clinic-documents-ui-v4.js",
+        "sha": "4c3f6351e9bd94a5df56557a8dce9092845e88ed"
+      },
+      {
+        "path": "db/migrations/v4-clinics-stock-001.sql",
+        "sha": "e058a186bfc59d9ec903027c0a3dfdd91c7fc2d6"
+      },
+      {
+        "path": "docs/AUDITORIA-SEIS-PERFIS.md",
+        "sha": "c9119209daf74070ab1ed6da5799d46eeaba8aff"
+      },
+      {
+        "path": "docs/BLOCO-01-SESSAO.md",
+        "sha": "0cfae0d727255968984cd58a0c016f1d7966651c"
+      },
+      {
+        "path": "docs/BLOCO-02-CI-VISUAL-ISOLADA.md",
+        "sha": "d58dabb16ce8646a2da0d0d5bc3e75438979edeb"
+      },
+      {
+        "path": "docs/BLOCO-03-AUDITORIA-CONSOLIDACAO.md",
+        "sha": "39e76e97f2c8397c68643e7a3a442cbc7fa0ba5a"
+      },
+      {
+        "path": "docs/BLOCO-04-CLINICAS-STOCK.md",
+        "sha": "2b6cea41068a60ddc6121dd50fadfabc438de06a"
+      },
+      {
+        "path": "docs/CORRECAO-TABELAS-CATALOGO.md",
+        "sha": "be79b8f88fc73bdf29021a29405924c091dcd2eb"
+      },
+      {
+        "path": "docs/GRUPO-1-INTEGRACAO-SINTETICA.md",
+        "sha": "cbafaa0a0980afd6d7c1332e987261c7251d58eb"
+      },
+      {
+        "path": "docs/INVENTARIO-CONSOLIDACAO.json",
+        "sha": "49db24fb3fb6c2e35df8a1310026441e847bf782"
+      },
+      {
+        "path": "docs/INVENTARIO-CONSOLIDACAO.md",
+        "sha": "e4950639c631a043bdf9cf7d1044c759e47a4458"
+      },
+      {
+        "path": "docs/PLANO-PREVIEW-ISOLADO.md",
+        "sha": "71ced276b8fe195cf3afcd7ac65470ef0507fd63"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-1-0.png",
+        "sha": "bfc6d35e0e65a288594d087c4dec6ffcff29c8d2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-1.zip",
+        "sha": "d9912d4808b0a6a1a342384f51bf01e6815a3263"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-2-0.png",
+        "sha": "1829dbcb18dfb64f8d8edca416ae9d639d17bf0c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-2.zip",
+        "sha": "4126d56be201f4b19c2f446859cd62e6d6f3919c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-3-0.png",
+        "sha": "c49a3c8953467ee7ddcc69b13c888b2e3bec1282"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-3.zip",
+        "sha": "9f92240387eacd8957aa93229b130cbecaf113db"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-4-0.png",
+        "sha": "fe6039284f0be852553a4f14f6bf189044c2ff18"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-4.zip",
+        "sha": "a46c0b2fab787a28190e3b0e49241dec882f9540"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-5-0.png",
+        "sha": "cf509a9409b3eb27e8394404008b51f815451ac1"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-5.zip",
+        "sha": "5a7f49f240f88d64497c1ee998ab6e5831e030cb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-6-0.png",
+        "sha": "2b364a5be80a781ec727c61f630cb7c20b283849"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-6.zip",
+        "sha": "6ffe176851d471842ffa7f7b4f942592f81fecfb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-7-0.png",
+        "sha": "eaee208cc38401d6c3e9708488137d29509392b9"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/browser-7.zip",
+        "sha": "871f1b3b2b37270a1672c2485b3e0062798a6438"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-chat.png",
+        "sha": "fd0fa68209f6482ad648fcb2ddd8090b9cb65729"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-clock.png",
+        "sha": "378bb3f79ff4dec72d566571787074128fc376ef"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-operation.png",
+        "sha": "99b4b314ade60c5876b27f1e1841d01f5267d612"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-tasks.png",
+        "sha": "833feb505b89b266a9d95f9ae88ba0ad68566c51"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_adm-wait.png",
+        "sha": "6b0a4a0c72e8c02a5ba879121e2a2819398fd144"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-alerts.png",
+        "sha": "12993502c87de277ec1e05bfac49e91167e00016"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-audit.png",
+        "sha": "e52ade0e3d187b6d3a92aa31db9853518574e416"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-chat.png",
+        "sha": "a7b1b28bda2f301f3471c37a03b966742987b410"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-clinics.png",
+        "sha": "5e1a3b38e3300d2b230dac67bcbcdbec899157f3"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-clock.png",
+        "sha": "bae453b09cd0c9bd0a49d15b40a06c566919d85d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-dashboard.png",
+        "sha": "3f481446430e815c569bf42433efacc9633f0be1"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-hr.png",
+        "sha": "df83197741f676bb26edae3d78c793aa14358728"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-marketing.png",
+        "sha": "8e863117703e18e19e7cd6de507ace0780681223"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-operation.png",
+        "sha": "0c269332a45741e045630c8df0e8eedd6948b528"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-reports.png",
+        "sha": "0190c988dbf9f100a0847306c507797cce63ea24"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-security.png",
+        "sha": "1ff66252aaffe9e17bb04ad0f9d4e3b276b6fa3b"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-tables.png",
+        "sha": "fc10150eefa02a549720018a86de4e349a9990a2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-tasks.png",
+        "sha": "2b8717e0bb4599dfd2eb3cca844df906df732a96"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_admin-wait.png",
+        "sha": "a4561e655d447f601cb4bc41b4fbd3a3e3df2f41"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_bas-chat.png",
+        "sha": "31b858ccfecdcea43a9fb3ca5f953e8e33f7b39c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_bas-clock.png",
+        "sha": "e179ca63d9d7a5f3ab215737eb5e5fc443c48b87"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-chat.png",
+        "sha": "3ebca6286d7a10b4590fd54f7abf554fac19f00e"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-clock.png",
+        "sha": "3fea4c71d8720a0469e0308c221ae3d2d99a854f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-operation.png",
+        "sha": "03ce51d07847b258dd66611dc8187a080df78ac8"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_call-wait.png",
+        "sha": "c9343a0b65c9b86fe0faa7e1890321c319e79f31"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_med-chat.png",
+        "sha": "25527795fe5ef4ebc0a528615dd34e4d8f79f29a"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_med-clock.png",
+        "sha": "73376744b8a807cb4f0a5fad51e2f16953b14974"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_tec-chat.png",
+        "sha": "d5b98cd933f6063ad94a8dd174344c7285c27e8a"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-test_tec-clock.png",
+        "sha": "e20d97476bf6b5e237b9c2598d586d232b8ae5cb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-alerts.png",
+        "sha": "2d4fe83dbc6aede9794541af5c0a52cd1e4aaaa0"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-audit.png",
+        "sha": "fbe320b7bc064ef58a85b6e0c323ca9954e3fec5"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-chat.png",
+        "sha": "37c0cefed7ff987bcc9af28ef285a685fd4a577c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-clinics.png",
+        "sha": "0abb5e1dc295cbfacdcb89bfb4170a3835b617bb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-clock.png",
+        "sha": "fba59f89a890c13f0aaf8348622c92640afcbcd4"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-dashboard.png",
+        "sha": "0a66b3b432f48a9f5d15e064d07113fadb6a5053"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-hr.png",
+        "sha": "f58931250178d66f94e6e2f10d683dd08108f4cb"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-marketing.png",
+        "sha": "e8be908c2c32f273b1f8a7bfcd69cb9cb293d03c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-operation.png",
+        "sha": "928c8f05d8898bd984d7d23b8bcae486a40350fe"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-reports.png",
+        "sha": "4e078c0f34afb990a1909539484a7d380a0f5544"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-security.png",
+        "sha": "605d9a1ea320d3f49d0fcfa0b2214fc2fb94c9dd"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-tables.png",
+        "sha": "cfda69da6a3436109a0413411ccb660a89f35521"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-tasks.png",
+        "sha": "82e950cce6cc765d1136c1d9d1f7273ca20e920d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/navigation-u1-wait.png",
+        "sha": "59922eee8f4e1203a409408522568c29f59101ca"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "89729e5251a8a8532de917cbd823c61bbdac4ba2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-daily-leave-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/daily-leave-browser-1-0.png",
+        "sha": "b770d54059fc9b07cb5e4eeebbdc322d95c9c91e"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-daily-leave-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/daily-leave-browser-1.zip",
+        "sha": "5f06905e3611ab9e7985ec5a5fab7d4e73e60fac"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-daily-leave-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "1623d274a4bf15a4d8e064649e233f4cae65d1de"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-1-0.png",
+        "sha": "4872b95d5e1d4298cff358ffb6c4f2f1980ee1cc"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-1.zip",
+        "sha": "1dea8613298e25c3f6c6a3b12557d3041484ec79"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-2-0.png",
+        "sha": "6be0965d1edfce2a09fc21126622923b2b6cb381"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-2.zip",
+        "sha": "29450d6a835bf78fde72ef32af41901939cda71b"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-3-0.png",
+        "sha": "911f3f7bdcd4b0bbd48c2aca00292a6403cf4f35"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/documents-browser-3.zip",
+        "sha": "a3966e9fa52869aeaf0b793709f39f207dc7a75d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-documents-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "62d8f675d81ba7ffcf885b12e6694e1a3da73c5a"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-1-0.png",
+        "sha": "44a3c14f87b3b2f9d9d25e481ca265129a07de1d"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-1.zip",
+        "sha": "144d396f930f9d545f9cc244d2025c8876a736e7"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-2-0.png",
+        "sha": "68a7faebbfe8839bc36cc52e4be7cee360be75ac"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-2.zip",
+        "sha": "568c12f34a9696de60897c2f55842d6cef12a605"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-3-0.png",
+        "sha": "2124d851110a37a00367b0eb6042235a33220297"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-3.zip",
+        "sha": "1732635ff5ac97d00efa7fbdc303eddb127fead8"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-4-0.png",
+        "sha": "3bad916e014631fc1121548065f70de970227167"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-4.zip",
+        "sha": "3b93788375b9e4f269d3f5e2654d6b9275f48559"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-5-0.png",
+        "sha": "ca7827793466e1e38e9abd3f60ac53d8bd0a470c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-5.zip",
+        "sha": "5b667c04ce58bc93c5d751d0fe4d107f0d9fec55"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-6-0.png",
+        "sha": "bbd09c3804080139ab66009166c62a52739037bd"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/finance-browser-6.zip",
+        "sha": "cb2d30b2c2fcb79b9b4a774bd1f93162b26829e1"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-finance-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "a071462fb5c18d3c4221cc004423e6d3a2c28589"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-1-0.png",
+        "sha": "00cd046f51cfc829142a75ea3ee77d65ae06305f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-1.zip",
+        "sha": "a4dfe711d4cd7cad260a0e158a750a6dddd87adf"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-2-0.png",
+        "sha": "9a093af1a04301bf863e287e350ddcd80df0bea8"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-2.zip",
+        "sha": "a149b0c57dcac1ec2248a5f751f90490ff311874"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-3-0.png",
+        "sha": "d280e2aa90b6c4ddfbe4d09a082d04316334edf5"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-3.zip",
+        "sha": "21e08d7d84fbfa9bab84336489e79c6f704a3f29"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-4-0.png",
+        "sha": "2d0f9a92fadb40028b9f61542930304db0652a42"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-4.zip",
+        "sha": "dc88f82102bb49223652931df26d836244358ea6"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-5-0.png",
+        "sha": "8964bfb521225f3575b7ebd97d0edc8c219b2dd3"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-5.zip",
+        "sha": "f0dbb0e560d2d5283063d10005f03b8f57e25800"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-6-0.png",
+        "sha": "caf304de52e2847585b036278bc88434fa794b9f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/improvements-browser-6.zip",
+        "sha": "dc1395b37e69225f9b01192a8eb2e8085363284f"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-improvements-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "56434a5ae4dc13a06928fc98028610bf24008e29"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-1-0.png",
+        "sha": "10e811e4b1811e0c99fbf36b383b27a7d783d814"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-1.zip",
+        "sha": "abd89d657f1bd60b9b3c084e4eeef420ad048841"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-2-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-2.zip",
+        "sha": "c156e0e08c4d0d83548c5776d3cfdea91ecbab6b"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-3-0.png",
+        "sha": "31c34efc1ef7a3febf59f9802cb99d7756e0ace5"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-3.zip",
+        "sha": "9c5ec99c2fa034870e0df7e2a64e14b828649128"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-4-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-4.zip",
+        "sha": "ca4e2c04c64ff255776f8919fcd59f52550b8cf2"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-5-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-5.zip",
+        "sha": "9b6659517bef98a548ab68a2e6fccc1e3a98fbc9"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-6-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-6.zip",
+        "sha": "13fd3a570442512ba230012f48023079bcda4242"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-7-0.png",
+        "sha": "633b92ebc00f3068054dcd37aa4ec89a4114b813"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/p0-browser-7.zip",
+        "sha": "c10f2548d3eec48bf46f11a07544612e8966a18c"
+      },
+      {
+        "path": "docs/evidence/4a58d5e/chromium-p0-browser-4a58d5eb06090900ca12be4a9856c6e4a69a972a/result.json",
+        "sha": "9feb859297e2b498c7e8a1a9f0809228a3e3bc63"
+      },
+      {
+        "path": "docs/evidence/recovered-3123c9e/v4-hr-employee-profile.js",
+        "sha": "0de1ba3b4b8c121ad83611045095994435d4445d"
+      },
+      {
+        "path": "lib/clinic-stock-service.js",
+        "sha": "747a62d712f7c1ee9d9a70e96fe2fd5dbfad91a5"
+      },
+      {
+        "path": "module-demo-fixtures-v4.js",
+        "sha": "eee7465b9f15e23ec1bf280a91a6cbd0286e51f0"
+      },
+      {
+        "path": "module-demo-v4.js",
+        "sha": "5711b7f1ebf0f124ffcc5bb79f16f5649790f0b3"
+      },
+      {
+        "path": "profile-validation-fixtures-v4.js",
+        "sha": "ceecb3cb727d1ef9b096abb439826cb0e3aac430"
+      },
+      {
+        "path": "tests/central-browser.py",
+        "sha": "a2c9c6f5423970311c04c8f50eef10ca8b0a8ec0"
+      },
+      {
+        "path": "tests/central-server.cjs",
+        "sha": "50109054f6ff698482df4870d1c96b71622ee966"
+      },
+      {
+        "path": "tests/ci/Dockerfile",
+        "sha": "9b769c97a10cd2bf43fb7e6897ca05050a7a9bba"
+      },
+      {
+        "path": "tests/ci/Dockerfile.central",
+        "sha": "0049a94f2750f0582b1c15cef4cd67fda22bc521"
+      },
+      {
+        "path": "tests/ci/Dockerfile.postgres",
+        "sha": "678cc239e309fcd7b78ada2f4ecd4a60ff6f1625"
+      },
+      {
+        "path": "tests/ci/package-preview.cjs",
+        "sha": "cc69aefe86b48403529ccae5031a5af1e394c9e9"
+      },
+      {
+        "path": "tests/ci/run-browser.py",
+        "sha": "c38b7d3deb800e24641d741441ae8c15b359453d"
+      },
+      {
+        "path": "tests/clinics-browser.py",
+        "sha": "7feafc3885a70a44570c6e91fd24a3d75453d32d"
+      },
+      {
+        "path": "tests/consolidation-browser.py",
+        "sha": "6e66169ead68e021d5c128f91651579c0b8c1aca"
+      },
+      {
+        "path": "tests/daily-leave-browser.py",
+        "sha": "c01181dff6336190b2d36d27fd05135660023a34"
+      },
+      {
+        "path": "tests/modules-postgres.cjs",
+        "sha": "ec5749ec76aea91eee2ed02bfb0b1fbe974555b3"
+      },
+      {
+        "path": "tests/session-lifecycle.cjs",
+        "sha": "30c5be072937ce763c628ed5828403eec709949f"
+      },
+      {
+        "path": "tests/stock-browser.py",
+        "sha": "e58724a9885d85f3aacd4e13a47e1730377a8126"
+      },
+      {
+        "path": "tests/tables-browser.py",
+        "sha": "7529762c038495bcfd0561dece6cd8c0db5bc0a8"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/manifest.json",
+        "sha": "ea992999ff6a47f51a5921e4d821bac3fd61a1bf"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-desktop-dark-operation.png",
+        "sha": "701842f35079e3a8fdb9f9f531e3e78c924c7fc2"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-desktop-light-operation.png",
+        "sha": "1f961f95bac2898b73ac41652cd24770faadcf40"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-mobile-dark-operation.png",
+        "sha": "21b55e6e76ed852b2ff3a3c422431142bcf20746"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-mobile-light-operation.png",
+        "sha": "ffa5c480df745d4d8df1e3fd8f113d1b9fa4348c"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-tablet-dark-operation.png",
+        "sha": "1a8d186bccf7f92246db236ed8e0613fe1d8c172"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_adm-tablet-light-operation.png",
+        "sha": "4faccf46054aeffa2faaa5699f944befaebd3fdb"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-dark-clinics.png",
+        "sha": "0b7f422df5047407c1edd09baca35862719bd149"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-dark-hr.png",
+        "sha": "14e0fa617ad28cb66379d81c7da7321b914f4780"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-dark-operation.png",
+        "sha": "69bdf36bb0796ec9cd9b555d65c9769fe27422a0"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-light-clinics.png",
+        "sha": "d00da3dd4a1bd9ac0b5391c59269fd1de33ea07c"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-light-hr.png",
+        "sha": "4138998242a79ab638b6b180142197364cc3506e"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-desktop-light-operation.png",
+        "sha": "ab6b53fb25a2c746e142c48ebfb38ad9844af574"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-dark-clinics.png",
+        "sha": "efcd94ab8fd29ad73028a62f7908c7e0927c72cc"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-dark-hr.png",
+        "sha": "91ed2187acd1c0ea4053ef1d7c5bb65fede24461"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-dark-operation.png",
+        "sha": "1435c68dc97d74d9da21b87d42b6a29febaea648"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-light-clinics.png",
+        "sha": "47d9da1d418e99118a949e276ece7bdafc11e9b7"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-light-hr.png",
+        "sha": "d541e3f8100fec1869b463a3db97516be81f5523"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-mobile-light-operation.png",
+        "sha": "c10f3094b9746de49fda999d9e51a2c2557f0f44"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-dark-clinics.png",
+        "sha": "ef11cf55cd51a6b35f2161abc0f6256a749bf6da"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-dark-hr.png",
+        "sha": "f5727294ef38bac50a5301c13990c5bb07c8e041"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-dark-operation.png",
+        "sha": "1a8d186bccf7f92246db236ed8e0613fe1d8c172"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-light-clinics.png",
+        "sha": "15d1fe491f7a6d7fba37fac1fac9716b9c356ba7"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-light-hr.png",
+        "sha": "a046b5dec157ee5649166475abf7aad63ac3381d"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_admin-tablet-light-operation.png",
+        "sha": "4faccf46054aeffa2faaa5699f944befaebd3fdb"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-desktop-dark-operation.png",
+        "sha": "9a2e02e4b1bf233a68f63e982499c3c901b1fe26"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-desktop-light-operation.png",
+        "sha": "33c1e7f11a86f229f170ee0855aaed3447c9da71"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-mobile-dark-operation.png",
+        "sha": "a0ca17138d2ca824971c0fee6179b3d8cfbce86b"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-mobile-light-operation.png",
+        "sha": "5de1211b3f1eb36473c0a9c1e400e8d42bd90ca2"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-tablet-dark-operation.png",
+        "sha": "2db70471f8797ec44498a3fc1719f14054a3a4f4"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/test_call-tablet-light-operation.png",
+        "sha": "5150951323d6b1f8bb1d5c540139f71061a69934"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-dark-clinics.png",
+        "sha": "0b7f422df5047407c1edd09baca35862719bd149"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-dark-hr.png",
+        "sha": "14e0fa617ad28cb66379d81c7da7321b914f4780"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-dark-operation.png",
+        "sha": "021d5676256b9f94857937e77c7e42297b9805a8"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-light-clinics.png",
+        "sha": "d00da3dd4a1bd9ac0b5391c59269fd1de33ea07c"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-light-hr.png",
+        "sha": "4138998242a79ab638b6b180142197364cc3506e"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-desktop-light-operation.png",
+        "sha": "8d5d37219c84a754c4ae0fea73eeb46933d2494e"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-dark-clinics.png",
+        "sha": "4b67628f17616730463d582263e2567dcfa17ad0"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-dark-hr.png",
+        "sha": "476d48f2e3537de6022be7d37640f1c9fe2e1c52"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-dark-operation.png",
+        "sha": "aeb59831e6b1f03595994cb418ab80942999cd73"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-light-clinics.png",
+        "sha": "6620812eb18e12b6937e27319c59fa5640b54d16"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-light-hr.png",
+        "sha": "6b38a47fc69f2fa8bca01517549af768a74f4e49"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-mobile-light-operation.png",
+        "sha": "6349a84dd7b3810b5f7586c9e6268b41256f8e86"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-dark-clinics.png",
+        "sha": "ef11cf55cd51a6b35f2161abc0f6256a749bf6da"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-dark-hr.png",
+        "sha": "f5727294ef38bac50a5301c13990c5bb07c8e041"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-dark-operation.png",
+        "sha": "f5b1fd59544b074dca1854cf9146b9dbff62e292"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-light-clinics.png",
+        "sha": "15d1fe491f7a6d7fba37fac1fac9716b9c356ba7"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-light-hr.png",
+        "sha": "a046b5dec157ee5649166475abf7aad63ac3381d"
+      },
+      {
+        "path": "tests/visual/baseline/4a58d5e/u1-tablet-light-operation.png",
+        "sha": "6fe372ca206a4daf017b984a04300c04875f2a8a"
+      },
+      {
+        "path": "tests/visual/capture.py",
+        "sha": "b4cc9c4e4b4a5271884e99ab07260f60355d4850"
+      },
+      {
+        "path": "tests/visual/compare.py",
+        "sha": "ba74f5b0ab46a2df2a4551e1b5917e1fa966c5a3"
+      },
+      {
+        "path": "tests/visual/publish-evidence.py",
+        "sha": "89c29157d79dd82baba1a9b5511f90c161a473ab"
+      }
+    ]
+  },
+  "limits": "Checkout local shallow; árvores remotas lidas integralmente (truncated=false). Ficheiro ausente não prova funcionalidade perdida: verificar equivalência antes de recuperar. Sem integrações ou eliminações."
+}

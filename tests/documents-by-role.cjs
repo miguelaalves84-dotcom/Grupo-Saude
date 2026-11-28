@@ -1,0 +1,8 @@
+'use strict';
+/* Documentos exigidos: vêm do tipo de contrato e respeitam a função (documentos «só para estas funções»). */
+const assert=require('node:assert/strict'),D=require('../employee-documents-core-v4');let n=0;const test=(name,fn)=>{fn();n++;console.log('PASS documents-by-role: '+name)};
+const base=()=>({masterDocuments:[{id:'cc',name:'Cartão de Cidadão',active:true},{id:'cedula',name:'Cédula profissional',active:true}],documentCatalog:[],jobRoles:[{id:'fisio',name:'Fisioterapeuta',active:true},{id:'rec',name:'Rececionista',active:true}],contractTypes:[{id:'ct1',name:'Contrato sem termo',items:[{id:'i1',masterDocumentId:'cc',catalogId:'cc',required:true},{id:'i2',masterDocumentId:'cedula',catalogId:'cedula',required:true,roles:['fisio']}]}],users:[{id:'f1',name:'Fisio',role:'TECNICO/A',professionId:'fisio',active:true,hr:{contractType:'Contrato sem termo'}},{id:'r1',name:'Recep',role:'ADMINISTRATIVA',professionId:'rec',active:true,hr:{contractType:'Contrato sem termo'}}],employees:{},employeeDocuments:{}});
+test('fisioterapeuta: CC e cédula; rececionista: só CC',()=>{const s=base();assert.deepEqual(D.requirements(s,'f1').map(x=>x.masterDocumentId).sort(),['cc','cedula']);assert.deepEqual(D.requirements(s,'r1').map(x=>x.masterDocumentId),['cc'])});
+test('sem funções definidas: documento exigido a todos',()=>{const s=base();s.contractTypes[0].items[1].roles=[];assert.equal(D.requirements(s,'r1').length,2)});
+test('função pelo nome também conta',()=>{const s=base();s.users[1].professionId='';s.users[1].profession='Fisioterapeuta';assert.equal(D.requirements(s,'r1').length,2)});
+console.log(JSON.stringify({passed:n}));

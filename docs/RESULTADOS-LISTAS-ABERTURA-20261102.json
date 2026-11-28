@@ -1,0 +1,36 @@
+{
+  "codeCommit": "f20ccdc98de9ee5705843e8a2d0f5647fe4d0247",
+  "branch": "dev/v4-stabilization-20261017",
+  "workflowRun": 41473864517,
+  "jobsPassed": 48,
+  "jobsFailed": 0,
+  "openingLists": 3,
+  "browserChecks": 972,
+  "browserFailures": 0,
+  "domainScenarios": 11,
+  "profiles": 6,
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "devices": [
+    "desktop",
+    "tablet-horizontal-touch-emulation",
+    "mobile-touch-emulation"
+  ],
+  "testedDates": [
+    "2026-11-30",
+    "2026-12-02",
+    "2026-12-31",
+    "2027-01-02"
+  ],
+  "preview": "https://grupo-saude-v4-validacao-sintetica-92hdhtjgj-grupo-saude.vercel.app",
+  "deployment": "dpl_2WzPKJ5VcUPqB83PAwqYm7q8n8jR",
+  "status": "READY",
+  "httpStatus": 200,
+  "sourceFilesExactlyMatched": true,
+  "centralPersistence": false,
+  "clicloud": false,
+  "externalEmails": false,
+  "physicalAndroidValidated": false
+}

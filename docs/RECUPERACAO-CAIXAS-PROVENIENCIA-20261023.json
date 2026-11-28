@@ -1,0 +1,55 @@
+{
+  "sourceCommit": "fadee5eff1059eafc2c5520656ebb4d050c56e31",
+  "sourcePath": "index.html",
+  "sourceBlob": "e32abcdc42cf04b50003c0e2a7bbf8451fbb8bc4",
+  "sourceBytes": 18945,
+  "sourceSha256": "67818462442782b6a5ee546548c0f3026eda31378c0b78756c27829a1dc86818",
+  "sourceLink": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/blob/fadee5eff1059eafc2c5520656ebb4d050c56e31/index.html",
+  "removedInCommit": "954273fd7073affd24105dfd2874918a6ceb5d6a",
+  "removedLink": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/commit/954273fd7073affd24105dfd2874918a6ceb5d6a",
+  "diagnosis": "Removido na transição para a SPA V4; não era apenas menu oculto nem caixa de email.",
+  "storageKey": "grupo_saude_v31",
+  "search": {
+    "remoteBranchHeads": 30,
+    "relevantUniqueBlobs": 59,
+    "mainHistoryCommitsListed": 523
+  },
+  "historicalFunctions": {
+    "calcCash": "function calcCash(){$('due').value=Math.max(0,(+$('total').value||0)-(+$('card').value||0)).toFixed(2)}",
+    "saveCash": "function saveCash(){let clinic=+$('cashClinic').value,date=$('cashDate').value||today(),total=+$('total').value||0,card=+$('card').value||0;if(card>total)return alert('Multibanco superior ao total.');let dep=$('deposited').value===''?null:+$('deposited').value,c=s.cash.find(x=>x.clinic===clinic&&x.date===date)||{clinic,date};Object.assign(c,{total,card,due:total-card,deposited:dep,depositDate:$('depositDate').value,ref:$('cashRef').value,notes:$('cashNotes').value,status:dep!==null&&$('depositDate').value?'A aguardar validação':'A aguardar depósito'});if(!s.cash.includes(c))s.cash.push(c);save()}",
+    "validateCash": "function validateCash(){let c=s.cash.find(x=>x.clinic===+$('cashClinic').value&&x.date===($('cashDate').value||today()));if(!c||c.deposited===null)return alert('Depósito ainda não registado.');c.status='Validada';save()}",
+    "renderCash": "function renderCash(){$('cashT').innerHTML=s.cash.map(c=>`<tr><td>${c.date}</td><td>${cn(c.clinic)}</td><td>${c.total.toFixed(2)} €</td><td>${c.card.toFixed(2)} €</td><td>${c.due.toFixed(2)} €</td><td>${c.deposited===null?'—':c.deposited.toFixed(2)+' €'}</td><td>${c.deposited===null?'—':(c.deposited-c.due).toFixed(2)+' €'}</td><td>${c.status}</td></tr>`).join('')}"
+  },
+  "closingRequirement": "if(close&&!s.cash.some(c=>c.clinic===clinic&&c.date===date))return alert('Preencha primeiro a folha de caixa.');",
+  "mapping": [
+    [
+      "index.html#cash",
+      "finance-ui-v4.js: cashPanel/cashForm"
+    ],
+    [
+      "calcCash",
+      "finance-cash-core-v4.js + GSFinanceCore.cents"
+    ],
+    [
+      "saveCash",
+      "FinanceDemoV4.call / lib/finance-cash-service.js"
+    ],
+    [
+      "validateCash",
+      "Cash command validate, financial actor and clinic scope"
+    ],
+    [
+      "renderCash",
+      "cashPanel/cashHistory"
+    ],
+    [
+      "saveDay requires sheet",
+      "GSOperationCore.blockers + closingPanel Finance link"
+    ],
+    [
+      "cashM",
+      "WorkspaceShellV4 + GSAttentionCore"
+    ]
+  ],
+  "preservation": "Código antigo não é carregado no programa. Originais cash preservados; não lê nem importa dados reais do domínio/chave V3.1 sem origem e correspondência de clínicas autorizadas."
+}

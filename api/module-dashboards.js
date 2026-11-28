@@ -1,0 +1,4 @@
+'use strict';
+const A=require('../lib/authorization-service'),S=require('../lib/module-dashboards-service');
+async function handler(req,res,deps={}){const env=deps.env||process.env;res.setHeader('Cache-Control','private, no-store');res.setHeader('X-Content-Type-Options','nosniff');if(!deps.context&&(env.GS_MODULE_DASHBOARDS_ENABLED!=='true'||env.VERCEL_ENV==='production'||!require('./v4-finance').configured(env)))return res.status(503).json({error:'Dashboards centrais indisponíveis — configuração isolada pendente.'});if(req.method!=='GET')return res.status(405).json({error:'Método não permitido.'});try{const {s,actor}=await(deps.context||A.context)(req,env);return res.status(200).json(await S.list(s,actor,req.query||{}))}catch(e){return res.status(e.authStatus||e.status||409).json({error:e.dashboardDomain?e.message:'Consulta não autorizada ou fonte indisponível.'})}}
+module.exports=handler;module.exports.createHandler=deps=>(req,res)=>handler(req,res,deps);

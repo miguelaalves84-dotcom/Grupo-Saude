@@ -1,0 +1,4653 @@
+{
+  "issue": 14,
+  "codeCommit": "8e5bcd698a763c284ce30bdce9428e6ad5a3d960",
+  "commits": [
+    "5afa21ec1b5d1e14b877993b4b065f5f6df62fff",
+    "60843c34428be7319e829440abc7b2cde06ce30b",
+    "8e5bcd698a763c284ce30bdce9428e6ad5a3d960"
+  ],
+  "branch": "dev/v4-stabilization-20261017",
+  "workflowRun": 41493527356,
+  "workflowUrl": "https://github.com/miguelaalves84-dotcom/Grupo-Saude/actions/runs/41493527356",
+  "jobs": {
+    "passed": 50,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 648,
+    "failed": 0,
+    "profiles": {
+      "test_call": {
+        "passed": 108,
+        "failed": 0
+      },
+      "test_med": {
+        "passed": 108,
+        "failed": 0
+      },
+      "test_tec": {
+        "passed": 108,
+        "failed": 0
+      },
+      "test_adm": {
+        "passed": 108,
+        "failed": 0
+      },
+      "test_admin": {
+        "passed": 108,
+        "failed": 0
+      },
+      "u1": {
+        "passed": 108,
+        "failed": 0
+      }
+    },
+    "contexts": 36,
+    "screenshots": 36,
+    "devices": [
+      "desktop1440x1000",
+      "tablet1280x800",
+      "mobile390x844"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "artifactId": 13164864269
+  },
+  "preview": {
+    "url": "https://grupo-saude-v4-validacao-sintetica-k72nr271d-grupo-saude.vercel.app",
+    "deploymentId": "dpl_GeUmEMeowNz7VfTBS5R7i8o9K5wP",
+    "state": "READY",
+    "target": "staging",
+    "http": [
+      {
+        "path": "/",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/hr-portal-core-v4.js",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/hr-portal-ui-v4.js",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/attention-core-v4.js",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/attention-ui-v4.js",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/hr-development-core-v4.js",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/design-system-v4.css",
+        "status": 200,
+        "exactSourceMatch": true
+      },
+      {
+        "path": "/api/version",
+        "status": 200,
+        "commit": "8e5bcd698a763c284ce30bdce9428e6ad5a3d960",
+        "centralPersistence": false,
+        "signatureProviderOperational": false
+      }
+    ]
+  },
+  "physicalAndroidValidated": false,
+  "realAuthenticationUiOperational": false,
+  "centralPersistenceInPreview": false,
+  "privateArchiveOperational": false,
+  "signatureProviderOperational": false,
+  "externalEmails": false,
+  "productionModified": false,
+  "cases": [
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_call",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_med",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_tec",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "employee request reaches CEO and decision returns with history",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "non-managers have no backoffice entry",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "CEO simulation cannot publish",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_adm",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "test_admin",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "desktop",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "tablet",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "light",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own RH entry and contextual help accessible",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "theme kept",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "regulation content rendered as text",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "acknowledgement preserves identity version and time",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "questionnaire answer stored",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "material version requires new answers and preserves old",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "declaration request visible to owner",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no completed declaration without signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual search works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual empty state works",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manual clearing restores topics",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "own training projection functional",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manager sees pending request",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "manager publishes through UI",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "draft waits for real digital signature",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "dialog has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "no runtime errors",
+      "passed": true
+    },
+    {
+      "profile": "u1",
+      "device": "mobile",
+      "theme": "dark",
+      "case": "responses survive reload without duplication",
+      "passed": true
+    }
+  ]
+}

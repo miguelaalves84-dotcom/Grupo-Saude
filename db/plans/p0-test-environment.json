@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "scope": "P0.1 synthetic database preparation only; no authentication, email or private archive activation",
+  "migrations": [
+    {
+      "id": "baseline-v4-001",
+      "file": "db/schema.sql",
+      "sha256": "2325a98312624c218d86d6918cab85b7be97dcc1ac9194531e8a8f058f340723"
+    },
+    {
+      "id": "finance-v4-002",
+      "file": "db/migrations/finance-v4-002.sql",
+      "sha256": "20530cd037860500d3d415af8663a042e3674f5d933ca36c585b950d351897e4"
+    },
+    {
+      "id": "finance-v4-003",
+      "file": "db/migrations/finance-v4-003.sql",
+      "sha256": "920281efe7409cd4092dc152719964079f46053ddf00ae376b7482c47d6a4572"
+    },
+    {
+      "id": "finance-v4-004",
+      "file": "db/migrations/finance-v4-004.sql",
+      "sha256": "ee1b03aa567a375f3626cdf2e686d22cc947c2100fd664cbca01448d03abebea"
+    },
+    {
+      "id": "finance-v4-005",
+      "file": "db/migrations/finance-v4-005.sql",
+      "sha256": "7491c3e8d452fede5c8e6d64e690eb727313836360c4c23b13175df742af2c84"
+    },
+    {
+      "id": "finance-v4-006",
+      "file": "db/migrations/finance-v4-006.sql",
+      "sha256": "ffcfab90d9b8059ac66284769e5a793409573b51a4da5eb46f190e77a9f4ec91"
+    },
+    {
+      "id": "recruitment-v4-001",
+      "file": "db/migrations/recruitment-v4-001.sql",
+      "sha256": "40741abb9c9ae1d525ec201fef9058399503dc1cbd4c9b78c557cc141812e591"
+    },
+    {
+      "id": "complaints-v4-001",
+      "file": "db/migrations/complaints-v4-001.sql",
+      "sha256": "0426ac5cb5ad6573f40e27ed38bae8cbc36dce4c6f5b0ea510c2f7edb3d5077e"
+    },
+    {
+      "id": "operation-v4-001",
+      "file": "db/migrations/operation-v4-001.sql",
+      "sha256": "abf4704f74fb376dcb0f6c4363b44478d9eb74e67cc8862f73bd552cd2eb0c33"
+    },
+    {
+      "id": "stock-v4-recovery-001",
+      "file": "db/migrations/stock-v4-recovery-001.sql",
+      "sha256": "a62ed03476181ac3007f9d23d90ce794b64aaea213f6b2987fefe195efea8e5f"
+    },
+    {
+      "id": "v4-p0-gps-001",
+      "file": "db/migrations/v4-p0-gps-001.sql",
+      "sha256": "0f0c1322c084ea2b90fbc5ff40d02e7c15c655b50bde748cc9ab0eac23965296"
+    }
+  ],
+  "deferred": [
+    {
+      "file": "db/migrations/security-p0-001.sql",
+      "reason": "Identity migration requires its existing disposable security database; P0.2 not authorized. Do not relax its guard."
+    },
+    {
+      "file": "db/migrations/security-p0-001.down.sql",
+      "reason": "Only for the existing security restore clone; not a generic rollback."
+    }
+  ],
+  "limitations": [
+    "Only versioned SQL files are covered. Embedded schemas in API services must be inventoried before central application rollout.",
+    "Restore rehearsal replaces no source database. There is no automatic production rollback or import of local browser data."
+  ]
+}

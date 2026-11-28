@@ -1,0 +1,14 @@
+{
+  "sourceCommit": "d3564947d309087bc2a762b729cbd599caf55fc7",
+  "files": {
+    "workspace-shell-v4.js": {
+      "sha256": "11f7dc4cd1d29e3eddf6e9316fa20b3d091d0386516c05e632b65e8012d185c7"
+    },
+    "design-system-v4.css": {
+      "sha256": "98f56537a0813830822ab65e7370f14fb886fb77781c57320cfb70c5f188715a"
+    },
+    "visual-runtime-v4.js": {
+      "sha256": "7d09e8c0f332a62e43ebfe477adf1f375d18b011354f85223b8238e288b2a9c6"
+    }
+  }
+}

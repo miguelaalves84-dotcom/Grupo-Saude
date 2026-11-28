@@ -1,7 +1,7 @@
 /* Grupo Saúde V4 — restauro seguro: nunca apagar configuração já definida */
 (()=>{'use strict';
 const KEY='grupo_saude_v4_demo_2';
-const MASTER=['clinics','clinicStructure','specialtiesByClinic','specialties','professionals','users','jobRoles','contractTypes','documentTypes','requestOrigins','checklists','taskTemplates','clinicTaskConfig'];
+const MASTER=['clinics','clinicStructure','specialtiesByClinic','specialties','professionals','users','jobRoles','contractTypes','documentTypes','requestOrigins','checklists','taskTemplates','clinicTaskConfig','supplierCompanies','stockLedgers'];
 const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return{}}};
 const clone=v=>v==null?v:JSON.parse(JSON.stringify(v));
 function preserve(){const s=read(),m={};MASTER.forEach(k=>{if(s[k]!==undefined)m[k]=clone(s[k])});return m}

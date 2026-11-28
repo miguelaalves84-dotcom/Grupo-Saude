@@ -1,0 +1,79 @@
+[
+  {
+    "priority": "P0",
+    "title": "Autenticação central",
+    "evidence": "lib/security-isolation.cjs",
+    "problem": "Better Auth, Argon2id, MFA e sessões têm testes reais isolados. O guard exige CI, base loopback e marcador sintético; não equivale a autenticação operacional do preview.",
+    "nextAction": "Adaptar o ambiente de testes central sem remover as proteções; validar convite, recuperação, revogação e duas sessões."
+  },
+  {
+    "priority": "P0",
+    "title": "Persistência e paridade UI/API",
+    "evidence": "hr-leave-domain-v4.js",
+    "problem": "A interface principal continua local. Não foi comprovado escritor central equivalente da ficha RH completa, transações de férias/baixas e ciclo integral de desempenho. Serviços especializados existentes não cobrem automaticamente estes fluxos.",
+    "nextAction": "Reutilizar o domínio e completar os caminhos centrais; testar concorrência, saldos e isolamento."
+  },
+  {
+    "priority": "P0",
+    "title": "Arquivo privado",
+    "evidence": "lib/chat-service.js",
+    "problem": "Cifragem e controlos têm testes; fornecedor, scanner, custódia de chaves e recuperação operacional não estão verificados. Download de anexo central do Chat termina em 503 mesmo após validar permissões e prazo.",
+    "nextAction": "Concluir a ligação segura e testar ficheiros entre sessões antes de aceitar documentos reais."
+  },
+  {
+    "priority": "P0",
+    "title": "Recuperação e migração",
+    "evidence": "scripts/migrate-development.cjs",
+    "problem": "Há testes reais de dump/restauro cifrado em clone, mas não há prova de serviço automático, RPO/RTO acordados ou importação reconciliada de todos os dados locais e ficheiros.",
+    "nextAction": "Validar plano completo, ensaio reversível, reconciliação de IDs, valores, históricos e hashes."
+  },
+  {
+    "priority": "P1",
+    "title": "Raio GPS incoerente",
+    "evidence": "clinic-master-v4.js",
+    "problem": "Prova sintética: pedido de raio 100 m fica guardado como 50 m na ficha; UI limita 10–50 m, API aceita 1–5000 m. Inconsistência comprovada, sem demonstração de bypass de autorização.",
+    "nextAction": "Confirmar política pretendida antes de uniformizar os limites."
+  },
+  {
+    "priority": "P1",
+    "title": "Horários noturnos e banco de horas",
+    "evidence": "attendance-core-v4.js",
+    "problem": "Horário que termina antes do início é rejeitado; diferenças de assiduidade não constituem ciclo completo de crédito/débito legalmente autorizado.",
+    "nextAction": "Definir âmbito e enquadramento; não gerar pagamentos ou créditos automáticos."
+  },
+  {
+    "priority": "P1",
+    "title": "Bónus trimestrais",
+    "evidence": "stock-closing-v4.js",
+    "problem": "Reconciliação e fórmulas existem; multiclínica, períodos parciais e outras decisões configuráveis continuam a impedir aprovação automática segura.",
+    "nextAction": "Resolver decisões e reconciliar com o livro existente sem movimentos duplicados; manter pagamentos bloqueados."
+  },
+  {
+    "priority": "P1",
+    "title": "Dependência excessiva do contexto central",
+    "evidence": "lib/authorization-service.js",
+    "problem": "O contexto de autorização depende da configuração financeira, incluindo arquivo, dificultando iniciar apenas identidade e clínicas.",
+    "nextAction": "Rever a separação de requisitos mantendo a política de falha fechada."
+  },
+  {
+    "priority": "P1",
+    "title": "Defesa adicional e validação operacional",
+    "evidence": "vercel.json",
+    "problem": "CSP legado permite inline; não foram encontradas políticas RLS ativas. ACL de servidor é testada, pelo que isto não demonstra por si só exploração ou ausência de proteção.",
+    "nextAction": "Rever endurecimento e teste independente; não remover controlos existentes."
+  },
+  {
+    "priority": "P2",
+    "title": "IA e serviços de entrevista",
+    "evidence": "interview-services-ui-v4.js",
+    "problem": "Gravação, transcrição em direto e IA estão desativadas na interface. Endpoint batch não comprova fluxo contínuo, diarização ou arquivo seguro.",
+    "nextAction": "Manter bloqueado até configuração, autorização, consentimento e validação completa."
+  },
+  {
+    "priority": "P3",
+    "title": "Integrações opcionais",
+    "evidence": "lib/marketing-ai-service.js",
+    "problem": "Imagens atuais de marketing são propostas SVG locais, não geração de imagem por IA. Adaptadores salariais proprietários não têm compatibilidade certificada.",
+    "nextAction": "Não impedir a operação mínima pelo que é opcional; não declarar integração inexistente como ativa."
+  }
+]

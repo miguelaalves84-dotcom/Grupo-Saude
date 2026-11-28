@@ -1,0 +1,6 @@
+/** Standalone preview worker. Not deployed or attached to production by the Pages build. */
+export default {
+ async scheduled(event,env,ctx){ctx.waitUntil(this.run(env));},
+ async run(env){if(env.GS_ENVIRONMENT!=='preview'||!env.GS_GMAIL_JOB_URL||!env.GS_PAYSLIP_JOB_TOKEN)throw Error('Preview scheduler not configured');const target=new URL(env.GS_GMAIL_JOB_URL);if(target.protocol!=='https:'||target.pathname!=='/api/v4-finance-email-job'||target.username||target.password||target.search||target.hash)throw Error('Invalid preview job endpoint');const r=await fetch(target,{method:'POST',redirect:'error',signal:AbortSignal.timeout(180000),headers:{authorization:'Bearer '+env.GS_PAYSLIP_JOB_TOKEN,'content-type':'application/json'},body:JSON.stringify({purpose:'automation'})});if(!r.ok)throw Error('Preview automation failed: HTTP '+r.status);const result=await r.json();console.log(JSON.stringify({event:'preview-gmail-sync',runId:result.id,status:result.status}));if(result.status==='Com erros'||result.status==='Falhou')throw Error('Preview automation completed with errors; check management alerts');},
+ async fetch(){return new Response('Scheduled preview worker; no public execution endpoint.',{status:404});}
+};

@@ -1,0 +1,1543 @@
+actor,device,theme,case,passed,module
+test_call,desktop,light,navy shared sidebar,True,
+test_call,desktop,light,global module search empty result,True,
+test_call,desktop,light,global module search clears,True,
+test_call,desktop,light,no viewport overflow,True,operation
+test_call,desktop,light,header clinic reuses exactly the existing scoped options,True,operation
+test_call,desktop,light,one expanded navigation group,True,operation
+test_call,desktop,light,no viewport overflow,True,chat
+test_call,desktop,light,header clinic reuses exactly the existing scoped options,True,chat
+test_call,desktop,light,one expanded navigation group,True,chat
+test_call,desktop,light,direct subject is optional in the real form,True,chat
+test_call,desktop,light,blank-subject direct conversation renders the peer name,True,chat
+test_call,desktop,light,textarea grows without internal scrollbar or content loss,True,chat
+test_call,desktop,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_call,desktop,light,textarea shrinks and retains caret,True,chat
+test_call,desktop,light,no viewport overflow,True,myhr
+test_call,desktop,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_call,desktop,light,one expanded navigation group,True,myhr
+test_call,desktop,light,no viewport overflow,True,clock
+test_call,desktop,light,header clinic reuses exactly the existing scoped options,True,clock
+test_call,desktop,light,one expanded navigation group,True,clock
+test_call,desktop,light,no viewport overflow,True,finance
+test_call,desktop,light,header clinic reuses exactly the existing scoped options,True,finance
+test_call,desktop,light,one expanded navigation group,True,finance
+test_call,desktop,light,no viewport overflow,True,stock
+test_call,desktop,light,header clinic reuses exactly the existing scoped options,True,stock
+test_call,desktop,light,one expanded navigation group,True,stock
+test_call,desktop,light,no viewport overflow,True,wait
+test_call,desktop,light,header clinic reuses exactly the existing scoped options,True,wait
+test_call,desktop,light,one expanded navigation group,True,wait
+test_call,desktop,light,no JavaScript exceptions,True,
+test_call,desktop,dark,navy shared sidebar,True,
+test_call,desktop,dark,global module search empty result,True,
+test_call,desktop,dark,global module search clears,True,
+test_call,desktop,dark,no viewport overflow,True,operation
+test_call,desktop,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_call,desktop,dark,one expanded navigation group,True,operation
+test_call,desktop,dark,no viewport overflow,True,chat
+test_call,desktop,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_call,desktop,dark,one expanded navigation group,True,chat
+test_call,desktop,dark,direct subject is optional in the real form,True,chat
+test_call,desktop,dark,blank-subject direct conversation renders the peer name,True,chat
+test_call,desktop,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_call,desktop,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_call,desktop,dark,textarea shrinks and retains caret,True,chat
+test_call,desktop,dark,no viewport overflow,True,myhr
+test_call,desktop,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_call,desktop,dark,one expanded navigation group,True,myhr
+test_call,desktop,dark,no viewport overflow,True,clock
+test_call,desktop,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_call,desktop,dark,one expanded navigation group,True,clock
+test_call,desktop,dark,no viewport overflow,True,finance
+test_call,desktop,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_call,desktop,dark,one expanded navigation group,True,finance
+test_call,desktop,dark,no viewport overflow,True,stock
+test_call,desktop,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_call,desktop,dark,one expanded navigation group,True,stock
+test_call,desktop,dark,no viewport overflow,True,wait
+test_call,desktop,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_call,desktop,dark,one expanded navigation group,True,wait
+test_call,desktop,dark,no JavaScript exceptions,True,
+test_call,tablet,light,navy shared sidebar,True,
+test_call,tablet,light,global module search empty result,True,
+test_call,tablet,light,global module search clears,True,
+test_call,tablet,light,no viewport overflow,True,operation
+test_call,tablet,light,header clinic reuses exactly the existing scoped options,True,operation
+test_call,tablet,light,one expanded navigation group,True,operation
+test_call,tablet,light,no viewport overflow,True,chat
+test_call,tablet,light,header clinic reuses exactly the existing scoped options,True,chat
+test_call,tablet,light,one expanded navigation group,True,chat
+test_call,tablet,light,direct subject is optional in the real form,True,chat
+test_call,tablet,light,blank-subject direct conversation renders the peer name,True,chat
+test_call,tablet,light,textarea grows without internal scrollbar or content loss,True,chat
+test_call,tablet,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_call,tablet,light,textarea shrinks and retains caret,True,chat
+test_call,tablet,light,no viewport overflow,True,myhr
+test_call,tablet,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_call,tablet,light,one expanded navigation group,True,myhr
+test_call,tablet,light,no viewport overflow,True,clock
+test_call,tablet,light,header clinic reuses exactly the existing scoped options,True,clock
+test_call,tablet,light,one expanded navigation group,True,clock
+test_call,tablet,light,no viewport overflow,True,finance
+test_call,tablet,light,header clinic reuses exactly the existing scoped options,True,finance
+test_call,tablet,light,one expanded navigation group,True,finance
+test_call,tablet,light,no viewport overflow,True,stock
+test_call,tablet,light,header clinic reuses exactly the existing scoped options,True,stock
+test_call,tablet,light,one expanded navigation group,True,stock
+test_call,tablet,light,no viewport overflow,True,wait
+test_call,tablet,light,header clinic reuses exactly the existing scoped options,True,wait
+test_call,tablet,light,one expanded navigation group,True,wait
+test_call,tablet,light,no JavaScript exceptions,True,
+test_call,tablet,dark,navy shared sidebar,True,
+test_call,tablet,dark,global module search empty result,True,
+test_call,tablet,dark,global module search clears,True,
+test_call,tablet,dark,no viewport overflow,True,operation
+test_call,tablet,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_call,tablet,dark,one expanded navigation group,True,operation
+test_call,tablet,dark,no viewport overflow,True,chat
+test_call,tablet,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_call,tablet,dark,one expanded navigation group,True,chat
+test_call,tablet,dark,direct subject is optional in the real form,True,chat
+test_call,tablet,dark,blank-subject direct conversation renders the peer name,True,chat
+test_call,tablet,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_call,tablet,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_call,tablet,dark,textarea shrinks and retains caret,True,chat
+test_call,tablet,dark,no viewport overflow,True,myhr
+test_call,tablet,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_call,tablet,dark,one expanded navigation group,True,myhr
+test_call,tablet,dark,no viewport overflow,True,clock
+test_call,tablet,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_call,tablet,dark,one expanded navigation group,True,clock
+test_call,tablet,dark,no viewport overflow,True,finance
+test_call,tablet,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_call,tablet,dark,one expanded navigation group,True,finance
+test_call,tablet,dark,no viewport overflow,True,stock
+test_call,tablet,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_call,tablet,dark,one expanded navigation group,True,stock
+test_call,tablet,dark,no viewport overflow,True,wait
+test_call,tablet,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_call,tablet,dark,one expanded navigation group,True,wait
+test_call,tablet,dark,no JavaScript exceptions,True,
+test_call,mobile,light,navy shared sidebar,True,
+test_call,mobile,light,global module search empty result,True,
+test_call,mobile,light,global module search clears,True,
+test_call,mobile,light,no viewport overflow,True,operation
+test_call,mobile,light,header clinic reuses exactly the existing scoped options,True,operation
+test_call,mobile,light,one expanded navigation group,True,operation
+test_call,mobile,light,no viewport overflow,True,chat
+test_call,mobile,light,header clinic reuses exactly the existing scoped options,True,chat
+test_call,mobile,light,one expanded navigation group,True,chat
+test_call,mobile,light,direct subject is optional in the real form,True,chat
+test_call,mobile,light,blank-subject direct conversation renders the peer name,True,chat
+test_call,mobile,light,textarea grows without internal scrollbar or content loss,True,chat
+test_call,mobile,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_call,mobile,light,textarea shrinks and retains caret,True,chat
+test_call,mobile,light,no viewport overflow,True,myhr
+test_call,mobile,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_call,mobile,light,one expanded navigation group,True,myhr
+test_call,mobile,light,no viewport overflow,True,clock
+test_call,mobile,light,header clinic reuses exactly the existing scoped options,True,clock
+test_call,mobile,light,one expanded navigation group,True,clock
+test_call,mobile,light,no viewport overflow,True,finance
+test_call,mobile,light,header clinic reuses exactly the existing scoped options,True,finance
+test_call,mobile,light,one expanded navigation group,True,finance
+test_call,mobile,light,no viewport overflow,True,stock
+test_call,mobile,light,header clinic reuses exactly the existing scoped options,True,stock
+test_call,mobile,light,one expanded navigation group,True,stock
+test_call,mobile,light,no viewport overflow,True,wait
+test_call,mobile,light,header clinic reuses exactly the existing scoped options,True,wait
+test_call,mobile,light,one expanded navigation group,True,wait
+test_call,mobile,light,no JavaScript exceptions,True,
+test_call,mobile,dark,navy shared sidebar,True,
+test_call,mobile,dark,global module search empty result,True,
+test_call,mobile,dark,global module search clears,True,
+test_call,mobile,dark,no viewport overflow,True,operation
+test_call,mobile,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_call,mobile,dark,one expanded navigation group,True,operation
+test_call,mobile,dark,no viewport overflow,True,chat
+test_call,mobile,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_call,mobile,dark,one expanded navigation group,True,chat
+test_call,mobile,dark,direct subject is optional in the real form,True,chat
+test_call,mobile,dark,blank-subject direct conversation renders the peer name,True,chat
+test_call,mobile,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_call,mobile,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_call,mobile,dark,textarea shrinks and retains caret,True,chat
+test_call,mobile,dark,no viewport overflow,True,myhr
+test_call,mobile,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_call,mobile,dark,one expanded navigation group,True,myhr
+test_call,mobile,dark,no viewport overflow,True,clock
+test_call,mobile,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_call,mobile,dark,one expanded navigation group,True,clock
+test_call,mobile,dark,no viewport overflow,True,finance
+test_call,mobile,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_call,mobile,dark,one expanded navigation group,True,finance
+test_call,mobile,dark,no viewport overflow,True,stock
+test_call,mobile,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_call,mobile,dark,one expanded navigation group,True,stock
+test_call,mobile,dark,no viewport overflow,True,wait
+test_call,mobile,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_call,mobile,dark,one expanded navigation group,True,wait
+test_call,mobile,dark,no JavaScript exceptions,True,
+test_med,desktop,light,navy shared sidebar,True,
+test_med,desktop,light,global module search empty result,True,
+test_med,desktop,light,global module search clears,True,
+test_med,desktop,light,no viewport overflow,True,chat
+test_med,desktop,light,header clinic reuses exactly the existing scoped options,True,chat
+test_med,desktop,light,one expanded navigation group,True,chat
+test_med,desktop,light,direct subject is optional in the real form,True,chat
+test_med,desktop,light,blank-subject direct conversation renders the peer name,True,chat
+test_med,desktop,light,textarea grows without internal scrollbar or content loss,True,chat
+test_med,desktop,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_med,desktop,light,textarea shrinks and retains caret,True,chat
+test_med,desktop,light,no viewport overflow,True,myhr
+test_med,desktop,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_med,desktop,light,one expanded navigation group,True,myhr
+test_med,desktop,light,no viewport overflow,True,clock
+test_med,desktop,light,header clinic reuses exactly the existing scoped options,True,clock
+test_med,desktop,light,one expanded navigation group,True,clock
+test_med,desktop,light,no viewport overflow,True,finance
+test_med,desktop,light,header clinic reuses exactly the existing scoped options,True,finance
+test_med,desktop,light,one expanded navigation group,True,finance
+test_med,desktop,light,no viewport overflow,True,stock
+test_med,desktop,light,header clinic reuses exactly the existing scoped options,True,stock
+test_med,desktop,light,one expanded navigation group,True,stock
+test_med,desktop,light,no JavaScript exceptions,True,
+test_med,desktop,dark,navy shared sidebar,True,
+test_med,desktop,dark,global module search empty result,True,
+test_med,desktop,dark,global module search clears,True,
+test_med,desktop,dark,no viewport overflow,True,chat
+test_med,desktop,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_med,desktop,dark,one expanded navigation group,True,chat
+test_med,desktop,dark,direct subject is optional in the real form,True,chat
+test_med,desktop,dark,blank-subject direct conversation renders the peer name,True,chat
+test_med,desktop,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_med,desktop,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_med,desktop,dark,textarea shrinks and retains caret,True,chat
+test_med,desktop,dark,no viewport overflow,True,myhr
+test_med,desktop,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_med,desktop,dark,one expanded navigation group,True,myhr
+test_med,desktop,dark,no viewport overflow,True,clock
+test_med,desktop,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_med,desktop,dark,one expanded navigation group,True,clock
+test_med,desktop,dark,no viewport overflow,True,finance
+test_med,desktop,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_med,desktop,dark,one expanded navigation group,True,finance
+test_med,desktop,dark,no viewport overflow,True,stock
+test_med,desktop,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_med,desktop,dark,one expanded navigation group,True,stock
+test_med,desktop,dark,no JavaScript exceptions,True,
+test_med,tablet,light,navy shared sidebar,True,
+test_med,tablet,light,global module search empty result,True,
+test_med,tablet,light,global module search clears,True,
+test_med,tablet,light,no viewport overflow,True,chat
+test_med,tablet,light,header clinic reuses exactly the existing scoped options,True,chat
+test_med,tablet,light,one expanded navigation group,True,chat
+test_med,tablet,light,direct subject is optional in the real form,True,chat
+test_med,tablet,light,blank-subject direct conversation renders the peer name,True,chat
+test_med,tablet,light,textarea grows without internal scrollbar or content loss,True,chat
+test_med,tablet,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_med,tablet,light,textarea shrinks and retains caret,True,chat
+test_med,tablet,light,no viewport overflow,True,myhr
+test_med,tablet,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_med,tablet,light,one expanded navigation group,True,myhr
+test_med,tablet,light,no viewport overflow,True,clock
+test_med,tablet,light,header clinic reuses exactly the existing scoped options,True,clock
+test_med,tablet,light,one expanded navigation group,True,clock
+test_med,tablet,light,no viewport overflow,True,finance
+test_med,tablet,light,header clinic reuses exactly the existing scoped options,True,finance
+test_med,tablet,light,one expanded navigation group,True,finance
+test_med,tablet,light,no viewport overflow,True,stock
+test_med,tablet,light,header clinic reuses exactly the existing scoped options,True,stock
+test_med,tablet,light,one expanded navigation group,True,stock
+test_med,tablet,light,no JavaScript exceptions,True,
+test_med,tablet,dark,navy shared sidebar,True,
+test_med,tablet,dark,global module search empty result,True,
+test_med,tablet,dark,global module search clears,True,
+test_med,tablet,dark,no viewport overflow,True,chat
+test_med,tablet,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_med,tablet,dark,one expanded navigation group,True,chat
+test_med,tablet,dark,direct subject is optional in the real form,True,chat
+test_med,tablet,dark,blank-subject direct conversation renders the peer name,True,chat
+test_med,tablet,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_med,tablet,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_med,tablet,dark,textarea shrinks and retains caret,True,chat
+test_med,tablet,dark,no viewport overflow,True,myhr
+test_med,tablet,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_med,tablet,dark,one expanded navigation group,True,myhr
+test_med,tablet,dark,no viewport overflow,True,clock
+test_med,tablet,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_med,tablet,dark,one expanded navigation group,True,clock
+test_med,tablet,dark,no viewport overflow,True,finance
+test_med,tablet,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_med,tablet,dark,one expanded navigation group,True,finance
+test_med,tablet,dark,no viewport overflow,True,stock
+test_med,tablet,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_med,tablet,dark,one expanded navigation group,True,stock
+test_med,tablet,dark,no JavaScript exceptions,True,
+test_med,mobile,light,navy shared sidebar,True,
+test_med,mobile,light,global module search empty result,True,
+test_med,mobile,light,global module search clears,True,
+test_med,mobile,light,no viewport overflow,True,chat
+test_med,mobile,light,header clinic reuses exactly the existing scoped options,True,chat
+test_med,mobile,light,one expanded navigation group,True,chat
+test_med,mobile,light,direct subject is optional in the real form,True,chat
+test_med,mobile,light,blank-subject direct conversation renders the peer name,True,chat
+test_med,mobile,light,textarea grows without internal scrollbar or content loss,True,chat
+test_med,mobile,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_med,mobile,light,textarea shrinks and retains caret,True,chat
+test_med,mobile,light,no viewport overflow,True,myhr
+test_med,mobile,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_med,mobile,light,one expanded navigation group,True,myhr
+test_med,mobile,light,no viewport overflow,True,clock
+test_med,mobile,light,header clinic reuses exactly the existing scoped options,True,clock
+test_med,mobile,light,one expanded navigation group,True,clock
+test_med,mobile,light,no viewport overflow,True,finance
+test_med,mobile,light,header clinic reuses exactly the existing scoped options,True,finance
+test_med,mobile,light,one expanded navigation group,True,finance
+test_med,mobile,light,no viewport overflow,True,stock
+test_med,mobile,light,header clinic reuses exactly the existing scoped options,True,stock
+test_med,mobile,light,one expanded navigation group,True,stock
+test_med,mobile,light,no JavaScript exceptions,True,
+test_med,mobile,dark,navy shared sidebar,True,
+test_med,mobile,dark,global module search empty result,True,
+test_med,mobile,dark,global module search clears,True,
+test_med,mobile,dark,no viewport overflow,True,chat
+test_med,mobile,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_med,mobile,dark,one expanded navigation group,True,chat
+test_med,mobile,dark,direct subject is optional in the real form,True,chat
+test_med,mobile,dark,blank-subject direct conversation renders the peer name,True,chat
+test_med,mobile,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_med,mobile,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_med,mobile,dark,textarea shrinks and retains caret,True,chat
+test_med,mobile,dark,no viewport overflow,True,myhr
+test_med,mobile,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_med,mobile,dark,one expanded navigation group,True,myhr
+test_med,mobile,dark,no viewport overflow,True,clock
+test_med,mobile,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_med,mobile,dark,one expanded navigation group,True,clock
+test_med,mobile,dark,no viewport overflow,True,finance
+test_med,mobile,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_med,mobile,dark,one expanded navigation group,True,finance
+test_med,mobile,dark,no viewport overflow,True,stock
+test_med,mobile,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_med,mobile,dark,one expanded navigation group,True,stock
+test_med,mobile,dark,no JavaScript exceptions,True,
+test_tec,desktop,light,navy shared sidebar,True,
+test_tec,desktop,light,global module search empty result,True,
+test_tec,desktop,light,global module search clears,True,
+test_tec,desktop,light,no viewport overflow,True,chat
+test_tec,desktop,light,header clinic reuses exactly the existing scoped options,True,chat
+test_tec,desktop,light,one expanded navigation group,True,chat
+test_tec,desktop,light,direct subject is optional in the real form,True,chat
+test_tec,desktop,light,blank-subject direct conversation renders the peer name,True,chat
+test_tec,desktop,light,textarea grows without internal scrollbar or content loss,True,chat
+test_tec,desktop,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_tec,desktop,light,textarea shrinks and retains caret,True,chat
+test_tec,desktop,light,no viewport overflow,True,myhr
+test_tec,desktop,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_tec,desktop,light,one expanded navigation group,True,myhr
+test_tec,desktop,light,no viewport overflow,True,clock
+test_tec,desktop,light,header clinic reuses exactly the existing scoped options,True,clock
+test_tec,desktop,light,one expanded navigation group,True,clock
+test_tec,desktop,light,no viewport overflow,True,finance
+test_tec,desktop,light,header clinic reuses exactly the existing scoped options,True,finance
+test_tec,desktop,light,one expanded navigation group,True,finance
+test_tec,desktop,light,no viewport overflow,True,stock
+test_tec,desktop,light,header clinic reuses exactly the existing scoped options,True,stock
+test_tec,desktop,light,one expanded navigation group,True,stock
+test_tec,desktop,light,no JavaScript exceptions,True,
+test_tec,desktop,dark,navy shared sidebar,True,
+test_tec,desktop,dark,global module search empty result,True,
+test_tec,desktop,dark,global module search clears,True,
+test_tec,desktop,dark,no viewport overflow,True,chat
+test_tec,desktop,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_tec,desktop,dark,one expanded navigation group,True,chat
+test_tec,desktop,dark,direct subject is optional in the real form,True,chat
+test_tec,desktop,dark,blank-subject direct conversation renders the peer name,True,chat
+test_tec,desktop,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_tec,desktop,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_tec,desktop,dark,textarea shrinks and retains caret,True,chat
+test_tec,desktop,dark,no viewport overflow,True,myhr
+test_tec,desktop,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_tec,desktop,dark,one expanded navigation group,True,myhr
+test_tec,desktop,dark,no viewport overflow,True,clock
+test_tec,desktop,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_tec,desktop,dark,one expanded navigation group,True,clock
+test_tec,desktop,dark,no viewport overflow,True,finance
+test_tec,desktop,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_tec,desktop,dark,one expanded navigation group,True,finance
+test_tec,desktop,dark,no viewport overflow,True,stock
+test_tec,desktop,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_tec,desktop,dark,one expanded navigation group,True,stock
+test_tec,desktop,dark,no JavaScript exceptions,True,
+test_tec,tablet,light,navy shared sidebar,True,
+test_tec,tablet,light,global module search empty result,True,
+test_tec,tablet,light,global module search clears,True,
+test_tec,tablet,light,no viewport overflow,True,chat
+test_tec,tablet,light,header clinic reuses exactly the existing scoped options,True,chat
+test_tec,tablet,light,one expanded navigation group,True,chat
+test_tec,tablet,light,direct subject is optional in the real form,True,chat
+test_tec,tablet,light,blank-subject direct conversation renders the peer name,True,chat
+test_tec,tablet,light,textarea grows without internal scrollbar or content loss,True,chat
+test_tec,tablet,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_tec,tablet,light,textarea shrinks and retains caret,True,chat
+test_tec,tablet,light,no viewport overflow,True,myhr
+test_tec,tablet,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_tec,tablet,light,one expanded navigation group,True,myhr
+test_tec,tablet,light,no viewport overflow,True,clock
+test_tec,tablet,light,header clinic reuses exactly the existing scoped options,True,clock
+test_tec,tablet,light,one expanded navigation group,True,clock
+test_tec,tablet,light,no viewport overflow,True,finance
+test_tec,tablet,light,header clinic reuses exactly the existing scoped options,True,finance
+test_tec,tablet,light,one expanded navigation group,True,finance
+test_tec,tablet,light,no viewport overflow,True,stock
+test_tec,tablet,light,header clinic reuses exactly the existing scoped options,True,stock
+test_tec,tablet,light,one expanded navigation group,True,stock
+test_tec,tablet,light,no JavaScript exceptions,True,
+test_tec,tablet,dark,navy shared sidebar,True,
+test_tec,tablet,dark,global module search empty result,True,
+test_tec,tablet,dark,global module search clears,True,
+test_tec,tablet,dark,no viewport overflow,True,chat
+test_tec,tablet,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_tec,tablet,dark,one expanded navigation group,True,chat
+test_tec,tablet,dark,direct subject is optional in the real form,True,chat
+test_tec,tablet,dark,blank-subject direct conversation renders the peer name,True,chat
+test_tec,tablet,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_tec,tablet,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_tec,tablet,dark,textarea shrinks and retains caret,True,chat
+test_tec,tablet,dark,no viewport overflow,True,myhr
+test_tec,tablet,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_tec,tablet,dark,one expanded navigation group,True,myhr
+test_tec,tablet,dark,no viewport overflow,True,clock
+test_tec,tablet,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_tec,tablet,dark,one expanded navigation group,True,clock
+test_tec,tablet,dark,no viewport overflow,True,finance
+test_tec,tablet,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_tec,tablet,dark,one expanded navigation group,True,finance
+test_tec,tablet,dark,no viewport overflow,True,stock
+test_tec,tablet,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_tec,tablet,dark,one expanded navigation group,True,stock
+test_tec,tablet,dark,no JavaScript exceptions,True,
+test_tec,mobile,light,navy shared sidebar,True,
+test_tec,mobile,light,global module search empty result,True,
+test_tec,mobile,light,global module search clears,True,
+test_tec,mobile,light,no viewport overflow,True,chat
+test_tec,mobile,light,header clinic reuses exactly the existing scoped options,True,chat
+test_tec,mobile,light,one expanded navigation group,True,chat
+test_tec,mobile,light,direct subject is optional in the real form,True,chat
+test_tec,mobile,light,blank-subject direct conversation renders the peer name,True,chat
+test_tec,mobile,light,textarea grows without internal scrollbar or content loss,True,chat
+test_tec,mobile,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_tec,mobile,light,textarea shrinks and retains caret,True,chat
+test_tec,mobile,light,no viewport overflow,True,myhr
+test_tec,mobile,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_tec,mobile,light,one expanded navigation group,True,myhr
+test_tec,mobile,light,no viewport overflow,True,clock
+test_tec,mobile,light,header clinic reuses exactly the existing scoped options,True,clock
+test_tec,mobile,light,one expanded navigation group,True,clock
+test_tec,mobile,light,no viewport overflow,True,finance
+test_tec,mobile,light,header clinic reuses exactly the existing scoped options,True,finance
+test_tec,mobile,light,one expanded navigation group,True,finance
+test_tec,mobile,light,no viewport overflow,True,stock
+test_tec,mobile,light,header clinic reuses exactly the existing scoped options,True,stock
+test_tec,mobile,light,one expanded navigation group,True,stock
+test_tec,mobile,light,no JavaScript exceptions,True,
+test_tec,mobile,dark,navy shared sidebar,True,
+test_tec,mobile,dark,global module search empty result,True,
+test_tec,mobile,dark,global module search clears,True,
+test_tec,mobile,dark,no viewport overflow,True,chat
+test_tec,mobile,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_tec,mobile,dark,one expanded navigation group,True,chat
+test_tec,mobile,dark,direct subject is optional in the real form,True,chat
+test_tec,mobile,dark,blank-subject direct conversation renders the peer name,True,chat
+test_tec,mobile,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_tec,mobile,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_tec,mobile,dark,textarea shrinks and retains caret,True,chat
+test_tec,mobile,dark,no viewport overflow,True,myhr
+test_tec,mobile,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_tec,mobile,dark,one expanded navigation group,True,myhr
+test_tec,mobile,dark,no viewport overflow,True,clock
+test_tec,mobile,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_tec,mobile,dark,one expanded navigation group,True,clock
+test_tec,mobile,dark,no viewport overflow,True,finance
+test_tec,mobile,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_tec,mobile,dark,one expanded navigation group,True,finance
+test_tec,mobile,dark,no viewport overflow,True,stock
+test_tec,mobile,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_tec,mobile,dark,one expanded navigation group,True,stock
+test_tec,mobile,dark,no JavaScript exceptions,True,
+test_adm,desktop,light,navy shared sidebar,True,
+test_adm,desktop,light,global module search empty result,True,
+test_adm,desktop,light,global module search clears,True,
+test_adm,desktop,light,global search opens the existing authorised Agenda,True,
+test_adm,desktop,light,no viewport overflow,True,operation
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,operation
+test_adm,desktop,light,one expanded navigation group,True,operation
+test_adm,desktop,light,textarea grows without internal scrollbar or content loss,True,operation
+test_adm,desktop,light,textarea shrinks and retains caret,True,operation
+test_adm,desktop,light,no viewport overflow,True,agenda
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,agenda
+test_adm,desktop,light,one expanded navigation group,True,agenda
+test_adm,desktop,light,no viewport overflow,True,chat
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,chat
+test_adm,desktop,light,one expanded navigation group,True,chat
+test_adm,desktop,light,direct subject is optional in the real form,True,chat
+test_adm,desktop,light,blank-subject direct conversation renders the peer name,True,chat
+test_adm,desktop,light,textarea grows without internal scrollbar or content loss,True,chat
+test_adm,desktop,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_adm,desktop,light,textarea shrinks and retains caret,True,chat
+test_adm,desktop,light,no viewport overflow,True,myhr
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_adm,desktop,light,one expanded navigation group,True,myhr
+test_adm,desktop,light,no viewport overflow,True,clock
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,clock
+test_adm,desktop,light,one expanded navigation group,True,clock
+test_adm,desktop,light,no viewport overflow,True,finance
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,finance
+test_adm,desktop,light,one expanded navigation group,True,finance
+test_adm,desktop,light,no viewport overflow,True,stock
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,stock
+test_adm,desktop,light,one expanded navigation group,True,stock
+test_adm,desktop,light,no viewport overflow,True,complaints
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,complaints
+test_adm,desktop,light,one expanded navigation group,True,complaints
+test_adm,desktop,light,no viewport overflow,True,wait
+test_adm,desktop,light,header clinic reuses exactly the existing scoped options,True,wait
+test_adm,desktop,light,one expanded navigation group,True,wait
+test_adm,desktop,light,no JavaScript exceptions,True,
+test_adm,desktop,dark,navy shared sidebar,True,
+test_adm,desktop,dark,global module search empty result,True,
+test_adm,desktop,dark,global module search clears,True,
+test_adm,desktop,dark,global search opens the existing authorised Agenda,True,
+test_adm,desktop,dark,no viewport overflow,True,operation
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_adm,desktop,dark,one expanded navigation group,True,operation
+test_adm,desktop,dark,textarea grows without internal scrollbar or content loss,True,operation
+test_adm,desktop,dark,textarea shrinks and retains caret,True,operation
+test_adm,desktop,dark,no viewport overflow,True,agenda
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,agenda
+test_adm,desktop,dark,one expanded navigation group,True,agenda
+test_adm,desktop,dark,no viewport overflow,True,chat
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_adm,desktop,dark,one expanded navigation group,True,chat
+test_adm,desktop,dark,direct subject is optional in the real form,True,chat
+test_adm,desktop,dark,blank-subject direct conversation renders the peer name,True,chat
+test_adm,desktop,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_adm,desktop,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_adm,desktop,dark,textarea shrinks and retains caret,True,chat
+test_adm,desktop,dark,no viewport overflow,True,myhr
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_adm,desktop,dark,one expanded navigation group,True,myhr
+test_adm,desktop,dark,no viewport overflow,True,clock
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_adm,desktop,dark,one expanded navigation group,True,clock
+test_adm,desktop,dark,no viewport overflow,True,finance
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_adm,desktop,dark,one expanded navigation group,True,finance
+test_adm,desktop,dark,no viewport overflow,True,stock
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_adm,desktop,dark,one expanded navigation group,True,stock
+test_adm,desktop,dark,no viewport overflow,True,complaints
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,complaints
+test_adm,desktop,dark,one expanded navigation group,True,complaints
+test_adm,desktop,dark,no viewport overflow,True,wait
+test_adm,desktop,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_adm,desktop,dark,one expanded navigation group,True,wait
+test_adm,desktop,dark,no JavaScript exceptions,True,
+test_adm,tablet,light,navy shared sidebar,True,
+test_adm,tablet,light,global module search empty result,True,
+test_adm,tablet,light,global module search clears,True,
+test_adm,tablet,light,global search opens the existing authorised Agenda,True,
+test_adm,tablet,light,no viewport overflow,True,operation
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,operation
+test_adm,tablet,light,one expanded navigation group,True,operation
+test_adm,tablet,light,textarea grows without internal scrollbar or content loss,True,operation
+test_adm,tablet,light,textarea shrinks and retains caret,True,operation
+test_adm,tablet,light,no viewport overflow,True,agenda
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,agenda
+test_adm,tablet,light,one expanded navigation group,True,agenda
+test_adm,tablet,light,no viewport overflow,True,chat
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,chat
+test_adm,tablet,light,one expanded navigation group,True,chat
+test_adm,tablet,light,direct subject is optional in the real form,True,chat
+test_adm,tablet,light,blank-subject direct conversation renders the peer name,True,chat
+test_adm,tablet,light,textarea grows without internal scrollbar or content loss,True,chat
+test_adm,tablet,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_adm,tablet,light,textarea shrinks and retains caret,True,chat
+test_adm,tablet,light,no viewport overflow,True,myhr
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_adm,tablet,light,one expanded navigation group,True,myhr
+test_adm,tablet,light,no viewport overflow,True,clock
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,clock
+test_adm,tablet,light,one expanded navigation group,True,clock
+test_adm,tablet,light,no viewport overflow,True,finance
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,finance
+test_adm,tablet,light,one expanded navigation group,True,finance
+test_adm,tablet,light,no viewport overflow,True,stock
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,stock
+test_adm,tablet,light,one expanded navigation group,True,stock
+test_adm,tablet,light,no viewport overflow,True,complaints
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,complaints
+test_adm,tablet,light,one expanded navigation group,True,complaints
+test_adm,tablet,light,no viewport overflow,True,wait
+test_adm,tablet,light,header clinic reuses exactly the existing scoped options,True,wait
+test_adm,tablet,light,one expanded navigation group,True,wait
+test_adm,tablet,light,no JavaScript exceptions,True,
+test_adm,tablet,dark,navy shared sidebar,True,
+test_adm,tablet,dark,global module search empty result,True,
+test_adm,tablet,dark,global module search clears,True,
+test_adm,tablet,dark,global search opens the existing authorised Agenda,True,
+test_adm,tablet,dark,no viewport overflow,True,operation
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_adm,tablet,dark,one expanded navigation group,True,operation
+test_adm,tablet,dark,textarea grows without internal scrollbar or content loss,True,operation
+test_adm,tablet,dark,textarea shrinks and retains caret,True,operation
+test_adm,tablet,dark,no viewport overflow,True,agenda
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,agenda
+test_adm,tablet,dark,one expanded navigation group,True,agenda
+test_adm,tablet,dark,no viewport overflow,True,chat
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_adm,tablet,dark,one expanded navigation group,True,chat
+test_adm,tablet,dark,direct subject is optional in the real form,True,chat
+test_adm,tablet,dark,blank-subject direct conversation renders the peer name,True,chat
+test_adm,tablet,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_adm,tablet,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_adm,tablet,dark,textarea shrinks and retains caret,True,chat
+test_adm,tablet,dark,no viewport overflow,True,myhr
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_adm,tablet,dark,one expanded navigation group,True,myhr
+test_adm,tablet,dark,no viewport overflow,True,clock
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_adm,tablet,dark,one expanded navigation group,True,clock
+test_adm,tablet,dark,no viewport overflow,True,finance
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_adm,tablet,dark,one expanded navigation group,True,finance
+test_adm,tablet,dark,no viewport overflow,True,stock
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_adm,tablet,dark,one expanded navigation group,True,stock
+test_adm,tablet,dark,no viewport overflow,True,complaints
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,complaints
+test_adm,tablet,dark,one expanded navigation group,True,complaints
+test_adm,tablet,dark,no viewport overflow,True,wait
+test_adm,tablet,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_adm,tablet,dark,one expanded navigation group,True,wait
+test_adm,tablet,dark,no JavaScript exceptions,True,
+test_adm,mobile,light,navy shared sidebar,True,
+test_adm,mobile,light,global module search empty result,True,
+test_adm,mobile,light,global module search clears,True,
+test_adm,mobile,light,global search opens the existing authorised Agenda,True,
+test_adm,mobile,light,no viewport overflow,True,operation
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,operation
+test_adm,mobile,light,one expanded navigation group,True,operation
+test_adm,mobile,light,textarea grows without internal scrollbar or content loss,True,operation
+test_adm,mobile,light,textarea shrinks and retains caret,True,operation
+test_adm,mobile,light,no viewport overflow,True,agenda
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,agenda
+test_adm,mobile,light,one expanded navigation group,True,agenda
+test_adm,mobile,light,no viewport overflow,True,chat
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,chat
+test_adm,mobile,light,one expanded navigation group,True,chat
+test_adm,mobile,light,direct subject is optional in the real form,True,chat
+test_adm,mobile,light,blank-subject direct conversation renders the peer name,True,chat
+test_adm,mobile,light,textarea grows without internal scrollbar or content loss,True,chat
+test_adm,mobile,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_adm,mobile,light,textarea shrinks and retains caret,True,chat
+test_adm,mobile,light,no viewport overflow,True,myhr
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_adm,mobile,light,one expanded navigation group,True,myhr
+test_adm,mobile,light,no viewport overflow,True,clock
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,clock
+test_adm,mobile,light,one expanded navigation group,True,clock
+test_adm,mobile,light,no viewport overflow,True,finance
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,finance
+test_adm,mobile,light,one expanded navigation group,True,finance
+test_adm,mobile,light,no viewport overflow,True,stock
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,stock
+test_adm,mobile,light,one expanded navigation group,True,stock
+test_adm,mobile,light,no viewport overflow,True,complaints
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,complaints
+test_adm,mobile,light,one expanded navigation group,True,complaints
+test_adm,mobile,light,no viewport overflow,True,wait
+test_adm,mobile,light,header clinic reuses exactly the existing scoped options,True,wait
+test_adm,mobile,light,one expanded navigation group,True,wait
+test_adm,mobile,light,no JavaScript exceptions,True,
+test_adm,mobile,dark,navy shared sidebar,True,
+test_adm,mobile,dark,global module search empty result,True,
+test_adm,mobile,dark,global module search clears,True,
+test_adm,mobile,dark,global search opens the existing authorised Agenda,True,
+test_adm,mobile,dark,no viewport overflow,True,operation
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_adm,mobile,dark,one expanded navigation group,True,operation
+test_adm,mobile,dark,textarea grows without internal scrollbar or content loss,True,operation
+test_adm,mobile,dark,textarea shrinks and retains caret,True,operation
+test_adm,mobile,dark,no viewport overflow,True,agenda
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,agenda
+test_adm,mobile,dark,one expanded navigation group,True,agenda
+test_adm,mobile,dark,no viewport overflow,True,chat
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_adm,mobile,dark,one expanded navigation group,True,chat
+test_adm,mobile,dark,direct subject is optional in the real form,True,chat
+test_adm,mobile,dark,blank-subject direct conversation renders the peer name,True,chat
+test_adm,mobile,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_adm,mobile,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_adm,mobile,dark,textarea shrinks and retains caret,True,chat
+test_adm,mobile,dark,no viewport overflow,True,myhr
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_adm,mobile,dark,one expanded navigation group,True,myhr
+test_adm,mobile,dark,no viewport overflow,True,clock
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_adm,mobile,dark,one expanded navigation group,True,clock
+test_adm,mobile,dark,no viewport overflow,True,finance
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_adm,mobile,dark,one expanded navigation group,True,finance
+test_adm,mobile,dark,no viewport overflow,True,stock
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_adm,mobile,dark,one expanded navigation group,True,stock
+test_adm,mobile,dark,no viewport overflow,True,complaints
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,complaints
+test_adm,mobile,dark,one expanded navigation group,True,complaints
+test_adm,mobile,dark,no viewport overflow,True,wait
+test_adm,mobile,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_adm,mobile,dark,one expanded navigation group,True,wait
+test_adm,mobile,dark,no JavaScript exceptions,True,
+test_admin,desktop,light,navy shared sidebar,True,
+test_admin,desktop,light,global module search empty result,True,
+test_admin,desktop,light,global module search clears,True,
+test_admin,desktop,light,global search opens the existing authorised Agenda,True,
+test_admin,desktop,light,no viewport overflow,True,dashboard
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,dashboard
+test_admin,desktop,light,one expanded navigation group,True,dashboard
+test_admin,desktop,light,no viewport overflow,True,clinics
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,clinics
+test_admin,desktop,light,one expanded navigation group,True,clinics
+test_admin,desktop,light,no viewport overflow,True,operation
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,operation
+test_admin,desktop,light,one expanded navigation group,True,operation
+test_admin,desktop,light,textarea grows without internal scrollbar or content loss,True,operation
+test_admin,desktop,light,textarea shrinks and retains caret,True,operation
+test_admin,desktop,light,no viewport overflow,True,agenda
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,agenda
+test_admin,desktop,light,one expanded navigation group,True,agenda
+test_admin,desktop,light,no viewport overflow,True,chat
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,chat
+test_admin,desktop,light,one expanded navigation group,True,chat
+test_admin,desktop,light,direct subject is optional in the real form,True,chat
+test_admin,desktop,light,blank-subject direct conversation renders the peer name,True,chat
+test_admin,desktop,light,textarea grows without internal scrollbar or content loss,True,chat
+test_admin,desktop,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_admin,desktop,light,textarea shrinks and retains caret,True,chat
+test_admin,desktop,light,no viewport overflow,True,hr
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,hr
+test_admin,desktop,light,one expanded navigation group,True,hr
+test_admin,desktop,light,one performance entry per employee workspace,True,hr
+test_admin,desktop,light,no viewport overflow,True,myhr
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_admin,desktop,light,one expanded navigation group,True,myhr
+test_admin,desktop,light,no viewport overflow,True,clock
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,clock
+test_admin,desktop,light,one expanded navigation group,True,clock
+test_admin,desktop,light,no viewport overflow,True,finance
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,finance
+test_admin,desktop,light,one expanded navigation group,True,finance
+test_admin,desktop,light,no viewport overflow,True,stock
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,stock
+test_admin,desktop,light,one expanded navigation group,True,stock
+test_admin,desktop,light,no viewport overflow,True,marketing
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,marketing
+test_admin,desktop,light,one expanded navigation group,True,marketing
+test_admin,desktop,light,no viewport overflow,True,complaints
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,complaints
+test_admin,desktop,light,one expanded navigation group,True,complaints
+test_admin,desktop,light,no viewport overflow,True,wait
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,wait
+test_admin,desktop,light,one expanded navigation group,True,wait
+test_admin,desktop,light,no viewport overflow,True,tasks
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,tasks
+test_admin,desktop,light,one expanded navigation group,True,tasks
+test_admin,desktop,light,no viewport overflow,True,alerts
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,alerts
+test_admin,desktop,light,one expanded navigation group,True,alerts
+test_admin,desktop,light,no viewport overflow,True,tables
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,tables
+test_admin,desktop,light,one expanded navigation group,True,tables
+test_admin,desktop,light,no viewport overflow,True,reports
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,reports
+test_admin,desktop,light,one expanded navigation group,True,reports
+test_admin,desktop,light,no viewport overflow,True,security
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,security
+test_admin,desktop,light,one expanded navigation group,True,security
+test_admin,desktop,light,no viewport overflow,True,audit
+test_admin,desktop,light,header clinic reuses exactly the existing scoped options,True,audit
+test_admin,desktop,light,one expanded navigation group,True,audit
+test_admin,desktop,light,no JavaScript exceptions,True,
+test_admin,desktop,dark,navy shared sidebar,True,
+test_admin,desktop,dark,global module search empty result,True,
+test_admin,desktop,dark,global module search clears,True,
+test_admin,desktop,dark,global search opens the existing authorised Agenda,True,
+test_admin,desktop,dark,no viewport overflow,True,dashboard
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,dashboard
+test_admin,desktop,dark,one expanded navigation group,True,dashboard
+test_admin,desktop,dark,no viewport overflow,True,clinics
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,clinics
+test_admin,desktop,dark,one expanded navigation group,True,clinics
+test_admin,desktop,dark,no viewport overflow,True,operation
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_admin,desktop,dark,one expanded navigation group,True,operation
+test_admin,desktop,dark,textarea grows without internal scrollbar or content loss,True,operation
+test_admin,desktop,dark,textarea shrinks and retains caret,True,operation
+test_admin,desktop,dark,no viewport overflow,True,agenda
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,agenda
+test_admin,desktop,dark,one expanded navigation group,True,agenda
+test_admin,desktop,dark,no viewport overflow,True,chat
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_admin,desktop,dark,one expanded navigation group,True,chat
+test_admin,desktop,dark,direct subject is optional in the real form,True,chat
+test_admin,desktop,dark,blank-subject direct conversation renders the peer name,True,chat
+test_admin,desktop,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_admin,desktop,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_admin,desktop,dark,textarea shrinks and retains caret,True,chat
+test_admin,desktop,dark,no viewport overflow,True,hr
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,hr
+test_admin,desktop,dark,one expanded navigation group,True,hr
+test_admin,desktop,dark,one performance entry per employee workspace,True,hr
+test_admin,desktop,dark,no viewport overflow,True,myhr
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_admin,desktop,dark,one expanded navigation group,True,myhr
+test_admin,desktop,dark,no viewport overflow,True,clock
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_admin,desktop,dark,one expanded navigation group,True,clock
+test_admin,desktop,dark,no viewport overflow,True,finance
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_admin,desktop,dark,one expanded navigation group,True,finance
+test_admin,desktop,dark,no viewport overflow,True,stock
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_admin,desktop,dark,one expanded navigation group,True,stock
+test_admin,desktop,dark,no viewport overflow,True,marketing
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,marketing
+test_admin,desktop,dark,one expanded navigation group,True,marketing
+test_admin,desktop,dark,no viewport overflow,True,complaints
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,complaints
+test_admin,desktop,dark,one expanded navigation group,True,complaints
+test_admin,desktop,dark,no viewport overflow,True,wait
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_admin,desktop,dark,one expanded navigation group,True,wait
+test_admin,desktop,dark,no viewport overflow,True,tasks
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,tasks
+test_admin,desktop,dark,one expanded navigation group,True,tasks
+test_admin,desktop,dark,no viewport overflow,True,alerts
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,alerts
+test_admin,desktop,dark,one expanded navigation group,True,alerts
+test_admin,desktop,dark,no viewport overflow,True,tables
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,tables
+test_admin,desktop,dark,one expanded navigation group,True,tables
+test_admin,desktop,dark,no viewport overflow,True,reports
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,reports
+test_admin,desktop,dark,one expanded navigation group,True,reports
+test_admin,desktop,dark,no viewport overflow,True,security
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,security
+test_admin,desktop,dark,one expanded navigation group,True,security
+test_admin,desktop,dark,no viewport overflow,True,audit
+test_admin,desktop,dark,header clinic reuses exactly the existing scoped options,True,audit
+test_admin,desktop,dark,one expanded navigation group,True,audit
+test_admin,desktop,dark,no JavaScript exceptions,True,
+test_admin,tablet,light,navy shared sidebar,True,
+test_admin,tablet,light,global module search empty result,True,
+test_admin,tablet,light,global module search clears,True,
+test_admin,tablet,light,global search opens the existing authorised Agenda,True,
+test_admin,tablet,light,no viewport overflow,True,dashboard
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,dashboard
+test_admin,tablet,light,one expanded navigation group,True,dashboard
+test_admin,tablet,light,no viewport overflow,True,clinics
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,clinics
+test_admin,tablet,light,one expanded navigation group,True,clinics
+test_admin,tablet,light,no viewport overflow,True,operation
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,operation
+test_admin,tablet,light,one expanded navigation group,True,operation
+test_admin,tablet,light,textarea grows without internal scrollbar or content loss,True,operation
+test_admin,tablet,light,textarea shrinks and retains caret,True,operation
+test_admin,tablet,light,no viewport overflow,True,agenda
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,agenda
+test_admin,tablet,light,one expanded navigation group,True,agenda
+test_admin,tablet,light,no viewport overflow,True,chat
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,chat
+test_admin,tablet,light,one expanded navigation group,True,chat
+test_admin,tablet,light,direct subject is optional in the real form,True,chat
+test_admin,tablet,light,blank-subject direct conversation renders the peer name,True,chat
+test_admin,tablet,light,textarea grows without internal scrollbar or content loss,True,chat
+test_admin,tablet,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_admin,tablet,light,textarea shrinks and retains caret,True,chat
+test_admin,tablet,light,no viewport overflow,True,hr
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,hr
+test_admin,tablet,light,one expanded navigation group,True,hr
+test_admin,tablet,light,one performance entry per employee workspace,True,hr
+test_admin,tablet,light,no viewport overflow,True,myhr
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_admin,tablet,light,one expanded navigation group,True,myhr
+test_admin,tablet,light,no viewport overflow,True,clock
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,clock
+test_admin,tablet,light,one expanded navigation group,True,clock
+test_admin,tablet,light,no viewport overflow,True,finance
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,finance
+test_admin,tablet,light,one expanded navigation group,True,finance
+test_admin,tablet,light,no viewport overflow,True,stock
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,stock
+test_admin,tablet,light,one expanded navigation group,True,stock
+test_admin,tablet,light,no viewport overflow,True,marketing
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,marketing
+test_admin,tablet,light,one expanded navigation group,True,marketing
+test_admin,tablet,light,no viewport overflow,True,complaints
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,complaints
+test_admin,tablet,light,one expanded navigation group,True,complaints
+test_admin,tablet,light,no viewport overflow,True,wait
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,wait
+test_admin,tablet,light,one expanded navigation group,True,wait
+test_admin,tablet,light,no viewport overflow,True,tasks
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,tasks
+test_admin,tablet,light,one expanded navigation group,True,tasks
+test_admin,tablet,light,no viewport overflow,True,alerts
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,alerts
+test_admin,tablet,light,one expanded navigation group,True,alerts
+test_admin,tablet,light,no viewport overflow,True,tables
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,tables
+test_admin,tablet,light,one expanded navigation group,True,tables
+test_admin,tablet,light,no viewport overflow,True,reports
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,reports
+test_admin,tablet,light,one expanded navigation group,True,reports
+test_admin,tablet,light,no viewport overflow,True,security
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,security
+test_admin,tablet,light,one expanded navigation group,True,security
+test_admin,tablet,light,no viewport overflow,True,audit
+test_admin,tablet,light,header clinic reuses exactly the existing scoped options,True,audit
+test_admin,tablet,light,one expanded navigation group,True,audit
+test_admin,tablet,light,no JavaScript exceptions,True,
+test_admin,tablet,dark,navy shared sidebar,True,
+test_admin,tablet,dark,global module search empty result,True,
+test_admin,tablet,dark,global module search clears,True,
+test_admin,tablet,dark,global search opens the existing authorised Agenda,True,
+test_admin,tablet,dark,no viewport overflow,True,dashboard
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,dashboard
+test_admin,tablet,dark,one expanded navigation group,True,dashboard
+test_admin,tablet,dark,no viewport overflow,True,clinics
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,clinics
+test_admin,tablet,dark,one expanded navigation group,True,clinics
+test_admin,tablet,dark,no viewport overflow,True,operation
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_admin,tablet,dark,one expanded navigation group,True,operation
+test_admin,tablet,dark,textarea grows without internal scrollbar or content loss,True,operation
+test_admin,tablet,dark,textarea shrinks and retains caret,True,operation
+test_admin,tablet,dark,no viewport overflow,True,agenda
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,agenda
+test_admin,tablet,dark,one expanded navigation group,True,agenda
+test_admin,tablet,dark,no viewport overflow,True,chat
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_admin,tablet,dark,one expanded navigation group,True,chat
+test_admin,tablet,dark,direct subject is optional in the real form,True,chat
+test_admin,tablet,dark,blank-subject direct conversation renders the peer name,True,chat
+test_admin,tablet,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_admin,tablet,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_admin,tablet,dark,textarea shrinks and retains caret,True,chat
+test_admin,tablet,dark,no viewport overflow,True,hr
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,hr
+test_admin,tablet,dark,one expanded navigation group,True,hr
+test_admin,tablet,dark,one performance entry per employee workspace,True,hr
+test_admin,tablet,dark,no viewport overflow,True,myhr
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_admin,tablet,dark,one expanded navigation group,True,myhr
+test_admin,tablet,dark,no viewport overflow,True,clock
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_admin,tablet,dark,one expanded navigation group,True,clock
+test_admin,tablet,dark,no viewport overflow,True,finance
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_admin,tablet,dark,one expanded navigation group,True,finance
+test_admin,tablet,dark,no viewport overflow,True,stock
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_admin,tablet,dark,one expanded navigation group,True,stock
+test_admin,tablet,dark,no viewport overflow,True,marketing
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,marketing
+test_admin,tablet,dark,one expanded navigation group,True,marketing
+test_admin,tablet,dark,no viewport overflow,True,complaints
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,complaints
+test_admin,tablet,dark,one expanded navigation group,True,complaints
+test_admin,tablet,dark,no viewport overflow,True,wait
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_admin,tablet,dark,one expanded navigation group,True,wait
+test_admin,tablet,dark,no viewport overflow,True,tasks
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,tasks
+test_admin,tablet,dark,one expanded navigation group,True,tasks
+test_admin,tablet,dark,no viewport overflow,True,alerts
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,alerts
+test_admin,tablet,dark,one expanded navigation group,True,alerts
+test_admin,tablet,dark,no viewport overflow,True,tables
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,tables
+test_admin,tablet,dark,one expanded navigation group,True,tables
+test_admin,tablet,dark,no viewport overflow,True,reports
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,reports
+test_admin,tablet,dark,one expanded navigation group,True,reports
+test_admin,tablet,dark,no viewport overflow,True,security
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,security
+test_admin,tablet,dark,one expanded navigation group,True,security
+test_admin,tablet,dark,no viewport overflow,True,audit
+test_admin,tablet,dark,header clinic reuses exactly the existing scoped options,True,audit
+test_admin,tablet,dark,one expanded navigation group,True,audit
+test_admin,tablet,dark,no JavaScript exceptions,True,
+test_admin,mobile,light,navy shared sidebar,True,
+test_admin,mobile,light,global module search empty result,True,
+test_admin,mobile,light,global module search clears,True,
+test_admin,mobile,light,global search opens the existing authorised Agenda,True,
+test_admin,mobile,light,no viewport overflow,True,dashboard
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,dashboard
+test_admin,mobile,light,one expanded navigation group,True,dashboard
+test_admin,mobile,light,no viewport overflow,True,clinics
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,clinics
+test_admin,mobile,light,one expanded navigation group,True,clinics
+test_admin,mobile,light,no viewport overflow,True,operation
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,operation
+test_admin,mobile,light,one expanded navigation group,True,operation
+test_admin,mobile,light,textarea grows without internal scrollbar or content loss,True,operation
+test_admin,mobile,light,textarea shrinks and retains caret,True,operation
+test_admin,mobile,light,no viewport overflow,True,agenda
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,agenda
+test_admin,mobile,light,one expanded navigation group,True,agenda
+test_admin,mobile,light,no viewport overflow,True,chat
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,chat
+test_admin,mobile,light,one expanded navigation group,True,chat
+test_admin,mobile,light,direct subject is optional in the real form,True,chat
+test_admin,mobile,light,blank-subject direct conversation renders the peer name,True,chat
+test_admin,mobile,light,textarea grows without internal scrollbar or content loss,True,chat
+test_admin,mobile,light,long draft retains reachable send action through conversation scrolling,True,chat
+test_admin,mobile,light,textarea shrinks and retains caret,True,chat
+test_admin,mobile,light,no viewport overflow,True,hr
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,hr
+test_admin,mobile,light,one expanded navigation group,True,hr
+test_admin,mobile,light,one performance entry per employee workspace,True,hr
+test_admin,mobile,light,no viewport overflow,True,myhr
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,myhr
+test_admin,mobile,light,one expanded navigation group,True,myhr
+test_admin,mobile,light,no viewport overflow,True,clock
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,clock
+test_admin,mobile,light,one expanded navigation group,True,clock
+test_admin,mobile,light,no viewport overflow,True,finance
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,finance
+test_admin,mobile,light,one expanded navigation group,True,finance
+test_admin,mobile,light,no viewport overflow,True,stock
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,stock
+test_admin,mobile,light,one expanded navigation group,True,stock
+test_admin,mobile,light,no viewport overflow,True,marketing
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,marketing
+test_admin,mobile,light,one expanded navigation group,True,marketing
+test_admin,mobile,light,no viewport overflow,True,complaints
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,complaints
+test_admin,mobile,light,one expanded navigation group,True,complaints
+test_admin,mobile,light,no viewport overflow,True,wait
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,wait
+test_admin,mobile,light,one expanded navigation group,True,wait
+test_admin,mobile,light,no viewport overflow,True,tasks
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,tasks
+test_admin,mobile,light,one expanded navigation group,True,tasks
+test_admin,mobile,light,no viewport overflow,True,alerts
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,alerts
+test_admin,mobile,light,one expanded navigation group,True,alerts
+test_admin,mobile,light,no viewport overflow,True,tables
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,tables
+test_admin,mobile,light,one expanded navigation group,True,tables
+test_admin,mobile,light,no viewport overflow,True,reports
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,reports
+test_admin,mobile,light,one expanded navigation group,True,reports
+test_admin,mobile,light,no viewport overflow,True,security
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,security
+test_admin,mobile,light,one expanded navigation group,True,security
+test_admin,mobile,light,no viewport overflow,True,audit
+test_admin,mobile,light,header clinic reuses exactly the existing scoped options,True,audit
+test_admin,mobile,light,one expanded navigation group,True,audit
+test_admin,mobile,light,no JavaScript exceptions,True,
+test_admin,mobile,dark,navy shared sidebar,True,
+test_admin,mobile,dark,global module search empty result,True,
+test_admin,mobile,dark,global module search clears,True,
+test_admin,mobile,dark,global search opens the existing authorised Agenda,True,
+test_admin,mobile,dark,no viewport overflow,True,dashboard
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,dashboard
+test_admin,mobile,dark,one expanded navigation group,True,dashboard
+test_admin,mobile,dark,no viewport overflow,True,clinics
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,clinics
+test_admin,mobile,dark,one expanded navigation group,True,clinics
+test_admin,mobile,dark,no viewport overflow,True,operation
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,operation
+test_admin,mobile,dark,one expanded navigation group,True,operation
+test_admin,mobile,dark,textarea grows without internal scrollbar or content loss,True,operation
+test_admin,mobile,dark,textarea shrinks and retains caret,True,operation
+test_admin,mobile,dark,no viewport overflow,True,agenda
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,agenda
+test_admin,mobile,dark,one expanded navigation group,True,agenda
+test_admin,mobile,dark,no viewport overflow,True,chat
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,chat
+test_admin,mobile,dark,one expanded navigation group,True,chat
+test_admin,mobile,dark,direct subject is optional in the real form,True,chat
+test_admin,mobile,dark,blank-subject direct conversation renders the peer name,True,chat
+test_admin,mobile,dark,textarea grows without internal scrollbar or content loss,True,chat
+test_admin,mobile,dark,long draft retains reachable send action through conversation scrolling,True,chat
+test_admin,mobile,dark,textarea shrinks and retains caret,True,chat
+test_admin,mobile,dark,no viewport overflow,True,hr
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,hr
+test_admin,mobile,dark,one expanded navigation group,True,hr
+test_admin,mobile,dark,one performance entry per employee workspace,True,hr
+test_admin,mobile,dark,no viewport overflow,True,myhr
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,myhr
+test_admin,mobile,dark,one expanded navigation group,True,myhr
+test_admin,mobile,dark,no viewport overflow,True,clock
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,clock
+test_admin,mobile,dark,one expanded navigation group,True,clock
+test_admin,mobile,dark,no viewport overflow,True,finance
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,finance
+test_admin,mobile,dark,one expanded navigation group,True,finance
+test_admin,mobile,dark,no viewport overflow,True,stock
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,stock
+test_admin,mobile,dark,one expanded navigation group,True,stock
+test_admin,mobile,dark,no viewport overflow,True,marketing
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,marketing
+test_admin,mobile,dark,one expanded navigation group,True,marketing
+test_admin,mobile,dark,no viewport overflow,True,complaints
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,complaints
+test_admin,mobile,dark,one expanded navigation group,True,complaints
+test_admin,mobile,dark,no viewport overflow,True,wait
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,wait
+test_admin,mobile,dark,one expanded navigation group,True,wait
+test_admin,mobile,dark,no viewport overflow,True,tasks
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,tasks
+test_admin,mobile,dark,one expanded navigation group,True,tasks
+test_admin,mobile,dark,no viewport overflow,True,alerts
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,alerts
+test_admin,mobile,dark,one expanded navigation group,True,alerts
+test_admin,mobile,dark,no viewport overflow,True,tables
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,tables
+test_admin,mobile,dark,one expanded navigation group,True,tables
+test_admin,mobile,dark,no viewport overflow,True,reports
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,reports
+test_admin,mobile,dark,one expanded navigation group,True,reports
+test_admin,mobile,dark,no viewport overflow,True,security
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,security
+test_admin,mobile,dark,one expanded navigation group,True,security
+test_admin,mobile,dark,no viewport overflow,True,audit
+test_admin,mobile,dark,header clinic reuses exactly the existing scoped options,True,audit
+test_admin,mobile,dark,one expanded navigation group,True,audit
+test_admin,mobile,dark,no JavaScript exceptions,True,
+u1,desktop,light,navy shared sidebar,True,
+u1,desktop,light,global module search empty result,True,
+u1,desktop,light,global module search clears,True,
+u1,desktop,light,global search opens the existing authorised Agenda,True,
+u1,desktop,light,no viewport overflow,True,dashboard
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,dashboard
+u1,desktop,light,one expanded navigation group,True,dashboard
+u1,desktop,light,no viewport overflow,True,clinics
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,clinics
+u1,desktop,light,one expanded navigation group,True,clinics
+u1,desktop,light,no viewport overflow,True,operation
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,operation
+u1,desktop,light,one expanded navigation group,True,operation
+u1,desktop,light,textarea grows without internal scrollbar or content loss,True,operation
+u1,desktop,light,textarea shrinks and retains caret,True,operation
+u1,desktop,light,no viewport overflow,True,agenda
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,agenda
+u1,desktop,light,one expanded navigation group,True,agenda
+u1,desktop,light,no viewport overflow,True,chat
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,chat
+u1,desktop,light,one expanded navigation group,True,chat
+u1,desktop,light,direct subject is optional in the real form,True,chat
+u1,desktop,light,blank-subject direct conversation renders the peer name,True,chat
+u1,desktop,light,textarea grows without internal scrollbar or content loss,True,chat
+u1,desktop,light,long draft retains reachable send action through conversation scrolling,True,chat
+u1,desktop,light,textarea shrinks and retains caret,True,chat
+u1,desktop,light,no viewport overflow,True,hr
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,hr
+u1,desktop,light,one expanded navigation group,True,hr
+u1,desktop,light,one performance entry per employee workspace,True,hr
+u1,desktop,light,no viewport overflow,True,myhr
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,myhr
+u1,desktop,light,one expanded navigation group,True,myhr
+u1,desktop,light,no viewport overflow,True,clock
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,clock
+u1,desktop,light,one expanded navigation group,True,clock
+u1,desktop,light,no viewport overflow,True,finance
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,finance
+u1,desktop,light,one expanded navigation group,True,finance
+u1,desktop,light,no viewport overflow,True,stock
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,stock
+u1,desktop,light,one expanded navigation group,True,stock
+u1,desktop,light,no viewport overflow,True,marketing
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,marketing
+u1,desktop,light,one expanded navigation group,True,marketing
+u1,desktop,light,no viewport overflow,True,complaints
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,complaints
+u1,desktop,light,one expanded navigation group,True,complaints
+u1,desktop,light,no viewport overflow,True,wait
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,wait
+u1,desktop,light,one expanded navigation group,True,wait
+u1,desktop,light,no viewport overflow,True,tasks
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,tasks
+u1,desktop,light,one expanded navigation group,True,tasks
+u1,desktop,light,no viewport overflow,True,alerts
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,alerts
+u1,desktop,light,one expanded navigation group,True,alerts
+u1,desktop,light,no viewport overflow,True,tables
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,tables
+u1,desktop,light,one expanded navigation group,True,tables
+u1,desktop,light,no viewport overflow,True,reports
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,reports
+u1,desktop,light,one expanded navigation group,True,reports
+u1,desktop,light,no viewport overflow,True,security
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,security
+u1,desktop,light,one expanded navigation group,True,security
+u1,desktop,light,no viewport overflow,True,audit
+u1,desktop,light,header clinic reuses exactly the existing scoped options,True,audit
+u1,desktop,light,one expanded navigation group,True,audit
+u1,desktop,light,no JavaScript exceptions,True,
+u1,desktop,dark,navy shared sidebar,True,
+u1,desktop,dark,global module search empty result,True,
+u1,desktop,dark,global module search clears,True,
+u1,desktop,dark,global search opens the existing authorised Agenda,True,
+u1,desktop,dark,no viewport overflow,True,dashboard
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,dashboard
+u1,desktop,dark,one expanded navigation group,True,dashboard
+u1,desktop,dark,no viewport overflow,True,clinics
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,clinics
+u1,desktop,dark,one expanded navigation group,True,clinics
+u1,desktop,dark,no viewport overflow,True,operation
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,operation
+u1,desktop,dark,one expanded navigation group,True,operation
+u1,desktop,dark,textarea grows without internal scrollbar or content loss,True,operation
+u1,desktop,dark,textarea shrinks and retains caret,True,operation
+u1,desktop,dark,no viewport overflow,True,agenda
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,agenda
+u1,desktop,dark,one expanded navigation group,True,agenda
+u1,desktop,dark,no viewport overflow,True,chat
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,chat
+u1,desktop,dark,one expanded navigation group,True,chat
+u1,desktop,dark,direct subject is optional in the real form,True,chat
+u1,desktop,dark,blank-subject direct conversation renders the peer name,True,chat
+u1,desktop,dark,textarea grows without internal scrollbar or content loss,True,chat
+u1,desktop,dark,long draft retains reachable send action through conversation scrolling,True,chat
+u1,desktop,dark,textarea shrinks and retains caret,True,chat
+u1,desktop,dark,no viewport overflow,True,hr
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,hr
+u1,desktop,dark,one expanded navigation group,True,hr
+u1,desktop,dark,one performance entry per employee workspace,True,hr
+u1,desktop,dark,no viewport overflow,True,myhr
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,myhr
+u1,desktop,dark,one expanded navigation group,True,myhr
+u1,desktop,dark,no viewport overflow,True,clock
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,clock
+u1,desktop,dark,one expanded navigation group,True,clock
+u1,desktop,dark,no viewport overflow,True,finance
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,finance
+u1,desktop,dark,one expanded navigation group,True,finance
+u1,desktop,dark,no viewport overflow,True,stock
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,stock
+u1,desktop,dark,one expanded navigation group,True,stock
+u1,desktop,dark,no viewport overflow,True,marketing
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,marketing
+u1,desktop,dark,one expanded navigation group,True,marketing
+u1,desktop,dark,no viewport overflow,True,complaints
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,complaints
+u1,desktop,dark,one expanded navigation group,True,complaints
+u1,desktop,dark,no viewport overflow,True,wait
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,wait
+u1,desktop,dark,one expanded navigation group,True,wait
+u1,desktop,dark,no viewport overflow,True,tasks
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,tasks
+u1,desktop,dark,one expanded navigation group,True,tasks
+u1,desktop,dark,no viewport overflow,True,alerts
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,alerts
+u1,desktop,dark,one expanded navigation group,True,alerts
+u1,desktop,dark,no viewport overflow,True,tables
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,tables
+u1,desktop,dark,one expanded navigation group,True,tables
+u1,desktop,dark,no viewport overflow,True,reports
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,reports
+u1,desktop,dark,one expanded navigation group,True,reports
+u1,desktop,dark,no viewport overflow,True,security
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,security
+u1,desktop,dark,one expanded navigation group,True,security
+u1,desktop,dark,no viewport overflow,True,audit
+u1,desktop,dark,header clinic reuses exactly the existing scoped options,True,audit
+u1,desktop,dark,one expanded navigation group,True,audit
+u1,desktop,dark,no JavaScript exceptions,True,
+u1,tablet,light,navy shared sidebar,True,
+u1,tablet,light,global module search empty result,True,
+u1,tablet,light,global module search clears,True,
+u1,tablet,light,global search opens the existing authorised Agenda,True,
+u1,tablet,light,no viewport overflow,True,dashboard
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,dashboard
+u1,tablet,light,one expanded navigation group,True,dashboard
+u1,tablet,light,no viewport overflow,True,clinics
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,clinics
+u1,tablet,light,one expanded navigation group,True,clinics
+u1,tablet,light,no viewport overflow,True,operation
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,operation
+u1,tablet,light,one expanded navigation group,True,operation
+u1,tablet,light,textarea grows without internal scrollbar or content loss,True,operation
+u1,tablet,light,textarea shrinks and retains caret,True,operation
+u1,tablet,light,no viewport overflow,True,agenda
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,agenda
+u1,tablet,light,one expanded navigation group,True,agenda
+u1,tablet,light,no viewport overflow,True,chat
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,chat
+u1,tablet,light,one expanded navigation group,True,chat
+u1,tablet,light,direct subject is optional in the real form,True,chat
+u1,tablet,light,blank-subject direct conversation renders the peer name,True,chat
+u1,tablet,light,textarea grows without internal scrollbar or content loss,True,chat
+u1,tablet,light,long draft retains reachable send action through conversation scrolling,True,chat
+u1,tablet,light,textarea shrinks and retains caret,True,chat
+u1,tablet,light,no viewport overflow,True,hr
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,hr
+u1,tablet,light,one expanded navigation group,True,hr
+u1,tablet,light,one performance entry per employee workspace,True,hr
+u1,tablet,light,no viewport overflow,True,myhr
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,myhr
+u1,tablet,light,one expanded navigation group,True,myhr
+u1,tablet,light,no viewport overflow,True,clock
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,clock
+u1,tablet,light,one expanded navigation group,True,clock
+u1,tablet,light,no viewport overflow,True,finance
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,finance
+u1,tablet,light,one expanded navigation group,True,finance
+u1,tablet,light,no viewport overflow,True,stock
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,stock
+u1,tablet,light,one expanded navigation group,True,stock
+u1,tablet,light,no viewport overflow,True,marketing
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,marketing
+u1,tablet,light,one expanded navigation group,True,marketing
+u1,tablet,light,no viewport overflow,True,complaints
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,complaints
+u1,tablet,light,one expanded navigation group,True,complaints
+u1,tablet,light,no viewport overflow,True,wait
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,wait
+u1,tablet,light,one expanded navigation group,True,wait
+u1,tablet,light,no viewport overflow,True,tasks
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,tasks
+u1,tablet,light,one expanded navigation group,True,tasks
+u1,tablet,light,no viewport overflow,True,alerts
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,alerts
+u1,tablet,light,one expanded navigation group,True,alerts
+u1,tablet,light,no viewport overflow,True,tables
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,tables
+u1,tablet,light,one expanded navigation group,True,tables
+u1,tablet,light,no viewport overflow,True,reports
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,reports
+u1,tablet,light,one expanded navigation group,True,reports
+u1,tablet,light,no viewport overflow,True,security
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,security
+u1,tablet,light,one expanded navigation group,True,security
+u1,tablet,light,no viewport overflow,True,audit
+u1,tablet,light,header clinic reuses exactly the existing scoped options,True,audit
+u1,tablet,light,one expanded navigation group,True,audit
+u1,tablet,light,no JavaScript exceptions,True,
+u1,tablet,dark,navy shared sidebar,True,
+u1,tablet,dark,global module search empty result,True,
+u1,tablet,dark,global module search clears,True,
+u1,tablet,dark,global search opens the existing authorised Agenda,True,
+u1,tablet,dark,no viewport overflow,True,dashboard
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,dashboard
+u1,tablet,dark,one expanded navigation group,True,dashboard
+u1,tablet,dark,no viewport overflow,True,clinics
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,clinics
+u1,tablet,dark,one expanded navigation group,True,clinics
+u1,tablet,dark,no viewport overflow,True,operation
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,operation
+u1,tablet,dark,one expanded navigation group,True,operation
+u1,tablet,dark,textarea grows without internal scrollbar or content loss,True,operation
+u1,tablet,dark,textarea shrinks and retains caret,True,operation
+u1,tablet,dark,no viewport overflow,True,agenda
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,agenda
+u1,tablet,dark,one expanded navigation group,True,agenda
+u1,tablet,dark,no viewport overflow,True,chat
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,chat
+u1,tablet,dark,one expanded navigation group,True,chat
+u1,tablet,dark,direct subject is optional in the real form,True,chat
+u1,tablet,dark,blank-subject direct conversation renders the peer name,True,chat
+u1,tablet,dark,textarea grows without internal scrollbar or content loss,True,chat
+u1,tablet,dark,long draft retains reachable send action through conversation scrolling,True,chat
+u1,tablet,dark,textarea shrinks and retains caret,True,chat
+u1,tablet,dark,no viewport overflow,True,hr
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,hr
+u1,tablet,dark,one expanded navigation group,True,hr
+u1,tablet,dark,one performance entry per employee workspace,True,hr
+u1,tablet,dark,no viewport overflow,True,myhr
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,myhr
+u1,tablet,dark,one expanded navigation group,True,myhr
+u1,tablet,dark,no viewport overflow,True,clock
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,clock
+u1,tablet,dark,one expanded navigation group,True,clock
+u1,tablet,dark,no viewport overflow,True,finance
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,finance
+u1,tablet,dark,one expanded navigation group,True,finance
+u1,tablet,dark,no viewport overflow,True,stock
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,stock
+u1,tablet,dark,one expanded navigation group,True,stock
+u1,tablet,dark,no viewport overflow,True,marketing
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,marketing
+u1,tablet,dark,one expanded navigation group,True,marketing
+u1,tablet,dark,no viewport overflow,True,complaints
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,complaints
+u1,tablet,dark,one expanded navigation group,True,complaints
+u1,tablet,dark,no viewport overflow,True,wait
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,wait
+u1,tablet,dark,one expanded navigation group,True,wait
+u1,tablet,dark,no viewport overflow,True,tasks
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,tasks
+u1,tablet,dark,one expanded navigation group,True,tasks
+u1,tablet,dark,no viewport overflow,True,alerts
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,alerts
+u1,tablet,dark,one expanded navigation group,True,alerts
+u1,tablet,dark,no viewport overflow,True,tables
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,tables
+u1,tablet,dark,one expanded navigation group,True,tables
+u1,tablet,dark,no viewport overflow,True,reports
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,reports
+u1,tablet,dark,one expanded navigation group,True,reports
+u1,tablet,dark,no viewport overflow,True,security
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,security
+u1,tablet,dark,one expanded navigation group,True,security
+u1,tablet,dark,no viewport overflow,True,audit
+u1,tablet,dark,header clinic reuses exactly the existing scoped options,True,audit
+u1,tablet,dark,one expanded navigation group,True,audit
+u1,tablet,dark,no JavaScript exceptions,True,
+u1,mobile,light,navy shared sidebar,True,
+u1,mobile,light,global module search empty result,True,
+u1,mobile,light,global module search clears,True,
+u1,mobile,light,global search opens the existing authorised Agenda,True,
+u1,mobile,light,no viewport overflow,True,dashboard
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,dashboard
+u1,mobile,light,one expanded navigation group,True,dashboard
+u1,mobile,light,no viewport overflow,True,clinics
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,clinics
+u1,mobile,light,one expanded navigation group,True,clinics
+u1,mobile,light,no viewport overflow,True,operation
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,operation
+u1,mobile,light,one expanded navigation group,True,operation
+u1,mobile,light,textarea grows without internal scrollbar or content loss,True,operation
+u1,mobile,light,textarea shrinks and retains caret,True,operation
+u1,mobile,light,no viewport overflow,True,agenda
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,agenda
+u1,mobile,light,one expanded navigation group,True,agenda
+u1,mobile,light,no viewport overflow,True,chat
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,chat
+u1,mobile,light,one expanded navigation group,True,chat
+u1,mobile,light,direct subject is optional in the real form,True,chat
+u1,mobile,light,blank-subject direct conversation renders the peer name,True,chat
+u1,mobile,light,textarea grows without internal scrollbar or content loss,True,chat
+u1,mobile,light,long draft retains reachable send action through conversation scrolling,True,chat
+u1,mobile,light,textarea shrinks and retains caret,True,chat
+u1,mobile,light,no viewport overflow,True,hr
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,hr
+u1,mobile,light,one expanded navigation group,True,hr
+u1,mobile,light,one performance entry per employee workspace,True,hr
+u1,mobile,light,no viewport overflow,True,myhr
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,myhr
+u1,mobile,light,one expanded navigation group,True,myhr
+u1,mobile,light,no viewport overflow,True,clock
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,clock
+u1,mobile,light,one expanded navigation group,True,clock
+u1,mobile,light,no viewport overflow,True,finance
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,finance
+u1,mobile,light,one expanded navigation group,True,finance
+u1,mobile,light,no viewport overflow,True,stock
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,stock
+u1,mobile,light,one expanded navigation group,True,stock
+u1,mobile,light,no viewport overflow,True,marketing
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,marketing
+u1,mobile,light,one expanded navigation group,True,marketing
+u1,mobile,light,no viewport overflow,True,complaints
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,complaints
+u1,mobile,light,one expanded navigation group,True,complaints
+u1,mobile,light,no viewport overflow,True,wait
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,wait
+u1,mobile,light,one expanded navigation group,True,wait
+u1,mobile,light,no viewport overflow,True,tasks
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,tasks
+u1,mobile,light,one expanded navigation group,True,tasks
+u1,mobile,light,no viewport overflow,True,alerts
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,alerts
+u1,mobile,light,one expanded navigation group,True,alerts
+u1,mobile,light,no viewport overflow,True,tables
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,tables
+u1,mobile,light,one expanded navigation group,True,tables
+u1,mobile,light,no viewport overflow,True,reports
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,reports
+u1,mobile,light,one expanded navigation group,True,reports
+u1,mobile,light,no viewport overflow,True,security
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,security
+u1,mobile,light,one expanded navigation group,True,security
+u1,mobile,light,no viewport overflow,True,audit
+u1,mobile,light,header clinic reuses exactly the existing scoped options,True,audit
+u1,mobile,light,one expanded navigation group,True,audit
+u1,mobile,light,no JavaScript exceptions,True,
+u1,mobile,dark,navy shared sidebar,True,
+u1,mobile,dark,global module search empty result,True,
+u1,mobile,dark,global module search clears,True,
+u1,mobile,dark,global search opens the existing authorised Agenda,True,
+u1,mobile,dark,no viewport overflow,True,dashboard
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,dashboard
+u1,mobile,dark,one expanded navigation group,True,dashboard
+u1,mobile,dark,no viewport overflow,True,clinics
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,clinics
+u1,mobile,dark,one expanded navigation group,True,clinics
+u1,mobile,dark,no viewport overflow,True,operation
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,operation
+u1,mobile,dark,one expanded navigation group,True,operation
+u1,mobile,dark,textarea grows without internal scrollbar or content loss,True,operation
+u1,mobile,dark,textarea shrinks and retains caret,True,operation
+u1,mobile,dark,no viewport overflow,True,agenda
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,agenda
+u1,mobile,dark,one expanded navigation group,True,agenda
+u1,mobile,dark,no viewport overflow,True,chat
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,chat
+u1,mobile,dark,one expanded navigation group,True,chat
+u1,mobile,dark,direct subject is optional in the real form,True,chat
+u1,mobile,dark,blank-subject direct conversation renders the peer name,True,chat
+u1,mobile,dark,textarea grows without internal scrollbar or content loss,True,chat
+u1,mobile,dark,long draft retains reachable send action through conversation scrolling,True,chat
+u1,mobile,dark,textarea shrinks and retains caret,True,chat
+u1,mobile,dark,no viewport overflow,True,hr
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,hr
+u1,mobile,dark,one expanded navigation group,True,hr
+u1,mobile,dark,one performance entry per employee workspace,True,hr
+u1,mobile,dark,no viewport overflow,True,myhr
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,myhr
+u1,mobile,dark,one expanded navigation group,True,myhr
+u1,mobile,dark,no viewport overflow,True,clock
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,clock
+u1,mobile,dark,one expanded navigation group,True,clock
+u1,mobile,dark,no viewport overflow,True,finance
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,finance
+u1,mobile,dark,one expanded navigation group,True,finance
+u1,mobile,dark,no viewport overflow,True,stock
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,stock
+u1,mobile,dark,one expanded navigation group,True,stock
+u1,mobile,dark,no viewport overflow,True,marketing
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,marketing
+u1,mobile,dark,one expanded navigation group,True,marketing
+u1,mobile,dark,no viewport overflow,True,complaints
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,complaints
+u1,mobile,dark,one expanded navigation group,True,complaints
+u1,mobile,dark,no viewport overflow,True,wait
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,wait
+u1,mobile,dark,one expanded navigation group,True,wait
+u1,mobile,dark,no viewport overflow,True,tasks
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,tasks
+u1,mobile,dark,one expanded navigation group,True,tasks
+u1,mobile,dark,no viewport overflow,True,alerts
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,alerts
+u1,mobile,dark,one expanded navigation group,True,alerts
+u1,mobile,dark,no viewport overflow,True,tables
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,tables
+u1,mobile,dark,one expanded navigation group,True,tables
+u1,mobile,dark,no viewport overflow,True,reports
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,reports
+u1,mobile,dark,one expanded navigation group,True,reports
+u1,mobile,dark,no viewport overflow,True,security
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,security
+u1,mobile,dark,one expanded navigation group,True,security
+u1,mobile,dark,no viewport overflow,True,audit
+u1,mobile,dark,header clinic reuses exactly the existing scoped options,True,audit
+u1,mobile,dark,one expanded navigation group,True,audit
+u1,mobile,dark,no JavaScript exceptions,True,

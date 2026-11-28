@@ -1,0 +1,48 @@
+{
+  "sourceFile": "1000089444.jpg",
+  "sha256": "af237e8f9eab8112ebd2db2ca458668d956110d975669640011a0a91f2de67e9",
+  "imageSize": [
+    1280,
+    799
+  ],
+  "appBounds": [
+    40,
+    0,
+    1238,
+    767
+  ],
+  "regions": {
+    "sidebar": [
+      40,
+      0,
+      291,
+      767
+    ],
+    "main": [
+      311,
+      20,
+      1217,
+      765
+    ],
+    "kpis": [
+      311,
+      80,
+      1217,
+      217
+    ],
+    "charts": [
+      311,
+      228,
+      1217,
+      505
+    ],
+    "lowerPanels": [
+      311,
+      514,
+      1217,
+      765
+    ]
+  },
+  "referenceContainsDifferentBrandAndIllustrativeData": true,
+  "originalKeptPrivate": true
+}

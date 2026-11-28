@@ -1,0 +1,30 @@
+/* Campos de formulário — regra única para todo o programa (computador, tablet e telemóvel).
+   Datas e horas ocupam só a largura do que mostram (__/__/____, __:__), em vez de esticarem a linha toda.
+   Carregado em último lugar para prevalecer sobre regras antigas de «width:100%» espalhadas pelos módulos. */
+:root{
+  --field-date:11.75em;      /* dd/mm/aaaa + ícone do calendário */
+  --field-time:7.5em;        /* hh:mm + ícone */
+  --field-month:11.5em;      /* mês/ano */
+  --field-datetime:17em;     /* dd/mm/aaaa hh:mm */
+}
+input[type="date"],input[type="time"],input[type="month"],input[type="datetime-local"],input[type="week"]{
+  inline-size:var(--field-date)!important;max-inline-size:100%!important;min-inline-size:0!important;
+  flex:0 0 auto!important;box-sizing:border-box;justify-self:start;align-self:start;
+  font-variant-numeric:tabular-nums;font-size:max(16px,1em); /* 16px evita o zoom automático do iPhone */
+  -webkit-appearance:none;appearance:none;text-align:start;
+}
+input[type="time"]{inline-size:var(--field-time)!important}
+input[type="month"],input[type="week"]{inline-size:var(--field-month)!important}
+input[type="datetime-local"]{inline-size:var(--field-datetime)!important}
+/* Safari/iPhone: o valor da data fica alinhado à esquerda e não força largura mínima. */
+input[type="date"]::-webkit-date-and-time-value,input[type="time"]::-webkit-date-and-time-value,input[type="month"]::-webkit-date-and-time-value,input[type="datetime-local"]::-webkit-date-and-time-value{text-align:start;min-inline-size:0}
+input[type="date"]::-webkit-calendar-picker-indicator,input[type="time"]::-webkit-calendar-picker-indicator,input[type="month"]::-webkit-calendar-picker-indicator,input[type="datetime-local"]::-webkit-calendar-picker-indicator{cursor:pointer;margin-inline-start:4px}
+/* Quando o campo de data está numa grelha de filtros (De/Até), ocupa a coluna inteira — as duas datas ficam alinhadas. */
+.module-dashboard-filters input[type="date"],.module-dashboard-filters input[type="month"]{inline-size:100%!important;max-inline-size:var(--field-date)!important}
+/* Etiqueta por cima do campo de data, quando a etiqueta envolve o campo. */
+label:has(> input[type="date"]),label:has(> input[type="time"]),label:has(> input[type="month"]),label:has(> input[type="datetime-local"]){display:grid;grid-template-columns:minmax(0,1fr);gap:4px;justify-items:start;align-content:start;max-inline-size:100%}
+/* O campo encolhe para caber na coluna (telemóvel), sem esticar a coluna. */
+input[type="date"],input[type="time"],input[type="month"],input[type="datetime-local"]{max-inline-size:min(100%,var(--field-datetime))!important}
+/* Etiquetas sempre por cima do campo (texto, números, listas), para leitura consistente em todos os ecrãs.
+   Caixas de seleção e botões de opção mantêm a etiqueta ao lado. */
+label:has(> input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])),label:has(> select),label:has(> textarea){display:grid;gap:4px;align-content:start}
